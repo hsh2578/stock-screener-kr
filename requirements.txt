@@ -1,9 +1,11 @@
 # 국내 주식 데이터 수집
 pykrx>=1.0.45
+finance-datareader>=0.9.50
 
 # 데이터 처리
 pandas>=2.0.0
 numpy>=1.24.0
+scipy>=1.10.0
 
 # 진행 표시
 tqdm>=4.65.0

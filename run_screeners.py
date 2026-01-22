@@ -24,7 +24,9 @@ from scipy import stats
 # ============================================================================
 # 상수 정의
 # ============================================================================
-DATA_PATH = r'C:\Users\hsh\Desktop\vibecoding\주식웹사이트\stock-screener-kr\web\public\data'
+# 스크립트 위치 기준 상대 경로 (로컬/GitHub Actions 모두 호환)
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH = os.path.join(SCRIPT_DIR, 'data')
 
 # 박스권 스크리너 설정
 BOX_PERIOD = 60  # 박스권 판단 기간 (약 3개월)
