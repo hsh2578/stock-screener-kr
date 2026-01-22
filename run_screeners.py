@@ -20,6 +20,12 @@ import time
 from dataclasses import dataclass, asdict
 from typing import Optional, Tuple, List, Dict, Any
 from scipy import stats
+from tqdm import tqdm
+
+# ============================================================================
+# 데이터 캐시 (전역)
+# ============================================================================
+_DATA_CACHE: Dict[str, pd.DataFrame] = {}
 
 # ============================================================================
 # 상수 정의
@@ -476,6 +482,7 @@ def get_stock_list() -> pd.DataFrame:
 def get_ohlcv(ticker: str, days: int = 200) -> Optional[pd.DataFrame]:
     """
     종목의 OHLCV 데이터를 가져옵니다.
+    캐시가 있으면 캐시에서 반환하고, 없으면 API 호출합니다.
 
     Args:
         ticker: 종목코드
@@ -484,13 +491,66 @@ def get_ohlcv(ticker: str, days: int = 200) -> Optional[pd.DataFrame]:
     Returns:
         OHLCV DataFrame or None
     """
+    global _DATA_CACHE
+
+    # 캐시에 있으면 캐시에서 반환
+    if ticker in _DATA_CACHE:
+        df = _DATA_CACHE[ticker]
+        if df is not None and len(df) > 0:
+            return df.tail(days) if len(df) >= days else df
+        return None
+
+    # 캐시에 없으면 API 호출
     try:
         end_date = datetime.now()
         start_date = end_date - timedelta(days=days + 50)
         df = fdr.DataReader(ticker, start_date.strftime('%Y-%m-%d'))
+        _DATA_CACHE[ticker] = df  # 캐시에 저장
         return df.tail(days) if len(df) >= days else df
     except:
+        _DATA_CACHE[ticker] = None  # 실패도 캐시 (재시도 방지)
         return None
+
+
+def preload_all_data(stocks: pd.DataFrame, days: int = 200) -> None:
+    """
+    모든 종목의 데이터를 미리 다운로드하여 캐시합니다.
+    이렇게 하면 6개 스크리너가 같은 데이터를 재사용할 수 있습니다.
+
+    Args:
+        stocks: 종목 리스트 DataFrame
+        days: 조회 기간 (거래일)
+    """
+    global _DATA_CACHE
+    _DATA_CACHE = {}  # 캐시 초기화
+
+    print(f"\n[데이터 사전 로딩] {len(stocks)}개 종목...")
+
+    end_date = datetime.now()
+    start_date = end_date - timedelta(days=days + 50)
+    start_str = start_date.strftime('%Y-%m-%d')
+
+    success_count = 0
+    fail_count = 0
+
+    for idx, row in tqdm(stocks.iterrows(), total=len(stocks), desc="데이터 로딩"):
+        ticker = row.get('Code', row.get('Symbol', ''))
+        if not ticker:
+            continue
+
+        try:
+            df = fdr.DataReader(ticker, start_str)
+            if df is not None and len(df) > 0:
+                _DATA_CACHE[ticker] = df
+                success_count += 1
+            else:
+                _DATA_CACHE[ticker] = None
+                fail_count += 1
+        except:
+            _DATA_CACHE[ticker] = None
+            fail_count += 1
+
+    print(f"  완료: 성공 {success_count}개, 실패 {fail_count}개")
 
 
 # ============================================================================
@@ -1307,6 +1367,9 @@ def main():
     # stocks = stocks.head(200)  # 테스트용
 
     print(f"\n분석 대상: {len(stocks)}개 종목 (전체 {total_stocks}개 중)")
+
+    # 데이터 사전 로딩 (한 번만 다운로드하고 모든 스크리너에서 재사용)
+    preload_all_data(stocks, days=200)
 
     # 1. 박스권 스크리너 (퀀트 수준)
     box_range_results = screen_box_range(stocks)
