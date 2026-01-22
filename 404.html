@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>페이지를 찾을 수 없습니다 - 주식 스크리너</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background: #F8F9FA;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 400px;
+        }
+        .icon { font-size: 64px; margin-bottom: 20px; }
+        h1 { font-size: 24px; color: #1E2329; margin-bottom: 12px; }
+        p { color: #5E6673; line-height: 1.6; margin-bottom: 24px; }
+        a {
+            display: inline-block;
+            padding: 12px 32px;
+            background: #0066CC;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        a:hover { background: #004499; }
+    </style>
+    <script>
+        // SPA 리다이렉트: GitHub Pages에서 모든 경로를 index.html로 전달
+        (function() {
+            // 현재 경로 저장
+            var path = window.location.pathname;
+
+            // 리포지토리 기본 경로 확인
+            var basePath = '/stock-screener-kr';
+
+            // 이미 홈이면 무시
+            if (path === basePath || path === basePath + '/' || path === '/') {
+                return;
+            }
+
+            // 세션에 원래 경로 저장 (필요시 앱에서 사용)
+            sessionStorage.setItem('redirect', path);
+
+            // 홈으로 리다이렉트
+            window.location.replace(basePath + '/');
+        })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">404</div>
+        <h1>페이지를 찾을 수 없습니다</h1>
+        <p>요청하신 페이지가 존재하지 않거나 이동되었습니다.</p>
+        <a href="./">홈으로 돌아가기</a>
+    </div>
+</body>
+</html>

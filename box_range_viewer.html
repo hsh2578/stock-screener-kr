@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스권 스크리너 - 퀀트</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0f;
+            color: #e4e4e7;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            border: 1px solid #2a2a3e;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .badge {
+            background: #3b82f6;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .description { color: #a1a1aa; margin-bottom: 12px; }
+        .stats { display: flex; gap: 20px; color: #71717a; font-size: 0.9rem; }
+        .stats .count { color: #22c55e; font-weight: 600; }
+
+        .card {
+            background: #18181b;
+            border-radius: 12px;
+            border: 1px solid #27272a;
+            overflow: hidden;
+        }
+        table { width: 100%; border-collapse: collapse; }
+        th {
+            background: #1f1f23;
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            color: #a1a1aa;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #27272a;
+            cursor: pointer;
+            user-select: none;
+        }
+        th:hover { background: #27272a; }
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #27272a;
+            font-size: 0.9rem;
+        }
+        tr:hover { background: #1f1f23; }
+        .text-right { text-align: right; }
+        .text-center { text-align: center; }
+        .ticker { color: #71717a; font-size: 0.8rem; }
+        .name { font-weight: 500; }
+        .positive { color: #22c55e; }
+        .negative { color: #ef4444; }
+        .neutral { color: #a1a1aa; }
+        .touch-info { cursor: help; }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            background: #27272a;
+            color: #e4e4e7;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+        .nav-links a:hover { background: #3f3f46; }
+        .nav-links a.active { background: #3b82f6; }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #71717a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-links">
+            <a href="box_range_viewer.html" class="active">박스권</a>
+            <a href="box_breakout_viewer.html">박스권 돌파</a>
+            <a href="volume_explosion_viewer.html">거래량 폭발</a>
+        </div>
+
+        <header>
+            <h1>
+                <span>📦</span>
+                박스권 스크리너
+                <span class="badge">퀀트</span>
+            </h1>
+            <p class="description">60거래일 ATR기반 횡보 + 지지/저항 터치 확인 + 추세 필터 + 거래량 감소 (7조건)</p>
+            <div class="stats">
+                <span>데이터 기준: <span id="lastUpdated">-</span></span>
+                <span><span class="count" id="totalCount">-</span>개 종목 / <span id="screenedFrom">-</span>개 중</span>
+            </div>
+        </header>
+
+        <div class="card">
+            <table id="stockTable">
+                <thead>
+                    <tr>
+                        <th data-sort="name">종목명</th>
+                        <th data-sort="price" class="text-right">현재가</th>
+                        <th data-sort="change_rate" class="text-right">등락률</th>
+                        <th data-sort="box_high" class="text-right">박스 상단</th>
+                        <th data-sort="box_low" class="text-right">박스 하단</th>
+                        <th data-sort="range_percent" class="text-right">변동폭</th>
+                        <th data-sort="support_touches" class="text-center">지지/저항</th>
+                        <th data-sort="atr_multiple" class="text-right">ATR배수</th>
+                        <th data-sort="days" class="text-right">횡보기간</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr><td colspan="9" class="loading">데이터 로딩 중...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // JSON 데이터 (인라인)
+        let stockData = null;
+
+        // 숫자 포맷
+        const formatNumber = (n) => n.toLocaleString('ko-KR');
+        const formatPercent = (n) => (n >= 0 ? '+' : '') + n.toFixed(2) + '%';
+
+        // 색상 결정
+        const getColor = (n) => n > 0 ? 'positive' : n < 0 ? 'negative' : 'neutral';
+
+        // 테이블 렌더링
+        function renderTable(data) {
+            const tbody = document.getElementById('tableBody');
+            if (!data || data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="9" class="loading">데이터가 없습니다.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = data.map(stock => `
+                <tr>
+                    <td>
+                        <div class="name">${stock.name}</div>
+                        <div class="ticker">${stock.ticker}</div>
+                    </td>
+                    <td class="text-right">${formatNumber(stock.price)}원</td>
+                    <td class="text-right ${getColor(stock.change_rate)}">${formatPercent(stock.change_rate)}</td>
+                    <td class="text-right">${formatNumber(stock.box_high)}원</td>
+                    <td class="text-right">${formatNumber(stock.box_low)}원</td>
+                    <td class="text-right">${formatPercent(stock.range_percent)}</td>
+                    <td class="text-center touch-info" title="지지선 ${stock.support_touches}회 / 저항선 ${stock.resistance_touches}회">
+                        ${stock.support_touches}/${stock.resistance_touches}
+                    </td>
+                    <td class="text-right">${stock.atr_multiple.toFixed(1)}x</td>
+                    <td class="text-right">${stock.days}일</td>
+                </tr>
+            `).join('');
+        }
+
+        // 정렬
+        let currentSort = { field: 'range_percent', asc: true };
+
+        function sortData(field) {
+            if (currentSort.field === field) {
+                currentSort.asc = !currentSort.asc;
+            } else {
+                currentSort.field = field;
+                currentSort.asc = true;
+            }
+
+            stockData.data.sort((a, b) => {
+                let va = a[field], vb = b[field];
+                if (typeof va === 'string') {
+                    return currentSort.asc ? va.localeCompare(vb) : vb.localeCompare(va);
+                }
+                return currentSort.asc ? va - vb : vb - va;
+            });
+
+            renderTable(stockData.data);
+        }
+
+        // 헤더 클릭 이벤트
+        document.querySelectorAll('th[data-sort]').forEach(th => {
+            th.addEventListener('click', () => sortData(th.dataset.sort));
+        });
+
+        // 데이터 로드 (file:// 프로토콜에서도 작동하도록 fetch 대신 XHR 사용)
+        function loadData() {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', 'web/public/data/box_range.json', true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200 || xhr.status === 0) { // status 0 for file://
+                        try {
+                            stockData = JSON.parse(xhr.responseText);
+
+                            // 메타 정보 업데이트
+                            const date = new Date(stockData.meta.lastUpdated);
+                            document.getElementById('lastUpdated').textContent =
+                                date.toLocaleDateString('ko-KR') + ' ' + date.toLocaleTimeString('ko-KR', {hour: '2-digit', minute: '2-digit'});
+                            document.getElementById('totalCount').textContent = stockData.meta.totalCount;
+                            document.getElementById('screenedFrom').textContent = formatNumber(stockData.meta.screened_from);
+
+                            renderTable(stockData.data);
+                        } catch (e) {
+                            document.getElementById('tableBody').innerHTML =
+                                '<tr><td colspan="9" class="loading">JSON 파싱 오류: ' + e.message + '</td></tr>';
+                        }
+                    } else {
+                        document.getElementById('tableBody').innerHTML =
+                            '<tr><td colspan="9" class="loading">데이터 로드 실패. 파일 경로를 확인하세요.</td></tr>';
+                    }
+                }
+            };
+            xhr.send();
+        }
+
+        loadData();
+    </script>
+</body>
+</html>

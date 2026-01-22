@@ -1,0 +1,213 @@
+# =============================================================================
+# 국내 주식 스크리너 - 데이터 업데이트 및 GitHub Pages 자동 배포
+# =============================================================================
+#
+# 이 워크플로우는:
+#   1. 매일 18시(KST) 평일에 주식 데이터를 수집
+#   2. 스크리너를 실행하여 JSON 데이터 생성
+#   3. GitHub Pages에 HTML + JSON 파일 자동 배포
+#
+# =============================================================================
+
+name: Daily Data Update & Deploy
+
+on:
+  # 매일 평일 18:00 KST (09:00 UTC)
+  schedule:
+    - cron: '0 9 * * 1-5'
+
+  # main 브랜치에 푸시 시 배포
+  push:
+    branches: [main]
+    paths:
+      - '주식_스크리너_전체.html'
+      - 'scripts/**'
+      - 'data/**'
+      - '.github/workflows/deploy.yml'
+
+  # 수동 실행 가능
+  workflow_dispatch:
+    inputs:
+      skip_data_collection:
+        description: '데이터 수집 건너뛰기 (배포만)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+# 권한 설정
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# 동시 실행 방지
+concurrency:
+  group: 'pages-deploy'
+  cancel-in-progress: false
+
+env:
+  TZ: Asia/Seoul
+  PYTHON_VERSION: '3.10'
+
+jobs:
+  # =========================================================================
+  # Job 1: 데이터 수집 (스케줄 또는 수동 실행 시)
+  # =========================================================================
+  collect-data:
+    name: 📊 데이터 수집
+    runs-on: ubuntu-latest
+    # push 이벤트가 아닐 때만 실행 (또는 수동으로 skip 선택 시 건너뜀)
+    if: github.event_name != 'push' && github.event.inputs.skip_data_collection != 'true'
+
+    outputs:
+      has_changes: ${{ steps.check_changes.outputs.has_changes }}
+
+    steps:
+      - name: 📥 저장소 체크아웃
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🐍 Python 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: 📦 의존성 설치
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 📁 디렉토리 생성
+        run: |
+          mkdir -p data
+          mkdir -p logs
+
+      - name: 🚀 스크리너 실행
+        run: |
+          echo "=========================================="
+          echo "스크리너 실행 시작: $(date '+%Y-%m-%d %H:%M:%S %Z')"
+          echo "=========================================="
+          python scripts/main.py
+          echo "=========================================="
+          echo "스크리너 실행 완료"
+          echo "=========================================="
+
+      - name: 🔍 변경 사항 확인
+        id: check_changes
+        run: |
+          git add data/ logs/
+          if git diff --staged --quiet; then
+            echo "변경된 파일 없음"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "변경된 파일:"
+            git diff --staged --name-only
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 💾 변경 사항 커밋 및 푸시
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          COMMIT_DATE=$(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')
+          git commit -m "📊 데이터 자동 업데이트: ${COMMIT_DATE}"
+          git push
+
+      - name: 📋 실행 결과 요약
+        if: always()
+        run: |
+          echo "=========================================="
+          echo "📁 data 폴더 파일:"
+          ls -lh data/ 2>/dev/null || echo "  (파일 없음)"
+          echo ""
+          if [ -d "logs" ]; then
+            echo "📝 최근 로그:"
+            LATEST_LOG=$(ls -t logs/*.log 2>/dev/null | head -1)
+            if [ -n "$LATEST_LOG" ]; then
+              tail -20 "$LATEST_LOG"
+            fi
+          fi
+          echo "=========================================="
+
+  # =========================================================================
+  # Job 2: GitHub Pages 배포
+  # =========================================================================
+  deploy:
+    name: 🚀 GitHub Pages 배포
+    runs-on: ubuntu-latest
+    needs: [collect-data]
+    # collect-data가 성공하거나 스킵된 경우, 또는 push 이벤트인 경우 실행
+    if: always() && (needs.collect-data.result == 'success' || needs.collect-data.result == 'skipped' || github.event_name == 'push')
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: 📥 저장소 체크아웃
+        uses: actions/checkout@v4
+        with:
+          # 최신 데이터 반영을 위해 새로 체크아웃
+          ref: ${{ github.ref }}
+
+      - name: 📁 배포 디렉토리 준비
+        run: |
+          mkdir -p _site/data
+
+          # HTML 파일 복사 (index.html로)
+          cp 주식_스크리너_전체.html _site/index.html
+
+          # 데이터 파일 복사
+          if [ -d "data" ] && [ "$(ls -A data/)" ]; then
+            cp -r data/* _site/data/
+            echo "✅ 데이터 파일 복사 완료"
+            ls -la _site/data/
+          else
+            echo "⚠️ data 폴더가 비어있습니다"
+          fi
+
+          # 404.html 생성 (SPA 지원)
+          cat > _site/404.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <title>주식 스크리너</title>
+            <script>
+              // SPA 리다이렉트: 모든 경로를 index.html로 전달
+              sessionStorage.setItem('redirect', location.pathname);
+              location.replace('/stock-screener-kr/');
+            </script>
+          </head>
+          <body>
+            <p>페이지를 찾을 수 없습니다. 리다이렉트 중...</p>
+          </body>
+          </html>
+          EOF
+
+          echo "✅ 배포 디렉토리 준비 완료"
+          echo "📁 _site 구조:"
+          find _site -type f
+
+      - name: 📤 Pages 아티팩트 업로드
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: 🌐 GitHub Pages 배포
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: ✅ 배포 완료
+        run: |
+          echo "=========================================="
+          echo "🎉 배포 완료!"
+          echo "URL: ${{ steps.deployment.outputs.page_url }}"
+          echo "=========================================="

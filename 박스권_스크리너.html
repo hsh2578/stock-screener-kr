@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스권 스크리너 - 퀀트 (45개 종목)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Malgun Gothic', sans-serif;
+            background: #0a0a0f;
+            color: #e4e4e7;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            border: 1px solid #2a2a3e;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .badge {
+            background: #3b82f6;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .description { color: #a1a1aa; margin-bottom: 12px; }
+        .stats { display: flex; gap: 20px; color: #71717a; font-size: 0.9rem; }
+        .stats .count { color: #22c55e; font-weight: 600; }
+        .card {
+            background: #18181b;
+            border-radius: 12px;
+            border: 1px solid #27272a;
+            overflow: auto;
+        }
+        table { width: 100%; border-collapse: collapse; min-width: 900px; }
+        th {
+            background: #1f1f23;
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            color: #a1a1aa;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #27272a;
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+        }
+        th:hover { background: #27272a; }
+        th.sorted-asc::after { content: ' ▲'; }
+        th.sorted-desc::after { content: ' ▼'; }
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #27272a;
+            font-size: 0.9rem;
+        }
+        tr:hover { background: #1f1f23; }
+        .text-right { text-align: right; }
+        .text-center { text-align: center; }
+        .ticker { color: #71717a; font-size: 0.8rem; }
+        .name { font-weight: 500; }
+        .positive { color: #22c55e; }
+        .negative { color: #ef4444; }
+        .neutral { color: #a1a1aa; }
+        .touch-info { cursor: help; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>
+                <span>📦</span>
+                박스권 스크리너
+                <span class="badge">퀀트</span>
+            </h1>
+            <p class="description">60거래일 ATR기반 횡보 + 지지/저항 터치 확인 + 추세 필터 + 거래량 감소 (7조건)</p>
+            <div class="stats">
+                <span>데이터 기준: 2026년 1월 20일 22:11</span>
+                <span><span class="count">45</span>개 종목 / 1,521개 중</span>
+            </div>
+        </header>
+
+        <div class="card">
+            <table id="stockTable">
+                <thead>
+                    <tr>
+                        <th data-sort="name">종목명</th>
+                        <th data-sort="price" class="text-right">현재가</th>
+                        <th data-sort="change_rate" class="text-right">등락률</th>
+                        <th data-sort="box_high" class="text-right">박스 상단</th>
+                        <th data-sort="box_low" class="text-right">박스 하단</th>
+                        <th data-sort="range_percent" class="text-right sorted-asc">변동폭</th>
+                        <th data-sort="support_touches" class="text-center">지지/저항</th>
+                        <th data-sort="atr_multiple" class="text-right">ATR배수</th>
+                        <th data-sort="days" class="text-right">횡보기간</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // 데이터 직접 포함
+        const stockData = [
+            {"ticker":"097955","name":"CJ제일제당 우","price":139500,"change_rate":1.23,"box_high":140400,"box_low":136400,"range_percent":2.93,"atr_multiple":2.51,"support_touches":4,"resistance_touches":4,"days":60},
+            {"ticker":"007310","name":"오뚜기","price":388000,"change_rate":1.7,"box_high":391500,"box_low":374000,"range_percent":4.68,"atr_multiple":4.06,"support_touches":2,"resistance_touches":4,"days":60},
+            {"ticker":"143160","name":"아이디스","price":18070,"change_rate":1.35,"box_high":18190,"box_low":17360,"range_percent":4.78,"atr_multiple":2.23,"support_touches":5,"resistance_touches":3,"days":60},
+            {"ticker":"004080","name":"신흥","price":13560,"change_rate":-0.44,"box_high":14010,"box_low":13360,"range_percent":4.87,"atr_multiple":2.79,"support_touches":2,"resistance_touches":3,"days":60},
+            {"ticker":"126560","name":"현대퓨처넷","price":3180,"change_rate":-0.31,"box_high":3275,"box_low":3060,"range_percent":7.03,"atr_multiple":3.81,"support_touches":5,"resistance_touches":3,"days":60},
+            {"ticker":"005990","name":"매일홀딩스","price":10690,"change_rate":0.09,"box_high":11270,"box_low":10530,"range_percent":7.03,"atr_multiple":3.83,"support_touches":2,"resistance_touches":3,"days":60},
+            {"ticker":"003547","name":"대신증권2우B","price":20600,"change_rate":1.23,"box_high":21050,"box_low":19660,"range_percent":7.07,"atr_multiple":4.34,"support_touches":4,"resistance_touches":5,"days":60},
+            {"ticker":"213500","name":"한솔제지","price":8050,"change_rate":0.5,"box_high":8520,"box_low":7900,"range_percent":7.85,"atr_multiple":5.53,"support_touches":2,"resistance_touches":6,"days":60},
+            {"ticker":"000020","name":"동화약품","price":6010,"change_rate":1.01,"box_high":6430,"box_low":5940,"range_percent":8.25,"atr_multiple":4.25,"support_touches":3,"resistance_touches":4,"days":60},
+            {"ticker":"002320","name":"한진","price":19700,"change_rate":0.0,"box_high":20950,"box_low":19320,"range_percent":8.44,"atr_multiple":4.28,"support_touches":4,"resistance_touches":4,"days":60},
+            {"ticker":"063570","name":"NICE인프라","price":4090,"change_rate":2.12,"box_high":4345,"box_low":4005,"range_percent":8.49,"atr_multiple":3.75,"support_touches":2,"resistance_touches":3,"days":60},
+            {"ticker":"002840","name":"미원상사","price":146500,"change_rate":0.34,"box_high":156900,"box_low":143900,"range_percent":9.03,"atr_multiple":3.55,"support_touches":3,"resistance_touches":2,"days":60},
+            {"ticker":"100700","name":"세운메디칼","price":2340,"change_rate":1.96,"box_high":2505,"box_low":2295,"range_percent":9.15,"atr_multiple":4.98,"support_touches":2,"resistance_touches":4,"days":60},
+            {"ticker":"339770","name":"교촌에프앤비","price":4240,"change_rate":1.07,"box_high":4520,"box_low":4140,"range_percent":9.18,"atr_multiple":3.63,"support_touches":2,"resistance_touches":3,"days":60},
+            {"ticker":"003470","name":"유안타증권","price":3935,"change_rate":1.16,"box_high":3970,"box_low":3635,"range_percent":9.22,"atr_multiple":3.4,"support_touches":6,"resistance_touches":2,"days":60},
+            {"ticker":"002150","name":"도화엔지니어링","price":6170,"change_rate":1.15,"box_high":6490,"box_low":5940,"range_percent":9.26,"atr_multiple":4.93,"support_touches":3,"resistance_touches":3,"days":60},
+            {"ticker":"185750","name":"종근당","price":85300,"change_rate":2.52,"box_high":88200,"box_low":80700,"range_percent":9.29,"atr_multiple":4.19,"support_touches":2,"resistance_touches":3,"days":60},
+            {"ticker":"038390","name":"레드캡투어","price":11720,"change_rate":1.91,"box_high":12120,"box_low":11080,"range_percent":9.39,"atr_multiple":5.12,"support_touches":4,"resistance_touches":3,"days":60},
+            {"ticker":"143240","name":"사람인","price":13020,"change_rate":0.93,"box_high":14010,"box_low":12760,"range_percent":9.8,"atr_multiple":3.51,"support_touches":2,"resistance_touches":2,"days":60},
+            {"ticker":"003555","name":"LG우","price":71000,"change_rate":0.0,"box_high":71000,"box_low":64600,"range_percent":9.91,"atr_multiple":4.48,"support_touches":3,"resistance_touches":3,"days":60},
+            {"ticker":"003460","name":"유화증권","price":2725,"change_rate":1.3,"box_high":2925,"box_low":2660,"range_percent":9.96,"atr_multiple":5.04,"support_touches":3,"resistance_touches":2,"days":60},
+            {"ticker":"001045","name":"CJ우","price":93000,"change_rate":0.87,"box_high":95500,"box_low":86800,"range_percent":10.02,"atr_multiple":3.03,"support_touches":4,"resistance_touches":2,"days":60},
+            {"ticker":"344820","name":"KCC글라스","price":27050,"change_rate":1.31,"box_high":27650,"box_low":25100,"range_percent":10.16,"atr_multiple":5.78,"support_touches":4,"resistance_touches":2,"days":60},
+            {"ticker":"005500","name":"삼진제약","price":19430,"change_rate":1.99,"box_high":20950,"box_low":19000,"range_percent":10.26,"atr_multiple":4.58,"support_touches":2,"resistance_touches":2,"days":60},
+            {"ticker":"057050","name":"현대홈쇼핑","price":54400,"change_rate":3.42,"box_high":56700,"box_low":51400,"range_percent":10.31,"atr_multiple":4.35,"support_touches":2,"resistance_touches":4,"days":60},
+            {"ticker":"039130","name":"하나투어","price":45450,"change_rate":0.33,"box_high":49550,"box_low":44900,"range_percent":10.36,"atr_multiple":4.86,"support_touches":2,"resistance_touches":4,"days":60},
+            {"ticker":"001750","name":"한양증권","price":18770,"change_rate":1.02,"box_high":20050,"box_low":18140,"range_percent":10.53,"atr_multiple":4.1,"support_touches":3,"resistance_touches":3,"days":60},
+            {"ticker":"226320","name":"잇츠한불","price":11140,"change_rate":0.27,"box_high":12220,"box_low":11040,"range_percent":10.69,"atr_multiple":3.82,"support_touches":3,"resistance_touches":3,"days":60},
+            {"ticker":"095660","name":"네오위즈","price":25750,"change_rate":1.38,"box_high":26650,"box_low":24050,"range_percent":10.81,"atr_multiple":3.21,"support_touches":3,"resistance_touches":4,"days":60},
+            {"ticker":"078070","name":"유비쿼스홀딩스","price":10400,"change_rate":-0.29,"box_high":11090,"box_low":10000,"range_percent":10.9,"atr_multiple":3.57,"support_touches":2,"resistance_touches":3,"days":60},
+            {"ticker":"002620","name":"제일파마홀딩스","price":8000,"change_rate":1.65,"box_high":8430,"box_low":7530,"range_percent":11.95,"atr_multiple":4.3,"support_touches":2,"resistance_touches":3,"days":60},
+            {"ticker":"003000","name":"부광약품","price":3895,"change_rate":2.23,"box_high":4015,"box_low":3585,"range_percent":11.99,"atr_multiple":3.45,"support_touches":3,"resistance_touches":3,"days":60},
+            {"ticker":"131030","name":"옵투스제약","price":7400,"change_rate":1.65,"box_high":7400,"box_low":6600,"range_percent":12.12,"atr_multiple":3.69,"support_touches":4,"resistance_touches":2,"days":60},
+            {"ticker":"011760","name":"현대코퍼레이션","price":22150,"change_rate":3.02,"box_high":22900,"box_low":20350,"range_percent":12.53,"atr_multiple":4.6,"support_touches":4,"resistance_touches":4,"days":60},
+            {"ticker":"251970","name":"펌텍코리아","price":54200,"change_rate":1.31,"box_high":56500,"box_low":50100,"range_percent":12.77,"atr_multiple":2.97,"support_touches":3,"resistance_touches":2,"days":60},
+            {"ticker":"192400","name":"쿠쿠홀딩스","price":27200,"change_rate":-0.55,"box_high":30900,"box_low":27100,"range_percent":14.02,"atr_multiple":4.0,"support_touches":2,"resistance_touches":2,"days":60},
+            {"ticker":"004690","name":"삼천리","price":126400,"change_rate":2.76,"box_high":137000,"box_low":119200,"range_percent":14.93,"atr_multiple":5.19,"support_touches":3,"resistance_touches":2,"days":60},
+            {"ticker":"340570","name":"티앤엘","price":44500,"change_rate":2.18,"box_high":50200,"box_low":43550,"range_percent":15.27,"atr_multiple":4.69,"support_touches":2,"resistance_touches":2,"days":60},
+            {"ticker":"005880","name":"대한해운","price":1920,"change_rate":6.25,"box_high":1953,"box_low":1690,"range_percent":15.56,"atr_multiple":4.7,"support_touches":2,"resistance_touches":2,"days":60},
+            {"ticker":"234340","name":"헥토파이낸셜","price":15080,"change_rate":0.27,"box_high":17160,"box_low":14760,"range_percent":16.26,"atr_multiple":3.33,"support_touches":2,"resistance_touches":2,"days":60},
+            {"ticker":"004490","name":"세방전지","price":63300,"change_rate":0.64,"box_high":67900,"box_low":58100,"range_percent":16.87,"atr_multiple":5.75,"support_touches":2,"resistance_touches":2,"days":60},
+            {"ticker":"023590","name":"다우기술","price":40500,"change_rate":3.98,"box_high":41300,"box_low":34950,"range_percent":18.17,"atr_multiple":4.25,"support_touches":2,"resistance_touches":3,"days":60},
+            {"ticker":"151860","name":"KG에코솔루션","price":5470,"change_rate":2.05,"box_high":6170,"box_low":5220,"range_percent":18.2,"atr_multiple":5.07,"support_touches":2,"resistance_touches":2,"days":60},
+            {"ticker":"001450","name":"현대해상","price":27750,"change_rate":3.54,"box_high":31450,"box_low":26450,"range_percent":18.9,"atr_multiple":5.63,"support_touches":2,"resistance_touches":3,"days":60},
+            {"ticker":"104830","name":"원익머트리얼즈","price":33350,"change_rate":2.46,"box_high":35300,"box_low":29500,"range_percent":19.66,"atr_multiple":4.23,"support_touches":3,"resistance_touches":2,"days":60}
+        ];
+
+        const formatNumber = (n) => n.toLocaleString('ko-KR');
+        const formatPercent = (n) => (n >= 0 ? '+' : '') + n.toFixed(2) + '%';
+        const getColor = (n) => n > 0 ? 'positive' : n < 0 ? 'negative' : 'neutral';
+
+        let currentSort = { field: 'range_percent', asc: true };
+        let data = [...stockData];
+
+        function renderTable() {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = data.map(s => `
+                <tr>
+                    <td><div class="name">${s.name}</div><div class="ticker">${s.ticker}</div></td>
+                    <td class="text-right">${formatNumber(s.price)}원</td>
+                    <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
+                    <td class="text-right">${formatNumber(s.box_high)}원</td>
+                    <td class="text-right">${formatNumber(s.box_low)}원</td>
+                    <td class="text-right">${formatPercent(s.range_percent)}</td>
+                    <td class="text-center touch-info" title="지지선 ${s.support_touches}회 / 저항선 ${s.resistance_touches}회">${s.support_touches}/${s.resistance_touches}</td>
+                    <td class="text-right">${s.atr_multiple.toFixed(1)}x</td>
+                    <td class="text-right">${s.days}일</td>
+                </tr>
+            `).join('');
+        }
+
+        function sortData(field) {
+            document.querySelectorAll('th').forEach(th => th.classList.remove('sorted-asc', 'sorted-desc'));
+
+            if (currentSort.field === field) {
+                currentSort.asc = !currentSort.asc;
+            } else {
+                currentSort.field = field;
+                currentSort.asc = true;
+            }
+
+            const th = document.querySelector(`th[data-sort="${field}"]`);
+            th.classList.add(currentSort.asc ? 'sorted-asc' : 'sorted-desc');
+
+            data.sort((a, b) => {
+                let va = a[field], vb = b[field];
+                if (typeof va === 'string') return currentSort.asc ? va.localeCompare(vb) : vb.localeCompare(va);
+                return currentSort.asc ? va - vb : vb - va;
+            });
+            renderTable();
+        }
+
+        document.querySelectorAll('th[data-sort]').forEach(th => {
+            th.addEventListener('click', () => sortData(th.dataset.sort));
+        });
+
+        renderTable();
+    </script>
+</body>
+</html>
