@@ -17,6 +17,7 @@ import json
 from datetime import datetime, timedelta
 import os
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, asdict
 from typing import Optional, Tuple, List, Dict, Any
 from scipy import stats
@@ -512,43 +513,60 @@ def get_ohlcv(ticker: str, days: int = 200) -> Optional[pd.DataFrame]:
         return None
 
 
-def preload_all_data(stocks: pd.DataFrame, days: int = 200) -> None:
+def _download_single_stock(args: Tuple[str, str]) -> Tuple[str, Optional[pd.DataFrame]]:
+    """단일 종목 데이터 다운로드 (병렬 처리용)"""
+    ticker, start_str = args
+    try:
+        df = fdr.DataReader(ticker, start_str)
+        if df is not None and len(df) > 0:
+            return (ticker, df)
+        return (ticker, None)
+    except:
+        return (ticker, None)
+
+
+def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 20) -> None:
     """
-    모든 종목의 데이터를 미리 다운로드하여 캐시합니다.
-    이렇게 하면 6개 스크리너가 같은 데이터를 재사용할 수 있습니다.
+    모든 종목의 데이터를 병렬로 다운로드하여 캐시합니다.
+    ThreadPoolExecutor를 사용하여 동시에 여러 종목을 다운로드합니다.
 
     Args:
         stocks: 종목 리스트 DataFrame
         days: 조회 기간 (거래일)
+        max_workers: 동시 다운로드 스레드 수
     """
     global _DATA_CACHE
     _DATA_CACHE = {}  # 캐시 초기화
-
-    print(f"\n[데이터 사전 로딩] {len(stocks)}개 종목...")
 
     end_date = datetime.now()
     start_date = end_date - timedelta(days=days + 50)
     start_str = start_date.strftime('%Y-%m-%d')
 
+    # 티커 목록 추출
+    tickers = []
+    for _, row in stocks.iterrows():
+        ticker = row.get('Code', row.get('Symbol', ''))
+        if ticker:
+            tickers.append(ticker)
+
+    print(f"\n[데이터 사전 로딩] {len(tickers)}개 종목 (스레드 {max_workers}개)...")
+
     success_count = 0
     fail_count = 0
 
-    for idx, row in tqdm(stocks.iterrows(), total=len(stocks), desc="데이터 로딩"):
-        ticker = row.get('Code', row.get('Symbol', ''))
-        if not ticker:
-            continue
+    # 병렬 다운로드
+    download_args = [(ticker, start_str) for ticker in tickers]
 
-        try:
-            df = fdr.DataReader(ticker, start_str)
-            if df is not None and len(df) > 0:
-                _DATA_CACHE[ticker] = df
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {executor.submit(_download_single_stock, arg): arg[0] for arg in download_args}
+
+        for future in tqdm(as_completed(futures), total=len(futures), desc="데이터 로딩"):
+            ticker, df = future.result()
+            _DATA_CACHE[ticker] = df
+            if df is not None:
                 success_count += 1
             else:
-                _DATA_CACHE[ticker] = None
                 fail_count += 1
-        except:
-            _DATA_CACHE[ticker] = None
-            fail_count += 1
 
     print(f"  완료: 성공 {success_count}개, 실패 {fail_count}개")
 
