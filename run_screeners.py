@@ -22,7 +22,6 @@ from dataclasses import dataclass, asdict
 from typing import Optional, Tuple, List, Dict, Any
 from scipy import stats
 from tqdm import tqdm
-from pykrx import stock as pykrx_stock
 
 # ============================================================================
 # 데이터 캐시 (전역)
@@ -1408,40 +1407,45 @@ SECTOR_MA_PERIOD = 150
 SECTOR_SLOPE_PERIOD = 20
 SECTOR_SLOPE_THRESHOLD = 2.0
 
-SECTOR_LIST = [
-    ("1001", "KOSPI"), ("1002", "KOSPI 대형주"), ("1003", "KOSPI 중형주"),
-    ("1004", "KOSPI 소형주"), ("1005", "음식료품"), ("1006", "섬유의복"),
-    ("1007", "종이목재"), ("1008", "화학"), ("1009", "의약품"),
-    ("1010", "비금속광물"), ("1011", "철강금속"), ("1012", "기계"),
-    ("1013", "전기전자"), ("1014", "의료정밀"), ("1015", "운수장비"),
-    ("1016", "유통업"), ("1017", "전기가스업"), ("1018", "건설업"),
-    ("1019", "운수창고업"), ("1020", "통신업"), ("1021", "금융업"),
-    ("1022", "은행"), ("1024", "증권"), ("1025", "보험"),
-    ("1026", "서비스업"), ("1027", "제조업"),
-    ("2001", "KOSDAQ"), ("2024", "KOSDAQ IT"),
+# 업종 ETF 목록 (FinanceDataReader 사용)
+SECTOR_ETF_LIST = [
+    ("KS11", "KOSPI"),
+    ("KQ11", "KOSDAQ"),
+    ("091160", "KODEX IT"),
+    ("091170", "KODEX 반도체"),
+    ("091180", "KODEX 자동차"),
+    ("117700", "KODEX 건설"),
+    ("117460", "KODEX 에너지화학"),
+    ("140710", "KODEX 헬스케어"),
+    ("091220", "KODEX 철강"),
+    ("102780", "KODEX 조선"),
+    ("140700", "KODEX 보험"),
+    ("102970", "KODEX 증권"),
+    ("091230", "KODEX 은행"),
+    ("266360", "KODEX 2차전지"),
+    ("385510", "KODEX AI반도체핵심장비"),
+    ("396500", "KODEX 미디어엔터"),
+    ("381170", "KODEX 기계장비"),
 ]
 
+
 def screen_sector_stage() -> List[Dict]:
-    """업종별 4단계 판별 스크리너를 실행합니다."""
+    """업종별 4단계 판별 스크리너를 실행합니다. (섹터 ETF 기반)"""
     print("\n[업종별 4단계] 분석 시작...")
 
     results = []
-    end_date = datetime.now().strftime("%Y%m%d")
-    start_date = (datetime.now() - timedelta(days=450)).strftime("%Y%m%d")
+    start_date = (datetime.now() - timedelta(days=450)).strftime("%Y-%m-%d")
 
-    for sector_code, sector_name in SECTOR_LIST:
+    for ticker, sector_name in SECTOR_ETF_LIST:
         try:
-            time.sleep(0.1)
-            df = pykrx_stock.get_index_ohlcv(start_date, end_date, sector_code)
+            df = fdr.DataReader(ticker, start_date)
             if df is None or df.empty:
+                print(f"  [업종] {sector_name}({ticker}): 데이터 없음")
                 continue
 
-            close = df['종가'] if '종가' in df.columns else None
-            if close is None or len(close) < SECTOR_MA_PERIOD + SECTOR_SLOPE_PERIOD:
-                continue
-
-            close = close.dropna()
+            close = df['Close'].dropna()
             if len(close) < SECTOR_MA_PERIOD + SECTOR_SLOPE_PERIOD:
+                print(f"  [업종] {sector_name}({ticker}): 데이터 부족 ({len(close)}일)")
                 continue
 
             # 150일 이동평균
@@ -1510,6 +1514,7 @@ def screen_sector_stage() -> List[Dict]:
                 'updated_at': datetime.now().isoformat()
             })
         except Exception as e:
+            print(f"  [업종] {sector_name}({ticker}) 오류: {e}")
             continue
 
     # 2단계 우선, 그 다음 3개월 수익률 순
@@ -1609,7 +1614,8 @@ def main():
     print(f"\n분석 대상: {len(stocks)}개 종목 (전체 {total_stocks}개 중)")
 
     # 데이터 사전 로딩 (한 번만 다운로드하고 모든 스크리너에서 재사용)
-    preload_all_data(stocks, days=320)
+    # 52주 신고가 스크리너: 260거래일 필요 → 500 캘린더일 ≈ 345거래일 확보
+    preload_all_data(stocks, days=500)
 
     # 1. 박스권 스크리너 (퀀트 수준)
     box_range_results = screen_box_range(stocks)
@@ -1641,7 +1647,7 @@ def main():
 
     # 8. 업종별 4단계 스크리너
     sector_stage_results = screen_sector_stage()
-    save_results(sector_stage_results, 'sector_stage.json', len(SECTOR_LIST))
+    save_results(sector_stage_results, 'sector_stage.json', len(SECTOR_ETF_LIST))
 
     # 차트 데이터 생성
     all_results = [
