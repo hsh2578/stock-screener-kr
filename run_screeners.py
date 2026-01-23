@@ -22,6 +22,7 @@ from dataclasses import dataclass, asdict
 from typing import Optional, Tuple, List, Dict, Any
 from scipy import stats
 from tqdm import tqdm
+from pykrx import stock as pykrx_stock
 
 # ============================================================================
 # 데이터 캐시 (전역)
@@ -1305,6 +1306,219 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
 
 
 # ============================================================================
+# 7. 52주 신고가 돌파 스크리너
+# ============================================================================
+
+HIGH_52W_PERIOD = 250  # 52주 ≈ 250거래일
+MAX_DAYS_SINCE_BREAKOUT = 8  # 돌파 후 최대 거래일
+
+def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
+    """52주 신고가를 돌파한 종목을 발굴합니다."""
+    print("\n[52주 신고가 돌파] 분석 시작...")
+
+    results = []
+    required_days = HIGH_52W_PERIOD + MAX_DAYS_SINCE_BREAKOUT + 2
+
+    for _, row in stocks.iterrows():
+        ticker = row.get('Code', row.get('Symbol', ''))
+        name = row.get('Name', '')
+        market_cap = row.get('Marcap', 0)
+        if isinstance(market_cap, (int, float)):
+            market_cap_억 = market_cap / 1e8
+        else:
+            market_cap_억 = 0
+
+        if market_cap_억 < MIN_MARKET_CAP:
+            continue
+
+        df = get_ohlcv(ticker, required_days + 50)
+        if df is None or len(df) < required_days:
+            continue
+
+        close = df['Close']
+        if close.isna().any():
+            close = close.dropna()
+            if len(close) < required_days:
+                continue
+
+        total_len = len(df)
+
+        # 9일 전 기준 52주 신고가 계산
+        base_idx = total_len - 1 - MAX_DAYS_SINCE_BREAKOUT - 1
+        if base_idx < HIGH_52W_PERIOD:
+            continue
+
+        high_52w_prices = close.iloc[base_idx - HIGH_52W_PERIOD:base_idx]
+        if high_52w_prices.empty:
+            continue
+
+        high_52w = high_52w_prices.max()
+        if pd.isna(high_52w) or high_52w <= 0:
+            continue
+
+        # 8일 전부터 오늘까지 돌파일 찾기
+        breakout_date = None
+        days_since = None
+        for days_ago in range(MAX_DAYS_SINCE_BREAKOUT, -1, -1):
+            idx = total_len - 1 - days_ago
+            if idx < 0:
+                continue
+            c = close.iloc[idx]
+            if c > high_52w:
+                breakout_date = df.index[idx]
+                days_since = days_ago
+                break
+
+        if breakout_date is None:
+            continue
+
+        # 현재가가 52주 신고가 위에 있어야 함
+        current_close = close.iloc[-1]
+        if current_close <= high_52w:
+            continue
+
+        prev_close = close.iloc[-2] if len(close) >= 2 else current_close
+        change_rate = (current_close - prev_close) / prev_close * 100 if prev_close > 0 else 0
+        above_high_percent = (current_close - high_52w) / high_52w * 100
+
+        results.append({
+            'ticker': ticker,
+            'name': name,
+            'price': int(current_close),
+            'change_rate': round(change_rate, 2),
+            'high_52w': int(high_52w),
+            'breakout_date': breakout_date.strftime('%Y-%m-%d'),
+            'days_since': days_since,
+            'above_high_percent': round(above_high_percent, 2),
+            'market_cap': int(market_cap_억),
+            'updated_at': datetime.now().isoformat()
+        })
+
+    # 신고가 대비 상승률 내림차순 정렬
+    results.sort(key=lambda x: x['above_high_percent'], reverse=True)
+    print(f"[완료] 52주 신고가 돌파: {len(results)}개")
+    return results
+
+
+# ============================================================================
+# 8. 업종별 4단계 스크리너
+# ============================================================================
+
+SECTOR_MA_PERIOD = 150
+SECTOR_SLOPE_PERIOD = 20
+SECTOR_SLOPE_THRESHOLD = 2.0
+
+SECTOR_LIST = [
+    ("1001", "KOSPI"), ("1002", "KOSPI 대형주"), ("1003", "KOSPI 중형주"),
+    ("1004", "KOSPI 소형주"), ("1005", "음식료품"), ("1006", "섬유의복"),
+    ("1007", "종이목재"), ("1008", "화학"), ("1009", "의약품"),
+    ("1010", "비금속광물"), ("1011", "철강금속"), ("1012", "기계"),
+    ("1013", "전기전자"), ("1014", "의료정밀"), ("1015", "운수장비"),
+    ("1016", "유통업"), ("1017", "전기가스업"), ("1018", "건설업"),
+    ("1019", "운수창고업"), ("1020", "통신업"), ("1021", "금융업"),
+    ("1022", "은행"), ("1024", "증권"), ("1025", "보험"),
+    ("1026", "서비스업"), ("1027", "제조업"),
+    ("2001", "KOSDAQ"), ("2024", "KOSDAQ IT"),
+]
+
+def screen_sector_stage() -> List[Dict]:
+    """업종별 4단계 판별 스크리너를 실행합니다."""
+    print("\n[업종별 4단계] 분석 시작...")
+
+    results = []
+    end_date = datetime.now().strftime("%Y%m%d")
+    start_date = (datetime.now() - timedelta(days=450)).strftime("%Y%m%d")
+
+    for sector_code, sector_name in SECTOR_LIST:
+        try:
+            time.sleep(0.1)
+            df = pykrx_stock.get_index_ohlcv(start_date, end_date, sector_code)
+            if df is None or df.empty:
+                continue
+
+            close = df['종가'] if '종가' in df.columns else None
+            if close is None or len(close) < SECTOR_MA_PERIOD + SECTOR_SLOPE_PERIOD:
+                continue
+
+            close = close.dropna()
+            if len(close) < SECTOR_MA_PERIOD + SECTOR_SLOPE_PERIOD:
+                continue
+
+            # 150일 이동평균
+            ma150_series = close.rolling(window=SECTOR_MA_PERIOD, min_periods=SECTOR_MA_PERIOD).mean()
+            current_price = float(close.iloc[-1])
+            ma150 = float(ma150_series.iloc[-1])
+
+            if pd.isna(ma150) or ma150 <= 0:
+                continue
+
+            # 기울기 계산
+            current_ma = ma150_series.iloc[-1]
+            past_ma = ma150_series.iloc[-SECTOR_SLOPE_PERIOD]
+            if pd.isna(current_ma) or pd.isna(past_ma) or past_ma <= 0:
+                continue
+            slope = (current_ma - past_ma) / past_ma * 100
+
+            # 이전 기울기 (3단계 판별용)
+            prev_slope = None
+            if len(ma150_series) > SECTOR_SLOPE_PERIOD * 2:
+                prev_current = ma150_series.iloc[-SECTOR_SLOPE_PERIOD]
+                prev_past = ma150_series.iloc[-SECTOR_SLOPE_PERIOD * 2]
+                if not pd.isna(prev_current) and not pd.isna(prev_past) and prev_past > 0:
+                    prev_slope = (prev_current - prev_past) / prev_past * 100
+
+            # 단계 판별
+            if slope < -SECTOR_SLOPE_THRESHOLD:
+                stage, stage_name = 4, "쇠퇴"
+            elif slope > SECTOR_SLOPE_THRESHOLD and current_price > ma150:
+                stage, stage_name = 2, "상승"
+            elif prev_slope is not None and prev_slope > SECTOR_SLOPE_THRESHOLD and abs(slope) <= SECTOR_SLOPE_THRESHOLD:
+                stage, stage_name = 3, "최정상"
+            else:
+                stage, stage_name = 1, "기초"
+
+            # 3개월 수익률
+            return_3m = 0.0
+            if len(close) >= 60:
+                past_price = float(close.iloc[-60])
+                if past_price > 0:
+                    return_3m = (current_price - past_price) / past_price * 100
+
+            # 6개월 과열 여부
+            is_overheated = False
+            if len(close) >= 120:
+                monthly_positive = []
+                for i in range(6):
+                    s_idx = -(i + 1) * 20 - 1
+                    e_idx = -i * 20 - 1 if i > 0 else -1
+                    if abs(s_idx) <= len(close):
+                        s_p = float(close.iloc[s_idx])
+                        e_p = float(close.iloc[e_idx]) if e_idx != -1 else float(close.iloc[-1])
+                        if s_p > 0:
+                            monthly_positive.append((e_p - s_p) / s_p > 0)
+                is_overheated = len(monthly_positive) == 6 and all(monthly_positive)
+
+            results.append({
+                'sector_name': sector_name,
+                'stage': stage,
+                'stage_name': stage_name,
+                'ma150_slope': round(slope, 2),
+                'return_3m': round(return_3m, 2),
+                'is_overheated': is_overheated,
+                'current_price': round(current_price, 2),
+                'ma150': round(ma150, 2),
+                'updated_at': datetime.now().isoformat()
+            })
+        except Exception as e:
+            continue
+
+    # 2단계 우선, 그 다음 3개월 수익률 순
+    results.sort(key=lambda x: (-x['stage'] if x['stage'] == 2 else x['stage'], -x['return_3m']))
+    print(f"[완료] 업종별 4단계: {len(results)}개")
+    return results
+
+
+# ============================================================================
 # 결과 저장 및 차트 데이터 생성
 # ============================================================================
 
@@ -1318,7 +1532,7 @@ def save_results(results: List[Dict], filename: str, screened_from: int) -> None
             'totalCount': len(results),
             'screened_from': screened_from
         },
-        'data': results[:100]  # 최대 100개 저장
+        'data': results[:300]  # 최대 300개 저장
     }
 
     filepath = os.path.join(DATA_PATH, filename)
@@ -1395,7 +1609,7 @@ def main():
     print(f"\n분석 대상: {len(stocks)}개 종목 (전체 {total_stocks}개 중)")
 
     # 데이터 사전 로딩 (한 번만 다운로드하고 모든 스크리너에서 재사용)
-    preload_all_data(stocks, days=200)
+    preload_all_data(stocks, days=320)
 
     # 1. 박스권 스크리너 (퀀트 수준)
     box_range_results = screen_box_range(stocks)
@@ -1421,6 +1635,14 @@ def main():
     vol_dry_up_results = screen_volume_dry_up(stocks)
     save_results(vol_dry_up_results, 'volume_dry_up.json', len(stocks))
 
+    # 7. 52주 신고가 돌파 스크리너
+    new_high_results = screen_new_high_52w(stocks)
+    save_results(new_high_results, 'new_high_52w.json', len(stocks))
+
+    # 8. 업종별 4단계 스크리너
+    sector_stage_results = screen_sector_stage()
+    save_results(sector_stage_results, 'sector_stage.json', len(SECTOR_LIST))
+
     # 차트 데이터 생성
     all_results = [
         box_range_results,
@@ -1428,7 +1650,8 @@ def main():
         box_breakout_simple_results,
         pullback_results,
         vol_explosion_results,
-        vol_dry_up_results
+        vol_dry_up_results,
+        new_high_results
     ]
     generate_chart_data(all_results)
 
@@ -1443,6 +1666,8 @@ def main():
     print(f"  풀백: {len(pullback_results)}개")
     print(f"  거래량 폭발: {len(vol_explosion_results)}개")
     print(f"  거래량 급감: {len(vol_dry_up_results)}개")
+    print(f"  52주 신고가: {len(new_high_results)}개")
+    print(f"  업종별 4단계: {len(sector_stage_results)}개")
     print(f"\n총 실행 시간: {total_elapsed:.1f}초 ({total_elapsed/60:.1f}분)")
     print("=" * 70)
 
