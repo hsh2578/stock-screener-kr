@@ -1,10 +1,23 @@
 {
   "meta": {
-    "lastUpdated": "2026-01-23T22:19:31.229416",
-    "totalCount": 13,
+    "lastUpdated": "2026-01-23T22:24:26.217979",
+    "totalCount": 15,
     "screened_from": 1524
   },
   "data": [
+    {
+      "ticker": "010690",
+      "name": "화신",
+      "price": 9550,
+      "change_rate": -1.85,
+      "breakout_date": "2026-01-16",
+      "breakout_price": 9200,
+      "volume_ratio": 31.9,
+      "ma150": 8481,
+      "above_ma150": true,
+      "market_cap": 3334,
+      "updated_at": "2026-01-23T22:24:25.360241"
+    },
     {
       "ticker": "234340",
       "name": "헥토파이낸셜",
@@ -16,7 +29,7 @@
       "ma150": 16619,
       "above_ma150": true,
       "market_cap": 2724,
-      "updated_at": "2026-01-23T22:19:30.893972"
+      "updated_at": "2026-01-23T22:24:25.856158"
     },
     {
       "ticker": "009520",
@@ -29,7 +42,7 @@
       "ma150": 14477,
       "above_ma150": true,
       "market_cap": 7795,
-      "updated_at": "2026-01-23T22:19:30.732527"
+      "updated_at": "2026-01-23T22:24:25.684103"
     },
     {
       "ticker": "039560",
@@ -42,7 +55,20 @@
       "ma150": 3146,
       "above_ma150": true,
       "market_cap": 1441,
-      "updated_at": "2026-01-23T22:19:31.083188"
+      "updated_at": "2026-01-23T22:24:26.061854"
+    },
+    {
+      "ticker": "365340",
+      "name": "성일하이텍",
+      "price": 57100,
+      "change_rate": 0.18,
+      "breakout_date": "2026-01-19",
+      "breakout_price": 47700,
+      "volume_ratio": 9.3,
+      "ma150": 39572,
+      "above_ma150": true,
+      "market_cap": 6986,
+      "updated_at": "2026-01-23T22:24:25.701882"
     },
     {
       "ticker": "126720",
@@ -55,7 +81,7 @@
       "ma150": 22732,
       "above_ma150": true,
       "market_cap": 3721,
-      "updated_at": "2026-01-23T22:19:30.411509"
+      "updated_at": "2026-01-23T22:24:25.330612"
     },
     {
       "ticker": "017670",
@@ -68,7 +94,7 @@
       "ma150": 54866,
       "above_ma150": true,
       "market_cap": 134673,
-      "updated_at": "2026-01-23T22:19:30.165834"
+      "updated_at": "2026-01-23T22:24:25.065273"
     },
     {
       "ticker": "006910",
@@ -81,7 +107,7 @@
       "ma150": 4560,
       "above_ma150": true,
       "market_cap": 3812,
-      "updated_at": "2026-01-23T22:19:30.822116"
+      "updated_at": "2026-01-23T22:24:25.781096"
     },
     {
       "ticker": "000490",
@@ -94,7 +120,7 @@
       "ma150": 9936,
       "above_ma150": true,
       "market_cap": 2937,
-      "updated_at": "2026-01-23T22:19:30.456481"
+      "updated_at": "2026-01-23T22:24:25.383891"
     },
     {
       "ticker": "251970",
@@ -107,7 +133,7 @@
       "ma150": 58428,
       "above_ma150": true,
       "market_cap": 7402,
-      "updated_at": "2026-01-23T22:19:30.742781"
+      "updated_at": "2026-01-23T22:24:25.694488"
     },
     {
       "ticker": "241710",
@@ -120,7 +146,7 @@
       "ma150": 66784,
       "above_ma150": true,
       "market_cap": 8661,
-      "updated_at": "2026-01-23T22:19:30.722301"
+      "updated_at": "2026-01-23T22:24:25.673455"
     },
     {
       "ticker": "282330",
@@ -133,7 +159,7 @@
       "ma150": 112687,
       "above_ma150": true,
       "market_cap": 20256,
-      "updated_at": "2026-01-23T22:19:30.253798"
+      "updated_at": "2026-01-23T22:24:25.161265"
     },
     {
       "ticker": "030610",
@@ -146,7 +172,7 @@
       "ma150": 9274,
       "above_ma150": true,
       "market_cap": 12957,
-      "updated_at": "2026-01-23T22:19:30.283125"
+      "updated_at": "2026-01-23T22:24:25.193256"
     },
     {
       "ticker": "002380",
@@ -159,7 +185,7 @@
       "ma150": 394123,
       "above_ma150": true,
       "market_cap": 42166,
-      "updated_at": "2026-01-23T22:19:30.208111"
+      "updated_at": "2026-01-23T22:24:25.111645"
     },
     {
       "ticker": "051600",
@@ -172,7 +198,7 @@
       "ma150": 52382,
       "above_ma150": true,
       "market_cap": 26010,
-      "updated_at": "2026-01-23T22:19:30.233998"
+      "updated_at": "2026-01-23T22:24:25.139392"
     }
   ]
 }
