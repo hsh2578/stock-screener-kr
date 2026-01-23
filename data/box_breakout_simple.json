@@ -1,79 +1,65 @@
 {
   "meta": {
-    "lastUpdated": "2026-01-23T12:23:20.353892",
-    "totalCount": 68,
+    "lastUpdated": "2026-01-23T12:29:07.528602",
+    "totalCount": 67,
     "screened_from": 1525
   },
   "data": [
     {
       "ticker": "016360",
       "name": "삼성증권",
-      "price": 86900,
-      "change_rate": 3.7,
+      "price": 87000,
+      "change_rate": 3.82,
       "breakout_date": "2026-01-23",
       "resistance": 83300,
       "days_since_breakout": 0,
-      "current_vs_resistance": 104.32,
-      "ma150": 75024,
+      "current_vs_resistance": 104.44,
+      "ma150": 75025,
       "above_ma150": true,
-      "market_cap": 77065,
-      "updated_at": "2026-01-23T12:23:19.863480"
+      "market_cap": 77244,
+      "updated_at": "2026-01-23T12:29:07.027120"
     },
     {
       "ticker": "001040",
       "name": "CJ",
-      "price": 193400,
-      "change_rate": 3.42,
+      "price": 193500,
+      "change_rate": 3.48,
       "breakout_date": "2026-01-23",
       "resistance": 189300,
       "days_since_breakout": 0,
-      "current_vs_resistance": 102.17,
-      "ma150": 170851,
+      "current_vs_resistance": 102.22,
+      "ma150": 170852,
       "above_ma150": true,
-      "market_cap": 56486,
-      "updated_at": "2026-01-23T12:23:19.868298"
-    },
-    {
-      "ticker": "004020",
-      "name": "현대제철",
-      "price": 35100,
-      "change_rate": 3.54,
-      "breakout_date": "2026-01-23",
-      "resistance": 34400,
-      "days_since_breakout": 0,
-      "current_vs_resistance": 102.03,
-      "ma150": 32726,
-      "above_ma150": true,
-      "market_cap": 46772,
-      "updated_at": "2026-01-23T12:23:19.872317"
+      "market_cap": 56515,
+      "updated_at": "2026-01-23T12:29:07.032216"
     },
     {
       "ticker": "002380",
       "name": "KCC",
-      "price": 468000,
-      "change_rate": 5.52,
+      "price": 468500,
+      "change_rate": 5.64,
       "breakout_date": "2026-01-23",
       "resistance": 453000,
       "days_since_breakout": 0,
-      "current_vs_resistance": 103.31,
-      "ma150": 394080,
+      "current_vs_resistance": 103.42,
+      "ma150": 394083,
       "above_ma150": true,
       "market_cap": 41499,
-      "updated_at": "2026-01-23T12:23:19.876709"
+      "updated_at": "2026-01-23T12:29:07.040576"
     },
     {
       "ticker": "023530",
       "name": "롯데쇼핑",
-      "price": 78600,
-      "change_rate": 1.95,
+      "price": 78500,
+      "change_rate": 1.82,
       "breakout_date": "2026-01-23",
       "resistance": 75900,
       "days_since_breakout": 0,
-      "current_vs_resistance": 103.56,
-      "ma150": 71305,
+      "current_vs_resistance": 103.43,
+      "ma150": 71304,
       "above_ma150": true,
       "market_cap": 22263,
-      "updated_at": "2026-01-23T12:23:19.893436"
+      "updated_at": "2026-01-23T12:29:07.057553"
     },
     {
       "ticker": "004700",
@@ -86,92 +72,92 @@
       "current_vs_resistance": 103.94,
       "ma150": 66586,
       "above_ma150": true,
-      "market_cap": 4900,
-      "updated_at": "2026-01-23T12:23:19.963791"
+      "market_cap": 4920,
+      "updated_at": "2026-01-23T12:29:07.130056"
     },
     {
       "ticker": "003555",
       "name": "LG우",
-      "price": 72200,
-      "change_rate": 2.85,
+      "price": 72100,
+      "change_rate": 2.71,
       "breakout_date": "2026-01-23",
       "resistance": 70000,
       "days_since_breakout": 0,
-      "current_vs_resistance": 103.14,
+      "current_vs_resistance": 103.0,
       "ma150": 64708,
       "above_ma150": true,
-      "market_cap": 2171,
-      "updated_at": "2026-01-23T12:23:20.037466"
+      "market_cap": 2168,
+      "updated_at": "2026-01-23T12:29:07.206135"
     },
     {
       "ticker": "234340",
       "name": "헥토파이낸셜",
-      "price": 19470,
-      "change_rate": 29.8,
+      "price": 19500,
+      "change_rate": 30.0,
       "breakout_date": "2026-01-23",
       "resistance": 17160,
       "days_since_breakout": 0,
-      "current_vs_resistance": 113.46,
+      "current_vs_resistance": 113.64,
       "ma150": 16619,
       "above_ma150": true,
-      "market_cap": 2717,
-      "updated_at": "2026-01-23T12:23:20.208220"
+      "market_cap": 2721,
+      "updated_at": "2026-01-23T12:29:07.380250"
     },
     {
       "ticker": "049520",
       "name": "유아이엘",
-      "price": 3670,
-      "change_rate": 5.01,
+      "price": 3690,
+      "change_rate": 5.58,
       "breakout_date": "2026-01-23",
       "resistance": 3480,
       "days_since_breakout": 0,
-      "current_vs_resistance": 105.46,
+      "current_vs_resistance": 106.03,
       "ma150": 3331,
       "above_ma150": true,
-      "market_cap": 1185,
-      "updated_at": "2026-01-23T12:23:20.326030"
+      "market_cap": 1181,
+      "updated_at": "2026-01-23T12:29:07.500341"
     },
     {
       "ticker": "064850",
       "name": "에프앤가이드",
-      "price": 9500,
-      "change_rate": 4.51,
+      "price": 9490,
+      "change_rate": 4.4,
       "breakout_date": "2026-01-23",
       "resistance": 9050,
       "days_since_breakout": 0,
-      "current_vs_resistance": 104.97,
+      "current_vs_resistance": 104.86,
       "ma150": 8437,
       "above_ma150": true,
-      "market_cap": 1083,
-      "updated_at": "2026-01-23T12:23:20.343073"
+      "market_cap": 1082,
+      "updated_at": "2026-01-23T12:29:07.517688"
     },
     {
       "ticker": "251970",
       "name": "펌텍코리아",
-      "price": 59500,
-      "change_rate": 0.0,
+      "price": 59700,
+      "change_rate": 0.34,
       "breakout_date": "2026-01-22",
       "resistance": 56500,
       "days_since_breakout": 1,
-      "current_vs_resistance": 105.31,
-      "ma150": 58426,
+      "current_vs_resistance": 105.66,
+      "ma150": 58428,
       "above_ma150": true,
-      "market_cap": 7378,
-      "updated_at": "2026-01-23T12:23:20.150802"
+      "market_cap": 7390,
+      "updated_at": "2026-01-23T12:29:07.322193"
     },
     {
       "ticker": "272290",
       "name": "이녹스첨단소재",
-      "price": 27700,
-      "change_rate": 3.17,
+      "price": 27750,
+      "change_rate": 3.35,
       "breakout_date": "2026-01-22",
       "resistance": 25750,
       "days_since_breakout": 1,
-      "current_vs_resistance": 107.57,
+      "current_vs_resistance": 107.77,
       "ma150": 24355,
       "above_ma150": true,
-      "market_cap": 5480,
-      "updated_at": "2026-01-23T12:23:20.162747"
+      "market_cap": 5519,
+      "updated_at": "2026-01-23T12:29:07.334174"
     },
     {
       "ticker": "104830",
@@ -184,36 +170,36 @@
       "current_vs_resistance": 104.67,
       "ma150": 28373,
       "above_ma150": true,
-      "market_cap": 4658,
-      "updated_at": "2026-01-23T12:23:20.168135"
+      "market_cap": 4652,
+      "updated_at": "2026-01-23T12:29:07.339471"
     },
     {
       "ticker": "019210",
       "name": "와이지-원",
-      "price": 6020,
-      "change_rate": 0.33,
+      "price": 6010,
+      "change_rate": 0.17,
       "breakout_date": "2026-01-22",
       "resistance": 5750,
       "days_since_breakout": 1,
-      "current_vs_resistance": 104.7,
+      "current_vs_resistance": 104.52,
       "ma150": 5494,
       "above_ma150": true,
-      "market_cap": 2017,
-      "updated_at": "2026-01-23T12:23:20.241965"
+      "market_cap": 2014,
+      "updated_at": "2026-01-23T12:29:07.414138"
     },
     {
       "ticker": "039560",
       "name": "다산네트웍스",
-      "price": 3635,
-      "change_rate": -3.84,
+      "price": 3640,
+      "change_rate": -3.7,
       "breakout_date": "2026-01-22",
       "resistance": 3425,
       "days_since_breakout": 1,
-      "current_vs_resistance": 106.13,
+      "current_vs_resistance": 106.28,
       "ma150": 3146,
       "above_ma150": true,
-      "market_cap": 1430,
-      "updated_at": "2026-01-23T12:23:20.290268"
+      "market_cap": 1428,
+      "updated_at": "2026-01-23T12:29:07.465500"
     },
     {
       "ticker": "030200",
@@ -226,64 +212,64 @@
       "current_vs_resistance": 100.74,
       "ma150": 52675,
       "above_ma150": true,
-      "market_cap": 137855,
-      "updated_at": "2026-01-23T12:23:19.854693"
+      "market_cap": 137603,
+      "updated_at": "2026-01-23T12:29:07.018118"
     },
     {
       "ticker": "000430",
       "name": "대원강업",
-      "price": 4400,
-      "change_rate": -0.79,
+      "price": 4395,
+      "change_rate": -0.9,
       "breakout_date": "2026-01-21",
       "resistance": 4340,
       "days_since_breakout": 2,
-      "current_vs_resistance": 101.38,
+      "current_vs_resistance": 101.27,
       "ma150": 3888,
       "above_ma150": true,
-      "market_cap": 2734,
-      "updated_at": "2026-01-23T12:23:20.010083"
+      "market_cap": 2728,
+      "updated_at": "2026-01-23T12:29:07.178181"
     },
     {
       "ticker": "016740",
       "name": "두올",
-      "price": 4230,
-      "change_rate": 3.68,
+      "price": 4210,
+      "change_rate": 3.19,
       "breakout_date": "2026-01-21",
       "resistance": 4000,
       "days_since_breakout": 2,
-      "current_vs_resistance": 105.75,
+      "current_vs_resistance": 105.25,
       "ma150": 3593,
       "above_ma150": true,
-      "market_cap": 1214,
-      "updated_at": "2026-01-23T12:23:20.099926"
+      "market_cap": 1211,
+      "updated_at": "2026-01-23T12:29:07.269493"
     },
     {
       "ticker": "264450",
       "name": "유비쿼스",
-      "price": 11330,
-      "change_rate": -7.81,
+      "price": 11350,
+      "change_rate": -7.65,
       "breakout_date": "2026-01-21",
       "resistance": 10000,
       "days_since_breakout": 2,
-      "current_vs_resistance": 113.3,
+      "current_vs_resistance": 113.5,
       "ma150": 9040,
       "above_ma150": true,
       "market_cap": 1686,
-      "updated_at": "2026-01-23T12:23:20.264204"
+      "updated_at": "2026-01-23T12:29:07.436499"
     },
     {
       "ticker": "032830",
       "name": "삼성생명",
-      "price": 183900,
-      "change_rate": 2.85,
+      "price": 185000,
+      "change_rate": 3.47,
       "breakout_date": "2026-01-20",
       "resistance": 168400,
       "days_since_breakout": 3,
-      "current_vs_resistance": 109.2,
-      "ma150": 147718,
+      "current_vs_resistance": 109.86,
+      "ma150": 147725,
       "above_ma150": true,
-      "market_cap": 367000,
-      "updated_at": "2026-01-23T12:23:19.843115"
+      "market_cap": 367600,
+      "updated_at": "2026-01-23T12:29:07.006128"
     },
     {
       "ticker": "086790",
@@ -297,63 +283,63 @@
       "ma150": 89199,
       "above_ma150": true,
       "market_cap": 280830,
-      "updated_at": "2026-01-23T12:23:19.845366"
+      "updated_at": "2026-01-23T12:29:07.008490"
     },
     {
       "ticker": "005940",
       "name": "NH투자증권",
-      "price": 24250,
-      "change_rate": 6.13,
+      "price": 24350,
+      "change_rate": 6.56,
       "breakout_date": "2026-01-20",
       "resistance": 22450,
       "days_since_breakout": 3,
-      "current_vs_resistance": 108.02,
+      "current_vs_resistance": 108.46,
       "ma150": 20573,
       "above_ma150": true,
-      "market_cap": 86057,
-      "updated_at": "2026-01-23T12:23:19.862032"
+      "market_cap": 86413,
+      "updated_at": "2026-01-23T12:29:07.024947"
     },
     {
       "ticker": "030610",
       "name": "교보증권",
-      "price": 11350,
-      "change_rate": 8.1,
+      "price": 11330,
+      "change_rate": 7.9,
       "breakout_date": "2026-01-20",
       "resistance": 9970,
       "days_since_breakout": 3,
-      "current_vs_resistance": 113.84,
+      "current_vs_resistance": 113.64,
       "ma150": 9274,
       "above_ma150": true,
-      "market_cap": 12843,
-      "updated_at": "2026-01-23T12:23:19.911974"
+      "market_cap": 12923,
+      "updated_at": "2026-01-23T12:29:07.076771"
     },
     {
       "ticker": "005945",
       "name": "NH투자증권우",
-      "price": 21550,
-      "change_rate": 4.61,
+      "price": 21500,
+      "change_rate": 4.37,
       "breakout_date": "2026-01-20",
       "resistance": 19930,
       "days_since_breakout": 3,
-      "current_vs_resistance": 108.13,
+      "current_vs_resistance": 107.88,
       "ma150": 18373,
       "above_ma150": true,
       "market_cap": 4057,
-      "updated_at": "2026-01-23T12:23:19.974697"
+      "updated_at": "2026-01-23T12:29:07.141436"
     },
     {
       "ticker": "000490",
       "name": "대동",
-      "price": 10060,
-      "change_rate": 1.41,
+      "price": 10030,
+      "change_rate": 1.11,
       "breakout_date": "2026-01-20",
       "resistance": 10170,
       "days_since_breakout": 3,
-      "current_vs_resistance": 98.92,
+      "current_vs_resistance": 98.62,
       "ma150": 9935,
       "above_ma150": true,
-      "market_cap": 2897,
-      "updated_at": "2026-01-23T12:23:20.005724"
+      "market_cap": 2888,
+      "updated_at": "2026-01-23T12:29:07.173644"
     },
     {
       "ticker": "089470",
@@ -367,21 +353,21 @@
       "ma150": 4086,
       "above_ma150": true,
       "market_cap": 1441,
-      "updated_at": "2026-01-23T12:23:20.080725"
+      "updated_at": "2026-01-23T12:29:07.250093"
     },
     {
       "ticker": "263750",
       "name": "펄어비스",
-      "price": 43650,
-      "change_rate": 1.63,
+      "price": 43600,
+      "change_rate": 1.51,
       "breakout_date": "2026-01-20",
       "resistance": 39800,
       "days_since_breakout": 3,
-      "current_vs_resistance": 109.67,
-      "ma150": 37166,
+      "current_vs_resistance": 109.55,
+      "ma150": 37165,
       "above_ma150": true,
-      "market_cap": 28012,
-      "updated_at": "2026-01-23T12:23:20.123668"
+      "market_cap": 28076,
+      "updated_at": "2026-01-23T12:29:07.295030"
     },
     {
       "ticker": "073490",
@@ -394,50 +380,50 @@
       "current_vs_resistance": 108.25,
       "ma150": 21827,
       "above_ma150": true,
-      "market_cap": 2045,
-      "updated_at": "2026-01-23T12:23:20.237772"
+      "market_cap": 2049,
+      "updated_at": "2026-01-23T12:29:07.409633"
     },
     {
       "ticker": "052330",
       "name": "코텍",
-      "price": 9450,
-      "change_rate": -0.11,
+      "price": 9480,
+      "change_rate": 0.21,
       "breakout_date": "2026-01-20",
       "resistance": 9140,
       "days_since_breakout": 3,
-      "current_vs_resistance": 103.39,
+      "current_vs_resistance": 103.72,
       "ma150": 9011,
       "above_ma150": true,
       "market_cap": 1682,
-      "updated_at": "2026-01-23T12:23:20.265019"
+      "updated_at": "2026-01-23T12:29:07.437311"
     },
     {
       "ticker": "147830",
       "name": "제룡산업",
-      "price": 7760,
-      "change_rate": -2.63,
+      "price": 7740,
+      "change_rate": -2.89,
       "breakout_date": "2026-01-20",
       "resistance": 6890,
       "days_since_breakout": 3,
-      "current_vs_resistance": 112.63,
+      "current_vs_resistance": 112.34,
       "ma150": 6419,
       "above_ma150": true,
       "market_cap": 1558,
-      "updated_at": "2026-01-23T12:23:20.278768"
+      "updated_at": "2026-01-23T12:29:07.452441"
     },
     {
       "ticker": "131030",
       "name": "옵투스제약",
-      "price": 7500,
-      "change_rate": 1.35,
+      "price": 7510,
+      "change_rate": 1.49,
       "breakout_date": "2026-01-20",
       "resistance": 7200,
       "days_since_breakout": 3,
-      "current_vs_resistance": 104.17,
+      "current_vs_resistance": 104.31,
       "ma150": 7037,
       "above_ma150": true,
-      "market_cap": 1316,
-      "updated_at": "2026-01-23T12:23:20.308474"
+      "market_cap": 1319,
+      "updated_at": "2026-01-23T12:29:07.481387"
     },
     {
       "ticker": "066570",
@@ -450,64 +436,64 @@
       "current_vs_resistance": 107.02,
       "ma150": 83508,
       "above_ma150": true,
-      "market_cap": 173962,
-      "updated_at": "2026-01-23T12:23:19.850547"
+      "market_cap": 173799,
+      "updated_at": "2026-01-23T12:29:07.013862"
     },
     {
       "ticker": "003550",
       "name": "LG",
-      "price": 92800,
-      "change_rate": 4.62,
+      "price": 93000,
+      "change_rate": 4.85,
       "breakout_date": "2026-01-19",
       "resistance": 86500,
       "days_since_breakout": 4,
-      "current_vs_resistance": 107.28,
-      "ma150": 79392,
+      "current_vs_resistance": 107.51,
+      "ma150": 79393,
       "above_ma150": true,
-      "market_cap": 143194,
-      "updated_at": "2026-01-23T12:23:19.853862"
+      "market_cap": 142963,
+      "updated_at": "2026-01-23T12:29:07.017251"
     },
     {
       "ticker": "017670",
       "name": "SK텔레콤",
-      "price": 62600,
-      "change_rate": 1.46,
+      "price": 62700,
+      "change_rate": 1.62,
       "breakout_date": "2026-01-19",
       "resistance": 54800,
       "days_since_breakout": 4,
-      "current_vs_resistance": 114.23,
-      "ma150": 54865,
+      "current_vs_resistance": 114.42,
+      "ma150": 54866,
       "above_ma150": true,
       "market_cap": 134243,
-      "updated_at": "2026-01-23T12:23:19.856091"
+      "updated_at": "2026-01-23T12:29:07.019527"
     },
     {
       "ticker": "271560",
       "name": "오리온",
-      "price": 116200,
-      "change_rate": 0.52,
+      "price": 116300,
+      "change_rate": 0.61,
       "breakout_date": "2026-01-19",
       "resistance": 107700,
       "days_since_breakout": 4,
-      "current_vs_resistance": 107.89,
-      "ma150": 107441,
+      "current_vs_resistance": 107.99,
+      "ma150": 107442,
       "above_ma150": true,
       "market_cap": 45980,
-      "updated_at": "2026-01-23T12:23:19.873067"
+      "updated_at": "2026-01-23T12:29:07.037524"
     },
     {
       "ticker": "051600",
       "name": "한전KPS",
-      "price": 57800,
-      "change_rate": 0.0,
+      "price": 57700,
+      "change_rate": -0.17,
       "breakout_date": "2026-01-19",
       "resistance": 54700,
       "days_since_breakout": 4,
-      "current_vs_resistance": 105.67,
+      "current_vs_resistance": 105.48,
       "ma150": 52382,
       "above_ma150": true,
       "market_cap": 26010,
-      "updated_at": "2026-01-23T12:23:19.886803"
+      "updated_at": "2026-01-23T12:29:07.050877"
     },
     {
       "ticker": "330590",
@@ -520,106 +506,106 @@
       "current_vs_resistance": 103.98,
       "ma150": 3922,
       "above_ma150": true,
-      "market_cap": 12483,
-      "updated_at": "2026-01-23T12:23:19.913372"
+      "market_cap": 12474,
+      "updated_at": "2026-01-23T12:29:07.078314"
     },
     {
       "ticker": "286940",
       "name": "롯데이노베이트",
-      "price": 21300,
-      "change_rate": 0.71,
+      "price": 21100,
+      "change_rate": -0.24,
       "breakout_date": "2026-01-19",
       "resistance": 21250,
       "days_since_breakout": 4,
-      "current_vs_resistance": 100.24,
-      "ma150": 21263,
-      "above_ma150": true,
-      "market_cap": 3214,
-      "updated_at": "2026-01-23T12:23:19.995002"
+      "current_vs_resistance": 99.29,
+      "ma150": 21262,
+      "above_ma150": false,
+      "market_cap": 3222,
+      "updated_at": "2026-01-23T12:29:07.162555"
     },
     {
       "ticker": "058430",
       "name": "포스코스틸리온",
-      "price": 40850,
-      "change_rate": -0.12,
+      "price": 40750,
+      "change_rate": -0.37,
       "breakout_date": "2026-01-19",
       "resistance": 40450,
       "days_since_breakout": 4,
-      "current_vs_resistance": 100.99,
-      "ma150": 39012,
+      "current_vs_resistance": 100.74,
+      "ma150": 39011,
       "above_ma150": true,
-      "market_cap": 2448,
-      "updated_at": "2026-01-23T12:23:20.020783"
+      "market_cap": 2451,
+      "updated_at": "2026-01-23T12:29:07.189246"
     },
     {
       "ticker": "004560",
       "name": "현대비앤지스틸",
-      "price": 12470,
-      "change_rate": -1.19,
+      "price": 12440,
+      "change_rate": -1.43,
       "breakout_date": "2026-01-19",
       "resistance": 12130,
       "days_since_breakout": 4,
-      "current_vs_resistance": 102.8,
+      "current_vs_resistance": 102.56,
       "ma150": 11702,
       "above_ma150": true,
-      "market_cap": 1881,
-      "updated_at": "2026-01-23T12:23:20.052196"
+      "market_cap": 1877,
+      "updated_at": "2026-01-23T12:29:07.221759"
     },
     {
       "ticker": "006910",
       "name": "보성파워텍",
-      "price": 8110,
-      "change_rate": 3.18,
+      "price": 8130,
+      "change_rate": 3.44,
       "breakout_date": "2026-01-19",
       "resistance": 5820,
       "days_since_breakout": 4,
-      "current_vs_resistance": 139.35,
+      "current_vs_resistance": 139.69,
       "ma150": 4562,
       "above_ma150": true,
-      "market_cap": 4048,
-      "updated_at": "2026-01-23T12:23:20.177077"
+      "market_cap": 4023,
+      "updated_at": "2026-01-23T12:29:07.348892"
     },
     {
       "ticker": "043370",
       "name": "피에이치에이",
-      "price": 11860,
-      "change_rate": -1.74,
+      "price": 11840,
+      "change_rate": -1.91,
       "breakout_date": "2026-01-19",
       "resistance": 12290,
       "days_since_breakout": 4,
-      "current_vs_resistance": 96.5,
+      "current_vs_resistance": 96.34,
       "ma150": 11353,
       "above_ma150": true,
-      "market_cap": 2490,
-      "updated_at": "2026-01-23T12:23:20.218739"
+      "market_cap": 2492,
+      "updated_at": "2026-01-23T12:29:07.390830"
     },
     {
       "ticker": "336680",
       "name": "탑런토탈솔루션",
-      "price": 4370,
-      "change_rate": -0.68,
+      "price": 4385,
+      "change_rate": -0.34,
       "breakout_date": "2026-01-19",
       "resistance": 4455,
       "days_since_breakout": 4,
-      "current_vs_resistance": 98.09,
+      "current_vs_resistance": 98.43,
       "ma150": 4151,
       "above_ma150": true,
       "market_cap": 1714,
-      "updated_at": "2026-01-23T12:23:20.261484"
+      "updated_at": "2026-01-23T12:29:07.433380"
     },
     {
       "ticker": "024880",
       "name": "케이피에프",
-      "price": 5950,
-      "change_rate": -1.16,
+      "price": 5935,
+      "change_rate": -1.41,
       "breakout_date": "2026-01-19",
       "resistance": 5650,
       "days_since_breakout": 4,
-      "current_vs_resistance": 105.31,
+      "current_vs_resistance": 105.04,
       "ma150": 5217,
       "above_ma150": true,
-      "market_cap": 1196,
-      "updated_at": "2026-01-23T12:23:20.323027"
+      "market_cap": 1190,
+      "updated_at": "2026-01-23T12:29:07.497929"
     },
     {
       "ticker": "003490",
@@ -632,8 +618,8 @@
       "current_vs_resistance": 104.13,
       "ma150": 23123,
       "above_ma150": true,
-      "market_cap": 88188,
-      "updated_at": "2026-01-23T12:23:19.860201"
+      "market_cap": 88004,
+      "updated_at": "2026-01-23T12:29:07.023733"
     },
     {
       "ticker": "047040",
@@ -647,7 +633,7 @@
       "ma150": 3834,
       "above_ma150": true,
       "market_cap": 21487,
-      "updated_at": "2026-01-23T12:23:19.895195"
+      "updated_at": "2026-01-23T12:29:07.059567"
     },
     {
       "ticker": "282330",
@@ -661,49 +647,49 @@
       "ma150": 112688,
       "above_ma150": true,
       "market_cap": 20308,
-      "updated_at": "2026-01-23T12:23:19.896893"
+      "updated_at": "2026-01-23T12:29:07.061309"
     },
     {
       "ticker": "007860",
       "name": "서연",
-      "price": 10880,
-      "change_rate": 2.35,
+      "price": 10940,
+      "change_rate": 2.92,
       "breakout_date": "2026-01-16",
       "resistance": 10250,
       "days_since_breakout": 5,
-      "current_vs_resistance": 106.15,
+      "current_vs_resistance": 106.73,
       "ma150": 9721,
       "above_ma150": true,
-      "market_cap": 2563,
-      "updated_at": "2026-01-23T12:23:20.015606"
+      "market_cap": 2559,
+      "updated_at": "2026-01-23T12:29:07.183765"
     },
     {
       "ticker": "122990",
       "name": "와이솔",
-      "price": 6170,
-      "change_rate": -0.96,
+      "price": 6180,
+      "change_rate": -0.8,
       "breakout_date": "2026-01-16",
       "resistance": 5930,
       "days_since_breakout": 5,
-      "current_vs_resistance": 104.05,
+      "current_vs_resistance": 104.22,
       "ma150": 5972,
       "above_ma150": true,
-      "market_cap": 1643,
-      "updated_at": "2026-01-23T12:23:20.266791"
+      "market_cap": 1640,
+      "updated_at": "2026-01-23T12:29:07.439539"
     },
     {
       "ticker": "067900",
       "name": "와이엔텍",
-      "price": 6480,
-      "change_rate": 1.25,
+      "price": 6490,
+      "change_rate": 1.41,
       "breakout_date": "2026-01-16",
       "resistance": 6900,
       "days_since_breakout": 5,
-      "current_vs_resistance": 93.91,
+      "current_vs_resistance": 94.06,
       "ma150": 6572,
       "above_ma150": false,
       "market_cap": 1164,
-      "updated_at": "2026-01-23T12:23:20.329759"
+      "updated_at": "2026-01-23T12:29:07.503358"
     },
     {
       "ticker": "298020",
@@ -716,22 +702,22 @@
       "current_vs_resistance": 153.99,
       "ma150": 233233,
       "above_ma150": true,
-      "market_cap": 15709,
-      "updated_at": "2026-01-23T12:23:19.904883"
+      "market_cap": 15687,
+      "updated_at": "2026-01-23T12:29:07.069880"
     },
     {
       "ticker": "001120",
       "name": "LX인터내셔널",
-      "price": 36050,
-      "change_rate": 0.56,
+      "price": 36300,
+      "change_rate": 1.26,
       "breakout_date": "2026-01-15",
       "resistance": 34400,
       "days_since_breakout": 6,
-      "current_vs_resistance": 104.8,
-      "ma150": 31513,
+      "current_vs_resistance": 105.52,
+      "ma150": 31515,
       "above_ma150": true,
-      "market_cap": 14050,
-      "updated_at": "2026-01-23T12:23:19.908028"
+      "market_cap": 14031,
+      "updated_at": "2026-01-23T12:29:07.072721"
     },
     {
       "ticker": "009520",
@@ -744,36 +730,36 @@
       "current_vs_resistance": 110.8,
       "ma150": 14477,
       "above_ma150": true,
-      "market_cap": 7762,
-      "updated_at": "2026-01-23T12:23:20.146993"
+      "market_cap": 7787,
+      "updated_at": "2026-01-23T12:29:07.318326"
     },
     {
       "ticker": "347890",
       "name": "엠투아이",
-      "price": 6990,
-      "change_rate": 1.75,
+      "price": 6970,
+      "change_rate": 1.46,
       "breakout_date": "2026-01-15",
       "resistance": 6870,
       "days_since_breakout": 6,
-      "current_vs_resistance": 101.75,
+      "current_vs_resistance": 101.46,
       "ma150": 6161,
       "above_ma150": true,
       "market_cap": 1178,
-      "updated_at": "2026-01-23T12:23:20.327350"
+      "updated_at": "2026-01-23T12:29:07.501731"
     },
     {
       "ticker": "207940",
       "name": "삼성바이오로직스",
-      "price": 1802000,
-      "change_rate": 1.35,
+      "price": 1799000,
+      "change_rate": 1.18,
       "breakout_date": "2026-01-14",
       "resistance": 1885000,
       "days_since_breakout": 7,
-      "current_vs_resistance": 95.6,
-      "ma150": 1626650,
+      "current_vs_resistance": 95.44,
+      "ma150": 1626630,
       "above_ma150": true,
-      "market_cap": 832774,
-      "updated_at": "2026-01-23T12:23:19.838754"
+      "market_cap": 833700,
+      "updated_at": "2026-01-23T12:29:07.001645"
     },
     {
       "ticker": "001680",
@@ -787,49 +773,49 @@
       "ma150": 22018,
       "above_ma150": true,
       "market_cap": 7639,
-      "updated_at": "2026-01-23T12:23:19.932728"
+      "updated_at": "2026-01-23T12:29:07.098368"
     },
     {
       "ticker": "025540",
       "name": "한국단자",
-      "price": 75100,
-      "change_rate": -1.7,
+      "price": 75200,
+      "change_rate": -1.57,
       "breakout_date": "2026-01-14",
       "resistance": 70400,
       "days_since_breakout": 7,
-      "current_vs_resistance": 106.68,
-      "ma150": 64553,
+      "current_vs_resistance": 106.82,
+      "ma150": 64554,
       "above_ma150": true,
-      "market_cap": 7586,
-      "updated_at": "2026-01-23T12:23:19.933646"
+      "market_cap": 7596,
+      "updated_at": "2026-01-23T12:29:07.099314"
     },
     {
       "ticker": "456040",
       "name": "OCI",
-      "price": 72000,
-      "change_rate": 1.55,
+      "price": 72100,
+      "change_rate": 1.69,
       "breakout_date": "2026-01-14",
       "resistance": 63100,
       "days_since_breakout": 7,
-      "current_vs_resistance": 114.1,
+      "current_vs_resistance": 114.26,
       "ma150": 58708,
       "above_ma150": true,
       "market_cap": 6445,
-      "updated_at": "2026-01-23T12:23:19.945433"
+      "updated_at": "2026-01-23T12:29:07.111668"
     },
     {
       "ticker": "126720",
       "name": "수산인더스트리",
-      "price": 25650,
-      "change_rate": -1.91,
+      "price": 25700,
+      "change_rate": -1.72,
       "breakout_date": "2026-01-14",
       "resistance": 22550,
       "days_since_breakout": 7,
-      "current_vs_resistance": 113.75,
+      "current_vs_resistance": 113.97,
       "ma150": 22730,
       "above_ma150": true,
-      "market_cap": 3678,
-      "updated_at": "2026-01-23T12:23:19.980309"
+      "market_cap": 3664,
+      "updated_at": "2026-01-23T12:29:07.147412"
     },
     {
       "ticker": "02826K",
@@ -842,8 +828,8 @@
       "current_vs_resistance": 121.06,
       "ma150": 134289,
       "above_ma150": true,
-      "market_cap": 2792,
-      "updated_at": "2026-01-23T12:23:20.008861"
+      "market_cap": 2789,
+      "updated_at": "2026-01-23T12:29:07.176685"
     },
     {
       "ticker": "047310",
@@ -857,21 +843,21 @@
       "ma150": 4432,
       "above_ma150": true,
       "market_cap": 2284,
-      "updated_at": "2026-01-23T12:23:20.228380"
+      "updated_at": "2026-01-23T12:29:07.400667"
     },
     {
       "ticker": "005490",
       "name": "POSCO홀딩스",
-      "price": 367000,
-      "change_rate": 2.09,
+      "price": 366000,
+      "change_rate": 1.81,
       "breakout_date": "2026-01-13",
       "resistance": 327000,
       "days_since_breakout": 8,
-      "current_vs_resistance": 112.23,
-      "ma150": 302503,
+      "current_vs_resistance": 111.93,
+      "ma150": 302496,
       "above_ma150": true,
-      "market_cap": 297023,
-      "updated_at": "2026-01-23T12:23:19.844548"
+      "market_cap": 296214,
+      "updated_at": "2026-01-23T12:29:07.007615"
     },
     {
       "ticker": "019440",
@@ -885,7 +871,7 @@
       "ma150": 15828,
       "above_ma150": true,
       "market_cap": 1617,
-      "updated_at": "2026-01-23T12:23:20.065558"
+      "updated_at": "2026-01-23T12:29:07.234607"
     },
     {
       "ticker": "011780",
@@ -898,8 +884,8 @@
       "current_vs_resistance": 116.3,
       "ma150": 117155,
       "above_ma150": true,
-      "market_cap": 38162,
-      "updated_at": "2026-01-23T12:23:19.877683"
+      "market_cap": 38188,
+      "updated_at": "2026-01-23T12:29:07.041579"
     },
     {
       "ticker": "011785",
@@ -913,35 +899,35 @@
       "ma150": 60616,
       "above_ma150": true,
       "market_cap": 2179,
-      "updated_at": "2026-01-23T12:23:20.035101"
+      "updated_at": "2026-01-23T12:29:07.203192"
     },
     {
       "ticker": "023800",
       "name": "인지컨트롤스",
-      "price": 7220,
-      "change_rate": -2.3,
+      "price": 7200,
+      "change_rate": -2.57,
       "breakout_date": "2026-01-12",
       "resistance": 6590,
       "days_since_breakout": 9,
-      "current_vs_resistance": 109.56,
+      "current_vs_resistance": 109.26,
       "ma150": 6094,
       "above_ma150": true,
       "market_cap": 1138,
-      "updated_at": "2026-01-23T12:23:20.106651"
+      "updated_at": "2026-01-23T12:29:07.276910"
     },
     {
       "ticker": "024060",
       "name": "흥구석유",
-      "price": 12250,
-      "change_rate": 0.25,
+      "price": 12330,
+      "change_rate": 0.9,
       "breakout_date": "2026-01-12",
       "resistance": 12820,
       "days_since_breakout": 9,
-      "current_vs_resistance": 95.55,
-      "ma150": 12582,
+      "current_vs_resistance": 96.18,
+      "ma150": 12583,
       "above_ma150": false,
-      "market_cap": 1840,
-      "updated_at": "2026-01-23T12:23:20.253794"
+      "market_cap": 1842,
+      "updated_at": "2026-01-23T12:29:07.426233"
     },
     {
       "ticker": "119830",
@@ -954,8 +940,8 @@
       "current_vs_resistance": 103.08,
       "ma150": 5963,
       "above_ma150": true,
-      "market_cap": 1469,
-      "updated_at": "2026-01-23T12:23:20.287315"
+      "market_cap": 1483,
+      "updated_at": "2026-01-23T12:29:07.458503"
     }
   ]
 }
