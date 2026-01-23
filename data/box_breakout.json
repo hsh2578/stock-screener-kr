@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-01-23T21:59:42.115640",
-    "totalCount": 5,
+    "lastUpdated": "2026-01-23T22:08:08.700130",
+    "totalCount": 9,
     "screened_from": 1524
   },
   "data": [
@@ -16,7 +16,7 @@
       "ma150": 16619,
       "above_ma150": true,
       "market_cap": 2724,
-      "updated_at": "2026-01-23T21:59:41.816708"
+      "updated_at": "2026-01-23T22:08:08.385887"
     },
     {
       "ticker": "009520",
@@ -29,7 +29,33 @@
       "ma150": 14477,
       "above_ma150": true,
       "market_cap": 7795,
-      "updated_at": "2026-01-23T21:59:41.667289"
+      "updated_at": "2026-01-23T22:08:08.234138"
+    },
+    {
+      "ticker": "126720",
+      "name": "수산인더스트리",
+      "price": 26050,
+      "change_rate": -0.38,
+      "breakout_date": "2026-01-14",
+      "breakout_price": 22550,
+      "volume_ratio": 5.1,
+      "ma150": 22732,
+      "above_ma150": true,
+      "market_cap": 3721,
+      "updated_at": "2026-01-23T22:08:07.938395"
+    },
+    {
+      "ticker": "017670",
+      "name": "SK텔레콤",
+      "price": 62700,
+      "change_rate": 1.62,
+      "breakout_date": "2026-01-19",
+      "breakout_price": 54800,
+      "volume_ratio": 4.6,
+      "ma150": 54866,
+      "above_ma150": true,
+      "market_cap": 134673,
+      "updated_at": "2026-01-23T22:08:07.717932"
     },
     {
       "ticker": "006910",
@@ -42,7 +68,20 @@
       "ma150": 4560,
       "above_ma150": true,
       "market_cap": 3812,
-      "updated_at": "2026-01-23T21:59:41.749830"
+      "updated_at": "2026-01-23T22:08:08.317860"
+    },
+    {
+      "ticker": "000490",
+      "name": "대동",
+      "price": 10190,
+      "change_rate": 2.72,
+      "breakout_date": "2026-01-20",
+      "breakout_price": 10170,
+      "volume_ratio": 4.3,
+      "ma150": 9936,
+      "above_ma150": true,
+      "market_cap": 2937,
+      "updated_at": "2026-01-23T22:08:07.979235"
     },
     {
       "ticker": "251970",
@@ -55,7 +94,20 @@
       "ma150": 58428,
       "above_ma150": true,
       "market_cap": 7402,
-      "updated_at": "2026-01-23T21:59:41.676279"
+      "updated_at": "2026-01-23T22:08:08.242880"
+    },
+    {
+      "ticker": "241710",
+      "name": "코스메카코리아",
+      "price": 81100,
+      "change_rate": -0.12,
+      "breakout_date": "2026-01-22",
+      "breakout_price": 76900,
+      "volume_ratio": 3.3,
+      "ma150": 66784,
+      "above_ma150": true,
+      "market_cap": 8661,
+      "updated_at": "2026-01-23T22:08:08.224470"
     },
     {
       "ticker": "030610",
@@ -68,7 +120,7 @@
       "ma150": 9274,
       "above_ma150": true,
       "market_cap": 12957,
-      "updated_at": "2026-01-23T21:59:41.286804"
+      "updated_at": "2026-01-23T22:08:07.821308"
     }
   ]
 }
