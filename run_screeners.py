@@ -772,9 +772,9 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
         if df is None or len(df) < 160:
             continue
 
-        # 이전 박스권 확인 (70~10일 전 구간, period=60)
-        box_period_df = df.iloc[-(BOX_PERIOD+10):-10].copy()
-        if len(box_period_df) < BOX_PERIOD:
+        # 이전 박스권 확인 (130~10일 전 데이터, 마지막 60일을 박스로 분석)
+        box_period_df = df.iloc[-(BOX_PERIOD*2+10):-10].copy()
+        if len(box_period_df) < BOX_PERIOD + 1:
             continue
 
         # 박스권이었는지 체크 (전체 조건 적용)
@@ -894,12 +894,12 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
             continue
 
         df = get_ohlcv(ticker, 200)
-        if df is None or len(df) < BOX_PERIOD + 10:
+        if df is None or len(df) < BOX_PERIOD * 2 + 10:
             continue
 
-        # 이전 박스권 구간 (70~10일 전, period=60)
-        box_period_df = df.iloc[-(BOX_PERIOD+10):-10].copy()
-        if len(box_period_df) < BOX_PERIOD:
+        # 이전 박스권 구간 (130~10일 전 데이터, 마지막 60일을 박스로 분석)
+        box_period_df = df.iloc[-(BOX_PERIOD*2+10):-10].copy()
+        if len(box_period_df) < BOX_PERIOD + 1:
             continue
 
         # 박스권이었는지 체크 (전체 조건 적용)
@@ -997,9 +997,9 @@ def screen_pullback(stocks: pd.DataFrame) -> List[Dict]:
         if df is None or len(df) < 160:
             continue
 
-        # 박스권 구간 확인 (80~20일 전, period=60)
-        box_period_df = df.iloc[-(BOX_PERIOD+20):-20].copy()
-        if len(box_period_df) < BOX_PERIOD:
+        # 박스권 구간 확인 (140~20일 전 데이터, 마지막 60일을 박스로 분석)
+        box_period_df = df.iloc[-(BOX_PERIOD*2+20):-20].copy()
+        if len(box_period_df) < BOX_PERIOD + 1:
             continue
 
         # 박스권이었는지 체크 (전체 조건 적용)
