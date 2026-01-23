@@ -1342,21 +1342,29 @@ def generate_chart_data(all_results: List[List[Dict]]) -> None:
 
     chart_data = {}
     for ticker, name in tickers:
-        df = get_ohlcv(ticker, 200)
-        if df is None or len(df) < 10:
-            continue
+        try:
+            df = get_ohlcv(ticker, 200)
+            if df is None or len(df) < 10:
+                continue
 
-        data = []
-        for idx, row in df.iterrows():
-            data.append({
-                'date': idx.strftime('%Y-%m-%d'),
-                'open': int(row['Open']),
-                'high': int(row['High']),
-                'low': int(row['Low']),
-                'close': int(row['Close']),
-                'volume': int(row['Volume'])
-            })
-        chart_data[ticker] = data
+            # NaN 값이 있는 행 제거
+            df = df.dropna(subset=['Open', 'High', 'Low', 'Close', 'Volume'])
+            if len(df) < 10:
+                continue
+
+            data = []
+            for idx, row in df.iterrows():
+                data.append({
+                    'date': idx.strftime('%Y-%m-%d'),
+                    'open': int(row['Open']),
+                    'high': int(row['High']),
+                    'low': int(row['Low']),
+                    'close': int(row['Close']),
+                    'volume': int(row['Volume'])
+                })
+            chart_data[ticker] = data
+        except Exception:
+            continue
 
     filepath = os.path.join(DATA_PATH, 'chart_data.json')
     with open(filepath, 'w', encoding='utf-8') as f:

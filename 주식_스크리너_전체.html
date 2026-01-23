@@ -1452,22 +1452,21 @@
 
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            document.getElementById('chart-loading').style.display = 'block';
 
-            // Load and render chart
-            const chartData = await loadChartData();
-            const stockData = chartData ? chartData[stock.ticker] : null;
+            const container = document.getElementById('chart-container');
+            container.innerHTML = '<div class="chart-loading">차트 로딩 중...</div>';
 
             if (chartInstance) {
                 chartInstance.remove();
                 chartInstance = null;
             }
 
-            const container = document.getElementById('chart-container');
-            document.getElementById('chart-loading').style.display = 'none';
+            // Load and render chart
+            const chartData = await loadChartData();
+            const stockData = chartData ? chartData[stock.ticker] : null;
 
             if (!stockData || stockData.length === 0) {
-                container.innerHTML = '<div class="chart-loading">차트 데이터가 없습니다<br><small style="margin-top:8px;display:block;color:#8B95A1">chart_data.json 파일이 같은 폴더에 있어야 합니다</small></div>';
+                container.innerHTML = '<div class="chart-loading">차트 데이터가 없습니다<br><small style="margin-top:8px;display:block;color:#8B95A1">해당 종목의 과거 데이터를 불러올 수 없습니다</small></div>';
                 return;
             }
 
