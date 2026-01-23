@@ -152,11 +152,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: 📥 저장소 체크아웃
+      - name: 📥 저장소 체크아웃 (최신 데이터 포함)
         uses: actions/checkout@v4
         with:
-          # 최신 데이터 반영을 위해 새로 체크아웃
-          ref: ${{ github.ref }}
+          ref: main
 
       - name: 📁 배포 디렉토리 준비
         run: |
