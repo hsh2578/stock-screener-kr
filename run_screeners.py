@@ -3,9 +3,9 @@
 FinanceDataReader를 사용하여 정교한 조건으로 종목을 발굴합니다.
 
 스크리너 목록:
-    1. 박스권 횡보: 60거래일 이상 진짜 횡보 중인 종목 (7가지 조건 충족)
-    2. 박스권 돌파 (거래량 동반): 박스권 돌파 + 2배 거래량 + 150일선 위
-    3. 박스권 돌파 (거래량 무관): 저항선 돌파 후 10일 이내
+    1. 박스권 횡보: 60거래일 이상 횡보 (ATR×4, 적응적 터치, 거래량 10%↓)
+    2. 박스권 돌파 (거래량 동반): 완전한 박스권 조건 + 돌파 + 2배 거래량 + 150일선 위
+    3. 박스권 돌파 (거래량 무관): 완전한 박스권 조건 + 저항선 돌파 후 10일 이내
     4. 풀백: 돌파 후 저항선으로 되돌아온 종목
     5. 거래량 폭발: 당일 거래량 6배 이상
     6. 거래량 급감: 급등 후 거래량 고갈 종목
@@ -36,14 +36,16 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.path.join(SCRIPT_DIR, 'data')
 
 # 박스권 스크리너 설정
-BOX_PERIOD = 60  # 박스권 판단 기간 (약 3개월)
+BOX_PERIOD = 60  # 박스권 판단 기간 (약 3개월, 전체 스크리너 공통)
 MIN_MARKET_CAP = 1000  # 최소 시가총액 (억원)
-MAX_BOX_RANGE_PERCENT = 20.0  # 최대 허용 변동폭 (%)
-ATR_MULTIPLE_MAX = 6  # ATR 배수 최대
+MAX_BOX_RANGE_PERCENT = 25.0  # 최대 허용 변동폭 (%)
+ATR_PERIOD = 20  # ATR 계산 기간 (최근 변동성 반영)
+ATR_MULTIPLE_MAX = 4  # ATR 배수 최대
+ATR_TOUCH_MULTIPLE = 1.5  # ATR 기반 터치 허용범위 배수
 PIVOT_WINDOW = 5  # 피벗 포인트 검출 윈도우
-TOUCH_TOLERANCE = 0.03  # 터치 판정 허용 오차 (3%)
 MIN_TOUCHES = 2  # 최소 터치 횟수
 MAX_SLOPE_PERCENT = 0.05  # 최대 일평균 기울기 (%)
+VOLUME_DECREASE_THRESHOLD = 0.9  # 거래량 감소 임계값 (후반 < 전반 × 0.9)
 
 # ============================================================================
 # 유틸리티 함수
@@ -229,23 +231,23 @@ def calculate_linear_slope(prices: np.ndarray) -> float:
     return slope_percent
 
 
-def check_volume_decrease(volumes: np.ndarray, period: int = 60) -> Tuple[bool, float]:
+def check_volume_decrease(volumes: np.ndarray, period: int = 60, threshold: float = 0.9) -> Tuple[bool, float]:
     """
     거래량 감소 여부를 확인합니다.
 
-    전반부(30일) vs 후반부(30일) 평균 거래량을 비교합니다.
-    거래량이 줄어들면 매물 소화 중으로 판단합니다.
+    전반부 vs 후반부 평균 거래량을 비교합니다.
+    후반부가 전반부 × threshold 미만이면 감소로 판단합니다.
 
     Args:
         volumes: 거래량 배열
         period: 분석 기간 (기본 60일)
+        threshold: 감소 임계값 (기본 0.9 = 10% 이상 감소 필요)
 
     Returns:
         (감소 여부, 감소율 %)
-        True: 후반부 거래량 < 전반부 거래량
 
     Example:
-        >>> is_decreasing, rate = check_volume_decrease(volumes, 60)
+        >>> is_decreasing, rate = check_volume_decrease(volumes, 60, 0.9)
         >>> if is_decreasing:
         ...     print(f"거래량 {rate:.1f}% 감소")
     """
@@ -261,14 +263,14 @@ def check_volume_decrease(volumes: np.ndarray, period: int = 60) -> Tuple[bool, 
     if first_half_avg <= 0:
         return False, 0.0
 
-    # 거래량 감소 확인
-    is_decreasing = second_half_avg < first_half_avg
+    # 거래량 감소 확인: 후반부 < 전반부 × threshold
+    is_decreasing = second_half_avg < first_half_avg * threshold
     decrease_rate = ((first_half_avg - second_half_avg) / first_half_avg) * 100
 
     return is_decreasing, decrease_rate
 
 
-def calculate_actual_box_days(df: pd.DataFrame, box_high: float, box_low: float, min_period: int = 60) -> int:
+def calculate_actual_box_days(df: pd.DataFrame, box_high: float, box_low: float, min_period: int = 60, tolerance: float = 0.03) -> int:
     """
     실제 박스권 기간을 계산합니다.
 
@@ -280,6 +282,7 @@ def calculate_actual_box_days(df: pd.DataFrame, box_high: float, box_low: float,
         box_high: 박스 상단 가격
         box_low: 박스 하단 가격
         min_period: 최소 박스 기간 (기본 60일)
+        tolerance: 박스 범위 확장 허용 오차 (ATR 기반)
 
     Returns:
         실제 박스권 기간 (일)
@@ -288,7 +291,6 @@ def calculate_actual_box_days(df: pd.DataFrame, box_high: float, box_low: float,
         return min_period
 
     close_prices = df['Close'].values
-    tolerance = 0.03  # 박스 범위를 3% 확장하여 판단
 
     extended_high = box_high * (1 + tolerance)
     extended_low = box_low * (1 - tolerance)
@@ -314,13 +316,13 @@ def is_box_range(df: pd.DataFrame, period: int = 60) -> Tuple[bool, Dict[str, An
     박스권 여부를 7가지 조건으로 판단합니다.
 
     조건:
-        ① 데이터 검증: 60일 데이터 온전함 (NaN 없음)
-        ② 박스 기간: 60 거래일 이상
-        ③ 변동폭: 박스 범위 ≤ ATR(60) × 6 AND 박스 범위 ≤ 20%
-        ④ 저점 터치: 박스 하단 ±3% 영역에 로컬 저점 2개 이상
-        ⑤ 고점 터치: 박스 상단 ±3% 영역에 로컬 고점 2개 이상
+        ① 데이터 검증: period일 데이터 온전함 (NaN 없음)
+        ② 박스 기간: period 거래일 이상
+        ③ 변동폭: 박스 범위 ≤ ATR(20) × 4 AND 박스 범위 ≤ 25%
+        ④ 저점 터치: 박스 하단 ±ATR×1.5 영역에 로컬 저점 2개 이상
+        ⑤ 고점 터치: 박스 상단 ±ATR×1.5 영역에 로컬 고점 2개 이상
         ⑥ 추세 필터: |선형회귀 기울기| ≤ 0.05% (일평균)
-        ⑦ 거래량 감소: 후반 30일 평균 < 전반 30일 평균
+        ⑦ 거래량 감소: 후반부 평균 < 전반부 평균 × 0.9
 
     Args:
         df: OHLCV 데이터프레임
@@ -377,14 +379,14 @@ def is_box_range(df: pd.DataFrame, period: int = 60) -> Tuple[bool, Dict[str, An
     result_data['box_low'] = int(box_low)
     result_data['range_percent'] = round(range_percent, 2)
 
-    # ③ ATR 기반 변동폭 검사
-    atr = calculate_atr(df, period)
+    # ③ ATR 기반 변동폭 검사 (ATR(20) 사용 - 최근 변동성 반영)
+    atr = calculate_atr(df, ATR_PERIOD)
     atr_multiple = range_percent / (atr * 100) if atr > 0 else float('inf')
 
     result_data['atr'] = round(atr * 100, 2)  # % 단위
     result_data['atr_multiple'] = round(atr_multiple, 2)
 
-    # 조건: 박스 범위 ≤ ATR × 6 AND 박스 범위 ≤ 20%
+    # 조건: 박스 범위 ≤ ATR(20) × 4 AND 박스 범위 ≤ 25%
     if range_percent > MAX_BOX_RANGE_PERCENT:
         result_data['failed_reason'] = 'range_too_wide'
         return False, result_data
@@ -393,9 +395,12 @@ def is_box_range(df: pd.DataFrame, period: int = 60) -> Tuple[bool, Dict[str, An
         result_data['failed_reason'] = 'atr_multiple_exceeded'
         return False, result_data
 
+    # 적응적 터치 허용범위: ATR × 1.5 (저변동 종목은 좁게, 고변동 종목은 넓게)
+    touch_tolerance = atr * ATR_TOUCH_MULTIPLE
+
     # ④ 저점 터치 확인
     pivot_lows = find_pivot_lows(close_prices, PIVOT_WINDOW)
-    support_touches = count_touches_near_level(pivot_lows, box_low, TOUCH_TOLERANCE)
+    support_touches = count_touches_near_level(pivot_lows, box_low, touch_tolerance)
     result_data['support_touches'] = support_touches
 
     if support_touches < MIN_TOUCHES:
@@ -404,7 +409,7 @@ def is_box_range(df: pd.DataFrame, period: int = 60) -> Tuple[bool, Dict[str, An
 
     # ⑤ 고점 터치 확인
     pivot_highs = find_pivot_highs(close_prices, PIVOT_WINDOW)
-    resistance_touches = count_touches_near_level(pivot_highs, box_high, TOUCH_TOLERANCE)
+    resistance_touches = count_touches_near_level(pivot_highs, box_high, touch_tolerance)
     result_data['resistance_touches'] = resistance_touches
 
     if resistance_touches < MIN_TOUCHES:
@@ -419,8 +424,8 @@ def is_box_range(df: pd.DataFrame, period: int = 60) -> Tuple[bool, Dict[str, An
         result_data['failed_reason'] = 'trending'
         return False, result_data
 
-    # ⑦ 거래량 감소 확인
-    is_vol_decreasing, vol_decrease_rate = check_volume_decrease(volumes, period)
+    # ⑦ 거래량 감소 확인 (후반부 < 전반부 × 0.9)
+    is_vol_decreasing, vol_decrease_rate = check_volume_decrease(volumes, period, VOLUME_DECREASE_THRESHOLD)
     result_data['volume_decrease_rate'] = round(vol_decrease_rate, 2)
 
     if not is_vol_decreasing:
@@ -432,7 +437,7 @@ def is_box_range(df: pd.DataFrame, period: int = 60) -> Tuple[bool, Dict[str, An
     result_data['failed_reason'] = ''
 
     # 실제 횡보 기간 계산 (60일 이상일 수 있음)
-    actual_days = calculate_actual_box_days(df, box_high, box_low, period)
+    actual_days = calculate_actual_box_days(df, box_high, box_low, period, touch_tolerance)
     result_data['actual_days'] = actual_days
 
     return True, result_data
@@ -582,11 +587,11 @@ def screen_box_range(stocks: pd.DataFrame) -> List[Dict]:
     7가지 조건을 모두 충족해야 합니다:
         ① 시가총액 1,000억 원 이상
         ② 60일 데이터 검증 (NaN 없음)
-        ③ 변동폭 ≤ ATR(60) × 6 AND ≤ 20%
-        ④ 저점 터치 2회 이상 (지지선 확인)
-        ⑤ 고점 터치 2회 이상 (저항선 확인)
+        ③ 변동폭 ≤ ATR(20) × 4 AND ≤ 25%
+        ④ 저점 터치 2회 이상 (±ATR×1.5 적응적 허용범위)
+        ⑤ 고점 터치 2회 이상 (±ATR×1.5 적응적 허용범위)
         ⑥ 추세 필터: |기울기| ≤ 0.05%
-        ⑦ 거래량 감소 패턴
+        ⑦ 거래량 감소: 후반 30일 < 전반 30일 × 0.9
 
     Args:
         stocks: 종목 리스트 DataFrame
@@ -767,22 +772,18 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
         if df is None or len(df) < 160:
             continue
 
-        # 이전 박스권 확인 (60~10일 전 구간)
+        # 이전 박스권 확인 (70~10일 전 구간, period=60)
         box_period_df = df.iloc[-(BOX_PERIOD+10):-10].copy()
         if len(box_period_df) < BOX_PERIOD:
             continue
 
-        # 박스권이었는지 체크 (간소화: 변동폭 20% 이내)
-        box_close = box_period_df['Close']
-        box_high = float(box_close.max())
-        box_low = float(box_close.min())
-
-        if box_low <= 0:
+        # 박스권이었는지 체크 (전체 조건 적용)
+        is_box, box_data = is_box_range(box_period_df, BOX_PERIOD)
+        if not is_box:
             continue
 
-        box_range_pct = (box_high - box_low) / box_low * 100
-        if box_range_pct > MAX_BOX_RANGE_PERCENT:
-            continue
+        box_high = box_data['box_high']
+        box_low = box_data['box_low']
 
         stats['box_history'] += 1
 
@@ -869,8 +870,8 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
     박스권 돌파 스크리너 (거래량 무관)
 
     조건:
-        - 사전 조건: 수정된 박스권 조건 만족
-        - 저항선: 박스 상단 (60일 종가 최고가)
+        - 사전 조건: 박스권 전체 조건 만족 (60일 기간)
+        - 저항선: 박스 상단
         - 돌파 조건: 종가 > 저항선 × 1.02 (상단 +2% 초과)
         - 경과 기간: 돌파일로부터 10 거래일 이내
         - 거래량/이평선 조건: 없음
@@ -892,29 +893,22 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
         if not ticker:
             continue
 
-        df = get_ohlcv(ticker, 200)  # 150일선 계산을 위해 200일 필요
+        df = get_ohlcv(ticker, 200)
         if df is None or len(df) < BOX_PERIOD + 10:
             continue
 
-        # 이전 박스권 구간 (70~10일 전)
-        box_period_df = df.iloc[-(BOX_PERIOD+10):-10]
+        # 이전 박스권 구간 (70~10일 전, period=60)
+        box_period_df = df.iloc[-(BOX_PERIOD+10):-10].copy()
         if len(box_period_df) < BOX_PERIOD:
             continue
 
-        box_close = box_period_df['Close']
-        box_high = float(box_close.max())
-        box_low = float(box_close.min())
-
-        if box_low <= 0:
-            continue
-
-        # 변동폭 20% 이내
-        box_range_pct = (box_high - box_low) / box_low * 100
-        if box_range_pct > MAX_BOX_RANGE_PERCENT:
+        # 박스권이었는지 체크 (전체 조건 적용)
+        is_box, box_data = is_box_range(box_period_df, BOX_PERIOD)
+        if not is_box:
             continue
 
         # 저항선 = 박스 상단
-        resistance = box_high
+        resistance = box_data['box_high']
 
         # 최근 10일 내 돌파 확인
         recent_10d = df.iloc[-10:]
@@ -1003,23 +997,17 @@ def screen_pullback(stocks: pd.DataFrame) -> List[Dict]:
         if df is None or len(df) < 160:
             continue
 
-        # 박스권 구간 확인 (80~20일 전)
-        box_period_df = df.iloc[-80:-20]
+        # 박스권 구간 확인 (80~20일 전, period=60)
+        box_period_df = df.iloc[-(BOX_PERIOD+20):-20].copy()
         if len(box_period_df) < BOX_PERIOD:
             continue
 
-        box_close = box_period_df['Close']
-        box_high = float(box_close.max())
-        box_low = float(box_close.min())
-
-        if box_low <= 0:
+        # 박스권이었는지 체크 (전체 조건 적용)
+        is_box, box_data = is_box_range(box_period_df, BOX_PERIOD)
+        if not is_box:
             continue
 
-        box_range_pct = (box_high - box_low) / box_low * 100
-        if box_range_pct > MAX_BOX_RANGE_PERCENT:
-            continue
-
-        resistance = box_high
+        resistance = box_data['box_high']
 
         # 10~3일 전에 돌파 + 거래량 2배 이상이었는지 확인
         breakout_period = df.iloc[-20:-3]
