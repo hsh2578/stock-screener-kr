@@ -1,10 +1,23 @@
 {
   "meta": {
-    "lastUpdated": "2026-01-23T22:24:26.217979",
-    "totalCount": 15,
+    "lastUpdated": "2026-01-23T22:36:28.978936",
+    "totalCount": 10,
     "screened_from": 1524
   },
   "data": [
+    {
+      "ticker": "336680",
+      "name": "탑런토탈솔루션",
+      "price": 4450,
+      "change_rate": 1.14,
+      "breakout_date": "2026-01-08",
+      "breakout_price": 4365,
+      "volume_ratio": 68.9,
+      "ma150": 4151,
+      "above_ma150": true,
+      "market_cap": 1741,
+      "updated_at": "2026-01-23T22:36:28.741383"
+    },
     {
       "ticker": "010690",
       "name": "화신",
@@ -16,7 +29,7 @@
       "ma150": 8481,
       "above_ma150": true,
       "market_cap": 3334,
-      "updated_at": "2026-01-23T22:24:25.360241"
+      "updated_at": "2026-01-23T22:36:28.120388"
     },
     {
       "ticker": "234340",
@@ -29,7 +42,7 @@
       "ma150": 16619,
       "above_ma150": true,
       "market_cap": 2724,
-      "updated_at": "2026-01-23T22:24:25.856158"
+      "updated_at": "2026-01-23T22:36:28.609207"
     },
     {
       "ticker": "009520",
@@ -42,33 +55,33 @@
       "ma150": 14477,
       "above_ma150": true,
       "market_cap": 7795,
-      "updated_at": "2026-01-23T22:24:25.684103"
+      "updated_at": "2026-01-23T22:36:28.442807"
     },
     {
-      "ticker": "039560",
-      "name": "다산네트웍스",
-      "price": 3640,
-      "change_rate": -3.7,
-      "breakout_date": "2026-01-22",
-      "breakout_price": 3425,
-      "volume_ratio": 11.7,
-      "ma150": 3146,
+      "ticker": "101330",
+      "name": "모베이스",
+      "price": 4925,
+      "change_rate": -4.55,
+      "breakout_date": "2026-01-09",
+      "breakout_price": 3325,
+      "volume_ratio": 16.5,
+      "ma150": 3417,
       "above_ma150": true,
-      "market_cap": 1441,
-      "updated_at": "2026-01-23T22:24:26.061854"
+      "market_cap": 1139,
+      "updated_at": "2026-01-23T22:36:28.925303"
     },
     {
-      "ticker": "365340",
-      "name": "성일하이텍",
-      "price": 57100,
-      "change_rate": 0.18,
-      "breakout_date": "2026-01-19",
-      "breakout_price": 47700,
-      "volume_ratio": 9.3,
-      "ma150": 39572,
+      "ticker": "456040",
+      "name": "OCI",
+      "price": 71600,
+      "change_rate": 0.99,
+      "breakout_date": "2026-01-14",
+      "breakout_price": 63100,
+      "volume_ratio": 8.6,
+      "ma150": 58705,
       "above_ma150": true,
-      "market_cap": 6986,
-      "updated_at": "2026-01-23T22:24:25.701882"
+      "market_cap": 6409,
+      "updated_at": "2026-01-23T22:36:28.019555"
     },
     {
       "ticker": "126720",
@@ -81,7 +94,7 @@
       "ma150": 22732,
       "above_ma150": true,
       "market_cap": 3721,
-      "updated_at": "2026-01-23T22:24:25.330612"
+      "updated_at": "2026-01-23T22:36:28.091454"
     },
     {
       "ticker": "017670",
@@ -94,33 +107,7 @@
       "ma150": 54866,
       "above_ma150": true,
       "market_cap": 134673,
-      "updated_at": "2026-01-23T22:24:25.065273"
-    },
-    {
-      "ticker": "006910",
-      "name": "보성파워텍",
-      "price": 7760,
-      "change_rate": -1.27,
-      "breakout_date": "2026-01-19",
-      "breakout_price": 5820,
-      "volume_ratio": 4.6,
-      "ma150": 4560,
-      "above_ma150": true,
-      "market_cap": 3812,
-      "updated_at": "2026-01-23T22:24:25.781096"
-    },
-    {
-      "ticker": "000490",
-      "name": "대동",
-      "price": 10190,
-      "change_rate": 2.72,
-      "breakout_date": "2026-01-20",
-      "breakout_price": 10170,
-      "volume_ratio": 4.3,
-      "ma150": 9936,
-      "above_ma150": true,
-      "market_cap": 2937,
-      "updated_at": "2026-01-23T22:24:25.383891"
+      "updated_at": "2026-01-23T22:36:27.830211"
     },
     {
       "ticker": "251970",
@@ -128,77 +115,25 @@
       "price": 59700,
       "change_rate": 0.34,
       "breakout_date": "2026-01-22",
-      "breakout_price": 56500,
+      "breakout_price": 56900,
       "volume_ratio": 4.1,
       "ma150": 58428,
       "above_ma150": true,
       "market_cap": 7402,
-      "updated_at": "2026-01-23T22:24:25.694488"
+      "updated_at": "2026-01-23T22:36:28.453464"
     },
     {
-      "ticker": "241710",
-      "name": "코스메카코리아",
-      "price": 81100,
+      "ticker": "058430",
+      "name": "포스코스틸리온",
+      "price": 40850,
       "change_rate": -0.12,
-      "breakout_date": "2026-01-22",
-      "breakout_price": 76900,
-      "volume_ratio": 3.3,
-      "ma150": 66784,
-      "above_ma150": true,
-      "market_cap": 8661,
-      "updated_at": "2026-01-23T22:24:25.673455"
-    },
-    {
-      "ticker": "282330",
-      "name": "BGF리테일",
-      "price": 117200,
-      "change_rate": -2.01,
-      "breakout_date": "2026-01-16",
-      "breakout_price": 112600,
-      "volume_ratio": 3.2,
-      "ma150": 112687,
-      "above_ma150": true,
-      "market_cap": 20256,
-      "updated_at": "2026-01-23T22:24:25.161265"
-    },
-    {
-      "ticker": "030610",
-      "name": "교보증권",
-      "price": 11370,
-      "change_rate": 8.29,
-      "breakout_date": "2026-01-20",
-      "breakout_price": 9970,
-      "volume_ratio": 2.8,
-      "ma150": 9274,
-      "above_ma150": true,
-      "market_cap": 12957,
-      "updated_at": "2026-01-23T22:24:25.193256"
-    },
-    {
-      "ticker": "002380",
-      "name": "KCC",
-      "price": 474500,
-      "change_rate": 6.99,
-      "breakout_date": "2026-01-23",
-      "breakout_price": 453000,
-      "volume_ratio": 2.1,
-      "ma150": 394123,
-      "above_ma150": true,
-      "market_cap": 42166,
-      "updated_at": "2026-01-23T22:24:25.111645"
-    },
-    {
-      "ticker": "051600",
-      "name": "한전KPS",
-      "price": 57800,
-      "change_rate": 0.0,
       "breakout_date": "2026-01-19",
-      "breakout_price": 54700,
-      "volume_ratio": 2.1,
-      "ma150": 52382,
+      "breakout_price": 40450,
+      "volume_ratio": 2.5,
+      "ma150": 39012,
       "above_ma150": true,
-      "market_cap": 26010,
-      "updated_at": "2026-01-23T22:24:25.139392"
+      "market_cap": 2451,
+      "updated_at": "2026-01-23T22:36:28.174294"
     }
   ]
 }
