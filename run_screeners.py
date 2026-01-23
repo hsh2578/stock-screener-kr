@@ -40,7 +40,7 @@ BOX_PERIOD = 60  # 박스권 판단 기간 (약 3개월, 전체 스크리너 공
 MIN_MARKET_CAP = 1000  # 최소 시가총액 (억원)
 MAX_BOX_RANGE_PERCENT = 25.0  # 최대 허용 변동폭 (%)
 ATR_PERIOD = 60  # ATR 계산 기간 (박스 기간과 동일)
-ATR_MULTIPLE_MAX = 5  # ATR 배수 최대
+ATR_MULTIPLE_MAX = 6  # ATR 배수 최대
 ATR_TOUCH_MULTIPLE = 1.5  # ATR 기반 터치 허용범위 배수
 PIVOT_WINDOW = 5  # 피벗 포인트 검출 윈도우
 MIN_TOUCHES = 2  # 최소 터치 횟수
@@ -318,7 +318,7 @@ def is_box_range(df: pd.DataFrame, period: int = 60) -> Tuple[bool, Dict[str, An
     조건:
         ① 데이터 검증: period일 데이터 온전함 (NaN 없음)
         ② 박스 기간: period 거래일 이상
-        ③ 변동폭: 박스 범위 ≤ ATR(60) × 5 AND 박스 범위 ≤ 25%
+        ③ 변동폭: 박스 범위 ≤ ATR(60) × 6 AND 박스 범위 ≤ 25%
         ④ 저점 터치: 박스 하단 ±ATR×1.5 영역에 로컬 저점 2개 이상
         ⑤ 고점 터치: 박스 상단 ±ATR×1.5 영역에 로컬 고점 2개 이상
         ⑥ 추세 필터: |선형회귀 기울기| ≤ 0.05% (일평균)
@@ -386,7 +386,7 @@ def is_box_range(df: pd.DataFrame, period: int = 60) -> Tuple[bool, Dict[str, An
     result_data['atr'] = round(atr * 100, 2)  # % 단위
     result_data['atr_multiple'] = round(atr_multiple, 2)
 
-    # 조건: 박스 범위 ≤ ATR(60) × 5 AND 박스 범위 ≤ 25%
+    # 조건: 박스 범위 ≤ ATR(60) × 6 AND 박스 범위 ≤ 25%
     if range_percent > MAX_BOX_RANGE_PERCENT:
         result_data['failed_reason'] = 'range_too_wide'
         return False, result_data
@@ -587,7 +587,7 @@ def screen_box_range(stocks: pd.DataFrame) -> List[Dict]:
     7가지 조건을 모두 충족해야 합니다:
         ① 시가총액 1,000억 원 이상
         ② 60일 데이터 검증 (NaN 없음)
-        ③ 변동폭 ≤ ATR(60) × 5 AND ≤ 25%
+        ③ 변동폭 ≤ ATR(60) × 6 AND ≤ 25%
         ④ 저점 터치 2회 이상 (±ATR×1.5 적응적 허용범위)
         ⑤ 고점 터치 2회 이상 (±ATR×1.5 적응적 허용범위)
         ⑥ 추세 필터: |기울기| ≤ 0.05%
