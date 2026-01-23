@@ -3,7 +3,7 @@
 FinanceDataReader를 사용하여 정교한 조건으로 종목을 발굴합니다.
 
 스크리너 목록:
-    1. 박스권 횡보: 60거래일 이상 횡보 (ATR×4, 적응적 터치, 거래량 10%↓)
+    1. 박스권 횡보: 60거래일 이상 횡보 (ATR×5, 적응적 터치, 거래량 5%↓)
     2. 박스권 돌파 (거래량 동반): 완전한 박스권 조건 + 돌파 + 2배 거래량 + 150일선 위
     3. 박스권 돌파 (거래량 무관): 완전한 박스권 조건 + 저항선 돌파 후 10일 이내
     4. 풀백: 돌파 후 저항선으로 되돌아온 종목
@@ -40,12 +40,12 @@ BOX_PERIOD = 60  # 박스권 판단 기간 (약 3개월, 전체 스크리너 공
 MIN_MARKET_CAP = 1000  # 최소 시가총액 (억원)
 MAX_BOX_RANGE_PERCENT = 25.0  # 최대 허용 변동폭 (%)
 ATR_PERIOD = 20  # ATR 계산 기간 (최근 변동성 반영)
-ATR_MULTIPLE_MAX = 4  # ATR 배수 최대
+ATR_MULTIPLE_MAX = 5  # ATR 배수 최대
 ATR_TOUCH_MULTIPLE = 1.5  # ATR 기반 터치 허용범위 배수
 PIVOT_WINDOW = 5  # 피벗 포인트 검출 윈도우
 MIN_TOUCHES = 2  # 최소 터치 횟수
 MAX_SLOPE_PERCENT = 0.05  # 최대 일평균 기울기 (%)
-VOLUME_DECREASE_THRESHOLD = 0.9  # 거래량 감소 임계값 (후반 < 전반 × 0.9)
+VOLUME_DECREASE_THRESHOLD = 0.95  # 거래량 감소 임계값 (후반 < 전반 × 0.95, 5% 감소)
 
 # ============================================================================
 # 유틸리티 함수
@@ -318,11 +318,11 @@ def is_box_range(df: pd.DataFrame, period: int = 60) -> Tuple[bool, Dict[str, An
     조건:
         ① 데이터 검증: period일 데이터 온전함 (NaN 없음)
         ② 박스 기간: period 거래일 이상
-        ③ 변동폭: 박스 범위 ≤ ATR(20) × 4 AND 박스 범위 ≤ 25%
+        ③ 변동폭: 박스 범위 ≤ ATR(20) × 5 AND 박스 범위 ≤ 25%
         ④ 저점 터치: 박스 하단 ±ATR×1.5 영역에 로컬 저점 2개 이상
         ⑤ 고점 터치: 박스 상단 ±ATR×1.5 영역에 로컬 고점 2개 이상
         ⑥ 추세 필터: |선형회귀 기울기| ≤ 0.05% (일평균)
-        ⑦ 거래량 감소: 후반부 평균 < 전반부 평균 × 0.9
+        ⑦ 거래량 감소: 후반부 평균 < 전반부 평균 × 0.95
 
     Args:
         df: OHLCV 데이터프레임
@@ -386,7 +386,7 @@ def is_box_range(df: pd.DataFrame, period: int = 60) -> Tuple[bool, Dict[str, An
     result_data['atr'] = round(atr * 100, 2)  # % 단위
     result_data['atr_multiple'] = round(atr_multiple, 2)
 
-    # 조건: 박스 범위 ≤ ATR(20) × 4 AND 박스 범위 ≤ 25%
+    # 조건: 박스 범위 ≤ ATR(20) × 5 AND 박스 범위 ≤ 25%
     if range_percent > MAX_BOX_RANGE_PERCENT:
         result_data['failed_reason'] = 'range_too_wide'
         return False, result_data
@@ -424,7 +424,7 @@ def is_box_range(df: pd.DataFrame, period: int = 60) -> Tuple[bool, Dict[str, An
         result_data['failed_reason'] = 'trending'
         return False, result_data
 
-    # ⑦ 거래량 감소 확인 (후반부 < 전반부 × 0.9)
+    # ⑦ 거래량 감소 확인 (후반부 < 전반부 × 0.95)
     is_vol_decreasing, vol_decrease_rate = check_volume_decrease(volumes, period, VOLUME_DECREASE_THRESHOLD)
     result_data['volume_decrease_rate'] = round(vol_decrease_rate, 2)
 
@@ -587,11 +587,11 @@ def screen_box_range(stocks: pd.DataFrame) -> List[Dict]:
     7가지 조건을 모두 충족해야 합니다:
         ① 시가총액 1,000억 원 이상
         ② 60일 데이터 검증 (NaN 없음)
-        ③ 변동폭 ≤ ATR(20) × 4 AND ≤ 25%
+        ③ 변동폭 ≤ ATR(20) × 5 AND ≤ 25%
         ④ 저점 터치 2회 이상 (±ATR×1.5 적응적 허용범위)
         ⑤ 고점 터치 2회 이상 (±ATR×1.5 적응적 허용범위)
         ⑥ 추세 필터: |기울기| ≤ 0.05%
-        ⑦ 거래량 감소: 후반 30일 < 전반 30일 × 0.9
+        ⑦ 거래량 감소: 후반 30일 < 전반 30일 × 0.95
 
     Args:
         stocks: 종목 리스트 DataFrame
