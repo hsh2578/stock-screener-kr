@@ -5,7 +5,7 @@ FinanceDataReader를 사용하여 정교한 조건으로 종목을 발굴합니�
 스크리너 목록:
     1. 박스권 횡보: 60거래일 이상 횡보 (ATR(60)×5, 적응적 터치, 거래량 5%↓)
     2. 박스권 돌파 (거래량 동반): 완전한 박스권 조건 + 돌파 + 2배 거래량 + 150일선 위
-    3. 박스권 돌파 (거래량 무관): 완전한 박스권 조건 + 저항선 돌파 후 10일 이내
+    3. 박스권 돌파 (거래량 무관): 완전한 박스권 조건 + 저항선 돌파 후 12일 이내
     4. 풀백: 돌파 후 저항선으로 되돌아온 종목
     5. 거래량 폭발: 당일 거래량 6배 이상
     6. 거래량 급감: 급등 후 거래량 고갈 종목
@@ -46,6 +46,7 @@ PIVOT_WINDOW = 5  # 피벗 포인트 검출 윈도우
 MIN_TOUCHES = 2  # 최소 터치 횟수
 MAX_SLOPE_PERCENT = 0.05  # 최대 일평균 기울기 (%)
 VOLUME_DECREASE_THRESHOLD = 0.95  # 거래량 감소 임계값 (후반 < 전반 × 0.95, 5% 감소)
+BREAKOUT_WINDOW = 12  # 돌파 확인 윈도우 (거래일)
 
 # ============================================================================
 # 유틸리티 함수
@@ -772,8 +773,8 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
         if df is None or len(df) < 160:
             continue
 
-        # 이전 박스권 확인 (130~10일 전 데이터, 마지막 60일을 박스로 분석)
-        box_period_df = df.iloc[-(BOX_PERIOD*2+10):-10].copy()
+        # 이전 박스권 확인 (마지막 60일을 박스로 분석)
+        box_period_df = df.iloc[-(BOX_PERIOD*2+BREAKOUT_WINDOW):-BREAKOUT_WINDOW].copy()
         if len(box_period_df) < BOX_PERIOD + 1:
             continue
 
@@ -787,12 +788,12 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
 
         stats['box_history'] += 1
 
-        # 최근 10일 내 돌파 확인
-        recent_10d = df.iloc[-10:]
+        # 최근 12일 내 돌파 확인
+        recent_days = df.iloc[-BREAKOUT_WINDOW:]
         breakout_day = None
         breakout_idx = None
 
-        for i, (date, row_data) in enumerate(recent_10d.iterrows()):
+        for i, (date, row_data) in enumerate(recent_days.iterrows()):
             # 저항선 +2% 돌파
             if row_data['Close'] > box_high * 1.02:
                 breakout_day = date
@@ -873,7 +874,7 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
         - 사전 조건: 박스권 전체 조건 만족 (60일 기간)
         - 저항선: 박스 상단
         - 돌파 조건: 종가 > 저항선 × 1.02 (상단 +2% 초과)
-        - 경과 기간: 돌파일로부터 10 거래일 이내
+        - 경과 기간: 돌파일로부터 12 거래일 이내
         - 거래량/이평선 조건: 없음
 
     Args:
@@ -894,11 +895,11 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
             continue
 
         df = get_ohlcv(ticker, 200)
-        if df is None or len(df) < BOX_PERIOD * 2 + 10:
+        if df is None or len(df) < BOX_PERIOD * 2 + BREAKOUT_WINDOW:
             continue
 
-        # 이전 박스권 구간 (130~10일 전 데이터, 마지막 60일을 박스로 분석)
-        box_period_df = df.iloc[-(BOX_PERIOD*2+10):-10].copy()
+        # 이전 박스권 구간 (마지막 60일을 박스로 분석)
+        box_period_df = df.iloc[-(BOX_PERIOD*2+BREAKOUT_WINDOW):-BREAKOUT_WINDOW].copy()
         if len(box_period_df) < BOX_PERIOD + 1:
             continue
 
@@ -910,15 +911,15 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
         # 저항선 = 박스 상단
         resistance = box_data['box_high']
 
-        # 최근 10일 내 돌파 확인
-        recent_10d = df.iloc[-10:]
+        # 최근 12일 내 돌파 확인
+        recent_days = df.iloc[-BREAKOUT_WINDOW:]
         breakout_day = None
         days_since = 0
 
-        for i, (date, row_data) in enumerate(recent_10d.iterrows()):
+        for i, (date, row_data) in enumerate(recent_days.iterrows()):
             if row_data['Close'] > resistance * 1.02:  # +2% 돌파
                 breakout_day = date
-                days_since = len(recent_10d) - i - 1
+                days_since = len(recent_days) - i - 1
                 break
 
         if breakout_day is None:

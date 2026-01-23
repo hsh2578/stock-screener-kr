@@ -869,7 +869,7 @@
                     <span class="icon">📈</span>
                     <h1>박스권 돌파 (거래량 무관)</h1>
                 </div>
-                <p class="desc">거래량 무관 돌파 후 10일 이내</p>
+                <p class="desc">거래량 무관 돌파 후 12일 이내</p>
                 <div class="filter-row" style="margin: 12px 0; display: flex; gap: 8px; align-items: center;">
                     <button id="filter-ma150-box-breakout-simple" class="filter-btn" onclick="toggleMA150Filter('boxBreakoutSimple')">
                         150일선 위만
@@ -1211,7 +1211,7 @@
         const screeners = [
             { id: 'box-range', icon: '📦', title: '박스권 스크리너', desc: '60거래일 이상 횡보 중인 종목', badge: { text: '기초', type: 'info' } },
             { id: 'box-breakout', icon: '🚀', title: '박스권 돌파 (거래량 동반)', desc: '거래량 2배 동반 저항선 돌파', badge: { text: '1차 매수', type: 'success' } },
-            { id: 'box-breakout-simple', icon: '📈', title: '박스권 돌파 (거래량 무관)', desc: '거래량 무관 돌파 후 10일 이내' },
+            { id: 'box-breakout-simple', icon: '📈', title: '박스권 돌파 (거래량 무관)', desc: '거래량 무관 돌파 후 12일 이내' },
             { id: 'pullback', icon: '🎯', title: '풀백 스크리너', desc: '돌파 후 되돌림 종목', badge: { text: '2차 매수', type: 'success' } },
             { id: 'volume-dry-up', icon: '🏜️', title: '거래량 급감 눌림목', desc: '3배 거래량+8% 양봉 후 10일내', badge: { text: '세력 보유', type: 'warning' } },
             { id: 'volume-explosion', icon: '💥', title: '거래량 폭발', desc: '40일 평균 6배+6% 양봉', badge: { text: '당일', type: 'danger' } },
