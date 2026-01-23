@@ -5,7 +5,7 @@ FinanceDataReader를 사용하여 정교한 조건으로 종목을 발굴합니�
 스크리너 목록:
     1. 박스권 횡보: 60거래일 이상 횡보 (ATR(60)×5, 적응적 터치, 거래량 5%↓)
     2. 박스권 돌파 (거래량 동반): 완전한 박스권 조건 + 돌파 + 2배 거래량 + 150일선 위
-    3. 박스권 돌파 (거래량 무관): 완전한 박스권 조건 + 저항선 돌파 후 12일 이내
+    3. 박스권 돌파 (거래량 무관): 완전한 박스권 조건 + 저항선 돌파 후 10일 이내
     4. 풀백: 돌파 후 저항선으로 되돌아온 종목
     5. 거래량 폭발: 당일 거래량 6배 이상
     6. 거래량 급감: 급등 후 거래량 고갈 종목
@@ -14,19 +14,22 @@ import FinanceDataReader as fdr
 import pandas as pd
 import numpy as np
 import json
+import pickle
+import sys
 from datetime import datetime, timedelta
 import os
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, asdict
 from typing import Optional, Tuple, List, Dict, Any
-from scipy import stats
 from tqdm import tqdm
 
 # ============================================================================
 # 데이터 캐시 (전역)
 # ============================================================================
 _DATA_CACHE: Dict[str, pd.DataFrame] = {}
+CACHE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '.cache')
+FORCE_DOWNLOAD = '--fresh' in sys.argv
 
 # ============================================================================
 # 상수 정의
@@ -46,11 +49,20 @@ PIVOT_WINDOW = 5  # 피벗 포인트 검출 윈도우
 MIN_TOUCHES = 2  # 최소 터치 횟수
 MAX_SLOPE_PERCENT = 0.05  # 최대 일평균 기울기 (%)
 VOLUME_DECREASE_THRESHOLD = 0.95  # 거래량 감소 임계값 (후반 < 전반 × 0.95, 5% 감소)
-BREAKOUT_WINDOW = 12  # 돌파 확인 윈도우 (거래일)
+BREAKOUT_WINDOW = 11  # 돌파 확인 윈도우 (10거래일 이내 = 오늘 포함 11행)
 
 # ============================================================================
 # 유틸리티 함수
 # ============================================================================
+
+def quick_range_check(df: pd.DataFrame, period: int, max_range: float) -> bool:
+    """종가 기준 빠른 변동폭 사전 필터. 통과 시 True 반환."""
+    last_close = df['Close'].iloc[-period:]
+    if last_close.min() <= 0:
+        return False
+    quick_range = (last_close.max() - last_close.min()) / last_close.min() * 100
+    return quick_range <= max_range
+
 
 def calculate_atr(df: pd.DataFrame, period: int = 60) -> float:
     """
@@ -77,27 +89,23 @@ def calculate_atr(df: pd.DataFrame, period: int = 60) -> float:
     if len(df) < period + 1:
         return 0.0
 
-    recent = df.tail(period + 1).copy()
+    recent = df.tail(period + 1)
 
     high = recent['High'].values
     low = recent['Low'].values
     close = recent['Close'].values
 
-    # True Range 계산 (첫 번째 행 제외)
-    tr_list = []
-    for i in range(1, len(recent)):
-        tr1 = high[i] - low[i]  # 당일 고가 - 저가
-        tr2 = abs(high[i] - close[i-1])  # 당일 고가 - 전일 종가
-        tr3 = abs(low[i] - close[i-1])  # 당일 저가 - 전일 종가
-        tr_list.append(max(tr1, tr2, tr3))
+    # True Range 벡터화 계산
+    tr1 = high[1:] - low[1:]
+    tr2 = np.abs(high[1:] - close[:-1])
+    tr3 = np.abs(low[1:] - close[:-1])
+    tr = np.maximum(np.maximum(tr1, tr2), tr3)
 
-    # ATR = TR의 평균 / 현재 종가 (비율로 변환)
     current_close = close[-1]
     if current_close <= 0:
         return 0.0
 
-    atr = np.mean(tr_list) / current_close
-    return atr
+    return float(np.mean(tr) / current_close)
 
 
 def find_pivot_lows(prices: np.ndarray, n: int = 5) -> List[Tuple[int, float]]:
@@ -216,17 +224,18 @@ def calculate_linear_slope(prices: np.ndarray) -> float:
     if len(prices) < 2:
         return 0.0
 
-    # x: 일수 (0, 1, 2, ..., n-1)
-    x = np.arange(len(prices))
-
-    # 선형회귀
-    slope, intercept, r_value, p_value, std_err = stats.linregress(x, prices)
-
-    # 일평균 변화율 (%)로 변환
+    n = len(prices)
     mean_price = np.mean(prices)
     if mean_price <= 0:
         return 0.0
 
+    # NumPy 기반 선형회귀 (scipy보다 3-5배 빠름)
+    x = np.arange(n)
+    x_mean = (n - 1) / 2.0
+    numerator = np.dot(x - x_mean, prices - mean_price)
+    denominator = n * (n * n - 1) / 12.0
+
+    slope = numerator / denominator
     slope_percent = (slope / mean_price) * 100
 
     return slope_percent
@@ -382,7 +391,7 @@ def is_box_range(df: pd.DataFrame, period: int = 60) -> Tuple[bool, Dict[str, An
 
     # ③ ATR 기반 변동폭 검사 (ATR(60) 사용 - 박스 기간 변동성 반영)
     atr = calculate_atr(df, ATR_PERIOD)
-    atr_multiple = range_percent / (atr * 100) if atr > 0 else float('inf')
+    atr_multiple = range_percent / (atr * 100) if atr > 0 else 999.0
 
     result_data['atr'] = round(atr * 100, 2)  # % 단위
     result_data['atr_multiple'] = round(atr_multiple, 2)
@@ -520,21 +529,75 @@ def get_ohlcv(ticker: str, days: int = 200) -> Optional[pd.DataFrame]:
 
 
 def _download_single_stock(args: Tuple[str, str]) -> Tuple[str, Optional[pd.DataFrame]]:
-    """단일 종목 데이터 다운로드 (병렬 처리용)"""
+    """단일 종목 데이터 다운로드 (병렬 처리용, 재시도 포함)"""
     ticker, start_str = args
+    for attempt in range(3):
+        try:
+            df = fdr.DataReader(ticker, start_str)
+            if df is not None and len(df) > 0:
+                return (ticker, df)
+            return (ticker, None)
+        except:
+            if attempt < 2:
+                time.sleep(0.3 * (attempt + 1))
+    return (ticker, None)
+
+
+def _get_cache_path() -> str:
+    """오늘 날짜 기준 캐시 파일 경로 반환"""
+    today = datetime.now().strftime('%Y-%m-%d')
+    return os.path.join(CACHE_DIR, f'stock_data_{today}.pkl')
+
+
+def _load_cache() -> bool:
+    """디스크 캐시에서 데이터 로딩. 성공 시 True 반환."""
+    global _DATA_CACHE
+    cache_path = _get_cache_path()
+
+    if FORCE_DOWNLOAD:
+        print("\n[캐시] --fresh 옵션: 강제 다운로드")
+        return False
+
+    if not os.path.exists(cache_path):
+        return False
+
     try:
-        df = fdr.DataReader(ticker, start_str)
-        if df is not None and len(df) > 0:
-            return (ticker, df)
-        return (ticker, None)
-    except:
-        return (ticker, None)
+        print(f"\n[캐시] 오늘자 캐시 로딩: {os.path.basename(cache_path)}")
+        with open(cache_path, 'rb') as f:
+            _DATA_CACHE = pickle.load(f)
+        valid = sum(1 for v in _DATA_CACHE.values() if v is not None)
+        print(f"  완료: {valid}개 종목 로딩됨 (캐시 사용)")
+        return True
+    except Exception as e:
+        print(f"  캐시 로딩 실패: {e}")
+        return False
 
 
-def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 20) -> None:
+def _save_cache() -> None:
+    """현재 데이터를 디스크 캐시로 저장"""
+    os.makedirs(CACHE_DIR, exist_ok=True)
+    cache_path = _get_cache_path()
+
+    # 이전 날짜 캐시 삭제
+    for f in os.listdir(CACHE_DIR):
+        if f.startswith('stock_data_') and f.endswith('.pkl'):
+            old_path = os.path.join(CACHE_DIR, f)
+            if old_path != cache_path:
+                os.remove(old_path)
+
+    try:
+        with open(cache_path, 'wb') as f:
+            pickle.dump(_DATA_CACHE, f, protocol=pickle.HIGHEST_PROTOCOL)
+        size_mb = os.path.getsize(cache_path) / (1024 * 1024)
+        print(f"  캐시 저장: {size_mb:.0f}MB ({os.path.basename(cache_path)})")
+    except Exception as e:
+        print(f"  캐시 저장 실패: {e}")
+
+
+def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 60) -> None:
     """
     모든 종목의 데이터를 병렬로 다운로드하여 캐시합니다.
-    ThreadPoolExecutor를 사용하여 동시에 여러 종목을 다운로드합니다.
+    오늘자 디스크 캐시가 있으면 다운로드 없이 즉시 로딩합니다.
 
     Args:
         stocks: 종목 리스트 DataFrame
@@ -542,7 +605,12 @@ def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 2
         max_workers: 동시 다운로드 스레드 수
     """
     global _DATA_CACHE
-    _DATA_CACHE = {}  # 캐시 초기화
+
+    # 디스크 캐시 확인
+    if _load_cache():
+        return
+
+    _DATA_CACHE = {}
 
     end_date = datetime.now()
     start_date = end_date - timedelta(days=days + 50)
@@ -555,7 +623,7 @@ def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 2
         if ticker:
             tickers.append(ticker)
 
-    print(f"\n[데이터 사전 로딩] {len(tickers)}개 종목 (스레드 {max_workers}개)...")
+    print(f"\n[데이터 다운로드] {len(tickers)}개 종목 (스레드 {max_workers}개)...")
 
     success_count = 0
     fail_count = 0
@@ -575,6 +643,9 @@ def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 2
                 fail_count += 1
 
     print(f"  완료: 성공 {success_count}개, 실패 {fail_count}개")
+
+    # 디스크에 캐시 저장
+    _save_cache()
 
 
 # ============================================================================
@@ -746,7 +817,7 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
     조건:
         - 사전 조건: 수정된 박스권 조건 만족 (이전에 박스권이었던 종목)
         - 저항선: 박스 상단
-        - 돌파 조건: 당일 종가 > 저항선 × 1.02
+        - 돌파 조건: 당일 종가 > 저항선 × 1.015
         - 거래량 조건: 당일 거래량 ≥ 20일 평균 × 2배
         - 이평선 조건: 150일선 위
 
@@ -773,36 +844,43 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
         if df is None or len(df) < 160:
             continue
 
-        # 이전 박스권 확인 (마지막 60일을 박스로 분석)
-        box_period_df = df.iloc[-(BOX_PERIOD*2+BREAKOUT_WINDOW):-BREAKOUT_WINDOW].copy()
-        if len(box_period_df) < BOX_PERIOD + 1:
-            continue
-
-        # 박스권이었는지 체크 (전체 조건 적용)
-        is_box, box_data = is_box_range(box_period_df, BOX_PERIOD)
-        if not is_box:
-            continue
-
-        box_high = box_data['box_high']
-        box_low = box_data['box_low']
-
-        stats['box_history'] += 1
-
-        # 최근 12일 내 돌파 확인
-        recent_days = df.iloc[-BREAKOUT_WINDOW:]
+        # 박스권 + 돌파 확인 (합집합 방식)
         breakout_day = None
         breakout_idx = None
+        box_high = None
+        box_low = None
 
-        for i, (date, row_data) in enumerate(recent_days.iterrows()):
-            # 저항선 +2% 돌파
-            if row_data['Close'] > box_high * 1.02:
-                breakout_day = date
-                breakout_idx = df.index.get_loc(date)
+        for box_end in range(BREAKOUT_WINDOW, 0, -1):
+            box_start = BOX_PERIOD * 2 + box_end
+            if len(df) < box_start:
+                continue
+            box_period_df = df.iloc[-box_start:-box_end]
+            if len(box_period_df) < BOX_PERIOD + 1:
+                continue
+
+            # 빠른 사전 필터
+            if not quick_range_check(box_period_df, BOX_PERIOD, MAX_BOX_RANGE_PERCENT):
+                continue
+
+            is_box, box_data = is_box_range(box_period_df, BOX_PERIOD)
+            if not is_box:
+                continue
+
+            candidate_days = df.iloc[-box_end:]
+            for i, (date, row_data) in enumerate(candidate_days.iterrows()):
+                if row_data['Close'] > box_data['box_high'] * 1.015:
+                    breakout_day = date
+                    breakout_idx = df.index.get_loc(date)
+                    box_high = box_data['box_high']
+                    box_low = box_data['box_low']
+                    break
+            if breakout_day is not None:
                 break
 
         if breakout_day is None:
             continue
 
+        stats['box_history'] += 1
         stats['breakout'] += 1
 
         # 거래량 조건: 돌파일 거래량 ≥ 20일 평균 × 2배
@@ -836,6 +914,9 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
         prev_price = float(df['Close'].iloc[-2])
         change_rate = (current_price - prev_price) / prev_price * 100 if prev_price > 0 else 0
 
+        # 저항선 대비 상승률
+        breakout_pct = (current_price - box_high) / box_high * 100
+
         results.append({
             'ticker': ticker,
             'name': name,
@@ -843,6 +924,7 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
             'change_rate': round(change_rate, 2),
             'breakout_date': breakout_day.strftime('%Y-%m-%d'),
             'breakout_price': int(box_high),
+            'breakout_pct': round(breakout_pct, 2),
             'volume_ratio': round(volume_ratio, 1),
             'ma150': int(ma150.iloc[-1]),
             'above_ma150': bool(current_price > ma150.iloc[-1]),
@@ -873,8 +955,8 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
     조건:
         - 사전 조건: 박스권 전체 조건 만족 (60일 기간)
         - 저항선: 박스 상단
-        - 돌파 조건: 종가 > 저항선 × 1.02 (상단 +2% 초과)
-        - 경과 기간: 돌파일로부터 12 거래일 이내
+        - 돌파 조건: 종가 > 저항선 × 1.015 (상단 +1.5% 초과)
+        - 경과 기간: 돌파일로부터 10 거래일 이내
         - 거래량/이평선 조건: 없음
 
     Args:
@@ -898,28 +980,35 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
         if df is None or len(df) < BOX_PERIOD * 2 + BREAKOUT_WINDOW:
             continue
 
-        # 이전 박스권 구간 (마지막 60일을 박스로 분석)
-        box_period_df = df.iloc[-(BOX_PERIOD*2+BREAKOUT_WINDOW):-BREAKOUT_WINDOW].copy()
-        if len(box_period_df) < BOX_PERIOD + 1:
-            continue
-
-        # 박스권이었는지 체크 (전체 조건 적용)
-        is_box, box_data = is_box_range(box_period_df, BOX_PERIOD)
-        if not is_box:
-            continue
-
-        # 저항선 = 박스 상단
-        resistance = box_data['box_high']
-
-        # 최근 12일 내 돌파 확인
-        recent_days = df.iloc[-BREAKOUT_WINDOW:]
+        # 박스권 + 돌파 확인 (합집합 방식)
         breakout_day = None
         days_since = 0
+        resistance = None
 
-        for i, (date, row_data) in enumerate(recent_days.iterrows()):
-            if row_data['Close'] > resistance * 1.02:  # +2% 돌파
-                breakout_day = date
-                days_since = len(recent_days) - i - 1
+        for box_end in range(BREAKOUT_WINDOW, 0, -1):
+            box_start = BOX_PERIOD * 2 + box_end
+            if len(df) < box_start:
+                continue
+            box_period_df = df.iloc[-box_start:-box_end]
+            if len(box_period_df) < BOX_PERIOD + 1:
+                continue
+
+            # 빠른 사전 필터
+            if not quick_range_check(box_period_df, BOX_PERIOD, MAX_BOX_RANGE_PERCENT):
+                continue
+
+            is_box, box_data = is_box_range(box_period_df, BOX_PERIOD)
+            if not is_box:
+                continue
+
+            candidate_days = df.iloc[-box_end:]
+            for i, (date, row_data) in enumerate(candidate_days.iterrows()):
+                if row_data['Close'] > box_data['box_high'] * 1.015:
+                    breakout_day = date
+                    days_since = len(candidate_days) - i - 1
+                    resistance = box_data['box_high']
+                    break
+            if breakout_day is not None:
                 break
 
         if breakout_day is None:
@@ -929,8 +1018,8 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
         prev_price = float(df['Close'].iloc[-2])
         change_rate = (current_price - prev_price) / prev_price * 100 if prev_price > 0 else 0
 
-        # 현재가 / 저항선 비율
-        current_vs_resistance = (current_price / resistance) * 100
+        # 저항선 대비 상승률
+        breakout_pct = (current_price - resistance) / resistance * 100
 
         # 150일선 계산
         ma150 = None
@@ -947,7 +1036,7 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
             'breakout_date': breakout_day.strftime('%Y-%m-%d'),
             'resistance': int(resistance),
             'days_since_breakout': days_since,
-            'current_vs_resistance': round(current_vs_resistance, 2),
+            'breakout_pct': round(breakout_pct, 2),
             'ma150': ma150,
             'above_ma150': above_ma150,
             'market_cap': int(market_cap),
@@ -965,6 +1054,13 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
 # ============================================================================
 # 풀백 스크리너
 # ============================================================================
+
+# 풀백 설정
+PULLBACK_LOOKBACK = 20         # 돌파 탐색 기간 (거래일)
+PULLBACK_MIN_DAYS = 3          # 풀백 최소 경과일
+PULLBACK_TOLERANCE = 0.05      # 풀백 허용범위 (±5%)
+PULLBACK_VOLUME_DECREASE = 50  # 거래량 감소 임계값 (%)
+PULLBACK_RECENT_DAYS = 5       # 최근 거래량 평균 기간
 
 def screen_pullback(stocks: pd.DataFrame) -> List[Dict]:
     """
@@ -1010,8 +1106,8 @@ def screen_pullback(stocks: pd.DataFrame) -> List[Dict]:
 
         resistance = box_data['box_high']
 
-        # 10~3일 전에 돌파 + 거래량 2배 이상이었는지 확인
-        breakout_period = df.iloc[-20:-3]
+        # 돌파 기간 내 거래량 2배 이상이었는지 확인
+        breakout_period = df.iloc[-PULLBACK_LOOKBACK:-PULLBACK_MIN_DAYS]
         breakout_day = None
         breakout_idx = None
         breakout_volume = 0
@@ -1022,7 +1118,7 @@ def screen_pullback(stocks: pd.DataFrame) -> List[Dict]:
                 continue
 
             # 돌파 조건
-            if row_data['Close'] > resistance * 1.02:
+            if row_data['Close'] > resistance * 1.015:
                 # 거래량 조건
                 avg_vol = df['Volume'].iloc[idx_in_df-20:idx_in_df].mean()
                 if avg_vol > 0 and row_data['Volume'] >= avg_vol * 2:
@@ -1043,18 +1139,18 @@ def screen_pullback(stocks: pd.DataFrame) -> List[Dict]:
         if current_price <= ma150.iloc[-1]:
             continue
 
-        # 풀백 조건: 현재가가 저항선 ±5% 이내
-        pullback_lower = resistance * 0.95
-        pullback_upper = resistance * 1.05
+        # 풀백 조건: 현재가가 저항선 허용범위 이내
+        pullback_lower = resistance * (1 - PULLBACK_TOLERANCE)
+        pullback_upper = resistance * (1 + PULLBACK_TOLERANCE)
 
         if not (pullback_lower <= current_price <= pullback_upper):
             continue
 
-        # 거래량 감소 조건: 풀백 구간 평균 < 돌파일 × 50%
-        recent_avg_volume = df['Volume'].iloc[-5:].mean()
+        # 거래량 감소 조건
+        recent_avg_volume = df['Volume'].iloc[-PULLBACK_RECENT_DAYS:].mean()
         if breakout_volume > 0:
             volume_decrease = (1 - recent_avg_volume / breakout_volume) * 100
-            if volume_decrease < 50:
+            if volume_decrease < PULLBACK_VOLUME_DECREASE:
                 continue
         else:
             continue
@@ -1173,17 +1269,38 @@ def screen_volume_explosion(stocks: pd.DataFrame) -> List[Dict]:
 # 거래량 급감 스크리너
 # ============================================================================
 
+# 거래량 급감 설정
+DRYUP_LOOKBACK = 20            # 급등일 탐색 기간 (거래일)
+DRYUP_MIN_CHANGE = 8           # 최소 급등 변화율 (%)
+DRYUP_GAP_LIMIT = 0.97         # 갭다운 제한 (전일종가 대비)
+DRYUP_MAX_SHADOW = 0.3         # 최대 윗꼬리 비율
+DRYUP_VOLUME_MULTIPLE = 4      # 급등일 최소 거래량 배수
+DRYUP_MIN_DAYS = 3             # 눌림목 최소 경과일
+DRYUP_MAX_DAYS = 10            # 눌림목 최대 경과일
+DRYUP_PRICE_VS_OPEN = 0.98     # 현재가 vs 급등봉 시가
+DRYUP_PRICE_VS_HIGH = 0.90     # 현재가 vs 급등 고점
+DRYUP_RECENT_DAYS = 3          # 최근 거래량 평균 기간
+DRYUP_VOLUME_DECREASE = 60     # 거래량 감소율 임계값 (%)
+
 def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
     """
-    거래량 급감 스크리너: 20일 평균 3배 이상 거래량 + 8% 이상 장대양봉 후 10거래일 이내 거래량 고갈 종목
+    거래량 급감 눌림목 스크리너
 
-    Args:
-        stocks: 종목 리스트 DataFrame
+    [급등봉 조건]
+        1. 종가 > 전일종가 × 1.08 (8% 이상 양봉)
+        2. 거래량 > 20일 평균 × 4배
+        3. (고가 - 종가) / (고가 - 저가) < 0.3 (윗꼬리 30% 이하)
+        4. 종가 > 20일선
+        5. 시가 >= 전일종가 × 0.97 (갭다운 -3% 이상 제외)
 
-    Returns:
-        거래량 급감 종목 리스트
+    [눌림목 조건] (급등 후 3~10일)
+        1. 현재가 > 급등봉 시가 × 0.98 (가격 유지)
+        2. 현재가 > 급등 고점 × 0.90 (조정폭 -10% 이내)
+        3. 현재가 > 급등 전일종가 (급등 전 가격 위)
+        4. 현재가 > 20일선 (추세 유지)
+        5. 최근 3일 평균 거래량 < 급등일 × 0.4 (60% 감소)
     """
-    print("\n[거래량 급감 스크리너 시작]")
+    print("\n[거래량 급감 눌림목 스크리너 시작]")
     results = []
 
     for idx, row in stocks.iterrows():
@@ -1194,20 +1311,26 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
         if not ticker:
             continue
 
-        df = get_ohlcv(ticker, 200)  # 150일선 계산을 위해 200일 필요
+        df = get_ohlcv(ticker, 200)
         if df is None or len(df) < 30:
             continue
 
-        # 최근 20일 내 급등일 찾기 (20일 평균 거래량 3배 이상 + 8% 이상 장대양봉)
-        recent_20d = df.iloc[-20:]
+        # 최근 N일 내 급등일 찾기
+        recent_20d = df.iloc[-DRYUP_LOOKBACK:]
         explosion_day = None
         explosion_change = 0
         explosion_volume_ratio = 0
+        explosion_open = 0
+        explosion_high = 0
+        explosion_prev_close = 0
         days_since_explosion = 0
 
         for i in range(1, len(recent_20d)):
             prev_close = recent_20d['Close'].iloc[i-1]
             curr_close = recent_20d['Close'].iloc[i]
+            curr_open = recent_20d['Open'].iloc[i]
+            curr_high = recent_20d['High'].iloc[i]
+            curr_low = recent_20d['Low'].iloc[i]
             curr_volume = recent_20d['Volume'].iloc[i]
 
             if prev_close <= 0:
@@ -1215,49 +1338,87 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
 
             change = (curr_close - prev_close) / prev_close * 100
 
-            # 해당 일자 기준 직전 20일 평균 거래량 계산
-            day_idx = df.index.get_loc(recent_20d.index[i])
-            if day_idx < 20:
+            # 조건1: 최소 급등폭 이상 양봉
+            if change < DRYUP_MIN_CHANGE:
                 continue
-            avg_volume_20d = df['Volume'].iloc[day_idx-20:day_idx].mean()
 
+            # 조건5: 시가 >= 전일종가 × 갭다운 제한
+            if curr_open < prev_close * DRYUP_GAP_LIMIT:
+                continue
+
+            # 조건3: 윗꼬리 제한
+            candle_range = curr_high - curr_low
+            if candle_range <= 0:
+                continue
+            upper_shadow_ratio = (curr_high - curr_close) / candle_range
+            if upper_shadow_ratio >= DRYUP_MAX_SHADOW:
+                continue
+
+            # 조건2: 거래량 > 20일 평균 × N배
+            day_idx = df.index.get_loc(recent_20d.index[i])
+            if day_idx < DRYUP_LOOKBACK:
+                continue
+            avg_volume_20d = df['Volume'].iloc[day_idx-DRYUP_LOOKBACK:day_idx].mean()
             if avg_volume_20d <= 0:
                 continue
-
             volume_ratio = curr_volume / avg_volume_20d
+            if volume_ratio < DRYUP_VOLUME_MULTIPLE:
+                continue
 
-            # 8% 이상 장대양봉 + 거래량 3배 이상
-            if change >= 8 and volume_ratio >= 3:
-                explosion_day = recent_20d.index[i]
-                explosion_change = change
-                explosion_volume_ratio = volume_ratio
-                days_since_explosion = len(recent_20d) - i - 1
-                break
+            # 조건4: 종가 > 20일선
+            ma20_at_explosion = df['Close'].iloc[day_idx-(DRYUP_LOOKBACK-1):day_idx+1].mean()
+            if curr_close <= ma20_at_explosion:
+                continue
+
+            # 모든 급등봉 조건 통과
+            explosion_day = recent_20d.index[i]
+            explosion_change = change
+            explosion_volume_ratio = volume_ratio
+            explosion_open = curr_open
+            explosion_high = curr_high
+            explosion_prev_close = prev_close
+            days_since_explosion = len(recent_20d) - i - 1
+            break
 
         if explosion_day is None:
             continue
 
-        # 급등 후 10거래일 이내만 필터
-        if days_since_explosion > 10:
+        # 눌림목 기간 확인
+        if days_since_explosion < DRYUP_MIN_DAYS or days_since_explosion > DRYUP_MAX_DAYS:
             continue
 
-        # 급등일 이후 거래량 감소 확인
+        # 급등일 이후 데이터 확인
         explosion_idx = df.index.get_loc(explosion_day)
         if explosion_idx >= len(df) - 3:
             continue
 
-        explosion_volume = df['Volume'].iloc[explosion_idx]
-        recent_avg_volume = df['Volume'].iloc[-3:].mean()
+        current_price = float(df['Close'].iloc[-1])
 
+        # 눌림목 조건1: 현재가 > 급등봉 시가
+        if current_price <= explosion_open * DRYUP_PRICE_VS_OPEN:
+            continue
+
+        # 눌림목 조건2: 현재가 > 급등 고점
+        if current_price <= explosion_high * DRYUP_PRICE_VS_HIGH:
+            continue
+
+        # 눌림목 조건3: 현재가 > 급등 전일종가
+        if current_price <= explosion_prev_close:
+            continue
+
+        # 눌림목 조건4: 현재가 > 20일선
+        ma20_current = df['Close'].iloc[-DRYUP_LOOKBACK:].mean()
+        if current_price <= ma20_current:
+            continue
+
+        # 눌림목 조건5: 최근 거래량 감소 확인
+        explosion_volume = df['Volume'].iloc[explosion_idx]
+        recent_avg_volume = df['Volume'].iloc[-DRYUP_RECENT_DAYS:].mean()
         if explosion_volume <= 0:
             continue
-
         volume_decrease_rate = (1 - recent_avg_volume / explosion_volume) * 100
-
-        if volume_decrease_rate < 50:
+        if volume_decrease_rate < DRYUP_VOLUME_DECREASE:
             continue
-
-        current_price = int(df['Close'].iloc[-1])
 
         # 150일선 계산
         ma150 = None
@@ -1266,10 +1427,15 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
             ma150 = int(df['Close'].rolling(150).mean().iloc[-1])
             above_ma150 = bool(current_price > ma150)
 
+        # 등락률
+        prev_price = float(df['Close'].iloc[-2])
+        change_rate = (current_price - prev_price) / prev_price * 100 if prev_price > 0 else 0
+
         results.append({
             'ticker': ticker,
             'name': name,
-            'price': current_price,
+            'price': int(current_price),
+            'change_rate': round(change_rate, 2),
             'explosion_date': explosion_day.strftime('%Y-%m-%d'),
             'explosion_change_rate': round(explosion_change, 1),
             'explosion_volume_ratio': round(explosion_volume_ratio, 1),
@@ -1288,7 +1454,7 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
     for i, r in enumerate(results):
         r['volume_rank'] = i + 1
 
-    print(f"[완료] 거래량 급감 종목: {len(results)}개")
+    print(f"[완료] 거래량 급감 눌림목: {len(results)}개")
 
     return results
 
@@ -1301,22 +1467,35 @@ HIGH_52W_PERIOD = 250  # 52주 ≈ 250거래일
 MAX_DAYS_SINCE_BREAKOUT = 8  # 돌파 후 최대 거래일
 
 def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
-    """52주 신고가를 돌파한 종목을 발굴합니다."""
+    """
+    52주 신고가를 돌파한 종목을 발굴합니다.
+
+    [52주 고가 기준]
+        - High(고가) 기준 250거래일 최고가
+
+    [돌파 조건]
+        1. 종가 > 52주 고가 (High 기준)
+        2. 돌파일 거래량 ≥ 20일 평균 × 1.5
+        3. 현재가 > 150일선
+        4. 150일선 우상향 (현재 150MA > 20일 전 150MA)
+        5. 돌파 후 8거래일 이내
+        6. 현재가 > 52주 고가 유지
+    """
     print("\n[52주 신고가 돌파] 분석 시작...")
 
     results = []
     required_days = HIGH_52W_PERIOD + MAX_DAYS_SINCE_BREAKOUT + 2
+    MA150_PERIOD = 150
+    MA150_SLOPE_DAYS = 20  # 150MA 우상향 판단 기간
 
     for _, row in stocks.iterrows():
         ticker = row.get('Code', row.get('Symbol', ''))
         name = row.get('Name', '')
-        market_cap = row.get('Marcap', 0)
-        if isinstance(market_cap, (int, float)):
-            market_cap_억 = market_cap / 1e8
-        else:
-            market_cap_억 = 0
+        market_cap = row.get('MarketCap', 0)
+        if not isinstance(market_cap, (int, float)):
+            market_cap = 0
 
-        if market_cap_억 < MIN_MARKET_CAP:
+        if market_cap < MIN_MARKET_CAP:
             continue
 
         df = get_ohlcv(ticker, required_days + 50)
@@ -1324,19 +1503,32 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
             continue
 
         close = df['Close']
-        if close.isna().any():
-            close = close.dropna()
-            if len(close) < required_days:
-                continue
+        high = df['High']
+        volume = df['Volume']
+
+        if close.isna().sum() > 10:
+            continue
 
         total_len = len(df)
+        if total_len < MA150_PERIOD + MA150_SLOPE_DAYS:
+            continue
 
-        # 9일 전 기준 52주 신고가 계산
+        # --- 추세 필터: 150일선 위 + 우상향 ---
+        ma150_now = close.iloc[-MA150_PERIOD:].mean()
+        ma150_20ago = close.iloc[-(MA150_PERIOD + MA150_SLOPE_DAYS):-MA150_SLOPE_DAYS].mean()
+        current_close = close.iloc[-1]
+
+        if current_close <= ma150_now:
+            continue
+        if ma150_now <= ma150_20ago:
+            continue
+
+        # --- 52주 신고가 계산 (High 기준) ---
         base_idx = total_len - 1 - MAX_DAYS_SINCE_BREAKOUT - 1
         if base_idx < HIGH_52W_PERIOD:
             continue
 
-        high_52w_prices = close.iloc[base_idx - HIGH_52W_PERIOD:base_idx]
+        high_52w_prices = high.iloc[base_idx - HIGH_52W_PERIOD:base_idx]
         if high_52w_prices.empty:
             continue
 
@@ -1344,30 +1536,40 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         if pd.isna(high_52w) or high_52w <= 0:
             continue
 
-        # 8일 전부터 오늘까지 돌파일 찾기
+        # --- 돌파일 찾기 (8일 전부터 오늘까지) ---
         breakout_date = None
         days_since = None
+        breakout_idx = None
         for days_ago in range(MAX_DAYS_SINCE_BREAKOUT, -1, -1):
             idx = total_len - 1 - days_ago
             if idx < 0:
                 continue
-            c = close.iloc[idx]
-            if c > high_52w:
+            if close.iloc[idx] > high_52w:
                 breakout_date = df.index[idx]
                 days_since = days_ago
+                breakout_idx = idx
                 break
 
         if breakout_date is None:
             continue
 
-        # 현재가가 52주 신고가 위에 있어야 함
-        current_close = close.iloc[-1]
+        # --- 거래량 확인: 돌파일 거래량 ≥ 20일 평균 × 1.5 ---
+        if breakout_idx < 20:
+            continue
+        avg_vol_20 = volume.iloc[breakout_idx - 20:breakout_idx].mean()
+        breakout_vol = volume.iloc[breakout_idx]
+
+        if avg_vol_20 <= 0 or breakout_vol < avg_vol_20 * 1.5:
+            continue
+
+        # --- 현재가가 52주 신고가 위에 있어야 함 ---
         if current_close <= high_52w:
             continue
 
         prev_close = close.iloc[-2] if len(close) >= 2 else current_close
         change_rate = (current_close - prev_close) / prev_close * 100 if prev_close > 0 else 0
         above_high_percent = (current_close - high_52w) / high_52w * 100
+        vol_ratio = round(breakout_vol / avg_vol_20, 1) if avg_vol_20 > 0 else 0
 
         results.append({
             'ticker': ticker,
@@ -1378,7 +1580,8 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
             'breakout_date': breakout_date.strftime('%Y-%m-%d'),
             'days_since': days_since,
             'above_high_percent': round(above_high_percent, 2),
-            'market_cap': int(market_cap_억),
+            'volume_ratio': vol_ratio,
+            'market_cap': int(market_cap),
             'updated_at': datetime.now().isoformat()
         })
 
@@ -1389,122 +1592,172 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
 
 
 # ============================================================================
-# 8. 업종별 4단계 스크리너
+# 8. 업종별 4단계 스크리너 (네이버 증권 업종 기준, 와인스테인 4단계)
 # ============================================================================
 
 SECTOR_MA_PERIOD = 150
 SECTOR_SLOPE_PERIOD = 20
-SECTOR_SLOPE_THRESHOLD = 2.0
+SECTOR_SLOPE_THRESHOLD = 1.0
+SECTOR_MIN_STOCKS = 10  # 최소 종목 수
 
-# 업종 ETF 목록 (FinanceDataReader 사용)
-SECTOR_ETF_LIST = [
-    ("KS11", "KOSPI"),
-    ("KQ11", "KOSDAQ"),
-    ("091160", "KODEX IT"),
-    ("091170", "KODEX 반도체"),
-    ("091180", "KODEX 자동차"),
-    ("117700", "KODEX 건설"),
-    ("117460", "KODEX 에너지화학"),
-    ("140710", "KODEX 헬스케어"),
-    ("091220", "KODEX 철강"),
-    ("102780", "KODEX 조선"),
-    ("140700", "KODEX 보험"),
-    ("102970", "KODEX 증권"),
-    ("091230", "KODEX 은행"),
-    ("266360", "KODEX 2차전지"),
-    ("385510", "KODEX AI반도체핵심장비"),
-    ("396500", "KODEX 미디어엔터"),
-    ("381170", "KODEX 기계장비"),
+# 네이버 증권 업종 목록 (업종코드, 업종명)
+NAVER_SECTOR_LIST = [
+    (278, "반도체"), (267, "IT서비스"), (287, "소프트웨어"),
+    (272, "화학"), (270, "자동차부품"), (261, "제약"),
+    (282, "전자장비"), (279, "건설"), (268, "식품"),
+    (274, "섬유/의류"), (299, "기계"), (283, "전기제품"),
+    (269, "디스플레이장비"), (286, "생물공학"), (304, "철강"),
+    (285, "방송/엔터"), (263, "게임"), (294, "통신장비"),
+    (292, "핸드셋"), (281, "건강관리장비"), (266, "화장품"),
+    (284, "우주항공/국방"), (280, "부동산"), (289, "건축자재"),
+    (322, "비철금속"), (291, "조선"), (306, "전기장비"),
+    (273, "자동차"), (276, "복합기업"), (295, "에너지장비"),
+    (311, "포장재"), (290, "교육서비스"), (324, "상업서비스"),
+    (277, "창업투자"), (301, "은행"), (321, "증권"),
+    (313, "석유/가스"), (316, "건강관리서비스"), (271, "레저장비"),
+    (317, "호텔/레저"), (326, "항공화물/물류"), (293, "컴퓨터/주변기기"),
+    (298, "가정용기기"), (262, "생명과학도구"), (310, "광고"),
+    (300, "양방향미디어"), (308, "인터넷소매"),
+    (315, "손해보험"), (312, "가스유틸리티"),
 ]
 
 
+def _fetch_sector_stocks(sector_no: int) -> List[str]:
+    """네이버 증권에서 업종 구성 종목 코드를 가져옵니다."""
+    import requests
+    from bs4 import BeautifulSoup
+
+    url = f'https://finance.naver.com/sise/sise_group_detail.naver?type=upjong&no={sector_no}'
+    headers = {'User-Agent': 'Mozilla/5.0'}
+    try:
+        resp = requests.get(url, headers=headers, timeout=10)
+        resp.encoding = 'euc-kr'
+        soup = BeautifulSoup(resp.text, 'html.parser')
+        table = soup.find('table', {'class': 'type_5'})
+        if not table:
+            return []
+        codes = []
+        for link in table.find_all('a', href=True):
+            if 'code=' in link['href']:
+                code = link['href'].split('code=')[1]
+                if code and len(code) == 6:
+                    codes.append(code)
+        return codes
+    except:
+        return []
+
+
+def _calc_sector_index(stock_codes: List[str]) -> Optional[pd.Series]:
+    """캐시된 주가 데이터로 업종 등락률 기반 지수를 계산합니다."""
+    global _DATA_CACHE
+    required_days = SECTOR_MA_PERIOD + SECTOR_SLOPE_PERIOD * 2 + 10
+
+    # 캐시에서 종목 데이터 수집
+    close_list = []
+    for code in stock_codes:
+        if code in _DATA_CACHE and _DATA_CACHE[code] is not None:
+            df = _DATA_CACHE[code]
+            if len(df) >= required_days:
+                close = df['Close'].iloc[-required_days:]
+                if close.isna().sum() < 10:
+                    close_list.append(close.pct_change())
+
+    if len(close_list) < SECTOR_MIN_STOCKS:
+        return None
+
+    # 등락률 평균 → 누적 지수
+    returns_df = pd.concat(close_list, axis=1)
+    avg_returns = returns_df.mean(axis=1).fillna(0)
+    sector_index = (1 + avg_returns).cumprod() * 1000
+    return sector_index
+
+
 def screen_sector_stage() -> List[Dict]:
-    """업종별 4단계 판별 스크리너를 실행합니다. (섹터 ETF 기반)"""
+    """업종별 4단계 판별 스크리너 (네이버 증권 업종 기준, 와인스테인 Stage Analysis)"""
     print("\n[업종별 4단계] 분석 시작...")
 
     results = []
-    start_date = (datetime.now() - timedelta(days=450)).strftime("%Y-%m-%d")
 
-    for ticker, sector_name in SECTOR_ETF_LIST:
-        try:
-            df = fdr.DataReader(ticker, start_date)
-            if df is None or df.empty:
-                print(f"  [업종] {sector_name}({ticker}): 데이터 없음")
-                continue
+    # 업종별 종목 목록 병렬 스크래핑
+    from concurrent.futures import ThreadPoolExecutor
+    sector_stocks = {}
 
-            close = df['Close'].dropna()
-            if len(close) < SECTOR_MA_PERIOD + SECTOR_SLOPE_PERIOD:
-                print(f"  [업종] {sector_name}({ticker}): 데이터 부족 ({len(close)}일)")
-                continue
+    def fetch_one(item):
+        no, name = item
+        codes = _fetch_sector_stocks(no)
+        return (no, name, codes)
 
-            # 150일 이동평균
-            ma150_series = close.rolling(window=SECTOR_MA_PERIOD, min_periods=SECTOR_MA_PERIOD).mean()
-            current_price = float(close.iloc[-1])
-            ma150 = float(ma150_series.iloc[-1])
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        futures = list(executor.map(fetch_one, NAVER_SECTOR_LIST))
 
-            if pd.isna(ma150) or ma150 <= 0:
-                continue
+    for no, name, codes in futures:
+        if len(codes) >= SECTOR_MIN_STOCKS:
+            sector_stocks[(no, name)] = codes
 
-            # 기울기 계산
-            current_ma = ma150_series.iloc[-1]
-            past_ma = ma150_series.iloc[-SECTOR_SLOPE_PERIOD]
-            if pd.isna(current_ma) or pd.isna(past_ma) or past_ma <= 0:
-                continue
-            slope = (current_ma - past_ma) / past_ma * 100
+    print(f"  업종 {len(sector_stocks)}개 로드 (종목 {SECTOR_MIN_STOCKS}개 이상)")
 
-            # 이전 기울기 (3단계 판별용)
-            prev_slope = None
-            if len(ma150_series) > SECTOR_SLOPE_PERIOD * 2:
-                prev_current = ma150_series.iloc[-SECTOR_SLOPE_PERIOD]
-                prev_past = ma150_series.iloc[-SECTOR_SLOPE_PERIOD * 2]
-                if not pd.isna(prev_current) and not pd.isna(prev_past) and prev_past > 0:
-                    prev_slope = (prev_current - prev_past) / prev_past * 100
-
-            # 단계 판별
-            if slope < -SECTOR_SLOPE_THRESHOLD:
-                stage, stage_name = 4, "쇠퇴"
-            elif slope > SECTOR_SLOPE_THRESHOLD and current_price > ma150:
-                stage, stage_name = 2, "상승"
-            elif prev_slope is not None and prev_slope > SECTOR_SLOPE_THRESHOLD and abs(slope) <= SECTOR_SLOPE_THRESHOLD:
-                stage, stage_name = 3, "최정상"
-            else:
-                stage, stage_name = 1, "기초"
-
-            # 3개월 수익률
-            return_3m = 0.0
-            if len(close) >= 60:
-                past_price = float(close.iloc[-60])
-                if past_price > 0:
-                    return_3m = (current_price - past_price) / past_price * 100
-
-            # 6개월 과열 여부
-            is_overheated = False
-            if len(close) >= 120:
-                monthly_positive = []
-                for i in range(6):
-                    s_idx = -(i + 1) * 20 - 1
-                    e_idx = -i * 20 - 1 if i > 0 else -1
-                    if abs(s_idx) <= len(close):
-                        s_p = float(close.iloc[s_idx])
-                        e_p = float(close.iloc[e_idx]) if e_idx != -1 else float(close.iloc[-1])
-                        if s_p > 0:
-                            monthly_positive.append((e_p - s_p) / s_p > 0)
-                is_overheated = len(monthly_positive) == 6 and all(monthly_positive)
-
-            results.append({
-                'sector_name': sector_name,
-                'stage': stage,
-                'stage_name': stage_name,
-                'ma150_slope': round(slope, 2),
-                'return_3m': round(return_3m, 2),
-                'is_overheated': is_overheated,
-                'current_price': round(current_price, 2),
-                'ma150': round(ma150, 2),
-                'updated_at': datetime.now().isoformat()
-            })
-        except Exception as e:
-            print(f"  [업종] {sector_name}({ticker}) 오류: {e}")
+    for (sector_no, sector_name), codes in sector_stocks.items():
+        sector_index = _calc_sector_index(codes)
+        if sector_index is None or len(sector_index) < SECTOR_MA_PERIOD + SECTOR_SLOPE_PERIOD * 2:
             continue
+
+        close = sector_index.dropna()
+        if len(close) < SECTOR_MA_PERIOD + SECTOR_SLOPE_PERIOD * 2:
+            continue
+
+        # 150일 이동평균
+        ma150_series = close.rolling(window=SECTOR_MA_PERIOD, min_periods=SECTOR_MA_PERIOD).mean()
+        current_price = float(close.iloc[-1])
+        ma150 = float(ma150_series.iloc[-1])
+
+        if pd.isna(ma150) or ma150 <= 0:
+            continue
+
+        # 기울기 계산 (20일간 150MA 변화율)
+        current_ma = ma150_series.iloc[-1]
+        past_ma = ma150_series.iloc[-SECTOR_SLOPE_PERIOD]
+        if pd.isna(current_ma) or pd.isna(past_ma) or past_ma <= 0:
+            continue
+        slope = (current_ma - past_ma) / past_ma * 100
+
+        # 이전 기울기 (3단계 판별용)
+        prev_slope = None
+        if len(ma150_series) > SECTOR_SLOPE_PERIOD * 2:
+            prev_current = ma150_series.iloc[-SECTOR_SLOPE_PERIOD]
+            prev_past = ma150_series.iloc[-SECTOR_SLOPE_PERIOD * 2]
+            if not pd.isna(prev_current) and not pd.isna(prev_past) and prev_past > 0:
+                prev_slope = (prev_current - prev_past) / prev_past * 100
+
+        # 와인스테인 4단계 판별
+        if slope < -SECTOR_SLOPE_THRESHOLD:
+            stage, stage_name = 4, "쇠퇴"
+        elif slope > SECTOR_SLOPE_THRESHOLD and current_price > ma150:
+            stage, stage_name = 2, "상승"
+        elif prev_slope is not None and prev_slope > SECTOR_SLOPE_THRESHOLD and abs(slope) <= SECTOR_SLOPE_THRESHOLD and current_price > ma150:
+            stage, stage_name = 3, "최정상"
+        else:
+            stage, stage_name = 1, "기초"
+
+
+        # 3개월 수익률
+        return_3m = 0.0
+        if len(close) >= 60:
+            past_price = float(close.iloc[-60])
+            if past_price > 0:
+                return_3m = (current_price - past_price) / past_price * 100
+
+        results.append({
+            'sector_name': sector_name,
+            'stage': stage,
+            'stage_name': stage_name,
+            'ma150_slope': round(slope, 2),
+            'return_3m': round(return_3m, 2),
+            'is_overheated': return_3m > 50,
+            'current_price': round(current_price, 2),
+            'ma150': round(ma150, 2),
+            'stock_count': len(codes),
+            'updated_at': datetime.now().isoformat()
+        })
 
     # 2단계 우선, 그 다음 3개월 수익률 순
     results.sort(key=lambda x: (-x['stage'] if x['stage'] == 2 else x['stage'], -x['return_3m']))
@@ -1636,7 +1889,7 @@ def main():
 
     # 8. 업종별 4단계 스크리너
     sector_stage_results = screen_sector_stage()
-    save_results(sector_stage_results, 'sector_stage.json', len(SECTOR_ETF_LIST))
+    save_results(sector_stage_results, 'sector_stage.json', len(NAVER_SECTOR_LIST))
 
     # 차트 데이터 생성
     all_results = [

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>주식 스크리너</title>
+    <title>국내 주식 종목 발굴</title>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
     <!-- Pretendard 폰트 (네이버, 카카오, 토스에서 사용하는 현대적인 한글 폰트) -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -788,7 +788,7 @@
     <div id="page-home" class="page active">
         <div class="container">
             <header class="home-header">
-                <h1>주식 종목 발굴 스크리너</h1>
+                <h1>국내 주식 종목 발굴</h1>
                 <p class="subtitle">기술적 분석 기반 국내 주식 스크리닝</p>
                 <p class="meta">시가총액 1,000억 이상 · 1,500+ 종목 분석</p>
             </header>
@@ -869,7 +869,7 @@
                     <span class="icon">📈</span>
                     <h1>박스권 돌파 (거래량 무관)</h1>
                 </div>
-                <p class="desc">거래량 무관 돌파 후 12일 이내</p>
+                <p class="desc">거래량 무관 돌파 후 10일 이내</p>
                 <div class="filter-row" style="margin: 12px 0; display: flex; gap: 8px; align-items: center;">
                     <button id="filter-ma150-box-breakout-simple" class="filter-btn" onclick="toggleMA150Filter('boxBreakoutSimple')">
                         150일선 위만
@@ -1211,7 +1211,7 @@
         const screeners = [
             { id: 'box-range', icon: '📦', title: '박스권 스크리너', desc: '60거래일 이상 횡보 중인 종목', badge: { text: '기초', type: 'info' } },
             { id: 'box-breakout', icon: '🚀', title: '박스권 돌파 (거래량 동반)', desc: '거래량 2배 동반 저항선 돌파', badge: { text: '1차 매수', type: 'success' } },
-            { id: 'box-breakout-simple', icon: '📈', title: '박스권 돌파 (거래량 무관)', desc: '거래량 무관 돌파 후 12일 이내' },
+            { id: 'box-breakout-simple', icon: '📈', title: '박스권 돌파 (거래량 무관)', desc: '거래량 무관 돌파 후 10일 이내' },
             { id: 'pullback', icon: '🎯', title: '풀백 스크리너', desc: '돌파 후 되돌림 종목', badge: { text: '2차 매수', type: 'success' } },
             { id: 'volume-dry-up', icon: '🏜️', title: '거래량 급감 눌림목', desc: '3배 거래량+8% 양봉 후 10일내', badge: { text: '세력 보유', type: 'warning' } },
             { id: 'volume-explosion', icon: '💥', title: '거래량 폭발', desc: '40일 평균 6배+6% 양봉', badge: { text: '당일', type: 'danger' } },
@@ -1376,6 +1376,14 @@
             volumeExplosion: () => renderVolumeExplosion(),
             newHigh52w: () => renderNewHigh52w()
         };
+
+        // Sync filter button visual state
+        function syncFilterButton(screener) {
+            const btn = document.getElementById(filterBtnIds[screener]);
+            if (btn) {
+                btn.classList.toggle('active', !!filterMA150State[screener]);
+            }
+        }
 
         // Toggle MA150 filter for specific screener
         function toggleMA150Filter(screener = 'boxRange') {
@@ -1606,7 +1614,7 @@
                             </div>
                             <p class="desc">${s.desc}</p>
                             <div class="stock-count">
-                                ${stockCounts[s.id] > 0 ? `<strong>${stockCounts[s.id]}</strong>개 종목 발굴` : '데이터 로딩 중...'}
+                                ${stockCounts[s.id] !== undefined ? `<strong>${stockCounts[s.id]}</strong>개 종목 발굴` : '데이터 로딩 중...'}
                             </div>
                         </div>
                     </div>
@@ -1628,6 +1636,7 @@
         }
 
         function renderBoxRange() {
+            syncFilterButton('boxRange');
             // 필터 적용
             let filteredData = DATA.boxRange.data;
             if (filterMA150State.boxRange) {
@@ -1668,10 +1677,11 @@
         }
 
         function renderBoxBreakout() {
+            syncFilterButton('boxBreakout');
             // 필터 적용
             let filteredData = DATA.boxBreakout.data;
             if (filterMA150State.boxBreakout) {
-                filteredData = filteredData.filter(s => s.above_ma150 === true || (s.ma150 && s.price > s.ma150));
+                filteredData = filteredData.filter(s => s.above_ma150 === true);
             }
 
             const countEl = document.getElementById('box-breakout-count');
@@ -1685,7 +1695,7 @@
                 { label: '종목명', key: 'name' }, { label: '현재가', align: 'text-right', key: 'price' },
                 { label: '등락률', align: 'text-right', key: 'change_rate' }, { label: '시가총액', align: 'text-right', key: 'market_cap' },
                 { label: '돌파일', key: 'breakout_date' }, { label: '돌파가', align: 'text-right', key: 'breakout_price' },
-                { label: '거래량비', align: 'text-right', key: 'volume_ratio' }, { label: '150일선', align: 'text-right', key: 'ma150' }
+                { label: '저항선대비', align: 'text-right', key: 'breakout_pct' }, { label: '거래량비', align: 'text-right', key: 'volume_ratio' }, { label: '150일선', align: 'text-right', key: 'ma150' }
             ];
             const state = sortState['box-breakout-table'] || {};
             const sortedData = sortData(filteredData, state.key, state.direction);
@@ -1698,6 +1708,7 @@
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                     <td>${formatShortDate(s.breakout_date)}</td>
                     <td class="text-right">${formatNumber(s.breakout_price)}원</td>
+                    <td class="text-right ${getColor(s.breakout_pct)}">${s.breakout_pct != null ? formatPercent(s.breakout_pct) : '-'}</td>
                     <td class="text-right">${s.volume_ratio.toFixed(1)}x</td>
                     <td class="text-right">${formatNumber(s.ma150)}원</td>
                 </tr>
@@ -1707,10 +1718,11 @@
         }
 
         function renderBoxBreakoutSimple() {
+            syncFilterButton('boxBreakoutSimple');
             // 필터 적용
             let filteredData = DATA.boxBreakoutSimple.data;
             if (filterMA150State.boxBreakoutSimple) {
-                filteredData = filteredData.filter(s => s.above_ma150 === true || (s.ma150 && s.price > s.ma150));
+                filteredData = filteredData.filter(s => s.above_ma150 === true);
             }
 
             const countEl = document.getElementById('box-breakout-simple-count');
@@ -1724,7 +1736,7 @@
                 { label: '종목명', key: 'name' }, { label: '현재가', align: 'text-right', key: 'price' },
                 { label: '등락률', align: 'text-right', key: 'change_rate' }, { label: '시가총액', align: 'text-right', key: 'market_cap' },
                 { label: '돌파일', key: 'breakout_date' }, { label: '저항선', align: 'text-right', key: 'resistance' },
-                { label: '경과일', align: 'text-right', key: 'days_since_breakout' }, { label: '저항선대비', align: 'text-right', key: 'current_vs_resistance' }
+                { label: '경과일', align: 'text-right', key: 'days_since_breakout' }, { label: '저항선대비', align: 'text-right', key: 'breakout_pct' }
             ];
             const state = sortState['box-breakout-simple-table'] || {};
             const sortedData = sortData(filteredData, state.key, state.direction);
@@ -1738,7 +1750,7 @@
                     <td>${formatShortDate(s.breakout_date)}</td>
                     <td class="text-right">${formatNumber(s.resistance)}원</td>
                     <td class="text-right">${s.days_since_breakout}일</td>
-                    <td class="text-right">${s.current_vs_resistance.toFixed(1)}%</td>
+                    <td class="text-right ${getColor(s.breakout_pct)}">${s.breakout_pct != null ? formatPercent(s.breakout_pct) : '-'}</td>
                 </tr>
             `).join('');
             renderTable('box-breakout-simple-table', headers, rows, renderBoxBreakoutSimple);
@@ -1746,10 +1758,11 @@
         }
 
         function renderPullback() {
+            syncFilterButton('pullback');
             // 필터 적용
             let filteredData = DATA.pullback.data;
             if (filterMA150State.pullback) {
-                filteredData = filteredData.filter(s => s.above_ma150 === true || (s.ma150 && s.price > s.ma150));
+                filteredData = filteredData.filter(s => s.above_ma150 === true);
             }
 
             const countEl = document.getElementById('pullback-count');
@@ -1785,10 +1798,11 @@
         }
 
         function renderVolumeDryUp() {
+            syncFilterButton('volumeDryUp');
             // 필터 적용
             let filteredData = DATA.volumeDryUp.data;
             if (filterMA150State.volumeDryUp) {
-                filteredData = filteredData.filter(s => s.above_ma150 === true || (s.ma150 && s.price > s.ma150));
+                filteredData = filteredData.filter(s => s.above_ma150 === true);
             }
 
             const countEl = document.getElementById('volume-dry-up-count');
@@ -1810,7 +1824,7 @@
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.volumeDryUp);
             const rows = paginatedData.map(s => `
-                <tr class="clickable" onclick='openChartModal(${JSON.stringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:0})})'>
+                <tr class="clickable" onclick='openChartModal(${JSON.stringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate||0})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
@@ -1826,10 +1840,11 @@
         }
 
         function renderVolumeExplosion() {
+            syncFilterButton('volumeExplosion');
             // 필터 적용
             let filteredData = DATA.volumeExplosion.data;
             if (filterMA150State.volumeExplosion) {
-                filteredData = filteredData.filter(s => s.above_ma150 === true || (s.ma150 && s.price > s.ma150));
+                filteredData = filteredData.filter(s => s.above_ma150 === true);
             }
 
             const countEl = document.getElementById('volume-explosion-count');
@@ -1869,6 +1884,7 @@
                 { label: '등락률', align: 'text-right', key: 'change_rate' }, { label: '시가총액', align: 'text-right', key: 'market_cap' },
                 { label: '52주 신고가', align: 'text-right', key: 'high_52w' },
                 { label: '신고가 대비', align: 'text-right', key: 'above_high_percent' },
+                { label: '거래량비', align: 'text-right', key: 'volume_ratio' },
                 { label: '돌파 후', align: 'text-right', key: 'days_since' }
             ];
             const state = sortState['new-high-52w-table'] || {};
@@ -1882,6 +1898,7 @@
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                     <td class="text-right">${formatNumber(s.high_52w)}원</td>
                     <td class="text-right positive">+${s.above_high_percent.toFixed(1)}%</td>
+                    <td class="text-right">${s.volume_ratio ? s.volume_ratio.toFixed(1) + 'x' : '-'}</td>
                     <td class="text-right">${s.days_since}일</td>
                 </tr>
             `).join('');

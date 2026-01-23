@@ -38,3 +38,6 @@ Thumbs.db
 # 임시 파일
 *.tmp
 *.temp
+
+# 데이터 캐시
+.cache/
