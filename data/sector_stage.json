@@ -1,8 +1,196 @@
 {
   "meta": {
-    "lastUpdated": "2026-01-23T16:33:01.570497",
-    "totalCount": 0,
-    "screened_from": 28
+    "lastUpdated": "2026-01-23T16:48:30.493301",
+    "totalCount": 17,
+    "screened_from": 17
   },
-  "data": []
+  "data": [
+    {
+      "sector_name": "KODEX 자동차",
+      "stage": 2,
+      "stage_name": "상승",
+      "ma150_slope": 6.72,
+      "return_3m": 51.1,
+      "is_overheated": false,
+      "current_price": 32410.0,
+      "ma150": 21640.23,
+      "updated_at": "2026-01-23T16:48:20.235912"
+    },
+    {
+      "sector_name": "KODEX 미디어엔터",
+      "stage": 2,
+      "stage_name": "상승",
+      "ma150_slope": 11.6,
+      "return_3m": 32.52,
+      "is_overheated": false,
+      "current_price": 24450.0,
+      "ma150": 15724.59,
+      "updated_at": "2026-01-23T16:48:29.755216"
+    },
+    {
+      "sector_name": "KODEX 은행",
+      "stage": 2,
+      "stage_name": "상승",
+      "ma150_slope": 10.71,
+      "return_3m": 25.33,
+      "is_overheated": false,
+      "current_price": 75825.0,
+      "ma150": 51035.68,
+      "updated_at": "2026-01-23T16:48:27.433410"
+    },
+    {
+      "sector_name": "KODEX IT",
+      "stage": 2,
+      "stage_name": "상승",
+      "ma150_slope": 10.53,
+      "return_3m": 24.72,
+      "is_overheated": false,
+      "current_price": 72200.0,
+      "ma150": 48837.27,
+      "updated_at": "2026-01-23T16:48:18.432990"
+    },
+    {
+      "sector_name": "KODEX 조선",
+      "stage": 2,
+      "stage_name": "상승",
+      "ma150_slope": 7.5,
+      "return_3m": 23.4,
+      "is_overheated": false,
+      "current_price": 16560.0,
+      "ma150": 11888.53,
+      "updated_at": "2026-01-23T16:48:24.734089"
+    },
+    {
+      "sector_name": "KOSPI",
+      "stage": 2,
+      "stage_name": "상승",
+      "ma150_slope": 6.95,
+      "return_3m": 22.27,
+      "is_overheated": false,
+      "current_price": 4990.07,
+      "ma150": 3670.81,
+      "updated_at": "2026-01-23T16:48:17.197347"
+    },
+    {
+      "sector_name": "KODEX 증권",
+      "stage": 2,
+      "stage_name": "상승",
+      "ma150_slope": 5.14,
+      "return_3m": 17.76,
+      "is_overheated": false,
+      "current_price": 18765.0,
+      "ma150": 14559.97,
+      "updated_at": "2026-01-23T16:48:26.526554"
+    },
+    {
+      "sector_name": "KODEX 철강",
+      "stage": 2,
+      "stage_name": "상승",
+      "ma150_slope": 3.3,
+      "return_3m": 14.45,
+      "is_overheated": false,
+      "current_price": 14020.0,
+      "ma150": 12514.24,
+      "updated_at": "2026-01-23T16:48:23.830261"
+    },
+    {
+      "sector_name": "KODEX 반도체",
+      "stage": 2,
+      "stage_name": "상승",
+      "ma150_slope": 3.28,
+      "return_3m": 13.79,
+      "is_overheated": false,
+      "current_price": 13410.0,
+      "ma150": 11981.39,
+      "updated_at": "2026-01-23T16:48:19.331223"
+    },
+    {
+      "sector_name": "KOSDAQ",
+      "stage": 2,
+      "stage_name": "상승",
+      "ma150_slope": 3.15,
+      "return_3m": 10.24,
+      "is_overheated": false,
+      "current_price": 993.93,
+      "ma150": 859.47,
+      "updated_at": "2026-01-23T16:48:17.536571"
+    },
+    {
+      "sector_name": "KODEX 보험",
+      "stage": 2,
+      "stage_name": "상승",
+      "ma150_slope": 2.91,
+      "return_3m": 7.5,
+      "is_overheated": false,
+      "current_price": 13180.0,
+      "ma150": 12204.67,
+      "updated_at": "2026-01-23T16:48:25.628955"
+    },
+    {
+      "sector_name": "KODEX AI반도체핵심장비",
+      "stage": 2,
+      "stage_name": "상승",
+      "ma150_slope": 4.65,
+      "return_3m": 1.64,
+      "is_overheated": false,
+      "current_price": 32910.0,
+      "ma150": 27358.3,
+      "updated_at": "2026-01-23T16:48:29.021077"
+    },
+    {
+      "sector_name": "KODEX 에너지화학",
+      "stage": 2,
+      "stage_name": "상승",
+      "ma150_slope": 3.92,
+      "return_3m": -0.14,
+      "is_overheated": false,
+      "current_price": 14590.0,
+      "ma150": 12376.43,
+      "updated_at": "2026-01-23T16:48:22.035724"
+    },
+    {
+      "sector_name": "KODEX 기계장비",
+      "stage": 2,
+      "stage_name": "상승",
+      "ma150_slope": 3.6,
+      "return_3m": -3.31,
+      "is_overheated": false,
+      "current_price": 30350.0,
+      "ma150": 28358.39,
+      "updated_at": "2026-01-23T16:48:30.493261"
+    },
+    {
+      "sector_name": "KODEX 헬스케어",
+      "stage": 1,
+      "stage_name": "기초",
+      "ma150_slope": 1.18,
+      "return_3m": 15.52,
+      "is_overheated": false,
+      "current_price": 6660.0,
+      "ma150": 5971.17,
+      "updated_at": "2026-01-23T16:48:22.938227"
+    },
+    {
+      "sector_name": "KODEX 2차전지",
+      "stage": 1,
+      "stage_name": "기초",
+      "ma150_slope": 0.91,
+      "return_3m": -2.31,
+      "is_overheated": false,
+      "current_price": 13730.0,
+      "ma150": 13562.07,
+      "updated_at": "2026-01-23T16:48:28.293855"
+    },
+    {
+      "sector_name": "KODEX 건설",
+      "stage": 3,
+      "stage_name": "최정상",
+      "ma150_slope": 1.92,
+      "return_3m": 20.56,
+      "is_overheated": false,
+      "current_price": 5130.0,
+      "ma150": 4136.03,
+      "updated_at": "2026-01-23T16:48:21.140083"
+    }
+  ]
 }
