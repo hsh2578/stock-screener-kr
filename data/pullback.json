@@ -1,8 +1,23 @@
 {
   "meta": {
-    "lastUpdated": "2026-01-24T02:00:10.689503",
-    "totalCount": 0,
-    "screened_from": 1524
+    "lastUpdated": "2026-01-27T02:26:32.019877",
+    "totalCount": 1,
+    "screened_from": 1538
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "004090",
+      "name": "한국석유",
+      "price": 14320,
+      "change_rate": 2.14,
+      "breakout_date": "2026-01-15",
+      "resistance": 14510,
+      "pullback_ratio": 1.31,
+      "volume_decrease": 80,
+      "ma150": 14143,
+      "above_ma150": true,
+      "market_cap": 1817,
+      "updated_at": "2026-01-27T02:26:31.350497"
+    }
+  ]
 }
