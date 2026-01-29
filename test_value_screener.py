@@ -149,7 +149,8 @@ def main():
         # 지표 추출
         per = metrics.get('per', [None])[0] if metrics.get('per') else None
         pbr = metrics.get('pbr', [None])[0] if metrics.get('pbr') else None
-        quarters = fin_data.get('quarters', [])
+        estimate_year = fin_data.get('estimate_year')  # 2025/12(E) 또는 2025/12(P)
+        net_income = metrics.get('net_income_ttm')  # 2025년 예상 순이익
 
         results.append({
             'ticker': code,
@@ -161,8 +162,8 @@ def main():
             'op_margin_avg': first_filter_results.get('operating_margin_avg', {}).get('value'),
             'op_growth_5y': first_filter_results.get('operating_profit_growth', {}).get('value'),
             'eps_growth_5y': first_filter_results.get('eps_growth', {}).get('value'),
-            'net_income_ttm': first_filter_results.get('net_income_positive', {}).get('value'),
-            'quarters': quarters[-1] if quarters else None  # 가장 최근 분기
+            'net_income_ttm': round(net_income, 0) if net_income else None,
+            'quarters': estimate_year  # 2025/12(E) 형식
         })
 
     # 시가총액 순 정렬
