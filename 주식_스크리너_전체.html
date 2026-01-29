@@ -1433,7 +1433,7 @@
                     <h1>저평가 우량주</h1>
                     <span class="badge badge-info">가치투자</span>
                 </div>
-                <p class="desc">TTM(최근12개월) 기반 저평가 우량주 스크리닝 (FnGuide 분기데이터)</p>
+                <p class="desc">5년 평균 실적 기반 저평가 우량주 스크리닝 (FnGuide 연간데이터)</p>
                 <div class="meta">
                     <span class="date" id="value-stocks-date">데이터 기준: -</span>
                     <span><span class="count" id="value-stocks-count">-</span>개 종목</span>
@@ -2479,12 +2479,12 @@
                 { label: '종목명', key: 'name' },
                 { label: '시가총액', align: 'text-right', key: 'market_cap' },
                 { label: 'PER', align: 'text-right', key: 'per' },
-                { label: '최근분기', align: 'text-center', key: 'quarters' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '매출성장률', align: 'text-right', key: 'revenue_growth_3y' },
                 { label: '영업이익률', align: 'text-right', key: 'op_margin_avg' },
                 { label: '영업이익성장', align: 'text-right', key: 'op_growth_5y' },
                 { label: 'EPS성장', align: 'text-right', key: 'eps_growth_5y' },
-                { label: '순이익TTM', align: 'text-right', key: 'net_income_ttm' }
+                { label: '순이익성장', align: 'text-right', key: 'net_income_cagr_5y' }
             ];
 
             const state = sortState['value-stocks-table'] || {};
@@ -2493,18 +2493,18 @@
 
             const rows = paginatedData.map(s => {
                 const opMargin = s.op_margin_avg ?? s.op_margin_5y;
-                const netIncome = s.net_income_ttm ?? s.net_income_cagr_5y;
+                const netIncomeGrowth = s.net_income_cagr_5y;
                 return `
                     <tr>
                         <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                         <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                         <td class="text-right">${s.per != null ? s.per.toFixed(1) : '-'}</td>
-                        <td class="text-center"><span class="badge badge-info">${s.quarters || '-'}</span></td>
+                        <td class="text-right">${s.pbr != null ? s.pbr.toFixed(2) : '-'}</td>
                         <td class="text-right">${s.revenue_growth_3y != null ? s.revenue_growth_3y.toFixed(1) + '%' : '-'}</td>
                         <td class="text-right">${opMargin != null ? opMargin.toFixed(1) + '%' : '-'}</td>
                         <td class="text-right">${s.op_growth_5y != null ? s.op_growth_5y.toFixed(1) + '%' : '-'}</td>
                         <td class="text-right">${s.eps_growth_5y != null ? s.eps_growth_5y.toFixed(1) + '%' : '-'}</td>
-                        <td class="text-right">${netIncome != null ? (netIncome / 10000).toFixed(0) + '조' : '-'}</td>
+                        <td class="text-right">${netIncomeGrowth != null ? netIncomeGrowth.toFixed(1) + '%' : '-'}</td>
                     </tr>
                 `;
             }).join('');
