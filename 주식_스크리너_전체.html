@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>국내 주식 종목 발굴</title>
+    <meta name="description" content="기술적 분석 기반 국내 주식 스크리닝 도구 - 박스권, 돌파, 거래량 분석">
+    <title>국내 주식 종목 발굴 - Stock Screener</title>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
     <!-- Pretendard 폰트 (네이버, 카카오, 토스에서 사용하는 현대적인 한글 폰트) -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -20,8 +21,8 @@
             --color-bg-tertiary: #EBEEF3;
             --color-bg-hover: #F0F2F5;
             --color-text-primary: #1E2329;
-            --color-text-secondary: #5E6673;
-            --color-text-muted: #8B95A1;
+            --color-text-secondary: #4A5568; /* 대비 개선: 4.5:1 이상 */
+            --color-text-muted: #718096; /* 대비 개선: 4.5:1 이상 */
             --color-accent: #0066CC;
             --color-accent-hover: #004499;
             --color-accent-light: #E8F1FA;
@@ -516,6 +517,273 @@
         th.sorted .sort-icon { opacity: 1; color: var(--color-accent); }
 
         /* ============================================================
+           ACCESSIBILITY - WCAG 2.1 AA 준수
+           ============================================================ */
+        /* 포커스 인디케이터 강화 */
+        *:focus {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+
+        /* 스킵 네비게이션 링크 */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--color-accent);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 10000;
+            border-radius: 0 0 4px 0;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* 스크린리더 전용 텍스트 */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* ============================================================
+           BREADCRUMB NAVIGATION
+           ============================================================ */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            font-size: 13px;
+            color: var(--color-text-muted);
+            flex-wrap: wrap;
+        }
+        .breadcrumb a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+        .breadcrumb a:hover {
+            color: var(--color-accent);
+        }
+        .breadcrumb .separator {
+            color: var(--color-border-dark);
+        }
+        .breadcrumb .current {
+            color: var(--color-text-primary);
+            font-weight: 600;
+        }
+
+        /* ============================================================
+           TOAST NOTIFICATION
+           ============================================================ */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--color-bg-primary);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            box-shadow: var(--shadow-lg);
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 280px;
+            max-width: 400px;
+            animation: slideInUp 0.3s ease-out;
+            opacity: 0;
+        }
+        .toast.show {
+            opacity: 1;
+        }
+        .toast.hide {
+            animation: slideOutDown 0.3s ease-out forwards;
+        }
+        .toast-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .toast-content {
+            flex: 1;
+        }
+        .toast-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        .toast-message {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+        }
+        .toast-close {
+            background: none;
+            border: none;
+            color: var(--color-text-muted);
+            cursor: pointer;
+            font-size: 20px;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            transition: background 0.15s;
+        }
+        .toast-close:hover {
+            background: var(--color-bg-tertiary);
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOutDown {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+        }
+
+        /* ============================================================
+           MOBILE CARD VIEW FOR TABLES
+           ============================================================ */
+        @media (max-width: 768px) {
+            .table-wrapper {
+                display: none;
+            }
+            .mobile-card-list {
+                display: block;
+            }
+            .stock-card-mobile {
+                background: var(--color-bg-primary);
+                border: 1px solid var(--color-border);
+                border-radius: var(--radius-md);
+                padding: 16px;
+                margin-bottom: 12px;
+                cursor: pointer;
+                transition: all 0.15s;
+            }
+            .stock-card-mobile:active {
+                transform: scale(0.98);
+                background: var(--color-bg-secondary);
+            }
+            .stock-card-mobile .header-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 12px;
+            }
+            .stock-card-mobile .stock-info h3 {
+                font-size: 15px;
+                font-weight: 700;
+                margin-bottom: 4px;
+            }
+            .stock-card-mobile .stock-info .ticker {
+                font-size: 12px;
+                color: var(--color-text-muted);
+            }
+            .stock-card-mobile .price-info {
+                text-align: right;
+            }
+            .stock-card-mobile .price {
+                font-size: 16px;
+                font-weight: 700;
+                margin-bottom: 4px;
+            }
+            .stock-card-mobile .details {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+                padding-top: 12px;
+                border-top: 1px solid var(--color-border);
+            }
+            .stock-card-mobile .detail-item {
+                font-size: 12px;
+            }
+            .stock-card-mobile .detail-label {
+                color: var(--color-text-muted);
+                margin-bottom: 2px;
+            }
+            .stock-card-mobile .detail-value {
+                font-weight: 600;
+                color: var(--color-text-primary);
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-card-list {
+                display: none;
+            }
+        }
+
+        /* ============================================================
+           ENHANCED LOADING STATE
+           ============================================================ */
+        .skeleton {
+            background: linear-gradient(90deg,
+                var(--color-bg-tertiary) 0%,
+                var(--color-bg-secondary) 50%,
+                var(--color-bg-tertiary) 100%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s ease-in-out infinite;
+            border-radius: 4px;
+        }
+
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* ============================================================
+           FILTER RESULT BADGE
+           ============================================================ */
+        .filter-result {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: var(--color-accent-light);
+            color: var(--color-accent);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            animation: fadeInScale 0.3s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* ============================================================
            CLICKABLE ROWS
            ============================================================ */
         tr.clickable { cursor: pointer; }
@@ -657,41 +925,62 @@
         .filter-btn {
             padding: 8px 16px;
             border-radius: var(--radius-sm);
-            border: 1px solid var(--color-border);
+            border: 2px solid var(--color-border); /* 두께 증가로 가시성 향상 */
             background-color: var(--color-bg-primary);
             color: var(--color-text-secondary);
             font-size: 13px;
-            font-weight: 500;
+            font-weight: 600; /* 가중치 증가 */
             cursor: pointer;
-            transition: all 0.15s;
+            transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            min-height: 40px;
+            position: relative;
         }
         .filter-btn::before {
             content: '';
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
             border: 2px solid var(--color-border-dark);
-            border-radius: 3px;
-            transition: all 0.15s;
+            border-radius: 4px;
+            transition: all 0.2s;
+            flex-shrink: 0;
         }
         .filter-btn:hover {
             background-color: var(--color-bg-tertiary);
-            border-color: var(--color-border-dark);
+            border-color: var(--color-accent);
+            transform: translateY(-1px);
+        }
+        .filter-btn:focus {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
         }
         .filter-btn.active {
             background-color: var(--color-accent-light);
             border-color: var(--color-accent);
             color: var(--color-accent);
+            font-weight: 700;
         }
         .filter-btn.active::before {
             background-color: var(--color-accent);
             border-color: var(--color-accent);
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
-            background-size: 10px;
+            background-size: 12px;
             background-repeat: no-repeat;
             background-position: center;
+        }
+        .filter-btn.active::after {
+            content: '적용됨';
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--color-accent);
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: 600;
         }
 
         /* ============================================================
@@ -749,15 +1038,39 @@
            ============================================================ */
         @media (max-width: 768px) {
             .header-content { padding: 0 16px; height: 52px; }
-            .logo { font-size: 16px; }
+            .logo {
+                font-size: 16px;
+                min-height: 44px; /* 터치 타겟 최소 크기 보장 */
+            }
             .header-meta { display: none; }
             .container { padding: 16px; }
             .page-header { padding: 16px; }
             .page-header h1 { font-size: 18px; }
             th, td { padding: 10px 8px; font-size: 13px; }
-            .screener-card { padding: 16px; }
+            .screener-card {
+                padding: 16px;
+                min-height: 120px; /* 터치 타겟 크기 */
+            }
             .home-header { padding: 32px 16px; }
             .home-header h1 { font-size: 24px; }
+
+            /* 터치 타겟 크기 개선 */
+            .back-link {
+                min-height: 44px;
+                padding: 12px 16px;
+            }
+            .filter-btn {
+                min-height: 44px;
+                padding: 12px 18px;
+            }
+            .pagination-btn {
+                min-width: 44px;
+                min-height: 44px;
+            }
+            .modal-close {
+                width: 44px;
+                height: 44px;
+            }
         }
 
         /* ============================================================
@@ -768,15 +1081,19 @@
     </style>
 </head>
 <body>
+    <!-- 접근성: 스킵 네비게이션 -->
+    <a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
+
     <!-- Global Header -->
-    <header class="global-header">
+    <header class="global-header" role="banner">
         <div class="header-content">
-            <div class="logo" onclick="showPage('home')">
-                <div class="logo-icon">S</div>
+            <button class="logo" onclick="showPage('home')" aria-label="홈으로 이동" style="background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--color-text-primary);">
+                <div class="logo-icon" aria-hidden="true">S</div>
                 <span>Stock Screener</span>
-            </div>
-            <div class="header-meta">
+            </button>
+            <div class="header-meta" aria-live="polite">
                 <div class="update-badge">
+                    <span class="sr-only">데이터 상태:</span>
                     실시간 데이터
                 </div>
                 <span>KRX 기준</span>
@@ -786,14 +1103,14 @@
 
     <!-- Home Page -->
     <div id="page-home" class="page active">
-        <div class="container">
+        <div class="container" id="main-content">
             <header class="home-header">
                 <h1>국내 주식 종목 발굴</h1>
                 <p class="subtitle">기술적 분석 기반 국내 주식 스크리닝</p>
                 <p class="meta">시가총액 1,000억 이상 · 1,500+ 종목 분석</p>
             </header>
-            <main class="card-grid" id="home-cards"></main>
-            <footer class="home-footer">
+            <main class="card-grid" id="home-cards" role="main" aria-label="스크리너 목록"></main>
+            <footer class="home-footer" role="contentinfo">
                 <p>데이터 출처: KRX (한국거래소) · 매일 장 마감 후 자동 업데이트</p>
                 <p class="disclaimer">본 서비스는 투자 참고용이며, 투자 판단의 책임은 본인에게 있습니다.</p>
             </footer>
@@ -803,29 +1120,44 @@
     <!-- Box Range Page -->
     <div id="page-box-range" class="page">
         <div class="container">
-            <a href="#" class="back-link" onclick="showPage('home'); return false;">← 홈으로</a>
+            <!-- Breadcrumb Navigation -->
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="#" onclick="showPage('home'); return false;">홈</a>
+                <span class="separator" aria-hidden="true">›</span>
+                <span class="current">박스권 스크리너</span>
+            </nav>
+
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
+
             <header class="page-header">
                 <div class="title-row">
-                    <span class="icon">📦</span>
+                    <span class="icon" aria-hidden="true">📦</span>
                     <h1>박스권 스크리너</h1>
                     <span class="badge badge-info">퀀트</span>
                 </div>
                 <p class="desc">60거래일 ATR기반 횡보 + 지지/저항 터치 확인 + 추세 필터 + 거래량 감소 (7조건)</p>
-                <div class="filter-row" style="margin: 12px 0; display: flex; gap: 8px; align-items: center;">
-                    <button id="filter-ma150-btn" class="filter-btn" onclick="toggleMA150Filter()">
+                <div class="filter-row" style="margin: 12px 0; display: flex; gap: 8px; align-items: center;" role="group" aria-label="필터 옵션">
+                    <button id="filter-ma150-btn" class="filter-btn" onclick="toggleMA150Filter()" aria-pressed="false" aria-label="150일 이동평균선 위 종목만 표시">
+                        <span class="sr-only">필터:</span>
                         150일선 위만
                     </button>
                 </div>
-                <div class="meta">
+                <div class="meta" aria-live="polite">
                     <span class="date" id="box-range-date">데이터 기준: -</span>
                     <span><span class="count" id="box-range-count">-</span>개 종목 <span class="total" id="box-range-total">/ 1,521개 중</span></span>
                 </div>
             </header>
             <div class="card table-card">
                 <div class="table-wrapper">
-                    <table id="box-range-table"><thead></thead><tbody></tbody></table>
+                    <table id="box-range-table" role="table" aria-label="박스권 종목 목록">
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
                 </div>
-                <div id="box-range-pagination" class="pagination"></div>
+                <div id="box-range-mobile" class="mobile-card-list"></div>
+                <div id="box-range-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
             </div>
         </div>
     </div>
@@ -833,7 +1165,14 @@
     <!-- Box Breakout Page -->
     <div id="page-box-breakout" class="page">
         <div class="container">
-            <a href="#" class="back-link" onclick="showPage('home'); return false;">← 홈으로</a>
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="#" onclick="showPage('home'); return false;">홈</a>
+                <span class="separator" aria-hidden="true">›</span>
+                <span class="current">박스권 돌파 (거래량 동반)</span>
+            </nav>
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
             <header class="page-header">
                 <div class="title-row">
                     <span class="icon">🚀</span>
@@ -853,9 +1192,10 @@
             </header>
             <div class="card table-card">
                 <div class="table-wrapper">
-                    <table id="box-breakout-table"><thead></thead><tbody></tbody></table>
+                    <table id="box-breakout-table" role="table" aria-label="박스권 돌파 종목 목록"><thead></thead><tbody></tbody></table>
                 </div>
-                <div id="box-breakout-pagination" class="pagination"></div>
+                <div id="box-breakout-mobile" class="mobile-card-list"></div>
+                <div id="box-breakout-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
             </div>
         </div>
     </div>
@@ -863,7 +1203,14 @@
     <!-- Box Breakout Simple Page -->
     <div id="page-box-breakout-simple" class="page">
         <div class="container">
-            <a href="#" class="back-link" onclick="showPage('home'); return false;">← 홈으로</a>
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="#" onclick="showPage('home'); return false;">홈</a>
+                <span class="separator" aria-hidden="true">›</span>
+                <span class="current">박스권 돌파 (거래량 무관)</span>
+            </nav>
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
             <header class="page-header">
                 <div class="title-row">
                     <span class="icon">📈</span>
@@ -882,9 +1229,10 @@
             </header>
             <div class="card table-card">
                 <div class="table-wrapper">
-                    <table id="box-breakout-simple-table"><thead></thead><tbody></tbody></table>
+                    <table id="box-breakout-simple-table" role="table" aria-label="박스권 돌파 (거래량 무관) 종목 목록"><thead></thead><tbody></tbody></table>
                 </div>
-                <div id="box-breakout-simple-pagination" class="pagination"></div>
+                <div id="box-breakout-simple-mobile" class="mobile-card-list"></div>
+                <div id="box-breakout-simple-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
             </div>
         </div>
     </div>
@@ -892,7 +1240,14 @@
     <!-- Pullback Page -->
     <div id="page-pullback" class="page">
         <div class="container">
-            <a href="#" class="back-link" onclick="showPage('home'); return false;">← 홈으로</a>
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="#" onclick="showPage('home'); return false;">홈</a>
+                <span class="separator" aria-hidden="true">›</span>
+                <span class="current">풀백 스크리너</span>
+            </nav>
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
             <header class="page-header">
                 <div class="title-row">
                     <span class="icon">🎯</span>
@@ -912,9 +1267,10 @@
             </header>
             <div class="card table-card">
                 <div class="table-wrapper">
-                    <table id="pullback-table"><thead></thead><tbody></tbody></table>
+                    <table id="pullback-table" role="table" aria-label="풀백 종목 목록"><thead></thead><tbody></tbody></table>
                 </div>
-                <div id="pullback-pagination" class="pagination"></div>
+                <div id="pullback-mobile" class="mobile-card-list"></div>
+                <div id="pullback-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
             </div>
         </div>
     </div>
@@ -922,7 +1278,14 @@
     <!-- Volume Dry Up Page -->
     <div id="page-volume-dry-up" class="page">
         <div class="container">
-            <a href="#" class="back-link" onclick="showPage('home'); return false;">← 홈으로</a>
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="#" onclick="showPage('home'); return false;">홈</a>
+                <span class="separator" aria-hidden="true">›</span>
+                <span class="current">거래량 급감 눌림목</span>
+            </nav>
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
             <header class="page-header">
                 <div class="title-row">
                     <span class="icon">🏜️</span>
@@ -942,9 +1305,10 @@
             </header>
             <div class="card table-card">
                 <div class="table-wrapper">
-                    <table id="volume-dry-up-table"><thead></thead><tbody></tbody></table>
+                    <table id="volume-dry-up-table" role="table" aria-label="거래량 급감 종목 목록"><thead></thead><tbody></tbody></table>
                 </div>
-                <div id="volume-dry-up-pagination" class="pagination"></div>
+                <div id="volume-dry-up-mobile" class="mobile-card-list"></div>
+                <div id="volume-dry-up-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
             </div>
         </div>
     </div>
@@ -952,7 +1316,14 @@
     <!-- Volume Explosion Page -->
     <div id="page-volume-explosion" class="page">
         <div class="container">
-            <a href="#" class="back-link" onclick="showPage('home'); return false;">← 홈으로</a>
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="#" onclick="showPage('home'); return false;">홈</a>
+                <span class="separator" aria-hidden="true">›</span>
+                <span class="current">거래량 폭발</span>
+            </nav>
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
             <header class="page-header">
                 <div class="title-row">
                     <span class="icon">💥</span>
@@ -972,9 +1343,10 @@
             </header>
             <div class="card table-card">
                 <div class="table-wrapper">
-                    <table id="volume-explosion-table"><thead></thead><tbody></tbody></table>
+                    <table id="volume-explosion-table" role="table" aria-label="거래량 폭발 종목 목록"><thead></thead><tbody></tbody></table>
                 </div>
-                <div id="volume-explosion-pagination" class="pagination"></div>
+                <div id="volume-explosion-mobile" class="mobile-card-list"></div>
+                <div id="volume-explosion-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
             </div>
         </div>
     </div>
@@ -982,7 +1354,14 @@
     <!-- 52-Week High Page -->
     <div id="page-new-high-52w" class="page">
         <div class="container">
-            <a href="#" class="back-link" onclick="showPage('home'); return false;">← 홈으로</a>
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="#" onclick="showPage('home'); return false;">홈</a>
+                <span class="separator" aria-hidden="true">›</span>
+                <span class="current">52주 신고가 돌파</span>
+            </nav>
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
             <header class="page-header">
                 <div class="title-row">
                     <span class="icon">🏔️</span>
@@ -997,9 +1376,10 @@
             </header>
             <div class="card table-card">
                 <div class="table-wrapper">
-                    <table id="new-high-52w-table"><thead></thead><tbody></tbody></table>
+                    <table id="new-high-52w-table" role="table" aria-label="52주 신고가 돌파 종목 목록"><thead></thead><tbody></tbody></table>
                 </div>
-                <div id="new-high-52w-pagination" class="pagination"></div>
+                <div id="new-high-52w-mobile" class="mobile-card-list"></div>
+                <div id="new-high-52w-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
             </div>
         </div>
     </div>
@@ -1007,7 +1387,14 @@
     <!-- Sector Stage Page -->
     <div id="page-sector-stage" class="page">
         <div class="container">
-            <a href="#" class="back-link" onclick="showPage('home'); return false;">← 홈으로</a>
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="#" onclick="showPage('home'); return false;">홈</a>
+                <span class="separator" aria-hidden="true">›</span>
+                <span class="current">업종별 4단계</span>
+            </nav>
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
             <header class="page-header">
                 <div class="title-row">
                     <span class="icon">🏭</span>
@@ -1029,8 +1416,44 @@
         </div>
     </div>
 
+    <!-- Value Stocks Page -->
+    <div id="page-value-stocks" class="page">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="#" onclick="showPage('home'); return false;">홈</a>
+                <span class="separator" aria-hidden="true">›</span>
+                <span class="current">저평가 우량주</span>
+            </nav>
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
+            <header class="page-header">
+                <div class="title-row">
+                    <span class="icon">💎</span>
+                    <h1>저평가 우량주</h1>
+                    <span class="badge badge-info">가치투자</span>
+                </div>
+                <p class="desc">TTM(최근12개월) 기반 저평가 우량주 스크리닝 (FnGuide 분기데이터)</p>
+                <div class="meta">
+                    <span class="date" id="value-stocks-date">데이터 기준: -</span>
+                    <span><span class="count" id="value-stocks-count">-</span>개 종목</span>
+                </div>
+            </header>
+            <div class="card table-card">
+                <div class="table-wrapper">
+                    <table id="value-stocks-table" role="table" aria-label="저평가 우량주 목록"><thead></thead><tbody></tbody></table>
+                </div>
+                <div id="value-stocks-mobile" class="mobile-card-list"></div>
+                <div id="value-stocks-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
+
     <!-- Chart Modal -->
-    <div id="chart-modal" class="modal-overlay" onclick="if(event.target===this)closeModal()">
+    <div id="chart-modal" class="modal-overlay" onclick="if(event.target===this)closeModal()" role="dialog" aria-modal="true" aria-labelledby="modal-name">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-stock-info">
@@ -1040,7 +1463,7 @@
                         <span id="modal-change"></span>
                     </div>
                 </div>
-                <button class="modal-close" onclick="closeModal()">&times;</button>
+                <button class="modal-close" onclick="closeModal()" aria-label="차트 닫기">&times;</button>
             </div>
             <div class="modal-body">
                 <div id="chart-container" class="chart-container">
@@ -1078,7 +1501,8 @@
             volumeDryUp: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
             volumeExplosion: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
             newHigh52w: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
-            sectorStage: { meta: { lastUpdated: null, totalCount: 0 }, data: [] }
+            sectorStage: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
+            valueStocks: { meta: { updated_at: null, total_count: 0 }, data: [] }
         };
 
         // 데이터 로딩 상태
@@ -1094,7 +1518,8 @@
             volumeDryUp: 'volume_dry_up.json',
             volumeExplosion: 'volume_explosion.json',
             newHigh52w: 'new_high_52w.json',
-            sectorStage: 'sector_stage.json'
+            sectorStage: 'sector_stage.json',
+            valueStocks: 'value_stocks.json'
         };
 
         // 데이터 경로 후보 (GitHub Pages, 로컬 등 다양한 환경 지원)
@@ -1163,18 +1588,19 @@
 
         // 로딩 상태 UI
         function showLoadingState() {
-            const mainContent = document.querySelector('.main-content');
-            if (mainContent) {
-                const loadingDiv = document.createElement('div');
-                loadingDiv.id = 'data-loading-indicator';
-                loadingDiv.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:40px 60px;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.15);z-index:9999;text-align:center;';
-                loadingDiv.innerHTML = `
-                    <div style="width:48px;height:48px;border:4px solid #E5E8EB;border-top-color:#0066CC;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 20px;"></div>
-                    <div style="font-size:18px;font-weight:600;color:#1E2329;margin-bottom:8px;">데이터 로딩 중...</div>
-                    <div style="font-size:14px;color:#8B95A1;">스크리너 데이터를 불러오고 있습니다</div>
-                `;
-                document.body.appendChild(loadingDiv);
-            }
+            const loadingDiv = document.createElement('div');
+            loadingDiv.id = 'data-loading-indicator';
+            loadingDiv.setAttribute('role', 'alert');
+            loadingDiv.setAttribute('aria-live', 'polite');
+            loadingDiv.setAttribute('aria-busy', 'true');
+            loadingDiv.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:40px 60px;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.15);z-index:9999;text-align:center;';
+            loadingDiv.innerHTML = `
+                <div style="width:48px;height:48px;border:4px solid #E5E8EB;border-top-color:#0066CC;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 20px;" aria-hidden="true"></div>
+                <div style="font-size:18px;font-weight:600;color:#1E2329;margin-bottom:8px;">데이터 로딩 중...</div>
+                <div style="font-size:14px;color:#718096;">스크리너 데이터를 불러오고 있습니다</div>
+                <div class="sr-only">잠시만 기다려 주세요. 데이터를 불러오고 있습니다.</div>
+            `;
+            document.body.appendChild(loadingDiv);
         }
 
         function hideLoadingState() {
@@ -1185,14 +1611,50 @@
         function showErrorState(message) {
             hideLoadingState();
             const errorDiv = document.createElement('div');
-            errorDiv.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:40px 60px;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.15);z-index:9999;text-align:center;max-width:400px;';
+            errorDiv.setAttribute('role', 'alert');
+            errorDiv.setAttribute('aria-live', 'assertive');
+            errorDiv.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:40px 60px;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.15);z-index:9999;text-align:center;max-width:500px;';
             errorDiv.innerHTML = `
-                <div style="font-size:48px;margin-bottom:16px;">⚠️</div>
-                <div style="font-size:18px;font-weight:600;color:#1E2329;margin-bottom:12px;">데이터 로드 실패</div>
-                <div style="font-size:14px;color:#5E6673;line-height:1.6;">${message}</div>
-                <button onclick="location.reload()" style="margin-top:20px;padding:10px 24px;background:#0066CC;color:white;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;">새로고침</button>
+                <div style="font-size:48px;margin-bottom:16px;" aria-hidden="true">⚠️</div>
+                <div style="font-size:18px;font-weight:600;color:#1E2329;margin-bottom:12px;">데이터를 불러올 수 없습니다</div>
+                <div style="font-size:14px;color:#5E6673;line-height:1.6;margin-bottom:8px;">${message}</div>
+                <div style="font-size:13px;color:#8B95A1;line-height:1.5;padding:12px;background:#F8F9FA;border-radius:8px;margin-top:16px;text-align:left;">
+                    <strong style="display:block;margin-bottom:8px;color:#5E6673;">해결 방법:</strong>
+                    1. 스크리너를 먼저 실행하세요: <code style="background:#E5E8EB;padding:2px 6px;border-radius:4px;font-size:12px;">python run_screeners.py</code><br>
+                    2. 데이터 폴더 경로를 확인하세요<br>
+                    3. 브라우저를 새로고침하세요
+                </div>
+                <button onclick="location.reload()" style="margin-top:20px;padding:12px 28px;background:#0066CC;color:white;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#004499'" onmouseout="this.style.background='#0066CC'">페이지 새로고침</button>
             `;
             document.body.appendChild(errorDiv);
+        }
+
+        // Toast notification system
+        function showToast(title, message, duration = 3000) {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `
+                <div class="toast-icon" aria-hidden="true">✓</div>
+                <div class="toast-content">
+                    <div class="toast-title">${title}</div>
+                    <div class="toast-message">${message}</div>
+                </div>
+                <button class="toast-close" onclick="this.parentElement.remove()" aria-label="알림 닫기">&times;</button>
+            `;
+
+            container.appendChild(toast);
+
+            // Trigger animation
+            setTimeout(() => toast.classList.add('show'), 10);
+
+            // Auto remove
+            setTimeout(() => {
+                toast.classList.add('hide');
+                setTimeout(() => toast.remove(), 300);
+            }, duration);
         }
 
         // 스피너 애니메이션 스타일 추가
@@ -1216,6 +1678,7 @@
             { id: 'volume-dry-up', icon: '🏜️', title: '거래량 급감 눌림목', desc: '3배 거래량+8% 양봉 후 10일내', badge: { text: '세력 보유', type: 'warning' } },
             { id: 'volume-explosion', icon: '💥', title: '거래량 폭발', desc: '40일 평균 6배+6% 양봉', badge: { text: '당일', type: 'danger' } },
             { id: 'new-high-52w', icon: '🏔️', title: '52주 신고가 돌파', desc: '신고가 돌파 후 8거래일 이내', badge: { text: '신고가', type: 'success' } },
+            { id: 'value-stocks', icon: '💎', title: '저평가 우량주', desc: 'PER/PBR/배당 기반 가치투자', badge: { text: '가치투자', type: 'info' } },
             { id: 'sector-stage', icon: '🏭', title: '업종별 4단계', desc: '업종 추세 분석' }
         ];
 
@@ -1283,7 +1746,8 @@
             pullback: 1,
             volumeDryUp: 1,
             volumeExplosion: 1,
-            newHigh52w: 1
+            newHigh52w: 1,
+            valueStocks: 1
         };
 
         // Pagination helper functions
@@ -1374,7 +1838,8 @@
             pullback: () => renderPullback(),
             volumeDryUp: () => renderVolumeDryUp(),
             volumeExplosion: () => renderVolumeExplosion(),
-            newHigh52w: () => renderNewHigh52w()
+            newHigh52w: () => renderNewHigh52w(),
+            valueStocks: () => renderValueStocks()
         };
 
         // Sync filter button visual state
@@ -1392,8 +1857,13 @@
             const btn = document.getElementById(filterBtnIds[screener]);
             if (btn) {
                 btn.classList.toggle('active', filterMA150State[screener]);
+                btn.setAttribute('aria-pressed', filterMA150State[screener] ? 'true' : 'false');
             }
             renderFunctions[screener]();
+
+            // Show feedback toast
+            const filterStatus = filterMA150State[screener] ? '활성화' : '비활성화';
+            showToast('필터 변경', `150일선 위 필터가 ${filterStatus}되었습니다`, 2000);
         }
 
         // Sort data
@@ -1429,7 +1899,8 @@
             'pullback-table': 'pullback',
             'volume-dry-up-table': 'volumeDryUp',
             'volume-explosion-table': 'volumeExplosion',
-            'new-high-52w-table': 'newHigh52w'
+            'new-high-52w-table': 'newHigh52w',
+            'value-stocks-table': 'valueStocks'
         };
 
         function handleSort(tableId, key, renderFn) {
@@ -1461,6 +1932,12 @@
 
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+
+            // Focus trap - move focus to close button
+            setTimeout(() => {
+                const closeBtn = modal.querySelector('.modal-close');
+                if (closeBtn) closeBtn.focus();
+            }, 100);
 
             const container = document.getElementById('chart-container');
             container.innerHTML = '<div class="chart-loading">차트 로딩 중...</div>';
@@ -1578,7 +2055,8 @@
                 'volume-dry-up-date': DATA.volumeDryUp?.meta?.lastUpdated,
                 'volume-explosion-date': DATA.volumeExplosion?.meta?.lastUpdated,
                 'new-high-52w-date': DATA.newHigh52w?.meta?.lastUpdated,
-                'sector-stage-date': DATA.sectorStage?.meta?.lastUpdated
+                'sector-stage-date': DATA.sectorStage?.meta?.lastUpdated,
+                'value-stocks-date': DATA.valueStocks?.meta?.updated_at
             };
 
             for (const [elementId, lastUpdated] of Object.entries(dateMapping)) {
@@ -1600,13 +2078,14 @@
                 'volume-dry-up': DATA.volumeDryUp?.meta?.totalCount || 0,
                 'volume-explosion': DATA.volumeExplosion?.meta?.totalCount || 0,
                 'new-high-52w': DATA.newHigh52w?.meta?.totalCount || 0,
-                'sector-stage': DATA.sectorStage?.meta?.totalCount || 0
+                'sector-stage': DATA.sectorStage?.meta?.totalCount || 0,
+                'value-stocks': DATA.valueStocks?.meta?.total_count || DATA.valueStocks?.data?.length || 0
             };
 
             document.getElementById('home-cards').innerHTML = screeners.map(s => `
-                <div class="card screener-card" onclick="showPage('${s.id}')">
+                <div class="card screener-card" onclick="showPage('${s.id}')" role="button" tabindex="0" onkeypress="if(event.key==='Enter' || event.key===' ')showPage('${s.id}')" aria-label="${s.title} 보기 - ${stockCounts[s.id] || 0}개 종목">
                     <div class="content">
-                        <div class="icon">${s.icon}</div>
+                        <div class="icon" aria-hidden="true">${s.icon}</div>
                         <div class="info">
                             <div class="title-row">
                                 <h2>${s.title}</h2>
@@ -1635,6 +2114,7 @@
             table.querySelector('tbody').innerHTML = rows;
         }
 
+
         function renderBoxRange() {
             syncFilterButton('boxRange');
             // 필터 적용
@@ -1659,7 +2139,7 @@
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.boxRange);
             const rows = paginatedData.map(s => `
-                <tr class="clickable" onclick='openChartModal(${JSON.stringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
+                <tr class="clickable" onclick='openChartModal(${JSON.stringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})' role="button" tabindex="0" onkeypress="if(event.key==='Enter')openChartModal(${JSON.stringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})">
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
@@ -1673,6 +2153,44 @@
                 </tr>
             `).join('');
             renderTable('box-range-table', headers, rows, renderBoxRange);
+
+            // Mobile card view
+            const mobileContainer = document.getElementById('box-range-mobile');
+            if (mobileContainer) {
+                mobileContainer.innerHTML = paginatedData.map(s => `
+                    <div class="stock-card-mobile" onclick='openChartModal(${JSON.stringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})' role="button" tabindex="0" aria-label="${s.name} 차트 보기">
+                        <div class="header-row">
+                            <div class="stock-info">
+                                <h3>${s.name}</h3>
+                                <div class="ticker">${s.ticker}</div>
+                            </div>
+                            <div class="price-info">
+                                <div class="price">${formatNumber(s.price)}원</div>
+                                <div class="${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</div>
+                            </div>
+                        </div>
+                        <div class="details">
+                            <div class="detail-item">
+                                <div class="detail-label">시가총액</div>
+                                <div class="detail-value">${formatMarketCap(s.market_cap)}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">변동폭</div>
+                                <div class="detail-value">${formatPercent(s.range_percent)}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">지지/저항 터치</div>
+                                <div class="detail-value">${s.support_touches}/${s.resistance_touches}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">횡보 기간</div>
+                                <div class="detail-value">${s.days || 60}일</div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
             renderPagination('box-range-pagination', 'boxRange', sortedData.length, renderBoxRange);
         }
 
@@ -1952,11 +2470,80 @@
             document.getElementById('sector-stage-content').innerHTML = html;
         }
 
+        function renderValueStocks() {
+            const valueData = DATA.valueStocks?.data || [];
+            const dataType = DATA.valueStocks?.meta?.data_type || '연간';
+            document.getElementById('value-stocks-count').textContent = valueData.length;
+
+            const headers = [
+                { label: '종목명', key: 'name' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' },
+                { label: 'PER', align: 'text-right', key: 'per' },
+                { label: '최근분기', align: 'text-center', key: 'quarters' },
+                { label: '매출성장률', align: 'text-right', key: 'revenue_growth_3y' },
+                { label: '영업이익률', align: 'text-right', key: 'op_margin_avg' },
+                { label: '영업이익성장', align: 'text-right', key: 'op_growth_5y' },
+                { label: 'EPS성장', align: 'text-right', key: 'eps_growth_5y' },
+                { label: '순이익TTM', align: 'text-right', key: 'net_income_ttm' }
+            ];
+
+            const state = sortState['value-stocks-table'] || {};
+            const sortedData = sortData(valueData, state.key, state.direction);
+            const paginatedData = paginate(sortedData, paginationState.valueStocks);
+
+            const rows = paginatedData.map(s => {
+                const opMargin = s.op_margin_avg ?? s.op_margin_5y;
+                const netIncome = s.net_income_ttm ?? s.net_income_cagr_5y;
+                return `
+                    <tr>
+                        <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
+                        <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                        <td class="text-right">${s.per != null ? s.per.toFixed(1) : '-'}</td>
+                        <td class="text-center"><span class="badge badge-info">${s.quarters || '-'}</span></td>
+                        <td class="text-right">${s.revenue_growth_3y != null ? s.revenue_growth_3y.toFixed(1) + '%' : '-'}</td>
+                        <td class="text-right">${opMargin != null ? opMargin.toFixed(1) + '%' : '-'}</td>
+                        <td class="text-right">${s.op_growth_5y != null ? s.op_growth_5y.toFixed(1) + '%' : '-'}</td>
+                        <td class="text-right">${s.eps_growth_5y != null ? s.eps_growth_5y.toFixed(1) + '%' : '-'}</td>
+                        <td class="text-right">${netIncome != null ? (netIncome / 10000).toFixed(0) + '조' : '-'}</td>
+                    </tr>
+                `;
+            }).join('');
+
+            renderTable('value-stocks-table', headers, rows, renderValueStocks);
+            renderPagination('value-stocks-pagination', 'valueStocks', sortedData.length, renderValueStocks);
+        }
+
         // Navigation
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(`page-${pageId}`).classList.add('active');
             window.scrollTo(0, 0);
+
+            // Update page title for better navigation
+            const pageTitles = {
+                'home': '국내 주식 종목 발굴',
+                'box-range': '박스권 스크리너',
+                'box-breakout': '박스권 돌파 (거래량 동반)',
+                'box-breakout-simple': '박스권 돌파 (거래량 무관)',
+                'pullback': '풀백 스크리너',
+                'volume-dry-up': '거래량 급감 눌림목',
+                'volume-explosion': '거래량 폭발',
+                'new-high-52w': '52주 신고가 돌파',
+                'sector-stage': '업종별 4단계',
+                'value-stocks': '저평가 우량주'
+            };
+
+            const pageTitle = pageTitles[pageId] || '국내 주식 종목 발굴';
+            document.title = `${pageTitle} - Stock Screener`;
+
+            // Announce page change to screen readers
+            const announcement = document.createElement('div');
+            announcement.setAttribute('role', 'status');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.className = 'sr-only';
+            announcement.textContent = `${pageTitle} 페이지로 이동했습니다`;
+            document.body.appendChild(announcement);
+            setTimeout(() => announcement.remove(), 1000);
         }
 
         // 앱 초기화 함수
@@ -1983,6 +2570,7 @@
             renderVolumeExplosion();
             renderNewHigh52w();
             renderSectorStage();
+            renderValueStocks();
 
             console.log('✅ 앱 초기화 완료');
         }
