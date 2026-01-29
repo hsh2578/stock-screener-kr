@@ -1,37 +1,37 @@
 {
   "meta": {
-    "lastUpdated": "2026-01-28T16:29:01.202524",
+    "lastUpdated": "2026-01-29T13:27:09.632480",
     "totalCount": 2,
-    "screened_from": 1538
+    "screened_from": 1542
   },
   "data": [
     {
       "ticker": "004090",
       "name": "한국석유",
-      "price": 14350,
-      "change_rate": 0.56,
+      "price": 14770,
+      "change_rate": 2.93,
       "breakout_date": "2026-01-15",
       "resistance": 14510,
-      "pullback_ratio": 1.1,
-      "volume_decrease": 80,
-      "ma150": 14077,
+      "pullback_ratio": 1.79,
+      "volume_decrease": 56,
+      "ma150": 14069,
       "above_ma150": true,
-      "market_cap": 1821,
-      "updated_at": "2026-01-28T16:29:00.552744"
+      "market_cap": 1876,
+      "updated_at": "2026-01-29T13:27:08.972894"
     },
     {
       "ticker": "336680",
       "name": "탑런토탈솔루션",
-      "price": 4470,
-      "change_rate": 0.22,
+      "price": 4550,
+      "change_rate": 1.79,
       "breakout_date": "2026-01-08",
       "resistance": 4365,
-      "pullback_ratio": 2.41,
-      "volume_decrease": 97,
-      "ma150": 4151,
+      "pullback_ratio": 4.24,
+      "volume_decrease": 96,
+      "ma150": 4152,
       "above_ma150": true,
-      "market_cap": 1749,
-      "updated_at": "2026-01-28T16:29:01.003901"
+      "market_cap": 1783,
+      "updated_at": "2026-01-29T13:27:09.429855"
     }
   ]
 }
