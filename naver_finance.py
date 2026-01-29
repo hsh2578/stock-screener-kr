@@ -570,8 +570,8 @@ def fetch_financial_data_ttm(code: str, retry: int = 2, required_quarter: str = 
     """
     TTM(Trailing Twelve Months) 기반 재무데이터 크롤링
 
-    최근 4개 분기 데이터를 합산하여 TTM 지표를 계산합니다.
-    공시 의무 기한을 기준으로 모든 종목이 동일한 분기 데이터를 갖도록 검증합니다.
+    연간 데이터 + TTM(최근 4분기 합산)을 결합하여 성장률을 계산합니다.
+    예: 21~24년은 연간 데이터, 25년은 TTM(24Q4 + 25Q1~Q3)
 
     Args:
         code: 종목코드
@@ -607,7 +607,13 @@ def fetch_financial_data_ttm(code: str, retry: int = 2, required_quarter: str = 
             if invest_data:
                 data['metrics'].update(invest_data)
 
-            # 2. 분기별 재무제표 (매출, 영업이익, 순이익)
+            # 2. 연간 재무데이터 가져오기 (21~24년)
+            annual_finance = fetch_fnguide_finance(code)
+            annual_revenue = annual_finance.get('revenue', []) if annual_finance else []
+            annual_op = annual_finance.get('operating_profit', []) if annual_finance else []
+            annual_net = annual_finance.get('net_income', []) if annual_finance else []
+
+            # 3. 분기별 재무제표 (매출, 영업이익, 순이익)
             quarterly_finance = fetch_quarterly_finance(code)
             if quarterly_finance and quarterly_finance.get('quarters'):
                 quarters = quarterly_finance['quarters']
@@ -619,42 +625,75 @@ def fetch_financial_data_ttm(code: str, retry: int = 2, required_quarter: str = 
 
                 data['quarters'] = quarters
 
-                # TTM 계산
-                if quarterly_finance.get('revenue'):
-                    ttm_revenue = calculate_ttm_value(quarterly_finance['revenue'])
-                    if ttm_revenue:
-                        data['metrics']['revenue_ttm'] = ttm_revenue
+                # TTM 계산 (최근 4분기 합산)
+                ttm_revenue = calculate_ttm_value(quarterly_finance.get('revenue', []))
+                ttm_op = calculate_ttm_value(quarterly_finance.get('operating_profit', []))
+                ttm_net = calculate_ttm_value(quarterly_finance.get('net_income', []))
 
-                if quarterly_finance.get('operating_profit'):
-                    ttm_op = calculate_ttm_value(quarterly_finance['operating_profit'])
-                    if ttm_op:
-                        data['metrics']['operating_profit_ttm'] = ttm_op
+                if ttm_revenue:
+                    data['metrics']['revenue_ttm'] = ttm_revenue
+                if ttm_op:
+                    data['metrics']['operating_profit_ttm'] = ttm_op
+                if ttm_net:
+                    data['metrics']['net_income_ttm'] = ttm_net
 
-                if quarterly_finance.get('net_income'):
-                    ttm_net = calculate_ttm_value(quarterly_finance['net_income'])
-                    if ttm_net:
-                        data['metrics']['net_income_ttm'] = ttm_net
-                        # CAGR 계산용 (리스트 형태로 저장)
-                        data['metrics']['net_income'] = [ttm_net]
+                # 4. TTM + 연간 데이터 결합하여 성장률 계산
+                # [TTM_2025, 2024, 2023, 2022, 2021] 형태로 결합
+                combined_revenue = [ttm_revenue] + annual_revenue if ttm_revenue else annual_revenue
+                combined_op = [ttm_op] + annual_op if ttm_op else annual_op
+                combined_net = [ttm_net] + annual_net if ttm_net else annual_net
 
-            # 3. 분기별 재무비율 (영업이익률)
-            quarterly_ratio = fetch_quarterly_ratio(code)
-            if quarterly_ratio:
-                if quarterly_ratio.get('operating_margin'):
-                    valid_margins = [m for m in quarterly_ratio['operating_margin'][:4] if m is not None]
-                    if valid_margins:
-                        data['metrics']['operating_margin'] = valid_margins
+                # 매출액 성장률 계산 (TTM vs 전년)
+                if len(combined_revenue) >= 2:
+                    revenue_growth_rates = []
+                    for i in range(min(5, len(combined_revenue) - 1)):
+                        curr = combined_revenue[i]
+                        prev = combined_revenue[i + 1]
+                        if curr is not None and prev is not None and prev != 0:
+                            growth = ((curr / prev) - 1) * 100
+                            revenue_growth_rates.append(round(growth, 2))
+                        else:
+                            revenue_growth_rates.append(None)
+                    if revenue_growth_rates:
+                        data['metrics']['revenue_growth_rate'] = revenue_growth_rates
 
-                if quarterly_ratio.get('eps'):
-                    data['metrics']['eps_quarterly'] = quarterly_ratio['eps']
+                # 영업이익 성장률 계산 (TTM vs 전년)
+                if len(combined_op) >= 2:
+                    op_growth_rates = []
+                    for i in range(min(5, len(combined_op) - 1)):
+                        curr = combined_op[i]
+                        prev = combined_op[i + 1]
+                        if curr is not None and prev is not None and prev != 0:
+                            growth = ((curr / prev) - 1) * 100
+                            op_growth_rates.append(round(growth, 2))
+                        else:
+                            op_growth_rates.append(None)
+                    if op_growth_rates:
+                        data['metrics']['op_profit_growth_rate'] = op_growth_rates
 
-            # 4. 연간 데이터에서 성장률 가져오기 (YoY 비교용)
+                # 순이익 성장률 계산 (TTM vs 전년)
+                if len(combined_net) >= 2:
+                    net_growth_rates = []
+                    for i in range(min(5, len(combined_net) - 1)):
+                        curr = combined_net[i]
+                        prev = combined_net[i + 1]
+                        if curr is not None and prev is not None and prev != 0:
+                            growth = ((curr / prev) - 1) * 100
+                            net_growth_rates.append(round(growth, 2))
+                        else:
+                            net_growth_rates.append(None)
+                    if net_growth_rates:
+                        data['metrics']['net_income_growth_rate'] = net_growth_rates
+
+                # 영업이익률 계산 (TTM 기준)
+                if ttm_revenue and ttm_op and ttm_revenue != 0:
+                    ttm_op_margin = (ttm_op / ttm_revenue) * 100
+                    data['metrics']['operating_margin'] = [round(ttm_op_margin, 2)]
+
+            # 5. EPS 성장률 (연간 데이터 사용 - 분기 EPS 계산이 복잡)
             ratio_data = fetch_fnguide_ratio_light(code)
-            if ratio_data:
-                # 성장률 데이터 추가
-                for key in ['revenue_growth_rate', 'op_profit_growth_rate', 'eps_growth_rate']:
-                    if key in ratio_data:
-                        data['metrics'][key] = ratio_data[key]
+            if ratio_data and 'eps_growth_rate' in ratio_data:
+                data['metrics']['eps_growth_rate'] = ratio_data['eps_growth_rate']
 
             if data['metrics']:
                 return data
@@ -669,25 +708,27 @@ def fetch_financial_data_ttm(code: str, retry: int = 2, required_quarter: str = 
 
 def pass_first_filter_ttm(fin_data: Dict) -> Tuple[bool, Dict[str, Any]]:
     """
-    TTM 데이터 기반 1차 필터 (6개 조건)
+    TTM 데이터 기반 1차 필터 (7개 조건)
 
     조건:
     1. PER: 3 < PER < 30
-    2. 매출액 성장률: 최근 3년 평균 > 10%
-    3. 영업이익률: 최근 4분기 평균 > 10%
-    4. 영업이익 성장률: 최근 5년 평균 > 10%
-    5. EPS 성장률: 최근 5년 평균 > 10%
+    2. 매출액 성장률: 최근 3년 평균 > 10% (TTM 포함)
+    3. 영업이익률: TTM 기준 > 10%
+    4. 영업이익 성장률: 최근 3년 평균 > 10% (TTM 포함)
+    5. EPS 성장률: 최근 3년 평균 > 10%
     6. 순이익 TTM: 양수 (흑자)
+    7. 순이익 증가율: 15% < 최근 3년 평균 < 50% (TTM 포함)
     """
     metrics = fin_data.get('metrics', {})
 
     results = {
         'per_check': {'value': None, 'pass': False, 'condition': '3 < PER < 30'},
         'revenue_growth': {'value': None, 'pass': False, 'condition': '매출성장률 3년평균 > 10%'},
-        'operating_margin_avg': {'value': None, 'pass': False, 'condition': '영업이익률 평균 > 10%'},
-        'operating_profit_growth': {'value': None, 'pass': False, 'condition': '영업이익성장률 5년평균 > 10%'},
-        'eps_growth': {'value': None, 'pass': False, 'condition': 'EPS성장률 5년평균 > 10%'},
+        'operating_margin_avg': {'value': None, 'pass': False, 'condition': '영업이익률 TTM > 10%'},
+        'operating_profit_growth': {'value': None, 'pass': False, 'condition': '영업이익성장률 3년평균 > 10%'},
+        'eps_growth': {'value': None, 'pass': False, 'condition': 'EPS성장률 3년평균 > 10%'},
         'net_income_positive': {'value': None, 'pass': False, 'condition': '순이익 TTM > 0'},
+        'net_income_growth': {'value': None, 'pass': False, 'condition': '순이익증가율 15~50%'},
     }
 
     # 1. PER: 3 < PER < 30
@@ -697,7 +738,7 @@ def pass_first_filter_ttm(fin_data: Dict) -> Tuple[bool, Dict[str, Any]]:
         results['per_check']['value'] = round(per, 2)
         results['per_check']['pass'] = 3 < per < 30
 
-    # 2. 매출액 성장률: 3년 평균 > 10%
+    # 2. 매출액 성장률: 3년 평균 > 10% (TTM 포함)
     rev_growth_rate = metrics.get('revenue_growth_rate', [])
     if rev_growth_rate:
         valid_rates = [r for r in rev_growth_rate[:3] if r is not None]
@@ -706,28 +747,28 @@ def pass_first_filter_ttm(fin_data: Dict) -> Tuple[bool, Dict[str, Any]]:
             results['revenue_growth']['value'] = round(avg_growth, 2)
             results['revenue_growth']['pass'] = avg_growth > 10
 
-    # 3. 영업이익률: 최근 4분기 평균 > 10%
+    # 3. 영업이익률: TTM 기준 > 10%
     op_margin = metrics.get('operating_margin', [])
     if op_margin:
-        valid_margins = [m for m in op_margin[:4] if m is not None]
+        valid_margins = [m for m in op_margin[:1] if m is not None]  # TTM 영업이익률만
         if valid_margins:
-            avg_margin = sum(valid_margins) / len(valid_margins)
-            results['operating_margin_avg']['value'] = round(avg_margin, 2)
-            results['operating_margin_avg']['pass'] = avg_margin > 10
+            ttm_margin = valid_margins[0]
+            results['operating_margin_avg']['value'] = round(ttm_margin, 2)
+            results['operating_margin_avg']['pass'] = ttm_margin > 10
 
-    # 4. 영업이익 성장률: 5년 평균 > 10%
+    # 4. 영업이익 성장률: 3년 평균 > 10% (TTM 포함)
     op_growth_rate = metrics.get('op_profit_growth_rate', [])
     if op_growth_rate:
-        valid_rates = [r for r in op_growth_rate[:5] if r is not None]
+        valid_rates = [r for r in op_growth_rate[:3] if r is not None]
         if valid_rates:
             avg_growth = sum(valid_rates) / len(valid_rates)
             results['operating_profit_growth']['value'] = round(avg_growth, 2)
             results['operating_profit_growth']['pass'] = avg_growth > 10
 
-    # 5. EPS 성장률: 5년 평균 > 10%
+    # 5. EPS 성장률: 3년 평균 > 10%
     eps_growth_rate = metrics.get('eps_growth_rate', [])
     if eps_growth_rate:
-        valid_rates = [r for r in eps_growth_rate[:5] if r is not None]
+        valid_rates = [r for r in eps_growth_rate[:3] if r is not None]
         if valid_rates:
             avg_growth = sum(valid_rates) / len(valid_rates)
             results['eps_growth']['value'] = round(avg_growth, 2)
@@ -739,9 +780,18 @@ def pass_first_filter_ttm(fin_data: Dict) -> Tuple[bool, Dict[str, Any]]:
         results['net_income_positive']['value'] = round(net_income_ttm, 2)
         results['net_income_positive']['pass'] = net_income_ttm > 0
 
-    # 통과 여부: 6개 조건 모두 충족
+    # 7. 순이익 증가율: 15% < 3년 평균 < 50% (TTM 포함)
+    net_growth_rate = metrics.get('net_income_growth_rate', [])
+    if net_growth_rate:
+        valid_rates = [r for r in net_growth_rate[:3] if r is not None]
+        if valid_rates:
+            avg_growth = sum(valid_rates) / len(valid_rates)
+            results['net_income_growth']['value'] = round(avg_growth, 2)
+            results['net_income_growth']['pass'] = 15 < avg_growth < 50
+
+    # 통과 여부: 7개 조건 모두 충족
     pass_count = sum(1 for r in results.values() if r['pass'])
-    all_pass = pass_count == 6
+    all_pass = pass_count == 7
 
     return all_pass, results
 
