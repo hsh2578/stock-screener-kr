@@ -3062,7 +3062,7 @@
             const paginatedData = paginate(sortedData, paginationState.maConvergence);
 
             const rows = paginatedData.map(s => `
-                <tr>
+                <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.current_price})})' role="button" tabindex="0" onkeypress="if(event.key==='Enter')openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.current_price})})">
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${s.current_price != null ? s.current_price.toLocaleString() + '원' : '-'}</td>
                     <td class="text-right">${s.volume != null ? (s.volume / 10000).toFixed(1) + '만' : '-'}</td>
