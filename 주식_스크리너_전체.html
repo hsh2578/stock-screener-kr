@@ -1657,7 +1657,7 @@
                     <h1>저평가 우량주</h1>
                     <span class="badge badge-info">가치투자</span>
                 </div>
-                <p class="desc">TTM(최근12개월) 기반 저평가 우량주 스크리닝 (FnGuide 분기데이터)</p>
+                <p class="desc" id="value-stocks-desc">저평가 우량주 스크리닝 (FnGuide 분기데이터)</p>
                 <div class="meta">
                     <span class="date" id="value-stocks-date">데이터 기준: -</span>
                     <span><span class="count" id="value-stocks-count">-</span>개 종목</span>
@@ -2966,6 +2966,7 @@
             const valueData = DATA.valueStocks?.data || [];
             const dataType = DATA.valueStocks?.meta?.data_type || '연간';
             document.getElementById('value-stocks-count').textContent = valueData.length;
+            document.getElementById('value-stocks-desc').textContent = `${dataType} 기반 저평가 우량주 스크리닝 (FnGuide 분기데이터)`;
 
             const headers = [
                 { label: '종목명', key: 'name' },
@@ -2985,8 +2986,9 @@
 
             const rows = paginatedData.map(s => {
                 const opMargin = s.op_margin_avg ?? s.op_margin_5y;
+                const stockJson = safeJsonStringify({ ticker: s.ticker, name: s.name, price: s.market_cap * 100000000, change_rate: 0 });
                 return `
-                    <tr>
+                    <tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
                         <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                         <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                         <td class="text-right">${s.per != null ? s.per.toFixed(1) : '-'}</td>
@@ -3022,8 +3024,10 @@
             const sortedData = sortData(qualityData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.ma60wQuality);
 
-            const rows = paginatedData.map(s => `
-                <tr>
+            const rows = paginatedData.map(s => {
+                const stockJson = safeJsonStringify({ ticker: s.ticker, name: s.name, price: s.current_price, change_rate: 0 });
+                return `
+                <tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${s.current_price != null ? s.current_price.toLocaleString() + '원' : '-'}</td>
                     <td class="text-right">${s.ma60w != null ? s.ma60w.toLocaleString() + '원' : '-'}</td>
@@ -3032,7 +3036,7 @@
                     <td class="text-right">${s.op_growth_3y != null ? s.op_growth_3y.toFixed(1) + '%' : '-'}</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                 </tr>
-            `).join('');
+            `}).join('');
 
             renderTable('ma60w-quality-table', headers, rows, renderMa60wQuality);
             renderPagination('ma60w-quality-pagination', 'ma60wQuality', sortedData.length, renderMa60wQuality);

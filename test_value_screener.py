@@ -100,7 +100,7 @@ def save_results(results: list, filename: str):
             'updated_at': datetime.now().isoformat(),
             'total_count': len(results),
             'treasury_rate': TREASURY_RATE,
-            'data_type': 'TTM'
+            'data_type': 'Q1-Q3 연환산'
         },
         'data': results
     }

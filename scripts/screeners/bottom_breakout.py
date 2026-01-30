@@ -332,17 +332,27 @@ def calculate_score(df: pd.DataFrame, days_ago: int = 0) -> Tuple[int, Dict[str,
     return total_score, score_detail, ma150_gap
 
 
-def screen_bottom_breakout(stocks: pd.DataFrame = None) -> List[Dict]:
+def screen_bottom_breakout(stocks: pd.DataFrame = None, get_data_func=None) -> List[Dict]:
     """
     바닥 탈출 스크리너 메인 함수
 
     Args:
         stocks: 종목 리스트 DataFrame (None이면 내부에서 조회)
+        get_data_func: 데이터 조회 함수 (ticker, days) -> DataFrame
+                       None이면 내부 함수 사용 (느림)
 
     Returns:
         스크리닝 결과 리스트
     """
     print("\n[바닥 탈출 스크리너] 분석 시작...")
+
+    # 데이터 조회 함수 설정
+    if get_data_func is None:
+        data_fetcher = get_stock_data_with_retry
+        print("  [경고] 캐시 미사용 - 개별 다운로드 모드 (느림)")
+    else:
+        data_fetcher = get_data_func
+        print("  [최적화] 캐시 사용 모드")
 
     # 종목 리스트 조회
     if stocks is None:
@@ -399,10 +409,23 @@ def screen_bottom_breakout(stocks: pd.DataFrame = None) -> List[Dict]:
             print(f"  진행 중... {stats['market_cap']}/{stats['total']}")
 
         try:
-            # 데이터 로드
-            df = get_stock_data_with_retry(ticker, DATA_DAYS)
+            # 데이터 로드 (캐시 사용 또는 직접 다운로드)
+            df = data_fetcher(ticker, DATA_DAYS)
             if df is None or len(df) < HIGH_52W_PERIOD:
                 continue
+
+            # 컬럼명 통일 (캐시에서 가져온 경우 대문자일 수 있음)
+            col_map = {'Open': 'open', 'High': 'high', 'Low': 'low',
+                       'Close': 'close', 'Volume': 'volume', 'Change': 'change'}
+            df = df.rename(columns=col_map)
+
+            # date 컬럼 확인
+            if 'date' not in df.columns:
+                df = df.reset_index()
+                if 'Date' in df.columns:
+                    df = df.rename(columns={'Date': 'date'})
+                elif 'index' in df.columns:
+                    df = df.rename(columns={'index': 'date'})
 
             # 거래량 0인 종목 제외 (거래정지)
             if df['volume'].iloc[-5:].sum() == 0:

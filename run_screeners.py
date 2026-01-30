@@ -684,6 +684,48 @@ def _save_cache() -> None:
         print(f"  캐시 저장 실패: {e}")
 
 
+# ============================================================================
+# 병렬 스크리닝 설정
+# ============================================================================
+PARALLEL_SCREENER_WORKERS = 4  # 스크리너 간 병렬 처리 스레드 수
+PARALLEL_STOCK_WORKERS = 16    # 스크리너 내 종목별 병렬 처리 스레드 수
+
+
+def parallel_screen_stocks(
+    stocks: pd.DataFrame,
+    process_func,
+    desc: str = "스크리닝",
+    max_workers: int = PARALLEL_STOCK_WORKERS
+) -> List[Dict]:
+    """
+    종목별 스크리닝을 병렬로 처리합니다.
+
+    Args:
+        stocks: 종목 DataFrame
+        process_func: 단일 종목 처리 함수 (row -> Optional[Dict])
+        desc: 진행바 설명
+        max_workers: 병렬 스레드 수
+
+    Returns:
+        스크리닝 결과 리스트
+    """
+    results = []
+    rows = [row for _, row in stocks.iterrows()]
+
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {executor.submit(process_func, row): row for row in rows}
+
+        for future in tqdm(as_completed(futures), total=len(futures), desc=desc, leave=False):
+            try:
+                result = future.result()
+                if result is not None:
+                    results.append(result)
+            except Exception as e:
+                logging.warning(f"스크리닝 오류: {e}")
+
+    return results
+
+
 def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 60) -> None:
     """
     모든 종목의 데이터를 병렬로 다운로드하여 캐시합니다.
@@ -2116,46 +2158,86 @@ def main():
     preload_all_data(stocks, days=500)
 
     try:
-        # 1. 박스권 스크리너 (퀀트 수준)
-        box_range_results = screen_box_range(stocks)
-        save_results(box_range_results, 'box_range.json', len(stocks))
-
-        # 2. 박스권 돌파 (거래량 동반)
-        box_breakout_results = screen_box_breakout(stocks)
-        save_results(box_breakout_results, 'box_breakout.json', len(stocks))
-
-        # 3. 박스권 돌파 (거래량 무관)
-        box_breakout_simple_results = screen_box_breakout_simple(stocks)
-        save_results(box_breakout_simple_results, 'box_breakout_simple.json', len(stocks))
-
-        # 4. 풀백 스크리너
-        pullback_results = screen_pullback(stocks)
-        save_results(pullback_results, 'pullback.json', len(stocks))
-
-        # 5. 거래량 폭발 스크리너
-        vol_explosion_results = screen_volume_explosion(stocks)
-        save_results(vol_explosion_results, 'volume_explosion.json', len(stocks))
-
-        # 6. 거래량 급감 스크리너
-        vol_dry_up_results = screen_volume_dry_up(stocks)
-        save_results(vol_dry_up_results, 'volume_dry_up.json', len(stocks))
-
-        # 7. 낙폭과대 반등 스크리너
-        fallen_rebound_results = screen_fallen_rebound(stocks)
-        save_results(fallen_rebound_results, 'fallen_rebound.json', len(stocks))
-
-        # 8. 52주 신고가 돌파 스크리너
-        new_high_results = screen_new_high_52w(stocks)
-        save_results(new_high_results, 'new_high_52w.json', len(stocks))
-
-        # 8. 업종별 4단계 스크리너
-        sector_stage_results = screen_sector_stage()
-        save_results(sector_stage_results, 'sector_stage.json', len(NAVER_SECTOR_LIST))
-
-        # 9. 바닥 탈출 스크리너 (pykrx 사용)
+        # 병렬 실행을 위한 스크리너 정의
         from scripts.screeners.bottom_breakout import screen_bottom_breakout
-        bottom_breakout_results = screen_bottom_breakout()
-        save_results(bottom_breakout_results, 'bottom_breakout.json', len(stocks))
+
+        # 바닥 탈출 스크리너용 캐시 래퍼 함수
+        def bottom_breakout_with_cache():
+            """바닥 탈출 스크리너 (캐시 사용)"""
+            return screen_bottom_breakout(stocks=stocks, get_data_func=get_ohlcv)
+
+        def run_screener(args):
+            """스크리너 실행 래퍼 함수"""
+            name, func, func_args, filename, total_count = args
+            start = time.time()
+            try:
+                if func_args is None:
+                    results = func()
+                else:
+                    results = func(func_args)
+                save_results(results, filename, total_count)
+                elapsed = time.time() - start
+                return (name, results, elapsed)
+            except Exception as e:
+                logging.error(f"{name} 스크리너 오류: {e}")
+                return (name, [], 0)
+
+        # 스크리너 작업 목록 (이름, 함수, 인자, 파일명, 전체수)
+        screener_tasks = [
+            ('박스권 횡보', screen_box_range, stocks, 'box_range.json', len(stocks)),
+            ('박스권 돌파 (거래량)', screen_box_breakout, stocks, 'box_breakout.json', len(stocks)),
+            ('박스권 돌파 (단순)', screen_box_breakout_simple, stocks, 'box_breakout_simple.json', len(stocks)),
+            ('풀백', screen_pullback, stocks, 'pullback.json', len(stocks)),
+            ('거래량 폭발', screen_volume_explosion, stocks, 'volume_explosion.json', len(stocks)),
+            ('거래량 급감', screen_volume_dry_up, stocks, 'volume_dry_up.json', len(stocks)),
+            ('낙폭과대 반등', screen_fallen_rebound, stocks, 'fallen_rebound.json', len(stocks)),
+            ('52주 신고가', screen_new_high_52w, stocks, 'new_high_52w.json', len(stocks)),
+            ('업종별 4단계', screen_sector_stage, None, 'sector_stage.json', len(NAVER_SECTOR_LIST)),
+            ('바닥 탈출', bottom_breakout_with_cache, None, 'bottom_breakout.json', len(stocks)),
+        ]
+
+        print(f"\n[병렬 스크리닝] {len(screener_tasks)}개 스크리너 실행 (스레드 {PARALLEL_SCREENER_WORKERS}개)...")
+
+        # 병렬로 스크리너 실행
+        screener_results = {}
+        with ThreadPoolExecutor(max_workers=PARALLEL_SCREENER_WORKERS) as executor:
+            futures = {executor.submit(run_screener, task): task[0] for task in screener_tasks}
+
+            for future in as_completed(futures):
+                name, results, elapsed = future.result()
+                screener_results[name] = results
+                print(f"  [완료] {name}: {len(results)}개 ({elapsed:.1f}초)")
+
+        # 결과 추출
+        box_range_results = screener_results.get('박스권 횡보', [])
+        box_breakout_results = screener_results.get('박스권 돌파 (거래량)', [])
+        box_breakout_simple_results = screener_results.get('박스권 돌파 (단순)', [])
+        pullback_results = screener_results.get('풀백', [])
+        vol_explosion_results = screener_results.get('거래량 폭발', [])
+        vol_dry_up_results = screener_results.get('거래량 급감', [])
+        fallen_rebound_results = screener_results.get('낙폭과대 반등', [])
+        new_high_results = screener_results.get('52주 신고가', [])
+        sector_stage_results = screener_results.get('업종별 4단계', [])
+        bottom_breakout_results = screener_results.get('바닥 탈출', [])
+
+        # 추가 스크리너 데이터 로드 (차트 데이터 생성용)
+        extra_results = []
+        extra_files = ['value_stocks.json', 'ma60w_quality.json', 'ma_convergence.json']
+        for filename in extra_files:
+            filepath = os.path.join(DATA_PATH, filename)
+            if os.path.exists(filepath):
+                try:
+                    with open(filepath, 'r', encoding='utf-8') as f:
+                        data = json.load(f)
+                        for item in data.get('data', []):
+                            extra_results.append({
+                                'ticker': item.get('ticker'),
+                                'name': item.get('name')
+                            })
+                except Exception as e:
+                    logging.warning(f"{filename} 로드 실패: {e}")
+        if extra_results:
+            print(f"  추가 스크리너 차트 데이터 포함: {len(extra_results)}개")
 
         # 차트 데이터 생성
         all_results = [
@@ -2167,7 +2249,8 @@ def main():
             vol_dry_up_results,
             fallen_rebound_results,
             new_high_results,
-            bottom_breakout_results
+            bottom_breakout_results,
+            extra_results  # 저평가 우량주, 60주선 우량주 등 추가
         ]
         generate_chart_data(all_results)
 
