@@ -391,7 +391,8 @@
 
         th {
             background-color: var(--color-bg-tertiary);
-            padding: 14px 14px;
+            padding: 15px 14px;
+            min-height: 48px; /* 터치 타겟 최소 크기 */
             text-align: left;
             font-weight: 700;
             font-size: 13px;
@@ -455,6 +456,9 @@
         .positive { color: var(--color-success); font-weight: 700; }
         .negative { color: var(--color-danger); font-weight: 700; }
         .neutral { color: var(--color-text-secondary); font-weight: 500; }
+        /* 색맹 접근성: 상승/하락 아이콘 추가 */
+        .positive::before { content: '▲ '; font-size: 0.8em; }
+        .negative::before { content: '▼ '; font-size: 0.8em; }
 
         /* 가격 셀 스타일 - Pretendard의 tabular numbers 사용 */
         .price-cell {
@@ -630,13 +634,21 @@
            BREADCRUMB NAVIGATION
            ============================================================ */
         .breadcrumb {
-            display: flex;
-            align-items: center;
-            gap: 8px;
             margin-bottom: 16px;
             font-size: 13px;
             color: var(--color-text-muted);
+        }
+        .breadcrumb ol {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
             flex-wrap: wrap;
+        }
+        .breadcrumb li {
+            display: inline;
         }
         .breadcrumb a {
             color: var(--color-text-secondary);
@@ -1277,9 +1289,11 @@
         <div class="container">
             <!-- Breadcrumb Navigation -->
             <nav class="breadcrumb" aria-label="breadcrumb">
-                <a href="#" onclick="showPage('home'); return false;">홈</a>
-                <span class="separator" aria-hidden="true">›</span>
-                <span class="current">박스권 스크리너</span>
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">박스권 스크리너</li>
+                </ol>
             </nav>
 
             <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
@@ -1321,9 +1335,11 @@
     <div id="page-box-breakout" class="page">
         <div class="container">
             <nav class="breadcrumb" aria-label="breadcrumb">
-                <a href="#" onclick="showPage('home'); return false;">홈</a>
-                <span class="separator" aria-hidden="true">›</span>
-                <span class="current">박스권 돌파 (거래량 동반)</span>
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">박스권 돌파 (거래량 동반)</li>
+                </ol>
             </nav>
             <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
                 <span aria-hidden="true">←</span> 홈으로
@@ -1359,9 +1375,11 @@
     <div id="page-box-breakout-simple" class="page">
         <div class="container">
             <nav class="breadcrumb" aria-label="breadcrumb">
-                <a href="#" onclick="showPage('home'); return false;">홈</a>
-                <span class="separator" aria-hidden="true">›</span>
-                <span class="current">박스권 돌파 (거래량 무관)</span>
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">박스권 돌파 (거래량 무관)</li>
+                </ol>
             </nav>
             <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
                 <span aria-hidden="true">←</span> 홈으로
@@ -1396,9 +1414,11 @@
     <div id="page-pullback" class="page">
         <div class="container">
             <nav class="breadcrumb" aria-label="breadcrumb">
-                <a href="#" onclick="showPage('home'); return false;">홈</a>
-                <span class="separator" aria-hidden="true">›</span>
-                <span class="current">풀백 스크리너</span>
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">풀백 스크리너</li>
+                </ol>
             </nav>
             <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
                 <span aria-hidden="true">←</span> 홈으로
@@ -1434,9 +1454,11 @@
     <div id="page-volume-dry-up" class="page">
         <div class="container">
             <nav class="breadcrumb" aria-label="breadcrumb">
-                <a href="#" onclick="showPage('home'); return false;">홈</a>
-                <span class="separator" aria-hidden="true">›</span>
-                <span class="current">거래량 급감 눌림목</span>
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">거래량 급감 눌림목</li>
+                </ol>
             </nav>
             <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
                 <span aria-hidden="true">←</span> 홈으로
@@ -1472,9 +1494,11 @@
     <div id="page-volume-explosion" class="page">
         <div class="container">
             <nav class="breadcrumb" aria-label="breadcrumb">
-                <a href="#" onclick="showPage('home'); return false;">홈</a>
-                <span class="separator" aria-hidden="true">›</span>
-                <span class="current">거래량 폭발</span>
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">거래량 폭발</li>
+                </ol>
             </nav>
             <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
                 <span aria-hidden="true">←</span> 홈으로
@@ -1510,9 +1534,11 @@
     <div id="page-new-high-52w" class="page">
         <div class="container">
             <nav class="breadcrumb" aria-label="breadcrumb">
-                <a href="#" onclick="showPage('home'); return false;">홈</a>
-                <span class="separator" aria-hidden="true">›</span>
-                <span class="current">52주 신고가 돌파</span>
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">52주 신고가 돌파</li>
+                </ol>
             </nav>
             <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
                 <span aria-hidden="true">←</span> 홈으로
@@ -1543,9 +1569,11 @@
     <div id="page-bottom-breakout" class="page">
         <div class="container">
             <nav class="breadcrumb" aria-label="breadcrumb">
-                <a href="#" onclick="showPage('home'); return false;">홈</a>
-                <span class="separator" aria-hidden="true">›</span>
-                <span class="current">바닥 탈출</span>
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">바닥 탈출</li>
+                </ol>
             </nav>
             <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
                 <span aria-hidden="true">←</span> 홈으로
@@ -1576,9 +1604,11 @@
     <div id="page-fallen-rebound" class="page">
         <div class="container">
             <nav class="breadcrumb" aria-label="breadcrumb">
-                <a href="#" onclick="showPage('home'); return false;">홈</a>
-                <span class="separator" aria-hidden="true">›</span>
-                <span class="current">낙폭과대 반등</span>
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">낙폭과대 반등</li>
+                </ol>
             </nav>
             <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
                 <span aria-hidden="true">←</span> 홈으로
@@ -1612,9 +1642,11 @@
     <div id="page-sector-stage" class="page">
         <div class="container">
             <nav class="breadcrumb" aria-label="breadcrumb">
-                <a href="#" onclick="showPage('home'); return false;">홈</a>
-                <span class="separator" aria-hidden="true">›</span>
-                <span class="current">업종별 4단계</span>
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">업종별 4단계</li>
+                </ol>
             </nav>
             <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
                 <span aria-hidden="true">←</span> 홈으로
@@ -1644,9 +1676,11 @@
     <div id="page-value-stocks" class="page">
         <div class="container">
             <nav class="breadcrumb" aria-label="breadcrumb">
-                <a href="#" onclick="showPage('home'); return false;">홈</a>
-                <span class="separator" aria-hidden="true">›</span>
-                <span class="current">저평가 우량주</span>
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">저평가 우량주</li>
+                </ol>
             </nav>
             <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
                 <span aria-hidden="true">←</span> 홈으로
@@ -1677,9 +1711,11 @@
     <div id="page-ma60w-quality" class="page">
         <div class="container">
             <nav class="breadcrumb" aria-label="breadcrumb">
-                <a href="#" onclick="showPage('home'); return false;">홈</a>
-                <span class="separator" aria-hidden="true">›</span>
-                <span class="current">60주선 우량주</span>
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">60주선 우량주</li>
+                </ol>
             </nav>
             <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
                 <span aria-hidden="true">←</span> 홈으로
@@ -1710,9 +1746,11 @@
     <div id="page-ma-convergence" class="page">
         <div class="container">
             <nav class="breadcrumb" aria-label="breadcrumb">
-                <a href="#" onclick="showPage('home'); return false;">홈</a>
-                <span class="separator" aria-hidden="true">›</span>
-                <span class="current">이평선 수렴</span>
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">이평선 수렴</li>
+                </ol>
             </nav>
             <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
                 <span aria-hidden="true">←</span> 홈으로
@@ -1873,6 +1911,10 @@
                     }
                 } catch (e) {
                     console.warn(`  ⚠ ${key}: 로드 실패 - ${e.message}`);
+                    // 네트워크 오류 시 사용자에게 알림
+                    if (e.message.includes('Failed to fetch') || e.message.includes('NetworkError')) {
+                        showToast('네트워크 오류', `${filename} 파일을 불러올 수 없습니다. 인터넷 연결을 확인해주세요.`, 5000);
+                    }
                 }
             });
 
@@ -2325,10 +2367,35 @@
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
 
-            // Focus trap - move focus to close button
+            // Focus trap - 모달 내 포커스 가두기
             setTimeout(() => {
-                const closeBtn = modal.querySelector('.modal-close');
-                if (closeBtn) closeBtn.focus();
+                const modalContent = modal.querySelector('.modal-content');
+                const focusableElements = modalContent.querySelectorAll(
+                    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+                );
+                const firstFocusable = focusableElements[0];
+                const lastFocusable = focusableElements[focusableElements.length - 1];
+
+                if (firstFocusable) firstFocusable.focus();
+
+                // Tab 키 트랩 핸들러
+                const trapFocus = (e) => {
+                    if (e.key !== 'Tab') return;
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstFocusable) {
+                            e.preventDefault();
+                            lastFocusable.focus();
+                        }
+                    } else {
+                        if (document.activeElement === lastFocusable) {
+                            e.preventDefault();
+                            firstFocusable.focus();
+                        }
+                    }
+                };
+
+                modalContent.addEventListener('keydown', trapFocus);
+                modal._trapFocusHandler = trapFocus; // 나중에 제거할 수 있도록 저장
             }, 100);
 
             const container = document.getElementById('chart-container');
@@ -2419,6 +2486,14 @@
             const modal = document.getElementById('chart-modal');
             modal.classList.remove('active');
             document.body.style.overflow = '';
+
+            // 포커스 트랩 핸들러 제거
+            if (modal._trapFocusHandler) {
+                const modalContent = modal.querySelector('.modal-content');
+                modalContent.removeEventListener('keydown', modal._trapFocusHandler);
+                modal._trapFocusHandler = null;
+            }
+
             if (chartInstance) {
                 if (chartInstance._resizeHandler) window.removeEventListener('resize', chartInstance._resizeHandler);
                 chartInstance.remove();
@@ -2443,6 +2518,29 @@
             }
         }
 
+        // 상대 시간 포맷팅 함수 (데이터 신선도 파악)
+        function formatRelativeDate(isoString) {
+            if (!isoString) return '';
+            try {
+                const date = new Date(isoString);
+                const now = new Date();
+                const diffMs = now - date;
+                const diffMins = Math.floor(diffMs / 60000);
+                const diffHours = Math.floor(diffMins / 60);
+                const diffDays = Math.floor(diffHours / 24);
+
+                if (diffMins < 1) return '방금 전 업데이트';
+                if (diffMins < 60) return `${diffMins}분 전 업데이트`;
+                if (diffHours < 24) return `${diffHours}시간 전 업데이트`;
+                if (diffDays === 0) return '오늘 업데이트';
+                if (diffDays === 1) return '어제 업데이트';
+                if (diffDays < 7) return `${diffDays}일 전 업데이트`;
+                return ''; // 일주일 이상은 상대시간 표시 안함
+            } catch {
+                return '';
+            }
+        }
+
         // Update all page dates from meta.lastUpdated
         function updatePageDates() {
             const dateMapping = {
@@ -2464,6 +2562,12 @@
                 const el = document.getElementById(elementId);
                 if (el) {
                     el.textContent = `데이터 기준: ${formatDateFromISO(lastUpdated)}`;
+                    // 상대 시간 툴팁 추가
+                    const relativeDate = formatRelativeDate(lastUpdated);
+                    if (relativeDate) {
+                        el.title = relativeDate;
+                        el.style.cursor = 'help';
+                    }
                 }
             }
         }
