@@ -2036,6 +2036,20 @@
         const formatShortDate = d => { const date = new Date(d); return (date.getMonth()+1) + '월 ' + date.getDate() + '일'; };
         const formatMarketCap = cap => { if (!cap) return '-'; if (cap >= 10000) return (cap / 10000).toFixed(1) + '조'; return formatNumber(cap) + '억'; };
 
+        // 모바일 감지 - CSS 미디어 쿼리와 동기화 (768px 기준)
+        const isMobileView = () => window.matchMedia('(max-width: 768px)').matches;
+
+        // 뷰포트 변경 시 캐시 무효화
+        let lastIsMobile = isMobileView();
+        window.addEventListener('resize', () => {
+            const currentIsMobile = isMobileView();
+            if (currentIsMobile !== lastIsMobile) {
+                lastIsMobile = currentIsMobile;
+                // 렌더링 캐시 무효화하여 다음 방문 시 재렌더링
+                renderedPages.clear();
+            }
+        }, { passive: true });
+
         // XSS 방어를 위한 안전한 JSON 문자열화
         const safeJsonStringify = obj => {
             return JSON.stringify(obj)
@@ -2506,28 +2520,50 @@
             `).join('');
         }
 
-        // Tables with sorting
+        // Tables with sorting - DocumentFragment 사용으로 DOM 재계산 최소화
         function renderTable(tableId, headers, rows, renderFn) {
             const table = document.getElementById(tableId);
             const state = sortState[tableId] || {};
             const sortDir = state.direction === 'asc' ? '오름차순' : '내림차순';
 
-            table.querySelector('thead').innerHTML = '<tr>' + headers.map(h => {
+            // thead 렌더링 - DocumentFragment 사용
+            const thead = table.querySelector('thead');
+            const theadFragment = document.createDocumentFragment();
+            const headerRow = document.createElement('tr');
+
+            headers.forEach(h => {
+                const th = document.createElement('th');
                 const isSorted = state.key === h.key;
                 const ariaSort = !h.key ? '' : isSorted ? (state.direction === 'asc' ? 'ascending' : 'descending') : 'none';
                 const alignClass = h.align || '';
                 const numericClass = alignClass.includes('text-right') ? 'numeric' : '';
 
-                return `<th class="${alignClass} ${numericClass} ${isSorted ? 'sorted' : ''}"
-                    ${h.key ? `onclick="handleSort('${tableId}', '${h.key}', ${renderFn.name})"` : ''}
-                    ${h.key ? `tabindex="0"` : ''}
-                    ${h.key ? `role="button"` : ''}
-                    ${ariaSort ? `aria-sort="${ariaSort}"` : ''}
-                    ${h.key ? `onkeypress="if(event.key==='Enter' || event.key===' '){event.preventDefault();handleSort('${tableId}', '${h.key}', ${renderFn.name})}"` : ''}
-                    ${h.key ? `aria-label="${h.label} ${isSorted ? sortDir + ' 정렬됨' : '정렬'}"` : ''}>
-                    ${h.label}${h.key ? `<span class="sort-icon" aria-hidden="true">${getSortIcon(tableId, h.key)}</span>` : ''}
-                </th>`;
-            }).join('') + '</tr>';
+                th.className = `${alignClass} ${numericClass} ${isSorted ? 'sorted' : ''}`.trim();
+
+                if (h.key) {
+                    th.setAttribute('tabindex', '0');
+                    th.setAttribute('role', 'button');
+                    th.setAttribute('aria-label', `${h.label} ${isSorted ? sortDir + ' 정렬됨' : '정렬'}`);
+                    if (ariaSort) th.setAttribute('aria-sort', ariaSort);
+                    th.onclick = () => handleSort(tableId, h.key, renderFn);
+                    th.onkeypress = (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleSort(tableId, h.key, renderFn);
+                        }
+                    };
+                }
+
+                th.innerHTML = `${h.label}${h.key ? `<span class="sort-icon" aria-hidden="true">${getSortIcon(tableId, h.key)}</span>` : ''}`;
+                headerRow.appendChild(th);
+            });
+
+            theadFragment.appendChild(headerRow);
+            thead.innerHTML = '';
+            thead.appendChild(theadFragment);
+
+            // tbody 렌더링 - 문자열이 이미 생성된 경우 innerHTML 사용 (더 빠름)
+            // rows가 문자열인 경우 그대로 사용
             table.querySelector('tbody').innerHTML = rows;
         }
 
@@ -2571,9 +2607,9 @@
             `).join('');
             renderTable('box-range-table', headers, rows, renderBoxRange);
 
-            // Mobile card view
+            // Mobile card view - 조건부 렌더링 (모바일 뷰에서만 렌더링)
             const mobileContainer = document.getElementById('box-range-mobile');
-            if (mobileContainer) {
+            if (mobileContainer && isMobileView()) {
                 mobileContainer.innerHTML = paginatedData.map(s => `
                     <div class="stock-card-mobile" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})' role="button" tabindex="0" aria-label="${s.name} 차트 보기">
                         <div class="header-row">
@@ -2606,6 +2642,8 @@
                         </div>
                     </div>
                 `).join('');
+            } else if (mobileContainer) {
+                mobileContainer.innerHTML = ''; // 데스크톱에서는 모바일 뷰 비우기
             }
 
             renderPagination('box-range-pagination', 'boxRange', sortedData.length, renderBoxRange);
@@ -3083,11 +3121,43 @@
             renderPagination('ma-convergence-pagination', 'maConvergence', sortedData.length, renderMaConvergence);
         }
 
-        // Navigation
+        // 렌더링 상태 추적 - Lazy Rendering용
+        const renderedPages = new Set();
+
+        // 페이지별 렌더 함수 매핑
+        const pageRenderMap = {
+            'box-range': renderBoxRange,
+            'box-breakout': renderBoxBreakout,
+            'box-breakout-simple': renderBoxBreakoutSimple,
+            'pullback': renderPullback,
+            'volume-dry-up': renderVolumeDryUp,
+            'volume-explosion': renderVolumeExplosion,
+            'fallen-rebound': renderFallenRebound,
+            'new-high-52w': renderNewHigh52w,
+            'bottom-breakout': renderBottomBreakout,
+            'sector-stage': renderSectorStage,
+            'value-stocks': renderValueStocks,
+            'ma60w-quality': renderMa60wQuality,
+            'ma-convergence': renderMaConvergence
+        };
+
+        // Navigation - Lazy Rendering 적용
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(`page-${pageId}`).classList.add('active');
             window.scrollTo(0, 0);
+
+            // Lazy Rendering: 처음 방문하는 페이지만 렌더링
+            if (pageId !== 'home' && !renderedPages.has(pageId)) {
+                const renderFn = pageRenderMap[pageId];
+                if (renderFn) {
+                    // requestAnimationFrame으로 렌더링 예약 (메인 스레드 블로킹 방지)
+                    requestAnimationFrame(() => {
+                        renderFn();
+                        renderedPages.add(pageId);
+                    });
+                }
+            }
 
             // Update page title for better navigation
             const pageTitles = {
@@ -3120,7 +3190,7 @@
             setTimeout(() => announcement.remove(), 1000);
         }
 
-        // 앱 초기화 함수
+        // 앱 초기화 함수 - Lazy Rendering 적용으로 초기 로딩 성능 개선
         async function initApp() {
             // 1. 외부 JSON 데이터 로드
             const success = await loadAllData();
@@ -3133,24 +3203,38 @@
                 return;
             }
 
-            // 3. UI 렌더링
+            // 3. 홈 페이지만 초기 렌더링 (Lazy Rendering)
+            // 나머지 페이지는 showPage()에서 처음 방문 시 렌더링됨
             renderHome();
             updatePageDates();
-            renderBoxRange();
-            renderBoxBreakout();
-            renderBoxBreakoutSimple();
-            renderPullback();
-            renderVolumeDryUp();
-            renderVolumeExplosion();
-            renderFallenRebound();
-            renderNewHigh52w();
-            renderBottomBreakout();
-            renderSectorStage();
-            renderValueStocks();
-            renderMa60wQuality();
-            renderMaConvergence();
 
-            console.log('✅ 앱 초기화 완료');
+            // 4. 성능 최적화: 브라우저 Idle 시간에 자주 사용하는 페이지 미리 렌더링
+            if ('requestIdleCallback' in window) {
+                // 우선순위 높은 페이지들을 Idle 시간에 미리 렌더링
+                const priorityPages = ['box-range', 'box-breakout', 'volume-explosion'];
+                let pageIndex = 0;
+
+                const preRenderNext = (deadline) => {
+                    while (pageIndex < priorityPages.length && deadline.timeRemaining() > 10) {
+                        const pageId = priorityPages[pageIndex];
+                        if (!renderedPages.has(pageId)) {
+                            const renderFn = pageRenderMap[pageId];
+                            if (renderFn) {
+                                renderFn();
+                                renderedPages.add(pageId);
+                            }
+                        }
+                        pageIndex++;
+                    }
+                    if (pageIndex < priorityPages.length) {
+                        requestIdleCallback(preRenderNext, { timeout: 2000 });
+                    }
+                };
+
+                requestIdleCallback(preRenderNext, { timeout: 2000 });
+            }
+
+            console.log('✅ 앱 초기화 완료 (Lazy Rendering 적용)');
         }
 
         // 페이지 로드 시 앱 시작

@@ -239,18 +239,16 @@ def count_touches_near_level(pivots: List[Tuple[int, float]], level: float, tole
         >>> if touches >= 2:
         ...     print("지지선 확인됨")
     """
-    if level <= 0:
+    if level <= 0 or not pivots:
         return 0
 
+    # 벡터화된 계산으로 성능 개선
+    prices = np.array([p[1] for p in pivots])
     lower_bound = level * (1 - tolerance)
     upper_bound = level * (1 + tolerance)
 
-    count = 0
-    for _, price in pivots:
-        if lower_bound <= price <= upper_bound:
-            count += 1
-
-    return count
+    # 조건을 만족하는 개수를 한 번에 계산
+    return int(np.sum((prices >= lower_bound) & (prices <= upper_bound)))
 
 
 def calculate_linear_slope(prices: np.ndarray) -> float:
@@ -685,10 +683,26 @@ def _save_cache() -> None:
 
 
 # ============================================================================
-# 병렬 스크리닝 설정
+# 병렬 스크리닝 설정 - CPU 코어 수 기반 동적 설정
 # ============================================================================
-PARALLEL_SCREENER_WORKERS = 4  # 스크리너 간 병렬 처리 스레드 수
-PARALLEL_STOCK_WORKERS = 16    # 스크리너 내 종목별 병렬 처리 스레드 수
+import multiprocessing
+
+# CPU 코어 수 기반 최적 스레드 수 계산
+_CPU_COUNT = multiprocessing.cpu_count()
+
+# 스크리너 간 병렬 처리: min(4, CPU코어수) - 메모리 사용량 고려
+PARALLEL_SCREENER_WORKERS = min(4, _CPU_COUNT)
+
+# 종목별 병렬 처리: I/O 바운드 작업이므로 코어 수의 2~4배 적절
+# 단, 최대 32개로 제한하여 과도한 스레드 생성 방지
+PARALLEL_STOCK_WORKERS = min(32, max(8, _CPU_COUNT * 2))
+
+# 총 최대 동시 스레드 수 제한 (메모리 보호)
+_MAX_TOTAL_THREADS = 64
+if PARALLEL_SCREENER_WORKERS * PARALLEL_STOCK_WORKERS > _MAX_TOTAL_THREADS:
+    PARALLEL_STOCK_WORKERS = _MAX_TOTAL_THREADS // PARALLEL_SCREENER_WORKERS
+
+logging.info(f"CPU 코어: {_CPU_COUNT}개 | 스크리너 워커: {PARALLEL_SCREENER_WORKERS}개 | 종목 워커: {PARALLEL_STOCK_WORKERS}개")
 
 
 def parallel_screen_stocks(
