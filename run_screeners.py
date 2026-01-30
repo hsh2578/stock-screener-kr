@@ -16,20 +16,59 @@ import numpy as np
 import json
 import pickle
 import sys
+import logging
 from datetime import datetime, timedelta
 import os
 import time
+import threading
+
+# 로깅 설정
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+from contextlib import contextmanager
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, asdict
 from typing import Optional, Tuple, List, Dict, Any
 from tqdm import tqdm
 
+# scipy.signal for vectorized pivot detection (optional, fallback to loop if not available)
+try:
+    from scipy.signal import argrelextrema
+    SCIPY_AVAILABLE = True
+except ImportError:
+    SCIPY_AVAILABLE = False
+
 # ============================================================================
-# 데이터 캐시 (전역)
+# 데이터 캐시 (스레드 안전)
 # ============================================================================
 _DATA_CACHE: Dict[str, pd.DataFrame] = {}
+_CACHE_LOCK = threading.Lock()  # 캐시 접근 동기화용 Lock
 CACHE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '.cache')
 FORCE_DOWNLOAD = '--fresh' in sys.argv
+
+
+@contextmanager
+def cache_manager():
+    """
+    캐시 생명주기 관리를 위한 컨텍스트 매니저.
+    사용 후 명시적으로 캐시를 정리하여 메모리 누수 방지.
+    """
+    global _DATA_CACHE
+    try:
+        yield _DATA_CACHE
+    finally:
+        clear_cache()
+
+
+def clear_cache() -> None:
+    """전역 캐시를 명시적으로 정리합니다."""
+    global _DATA_CACHE
+    with _CACHE_LOCK:
+        _DATA_CACHE.clear()
+    import gc
+    gc.collect()
 
 # ============================================================================
 # 상수 정의
@@ -126,14 +165,21 @@ def find_pivot_lows(prices: np.ndarray, n: int = 5) -> List[Tuple[int, float]]:
         >>> pivots = find_pivot_lows(close_prices, n=5)
         >>> print(f"저점 {len(pivots)}개 발견")
     """
-    pivots = []
+    if len(prices) < 2 * n + 1:
+        return []
 
+    # scipy가 사용 가능하면 벡터화된 argrelextrema 사용 (약 3-5배 빠름)
+    if SCIPY_AVAILABLE:
+        # argrelextrema는 order=n으로 앞뒤 n개와 비교
+        indices = argrelextrema(prices, np.less_equal, order=n)[0]
+        return [(int(i), float(prices[i])) for i in indices]
+
+    # 폴백: 기존 Python 루프 방식
+    pivots = []
     for i in range(n, len(prices) - n):
-        # 현재 가격이 앞뒤 n일 중 가장 낮은지 확인
         window = prices[i-n:i+n+1]
         if prices[i] == np.min(window):
             pivots.append((i, prices[i]))
-
     return pivots
 
 
@@ -155,14 +201,21 @@ def find_pivot_highs(prices: np.ndarray, n: int = 5) -> List[Tuple[int, float]]:
         >>> pivots = find_pivot_highs(close_prices, n=5)
         >>> print(f"고점 {len(pivots)}개 발견")
     """
-    pivots = []
+    if len(prices) < 2 * n + 1:
+        return []
 
+    # scipy가 사용 가능하면 벡터화된 argrelextrema 사용 (약 3-5배 빠름)
+    if SCIPY_AVAILABLE:
+        # argrelextrema는 order=n으로 앞뒤 n개와 비교
+        indices = argrelextrema(prices, np.greater_equal, order=n)[0]
+        return [(int(i), float(prices[i])) for i in indices]
+
+    # 폴백: 기존 Python 루프 방식
+    pivots = []
     for i in range(n, len(prices) - n):
-        # 현재 가격이 앞뒤 n일 중 가장 높은지 확인
         window = prices[i-n:i+n+1]
         if prices[i] == np.max(window):
             pivots.append((i, prices[i]))
-
     return pivots
 
 
@@ -499,6 +552,7 @@ def get_ohlcv(ticker: str, days: int = 200) -> Optional[pd.DataFrame]:
     """
     종목의 OHLCV 데이터를 가져옵니다.
     캐시가 있으면 캐시에서 반환하고, 없으면 API 호출합니다.
+    스레드 안전한 캐시 접근을 보장합니다.
 
     Args:
         ticker: 종목코드
@@ -509,37 +563,65 @@ def get_ohlcv(ticker: str, days: int = 200) -> Optional[pd.DataFrame]:
     """
     global _DATA_CACHE
 
-    # 캐시에 있으면 캐시에서 반환
-    if ticker in _DATA_CACHE:
-        df = _DATA_CACHE[ticker]
-        if df is not None and len(df) > 0:
-            return df.tail(days) if len(df) >= days else df
-        return None
+    # 캐시에 있으면 캐시에서 반환 (Lock으로 동기화)
+    with _CACHE_LOCK:
+        if ticker in _DATA_CACHE:
+            df = _DATA_CACHE[ticker]
+            if df is not None and len(df) > 0:
+                return df.tail(days) if len(df) >= days else df
+            return None
 
-    # 캐시에 없으면 API 호출
+    # 캐시에 없으면 API 호출 (Lock 밖에서 수행하여 병렬성 유지)
     try:
         end_date = datetime.now()
         start_date = end_date - timedelta(days=days + 50)
         df = fdr.DataReader(ticker, start_date.strftime('%Y-%m-%d'))
-        _DATA_CACHE[ticker] = df  # 캐시에 저장
+        with _CACHE_LOCK:
+            _DATA_CACHE[ticker] = df  # 캐시에 저장
         return df.tail(days) if len(df) >= days else df
-    except:
-        _DATA_CACHE[ticker] = None  # 실패도 캐시 (재시도 방지)
+    except Exception as e:
+        logging.warning(f"Failed to fetch data for {ticker}: {e}")
+        with _CACHE_LOCK:
+            _DATA_CACHE[ticker] = None  # 실패도 캐시 (재시도 방지)
         return None
 
 
-def _download_single_stock(args: Tuple[str, str]) -> Tuple[str, Optional[pd.DataFrame]]:
-    """단일 종목 데이터 다운로드 (병렬 처리용, 재시도 포함)"""
+def _download_single_stock(args: Tuple[str, str], max_retries: int = 3) -> Tuple[str, Optional[pd.DataFrame]]:
+    """
+    단일 종목 데이터 다운로드 (병렬 처리용, 지수 백오프 재시도 포함)
+
+    Args:
+        args: (ticker, start_str) 튜플
+        max_retries: 최대 재시도 횟수 (기본 3회)
+
+    Returns:
+        (ticker, DataFrame or None) 튜플
+    """
     ticker, start_str = args
-    for attempt in range(3):
+    base_delay = 0.5  # 기본 대기 시간 (초)
+
+    for attempt in range(max_retries):
         try:
             df = fdr.DataReader(ticker, start_str)
+
+            # 빈 데이터도 재시도 대상으로 처리
             if df is not None and len(df) > 0:
                 return (ticker, df)
-            return (ticker, None)
-        except:
-            if attempt < 2:
-                time.sleep(0.3 * (attempt + 1))
+
+            # 빈 데이터인 경우도 재시도 (마지막 시도가 아닌 경우)
+            if attempt < max_retries - 1:
+                # 지수 백오프: base_delay * 2^attempt (0.5, 1.0, 2.0초)
+                delay = base_delay * (2 ** attempt)
+                time.sleep(delay)
+                continue
+
+        except Exception:
+            if attempt < max_retries - 1:
+                # 지수 백오프 적용
+                delay = base_delay * (2 ** attempt)
+                time.sleep(delay)
+                continue
+
     return (ticker, None)
 
 
@@ -550,7 +632,7 @@ def _get_cache_path() -> str:
 
 
 def _load_cache() -> bool:
-    """디스크 캐시에서 데이터 로딩. 성공 시 True 반환."""
+    """디스크 캐시에서 데이터 로딩. 성공 시 True 반환. 스레드 안전."""
     global _DATA_CACHE
     cache_path = _get_cache_path()
 
@@ -564,7 +646,9 @@ def _load_cache() -> bool:
     try:
         print(f"\n[캐시] 오늘자 캐시 로딩: {os.path.basename(cache_path)}")
         with open(cache_path, 'rb') as f:
-            _DATA_CACHE = pickle.load(f)
+            loaded_data = pickle.load(f)
+        with _CACHE_LOCK:
+            _DATA_CACHE = loaded_data
         valid = sum(1 for v in _DATA_CACHE.values() if v is not None)
         print(f"  완료: {valid}개 종목 로딩됨 (캐시 사용)")
         return True
@@ -574,7 +658,7 @@ def _load_cache() -> bool:
 
 
 def _save_cache() -> None:
-    """현재 데이터를 디스크 캐시로 저장"""
+    """현재 데이터를 디스크 캐시로 저장. 스레드 안전."""
     os.makedirs(CACHE_DIR, exist_ok=True)
     cache_path = _get_cache_path()
 
@@ -583,11 +667,17 @@ def _save_cache() -> None:
         if f.startswith('stock_data_') and f.endswith('.pkl'):
             old_path = os.path.join(CACHE_DIR, f)
             if old_path != cache_path:
-                os.remove(old_path)
+                try:
+                    os.remove(old_path)
+                except OSError:
+                    pass  # 삭제 실패는 무시
 
     try:
+        # Lock 내에서 캐시 복사 후 저장 (Lock 보유 시간 최소화)
+        with _CACHE_LOCK:
+            cache_copy = _DATA_CACHE.copy()
         with open(cache_path, 'wb') as f:
-            pickle.dump(_DATA_CACHE, f, protocol=pickle.HIGHEST_PROTOCOL)
+            pickle.dump(cache_copy, f, protocol=pickle.HIGHEST_PROTOCOL)
         size_mb = os.path.getsize(cache_path) / (1024 * 1024)
         print(f"  캐시 저장: {size_mb:.0f}MB ({os.path.basename(cache_path)})")
     except Exception as e:
@@ -598,6 +688,7 @@ def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 6
     """
     모든 종목의 데이터를 병렬로 다운로드하여 캐시합니다.
     오늘자 디스크 캐시가 있으면 다운로드 없이 즉시 로딩합니다.
+    스레드 안전한 캐시 접근을 보장합니다.
 
     Args:
         stocks: 종목 리스트 DataFrame
@@ -610,7 +701,8 @@ def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 6
     if _load_cache():
         return
 
-    _DATA_CACHE = {}
+    with _CACHE_LOCK:
+        _DATA_CACHE = {}
 
     end_date = datetime.now()
     start_date = end_date - timedelta(days=days + 50)
@@ -636,7 +728,9 @@ def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 6
 
         for future in tqdm(as_completed(futures), total=len(futures), desc="데이터 로딩"):
             ticker, df = future.result()
-            _DATA_CACHE[ticker] = df
+            # 스레드 안전한 캐시 업데이트
+            with _CACHE_LOCK:
+                _DATA_CACHE[ticker] = df
             if df is not None:
                 success_count += 1
             else:
@@ -1275,8 +1369,9 @@ DRYUP_MIN_CHANGE = 8           # 최소 급등 변화율 (%)
 DRYUP_GAP_LIMIT = 0.97         # 갭다운 제한 (전일종가 대비)
 DRYUP_MAX_SHADOW = 0.3         # 최대 윗꼬리 비율
 DRYUP_VOLUME_MULTIPLE = 4      # 급등일 최소 거래량 배수
-DRYUP_MIN_DAYS = 3             # 눌림목 최소 경과일
-DRYUP_MAX_DAYS = 10            # 눌림목 최대 경과일
+DRYUP_MIN_DAYS = 3             # 눌림목 최소 경과일 (급등 후)
+DRYUP_MAX_DAYS = 8             # 눌림목 최대 경과일 (급등 후)
+DRYUP_DISPLAY_DAYS = 8         # 포착 후 표시 유지 기간
 DRYUP_PRICE_VS_OPEN = 0.98     # 현재가 vs 급등봉 시가
 DRYUP_PRICE_VS_HIGH = 0.90     # 현재가 vs 급등 고점
 DRYUP_RECENT_DAYS = 3          # 최근 거래량 평균 기간
@@ -1293,15 +1388,21 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
         4. 종가 > 20일선
         5. 시가 >= 전일종가 × 0.97 (갭다운 -3% 이상 제외)
 
-    [눌림목 조건] (급등 후 3~10일)
+    [눌림목 조건] (급등 후 3~8일)
         1. 현재가 > 급등봉 시가 × 0.98 (가격 유지)
         2. 현재가 > 급등 고점 × 0.90 (조정폭 -10% 이내)
         3. 현재가 > 급등 전일종가 (급등 전 가격 위)
         4. 현재가 > 20일선 (추세 유지)
         5. 최근 3일 평균 거래량 < 급등일 × 0.4 (60% 감소)
+
+    [표시 조건]
+        - 조건 포착 후 8거래일까지 계속 표시 (추이 관찰용)
     """
     print("\n[거래량 급감 눌림목 스크리너 시작]")
     results = []
+
+    # 탐색 범위 확대: 포착 후 DISPLAY_DAYS까지 표시하기 위해
+    max_search_days = DRYUP_MAX_DAYS + DRYUP_DISPLAY_DAYS
 
     for idx, row in stocks.iterrows():
         ticker = row.get('Code', row.get('Symbol', ''))
@@ -1315,23 +1416,22 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
         if df is None or len(df) < 30:
             continue
 
-        # 최근 N일 내 급등일 찾기
-        recent_20d = df.iloc[-DRYUP_LOOKBACK:]
-        explosion_day = None
-        explosion_change = 0
-        explosion_volume_ratio = 0
-        explosion_open = 0
-        explosion_high = 0
-        explosion_prev_close = 0
-        days_since_explosion = 0
+        # 급등일 후보 찾기 (더 넓은 범위에서 탐색)
+        found_result = None
 
-        for i in range(1, len(recent_20d)):
-            prev_close = recent_20d['Close'].iloc[i-1]
-            curr_close = recent_20d['Close'].iloc[i]
-            curr_open = recent_20d['Open'].iloc[i]
-            curr_high = recent_20d['High'].iloc[i]
-            curr_low = recent_20d['Low'].iloc[i]
-            curr_volume = recent_20d['Volume'].iloc[i]
+        for days_ago in range(DRYUP_MIN_DAYS, max_search_days + 1):
+            if days_ago >= len(df) - DRYUP_LOOKBACK - 1:
+                continue
+
+            explosion_idx = len(df) - 1 - days_ago
+
+            # 급등봉 조건 검증
+            prev_close = df['Close'].iloc[explosion_idx - 1]
+            curr_close = df['Close'].iloc[explosion_idx]
+            curr_open = df['Open'].iloc[explosion_idx]
+            curr_high = df['High'].iloc[explosion_idx]
+            curr_low = df['Low'].iloc[explosion_idx]
+            curr_volume = df['Volume'].iloc[explosion_idx]
 
             if prev_close <= 0:
                 continue
@@ -1355,10 +1455,9 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
                 continue
 
             # 조건2: 거래량 > 20일 평균 × N배
-            day_idx = df.index.get_loc(recent_20d.index[i])
-            if day_idx < DRYUP_LOOKBACK:
+            if explosion_idx < DRYUP_LOOKBACK:
                 continue
-            avg_volume_20d = df['Volume'].iloc[day_idx-DRYUP_LOOKBACK:day_idx].mean()
+            avg_volume_20d = df['Volume'].iloc[explosion_idx - DRYUP_LOOKBACK:explosion_idx].mean()
             if avg_volume_20d <= 0:
                 continue
             volume_ratio = curr_volume / avg_volume_20d
@@ -1366,58 +1465,88 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
                 continue
 
             # 조건4: 종가 > 20일선
-            ma20_at_explosion = df['Close'].iloc[day_idx-(DRYUP_LOOKBACK-1):day_idx+1].mean()
+            ma20_at_explosion = df['Close'].iloc[explosion_idx - (DRYUP_LOOKBACK - 1):explosion_idx + 1].mean()
             if curr_close <= ma20_at_explosion:
                 continue
 
-            # 모든 급등봉 조건 통과
-            explosion_day = recent_20d.index[i]
-            explosion_change = change
-            explosion_volume_ratio = volume_ratio
-            explosion_open = curr_open
-            explosion_high = curr_high
-            explosion_prev_close = prev_close
-            days_since_explosion = len(recent_20d) - i - 1
-            break
+            # 급등봉 조건 통과 - 눌림목 조건 확인
+            explosion_day = df.index[explosion_idx]
+            explosion_volume = curr_volume
 
-        if explosion_day is None:
+            # 급감 조건 확인: 급등 후 3~8일 사이에 급감이 발생했는지 찾기
+            for detect_offset in range(DRYUP_MIN_DAYS, DRYUP_MAX_DAYS + 1):
+                detect_idx = explosion_idx + detect_offset
+
+                if detect_idx >= len(df):
+                    continue
+
+                # 포착일까지의 거래량 평균 (최근 3일)
+                vol_start = max(explosion_idx + 1, detect_idx - DRYUP_RECENT_DAYS + 1)
+                post_volumes = df['Volume'].iloc[vol_start:detect_idx + 1]
+                if len(post_volumes) < 1:
+                    continue
+
+                recent_avg_volume = post_volumes.mean()
+                if pd.isna(recent_avg_volume) or explosion_volume <= 0:
+                    continue
+
+                # 급감 조건: 폭발일 대비 60% 이상 감소
+                volume_decrease_rate = (1 - recent_avg_volume / explosion_volume) * 100
+                if volume_decrease_rate < DRYUP_VOLUME_DECREASE:
+                    continue
+
+                # 포착일 가격 조건 확인
+                detect_price = df['Close'].iloc[detect_idx]
+
+                # 눌림목 조건1: 포착일 종가 > 급등봉 시가
+                if detect_price <= curr_open * DRYUP_PRICE_VS_OPEN:
+                    continue
+
+                # 눌림목 조건2: 포착일 종가 > 급등 고점
+                if detect_price <= curr_high * DRYUP_PRICE_VS_HIGH:
+                    continue
+
+                # 눌림목 조건3: 포착일 종가 > 급등 전일종가
+                if detect_price <= prev_close:
+                    continue
+
+                # 눌림목 조건4: 포착일 종가 > 20일선
+                ma20_at_detect = df['Close'].iloc[detect_idx - (DRYUP_LOOKBACK - 1):detect_idx + 1].mean()
+                if detect_price <= ma20_at_detect:
+                    continue
+
+                # 모든 조건 통과 - 포착일 확정
+                detected_date = df.index[detect_idx]
+                days_since_detected = len(df) - 1 - detect_idx
+
+                # 포착 후 8거래일 이내만 표시
+                if days_since_detected <= DRYUP_DISPLAY_DAYS:
+                    found_result = {
+                        'explosion_day': explosion_day,
+                        'explosion_change': change,
+                        'explosion_volume_ratio': volume_ratio,
+                        'explosion_open': curr_open,
+                        'explosion_high': curr_high,
+                        'explosion_prev_close': prev_close,
+                        'explosion_volume': explosion_volume,
+                        'detected_date': detected_date,
+                        'days_since_detected': days_since_detected,
+                        'volume_decrease_rate': volume_decrease_rate
+                    }
+                    break
+
+            if found_result:
+                break
+
+        if not found_result:
             continue
 
-        # 눌림목 기간 확인
-        if days_since_explosion < DRYUP_MIN_DAYS or days_since_explosion > DRYUP_MAX_DAYS:
-            continue
-
-        # 급등일 이후 데이터 확인
-        explosion_idx = df.index.get_loc(explosion_day)
-        if explosion_idx >= len(df) - 3:
-            continue
-
+        # 현재 가격 조건도 확인 (현재도 조건 유지 중인지)
         current_price = float(df['Close'].iloc[-1])
-
-        # 눌림목 조건1: 현재가 > 급등봉 시가
-        if current_price <= explosion_open * DRYUP_PRICE_VS_OPEN:
-            continue
-
-        # 눌림목 조건2: 현재가 > 급등 고점
-        if current_price <= explosion_high * DRYUP_PRICE_VS_HIGH:
-            continue
-
-        # 눌림목 조건3: 현재가 > 급등 전일종가
-        if current_price <= explosion_prev_close:
-            continue
-
-        # 눌림목 조건4: 현재가 > 20일선
         ma20_current = df['Close'].iloc[-DRYUP_LOOKBACK:].mean()
-        if current_price <= ma20_current:
-            continue
 
-        # 눌림목 조건5: 최근 거래량 감소 확인
-        explosion_volume = df['Volume'].iloc[explosion_idx]
-        recent_avg_volume = df['Volume'].iloc[-DRYUP_RECENT_DAYS:].mean()
-        if explosion_volume <= 0:
-            continue
-        volume_decrease_rate = (1 - recent_avg_volume / explosion_volume) * 100
-        if volume_decrease_rate < DRYUP_VOLUME_DECREASE:
+        # 현재가 조건 체크 (너무 많이 빠지면 제외)
+        if current_price <= found_result['explosion_prev_close'] * 0.95:
             continue
 
         # 150일선 계산
@@ -1436,11 +1565,12 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
             'name': name,
             'price': int(current_price),
             'change_rate': round(change_rate, 2),
-            'explosion_date': explosion_day.strftime('%Y-%m-%d'),
-            'explosion_change_rate': round(explosion_change, 1),
-            'explosion_volume_ratio': round(explosion_volume_ratio, 1),
-            'days_since_explosion': days_since_explosion,
-            'volume_decrease_rate': int(volume_decrease_rate),
+            'explosion_date': found_result['explosion_day'].strftime('%Y-%m-%d'),
+            'explosion_change_rate': round(found_result['explosion_change'], 1),
+            'explosion_volume_ratio': round(found_result['explosion_volume_ratio'], 1),
+            'detected_date': found_result['detected_date'].strftime('%Y-%m-%d'),
+            'days_since_detected': found_result['days_since_detected'],
+            'volume_decrease_rate': int(found_result['volume_decrease_rate']),
             'volume_rank': 0,
             'ma150': ma150,
             'above_ma150': above_ma150,
@@ -1448,8 +1578,8 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
             'updated_at': datetime.now().isoformat()
         })
 
-    # 거래량 감소율 높은 순 정렬
-    results.sort(key=lambda x: x['volume_decrease_rate'], reverse=True)
+    # 포착 경과일 오름차순, 같으면 거래량 감소율 높은 순
+    results.sort(key=lambda x: (x['days_since_detected'], -x['volume_decrease_rate']))
 
     for i, r in enumerate(results):
         r['volume_rank'] = i + 1
@@ -1460,7 +1590,132 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
 
 
 # ============================================================================
-# 7. 52주 신고가 돌파 스크리너
+# 7. 낙폭과대 반등 스크리너 (52주 고가 대비 -40% + 바닥 상승)
+# ============================================================================
+
+FALLEN_DROP_THRESHOLD = 0.60  # 52주 고가 대비 60% 이하 (40% 이상 하락)
+FALLEN_52W_PERIOD = 250       # 52주 ≈ 250거래일
+FALLEN_LOW_PERIOD = 20        # 저가 비교 기간
+
+
+def screen_fallen_rebound(stocks: pd.DataFrame) -> List[Dict]:
+    """
+    낙폭과대 반등 스크리너
+
+    52주 고가 대비 40% 이상 하락했으나 바닥이 높아지는 종목을 발굴합니다.
+
+    [조건]
+        A. 현재가 < 52주 고가 × 60% (40% 이상 하락)
+        C. 최근 20일 저가 > 이전 20일 저가 (바닥 상승 = Higher Low)
+    """
+    print("\n[낙폭과대 반등] 분석 시작...")
+
+    # PER/PBR 데이터 로드 (financial_data.json)
+    financial_data = {}
+    financial_path = os.path.join(DATA_PATH, 'financial_data.json')
+    if os.path.exists(financial_path):
+        try:
+            with open(financial_path, 'r', encoding='utf-8') as f:
+                fin_json = json.load(f)
+                financial_data = fin_json.get('data', {})
+        except Exception as e:
+            logging.warning(f"Failed to load financial data from {financial_path}: {e}")
+
+    results = []
+    required_days = FALLEN_52W_PERIOD + 10
+
+    for _, row in stocks.iterrows():
+        ticker = row.get('Code', row.get('Symbol', ''))
+        name = row.get('Name', '')
+        market_cap = row.get('MarketCap', 0)
+
+        # PER/PBR from financial_data
+        fin_info = financial_data.get(ticker, {})
+        metrics = fin_info.get('metrics', {})
+        per_list = metrics.get('per', [])
+        pbr_list = metrics.get('pbr', [])
+        per = per_list[0] if per_list else None
+        pbr = pbr_list[0] if pbr_list else None
+
+        if not ticker:
+            continue
+
+        df = get_ohlcv(ticker, required_days)
+        if df is None or len(df) < FALLEN_52W_PERIOD:
+            continue
+
+        current_price = float(df['Close'].iloc[-1])
+
+        # 52주 고가 (High 기준)
+        high_52w = float(df['High'].iloc[-FALLEN_52W_PERIOD:].max())
+
+        if high_52w <= 0:
+            continue
+
+        # A. 52주 고가 대비 40% 이상 하락
+        drop_ratio = current_price / high_52w
+        if drop_ratio > FALLEN_DROP_THRESHOLD:
+            continue
+
+        drop_percent = (1 - drop_ratio) * 100  # 하락률 (양수)
+
+        # C. 바닥 상승 (Higher Low)
+        # 이전 20일 저가 (21~40일 전)
+        if len(df) < 41:
+            continue
+        prev_20d_low = float(df['Low'].iloc[-40:-20].min())
+        # 최근 20일 저가 (1~20일 전)
+        recent_20d_low = float(df['Low'].iloc[-20:].min())
+
+        # 유효성 검사
+        if prev_20d_low <= 0 or recent_20d_low <= 0:
+            continue
+
+        if recent_20d_low <= prev_20d_low:
+            continue
+
+        # 바닥 상승률
+        low_rise_percent = (recent_20d_low - prev_20d_low) / prev_20d_low * 100
+
+        # 150일선 계산
+        ma150 = None
+        above_ma150 = False
+        if len(df) >= 150:
+            ma150 = int(df['Close'].rolling(150).mean().iloc[-1])
+            above_ma150 = bool(current_price > ma150)
+
+        # 등락률
+        prev_price = float(df['Close'].iloc[-2])
+        change_rate = (current_price - prev_price) / prev_price * 100 if prev_price > 0 else 0
+
+        results.append({
+            'ticker': ticker,
+            'name': name,
+            'price': int(current_price),
+            'change_rate': round(change_rate, 2),
+            'high_52w': int(high_52w),
+            'drop_percent': round(drop_percent, 1),
+            'prev_low': int(prev_20d_low),
+            'recent_low': int(recent_20d_low),
+            'low_rise_percent': round(low_rise_percent, 1),
+            'per': round(per, 1) if per and not pd.isna(per) else None,
+            'pbr': round(pbr, 2) if pbr and not pd.isna(pbr) else None,
+            'ma150': ma150,
+            'above_ma150': above_ma150,
+            'market_cap': int(market_cap),
+            'updated_at': datetime.now().isoformat()
+        })
+
+    # 낙폭 큰 순서로 정렬
+    results.sort(key=lambda x: x['drop_percent'], reverse=True)
+
+    print(f"[완료] 낙폭과대 반등: {len(results)}개")
+
+    return results
+
+
+# ============================================================================
+# 8. 52주 신고가 돌파 스크리너
 # ============================================================================
 
 HIGH_52W_PERIOD = 250  # 52주 ≈ 250거래일
@@ -1643,7 +1898,8 @@ def _fetch_sector_stocks(sector_no: int) -> List[str]:
                 if code and len(code) == 6:
                     codes.append(code)
         return codes
-    except:
+    except Exception as e:
+        logging.warning(f"Failed to fetch sector stocks from {url}: {e}")
         return []
 
 
@@ -1859,65 +2115,85 @@ def main():
     # 52주 신고가 스크리너: 260거래일 필요 → 500 캘린더일 ≈ 345거래일 확보
     preload_all_data(stocks, days=500)
 
-    # 1. 박스권 스크리너 (퀀트 수준)
-    box_range_results = screen_box_range(stocks)
-    save_results(box_range_results, 'box_range.json', len(stocks))
+    try:
+        # 1. 박스권 스크리너 (퀀트 수준)
+        box_range_results = screen_box_range(stocks)
+        save_results(box_range_results, 'box_range.json', len(stocks))
 
-    # 2. 박스권 돌파 (거래량 동반)
-    box_breakout_results = screen_box_breakout(stocks)
-    save_results(box_breakout_results, 'box_breakout.json', len(stocks))
+        # 2. 박스권 돌파 (거래량 동반)
+        box_breakout_results = screen_box_breakout(stocks)
+        save_results(box_breakout_results, 'box_breakout.json', len(stocks))
 
-    # 3. 박스권 돌파 (거래량 무관)
-    box_breakout_simple_results = screen_box_breakout_simple(stocks)
-    save_results(box_breakout_simple_results, 'box_breakout_simple.json', len(stocks))
+        # 3. 박스권 돌파 (거래량 무관)
+        box_breakout_simple_results = screen_box_breakout_simple(stocks)
+        save_results(box_breakout_simple_results, 'box_breakout_simple.json', len(stocks))
 
-    # 4. 풀백 스크리너
-    pullback_results = screen_pullback(stocks)
-    save_results(pullback_results, 'pullback.json', len(stocks))
+        # 4. 풀백 스크리너
+        pullback_results = screen_pullback(stocks)
+        save_results(pullback_results, 'pullback.json', len(stocks))
 
-    # 5. 거래량 폭발 스크리너
-    vol_explosion_results = screen_volume_explosion(stocks)
-    save_results(vol_explosion_results, 'volume_explosion.json', len(stocks))
+        # 5. 거래량 폭발 스크리너
+        vol_explosion_results = screen_volume_explosion(stocks)
+        save_results(vol_explosion_results, 'volume_explosion.json', len(stocks))
 
-    # 6. 거래량 급감 스크리너
-    vol_dry_up_results = screen_volume_dry_up(stocks)
-    save_results(vol_dry_up_results, 'volume_dry_up.json', len(stocks))
+        # 6. 거래량 급감 스크리너
+        vol_dry_up_results = screen_volume_dry_up(stocks)
+        save_results(vol_dry_up_results, 'volume_dry_up.json', len(stocks))
 
-    # 7. 52주 신고가 돌파 스크리너
-    new_high_results = screen_new_high_52w(stocks)
-    save_results(new_high_results, 'new_high_52w.json', len(stocks))
+        # 7. 낙폭과대 반등 스크리너
+        fallen_rebound_results = screen_fallen_rebound(stocks)
+        save_results(fallen_rebound_results, 'fallen_rebound.json', len(stocks))
 
-    # 8. 업종별 4단계 스크리너
-    sector_stage_results = screen_sector_stage()
-    save_results(sector_stage_results, 'sector_stage.json', len(NAVER_SECTOR_LIST))
+        # 8. 52주 신고가 돌파 스크리너
+        new_high_results = screen_new_high_52w(stocks)
+        save_results(new_high_results, 'new_high_52w.json', len(stocks))
 
-    # 차트 데이터 생성
-    all_results = [
-        box_range_results,
-        box_breakout_results,
-        box_breakout_simple_results,
-        pullback_results,
-        vol_explosion_results,
-        vol_dry_up_results,
-        new_high_results
-    ]
-    generate_chart_data(all_results)
+        # 8. 업종별 4단계 스크리너
+        sector_stage_results = screen_sector_stage()
+        save_results(sector_stage_results, 'sector_stage.json', len(NAVER_SECTOR_LIST))
 
-    total_elapsed = time.time() - total_start
+        # 9. 바닥 탈출 스크리너 (pykrx 사용)
+        from scripts.screeners.bottom_breakout import screen_bottom_breakout
+        bottom_breakout_results = screen_bottom_breakout()
+        save_results(bottom_breakout_results, 'bottom_breakout.json', len(stocks))
 
-    print("\n" + "=" * 70)
-    print("스크리너 결과 요약")
-    print("=" * 70)
-    print(f"  박스권 횡보: {len(box_range_results)}개")
-    print(f"  박스권 돌파 (거래량): {len(box_breakout_results)}개")
-    print(f"  박스권 돌파 (무관): {len(box_breakout_simple_results)}개")
-    print(f"  풀백: {len(pullback_results)}개")
-    print(f"  거래량 폭발: {len(vol_explosion_results)}개")
-    print(f"  거래량 급감: {len(vol_dry_up_results)}개")
-    print(f"  52주 신고가: {len(new_high_results)}개")
-    print(f"  업종별 4단계: {len(sector_stage_results)}개")
-    print(f"\n총 실행 시간: {total_elapsed:.1f}초 ({total_elapsed/60:.1f}분)")
-    print("=" * 70)
+        # 차트 데이터 생성
+        all_results = [
+            box_range_results,
+            box_breakout_results,
+            box_breakout_simple_results,
+            pullback_results,
+            vol_explosion_results,
+            vol_dry_up_results,
+            fallen_rebound_results,
+            new_high_results,
+            bottom_breakout_results
+        ]
+        generate_chart_data(all_results)
+
+        total_elapsed = time.time() - total_start
+
+        print("\n" + "=" * 70)
+        print("스크리너 결과 요약")
+        print("=" * 70)
+        print(f"  박스권 횡보: {len(box_range_results)}개")
+        print(f"  박스권 돌파 (거래량): {len(box_breakout_results)}개")
+        print(f"  박스권 돌파 (무관): {len(box_breakout_simple_results)}개")
+        print(f"  풀백: {len(pullback_results)}개")
+        print(f"  거래량 폭발: {len(vol_explosion_results)}개")
+        print(f"  거래량 급감: {len(vol_dry_up_results)}개")
+        print(f"  낙폭과대 반등: {len(fallen_rebound_results)}개")
+        print(f"  52주 신고가: {len(new_high_results)}개")
+        print(f"  업종별 4단계: {len(sector_stage_results)}개")
+        print(f"  바닥 탈출: {len(bottom_breakout_results)}개")
+        print(f"\n총 실행 시간: {total_elapsed:.1f}초 ({total_elapsed/60:.1f}분)")
+        print("=" * 70)
+
+    finally:
+        # 메모리 누수 방지를 위한 캐시 명시적 정리
+        print("\n[정리] 캐시 메모리 해제 중...")
+        clear_cache()
+        print("  캐시 정리 완료")
 
 
 if __name__ == '__main__':

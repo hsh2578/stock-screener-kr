@@ -22,7 +22,7 @@
             --color-bg-hover: #F0F2F5;
             --color-text-primary: #1E2329;
             --color-text-secondary: #4A5568; /* 대비 개선: 4.5:1 이상 */
-            --color-text-muted: #718096; /* 대비 개선: 4.5:1 이상 */
+            --color-text-muted: #5F6B7A; /* 대비 개선: 5:1 이상 (WCAG AA) */
             --color-accent: #0066CC;
             --color-accent-hover: #004499;
             --color-accent-light: #E8F1FA;
@@ -197,6 +197,31 @@
         /* ============================================================
            SCREENER CARD GRID
            ============================================================ */
+        /* 스크리너 그룹 헤더 */
+        .screener-group {
+            margin-bottom: 32px;
+        }
+        .screener-group-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .screener-group-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--color-accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
         .card-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -211,6 +236,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            min-height: 140px; /* 일관된 카드 높이 */
         }
         .screener-card::before {
             content: '';
@@ -224,7 +250,17 @@
             transition: opacity 0.2s;
         }
         .screener-card:hover::before { opacity: 1; }
-        .screener-card:hover { transform: translateY(-2px); }
+        .screener-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--color-accent);
+        }
+        .screener-card:focus {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+        .screener-card:active {
+            transform: translateY(0);
+        }
         .screener-card .content { display: flex; align-items: flex-start; gap: 14px; }
         .screener-card .icon {
             width: 44px;
@@ -364,11 +400,24 @@
             white-space: nowrap;
             cursor: pointer;
             user-select: none;
-            transition: background-color 0.15s;
+            transition: all 0.2s ease;
+            position: relative;
         }
-        th:hover { background-color: #DDE1E6; }
+        th:hover {
+            background-color: #DDE1E6;
+            transform: translateY(-1px);
+        }
+        th:focus {
+            outline: 2px solid var(--color-accent);
+            outline-offset: -2px;
+        }
         th:first-child { padding-left: 20px; }
         th:last-child { padding-right: 20px; }
+
+        /* 숫자 컬럼은 우측 정렬 */
+        th.numeric {
+            text-align: right;
+        }
 
         td {
             padding: 14px;
@@ -505,16 +554,39 @@
         .page.active { display: block; }
 
         /* ============================================================
-           SORT ICONS
+           SORT ICONS - 애니메이션 강화
            ============================================================ */
         th .sort-icon {
             margin-left: 4px;
             opacity: 0.3;
             font-size: 10px;
-            transition: opacity 0.15s;
+            transition: all 0.2s ease;
+            display: inline-block;
         }
-        th:hover .sort-icon { opacity: 0.6; }
-        th.sorted .sort-icon { opacity: 1; color: var(--color-accent); }
+        th:hover .sort-icon {
+            opacity: 0.6;
+            transform: scale(1.2);
+        }
+        th.sorted .sort-icon {
+            opacity: 1;
+            color: var(--color-accent);
+            animation: sortPulse 0.3s ease;
+        }
+
+        @keyframes sortPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+
+        /* 정렬된 컬럼 하이라이트 */
+        th.sorted {
+            background-color: var(--color-accent-light);
+            border-bottom-color: var(--color-accent);
+        }
+        tbody td.sorted-column {
+            background-color: rgba(232, 241, 250, 0.3);
+        }
 
         /* ============================================================
            ACCESSIBILITY - WCAG 2.1 AA 준수
@@ -683,11 +755,21 @@
                 padding: 16px;
                 margin-bottom: 12px;
                 cursor: pointer;
-                transition: all 0.15s;
+                transition: all 0.2s ease;
+                min-height: 120px; /* 터치 타겟 크기 보장 */
+                position: relative;
+            }
+            .stock-card-mobile:hover {
+                border-color: var(--color-border-dark);
+                box-shadow: var(--shadow-md);
             }
             .stock-card-mobile:active {
                 transform: scale(0.98);
                 background: var(--color-bg-secondary);
+            }
+            .stock-card-mobile:focus-within {
+                outline: 2px solid var(--color-accent);
+                outline-offset: 2px;
             }
             .stock-card-mobile .header-row {
                 display: flex;
@@ -739,7 +821,7 @@
         }
 
         /* ============================================================
-           ENHANCED LOADING STATE
+           ENHANCED LOADING STATE - 개선된 로딩 UX
            ============================================================ */
         .skeleton {
             background: linear-gradient(90deg,
@@ -755,6 +837,60 @@
             0% { background-position: 200% 0; }
             100% { background-position: -200% 0; }
         }
+
+        /* 로딩 오버레이 */
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(2px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            border-radius: var(--radius-md);
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--color-border);
+            border-top-color: var(--color-accent);
+            border-radius: 50%;
+            animation: spinner 0.8s linear infinite;
+        }
+
+        .loading-text {
+            margin-top: 16px;
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            font-weight: 600;
+        }
+
+        @keyframes spinner {
+            to { transform: rotate(360deg); }
+        }
+
+        /* 테이블 스켈레톤 */
+        .table-skeleton {
+            padding: 20px;
+        }
+        .skeleton-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .skeleton-col {
+            height: 20px;
+            border-radius: 4px;
+        }
+        .skeleton-col.sm { flex: 0 0 80px; }
+        .skeleton-col.md { flex: 0 0 120px; }
+        .skeleton-col.lg { flex: 1; }
 
         /* ============================================================
            FILTER RESULT BADGE
@@ -784,10 +920,29 @@
         }
 
         /* ============================================================
-           CLICKABLE ROWS
+           CLICKABLE ROWS - 접근성 및 터치 개선
            ============================================================ */
-        tr.clickable { cursor: pointer; }
-        tr.clickable:hover { background-color: #EDF4FC !important; }
+        tr.clickable {
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        tr.clickable:hover {
+            background-color: #EDF4FC !important;
+            transform: scale(1.005);
+            box-shadow: 0 2px 8px rgba(0, 102, 204, 0.1);
+        }
+        tr.clickable:focus-within {
+            outline: 2px solid var(--color-accent);
+            outline-offset: -2px;
+            background-color: #EDF4FC !important;
+        }
+        /* 모바일 터치 피드백 */
+        @media (max-width: 768px) {
+            tr.clickable:active {
+                background-color: #D6E9FB !important;
+                transform: scale(0.995);
+            }
+        }
 
         /* ============================================================
            CHART MODAL
@@ -1109,7 +1264,7 @@
                 <p class="subtitle">기술적 분석 기반 국내 주식 스크리닝</p>
                 <p class="meta">시가총액 1,000억 이상 · 1,500+ 종목 분석</p>
             </header>
-            <main class="card-grid" id="home-cards" role="main" aria-label="스크리너 목록"></main>
+            <main id="home-cards" role="main" aria-label="스크리너 목록"></main>
             <footer class="home-footer" role="contentinfo">
                 <p>데이터 출처: KRX (한국거래소) · 매일 장 마감 후 자동 업데이트</p>
                 <p class="disclaimer">본 서비스는 투자 참고용이며, 투자 판단의 책임은 본인에게 있습니다.</p>
@@ -1384,6 +1539,75 @@
         </div>
     </div>
 
+    <!-- Bottom Breakout Page -->
+    <div id="page-bottom-breakout" class="page">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="#" onclick="showPage('home'); return false;">홈</a>
+                <span class="separator" aria-hidden="true">›</span>
+                <span class="current">바닥 탈출</span>
+            </nav>
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
+            <header class="page-header">
+                <div class="title-row">
+                    <span class="icon">🔄</span>
+                    <h1>바닥 탈출</h1>
+                    <span class="badge badge-warning">반등</span>
+                </div>
+                <p class="desc">52주 고점 대비 -30%~-75% 낙폭 + 150일선 근접 + 저점 상승 종목 (12점 만점, 6점 이상)</p>
+                <div class="meta">
+                    <span class="date" id="bottom-breakout-date">데이터 기준: -</span>
+                    <span><span class="count" id="bottom-breakout-count">-</span>개 종목</span>
+                </div>
+            </header>
+            <div class="card table-card">
+                <div class="table-wrapper">
+                    <table id="bottom-breakout-table" role="table" aria-label="바닥 탈출 종목 목록"><thead></thead><tbody></tbody></table>
+                </div>
+                <div id="bottom-breakout-mobile" class="mobile-card-list"></div>
+                <div id="bottom-breakout-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fallen Rebound Page -->
+    <div id="page-fallen-rebound" class="page">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="#" onclick="showPage('home'); return false;">홈</a>
+                <span class="separator" aria-hidden="true">›</span>
+                <span class="current">낙폭과대 반등</span>
+            </nav>
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
+            <header class="page-header">
+                <div class="title-row">
+                    <span class="icon">📉</span>
+                    <h1>낙폭과대 반등</h1>
+                    <span class="badge badge-info">저점매수</span>
+                </div>
+                <p class="desc">52주 고가 대비 -40% 이상 하락 + 최근 20일 저가 > 이전 20일 저가 (바닥 상승)</p>
+                <div class="meta">
+                    <span class="date" id="fallen-rebound-date">데이터 기준: -</span>
+                    <span><span class="count" id="fallen-rebound-count">-</span>개 종목</span>
+                    <button id="filter-ma150-fallen-rebound" class="filter-btn" onclick="toggleMA150Filter('fallenRebound')" aria-pressed="false">
+                        <span class="filter-icon">📊</span> 150일선 위만
+                    </button>
+                </div>
+            </header>
+            <div class="card table-card">
+                <div class="table-wrapper">
+                    <table id="fallen-rebound-table" role="table" aria-label="낙폭과대 반등 종목 목록"><thead></thead><tbody></tbody></table>
+                </div>
+                <div id="fallen-rebound-mobile" class="mobile-card-list"></div>
+                <div id="fallen-rebound-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Sector Stage Page -->
     <div id="page-sector-stage" class="page">
         <div class="container">
@@ -1449,6 +1673,72 @@
         </div>
     </div>
 
+    <!-- MA60W Quality Stocks Page -->
+    <div id="page-ma60w-quality" class="page">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="#" onclick="showPage('home'); return false;">홈</a>
+                <span class="separator" aria-hidden="true">›</span>
+                <span class="current">60주선 우량주</span>
+            </nav>
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
+            <header class="page-header">
+                <div class="title-row">
+                    <span class="icon">📊</span>
+                    <h1>60주선 우량주</h1>
+                    <span class="badge badge-info">우량주</span>
+                </div>
+                <p class="desc">60주선(300일 EMA) 지지 + ROE/영업이익률 우량 스크리닝</p>
+                <div class="meta">
+                    <span class="date" id="ma60w-quality-date">데이터 기준: -</span>
+                    <span><span class="count" id="ma60w-quality-count">-</span>개 종목</span>
+                </div>
+            </header>
+            <div class="card table-card">
+                <div class="table-wrapper">
+                    <table id="ma60w-quality-table" role="table" aria-label="60주선 우량주 목록"><thead></thead><tbody></tbody></table>
+                </div>
+                <div id="ma60w-quality-mobile" class="mobile-card-list"></div>
+                <div id="ma60w-quality-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MA Convergence Page -->
+    <div id="page-ma-convergence" class="page">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="#" onclick="showPage('home'); return false;">홈</a>
+                <span class="separator" aria-hidden="true">›</span>
+                <span class="current">이평선 수렴</span>
+            </nav>
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
+            <header class="page-header">
+                <div class="title-row">
+                    <span class="icon">📐</span>
+                    <h1>이평선 수렴</h1>
+                    <span class="badge badge-info">수렴</span>
+                </div>
+                <p class="desc">이동평균선 수렴 + 정배열(10>20>60주선) + 100봉 신고가</p>
+                <div class="meta">
+                    <span class="date" id="ma-convergence-date">데이터 기준: -</span>
+                    <span><span class="count" id="ma-convergence-count">-</span>개 종목</span>
+                </div>
+            </header>
+            <div class="card table-card">
+                <div class="table-wrapper">
+                    <table id="ma-convergence-table" role="table" aria-label="이평선 수렴 목록"><thead></thead><tbody></tbody></table>
+                </div>
+                <div id="ma-convergence-mobile" class="mobile-card-list"></div>
+                <div id="ma-convergence-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Toast Notification Container -->
     <div id="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
 
@@ -1500,9 +1790,13 @@
             pullback: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
             volumeDryUp: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
             volumeExplosion: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
+            fallenRebound: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
             newHigh52w: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
+            bottomBreakout: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
             sectorStage: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
-            valueStocks: { meta: { updated_at: null, total_count: 0 }, data: [] }
+            valueStocks: { meta: { updated_at: null, total_count: 0 }, data: [] },
+            ma60wQuality: { meta: { updated_at: null, total_count: 0 }, data: [] },
+            maConvergence: { meta: { updated_at: null, total_count: 0 }, data: [] }
         };
 
         // 데이터 로딩 상태
@@ -1517,9 +1811,13 @@
             pullback: 'pullback.json',
             volumeDryUp: 'volume_dry_up.json',
             volumeExplosion: 'volume_explosion.json',
+            fallenRebound: 'fallen_rebound.json',
             newHigh52w: 'new_high_52w.json',
+            bottomBreakout: 'bottom_breakout.json',
             sectorStage: 'sector_stage.json',
-            valueStocks: 'value_stocks.json'
+            valueStocks: 'value_stocks.json',
+            ma60wQuality: 'ma60w_quality.json',
+            maConvergence: 'ma_convergence.json'
         };
 
         // 데이터 경로 후보 (GitHub Pages, 로컬 등 다양한 환경 지원)
@@ -1670,17 +1968,66 @@
         // 인라인 데이터 제거됨 - 외부 JSON 파일에서 로드합니다
         // 데이터 로딩은 loadAllData() 함수에서 처리
 
-        const screeners = [
-            { id: 'box-range', icon: '📦', title: '박스권 스크리너', desc: '60거래일 이상 횡보 중인 종목', badge: { text: '기초', type: 'info' } },
-            { id: 'box-breakout', icon: '🚀', title: '박스권 돌파 (거래량 동반)', desc: '거래량 2배 동반 저항선 돌파', badge: { text: '1차 매수', type: 'success' } },
-            { id: 'box-breakout-simple', icon: '📈', title: '박스권 돌파 (거래량 무관)', desc: '거래량 무관 돌파 후 10일 이내' },
-            { id: 'pullback', icon: '🎯', title: '풀백 스크리너', desc: '돌파 후 되돌림 종목', badge: { text: '2차 매수', type: 'success' } },
-            { id: 'volume-dry-up', icon: '🏜️', title: '거래량 급감 눌림목', desc: '3배 거래량+8% 양봉 후 10일내', badge: { text: '세력 보유', type: 'warning' } },
-            { id: 'volume-explosion', icon: '💥', title: '거래량 폭발', desc: '40일 평균 6배+6% 양봉', badge: { text: '당일', type: 'danger' } },
-            { id: 'new-high-52w', icon: '🏔️', title: '52주 신고가 돌파', desc: '신고가 돌파 후 8거래일 이내', badge: { text: '신고가', type: 'success' } },
-            { id: 'value-stocks', icon: '💎', title: '저평가 우량주', desc: 'PER/PBR/배당 기반 가치투자', badge: { text: '가치투자', type: 'info' } },
-            { id: 'sector-stage', icon: '🏭', title: '업종별 4단계', desc: '업종 추세 분석' }
+        const screenerGroups = [
+            {
+                title: '박스권 패턴',
+                icon: '📦',
+                desc: '횡보와 돌파 패턴',
+                screeners: [
+                    { id: 'box-range', icon: '📦', title: '박스권 횡보', desc: '60거래일 이상 횡보 중인 종목', badge: { text: '기초', type: 'info' } },
+                    { id: 'box-breakout', icon: '🚀', title: '박스권 돌파 (거래량)', desc: '거래량 2배 동반 저항선 돌파', badge: { text: '1차 매수', type: 'success' } },
+                    { id: 'box-breakout-simple', icon: '📈', title: '박스권 돌파 (단순)', desc: '거래량 무관 돌파 후 10일 이내' },
+                    { id: 'pullback', icon: '🎯', title: '풀백', desc: '돌파 후 되돌림 종목', badge: { text: '2차 매수', type: 'success' } }
+                ]
+            },
+            {
+                title: '거래량 분석',
+                icon: '📊',
+                desc: '거래량 기반 신호',
+                screeners: [
+                    { id: 'volume-explosion', icon: '💥', title: '거래량 폭발', desc: '40일 평균 6배+6% 양봉', badge: { text: '당일', type: 'danger' } },
+                    { id: 'volume-dry-up', icon: '🏜️', title: '거래량 급감', desc: '3배 거래량+8% 양봉 후 10일내', badge: { text: '세력 보유', type: 'warning' } }
+                ]
+            },
+            {
+                title: '추세 및 신고가',
+                icon: '🏔️',
+                desc: '강세 추세와 돌파',
+                screeners: [
+                    { id: 'new-high-52w', icon: '🏔️', title: '52주 신고가', desc: '신고가 돌파 후 8거래일 이내', badge: { text: '신고가', type: 'success' } },
+                    { id: 'ma-convergence', icon: '📐', title: '이평선 수렴', desc: '이평선 수렴 + 정배열 + 신고가', badge: { text: '수렴', type: 'info' } }
+                ]
+            },
+            {
+                title: '반등 및 저점매수',
+                icon: '🔄',
+                desc: '낙폭과대 후 회복',
+                screeners: [
+                    { id: 'bottom-breakout', icon: '🔄', title: '바닥 탈출', desc: '낙폭과대 후 반등 신호', badge: { text: '반등', type: 'warning' } },
+                    { id: 'fallen-rebound', icon: '📉', title: '낙폭과대 반등', desc: '52주 고가 -40% + 바닥 상승', badge: { text: '저점매수', type: 'info' } }
+                ]
+            },
+            {
+                title: '가치 및 우량주',
+                icon: '💎',
+                desc: '장기 투자 관점',
+                screeners: [
+                    { id: 'value-stocks', icon: '💎', title: '저평가 우량주', desc: 'PER/PBR/배당 기반 가치투자', badge: { text: '가치투자', type: 'info' } },
+                    { id: 'ma60w-quality', icon: '📊', title: '60주선 우량주', desc: '60주선 지지 + 영업이익률/성장률', badge: { text: '우량주', type: 'primary' } }
+                ]
+            },
+            {
+                title: '업종 분석',
+                icon: '🏭',
+                desc: '섹터 로테이션',
+                screeners: [
+                    { id: 'sector-stage', icon: '🏭', title: '업종별 4단계', desc: '업종 추세 분석' }
+                ]
+            }
         ];
+
+        // Flat list for backward compatibility
+        const screeners = screenerGroups.flatMap(g => g.screeners);
 
         // Utils
         const formatNumber = n => n.toLocaleString('ko-KR');
@@ -1688,6 +2035,23 @@
         const getColor = n => n > 0 ? 'positive' : n < 0 ? 'negative' : 'neutral';
         const formatShortDate = d => { const date = new Date(d); return (date.getMonth()+1) + '월 ' + date.getDate() + '일'; };
         const formatMarketCap = cap => { if (!cap) return '-'; if (cap >= 10000) return (cap / 10000).toFixed(1) + '조'; return formatNumber(cap) + '억'; };
+
+        // XSS 방어를 위한 안전한 JSON 문자열화
+        const safeJsonStringify = obj => {
+            return JSON.stringify(obj)
+                .replace(/</g, '\\u003c')
+                .replace(/>/g, '\\u003e')
+                .replace(/&/g, '\\u0026')
+                .replace(/'/g, '\\u0027')
+                .replace(/"/g, '&quot;');
+        };
+
+        // onclick 속성에서 안전하게 사용할 수 있는 data attribute 생성
+        const createDataAttr = obj => {
+            return Object.entries(obj)
+                .map(([k, v]) => `data-${k}="${String(v).replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}"`)
+                .join(' ');
+        };
 
         // Chart data cache
         let chartDataCache = null;
@@ -1734,7 +2098,8 @@
             boxBreakoutSimple: false,
             pullback: false,
             volumeDryUp: false,
-            volumeExplosion: false
+            volumeExplosion: false,
+            fallenRebound: false
         };
 
         // Pagination state
@@ -1746,8 +2111,12 @@
             pullback: 1,
             volumeDryUp: 1,
             volumeExplosion: 1,
+            fallenRebound: 1,
             newHigh52w: 1,
-            valueStocks: 1
+            bottomBreakout: 1,
+            valueStocks: 1,
+            ma60wQuality: 1,
+            maConvergence: 1
         };
 
         // Pagination helper functions
@@ -1827,7 +2196,8 @@
             boxBreakoutSimple: 'filter-ma150-box-breakout-simple',
             pullback: 'filter-ma150-pullback',
             volumeDryUp: 'filter-ma150-volume-dry-up',
-            volumeExplosion: 'filter-ma150-volume-explosion'
+            volumeExplosion: 'filter-ma150-volume-explosion',
+            fallenRebound: 'filter-ma150-fallen-rebound'
         };
 
         // Render function mapping
@@ -1838,8 +2208,11 @@
             pullback: () => renderPullback(),
             volumeDryUp: () => renderVolumeDryUp(),
             volumeExplosion: () => renderVolumeExplosion(),
+            fallenRebound: () => renderFallenRebound(),
             newHigh52w: () => renderNewHigh52w(),
-            valueStocks: () => renderValueStocks()
+            valueStocks: () => renderValueStocks(),
+            ma60wQuality: () => renderMa60wQuality(),
+            maConvergence: () => renderMaConvergence()
         };
 
         // Sync filter button visual state
@@ -1978,14 +2351,20 @@
                 time: d.date, open: d.open, high: d.high, low: d.low, close: d.close
             })));
 
-            // Moving averages
+            // Moving averages - Sliding window O(n) optimization
             const maColors = { 5: '#FF69B4', 20: '#4A90E2', 40: '#E74C3C', 150: '#95A5A6' };
             [5, 20, 40, 150].forEach(period => {
                 if (stockData.length >= period) {
                     const maData = [];
-                    for (let i = period - 1; i < stockData.length; i++) {
-                        let sum = 0;
-                        for (let j = 0; j < period; j++) sum += stockData[i - j].close;
+                    // Calculate initial sum for first window
+                    let sum = 0;
+                    for (let i = 0; i < period; i++) {
+                        sum += stockData[i].close;
+                    }
+                    maData.push({ time: stockData[period - 1].date, value: sum / period });
+                    // Slide window: add new value, remove oldest value
+                    for (let i = period; i < stockData.length; i++) {
+                        sum += stockData[i].close - stockData[i - period].close;
                         maData.push({ time: stockData[i].date, value: sum / period });
                     }
                     const maSeries = chartInstance.addSeries(LightweightCharts.LineSeries, {
@@ -2055,8 +2434,11 @@
                 'volume-dry-up-date': DATA.volumeDryUp?.meta?.lastUpdated,
                 'volume-explosion-date': DATA.volumeExplosion?.meta?.lastUpdated,
                 'new-high-52w-date': DATA.newHigh52w?.meta?.lastUpdated,
+                'bottom-breakout-date': DATA.bottomBreakout?.meta?.lastUpdated,
                 'sector-stage-date': DATA.sectorStage?.meta?.lastUpdated,
-                'value-stocks-date': DATA.valueStocks?.meta?.updated_at
+                'value-stocks-date': DATA.valueStocks?.meta?.updated_at,
+                'ma60w-quality-date': DATA.ma60wQuality?.meta?.updated_at,
+                'ma-convergence-date': DATA.maConvergence?.meta?.updated_at
             };
 
             for (const [elementId, lastUpdated] of Object.entries(dateMapping)) {
@@ -2077,25 +2459,43 @@
                 'pullback': DATA.pullback?.meta?.totalCount || 0,
                 'volume-dry-up': DATA.volumeDryUp?.meta?.totalCount || 0,
                 'volume-explosion': DATA.volumeExplosion?.meta?.totalCount || 0,
+                'fallen-rebound': DATA.fallenRebound?.meta?.totalCount || DATA.fallenRebound?.data?.length || 0,
                 'new-high-52w': DATA.newHigh52w?.meta?.totalCount || 0,
+                'bottom-breakout': DATA.bottomBreakout?.meta?.totalCount || DATA.bottomBreakout?.data?.length || 0,
                 'sector-stage': DATA.sectorStage?.meta?.totalCount || 0,
-                'value-stocks': DATA.valueStocks?.meta?.total_count || DATA.valueStocks?.data?.length || 0
+                'value-stocks': DATA.valueStocks?.meta?.total_count || DATA.valueStocks?.data?.length || 0,
+                'ma60w-quality': DATA.ma60wQuality?.meta?.total_count || DATA.ma60wQuality?.data?.length || 0,
+                'ma-convergence': DATA.maConvergence?.meta?.total_count || DATA.maConvergence?.data?.length || 0
             };
 
-            document.getElementById('home-cards').innerHTML = screeners.map(s => `
-                <div class="card screener-card" onclick="showPage('${s.id}')" role="button" tabindex="0" onkeypress="if(event.key==='Enter' || event.key===' ')showPage('${s.id}')" aria-label="${s.title} 보기 - ${stockCounts[s.id] || 0}개 종목">
-                    <div class="content">
-                        <div class="icon" aria-hidden="true">${s.icon}</div>
-                        <div class="info">
-                            <div class="title-row">
-                                <h2>${s.title}</h2>
-                                ${s.badge ? `<span class="badge badge-${s.badge.type}">${s.badge.text}</span>` : ''}
-                            </div>
-                            <p class="desc">${s.desc}</p>
-                            <div class="stock-count">
-                                ${stockCounts[s.id] !== undefined ? `<strong>${stockCounts[s.id]}</strong>개 종목 발굴` : '데이터 로딩 중...'}
-                            </div>
+            // Render grouped screeners
+            document.getElementById('home-cards').innerHTML = screenerGroups.map(group => `
+                <div class="screener-group">
+                    <div class="screener-group-title">
+                        <div class="screener-group-icon" aria-hidden="true">${group.icon}</div>
+                        <div>
+                            <span>${group.title}</span>
+                            <span style="font-size: 13px; font-weight: 400; color: var(--color-text-muted); margin-left: 8px;">${group.desc}</span>
                         </div>
+                    </div>
+                    <div class="card-grid">
+                        ${group.screeners.map(s => `
+                            <div class="card screener-card" onclick="showPage('${s.id}')" role="button" tabindex="0" onkeypress="if(event.key==='Enter' || event.key===' ')showPage('${s.id}')" aria-label="${s.title} 보기 - ${stockCounts[s.id] || 0}개 종목">
+                                <div class="content">
+                                    <div class="icon" aria-hidden="true">${s.icon}</div>
+                                    <div class="info">
+                                        <div class="title-row">
+                                            <h2>${s.title}</h2>
+                                            ${s.badge ? `<span class="badge badge-${s.badge.type}">${s.badge.text}</span>` : ''}
+                                        </div>
+                                        <p class="desc">${s.desc}</p>
+                                        <div class="stock-count">
+                                            ${stockCounts[s.id] !== undefined ? `<strong>${stockCounts[s.id]}</strong>개 종목 발굴` : '데이터 로딩 중...'}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
                     </div>
                 </div>
             `).join('');
@@ -2105,12 +2505,24 @@
         function renderTable(tableId, headers, rows, renderFn) {
             const table = document.getElementById(tableId);
             const state = sortState[tableId] || {};
-            table.querySelector('thead').innerHTML = '<tr>' + headers.map(h =>
-                `<th class="${h.align || ''} ${state.key === h.key ? 'sorted' : ''}"
-                    ${h.key ? `onclick="handleSort('${tableId}', '${h.key}', ${renderFn.name})"` : ''}>
-                    ${h.label}${h.key ? `<span class="sort-icon">${getSortIcon(tableId, h.key)}</span>` : ''}
-                </th>`
-            ).join('') + '</tr>';
+            const sortDir = state.direction === 'asc' ? '오름차순' : '내림차순';
+
+            table.querySelector('thead').innerHTML = '<tr>' + headers.map(h => {
+                const isSorted = state.key === h.key;
+                const ariaSort = !h.key ? '' : isSorted ? (state.direction === 'asc' ? 'ascending' : 'descending') : 'none';
+                const alignClass = h.align || '';
+                const numericClass = alignClass.includes('text-right') ? 'numeric' : '';
+
+                return `<th class="${alignClass} ${numericClass} ${isSorted ? 'sorted' : ''}"
+                    ${h.key ? `onclick="handleSort('${tableId}', '${h.key}', ${renderFn.name})"` : ''}
+                    ${h.key ? `tabindex="0"` : ''}
+                    ${h.key ? `role="button"` : ''}
+                    ${ariaSort ? `aria-sort="${ariaSort}"` : ''}
+                    ${h.key ? `onkeypress="if(event.key==='Enter' || event.key===' '){event.preventDefault();handleSort('${tableId}', '${h.key}', ${renderFn.name})}"` : ''}
+                    ${h.key ? `aria-label="${h.label} ${isSorted ? sortDir + ' 정렬됨' : '정렬'}"` : ''}>
+                    ${h.label}${h.key ? `<span class="sort-icon" aria-hidden="true">${getSortIcon(tableId, h.key)}</span>` : ''}
+                </th>`;
+            }).join('') + '</tr>';
             table.querySelector('tbody').innerHTML = rows;
         }
 
@@ -2139,7 +2551,7 @@
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.boxRange);
             const rows = paginatedData.map(s => `
-                <tr class="clickable" onclick='openChartModal(${JSON.stringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})' role="button" tabindex="0" onkeypress="if(event.key==='Enter')openChartModal(${JSON.stringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})">
+                <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})' role="button" tabindex="0" onkeypress="if(event.key==='Enter')openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})">
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
@@ -2158,7 +2570,7 @@
             const mobileContainer = document.getElementById('box-range-mobile');
             if (mobileContainer) {
                 mobileContainer.innerHTML = paginatedData.map(s => `
-                    <div class="stock-card-mobile" onclick='openChartModal(${JSON.stringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})' role="button" tabindex="0" aria-label="${s.name} 차트 보기">
+                    <div class="stock-card-mobile" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})' role="button" tabindex="0" aria-label="${s.name} 차트 보기">
                         <div class="header-row">
                             <div class="stock-info">
                                 <h3>${s.name}</h3>
@@ -2219,7 +2631,7 @@
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.boxBreakout);
             const rows = paginatedData.map(s => `
-                <tr class="clickable" onclick='openChartModal(${JSON.stringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
+                <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
@@ -2260,7 +2672,7 @@
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.boxBreakoutSimple);
             const rows = paginatedData.map(s => `
-                <tr class="clickable" onclick='openChartModal(${JSON.stringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
+                <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
@@ -2300,7 +2712,7 @@
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.pullback);
             const rows = paginatedData.map(s => `
-                <tr class="clickable" onclick='openChartModal(${JSON.stringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
+                <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
@@ -2332,25 +2744,24 @@
 
             const headers = [
                 { label: '종목명', key: 'name' }, { label: '현재가', align: 'text-right', key: 'price' },
-                { label: '시가총액', align: 'text-right', key: 'market_cap' },
                 { label: '급등일', key: 'explosion_date' }, { label: '급등폭', align: 'text-right', key: 'explosion_change_rate' },
-                { label: '거래량비', align: 'text-right', key: 'explosion_volume_ratio' },
-                { label: '경과일', align: 'text-right', key: 'days_since_explosion' },
-                { label: '거래량감소', align: 'text-right', key: 'volume_decrease_rate' }
+                { label: '포착일', key: 'detected_date' }, { label: '경과', align: 'text-right', key: 'days_since_detected' },
+                { label: '거래량감소', align: 'text-right', key: 'volume_decrease_rate' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' }
             ];
             const state = sortState['volume-dry-up-table'] || {};
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.volumeDryUp);
             const rows = paginatedData.map(s => `
-                <tr class="clickable" onclick='openChartModal(${JSON.stringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate||0})})'>
+                <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate||0})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
-                    <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                     <td>${formatShortDate(s.explosion_date)}</td>
-                    <td class="text-right positive">+${s.explosion_change_rate.toFixed(1)}%</td>
-                    <td class="text-right" style="color: var(--color-warning)">${(s.explosion_volume_ratio || 0).toFixed(1)}x</td>
-                    <td class="text-right">${s.days_since_explosion || 0}일</td>
+                    <td class="text-right positive">+${s.explosion_change_rate?.toFixed(1) || '-'}%</td>
+                    <td>${s.detected_date ? formatShortDate(s.detected_date) : '-'}</td>
+                    <td class="text-right">${s.days_since_detected != null ? s.days_since_detected + '일' : '-'}</td>
                     <td class="text-right" style="color: var(--color-success)">-${s.volume_decrease_rate}%</td>
+                    <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                 </tr>
             `).join('');
             renderTable('volume-dry-up-table', headers, rows, renderVolumeDryUp);
@@ -2381,7 +2792,7 @@
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.volumeExplosion);
             const rows = paginatedData.map(s => `
-                <tr class="clickable" onclick='openChartModal(${JSON.stringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
+                <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
@@ -2392,6 +2803,47 @@
             `).join('');
             renderTable('volume-explosion-table', headers, rows, renderVolumeExplosion);
             renderPagination('volume-explosion-pagination', 'volumeExplosion', sortedData.length, renderVolumeExplosion);
+        }
+
+        function renderFallenRebound() {
+            syncFilterButton('fallenRebound');
+            // 필터 적용
+            let filteredData = DATA.fallenRebound?.data || [];
+            if (filterMA150State.fallenRebound) {
+                filteredData = filteredData.filter(s => s.above_ma150 === true);
+            }
+
+            const countEl = document.getElementById('fallen-rebound-count');
+            if (filterMA150State.fallenRebound) {
+                countEl.textContent = filteredData.length + '개 / 전체 ' + (DATA.fallenRebound?.meta?.totalCount || 0);
+            } else {
+                countEl.textContent = DATA.fallenRebound?.meta?.totalCount || 0;
+            }
+
+            const headers = [
+                { label: '종목명', key: 'name' }, { label: '현재가', align: 'text-right', key: 'price' },
+                { label: '낙폭', align: 'text-right', key: 'drop_percent' },
+                { label: '저점상승', align: 'text-right', key: 'low_rise_percent' },
+                { label: 'PER', align: 'text-right', key: 'per' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' }
+            ];
+            const state = sortState['fallen-rebound-table'] || {};
+            const sortedData = sortData(filteredData, state.key, state.direction);
+            const paginatedData = paginate(sortedData, paginationState.fallenRebound);
+            const rows = paginatedData.map(s => `
+                <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate||0})})'>
+                    <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
+                    <td class="text-right">${formatNumber(s.price)}원</td>
+                    <td class="text-right negative">-${s.drop_percent}%</td>
+                    <td class="text-right positive">+${s.low_rise_percent}%</td>
+                    <td class="text-right">${s.per != null ? s.per.toFixed(1) : '-'}</td>
+                    <td class="text-right">${s.pbr != null ? s.pbr.toFixed(2) : '-'}</td>
+                    <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                </tr>
+            `).join('');
+            renderTable('fallen-rebound-table', headers, rows, renderFallenRebound);
+            renderPagination('fallen-rebound-pagination', 'fallenRebound', sortedData.length, renderFallenRebound);
         }
 
         function renderNewHigh52w() {
@@ -2409,7 +2861,7 @@
             const sortedData = sortData(DATA.newHigh52w.data, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.newHigh52w);
             const rows = paginatedData.map(s => `
-                <tr class="clickable" onclick='openChartModal(${JSON.stringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
+                <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
@@ -2422,6 +2874,46 @@
             `).join('');
             renderTable('new-high-52w-table', headers, rows, renderNewHigh52w);
             renderPagination('new-high-52w-pagination', 'newHigh52w', sortedData.length, renderNewHigh52w);
+        }
+
+        function renderBottomBreakout() {
+            const bottomData = DATA.bottomBreakout?.data || [];
+            document.getElementById('bottom-breakout-count').textContent = bottomData.length;
+
+            const headers = [
+                { label: '등급', key: 'grade' },
+                { label: '종목명', key: 'name' },
+                { label: '점수', align: 'text-right', key: 'score' },
+                { label: '신호일', align: 'text-right', key: 'signal_date' },
+                { label: '현재가', align: 'text-right', key: 'current_price' },
+                { label: '150일선이격', align: 'text-right', key: 'ma150_gap' },
+                { label: '52주고점대비', align: 'text-right', key: 'drop_from_high' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' }
+            ];
+            const state = sortState['bottom-breakout-table'] || {};
+            const sortedData = sortData(bottomData, state.key, state.direction);
+            const paginatedData = paginate(sortedData, paginationState.bottomBreakout);
+            const rows = paginatedData.map(s => {
+                const gradeClass = s.grade === 'A' ? 'positive' : 'neutral';
+                const gradeIcon = s.grade === 'A' ? '⭐A' : '  B';
+                const signalDate = new Date(s.signal_date);
+                const dateText = `${signalDate.getMonth() + 1}월${signalDate.getDate()}일`;
+                const gapColor = s.ma150_gap >= 0 ? 'positive' : 'negative';
+                return `
+                    <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.current_price,change_rate:s.change_since_signal})})'>
+                        <td class="${gradeClass}" style="font-weight:bold">${gradeIcon}</td>
+                        <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
+                        <td class="text-right"><strong>${s.score}</strong>점</td>
+                        <td class="text-right">${dateText}</td>
+                        <td class="text-right">${formatNumber(s.current_price)}원</td>
+                        <td class="text-right ${gapColor}">${s.ma150_gap >= 0 ? '+' : ''}${s.ma150_gap.toFixed(1)}%</td>
+                        <td class="text-right negative">${s.drop_from_high.toFixed(1)}%</td>
+                        <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                    </tr>
+                `;
+            }).join('');
+            renderTable('bottom-breakout-table', headers, rows, renderBottomBreakout);
+            renderPagination('bottom-breakout-pagination', 'bottomBreakout', sortedData.length, renderBottomBreakout);
         }
 
         function renderSectorStage() {
@@ -2479,12 +2971,12 @@
                 { label: '종목명', key: 'name' },
                 { label: '시가총액', align: 'text-right', key: 'market_cap' },
                 { label: 'PER', align: 'text-right', key: 'per' },
-                { label: '최근분기', align: 'text-center', key: 'quarters' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '매출성장률', align: 'text-right', key: 'revenue_growth_3y' },
                 { label: '영업이익률', align: 'text-right', key: 'op_margin_avg' },
                 { label: '영업이익성장', align: 'text-right', key: 'op_growth_5y' },
                 { label: 'EPS성장', align: 'text-right', key: 'eps_growth_5y' },
-                { label: '순이익TTM', align: 'text-right', key: 'net_income_ttm' }
+                { label: '순이익증가', align: 'text-right', key: 'net_income_growth_5y' }
             ];
 
             const state = sortState['value-stocks-table'] || {};
@@ -2493,24 +2985,93 @@
 
             const rows = paginatedData.map(s => {
                 const opMargin = s.op_margin_avg ?? s.op_margin_5y;
-                const netIncomeTTM = s.net_income_ttm;
                 return `
                     <tr>
                         <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                         <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                         <td class="text-right">${s.per != null ? s.per.toFixed(1) : '-'}</td>
-                        <td class="text-center"><span class="badge badge-info">${s.quarters || '-'}</span></td>
+                        <td class="text-right">${s.pbr != null ? s.pbr.toFixed(2) : '-'}</td>
                         <td class="text-right">${s.revenue_growth_3y != null ? s.revenue_growth_3y.toFixed(1) + '%' : '-'}</td>
                         <td class="text-right">${opMargin != null ? opMargin.toFixed(1) + '%' : '-'}</td>
                         <td class="text-right">${s.op_growth_5y != null ? s.op_growth_5y.toFixed(1) + '%' : '-'}</td>
                         <td class="text-right">${s.eps_growth_5y != null ? s.eps_growth_5y.toFixed(1) + '%' : '-'}</td>
-                        <td class="text-right">${netIncomeTTM != null ? formatMarketCap(netIncomeTTM) : '-'}</td>
+                        <td class="text-right">${s.net_income_growth_5y != null ? s.net_income_growth_5y.toFixed(1) + '%' : '-'}</td>
                     </tr>
                 `;
             }).join('');
 
             renderTable('value-stocks-table', headers, rows, renderValueStocks);
             renderPagination('value-stocks-pagination', 'valueStocks', sortedData.length, renderValueStocks);
+        }
+
+        function renderMa60wQuality() {
+            const qualityData = DATA.ma60wQuality?.data || [];
+            document.getElementById('ma60w-quality-count').textContent = qualityData.length;
+
+            const headers = [
+                { label: '종목명', key: 'name' },
+                { label: '현재가', align: 'text-right', key: 'current_price' },
+                { label: '60주선', align: 'text-right', key: 'ma60w' },
+                { label: '이격도', align: 'text-right', key: 'ma60w_gap' },
+                { label: '영업이익률', align: 'text-right', key: 'op_margin' },
+                { label: '영업이익성장', align: 'text-right', key: 'op_growth_3y' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' }
+            ];
+
+            const state = sortState['ma60w-quality-table'] || {};
+            const sortedData = sortData(qualityData, state.key, state.direction);
+            const paginatedData = paginate(sortedData, paginationState.ma60wQuality);
+
+            const rows = paginatedData.map(s => `
+                <tr>
+                    <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
+                    <td class="text-right">${s.current_price != null ? s.current_price.toLocaleString() + '원' : '-'}</td>
+                    <td class="text-right">${s.ma60w != null ? s.ma60w.toLocaleString() + '원' : '-'}</td>
+                    <td class="text-right ${s.ma60w_gap >= 0 ? 'text-up' : 'text-down'}">${s.ma60w_gap != null ? '+' + s.ma60w_gap.toFixed(1) + '%' : '-'}</td>
+                    <td class="text-right">${s.op_margin != null ? s.op_margin.toFixed(1) + '%' : '-'}</td>
+                    <td class="text-right">${s.op_growth_3y != null ? s.op_growth_3y.toFixed(1) + '%' : '-'}</td>
+                    <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                </tr>
+            `).join('');
+
+            renderTable('ma60w-quality-table', headers, rows, renderMa60wQuality);
+            renderPagination('ma60w-quality-pagination', 'ma60wQuality', sortedData.length, renderMa60wQuality);
+        }
+
+        function renderMaConvergence() {
+            const convData = DATA.maConvergence?.data || [];
+            document.getElementById('ma-convergence-count').textContent = convData.length;
+
+            const headers = [
+                { label: '종목명', key: 'name' },
+                { label: '현재가', align: 'text-right', key: 'current_price' },
+                { label: '거래량', align: 'text-right', key: 'volume' },
+                { label: '20/60', align: 'text-right', key: 'gap_20_60' },
+                { label: '20/120', align: 'text-right', key: 'gap_20_120' },
+                { label: '60/120', align: 'text-right', key: 'gap_60_120' },
+                { label: '종가/20', align: 'text-right', key: 'gap_price_20' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' }
+            ];
+
+            const state = sortState['ma-convergence-table'] || {};
+            const sortedData = sortData(convData, state.key, state.direction);
+            const paginatedData = paginate(sortedData, paginationState.maConvergence);
+
+            const rows = paginatedData.map(s => `
+                <tr>
+                    <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
+                    <td class="text-right">${s.current_price != null ? s.current_price.toLocaleString() + '원' : '-'}</td>
+                    <td class="text-right">${s.volume != null ? (s.volume / 10000).toFixed(1) + '만' : '-'}</td>
+                    <td class="text-right">${s.gap_20_60 != null ? s.gap_20_60.toFixed(1) + '%' : '-'}</td>
+                    <td class="text-right">${s.gap_20_120 != null ? s.gap_20_120.toFixed(1) + '%' : '-'}</td>
+                    <td class="text-right">${s.gap_60_120 != null ? s.gap_60_120.toFixed(1) + '%' : '-'}</td>
+                    <td class="text-right">${s.gap_price_20 != null ? s.gap_price_20.toFixed(1) + '%' : '-'}</td>
+                    <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                </tr>
+            `).join('');
+
+            renderTable('ma-convergence-table', headers, rows, renderMaConvergence);
+            renderPagination('ma-convergence-pagination', 'maConvergence', sortedData.length, renderMaConvergence);
         }
 
         // Navigation
@@ -2528,9 +3089,13 @@
                 'pullback': '풀백 스크리너',
                 'volume-dry-up': '거래량 급감 눌림목',
                 'volume-explosion': '거래량 폭발',
+                'fallen-rebound': '낙폭과대 반등',
                 'new-high-52w': '52주 신고가 돌파',
+                'bottom-breakout': '바닥 탈출',
                 'sector-stage': '업종별 4단계',
-                'value-stocks': '저평가 우량주'
+                'value-stocks': '저평가 우량주',
+                'ma60w-quality': '60주선 우량주',
+                'ma-convergence': '이평선 수렴'
             };
 
             const pageTitle = pageTitles[pageId] || '국내 주식 종목 발굴';
@@ -2568,9 +3133,13 @@
             renderPullback();
             renderVolumeDryUp();
             renderVolumeExplosion();
+            renderFallenRebound();
             renderNewHigh52w();
+            renderBottomBreakout();
             renderSectorStage();
             renderValueStocks();
+            renderMa60wQuality();
+            renderMaConvergence();
 
             console.log('✅ 앱 초기화 완료');
         }

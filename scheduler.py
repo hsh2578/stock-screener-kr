@@ -3,6 +3,7 @@
 
 스케줄:
 - 저평가 우량주 (TTM): 매주 토요일 12:00
+- 60주선 우량주: 매주 토요일 12:30 (저평가 우량주 이후)
 - 기타 스크리너: 매일 12:00, 14:00, 16:00, 18:00 (장중/장마감 후)
 """
 
@@ -43,6 +44,27 @@ def run_value_screener():
         log(f"저평가 우량주 스크리너 실행 실패: {e}")
 
 
+def run_ma60w_quality_screener():
+    """60주선 우량주 스크리너 실행"""
+    log("60주선 우량주 스크리너 시작...")
+    try:
+        result = subprocess.run(
+            [sys.executable, os.path.join(SCRIPT_DIR, 'ma60w_quality.py')],
+            cwd=SCRIPT_DIR,
+            capture_output=True,
+            text=True,
+            timeout=1800  # 30분 타임아웃
+        )
+        if result.returncode == 0:
+            log("60주선 우량주 스크리너 완료")
+        else:
+            log(f"60주선 우량주 스크리너 오류: {result.stderr}")
+    except subprocess.TimeoutExpired:
+        log("60주선 우량주 스크리너 타임아웃 (30분 초과)")
+    except Exception as e:
+        log(f"60주선 우량주 스크리너 실행 실패: {e}")
+
+
 def run_other_screeners():
     """기타 스크리너 실행 (박스권, 돌파, 풀백 등)"""
     log("기타 스크리너 시작...")
@@ -69,6 +91,9 @@ def setup_schedule():
     # 저평가 우량주: 매주 토요일 12:00
     schedule.every().saturday.at("12:00").do(run_value_screener)
 
+    # 60주선 우량주: 매주 토요일 12:30 (저평가 우량주 이후)
+    schedule.every().saturday.at("12:30").do(run_ma60w_quality_screener)
+
     # 기타 스크리너: 매일 12:00, 14:00, 16:00, 18:00
     schedule.every().day.at("12:00").do(run_other_screeners)
     schedule.every().day.at("14:00").do(run_other_screeners)
@@ -77,6 +102,7 @@ def setup_schedule():
 
     log("스케줄 설정 완료:")
     log("  - 저평가 우량주 (TTM): 매주 토요일 12:00")
+    log("  - 60주선 우량주: 매주 토요일 12:30")
     log("  - 기타 스크리너: 매일 12:00, 14:00, 16:00, 18:00")
 
 

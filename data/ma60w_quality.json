@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "updated_at": "2026-01-30T14:51:19.476197",
+    "total_count": 3,
+    "conditions": {
+      "ma60w_gap": "0.0% ~ 10.0%",
+      "min_op_margin": "10.0%",
+      "min_op_growth": "10.0%"
+    }
+  },
+  "data": [
+    {
+      "ticker": "207940",
+      "name": "삼성바이오로직스",
+      "current_price": 1753000,
+      "ma60w": 1618601,
+      "ma60w_gap": 8.3,
+      "op_margin": 39.8,
+      "op_growth_3y": 34.2,
+      "market_cap": 812406,
+      "sector": "",
+      "updated_at": "2026-01-30T14:50:12.570712"
+    },
+    {
+      "ticker": "003230",
+      "name": "삼양식품",
+      "current_price": 1185000,
+      "ma60w": 1133154,
+      "ma60w_gap": 4.58,
+      "op_margin": 22.5,
+      "op_growth_3y": 81.9,
+      "market_cap": 89190,
+      "sector": "",
+      "updated_at": "2026-01-30T14:50:37.481436"
+    },
+    {
+      "ticker": "443060",
+      "name": "HD현대마린솔루션",
+      "current_price": 183100,
+      "ma60w": 180523,
+      "ma60w_gap": 1.43,
+      "op_margin": 17.7,
+      "op_growth_3y": 34.7,
+      "market_cap": 82175,
+      "sector": "",
+      "updated_at": "2026-01-30T14:50:39.723469"
+    }
+  ]
+}

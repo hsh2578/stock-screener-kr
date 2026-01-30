@@ -12,3 +12,7 @@ tqdm>=4.65.0
 
 # 날짜 처리
 python-dateutil>=2.8.2
+
+# 웹 크롤링 (저평가 우량주 스크리너)
+requests>=2.28.0
+beautifulsoup4>=4.12.0

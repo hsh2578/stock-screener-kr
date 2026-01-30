@@ -32,6 +32,34 @@ HEADERS = {
 }
 
 
+def fetch_naver_per_pbr(code: str) -> Dict[str, float]:
+    """네이버 금융에서 현재 PER, PBR을 가져옵니다."""
+    result = {}
+    try:
+        url = f'https://finance.naver.com/item/main.naver?code={code}'
+        resp = requests.get(url, headers=HEADERS, timeout=10)
+        soup = BeautifulSoup(resp.text, 'html.parser')
+
+        per_elem = soup.select_one('#_per')
+        pbr_elem = soup.select_one('#_pbr')
+
+        if per_elem:
+            per_text = per_elem.get_text(strip=True)
+            per_val = parse_number(per_text)
+            if per_val:
+                result['per'] = [per_val]
+
+        if pbr_elem:
+            pbr_text = pbr_elem.get_text(strip=True)
+            pbr_val = parse_number(pbr_text)
+            if pbr_val:
+                result['pbr'] = [pbr_val]
+    except:
+        pass
+
+    return result
+
+
 def parse_number(text: str) -> Optional[float]:
     """문자열을 숫자로 변환합니다."""
     if not text or text.strip() in ['-', 'N/A', '', 'nan', '적자', '흑전', '적전']:
@@ -568,10 +596,11 @@ def calculate_ttm_growth(current_ttm: Optional[float], prev_ttm: Optional[float]
 
 def fetch_financial_data_ttm(code: str, retry: int = 2, required_quarter: str = None) -> Optional[Dict[str, Any]]:
     """
-    연간 예상치(E) 기반 재무데이터 크롤링
+    2025년 Q1-Q3 연환산 기반 재무데이터 크롤링
 
-    FnGuide에서 제공하는 2025(E) 연간 예상치 + 과거 연간 데이터를 사용합니다.
-    예: [2025(E), 2024, 2023, 2022, 2021] 5개년 데이터
+    FnGuide에서 2025년 Q1-Q3 분기 데이터를 가져와 연환산(×4/3)합니다.
+    이를 과거 연간 데이터와 결합하여 성장률을 계산합니다.
+    예: [2025(연환산), 2024, 2023, 2022, 2021] 5개년 데이터
 
     Args:
         code: 종목코드
@@ -581,8 +610,8 @@ def fetch_financial_data_ttm(code: str, retry: int = 2, required_quarter: str = 
     Returns:
         {
             'code': '005930',
-            'data_type': 'Annual_Estimate',
-            'estimate_year': '2025/12(E)',
+            'data_type': 'Quarterly_Annualized',
+            'annualized_year': '2025(Q1-Q3 연환산)',
             'metrics': { ... }
         }
     """
@@ -591,17 +620,17 @@ def fetch_financial_data_ttm(code: str, retry: int = 2, required_quarter: str = 
             data = {
                 'code': code,
                 'crawled_at': datetime.now().isoformat(),
-                'data_type': 'Annual_Estimate',
-                'estimate_year': None,
+                'data_type': 'Quarterly_Annualized',
+                'annualized_year': None,
                 'metrics': {}
             }
 
-            # 1. PER, PBR (투자지표 - 현재가 기준)
-            invest_data = fetch_fnguide_invest_light(code)
+            # 1. PER, PBR (네이버 금융 - 현재가 기준)
+            invest_data = fetch_naver_per_pbr(code)
             if invest_data:
                 data['metrics'].update(invest_data)
 
-            # 2. 연간 재무데이터 + 예상치 가져오기
+            # 2. 연간 재무데이터 가져오기 (2024, 2023, 2022, 2021, 2020)
             annual_finance = fetch_fnguide_finance_with_estimate(code)
             if not annual_finance:
                 return None
@@ -610,25 +639,33 @@ def fetch_financial_data_ttm(code: str, retry: int = 2, required_quarter: str = 
             revenue = annual_finance.get('revenue', [])
             op_profit = annual_finance.get('operating_profit', [])
             net_income = annual_finance.get('net_income', [])
+            eps = annual_finance.get('eps', [])
 
-            # 2025(E) 또는 2025(P) 예상치가 있는지 확인
-            estimate_year = None
-            for i, year in enumerate(years):
-                if '2025' in year and ('(E)' in year or '(P)' in year):
-                    estimate_year = year
-                    break
+            # 3. 2025년 Q1-Q3 연환산 데이터 가져오기
+            quarterly_data = fetch_fnguide_quarterly_annualized(code)
 
-            if not estimate_year:
-                # 예상치 없으면 건너뜀
-                return None
+            # Q1-Q3 데이터가 있으면 연환산 값을 맨 앞에 추가
+            if quarterly_data.get('revenue_2025'):
+                data['annualized_year'] = '2025(Q1-Q3 연환산)'
 
-            data['estimate_year'] = estimate_year
+                # 연환산 값을 맨 앞에 추가
+                revenue = [quarterly_data.get('revenue_2025')] + revenue
+                op_profit = [quarterly_data.get('op_profit_2025')] + op_profit
+                net_income = [quarterly_data.get('net_income_2025')] + net_income
+                years = ['2025(연환산)'] + years
 
-            # 순이익 예상치 저장 (양수 확인용)
-            if net_income and len(net_income) > 0 and net_income[0] is not None:
-                data['metrics']['net_income_ttm'] = net_income[0]  # 2025(E) 순이익
+                # EPS 연환산 추가
+                if quarterly_data.get('eps_2025'):
+                    eps = [quarterly_data.get('eps_2025')] + eps
 
-            # 3. 성장률 계산 (5개년: 2025E/24, 24/23, 23/22, 22/21, 21/20)
+                # 연환산 순이익 저장
+                if quarterly_data.get('net_income_2025'):
+                    data['metrics']['net_income_2025_annualized'] = quarterly_data.get('net_income_2025')
+            else:
+                # Q1-Q3 데이터가 없으면 2024년 기준으로
+                data['annualized_year'] = years[0] if years else None
+
+            # 4. 성장률 계산 (5개년: 2025연환산/24, 24/23, 23/22, 22/21, 21/20)
             # 매출액 성장률
             if len(revenue) >= 2:
                 revenue_growth_rates = []
@@ -684,10 +721,19 @@ def fetch_financial_data_ttm(code: str, retry: int = 2, required_quarter: str = 
             if op_margins:
                 data['metrics']['operating_margin'] = op_margins
 
-            # 5. EPS 성장률 (예상치 포함)
-            ratio_data = fetch_fnguide_ratio_with_estimate(code)
-            if ratio_data and 'eps_growth_rate' in ratio_data:
-                data['metrics']['eps_growth_rate'] = ratio_data['eps_growth_rate']
+            # 5. EPS 성장률 (2025 연환산 포함)
+            if len(eps) >= 2:
+                eps_growth_rates = []
+                for i in range(min(5, len(eps) - 1)):
+                    curr = eps[i]
+                    prev = eps[i + 1]
+                    if curr is not None and prev is not None and prev != 0:
+                        growth = ((curr / prev) - 1) * 100
+                        eps_growth_rates.append(round(growth, 2))
+                    else:
+                        eps_growth_rates.append(None)
+                if eps_growth_rates:
+                    data['metrics']['eps_growth_rate'] = eps_growth_rates
 
             if data['metrics']:
                 return data
@@ -702,15 +748,16 @@ def fetch_financial_data_ttm(code: str, retry: int = 2, required_quarter: str = 
 
 def fetch_fnguide_finance_with_estimate(code: str) -> Dict[str, List[float]]:
     """
-    FnGuide Main 페이지에서 연간 데이터 + 예상치를 추출합니다.
+    FnGuide Main 페이지에서 연간 실적 데이터를 추출합니다.
 
     SVD_Main.asp의 Table 11 (Annual 연간 데이터)에서 추출합니다.
-    [2025(E/P), 2024, 2023, 2022, 2021] 순서로 반환
+    2024년 실적을 기준으로 과거 5년 데이터를 반환합니다.
+    [2024, 2023, 2022, 2021, 2020] 순서로 반환
 
     Returns:
         {
-            '_years': ['2025/12(E)', '2024/12', '2023/12', '2022/12', '2021/12'],
-            'revenue': [248910, 178707, ...],
+            '_years': ['2024/12', '2023/12', '2022/12', '2021/12', '2020/12'],
+            'revenue': [178707, ...],
             'operating_profit': [...],
             'net_income': [...]
         }
@@ -762,27 +809,20 @@ def fetch_fnguide_finance_with_estimate(code: str) -> Dict[str, List[float]]:
             if not any('2020' in y or '2021' in y for y in all_years):
                 continue
 
-            # 2025 예상치 위치 찾기 (E 또는 P)
-            estimate_idx = -1
+            # 2024년 실적 위치 찾기 (예상치 제외, 실적만)
+            latest_idx = -1
             for i, year in enumerate(all_years):
-                if '2025' in year and ('(E)' in year or '(P)' in year):
-                    estimate_idx = i
+                if '2024' in year and '(E)' not in year and '(P)' not in year:
+                    latest_idx = i
                     break
 
-            if estimate_idx < 0:
-                # 2025 예상치 없으면 2024 실적을 최신으로 사용
-                for i, year in enumerate(all_years):
-                    if '2024' in year and '(E)' not in year and '(P)' not in year:
-                        estimate_idx = i
-                        break
-
-            if estimate_idx < 0:
+            if latest_idx < 0:
                 continue
 
-            # 데이터 추출 (최신부터 과거순으로 최대 5개년)
-            # all_years가 [2020, 2021, 2022, 2023, 2024, 2025(P), ...] 순서면
-            # estimate_idx부터 역순으로 5개 추출
-            start_idx = estimate_idx
+            # 데이터 추출 (2024년부터 과거순으로 최대 5개년)
+            # all_years가 [2020, 2021, 2022, 2023, 2024, ...] 순서면
+            # latest_idx(2024)부터 역순으로 5개 추출
+            start_idx = latest_idx
             end_idx = max(0, start_idx - 4)
 
             selected_years = []
@@ -822,6 +862,9 @@ def fetch_fnguide_finance_with_estimate(code: str) -> Dict[str, List[float]]:
                 elif '당기순이익' in label and '증가' not in label and '률' not in label:
                     if 'net_income' not in metrics:
                         metrics['net_income'] = values
+                elif 'EPS' in label and '원' in label:
+                    if 'eps' not in metrics:
+                        metrics['eps'] = values
 
             if metrics.get('revenue'):
                 break
@@ -830,6 +873,102 @@ def fetch_fnguide_finance_with_estimate(code: str) -> Dict[str, List[float]]:
         pass
 
     return metrics
+
+
+def fetch_fnguide_quarterly_annualized(code: str) -> Dict[str, Any]:
+    """
+    FnGuide에서 2025년 Q1-Q3 분기 데이터를 가져와 연환산합니다.
+
+    Q1+Q2+Q3 합계를 4/3로 곱해서 연간 추정치를 계산합니다.
+
+    Returns:
+        {
+            'revenue_2025': 연환산 매출액,
+            'op_profit_2025': 연환산 영업이익,
+            'net_income_2025': 연환산 순이익,
+            'quarters_used': ['2025/03', '2025/06', '2025/09']
+        }
+    """
+    result = {}
+
+    url = 'https://comp.fnguide.com/SVO2/ASP/SVD_Main.asp'
+    params = {'pGB': '1', 'gicode': f'A{code}', 'MenuYn': 'Y', 'NewMenuID': '101', 'stkGb': '701'}
+
+    try:
+        resp = requests.get(url, params=params, headers=HEADERS, timeout=15)
+        soup = BeautifulSoup(resp.text, 'html.parser')
+
+        tables = soup.find_all('table')
+
+        for table in tables:
+            rows = table.find_all('tr')
+            if len(rows) < 3:
+                continue
+
+            # Annual Net Quarter 테이블 찾기 (연결 기준)
+            header = rows[0].get_text()
+            if 'IFRS(연결)' not in header or 'Annual' not in header or 'Net Quarter' not in header:
+                continue
+
+            # 연도/분기 행에서 2025년 분기 위치 찾기
+            year_row = rows[1]
+            year_cells = year_row.find_all(['th', 'td'])
+
+            # 2025/03, 2025/06, 2025/09 위치 찾기
+            q1_idx = q2_idx = q3_idx = -1
+            for i, cell in enumerate(year_cells):
+                text = cell.get_text(strip=True)
+                if '2025/03' in text:
+                    q1_idx = i
+                elif '2025/06' in text:
+                    q2_idx = i
+                elif '2025/09' in text:
+                    q3_idx = i
+
+            # 3개 분기 모두 있어야 함
+            if q1_idx < 0 or q2_idx < 0 or q3_idx < 0:
+                continue
+
+            result['quarters_used'] = ['2025/03', '2025/06', '2025/09']
+
+            # 데이터 추출
+            for row in rows[2:]:
+                cells = row.find_all(['th', 'td'])
+                # 데이터 행은 첫 셀이 label이므로 +1 offset 필요
+                if len(cells) < max(q1_idx, q2_idx, q3_idx) + 2:
+                    continue
+
+                label = cells[0].get_text(strip=True)
+
+                # 분기 값 추출 (데이터 행은 label이 첫 셀이므로 +1 offset)
+                q1_val = parse_number(cells[q1_idx + 1].get_text(strip=True)) if q1_idx + 1 < len(cells) else None
+                q2_val = parse_number(cells[q2_idx + 1].get_text(strip=True)) if q2_idx + 1 < len(cells) else None
+                q3_val = parse_number(cells[q3_idx + 1].get_text(strip=True)) if q3_idx + 1 < len(cells) else None
+
+                # 3개 분기 모두 값이 있어야 연환산
+                if q1_val is not None and q2_val is not None and q3_val is not None:
+                    q123_sum = q1_val + q2_val + q3_val
+                    annualized = q123_sum * 4 / 3  # 연환산
+
+                    if '매출액' in label and '증가' not in label:
+                        result['revenue_2025'] = round(annualized, 2)
+                    elif '영업이익' in label and '증가' not in label and '률' not in label and '발표' not in label:
+                        if 'op_profit_2025' not in result:
+                            result['op_profit_2025'] = round(annualized, 2)
+                    elif '당기순이익' in label and '지배' not in label and '비지배' not in label:
+                        if 'net_income_2025' not in result:
+                            result['net_income_2025'] = round(annualized, 2)
+                    elif 'EPS' in label or '주당순이익' in label:
+                        if 'eps_2025' not in result:
+                            result['eps_2025'] = round(annualized, 2)
+
+            if result.get('revenue_2025'):
+                break
+
+    except Exception as e:
+        pass
+
+    return result
 
 
 def fetch_fnguide_ratio_with_estimate(code: str) -> Dict[str, List[float]]:

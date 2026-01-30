@@ -149,8 +149,12 @@ def main():
         # 지표 추출
         per = metrics.get('per', [None])[0] if metrics.get('per') else None
         pbr = metrics.get('pbr', [None])[0] if metrics.get('pbr') else None
-        estimate_year = fin_data.get('estimate_year')  # 2025/12(E) 또는 2025/12(P)
-        net_income = metrics.get('net_income_ttm')  # 2025년 예상 순이익
+        annualized_year = fin_data.get('annualized_year')  # 2025(Q1-Q3 연환산)
+        net_income = metrics.get('net_income_2025_annualized')  # 2025년 연환산 순이익
+
+        # 2025 연환산 데이터가 없는 종목 제외
+        if not annualized_year or '2025' not in annualized_year:
+            continue
 
         results.append({
             'ticker': code,
@@ -162,8 +166,9 @@ def main():
             'op_margin_avg': first_filter_results.get('operating_margin_avg', {}).get('value'),
             'op_growth_5y': first_filter_results.get('operating_profit_growth', {}).get('value'),
             'eps_growth_5y': first_filter_results.get('eps_growth', {}).get('value'),
-            'net_income_ttm': round(net_income, 0) if net_income else None,
-            'quarters': estimate_year  # 2025/12(E) 형식
+            'net_income_growth_5y': first_filter_results.get('net_income_growth', {}).get('value'),
+            'net_income_2025': round(net_income, 0) if net_income else None,
+            'data_year': annualized_year  # 2025(Q1-Q3 연환산) 형식
         })
 
     # 시가총액 순 정렬
@@ -174,19 +179,19 @@ def main():
 
     # 6. 결과 출력
     print("\n" + "=" * 80)
-    print("TTM 스크리닝 결과 (6개 조건 모두 충족)")
+    print("저평가 우량주 스크리닝 결과 (6개 조건 모두 충족, 2025년 Q1-Q3 연환산)")
     print("=" * 80)
-    print(f"{'순위':<4} {'종목명':<12} {'시가총액':>10} {'PER':>6} {'최근분기':>10} {'영업이익률':>10}")
+    print(f"{'순위':<4} {'종목명':<12} {'시가총액':>10} {'PER':>6} {'데이터':>18} {'영업이익률':>10}")
     print("-" * 80)
 
     for i, r in enumerate(results[:20]):
         mc = f"{r['market_cap']:,.0f}억"
         per = f"{r['per']:.1f}" if r['per'] else "-"
-        quarter = r.get('quarters', '-') or '-'
+        year = r.get('data_year', '-') or '-'
         op_margin = f"{r['op_margin_avg']:.1f}%" if r['op_margin_avg'] else "-"
-        print(f"{i+1:<4} {r['name']:<12} {mc:>10} {per:>6} {quarter:>10} {op_margin:>10}")
+        print(f"{i+1:<4} {r['name']:<12} {mc:>10} {per:>6} {year:>18} {op_margin:>10}")
 
-    print(f"\n총 {len(results)}개 종목 스크리닝 완료 (TTM 기준)")
+    print(f"\n총 {len(results)}개 종목 스크리닝 완료 (2025년 Q1-Q3 연환산 기준)")
 
 
 if __name__ == '__main__':
