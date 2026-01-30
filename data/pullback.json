@@ -1,37 +1,37 @@
 {
   "meta": {
-    "lastUpdated": "2026-01-30T13:31:12.960362",
+    "lastUpdated": "2026-01-30T14:52:38.124178",
     "totalCount": 2,
-    "screened_from": 1535
+    "screened_from": 1540
   },
   "data": [
     {
       "ticker": "036190",
       "name": "금화피에스시",
-      "price": 32600,
-      "change_rate": -2.98,
+      "price": 33050,
+      "change_rate": -1.64,
       "breakout_date": "2026-01-27",
       "resistance": 32250,
-      "pullback_ratio": 1.09,
-      "volume_decrease": 59,
-      "ma150": 31843,
+      "pullback_ratio": 2.48,
+      "volume_decrease": 58,
+      "ma150": 31846,
       "above_ma150": true,
-      "market_cap": 1965,
-      "updated_at": "2026-01-30T13:31:12.733068"
+      "market_cap": 1974,
+      "updated_at": "2026-01-30T14:52:37.893073"
     },
     {
       "ticker": "336680",
       "name": "탑런토탈솔루션",
-      "price": 4540,
-      "change_rate": -0.33,
+      "price": 4535,
+      "change_rate": -0.44,
       "breakout_date": "2026-01-08",
       "resistance": 4365,
-      "pullback_ratio": 4.01,
+      "pullback_ratio": 3.89,
       "volume_decrease": 96,
       "ma150": 4154,
       "above_ma150": true,
-      "market_cap": 1761,
-      "updated_at": "2026-01-30T13:31:12.758163"
+      "market_cap": 1775,
+      "updated_at": "2026-01-30T14:52:37.916360"
     }
   ]
 }
