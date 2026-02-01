@@ -759,10 +759,12 @@
            ============================================================ */
         @media (max-width: 768px) {
             .table-wrapper {
-                display: none;
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
             }
             .mobile-card-list {
-                display: block;
+                display: none;
             }
             .stock-card-mobile {
                 background: var(--color-bg-primary);
@@ -828,6 +830,7 @@
                 font-weight: 600;
                 color: var(--color-text-primary);
             }
+
         }
 
         @media (min-width: 769px) {
