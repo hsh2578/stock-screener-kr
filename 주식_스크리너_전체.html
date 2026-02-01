@@ -2200,6 +2200,52 @@
         // 모바일 감지 - CSS 미디어 쿼리와 동기화 (768px 기준)
         const isMobileView = () => window.matchMedia('(max-width: 768px)').matches;
 
+        // 공통 모바일 카드 렌더링 헬퍼 함수
+        function renderMobileCards(containerId, data, options) {
+            var container = document.getElementById(containerId);
+            if (!container) return;
+
+            if (!isMobileView()) {
+                container.innerHTML = '';
+                return;
+            }
+
+            var opts = options || {};
+            var extraFields = opts.extraFields || [];
+
+            container.innerHTML = data.map(function(s) {
+                var per = s.per != null ? s.per : getPER(s.ticker);
+                var pbr = s.pbr != null ? s.pbr : getPBR(s.ticker);
+                var price = s.price || s.current_price || 0;
+                var changeRate = s.change_rate || 0;
+                var stockJson = safeJsonStringify({ticker: s.ticker, name: s.name, price: price, change_rate: changeRate});
+
+                var extraHtml = extraFields.map(function(f) {
+                    var value = f.format ? f.format(s) : (s[f.key] != null ? s[f.key] : '-');
+                    return '<div class="detail-item"><div class="detail-label">' + f.label + '</div><div class="detail-value">' + value + '</div></div>';
+                }).join('');
+
+                return '<div class="stock-card-mobile" onclick=\'openChartModal(' + stockJson + ')\' role="button" tabindex="0">' +
+                    '<div class="header-row">' +
+                        '<div class="stock-info">' +
+                            '<h3>' + s.name + '</h3>' +
+                            '<div class="ticker">' + s.ticker + '</div>' +
+                        '</div>' +
+                        '<div class="price-info">' +
+                            '<div class="price">' + formatNumber(price) + '원</div>' +
+                            '<div class="' + getColor(changeRate) + '">' + formatPercent(changeRate) + '</div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="details">' +
+                        '<div class="detail-item"><div class="detail-label">시가총액</div><div class="detail-value">' + formatMarketCap(s.market_cap) + '</div></div>' +
+                        '<div class="detail-item"><div class="detail-label">PER</div><div class="detail-value ' + getPERColor(per) + '">' + formatPER(per) + '</div></div>' +
+                        '<div class="detail-item"><div class="detail-label">PBR</div><div class="detail-value ' + getPBRColor(pbr) + '">' + formatPBR(pbr) + '</div></div>' +
+                        extraHtml +
+                    '</div>' +
+                '</div>';
+            }).join('');
+        }
+
         // 뷰포트 변경 시 캐시 무효화
         let lastIsMobile = isMobileView();
         window.addEventListener('resize', () => {
@@ -2850,47 +2896,10 @@
             `}).join('');
             renderTable('box-range-table', headers, rows, renderBoxRange);
 
-            // Mobile card view - 조건부 렌더링 (모바일 뷰에서만 렌더링)
-            const mobileContainer = document.getElementById('box-range-mobile');
-            if (mobileContainer && isMobileView()) {
-                mobileContainer.innerHTML = paginatedData.map(s => {
-                    const per = getPER(s.ticker);
-                    const pbr = getPBR(s.ticker);
-                    return `
-                    <div class="stock-card-mobile" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})' role="button" tabindex="0" aria-label="${s.name} 차트 보기">
-                        <div class="header-row">
-                            <div class="stock-info">
-                                <h3>${s.name}</h3>
-                                <div class="ticker">${s.ticker}</div>
-                            </div>
-                            <div class="price-info">
-                                <div class="price">${formatNumber(s.price)}원</div>
-                                <div class="${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</div>
-                            </div>
-                        </div>
-                        <div class="details">
-                            <div class="detail-item">
-                                <div class="detail-label">시가총액</div>
-                                <div class="detail-value">${formatMarketCap(s.market_cap)}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">PER</div>
-                                <div class="detail-value ${getPERColor(per)}">${formatPER(per)}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">PBR</div>
-                                <div class="detail-value ${getPBRColor(pbr)}">${formatPBR(pbr)}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">횡보 기간</div>
-                                <div class="detail-value">${s.days || 60}일</div>
-                            </div>
-                        </div>
-                    </div>
-                `}).join('');
-            } else if (mobileContainer) {
-                mobileContainer.innerHTML = ''; // 데스크톱에서는 모바일 뷰 비우기
-            }
+            // Mobile card view
+            renderMobileCards('box-range-mobile', paginatedData, {
+                extraFields: [{ label: '횡보 기간', key: 'days', format: function(s) { return (s.days || 60) + '일'; } }]
+            });
 
             renderPagination('box-range-pagination', 'boxRange', sortedData.length, renderBoxRange);
         }
@@ -2941,6 +2950,12 @@
                 </tr>
             `}).join('');
             renderTable('box-breakout-table', headers, rows, renderBoxBreakout);
+            renderMobileCards('box-breakout-mobile', paginatedData, {
+                extraFields: [
+                    { label: '돌파일', key: 'breakout_date', format: function(s) { return formatShortDate(s.breakout_date); } },
+                    { label: '거래량비', key: 'volume_ratio', format: function(s) { return s.volume_ratio.toFixed(1) + 'x'; } }
+                ]
+            });
             renderPagination('box-breakout-pagination', 'boxBreakout', sortedData.length, renderBoxBreakout);
         }
 
@@ -2990,6 +3005,12 @@
                 </tr>
             `}).join('');
             renderTable('box-breakout-simple-table', headers, rows, renderBoxBreakoutSimple);
+            renderMobileCards('box-breakout-simple-mobile', paginatedData, {
+                extraFields: [
+                    { label: '돌파일', key: 'breakout_date', format: function(s) { return formatShortDate(s.breakout_date); } },
+                    { label: '경과일', key: 'days_since_breakout', format: function(s) { return s.days_since_breakout + '일'; } }
+                ]
+            });
             renderPagination('box-breakout-simple-pagination', 'boxBreakoutSimple', sortedData.length, renderBoxBreakoutSimple);
         }
 
@@ -3039,6 +3060,12 @@
                 </tr>
             `}).join('');
             renderTable('pullback-table', headers, rows, renderPullback);
+            renderMobileCards('pullback-mobile', paginatedData, {
+                extraFields: [
+                    { label: '돌파일', key: 'breakout_date', format: function(s) { return formatShortDate(s.breakout_date); } },
+                    { label: '풀백률', key: 'pullback_ratio', format: function(s) { return s.pullback_ratio.toFixed(1) + '%'; } }
+                ]
+            });
             renderPagination('pullback-pagination', 'pullback', sortedData.length, renderPullback);
         }
 
@@ -3088,6 +3115,12 @@
                 </tr>
             `}).join('');
             renderTable('volume-dry-up-table', headers, rows, renderVolumeDryUp);
+            renderMobileCards('volume-dry-up-mobile', paginatedData, {
+                extraFields: [
+                    { label: '급등일', key: 'explosion_date', format: function(s) { return formatShortDate(s.explosion_date); } },
+                    { label: '급등폭', key: 'explosion_change_rate', format: function(s) { return '+' + (s.explosion_change_rate != null ? s.explosion_change_rate.toFixed(1) : '-') + '%'; } }
+                ]
+            });
             renderPagination('volume-dry-up-pagination', 'volumeDryUp', sortedData.length, renderVolumeDryUp);
         }
 
@@ -3135,6 +3168,12 @@
                 </tr>
             `}).join('');
             renderTable('volume-explosion-table', headers, rows, renderVolumeExplosion);
+            renderMobileCards('volume-explosion-mobile', paginatedData, {
+                extraFields: [
+                    { label: '거래량비', key: 'volume_ratio', format: function(s) { return s.volume_ratio.toFixed(1) + 'x'; } },
+                    { label: '순위', key: 'volume_rank', format: function(s) { return s.volume_rank + '위'; } }
+                ]
+            });
             renderPagination('volume-explosion-pagination', 'volumeExplosion', sortedData.length, renderVolumeExplosion);
         }
 
@@ -3183,6 +3222,12 @@
                 </tr>
             `}).join('');
             renderTable('fallen-rebound-table', headers, rows, renderFallenRebound);
+            renderMobileCards('fallen-rebound-mobile', paginatedData, {
+                extraFields: [
+                    { label: '낙폭', key: 'drop_percent', format: function(s) { return '-' + s.drop_percent + '%'; } },
+                    { label: '저점상승', key: 'low_rise_percent', format: function(s) { return '+' + s.low_rise_percent + '%'; } }
+                ]
+            });
             renderPagination('fallen-rebound-pagination', 'fallenRebound', sortedData.length, renderFallenRebound);
         }
 
@@ -3220,6 +3265,12 @@
                 </tr>
             `}).join('');
             renderTable('new-high-52w-table', headers, rows, renderNewHigh52w);
+            renderMobileCards('new-high-52w-mobile', paginatedData, {
+                extraFields: [
+                    { label: '신고가대비', key: 'above_high_percent', format: function(s) { return '+' + s.above_high_percent.toFixed(1) + '%'; } },
+                    { label: '돌파후', key: 'days_since', format: function(s) { return s.days_since + '일'; } }
+                ]
+            });
             renderPagination('new-high-52w-pagination', 'newHigh52w', sortedData.length, renderNewHigh52w);
         }
 
@@ -3263,6 +3314,12 @@
                 `;
             }).join('');
             renderTable('bottom-breakout-table', headers, rows, renderBottomBreakout);
+            renderMobileCards('bottom-breakout-mobile', paginatedData, {
+                extraFields: [
+                    { label: '등급', key: 'grade', format: function(s) { return s.grade === 'A' ? '⭐A' : 'B'; } },
+                    { label: '점수', key: 'score', format: function(s) { return s.score + '점'; } }
+                ]
+            });
             renderPagination('bottom-breakout-pagination', 'bottomBreakout', sortedData.length, renderBottomBreakout);
         }
 
@@ -3355,6 +3412,12 @@
             }).join('');
 
             renderTable('value-stocks-table', headers, rows, renderValueStocks);
+            renderMobileCards('value-stocks-mobile', paginatedData, {
+                extraFields: [
+                    { label: '영업이익률', key: 'op_margin_avg', format: function(s) { var v = s.op_margin_avg != null ? s.op_margin_avg : s.op_margin_5y; return v != null ? v.toFixed(1) + '%' : '-'; } },
+                    { label: 'EPS성장', key: 'eps_growth_5y', format: function(s) { return s.eps_growth_5y != null ? s.eps_growth_5y.toFixed(1) + '%' : '-'; } }
+                ]
+            });
             renderPagination('value-stocks-pagination', 'valueStocks', sortedData.length, renderValueStocks);
         }
 
@@ -3396,6 +3459,12 @@
             `}).join('');
 
             renderTable('ma60w-quality-table', headers, rows, renderMa60wQuality);
+            renderMobileCards('ma60w-quality-mobile', paginatedData, {
+                extraFields: [
+                    { label: '60주선이격', key: 'ma60w_gap', format: function(s) { return s.ma60w_gap != null ? (s.ma60w_gap >= 0 ? '+' : '') + s.ma60w_gap.toFixed(1) + '%' : '-'; } },
+                    { label: '영업이익률', key: 'op_margin', format: function(s) { return s.op_margin != null ? s.op_margin.toFixed(1) + '%' : '-'; } }
+                ]
+            });
             renderPagination('ma60w-quality-pagination', 'ma60wQuality', sortedData.length, renderMa60wQuality);
         }
 
@@ -3436,6 +3505,12 @@
             `}).join('');
 
             renderTable('ma-convergence-table', headers, rows, renderMaConvergence);
+            renderMobileCards('ma-convergence-mobile', paginatedData, {
+                extraFields: [
+                    { label: '20/60', key: 'gap_20_60', format: function(s) { return s.gap_20_60 != null ? s.gap_20_60.toFixed(1) + '%' : '-'; } },
+                    { label: '종가/20', key: 'gap_price_20', format: function(s) { return s.gap_price_20 != null ? s.gap_price_20.toFixed(1) + '%' : '-'; } }
+                ]
+            });
             renderPagination('ma-convergence-pagination', 'maConvergence', sortedData.length, renderMaConvergence);
         }
 
