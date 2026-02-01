@@ -836,6 +836,71 @@
             }
         }
 
+        /* Samsung Flip cover display (260-360px) - very narrow screens */
+        @media (max-width: 400px) {
+            .container {
+                padding: 12px;
+            }
+            .home-header {
+                padding: 24px 12px;
+            }
+            .home-header h1 {
+                font-size: 20px;
+            }
+            .page-header {
+                padding: 16px;
+            }
+            .page-header h1 {
+                font-size: 18px;
+            }
+            .screener-card {
+                padding: 14px;
+                min-height: 100px;
+            }
+            .screener-card .icon {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
+            .screener-card h2 {
+                font-size: 14px;
+            }
+            .screener-card .desc {
+                font-size: 12px;
+            }
+            .stock-card-mobile {
+                padding: 12px;
+            }
+            .stock-card-mobile .stock-info h3 {
+                font-size: 14px;
+            }
+            .stock-card-mobile .price {
+                font-size: 14px;
+            }
+            .stock-card-mobile .details {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 6px;
+            }
+            .stock-card-mobile .detail-item {
+                font-size: 11px;
+            }
+            /* Ensure modal works on very narrow screens */
+            .modal-content {
+                width: 95vw;
+                margin: 10px;
+                max-height: 90vh;
+            }
+            .modal-header {
+                padding: 12px;
+            }
+            .modal-body {
+                padding: 8px;
+            }
+            .chart-container {
+                height: 280px;
+            }
+        }
+
         /* ============================================================
            ENHANCED LOADING STATE - 개선된 로딩 UX
            ============================================================ */
@@ -1818,6 +1883,37 @@
     <!-- Lightweight Charts CDN -->
     <script src="https://unpkg.com/lightweight-charts@5.0.0/dist/lightweight-charts.standalone.production.js"></script>
 
+    <!-- Polyfills for Samsung Internet / older browsers -->
+    <script>
+        // flatMap polyfill
+        if (!Array.prototype.flatMap) {
+            Array.prototype.flatMap = function(callback) {
+                return Array.prototype.concat.apply([], this.map(callback));
+            };
+        }
+        // Safe property access helper (replaces optional chaining for compatibility)
+        function safeGet(obj, path, defaultValue) {
+            if (defaultValue === undefined) defaultValue = null;
+            if (!obj) return defaultValue;
+            var keys = path.split('.');
+            var result = obj;
+            for (var i = 0; i < keys.length; i++) {
+                var key = keys[i];
+                // Handle array access like "data[0]"
+                var match = key.match(/^(\w+)\[(\d+)\]$/);
+                if (match) {
+                    result = result[match[1]];
+                    if (result == null) return defaultValue;
+                    result = result[parseInt(match[2])];
+                } else {
+                    result = result[key];
+                }
+                if (result == null) return defaultValue;
+            }
+            return result;
+        }
+    </script>
+
     <script>
         // ============================================================
         // 동적 데이터 로딩 시스템
@@ -1911,7 +2007,7 @@
                     if (res.ok) {
                         const json = await res.json();
                         DATA[key] = json;
-                        console.log(`  ✓ ${key}: ${json.data?.length || 0}개 종목`);
+                        console.log('  ✓ ' + key + ': ' + (json.data && json.data.length ? json.data.length : 0) + '개 종목');
                     } else {
                         console.warn(`  ⚠ ${key}: 파일 없음 (${filename})`);
                     }
@@ -2086,9 +2182,10 @@
 
         // PER/PBR 조회 헬퍼 함수 (financial_data.json에서 조회)
         const getFinancialMetric = (ticker, metric) => {
-            const fd = DATA.financialData?.data?.[ticker];
+            var fdData = DATA.financialData && DATA.financialData.data;
+            var fd = fdData && fdData[ticker];
             if (!fd || !fd.metrics || !fd.metrics[metric]) return null;
-            const val = fd.metrics[metric];
+            var val = fd.metrics[metric];
             return Array.isArray(val) ? val[0] : val;
         };
         const getPER = ticker => getFinancialMetric(ticker, 'per');
@@ -2535,7 +2632,7 @@
                 const month = date.getMonth() + 1;
                 const day = date.getDate();
                 return `${year}년 ${month}월 ${day}일`;
-            } catch {
+            } catch (e) {
                 return '-';
             }
         }
@@ -2558,26 +2655,31 @@
                 if (diffDays === 1) return '어제 업데이트';
                 if (diffDays < 7) return `${diffDays}일 전 업데이트`;
                 return ''; // 일주일 이상은 상대시간 표시 안함
-            } catch {
+            } catch (e) {
                 return '';
             }
         }
 
         // Update all page dates from meta.lastUpdated
         function updatePageDates() {
+            // Helper to safely get nested property
+            function getMeta(key, field) {
+                var d = DATA[key];
+                return d && d.meta && d.meta[field];
+            }
             const dateMapping = {
-                'box-range-date': DATA.boxRange?.meta?.lastUpdated,
-                'box-breakout-date': DATA.boxBreakout?.meta?.lastUpdated,
-                'box-breakout-simple-date': DATA.boxBreakoutSimple?.meta?.lastUpdated,
-                'pullback-date': DATA.pullback?.meta?.lastUpdated,
-                'volume-dry-up-date': DATA.volumeDryUp?.meta?.lastUpdated,
-                'volume-explosion-date': DATA.volumeExplosion?.meta?.lastUpdated,
-                'new-high-52w-date': DATA.newHigh52w?.meta?.lastUpdated,
-                'bottom-breakout-date': DATA.bottomBreakout?.meta?.lastUpdated,
-                'sector-stage-date': DATA.sectorStage?.meta?.lastUpdated,
-                'value-stocks-date': DATA.valueStocks?.meta?.updated_at,
-                'ma60w-quality-date': DATA.ma60wQuality?.meta?.updated_at,
-                'ma-convergence-date': DATA.maConvergence?.meta?.updated_at
+                'box-range-date': getMeta('boxRange', 'lastUpdated'),
+                'box-breakout-date': getMeta('boxBreakout', 'lastUpdated'),
+                'box-breakout-simple-date': getMeta('boxBreakoutSimple', 'lastUpdated'),
+                'pullback-date': getMeta('pullback', 'lastUpdated'),
+                'volume-dry-up-date': getMeta('volumeDryUp', 'lastUpdated'),
+                'volume-explosion-date': getMeta('volumeExplosion', 'lastUpdated'),
+                'new-high-52w-date': getMeta('newHigh52w', 'lastUpdated'),
+                'bottom-breakout-date': getMeta('bottomBreakout', 'lastUpdated'),
+                'sector-stage-date': getMeta('sectorStage', 'lastUpdated'),
+                'value-stocks-date': getMeta('valueStocks', 'updated_at'),
+                'ma60w-quality-date': getMeta('ma60wQuality', 'updated_at'),
+                'ma-convergence-date': getMeta('maConvergence', 'updated_at')
             };
 
             for (const [elementId, lastUpdated] of Object.entries(dateMapping)) {
@@ -2596,21 +2698,29 @@
 
         // Home
         function renderHome() {
+            // Helper to safely get count
+            function getCount(key, metaField, fallbackField) {
+                var d = DATA[key];
+                if (!d) return 0;
+                if (d.meta && d.meta[metaField] != null) return d.meta[metaField];
+                if (fallbackField && d.data && Array.isArray(d.data)) return d.data.length;
+                return 0;
+            }
             // Get stock counts for each screener
             const stockCounts = {
-                'box-range': DATA.boxRange?.meta?.totalCount || 0,
-                'box-breakout': DATA.boxBreakout?.meta?.totalCount || 0,
-                'box-breakout-simple': DATA.boxBreakoutSimple?.meta?.totalCount || 0,
-                'pullback': DATA.pullback?.meta?.totalCount || 0,
-                'volume-dry-up': DATA.volumeDryUp?.meta?.totalCount || 0,
-                'volume-explosion': DATA.volumeExplosion?.meta?.totalCount || 0,
-                'fallen-rebound': DATA.fallenRebound?.meta?.totalCount || DATA.fallenRebound?.data?.length || 0,
-                'new-high-52w': DATA.newHigh52w?.meta?.totalCount || 0,
-                'bottom-breakout': DATA.bottomBreakout?.meta?.totalCount || DATA.bottomBreakout?.data?.length || 0,
-                'sector-stage': DATA.sectorStage?.meta?.totalCount || 0,
-                'value-stocks': DATA.valueStocks?.meta?.total_count || DATA.valueStocks?.data?.length || 0,
-                'ma60w-quality': DATA.ma60wQuality?.meta?.total_count || DATA.ma60wQuality?.data?.length || 0,
-                'ma-convergence': DATA.maConvergence?.meta?.total_count || DATA.maConvergence?.data?.length || 0
+                'box-range': getCount('boxRange', 'totalCount'),
+                'box-breakout': getCount('boxBreakout', 'totalCount'),
+                'box-breakout-simple': getCount('boxBreakoutSimple', 'totalCount'),
+                'pullback': getCount('pullback', 'totalCount'),
+                'volume-dry-up': getCount('volumeDryUp', 'totalCount'),
+                'volume-explosion': getCount('volumeExplosion', 'totalCount'),
+                'fallen-rebound': getCount('fallenRebound', 'totalCount', 'length'),
+                'new-high-52w': getCount('newHigh52w', 'totalCount'),
+                'bottom-breakout': getCount('bottomBreakout', 'totalCount', 'length'),
+                'sector-stage': getCount('sectorStage', 'totalCount'),
+                'value-stocks': getCount('valueStocks', 'total_count', 'length'),
+                'ma60w-quality': getCount('ma60wQuality', 'total_count', 'length'),
+                'ma-convergence': getCount('maConvergence', 'total_count', 'length')
             };
 
             // Render grouped screeners
@@ -2972,7 +3082,7 @@
                     <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
                     <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
                     <td>${formatShortDate(s.explosion_date)}</td>
-                    <td class="text-right positive">+${s.explosion_change_rate?.toFixed(1) || '-'}%</td>
+                    <td class="text-right positive">+${s.explosion_change_rate != null ? s.explosion_change_rate.toFixed(1) : '-'}%</td>
                     <td class="text-right">${s.days_since_detected != null ? s.days_since_detected + '일' : '-'}</td>
                     <td class="text-right" style="color: var(--color-success)">-${s.volume_decrease_rate}%</td>
                 </tr>
@@ -3031,16 +3141,19 @@
         function renderFallenRebound() {
             syncFilterButton('fallenRebound');
             // 필터 적용
-            let filteredData = DATA.fallenRebound?.data || [];
+            var frData = DATA.fallenRebound && DATA.fallenRebound.data;
+            let filteredData = frData || [];
             if (filterMA150State.fallenRebound) {
                 filteredData = filteredData.filter(s => s.above_ma150 === true);
             }
 
+            var frMeta = DATA.fallenRebound && DATA.fallenRebound.meta;
+            var totalCount = (frMeta && frMeta.totalCount) || 0;
             const countEl = document.getElementById('fallen-rebound-count');
             if (filterMA150State.fallenRebound) {
-                countEl.textContent = filteredData.length + '개 / 전체 ' + (DATA.fallenRebound?.meta?.totalCount || 0);
+                countEl.textContent = filteredData.length + '개 / 전체 ' + totalCount;
             } else {
-                countEl.textContent = DATA.fallenRebound?.meta?.totalCount || 0;
+                countEl.textContent = totalCount;
             }
 
             const headers = [
@@ -3111,7 +3224,8 @@
         }
 
         function renderBottomBreakout() {
-            const bottomData = DATA.bottomBreakout?.data || [];
+            var bbData = DATA.bottomBreakout && DATA.bottomBreakout.data;
+            const bottomData = bbData || [];
             document.getElementById('bottom-breakout-count').textContent = bottomData.length;
 
             const headers = [
@@ -3155,7 +3269,7 @@
         function renderSectorStage() {
             document.getElementById('sector-stage-count').textContent = DATA.sectorStage.meta.totalCount;
             const grouped = { 1: [], 2: [], 3: [], 4: [] };
-            DATA.sectorStage.data.forEach(s => grouped[s.stage]?.push(s));
+            DATA.sectorStage.data.forEach(function(s) { if (grouped[s.stage]) grouped[s.stage].push(s); });
             const stageEmoji = { 1: '1️⃣', 2: '2️⃣', 3: '3️⃣', 4: '4️⃣' };
             const stageLabel = { 1: '기초', 2: '상승', 3: '최정상', 4: '쇠퇴' };
             const stageBadge = { 1: '횡보 구간', 2: '매수 적기', 3: '매도 준비', 4: '매도/관망' };
@@ -3163,7 +3277,7 @@
 
             let html = '';
             [2, 1, 3, 4].forEach(stage => {
-                if (grouped[stage]?.length > 0) {
+                if (grouped[stage] && grouped[stage].length > 0) {
                     html += `
                         <section class="sector-section">
                             <h2><span class="stage-${stage}">${stageEmoji[stage]} ${stageLabel[stage]} 단계</span>
@@ -3199,8 +3313,10 @@
         }
 
         function renderValueStocks() {
-            const valueData = DATA.valueStocks?.data || [];
-            const dataType = DATA.valueStocks?.meta?.data_type || '연간';
+            var vsData = DATA.valueStocks && DATA.valueStocks.data;
+            const valueData = vsData || [];
+            var vsMeta = DATA.valueStocks && DATA.valueStocks.meta;
+            const dataType = (vsMeta && vsMeta.data_type) || '연간';
             document.getElementById('value-stocks-count').textContent = valueData.length;
             document.getElementById('value-stocks-desc').textContent = `${dataType} 기반 저평가 우량주 스크리닝 (FnGuide 분기데이터)`;
 
@@ -3221,7 +3337,7 @@
             const paginatedData = paginate(sortedData, paginationState.valueStocks);
 
             const rows = paginatedData.map(s => {
-                const opMargin = s.op_margin_avg ?? s.op_margin_5y;
+                const opMargin = s.op_margin_avg != null ? s.op_margin_avg : s.op_margin_5y;
                 const stockJson = safeJsonStringify({ ticker: s.ticker, name: s.name, price: s.market_cap * 100000000, change_rate: 0 });
                 return `
                     <tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
@@ -3243,7 +3359,8 @@
         }
 
         function renderMa60wQuality() {
-            const qualityData = DATA.ma60wQuality?.data || [];
+            var mqData = DATA.ma60wQuality && DATA.ma60wQuality.data;
+            const qualityData = mqData || [];
             document.getElementById('ma60w-quality-count').textContent = qualityData.length;
 
             const headers = [
@@ -3283,7 +3400,8 @@
         }
 
         function renderMaConvergence() {
-            const convData = DATA.maConvergence?.data || [];
+            var mcData = DATA.maConvergence && DATA.maConvergence.data;
+            const convData = mcData || [];
             document.getElementById('ma-convergence-count').textContent = convData.length;
 
             const headers = [
