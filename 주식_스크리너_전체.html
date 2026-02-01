@@ -460,6 +460,10 @@
         .positive::before { content: '▲ '; font-size: 0.8em; }
         .negative::before { content: '▼ '; font-size: 0.8em; }
 
+        /* PER/PBR 가치평가 색상 */
+        .text-blue { color: #1261C4; font-weight: 600; }  /* 저평가 (저PER/저PBR) */
+        .text-red { color: #E31B1B; font-weight: 600; }   /* 고평가 (고PER/고PBR) */
+
         /* 가격 셀 스타일 - Pretendard의 tabular numbers 사용 */
         .price-cell {
             font-variant-numeric: tabular-nums;
@@ -1834,7 +1838,8 @@
             sectorStage: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
             valueStocks: { meta: { updated_at: null, total_count: 0 }, data: [] },
             ma60wQuality: { meta: { updated_at: null, total_count: 0 }, data: [] },
-            maConvergence: { meta: { updated_at: null, total_count: 0 }, data: [] }
+            maConvergence: { meta: { updated_at: null, total_count: 0 }, data: [] },
+            financialData: { meta: {}, data: {} }  // PER/PBR 조회용 재무데이터
         };
 
         // 데이터 로딩 상태
@@ -1855,7 +1860,8 @@
             sectorStage: 'sector_stage.json',
             valueStocks: 'value_stocks.json',
             ma60wQuality: 'ma60w_quality.json',
-            maConvergence: 'ma_convergence.json'
+            maConvergence: 'ma_convergence.json',
+            financialData: 'financial_data.json'
         };
 
         // 데이터 경로 후보 (GitHub Pages, 로컬 등 다양한 환경 지원)
@@ -2077,6 +2083,22 @@
         const getColor = n => n > 0 ? 'positive' : n < 0 ? 'negative' : 'neutral';
         const formatShortDate = d => { const date = new Date(d); return (date.getMonth()+1) + '월 ' + date.getDate() + '일'; };
         const formatMarketCap = cap => { if (!cap) return '-'; if (cap >= 10000) return (cap / 10000).toFixed(1) + '조'; return formatNumber(cap) + '억'; };
+
+        // PER/PBR 조회 헬퍼 함수 (financial_data.json에서 조회)
+        const getFinancialMetric = (ticker, metric) => {
+            const fd = DATA.financialData?.data?.[ticker];
+            if (!fd || !fd.metrics || !fd.metrics[metric]) return null;
+            const val = fd.metrics[metric];
+            return Array.isArray(val) ? val[0] : val;
+        };
+        const getPER = ticker => getFinancialMetric(ticker, 'per');
+        const getPBR = ticker => getFinancialMetric(ticker, 'pbr');
+        const formatPER = per => per != null ? per.toFixed(1) : '-';
+        const formatPBR = pbr => pbr != null ? pbr.toFixed(2) : '-';
+        // PER 색상: 저PER(15 미만) 파랑, 고PER(30 이상) 빨강
+        const getPERColor = per => { if (per == null) return ''; return per < 15 ? 'text-blue' : per > 30 ? 'text-red' : ''; };
+        // PBR 색상: 저PBR(1 미만) 파랑, 고PBR(3 이상) 빨강
+        const getPBRColor = pbr => { if (pbr == null) return ''; return pbr < 1 ? 'text-blue' : pbr > 3 ? 'text-red' : ''; };
 
         // 모바일 감지 - CSS 미디어 쿼리와 동기화 (768px 기준)
         const isMobileView = () => window.matchMedia('(max-width: 768px)').matches;
@@ -2685,36 +2707,46 @@
             countEl.textContent = filteredData.length;
 
             const headers = [
-                { label: '종목명', key: 'name' }, { label: '현재가', align: 'text-right', key: 'price' },
-                { label: '등락률', align: 'text-right', key: 'change_rate' },
+                { label: '종목명', key: 'name' },
+                { label: '현재가', align: 'text-right', key: 'price' },
                 { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                { label: '박스 상단', align: 'text-right', key: 'box_high' }, { label: '박스 하단', align: 'text-right', key: 'box_low' },
-                { label: '변동폭', align: 'text-right', key: 'range_percent' }, { label: '지지 터치', align: 'text-center', key: 'support_touches' },
-                { label: 'ATR배수', align: 'text-right', key: 'atr_multiple' }, { label: '횡보 기간', align: 'text-right', key: 'days' }
+                { label: 'PER', align: 'text-right' },
+                { label: 'PBR', align: 'text-right' },
+                { label: '등락률', align: 'text-right', key: 'change_rate' },
+                { label: '변동폭', align: 'text-right', key: 'range_percent' },
+                { label: '지지 터치', align: 'text-center', key: 'support_touches' },
+                { label: 'ATR배수', align: 'text-right', key: 'atr_multiple' },
+                { label: '횡보 기간', align: 'text-right', key: 'days' }
             ];
             const state = sortState['box-range-table'] || {};
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.boxRange);
-            const rows = paginatedData.map(s => `
+            const rows = paginatedData.map(s => {
+                const per = getPER(s.ticker);
+                const pbr = getPBR(s.ticker);
+                return `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})' role="button" tabindex="0" onkeypress="if(event.key==='Enter')openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})">
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
-                    <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
-                    <td class="text-right">${formatNumber(s.box_high)}원</td>
-                    <td class="text-right">${formatNumber(s.box_low)}원</td>
+                    <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
+                    <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
+                    <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td class="text-right">${formatPercent(s.range_percent)}</td>
                     <td class="text-center">${s.support_touches}/${s.resistance_touches}</td>
                     <td class="text-right">${s.atr_multiple.toFixed(1)}x</td>
                     <td class="text-right">${s.days || 60}일</td>
                 </tr>
-            `).join('');
+            `}).join('');
             renderTable('box-range-table', headers, rows, renderBoxRange);
 
             // Mobile card view - 조건부 렌더링 (모바일 뷰에서만 렌더링)
             const mobileContainer = document.getElementById('box-range-mobile');
             if (mobileContainer && isMobileView()) {
-                mobileContainer.innerHTML = paginatedData.map(s => `
+                mobileContainer.innerHTML = paginatedData.map(s => {
+                    const per = getPER(s.ticker);
+                    const pbr = getPBR(s.ticker);
+                    return `
                     <div class="stock-card-mobile" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})' role="button" tabindex="0" aria-label="${s.name} 차트 보기">
                         <div class="header-row">
                             <div class="stock-info">
@@ -2732,12 +2764,12 @@
                                 <div class="detail-value">${formatMarketCap(s.market_cap)}</div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">변동폭</div>
-                                <div class="detail-value">${formatPercent(s.range_percent)}</div>
+                                <div class="detail-label">PER</div>
+                                <div class="detail-value ${getPERColor(per)}">${formatPER(per)}</div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">지지/저항 터치</div>
-                                <div class="detail-value">${s.support_touches}/${s.resistance_touches}</div>
+                                <div class="detail-label">PBR</div>
+                                <div class="detail-value ${getPBRColor(pbr)}">${formatPBR(pbr)}</div>
                             </div>
                             <div class="detail-item">
                                 <div class="detail-label">횡보 기간</div>
@@ -2745,7 +2777,7 @@
                             </div>
                         </div>
                     </div>
-                `).join('');
+                `}).join('');
             } else if (mobileContainer) {
                 mobileContainer.innerHTML = ''; // 데스크톱에서는 모바일 뷰 비우기
             }
@@ -2769,27 +2801,35 @@
             }
 
             const headers = [
-                { label: '종목명', key: 'name' }, { label: '현재가', align: 'text-right', key: 'price' },
-                { label: '등락률', align: 'text-right', key: 'change_rate' }, { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                { label: '돌파일', key: 'breakout_date' }, { label: '돌파가', align: 'text-right', key: 'breakout_price' },
-                { label: '저항선대비', align: 'text-right', key: 'breakout_pct' }, { label: '거래량비', align: 'text-right', key: 'volume_ratio' }, { label: '150일선', align: 'text-right', key: 'ma150' }
+                { label: '종목명', key: 'name' },
+                { label: '현재가', align: 'text-right', key: 'price' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' },
+                { label: 'PER', align: 'text-right' },
+                { label: 'PBR', align: 'text-right' },
+                { label: '등락률', align: 'text-right', key: 'change_rate' },
+                { label: '돌파일', key: 'breakout_date' },
+                { label: '거래량비', align: 'text-right', key: 'volume_ratio' },
+                { label: '저항선대비', align: 'text-right', key: 'breakout_pct' }
             ];
             const state = sortState['box-breakout-table'] || {};
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.boxBreakout);
-            const rows = paginatedData.map(s => `
+            const rows = paginatedData.map(s => {
+                const per = getPER(s.ticker);
+                const pbr = getPBR(s.ticker);
+                return `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
-                    <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                    <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
+                    <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
+                    <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td>${formatShortDate(s.breakout_date)}</td>
-                    <td class="text-right">${formatNumber(s.breakout_price)}원</td>
-                    <td class="text-right ${getColor(s.breakout_pct)}">${s.breakout_pct != null ? formatPercent(s.breakout_pct) : '-'}</td>
                     <td class="text-right">${s.volume_ratio.toFixed(1)}x</td>
-                    <td class="text-right">${formatNumber(s.ma150)}원</td>
+                    <td class="text-right ${getColor(s.breakout_pct)}">${s.breakout_pct != null ? formatPercent(s.breakout_pct) : '-'}</td>
                 </tr>
-            `).join('');
+            `}).join('');
             renderTable('box-breakout-table', headers, rows, renderBoxBreakout);
             renderPagination('box-breakout-pagination', 'boxBreakout', sortedData.length, renderBoxBreakout);
         }
@@ -2810,26 +2850,35 @@
             }
 
             const headers = [
-                { label: '종목명', key: 'name' }, { label: '현재가', align: 'text-right', key: 'price' },
-                { label: '등락률', align: 'text-right', key: 'change_rate' }, { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                { label: '돌파일', key: 'breakout_date' }, { label: '저항선', align: 'text-right', key: 'resistance' },
-                { label: '경과일', align: 'text-right', key: 'days_since_breakout' }, { label: '저항선대비', align: 'text-right', key: 'breakout_pct' }
+                { label: '종목명', key: 'name' },
+                { label: '현재가', align: 'text-right', key: 'price' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' },
+                { label: 'PER', align: 'text-right' },
+                { label: 'PBR', align: 'text-right' },
+                { label: '등락률', align: 'text-right', key: 'change_rate' },
+                { label: '돌파일', key: 'breakout_date' },
+                { label: '경과일', align: 'text-right', key: 'days_since_breakout' },
+                { label: '저항선대비', align: 'text-right', key: 'breakout_pct' }
             ];
             const state = sortState['box-breakout-simple-table'] || {};
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.boxBreakoutSimple);
-            const rows = paginatedData.map(s => `
+            const rows = paginatedData.map(s => {
+                const per = getPER(s.ticker);
+                const pbr = getPBR(s.ticker);
+                return `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
-                    <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                    <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
+                    <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
+                    <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td>${formatShortDate(s.breakout_date)}</td>
-                    <td class="text-right">${formatNumber(s.resistance)}원</td>
                     <td class="text-right">${s.days_since_breakout}일</td>
                     <td class="text-right ${getColor(s.breakout_pct)}">${s.breakout_pct != null ? formatPercent(s.breakout_pct) : '-'}</td>
                 </tr>
-            `).join('');
+            `}).join('');
             renderTable('box-breakout-simple-table', headers, rows, renderBoxBreakoutSimple);
             renderPagination('box-breakout-simple-pagination', 'boxBreakoutSimple', sortedData.length, renderBoxBreakoutSimple);
         }
@@ -2850,26 +2899,35 @@
             }
 
             const headers = [
-                { label: '종목명', key: 'name' }, { label: '현재가', align: 'text-right', key: 'price' },
-                { label: '등락률', align: 'text-right', key: 'change_rate' }, { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                { label: '돌파일', key: 'breakout_date' }, { label: '저항선', align: 'text-right', key: 'resistance' },
-                { label: '풀백률', align: 'text-right', key: 'pullback_ratio' }, { label: '거래량감소', align: 'text-right', key: 'volume_decrease' }
+                { label: '종목명', key: 'name' },
+                { label: '현재가', align: 'text-right', key: 'price' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' },
+                { label: 'PER', align: 'text-right' },
+                { label: 'PBR', align: 'text-right' },
+                { label: '등락률', align: 'text-right', key: 'change_rate' },
+                { label: '돌파일', key: 'breakout_date' },
+                { label: '풀백률', align: 'text-right', key: 'pullback_ratio' },
+                { label: '거래량감소', align: 'text-right', key: 'volume_decrease' }
             ];
             const state = sortState['pullback-table'] || {};
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.pullback);
-            const rows = paginatedData.map(s => `
+            const rows = paginatedData.map(s => {
+                const per = getPER(s.ticker);
+                const pbr = getPBR(s.ticker);
+                return `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
-                    <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                    <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
+                    <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
+                    <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td>${formatShortDate(s.breakout_date)}</td>
-                    <td class="text-right">${formatNumber(s.resistance)}원</td>
                     <td class="text-right">${s.pullback_ratio.toFixed(1)}%</td>
                     <td class="text-right" style="color: var(--color-success)">-${s.volume_decrease}%</td>
                 </tr>
-            `).join('');
+            `}).join('');
             renderTable('pullback-table', headers, rows, renderPullback);
             renderPagination('pullback-pagination', 'pullback', sortedData.length, renderPullback);
         }
@@ -2890,27 +2948,35 @@
             }
 
             const headers = [
-                { label: '종목명', key: 'name' }, { label: '현재가', align: 'text-right', key: 'price' },
-                { label: '급등일', key: 'explosion_date' }, { label: '급등폭', align: 'text-right', key: 'explosion_change_rate' },
-                { label: '포착일', key: 'detected_date' }, { label: '경과', align: 'text-right', key: 'days_since_detected' },
-                { label: '거래량감소', align: 'text-right', key: 'volume_decrease_rate' },
-                { label: '시가총액', align: 'text-right', key: 'market_cap' }
+                { label: '종목명', key: 'name' },
+                { label: '현재가', align: 'text-right', key: 'price' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' },
+                { label: 'PER', align: 'text-right' },
+                { label: 'PBR', align: 'text-right' },
+                { label: '급등일', key: 'explosion_date' },
+                { label: '급등폭', align: 'text-right', key: 'explosion_change_rate' },
+                { label: '경과', align: 'text-right', key: 'days_since_detected' },
+                { label: '거래량감소', align: 'text-right', key: 'volume_decrease_rate' }
             ];
             const state = sortState['volume-dry-up-table'] || {};
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.volumeDryUp);
-            const rows = paginatedData.map(s => `
+            const rows = paginatedData.map(s => {
+                const per = getPER(s.ticker);
+                const pbr = getPBR(s.ticker);
+                return `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate||0})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
+                    <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                    <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
+                    <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
                     <td>${formatShortDate(s.explosion_date)}</td>
                     <td class="text-right positive">+${s.explosion_change_rate?.toFixed(1) || '-'}%</td>
-                    <td>${s.detected_date ? formatShortDate(s.detected_date) : '-'}</td>
                     <td class="text-right">${s.days_since_detected != null ? s.days_since_detected + '일' : '-'}</td>
                     <td class="text-right" style="color: var(--color-success)">-${s.volume_decrease_rate}%</td>
-                    <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                 </tr>
-            `).join('');
+            `}).join('');
             renderTable('volume-dry-up-table', headers, rows, renderVolumeDryUp);
             renderPagination('volume-dry-up-pagination', 'volumeDryUp', sortedData.length, renderVolumeDryUp);
         }
@@ -2931,23 +2997,33 @@
             }
 
             const headers = [
-                { label: '종목명', key: 'name' }, { label: '현재가', align: 'text-right', key: 'price' },
-                { label: '등락률', align: 'text-right', key: 'change_rate' }, { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                { label: '거래량비', align: 'text-right', key: 'volume_ratio' }, { label: '순위', align: 'text-right', key: 'volume_rank' }
+                { label: '종목명', key: 'name' },
+                { label: '현재가', align: 'text-right', key: 'price' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' },
+                { label: 'PER', align: 'text-right' },
+                { label: 'PBR', align: 'text-right' },
+                { label: '등락률', align: 'text-right', key: 'change_rate' },
+                { label: '거래량비', align: 'text-right', key: 'volume_ratio' },
+                { label: '순위', align: 'text-right', key: 'volume_rank' }
             ];
             const state = sortState['volume-explosion-table'] || {};
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.volumeExplosion);
-            const rows = paginatedData.map(s => `
+            const rows = paginatedData.map(s => {
+                const per = getPER(s.ticker);
+                const pbr = getPBR(s.ticker);
+                return `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
-                    <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                    <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
+                    <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
+                    <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td class="text-right">${s.volume_ratio.toFixed(1)}x</td>
                     <td class="text-right">${s.volume_rank}위</td>
                 </tr>
-            `).join('');
+            `}).join('');
             renderTable('volume-explosion-table', headers, rows, renderVolumeExplosion);
             renderPagination('volume-explosion-pagination', 'volumeExplosion', sortedData.length, renderVolumeExplosion);
         }
@@ -2968,27 +3044,31 @@
             }
 
             const headers = [
-                { label: '종목명', key: 'name' }, { label: '현재가', align: 'text-right', key: 'price' },
-                { label: '낙폭', align: 'text-right', key: 'drop_percent' },
-                { label: '저점상승', align: 'text-right', key: 'low_rise_percent' },
+                { label: '종목명', key: 'name' },
+                { label: '현재가', align: 'text-right', key: 'price' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' },
                 { label: 'PER', align: 'text-right', key: 'per' },
                 { label: 'PBR', align: 'text-right', key: 'pbr' },
-                { label: '시가총액', align: 'text-right', key: 'market_cap' }
+                { label: '낙폭', align: 'text-right', key: 'drop_percent' },
+                { label: '저점상승', align: 'text-right', key: 'low_rise_percent' }
             ];
             const state = sortState['fallen-rebound-table'] || {};
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.fallenRebound);
-            const rows = paginatedData.map(s => `
+            const rows = paginatedData.map(s => {
+                const per = s.per != null ? s.per : getPER(s.ticker);
+                const pbr = s.pbr != null ? s.pbr : getPBR(s.ticker);
+                return `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate||0})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
+                    <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                    <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
+                    <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
                     <td class="text-right negative">-${s.drop_percent}%</td>
                     <td class="text-right positive">+${s.low_rise_percent}%</td>
-                    <td class="text-right">${s.per != null ? s.per.toFixed(1) : '-'}</td>
-                    <td class="text-right">${s.pbr != null ? s.pbr.toFixed(2) : '-'}</td>
-                    <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                 </tr>
-            `).join('');
+            `}).join('');
             renderTable('fallen-rebound-table', headers, rows, renderFallenRebound);
             renderPagination('fallen-rebound-pagination', 'fallenRebound', sortedData.length, renderFallenRebound);
         }
@@ -2997,9 +3077,12 @@
             document.getElementById('new-high-52w-count').textContent = DATA.newHigh52w.meta.totalCount;
 
             const headers = [
-                { label: '종목명', key: 'name' }, { label: '현재가', align: 'text-right', key: 'price' },
-                { label: '등락률', align: 'text-right', key: 'change_rate' }, { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                { label: '52주 신고가', align: 'text-right', key: 'high_52w' },
+                { label: '종목명', key: 'name' },
+                { label: '현재가', align: 'text-right', key: 'price' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' },
+                { label: 'PER', align: 'text-right' },
+                { label: 'PBR', align: 'text-right' },
+                { label: '등락률', align: 'text-right', key: 'change_rate' },
                 { label: '신고가 대비', align: 'text-right', key: 'above_high_percent' },
                 { label: '거래량비', align: 'text-right', key: 'volume_ratio' },
                 { label: '돌파 후', align: 'text-right', key: 'days_since' }
@@ -3007,18 +3090,22 @@
             const state = sortState['new-high-52w-table'] || {};
             const sortedData = sortData(DATA.newHigh52w.data, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.newHigh52w);
-            const rows = paginatedData.map(s => `
+            const rows = paginatedData.map(s => {
+                const per = getPER(s.ticker);
+                const pbr = getPBR(s.ticker);
+                return `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
-                    <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
-                    <td class="text-right">${formatNumber(s.high_52w)}원</td>
+                    <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
+                    <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
+                    <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td class="text-right positive">+${s.above_high_percent.toFixed(1)}%</td>
                     <td class="text-right">${s.volume_ratio ? s.volume_ratio.toFixed(1) + 'x' : '-'}</td>
                     <td class="text-right">${s.days_since}일</td>
                 </tr>
-            `).join('');
+            `}).join('');
             renderTable('new-high-52w-table', headers, rows, renderNewHigh52w);
             renderPagination('new-high-52w-pagination', 'newHigh52w', sortedData.length, renderNewHigh52w);
         }
@@ -3030,12 +3117,13 @@
             const headers = [
                 { label: '등급', key: 'grade' },
                 { label: '종목명', key: 'name' },
-                { label: '점수', align: 'text-right', key: 'score' },
-                { label: '신호일', align: 'text-right', key: 'signal_date' },
                 { label: '현재가', align: 'text-right', key: 'current_price' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' },
+                { label: 'PER', align: 'text-right' },
+                { label: 'PBR', align: 'text-right' },
+                { label: '점수', align: 'text-right', key: 'score' },
                 { label: '150일선이격', align: 'text-right', key: 'ma150_gap' },
-                { label: '52주고점대비', align: 'text-right', key: 'drop_from_high' },
-                { label: '시가총액', align: 'text-right', key: 'market_cap' }
+                { label: '52주고점대비', align: 'text-right', key: 'drop_from_high' }
             ];
             const state = sortState['bottom-breakout-table'] || {};
             const sortedData = sortData(bottomData, state.key, state.direction);
@@ -3043,19 +3131,20 @@
             const rows = paginatedData.map(s => {
                 const gradeClass = s.grade === 'A' ? 'positive' : 'neutral';
                 const gradeIcon = s.grade === 'A' ? '⭐A' : '  B';
-                const signalDate = new Date(s.signal_date);
-                const dateText = `${signalDate.getMonth() + 1}월${signalDate.getDate()}일`;
                 const gapColor = s.ma150_gap >= 0 ? 'positive' : 'negative';
+                const per = getPER(s.ticker);
+                const pbr = getPBR(s.ticker);
                 return `
                     <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.current_price,change_rate:s.change_since_signal})})'>
                         <td class="${gradeClass}" style="font-weight:bold">${gradeIcon}</td>
                         <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
-                        <td class="text-right"><strong>${s.score}</strong>점</td>
-                        <td class="text-right">${dateText}</td>
                         <td class="text-right">${formatNumber(s.current_price)}원</td>
+                        <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                        <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
+                        <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
+                        <td class="text-right"><strong>${s.score}</strong>점</td>
                         <td class="text-right ${gapColor}">${s.ma150_gap >= 0 ? '+' : ''}${s.ma150_gap.toFixed(1)}%</td>
                         <td class="text-right negative">${s.drop_from_high.toFixed(1)}%</td>
-                        <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                     </tr>
                 `;
             }).join('');
@@ -3138,8 +3227,8 @@
                     <tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
                         <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                         <td class="text-right">${formatMarketCap(s.market_cap)}</td>
-                        <td class="text-right">${s.per != null ? s.per.toFixed(1) : '-'}</td>
-                        <td class="text-right">${s.pbr != null ? s.pbr.toFixed(2) : '-'}</td>
+                        <td class="text-right ${getPERColor(s.per)}">${s.per != null ? s.per.toFixed(1) : '-'}</td>
+                        <td class="text-right ${getPBRColor(s.pbr)}">${s.pbr != null ? s.pbr.toFixed(2) : '-'}</td>
                         <td class="text-right">${s.revenue_growth_3y != null ? s.revenue_growth_3y.toFixed(1) + '%' : '-'}</td>
                         <td class="text-right">${opMargin != null ? opMargin.toFixed(1) + '%' : '-'}</td>
                         <td class="text-right">${s.op_growth_5y != null ? s.op_growth_5y.toFixed(1) + '%' : '-'}</td>
@@ -3160,11 +3249,12 @@
             const headers = [
                 { label: '종목명', key: 'name' },
                 { label: '현재가', align: 'text-right', key: 'current_price' },
-                { label: '60주선', align: 'text-right', key: 'ma60w' },
-                { label: '이격도', align: 'text-right', key: 'ma60w_gap' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' },
+                { label: 'PER', align: 'text-right' },
+                { label: 'PBR', align: 'text-right' },
+                { label: '60주선이격', align: 'text-right', key: 'ma60w_gap' },
                 { label: '영업이익률', align: 'text-right', key: 'op_margin' },
-                { label: '영업이익성장', align: 'text-right', key: 'op_growth_3y' },
-                { label: '시가총액', align: 'text-right', key: 'market_cap' }
+                { label: '영업이익성장', align: 'text-right', key: 'op_growth_3y' }
             ];
 
             const state = sortState['ma60w-quality-table'] || {};
@@ -3173,15 +3263,18 @@
 
             const rows = paginatedData.map(s => {
                 const stockJson = safeJsonStringify({ ticker: s.ticker, name: s.name, price: s.current_price, change_rate: 0 });
+                const per = getPER(s.ticker);
+                const pbr = getPBR(s.ticker);
                 return `
                 <tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${s.current_price != null ? s.current_price.toLocaleString() + '원' : '-'}</td>
-                    <td class="text-right">${s.ma60w != null ? s.ma60w.toLocaleString() + '원' : '-'}</td>
-                    <td class="text-right ${s.ma60w_gap >= 0 ? 'text-up' : 'text-down'}">${s.ma60w_gap != null ? '+' + s.ma60w_gap.toFixed(1) + '%' : '-'}</td>
+                    <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                    <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
+                    <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
+                    <td class="text-right ${s.ma60w_gap >= 0 ? 'positive' : 'negative'}">${s.ma60w_gap != null ? (s.ma60w_gap >= 0 ? '+' : '') + s.ma60w_gap.toFixed(1) + '%' : '-'}</td>
                     <td class="text-right">${s.op_margin != null ? s.op_margin.toFixed(1) + '%' : '-'}</td>
                     <td class="text-right">${s.op_growth_3y != null ? s.op_growth_3y.toFixed(1) + '%' : '-'}</td>
-                    <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                 </tr>
             `}).join('');
 
@@ -3196,30 +3289,33 @@
             const headers = [
                 { label: '종목명', key: 'name' },
                 { label: '현재가', align: 'text-right', key: 'current_price' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' },
+                { label: 'PER', align: 'text-right' },
+                { label: 'PBR', align: 'text-right' },
                 { label: '거래량', align: 'text-right', key: 'volume' },
                 { label: '20/60', align: 'text-right', key: 'gap_20_60' },
-                { label: '20/120', align: 'text-right', key: 'gap_20_120' },
-                { label: '60/120', align: 'text-right', key: 'gap_60_120' },
-                { label: '종가/20', align: 'text-right', key: 'gap_price_20' },
-                { label: '시가총액', align: 'text-right', key: 'market_cap' }
+                { label: '종가/20', align: 'text-right', key: 'gap_price_20' }
             ];
 
             const state = sortState['ma-convergence-table'] || {};
             const sortedData = sortData(convData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.maConvergence);
 
-            const rows = paginatedData.map(s => `
+            const rows = paginatedData.map(s => {
+                const per = getPER(s.ticker);
+                const pbr = getPBR(s.ticker);
+                return `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.current_price,change_rate:null})})' role="button" tabindex="0" onkeypress="if(event.key==='Enter')openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.current_price,change_rate:null})})">
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${s.current_price != null ? s.current_price.toLocaleString() + '원' : '-'}</td>
+                    <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                    <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
+                    <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
                     <td class="text-right">${s.volume != null ? (s.volume / 10000).toFixed(1) + '만' : '-'}</td>
                     <td class="text-right">${s.gap_20_60 != null ? s.gap_20_60.toFixed(1) + '%' : '-'}</td>
-                    <td class="text-right">${s.gap_20_120 != null ? s.gap_20_120.toFixed(1) + '%' : '-'}</td>
-                    <td class="text-right">${s.gap_60_120 != null ? s.gap_60_120.toFixed(1) + '%' : '-'}</td>
                     <td class="text-right">${s.gap_price_20 != null ? s.gap_price_20.toFixed(1) + '%' : '-'}</td>
-                    <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                 </tr>
-            `).join('');
+            `}).join('');
 
             renderTable('ma-convergence-table', headers, rows, renderMaConvergence);
             renderPagination('ma-convergence-pagination', 'maConvergence', sortedData.length, renderMaConvergence);
