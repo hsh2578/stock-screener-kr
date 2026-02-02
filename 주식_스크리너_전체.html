@@ -3068,8 +3068,8 @@
 
         function renderVolumeDryUp() {
             syncFilterButton('volumeDryUp');
-            // 필터 적용
-            let filteredData = DATA.volumeDryUp.data;
+            // 필터 적용 + PER/PBR 보강
+            let filteredData = enrichWithFinancials(DATA.volumeDryUp.data);
             if (filterMA150State.volumeDryUp) {
                 filteredData = filteredData.filter(s => s.above_ma150 === true);
             }
@@ -3085,8 +3085,8 @@
                 { label: '종목명', key: 'name' },
                 { label: '현재가', align: 'text-right', key: 'price' },
                 { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                { label: 'PER', align: 'text-right' },
-                { label: 'PBR', align: 'text-right' },
+                { label: 'PER', align: 'text-right', key: 'per' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '급등일', key: 'explosion_date' },
                 { label: '급등폭', align: 'text-right', key: 'explosion_change_rate' },
                 { label: '경과', align: 'text-right', key: 'days_since_detected' },
@@ -3095,22 +3095,19 @@
             const state = sortState['volume-dry-up-table'] || {};
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.volumeDryUp);
-            const rows = paginatedData.map(s => {
-                const per = getPER(s.ticker);
-                const pbr = getPBR(s.ticker);
-                return `
+            const rows = paginatedData.map(s => `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate||0})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
-                    <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
-                    <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
+                    <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
+                    <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
                     <td>${formatShortDate(s.explosion_date)}</td>
                     <td class="text-right positive">+${s.explosion_change_rate != null ? s.explosion_change_rate.toFixed(1) : '-'}%</td>
                     <td class="text-right">${s.days_since_detected != null ? s.days_since_detected + '일' : '-'}</td>
                     <td class="text-right" style="color: var(--color-success)">-${s.volume_decrease_rate}%</td>
                 </tr>
-            `}).join('');
+            `).join('');
             renderTable('volume-dry-up-table', headers, rows, renderVolumeDryUp);
             renderMobileCards('volume-dry-up-mobile', paginatedData, {
                 extraFields: [
@@ -3123,8 +3120,8 @@
 
         function renderVolumeExplosion() {
             syncFilterButton('volumeExplosion');
-            // 필터 적용
-            let filteredData = DATA.volumeExplosion.data;
+            // 필터 적용 + PER/PBR 보강
+            let filteredData = enrichWithFinancials(DATA.volumeExplosion.data);
             if (filterMA150State.volumeExplosion) {
                 filteredData = filteredData.filter(s => s.above_ma150 === true);
             }
@@ -3140,8 +3137,8 @@
                 { label: '종목명', key: 'name' },
                 { label: '현재가', align: 'text-right', key: 'price' },
                 { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                { label: 'PER', align: 'text-right' },
-                { label: 'PBR', align: 'text-right' },
+                { label: 'PER', align: 'text-right', key: 'per' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '등락률', align: 'text-right', key: 'change_rate' },
                 { label: '거래량비', align: 'text-right', key: 'volume_ratio' },
                 { label: '순위', align: 'text-right', key: 'volume_rank' }
@@ -3149,21 +3146,18 @@
             const state = sortState['volume-explosion-table'] || {};
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.volumeExplosion);
-            const rows = paginatedData.map(s => {
-                const per = getPER(s.ticker);
-                const pbr = getPBR(s.ticker);
-                return `
+            const rows = paginatedData.map(s => `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
-                    <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
-                    <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
+                    <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
+                    <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
                     <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td class="text-right">${s.volume_ratio.toFixed(1)}x</td>
                     <td class="text-right">${s.volume_rank}위</td>
                 </tr>
-            `}).join('');
+            `).join('');
             renderTable('volume-explosion-table', headers, rows, renderVolumeExplosion);
             renderMobileCards('volume-explosion-mobile', paginatedData, {
                 extraFields: [
@@ -3235,32 +3229,30 @@
                 { label: '종목명', key: 'name' },
                 { label: '현재가', align: 'text-right', key: 'price' },
                 { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                { label: 'PER', align: 'text-right' },
-                { label: 'PBR', align: 'text-right' },
+                { label: 'PER', align: 'text-right', key: 'per' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '등락률', align: 'text-right', key: 'change_rate' },
                 { label: '신고가 대비', align: 'text-right', key: 'above_high_percent' },
                 { label: '거래량비', align: 'text-right', key: 'volume_ratio' },
                 { label: '돌파 후', align: 'text-right', key: 'days_since' }
             ];
             const state = sortState['new-high-52w-table'] || {};
-            const sortedData = sortData(DATA.newHigh52w.data, state.key, state.direction);
+            const enrichedData = enrichWithFinancials(DATA.newHigh52w.data);
+            const sortedData = sortData(enrichedData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.newHigh52w);
-            const rows = paginatedData.map(s => {
-                const per = getPER(s.ticker);
-                const pbr = getPBR(s.ticker);
-                return `
+            const rows = paginatedData.map(s => `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
-                    <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
-                    <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
+                    <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
+                    <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
                     <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td class="text-right positive">+${s.above_high_percent.toFixed(1)}%</td>
                     <td class="text-right">${s.volume_ratio ? s.volume_ratio.toFixed(1) + 'x' : '-'}</td>
                     <td class="text-right">${s.days_since}일</td>
                 </tr>
-            `}).join('');
+            `).join('');
             renderTable('new-high-52w-table', headers, rows, renderNewHigh52w);
             renderMobileCards('new-high-52w-mobile', paginatedData, {
                 extraFields: [
@@ -3273,7 +3265,7 @@
 
         function renderBottomBreakout() {
             var bbData = DATA.bottomBreakout && DATA.bottomBreakout.data;
-            const bottomData = bbData || [];
+            const bottomData = enrichWithFinancials(bbData || []);
             document.getElementById('bottom-breakout-count').textContent = bottomData.length;
 
             const headers = [
@@ -3281,8 +3273,8 @@
                 { label: '종목명', key: 'name' },
                 { label: '현재가', align: 'text-right', key: 'current_price' },
                 { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                { label: 'PER', align: 'text-right' },
-                { label: 'PBR', align: 'text-right' },
+                { label: 'PER', align: 'text-right', key: 'per' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '점수', align: 'text-right', key: 'score' },
                 { label: '150일선이격', align: 'text-right', key: 'ma150_gap' },
                 { label: '52주고점대비', align: 'text-right', key: 'drop_from_high' }
@@ -3294,16 +3286,14 @@
                 const gradeClass = s.grade === 'A' ? 'positive' : 'neutral';
                 const gradeIcon = s.grade === 'A' ? '⭐A' : '  B';
                 const gapColor = s.ma150_gap >= 0 ? 'positive' : 'negative';
-                const per = getPER(s.ticker);
-                const pbr = getPBR(s.ticker);
                 return `
                     <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.current_price,change_rate:s.change_since_signal})})'>
                         <td class="${gradeClass}" style="font-weight:bold">${gradeIcon}</td>
                         <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                         <td class="text-right">${formatNumber(s.current_price)}원</td>
                         <td class="text-right">${formatMarketCap(s.market_cap)}</td>
-                        <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
-                        <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
+                        <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
+                        <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
                         <td class="text-right"><strong>${s.score}</strong>점</td>
                         <td class="text-right ${gapColor}">${s.ma150_gap >= 0 ? '+' : ''}${s.ma150_gap.toFixed(1)}%</td>
                         <td class="text-right negative">${s.drop_from_high.toFixed(1)}%</td>
@@ -3420,15 +3410,15 @@
 
         function renderMa60wQuality() {
             var mqData = DATA.ma60wQuality && DATA.ma60wQuality.data;
-            const qualityData = mqData || [];
+            const qualityData = enrichWithFinancials(mqData || []);
             document.getElementById('ma60w-quality-count').textContent = qualityData.length;
 
             const headers = [
                 { label: '종목명', key: 'name' },
                 { label: '현재가', align: 'text-right', key: 'current_price' },
                 { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                { label: 'PER', align: 'text-right' },
-                { label: 'PBR', align: 'text-right' },
+                { label: 'PER', align: 'text-right', key: 'per' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '60주선이격', align: 'text-right', key: 'ma60w_gap' },
                 { label: '영업이익률', align: 'text-right', key: 'op_margin' },
                 { label: '영업이익성장', align: 'text-right', key: 'op_growth_3y' }
@@ -3440,15 +3430,13 @@
 
             const rows = paginatedData.map(s => {
                 const stockJson = safeJsonStringify({ ticker: s.ticker, name: s.name, price: s.current_price, change_rate: 0 });
-                const per = getPER(s.ticker);
-                const pbr = getPBR(s.ticker);
                 return `
                 <tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${s.current_price != null ? s.current_price.toLocaleString() + '원' : '-'}</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
-                    <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
-                    <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
+                    <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
+                    <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
                     <td class="text-right ${s.ma60w_gap >= 0 ? 'positive' : 'negative'}">${s.ma60w_gap != null ? (s.ma60w_gap >= 0 ? '+' : '') + s.ma60w_gap.toFixed(1) + '%' : '-'}</td>
                     <td class="text-right">${s.op_margin != null ? s.op_margin.toFixed(1) + '%' : '-'}</td>
                     <td class="text-right">${s.op_growth_3y != null ? s.op_growth_3y.toFixed(1) + '%' : '-'}</td>
@@ -3467,15 +3455,15 @@
 
         function renderMaConvergence() {
             var mcData = DATA.maConvergence && DATA.maConvergence.data;
-            const convData = mcData || [];
+            const convData = enrichWithFinancials(mcData || []);
             document.getElementById('ma-convergence-count').textContent = convData.length;
 
             const headers = [
                 { label: '종목명', key: 'name' },
                 { label: '현재가', align: 'text-right', key: 'current_price' },
                 { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                { label: 'PER', align: 'text-right' },
-                { label: 'PBR', align: 'text-right' },
+                { label: 'PER', align: 'text-right', key: 'per' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '거래량', align: 'text-right', key: 'volume' },
                 { label: '20/60', align: 'text-right', key: 'gap_20_60' },
                 { label: '종가/20', align: 'text-right', key: 'gap_price_20' }
@@ -3485,21 +3473,18 @@
             const sortedData = sortData(convData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.maConvergence);
 
-            const rows = paginatedData.map(s => {
-                const per = getPER(s.ticker);
-                const pbr = getPBR(s.ticker);
-                return `
+            const rows = paginatedData.map(s => `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.current_price,change_rate:null})})' role="button" tabindex="0" onkeypress="if(event.key==='Enter')openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.current_price,change_rate:null})})">
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${s.current_price != null ? s.current_price.toLocaleString() + '원' : '-'}</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
-                    <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
-                    <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
+                    <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
+                    <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
                     <td class="text-right">${s.volume != null ? (s.volume / 10000).toFixed(1) + '만' : '-'}</td>
                     <td class="text-right">${s.gap_20_60 != null ? s.gap_20_60.toFixed(1) + '%' : '-'}</td>
                     <td class="text-right">${s.gap_price_20 != null ? s.gap_price_20.toFixed(1) + '%' : '-'}</td>
                 </tr>
-            `}).join('');
+            `).join('');
 
             renderTable('ma-convergence-table', headers, rows, renderMaConvergence);
             renderMobileCards('ma-convergence-mobile', paginatedData, {
