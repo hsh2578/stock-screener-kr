@@ -1,165 +1,177 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-02T13:56:32.657246",
-    "totalCount": 13,
-    "screened_from": 1528
+    "lastUpdated": "2026-02-02T15:11:22.103291",
+    "totalCount": 14,
+    "screened_from": 1525
   },
   "data": [
     {
       "ticker": "088130",
       "name": "동아엘텍",
-      "price": 6550,
-      "change_rate": 26.45,
-      "volume_ratio": 62.2,
+      "price": 6160,
+      "change_rate": 18.92,
+      "volume_ratio": 66.9,
       "volume_rank": 1,
-      "ma150": 3710,
+      "ma150": 3708,
       "above_ma150": true,
-      "market_cap": 1161,
-      "updated_at": "2026-02-02T13:56:32.585706"
+      "market_cap": 1127,
+      "updated_at": "2026-02-02T15:11:22.085269"
     },
     {
       "ticker": "004560",
       "name": "현대비앤지스틸",
-      "price": 16950,
-      "change_rate": 25.74,
-      "volume_ratio": 52.6,
+      "price": 17360,
+      "change_rate": 28.78,
+      "volume_ratio": 62.2,
       "volume_rank": 2,
-      "ma150": 11782,
+      "ma150": 11785,
       "above_ma150": true,
-      "market_cap": 2497,
-      "updated_at": "2026-02-02T13:56:31.952419"
+      "market_cap": 2543,
+      "updated_at": "2026-02-02T15:11:21.684750"
     },
     {
       "ticker": "029530",
       "name": "신도리코",
-      "price": 54000,
-      "change_rate": 14.41,
-      "volume_ratio": 28.9,
+      "price": 52900,
+      "change_rate": 12.08,
+      "volume_ratio": 30.8,
       "volume_rank": 3,
-      "ma150": 46981,
+      "ma150": 46974,
       "above_ma150": true,
-      "market_cap": 5493,
-      "updated_at": "2026-02-02T13:56:31.869760"
+      "market_cap": 5322,
+      "updated_at": "2026-02-02T15:11:21.623610"
     },
     {
       "ticker": "006220",
       "name": "제주은행",
-      "price": 16120,
-      "change_rate": 13.76,
-      "volume_ratio": 22.5,
+      "price": 17390,
+      "change_rate": 22.72,
+      "volume_ratio": 29.1,
       "volume_rank": 4,
-      "ma150": 13601,
+      "ma150": 13609,
       "above_ma150": true,
-      "market_cap": 6149,
-      "updated_at": "2026-02-02T13:56:31.862321"
+      "market_cap": 6493,
+      "updated_at": "2026-02-02T15:11:21.613432"
     },
     {
       "ticker": "161000",
       "name": "애경케미칼",
-      "price": 10120,
-      "change_rate": 8.12,
-      "volume_ratio": 21.1,
+      "price": 10030,
+      "change_rate": 7.16,
+      "volume_ratio": 21.8,
       "volume_rank": 5,
-      "ma150": 10703,
+      "ma150": 10702,
       "above_ma150": false,
-      "market_cap": 4962,
-      "updated_at": "2026-02-02T13:56:31.894373"
+      "market_cap": 4884,
+      "updated_at": "2026-02-02T15:11:21.626950"
     },
     {
       "ticker": "003120",
       "name": "일성아이에스",
-      "price": 24550,
-      "change_rate": 12.1,
-      "volume_ratio": 19.9,
+      "price": 24050,
+      "change_rate": 9.82,
+      "volume_ratio": 21.1,
       "volume_rank": 6,
-      "ma150": 23623,
+      "ma150": 23620,
       "above_ma150": true,
-      "market_cap": 3278,
-      "updated_at": "2026-02-02T13:56:31.924930"
+      "market_cap": 3258,
+      "updated_at": "2026-02-02T15:11:21.663736"
     },
     {
       "ticker": "123330",
       "name": "제닉",
       "price": 21250,
       "change_rate": 29.89,
-      "volume_ratio": 19.8,
+      "volume_ratio": 20.0,
       "volume_rank": 7,
       "ma150": 25453,
       "above_ma150": false,
       "market_cap": 1693,
-      "updated_at": "2026-02-02T13:56:32.434659"
+      "updated_at": "2026-02-02T15:11:22.017310"
     },
     {
       "ticker": "115310",
       "name": "인포바인",
-      "price": 87300,
-      "change_rate": 18.45,
-      "volume_ratio": 13.0,
+      "price": 85300,
+      "change_rate": 15.74,
+      "volume_ratio": 14.0,
       "volume_rank": 8,
-      "ma150": 68581,
+      "ma150": 68567,
       "above_ma150": true,
-      "market_cap": 2787,
-      "updated_at": "2026-02-02T13:56:32.290612"
+      "market_cap": 2739,
+      "updated_at": "2026-02-02T15:11:21.873413"
     },
     {
       "ticker": "011000",
       "name": "진원생명과학",
-      "price": 2050,
-      "change_rate": 6.83,
-      "volume_ratio": 8.4,
+      "price": 2055,
+      "change_rate": 7.09,
+      "volume_ratio": 9.1,
       "volume_rank": 9,
       "ma150": 2181,
       "above_ma150": false,
-      "market_cap": 1750,
-      "updated_at": "2026-02-02T13:56:32.084410"
+      "market_cap": 1767,
+      "updated_at": "2026-02-02T15:11:21.714450"
     },
     {
       "ticker": "012210",
       "name": "삼미금속",
-      "price": 17310,
-      "change_rate": 24.98,
-      "volume_ratio": 7.9,
+      "price": 16750,
+      "change_rate": 20.94,
+      "volume_ratio": 9.1,
       "volume_rank": 10,
-      "ma150": 7283,
+      "ma150": 7280,
       "above_ma150": true,
-      "market_cap": 3781,
-      "updated_at": "2026-02-02T13:56:32.260027"
+      "market_cap": 3686,
+      "updated_at": "2026-02-02T15:11:21.845655"
+    },
+    {
+      "ticker": "380550",
+      "name": "뉴로핏",
+      "price": 36700,
+      "change_rate": 29.91,
+      "volume_ratio": 8.0,
+      "volume_rank": 11,
+      "ma150": null,
+      "above_ma150": false,
+      "market_cap": 4130,
+      "updated_at": "2026-02-02T15:11:21.835360"
     },
     {
       "ticker": "259630",
       "name": "엠플러스",
-      "price": 13550,
-      "change_rate": 8.4,
-      "volume_ratio": 7.0,
-      "volume_rank": 11,
-      "ma150": 12362,
-      "above_ma150": true,
-      "market_cap": 1661,
-      "updated_at": "2026-02-02T13:56:32.446886"
-    },
-    {
-      "ticker": "088390",
-      "name": "이녹스",
-      "price": 10660,
-      "change_rate": 7.57,
-      "volume_ratio": 6.9,
+      "price": 13320,
+      "change_rate": 6.56,
+      "volume_ratio": 7.5,
       "volume_rank": 12,
-      "ma150": 10073,
+      "ma150": 12361,
       "above_ma150": true,
-      "market_cap": 1020,
-      "updated_at": "2026-02-02T13:56:32.653185"
+      "market_cap": 1616,
+      "updated_at": "2026-02-02T15:11:22.024770"
     },
     {
       "ticker": "016740",
       "name": "두올",
-      "price": 4755,
-      "change_rate": 8.31,
-      "volume_ratio": 6.3,
+      "price": 4660,
+      "change_rate": 6.15,
+      "volume_ratio": 6.6,
       "volume_rank": 13,
       "ma150": 3636,
       "above_ma150": true,
-      "market_cap": 1369,
-      "updated_at": "2026-02-02T13:56:32.100817"
+      "market_cap": 1333,
+      "updated_at": "2026-02-02T15:11:21.735593"
+    },
+    {
+      "ticker": "272290",
+      "name": "이녹스첨단소재",
+      "price": 35150,
+      "change_rate": 7.49,
+      "volume_ratio": 6.4,
+      "volume_rank": 14,
+      "ma150": 24703,
+      "above_ma150": true,
+      "market_cap": 6964,
+      "updated_at": "2026-02-02T15:11:21.805289"
     }
   ]
 }
