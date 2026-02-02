@@ -809,16 +809,12 @@
 
         @media (max-width: 768px) {
             .table-wrapper {
+                display: block;
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
             }
-            /* 모바일에서는 기본적으로 카드 뷰 표시 */
-            .table-card:not(.table-view) .table-wrapper {
+            .mobile-card-list {
                 display: none;
-            }
-            .table-card:not(.table-view) .mobile-card-list {
-                display: block;
-                padding: 12px;
             }
         }
             .stock-card-mobile {
