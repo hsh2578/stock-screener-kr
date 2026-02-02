@@ -457,8 +457,8 @@
         .negative { color: var(--color-danger); font-weight: 700; }
         .neutral { color: var(--color-text-secondary); font-weight: 500; }
         /* 색맹 접근성: 상승/하락 아이콘 추가 */
-        .positive::before { content: '▲ '; font-size: 0.8em; }
-        .negative::before { content: '▼ '; font-size: 0.8em; }
+        .positive::before { content: ''; }
+        .negative::before { content: ''; }
 
         /* PER/PBR 가치평가 색상 */
         .text-blue { color: #1261C4; font-weight: 600; }  /* 저평가 (저PER/저PBR) */
@@ -2200,6 +2200,13 @@
         // PBR 색상: 저PBR(1 미만) 파랑, 고PBR(3 이상) 빨강
         const getPBRColor = pbr => { if (pbr == null) return ''; return pbr < 1 ? 'text-blue' : pbr > 3 ? 'text-red' : ''; };
 
+        // PER/PBR 값을 데이터에 추가하여 정렬 가능하게 만드는 헬퍼 함수
+        const enrichWithFinancials = data => data.map(s => {
+            var per = s.per != null ? s.per : getPER(s.ticker);
+            var pbr = s.pbr != null ? s.pbr : getPBR(s.ticker);
+            return Object.assign({}, s, { per: per, pbr: pbr });
+        });
+
         // 모바일 감지 - CSS 미디어 쿼리와 동기화 (768px 기준)
         const isMobileView = () => window.matchMedia('(max-width: 768px)').matches;
 
@@ -2855,8 +2862,8 @@
 
         function renderBoxRange() {
             syncFilterButton('boxRange');
-            // 필터 적용
-            let filteredData = DATA.boxRange.data;
+            // 필터 적용 + PER/PBR 보강
+            let filteredData = enrichWithFinancials(DATA.boxRange.data);
             if (filterMA150State.boxRange) {
                 filteredData = filteredData.filter(s => s.above_ma150 === true);
             }
@@ -2869,8 +2876,8 @@
                 { label: '종목명', key: 'name' },
                 { label: '현재가', align: 'text-right', key: 'price' },
                 { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                { label: 'PER', align: 'text-right' },
-                { label: 'PBR', align: 'text-right' },
+                { label: 'PER', align: 'text-right', key: 'per' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '등락률', align: 'text-right', key: 'change_rate' },
                 { label: '변동폭', align: 'text-right', key: 'range_percent' },
                 { label: '지지 터치', align: 'text-center', key: 'support_touches' },
@@ -2880,23 +2887,20 @@
             const state = sortState['box-range-table'] || {};
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.boxRange);
-            const rows = paginatedData.map(s => {
-                const per = getPER(s.ticker);
-                const pbr = getPBR(s.ticker);
-                return `
+            const rows = paginatedData.map(s => `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})' role="button" tabindex="0" onkeypress="if(event.key==='Enter')openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})">
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
-                    <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
-                    <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
+                    <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
+                    <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
                     <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td class="text-right">${formatPercent(s.range_percent)}</td>
                     <td class="text-center">${s.support_touches}/${s.resistance_touches}</td>
                     <td class="text-right">${s.atr_multiple.toFixed(1)}x</td>
                     <td class="text-right">${s.days || 60}일</td>
                 </tr>
-            `}).join('');
+            `).join('');
             renderTable('box-range-table', headers, rows, renderBoxRange);
 
             // Mobile card view
@@ -2909,8 +2913,8 @@
 
         function renderBoxBreakout() {
             syncFilterButton('boxBreakout');
-            // 필터 적용
-            let filteredData = DATA.boxBreakout.data;
+            // 필터 적용 + PER/PBR 보강
+            let filteredData = enrichWithFinancials(DATA.boxBreakout.data);
             if (filterMA150State.boxBreakout) {
                 filteredData = filteredData.filter(s => s.above_ma150 === true);
             }
@@ -2926,8 +2930,8 @@
                 { label: '종목명', key: 'name' },
                 { label: '현재가', align: 'text-right', key: 'price' },
                 { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                { label: 'PER', align: 'text-right' },
-                { label: 'PBR', align: 'text-right' },
+                { label: 'PER', align: 'text-right', key: 'per' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '등락률', align: 'text-right', key: 'change_rate' },
                 { label: '돌파일', key: 'breakout_date' },
                 { label: '거래량비', align: 'text-right', key: 'volume_ratio' },
@@ -2936,22 +2940,19 @@
             const state = sortState['box-breakout-table'] || {};
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.boxBreakout);
-            const rows = paginatedData.map(s => {
-                const per = getPER(s.ticker);
-                const pbr = getPBR(s.ticker);
-                return `
+            const rows = paginatedData.map(s => `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
-                    <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
-                    <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
+                    <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
+                    <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
                     <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td>${formatShortDate(s.breakout_date)}</td>
                     <td class="text-right">${s.volume_ratio.toFixed(1)}x</td>
                     <td class="text-right ${getColor(s.breakout_pct)}">${s.breakout_pct != null ? formatPercent(s.breakout_pct) : '-'}</td>
                 </tr>
-            `}).join('');
+            `).join('');
             renderTable('box-breakout-table', headers, rows, renderBoxBreakout);
             renderMobileCards('box-breakout-mobile', paginatedData, {
                 extraFields: [
@@ -2964,8 +2965,8 @@
 
         function renderBoxBreakoutSimple() {
             syncFilterButton('boxBreakoutSimple');
-            // 필터 적용
-            let filteredData = DATA.boxBreakoutSimple.data;
+            // 필터 적용 + PER/PBR 보강
+            let filteredData = enrichWithFinancials(DATA.boxBreakoutSimple.data);
             if (filterMA150State.boxBreakoutSimple) {
                 filteredData = filteredData.filter(s => s.above_ma150 === true);
             }
@@ -2981,8 +2982,8 @@
                 { label: '종목명', key: 'name' },
                 { label: '현재가', align: 'text-right', key: 'price' },
                 { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                { label: 'PER', align: 'text-right' },
-                { label: 'PBR', align: 'text-right' },
+                { label: 'PER', align: 'text-right', key: 'per' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '등락률', align: 'text-right', key: 'change_rate' },
                 { label: '돌파일', key: 'breakout_date' },
                 { label: '경과일', align: 'text-right', key: 'days_since_breakout' },
@@ -2991,22 +2992,19 @@
             const state = sortState['box-breakout-simple-table'] || {};
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.boxBreakoutSimple);
-            const rows = paginatedData.map(s => {
-                const per = getPER(s.ticker);
-                const pbr = getPBR(s.ticker);
-                return `
+            const rows = paginatedData.map(s => `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
-                    <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
-                    <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
+                    <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
+                    <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
                     <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td>${formatShortDate(s.breakout_date)}</td>
                     <td class="text-right">${s.days_since_breakout}일</td>
                     <td class="text-right ${getColor(s.breakout_pct)}">${s.breakout_pct != null ? formatPercent(s.breakout_pct) : '-'}</td>
                 </tr>
-            `}).join('');
+            `).join('');
             renderTable('box-breakout-simple-table', headers, rows, renderBoxBreakoutSimple);
             renderMobileCards('box-breakout-simple-mobile', paginatedData, {
                 extraFields: [
@@ -3019,8 +3017,8 @@
 
         function renderPullback() {
             syncFilterButton('pullback');
-            // 필터 적용
-            let filteredData = DATA.pullback.data;
+            // 필터 적용 + PER/PBR 보강
+            let filteredData = enrichWithFinancials(DATA.pullback.data);
             if (filterMA150State.pullback) {
                 filteredData = filteredData.filter(s => s.above_ma150 === true);
             }
@@ -3036,8 +3034,8 @@
                 { label: '종목명', key: 'name' },
                 { label: '현재가', align: 'text-right', key: 'price' },
                 { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                { label: 'PER', align: 'text-right' },
-                { label: 'PBR', align: 'text-right' },
+                { label: 'PER', align: 'text-right', key: 'per' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '등락률', align: 'text-right', key: 'change_rate' },
                 { label: '돌파일', key: 'breakout_date' },
                 { label: '풀백률', align: 'text-right', key: 'pullback_ratio' },
@@ -3046,22 +3044,19 @@
             const state = sortState['pullback-table'] || {};
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.pullback);
-            const rows = paginatedData.map(s => {
-                const per = getPER(s.ticker);
-                const pbr = getPBR(s.ticker);
-                return `
+            const rows = paginatedData.map(s => `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
-                    <td class="text-right ${getPERColor(per)}">${formatPER(per)}</td>
-                    <td class="text-right ${getPBRColor(pbr)}">${formatPBR(pbr)}</td>
+                    <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
+                    <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
                     <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td>${formatShortDate(s.breakout_date)}</td>
                     <td class="text-right">${s.pullback_ratio.toFixed(1)}%</td>
                     <td class="text-right" style="color: var(--color-success)">-${s.volume_decrease}%</td>
                 </tr>
-            `}).join('');
+            `).join('');
             renderTable('pullback-table', headers, rows, renderPullback);
             renderMobileCards('pullback-mobile', paginatedData, {
                 extraFields: [
