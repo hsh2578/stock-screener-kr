@@ -2195,10 +2195,9 @@
         const getPBR = ticker => getFinancialMetric(ticker, 'pbr');
         const formatPER = per => per != null ? per.toFixed(1) : '-';
         const formatPBR = pbr => pbr != null ? pbr.toFixed(2) : '-';
-        // PER 색상: 저PER(15 미만) 파랑, 고PER(30 이상) 빨강
-        const getPERColor = per => { if (per == null) return ''; return per < 15 ? 'text-blue' : per > 30 ? 'text-red' : ''; };
-        // PBR 색상: 저PBR(1 미만) 파랑, 고PBR(3 이상) 빨강
-        const getPBRColor = pbr => { if (pbr == null) return ''; return pbr < 1 ? 'text-blue' : pbr > 3 ? 'text-red' : ''; };
+        // PER/PBR 색상 제거 - 항상 기본 색상 사용
+        const getPERColor = per => '';
+        const getPBRColor = pbr => '';
 
         // PER/PBR 값을 데이터에 추가하여 정렬 가능하게 만드는 헬퍼 함수
         const enrichWithFinancials = data => data.map(s => {
