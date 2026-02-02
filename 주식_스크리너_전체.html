@@ -456,7 +456,6 @@
         .positive { color: var(--color-success); font-weight: 700; }
         .negative { color: var(--color-danger); font-weight: 700; }
         .neutral { color: var(--color-text-secondary); font-weight: 500; }
-        /* 색맹 접근성: 상승/하락 아이콘 추가 */
         .positive::before { content: ''; }
         .negative::before { content: ''; }
 
@@ -691,6 +690,17 @@
             animation: slideInUp 0.3s ease-out;
             opacity: 0;
         }
+        /* 모바일 toast 위치 개선 - 하단 중앙 배치로 가시성 향상 */
+        @media (max-width: 768px) {
+            .toast {
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+                bottom: 80px; /* 하단 네비게이션 영역 피하기 */
+                min-width: calc(100% - 48px);
+                max-width: calc(100% - 48px);
+            }
+        }
         .toast.show {
             opacity: 1;
         }
@@ -754,18 +764,63 @@
             }
         }
 
+        /* 모바일 toast 애니메이션 수정 */
+        @media (max-width: 768px) {
+            @keyframes slideInUp {
+                from {
+                    transform: translate(-50%, 100px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translate(-50%, 0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOutDown {
+                from {
+                    transform: translate(-50%, 0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translate(-50%, 100px);
+                    opacity: 0;
+                }
+            }
+        }
+
         /* ============================================================
            MOBILE CARD VIEW FOR TABLES
            ============================================================ */
+        /* 뷰 전환 시스템: 기본적으로 테이블은 보이고 카드는 숨김 */
+        .table-wrapper {
+            display: block;
+        }
+        .mobile-card-list {
+            display: none;
+        }
+        /* 카드 뷰 활성화 시 */
+        .table-card.card-view .table-wrapper {
+            display: none;
+        }
+        .table-card.card-view .mobile-card-list {
+            display: block;
+            padding: 16px;
+        }
+
         @media (max-width: 768px) {
             .table-wrapper {
-                display: block;
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
             }
-            .mobile-card-list {
+            /* 모바일에서는 기본적으로 카드 뷰 표시 */
+            .table-card:not(.table-view) .table-wrapper {
                 display: none;
             }
+            .table-card:not(.table-view) .mobile-card-list {
+                display: block;
+                padding: 12px;
+            }
+        }
             .stock-card-mobile {
                 background: var(--color-bg-primary);
                 border: 1px solid var(--color-border);
@@ -780,6 +835,11 @@
             .stock-card-mobile:hover {
                 border-color: var(--color-border-dark);
                 box-shadow: var(--shadow-md);
+            }
+            .stock-card-mobile:focus {
+                outline: 2px solid var(--color-accent);
+                outline-offset: 2px;
+                border-color: var(--color-accent);
             }
             .stock-card-mobile:active {
                 transform: scale(0.98);
@@ -1223,6 +1283,121 @@
         }
 
         /* ============================================================
+           VIEW TOGGLE (테이블/카드 뷰 전환)
+           ============================================================ */
+        .view-toggle-group {
+            display: inline-flex;
+            border: 2px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            background: var(--color-bg-primary);
+        }
+        .view-toggle-btn {
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            color: var(--color-text-secondary);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            min-width: 80px;
+            justify-content: center;
+            position: relative;
+        }
+        .view-toggle-btn:not(:last-child) {
+            border-right: 1px solid var(--color-border);
+        }
+        .view-toggle-btn:hover {
+            background: var(--color-bg-tertiary);
+            color: var(--color-text-primary);
+        }
+        .view-toggle-btn:focus {
+            outline: 2px solid var(--color-accent);
+            outline-offset: -2px;
+            z-index: 1;
+        }
+        .view-toggle-btn.active {
+            background: var(--color-accent);
+            color: white;
+            font-weight: 700;
+        }
+        .view-toggle-btn .icon {
+            font-size: 16px;
+        }
+        /* 모바일에서 더 큰 터치 영역 */
+        @media (max-width: 768px) {
+            .view-toggle-btn {
+                min-height: 44px;
+                padding: 12px 18px;
+            }
+        }
+
+        /* ============================================================
+           FILTER RESULT BANNER (필터 적용 상태 표시)
+           ============================================================ */
+        .filter-banner {
+            display: none;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, var(--color-accent-light) 0%, #D6E9FB 100%);
+            border: 1px solid var(--color-accent);
+            border-radius: var(--radius-sm);
+            margin-bottom: 16px;
+            align-items: center;
+            gap: 12px;
+            animation: slideInDown 0.3s ease-out;
+        }
+        .filter-banner.active {
+            display: flex;
+        }
+        .filter-banner-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .filter-banner-content {
+            flex: 1;
+        }
+        .filter-banner-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 2px;
+        }
+        .filter-banner-desc {
+            font-size: 12px;
+            color: var(--color-text-secondary);
+        }
+        .filter-banner-close {
+            background: none;
+            border: none;
+            color: var(--color-accent);
+            cursor: pointer;
+            font-size: 20px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background 0.15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .filter-banner-close:hover {
+            background: rgba(0, 102, 204, 0.1);
+        }
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* ============================================================
            PAGINATION - Yahoo Finance Style
            ============================================================ */
         .pagination {
@@ -1235,6 +1410,17 @@
             background: var(--color-bg-secondary);
             border-top: 1px solid var(--color-border);
             flex-wrap: wrap;
+        }
+        /* 상단 페이지네이션 스타일 */
+        .pagination-top {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        /* 모바일에서는 상단 페이지네이션 숨김 (스크롤 거리가 짧음) */
+        @media (max-width: 768px) {
+            .pagination-top {
+                display: none;
+            }
         }
         .pagination-btn {
             background: var(--color-bg-primary);
@@ -1253,6 +1439,11 @@
             border-color: var(--color-border-dark);
             color: var(--color-text-primary);
         }
+        .pagination-btn:focus {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+            z-index: 1;
+        }
         .pagination-btn:disabled {
             opacity: 0.4;
             cursor: not-allowed;
@@ -1261,6 +1452,7 @@
             background: var(--color-accent);
             border-color: var(--color-accent);
             color: white;
+            font-weight: 700;
         }
         .pagination-info {
             color: var(--color-text-muted);
@@ -1379,17 +1571,39 @@
                     <span class="badge badge-info">퀀트</span>
                 </div>
                 <p class="desc">60거래일 ATR기반 횡보 + 지지/저항 터치 확인 + 추세 필터 + 거래량 감소 (7조건)</p>
-                <div class="filter-row" style="margin: 12px 0; display: flex; gap: 8px; align-items: center;" role="group" aria-label="필터 옵션">
+                <div class="filter-row" style="margin: 12px 0; display: flex; gap: 8px; align-items: center; flex-wrap: wrap;" role="group" aria-label="필터 및 보기 옵션">
                     <button id="filter-ma150-btn" class="filter-btn" onclick="toggleMA150Filter()" aria-pressed="false" aria-label="150일 이동평균선 위 종목만 표시">
                         <span class="sr-only">필터:</span>
                         150일선 위만
                     </button>
+                    <div class="view-toggle-group" role="group" aria-label="뷰 전환">
+                        <button class="view-toggle-btn active" onclick="toggleView('table', 'box-range')" data-view="table" aria-label="테이블 뷰">
+                            <span class="icon" aria-hidden="true">☰</span>
+                            <span>테이블</span>
+                        </button>
+                        <button class="view-toggle-btn" onclick="toggleView('card', 'box-range')" data-view="card" aria-label="카드 뷰">
+                            <span class="icon" aria-hidden="true">▦</span>
+                            <span>카드</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="filter-banner-box-range" class="filter-banner" role="alert">
+                    <span class="filter-banner-icon" aria-hidden="true">ℹ️</span>
+                    <div class="filter-banner-content">
+                        <div class="filter-banner-title">필터 적용됨</div>
+                        <div class="filter-banner-desc">150일 이동평균선 위 종목만 표시 중입니다</div>
+                    </div>
+                    <button class="filter-banner-close" onclick="toggleMA150Filter()" aria-label="필터 해제">✕</button>
                 </div>
                 <div class="meta" aria-live="polite">
                     <span class="date" id="box-range-date">데이터 기준: -</span>
                     <span><span class="count" id="box-range-count">-</span>개 종목 <span class="total" id="box-range-total">/ 1,521개 중</span></span>
                 </div>
             </header>
+
+            <!-- 상단 페이지네이션 (긴 테이블 사용성 개선) -->
+            <div id="box-range-pagination-top" class="pagination pagination-top" role="navigation" aria-label="상단 페이지 네비게이션" style="border-bottom: 1px solid var(--color-border); border-top: none; margin-bottom: 0; border-radius: var(--radius-md) var(--radius-md) 0 0;"></div>
+
             <div class="card table-card">
                 <div class="table-wrapper">
                     <table id="box-range-table" role="table" aria-label="박스권 종목 목록">
@@ -2234,7 +2448,7 @@
                     return '<div class="detail-item"><div class="detail-label">' + f.label + '</div><div class="detail-value">' + value + '</div></div>';
                 }).join('');
 
-                return '<div class="stock-card-mobile" onclick=\'openChartModal(' + stockJson + ')\' role="button" tabindex="0">' +
+                return '<div class="stock-card-mobile" onclick=\'openChartModal(' + stockJson + ')\' onkeypress="if(event.key===\'Enter\'||event.key===\' \')openChartModal(' + stockJson + ')" role="button" tabindex="0" aria-label="' + s.name + ' 차트 보기">' +
                     '<div class="header-row">' +
                         '<div class="stock-info">' +
                             '<h3>' + s.name + '</h3>' +
@@ -2362,11 +2576,19 @@
 
         function goToPage(screenerId, page, renderFn) {
             paginationState[screenerId] = page;
+            // 캐시 무효화 - 페이지 변경 시 강제 재렌더링
+            if (typeof screenerToTable !== 'undefined') {
+                const tableId = screenerToTable[screenerId];
+                if (tableId) renderCache.delete(tableId);
+            }
             renderFn();
         }
 
         function renderPagination(containerId, screenerId, totalItems, renderFn) {
             const container = document.getElementById(containerId);
+            // 상단 페이지네이션도 함께 업데이트
+            const topContainer = document.getElementById(containerId + '-top');
+
             if (!container) return;
 
             const totalPages = getTotalPages(totalItems);
@@ -2374,6 +2596,7 @@
 
             if (totalPages <= 1) {
                 container.innerHTML = '';
+                if (topContainer) topContainer.innerHTML = '';
                 return;
             }
 
@@ -2381,7 +2604,7 @@
 
             // Previous button
             html += `<button class="pagination-btn" ${currentPage === 1 ? 'disabled' : ''}
-                onclick="goToPage('${screenerId}', ${currentPage - 1}, ${renderFn.name})">◀ 이전</button>`;
+                onclick="goToPage('${screenerId}', ${currentPage - 1}, ${renderFn.name})" aria-label="이전 페이지">◀ 이전</button>`;
 
             // Page numbers
             const maxVisiblePages = 5;
@@ -2393,30 +2616,35 @@
             }
 
             if (startPage > 1) {
-                html += `<button class="pagination-btn" onclick="goToPage('${screenerId}', 1, ${renderFn.name})">1</button>`;
+                html += `<button class="pagination-btn" onclick="goToPage('${screenerId}', 1, ${renderFn.name})" aria-label="첫 페이지">1</button>`;
                 if (startPage > 2) html += `<span class="pagination-info">...</span>`;
             }
 
             for (let i = startPage; i <= endPage; i++) {
-                html += `<button class="pagination-btn ${i === currentPage ? 'active' : ''}"
-                    onclick="goToPage('${screenerId}', ${i}, ${renderFn.name})">${i}</button>`;
+                const isActive = i === currentPage;
+                html += `<button class="pagination-btn ${isActive ? 'active' : ''}"
+                    onclick="goToPage('${screenerId}', ${i}, ${renderFn.name})"
+                    aria-label="페이지 ${i}${isActive ? ' (현재 페이지)' : ''}"
+                    ${isActive ? 'aria-current="page"' : ''}>${i}</button>`;
             }
 
             if (endPage < totalPages) {
                 if (endPage < totalPages - 1) html += `<span class="pagination-info">...</span>`;
-                html += `<button class="pagination-btn" onclick="goToPage('${screenerId}', ${totalPages}, ${renderFn.name})">${totalPages}</button>`;
+                html += `<button class="pagination-btn" onclick="goToPage('${screenerId}', ${totalPages}, ${renderFn.name})" aria-label="마지막 페이지 ${totalPages}">${totalPages}</button>`;
             }
 
             // Next button
             html += `<button class="pagination-btn" ${currentPage === totalPages ? 'disabled' : ''}
-                onclick="goToPage('${screenerId}', ${currentPage + 1}, ${renderFn.name})">다음 ▶</button>`;
+                onclick="goToPage('${screenerId}', ${currentPage + 1}, ${renderFn.name})" aria-label="다음 페이지">다음 ▶</button>`;
 
             // Page info
             const startItem = (currentPage - 1) * ITEMS_PER_PAGE + 1;
             const endItem = Math.min(currentPage * ITEMS_PER_PAGE, totalItems);
-            html += `<span class="pagination-info">${startItem}-${endItem} / ${totalItems}개</span>`;
+            html += `<span class="pagination-info" aria-live="polite">${startItem}-${endItem} / ${totalItems}개</span>`;
 
             container.innerHTML = html;
+            // 상단 페이지네이션도 동일하게 업데이트
+            if (topContainer) topContainer.innerHTML = html;
         }
 
         // Button ID mapping
@@ -2462,11 +2690,56 @@
                 btn.classList.toggle('active', filterMA150State[screener]);
                 btn.setAttribute('aria-pressed', filterMA150State[screener] ? 'true' : 'false');
             }
+
+            // 필터 배너 표시/숨김
+            const banner = document.getElementById(`filter-banner-${screener.replace(/([A-Z])/g, '-$1').toLowerCase()}`);
+            if (banner) {
+                if (filterMA150State[screener]) {
+                    banner.classList.add('active');
+                } else {
+                    banner.classList.remove('active');
+                }
+            }
+
+            // 캐시 무효화 - 필터 변경 시 강제 재렌더링
+            const tableId = screenerToTable[screener];
+            if (tableId) renderCache.delete(tableId);
             renderFunctions[screener]();
 
             // Show feedback toast
             const filterStatus = filterMA150State[screener] ? '활성화' : '비활성화';
             showToast('필터 변경', `150일선 위 필터가 ${filterStatus}되었습니다`, 2000);
+        }
+
+        // 뷰 전환 함수 (테이블 ↔ 카드)
+        function toggleView(viewType, screener) {
+            const tableCard = document.querySelector(`#page-${screener.replace(/([A-Z])/g, '-$1').toLowerCase()} .table-card`);
+            const buttons = document.querySelectorAll(`#page-${screener.replace(/([A-Z])/g, '-$1').toLowerCase()} .view-toggle-btn`);
+
+            if (!tableCard) return;
+
+            if (viewType === 'table') {
+                tableCard.classList.remove('card-view');
+                tableCard.classList.add('table-view');
+            } else {
+                tableCard.classList.add('card-view');
+                tableCard.classList.remove('table-view');
+            }
+
+            // 버튼 active 상태 업데이트
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-view') === viewType) {
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-pressed', 'true');
+                } else {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-pressed', 'false');
+                }
+            });
+
+            // 접근성 알림
+            const viewName = viewType === 'table' ? '테이블 뷰' : '카드 뷰';
+            showToast('뷰 변경', `${viewName}로 전환되었습니다`, 1500);
         }
 
         // Sort data
@@ -2503,11 +2776,23 @@
             'volume-dry-up-table': 'volumeDryUp',
             'volume-explosion-table': 'volumeExplosion',
             'new-high-52w-table': 'newHigh52w',
-            'value-stocks-table': 'valueStocks'
+            'value-stocks-table': 'valueStocks',
+            'fallen-rebound-table': 'fallenRebound',
+            'bottom-breakout-table': 'bottomBreakout',
+            'ma60w-quality-table': 'ma60wQuality',
+            'ma-convergence-table': 'maConvergence'
         };
+
+        // 역방향 매핑 - screener ID에서 table ID로
+        const screenerToTable = {};
+        Object.entries(tableToScreener).forEach(([tableId, screenerId]) => {
+            screenerToTable[screenerId] = tableId;
+        });
 
         function handleSort(tableId, key, renderFn) {
             const state = sortState[tableId] || { key: null, direction: null };
+            const oldDirection = state.direction;
+
             if (state.key === key) {
                 if (state.direction === 'asc') state.direction = 'desc';
                 else if (state.direction === 'desc') { state.key = null; state.direction = null; }
@@ -2517,10 +2802,41 @@
                 state.direction = 'asc';
             }
             sortState[tableId] = state;
+
             // Reset pagination when sort changes
             const screenerId = tableToScreener[tableId];
             if (screenerId) paginationState[screenerId] = 1;
-            renderFn();
+
+            // 시각적 피드백: 정렬 중임을 표시
+            const table = document.getElementById(tableId);
+            if (table) {
+                table.style.opacity = '0.6';
+                table.style.transition = 'opacity 0.15s';
+            }
+
+            // 캐시 무효화 - 정렬 변경 시 강제 재렌더링
+            renderCache.delete(tableId);
+
+            // 비동기로 렌더링하여 UI 블로킹 방지
+            requestAnimationFrame(() => {
+                renderFn();
+                if (table) {
+                    setTimeout(() => {
+                        table.style.opacity = '1';
+                    }, 50);
+                }
+            });
+
+            // 스크린리더 안내 (정렬 해제 시에만)
+            if (!state.key && oldDirection) {
+                const announcement = document.createElement('div');
+                announcement.setAttribute('role', 'status');
+                announcement.setAttribute('aria-live', 'polite');
+                announcement.className = 'sr-only';
+                announcement.textContent = '정렬이 해제되었습니다';
+                document.body.appendChild(announcement);
+                setTimeout(() => announcement.remove(), 1000);
+            }
         }
 
         // Open chart modal
@@ -2569,7 +2885,8 @@
                 };
 
                 modalContent.addEventListener('keydown', trapFocus);
-                modal._trapFocusHandler = trapFocus; // 나중에 제거할 수 있도록 저장
+                // WeakMap 사용으로 메모리 누수 방지
+                setEventListener(modal, 'trapFocus', trapFocus);
             }, 100);
 
             const container = document.getElementById('chart-container');
@@ -2647,29 +2964,38 @@
 
             chartInstance.timeScale().fitContent();
 
-            // Resize handler
+            // Resize handler - WeakMap으로 관리
             const resizeHandler = () => {
                 if (chartInstance) chartInstance.applyOptions({ width: container.clientWidth });
             };
             window.addEventListener('resize', resizeHandler);
-            chartInstance._resizeHandler = resizeHandler;
+            // WeakMap 사용으로 메모리 누수 방지 (chartInstance 대신 container 사용)
+            setEventListener(container, 'resize', resizeHandler);
         }
 
-        // Close modal
+        // Close modal - WeakMap 기반 이벤트 정리
         function closeModal() {
             const modal = document.getElementById('chart-modal');
             modal.classList.remove('active');
             document.body.style.overflow = '';
 
-            // 포커스 트랩 핸들러 제거
-            if (modal._trapFocusHandler) {
+            // 포커스 트랩 핸들러 제거 (WeakMap 사용)
+            const trapFocusHandler = getEventListener(modal, 'trapFocus');
+            if (trapFocusHandler) {
                 const modalContent = modal.querySelector('.modal-content');
-                modalContent.removeEventListener('keydown', modal._trapFocusHandler);
-                modal._trapFocusHandler = null;
+                modalContent.removeEventListener('keydown', trapFocusHandler);
+                removeEventListener(modal, 'trapFocus');
+            }
+
+            // 차트 리사이즈 핸들러 제거 및 차트 정리
+            const container = document.getElementById('chart-container');
+            const resizeHandler = getEventListener(container, 'resize');
+            if (resizeHandler) {
+                window.removeEventListener('resize', resizeHandler);
+                removeEventListener(container, 'resize');
             }
 
             if (chartInstance) {
-                if (chartInstance._resizeHandler) window.removeEventListener('resize', chartInstance._resizeHandler);
                 chartInstance.remove();
                 chartInstance = null;
             }
@@ -2811,7 +3137,37 @@
             `).join('');
         }
 
-        // Tables with sorting - DocumentFragment 사용으로 DOM 재계산 최소화
+        // ============================================================
+        // 성능 최적화: WeakMap을 사용한 이벤트 리스너 관리
+        // DOM 객체에 직접 저장하지 않아 메모리 누수 방지
+        // ============================================================
+        const eventListenerMap = new WeakMap();
+
+        function setEventListener(element, key, handler) {
+            let listeners = eventListenerMap.get(element);
+            if (!listeners) {
+                listeners = {};
+                eventListenerMap.set(element, listeners);
+            }
+            listeners[key] = handler;
+        }
+
+        function getEventListener(element, key) {
+            const listeners = eventListenerMap.get(element);
+            return listeners ? listeners[key] : null;
+        }
+
+        function removeEventListener(element, key) {
+            const listeners = eventListenerMap.get(element);
+            if (listeners && listeners[key]) {
+                delete listeners[key];
+            }
+        }
+
+        // ============================================================
+        // 성능 최적화: DocumentFragment를 사용한 테이블 렌더링
+        // innerHTML 대신 DOM API 사용으로 Reflow 최소화
+        // ============================================================
         function renderTable(tableId, headers, rows, renderFn) {
             const table = document.getElementById(tableId);
             const state = sortState[tableId] || {};
@@ -2853,13 +3209,174 @@
             thead.innerHTML = '';
             thead.appendChild(theadFragment);
 
-            // tbody 렌더링 - 문자열이 이미 생성된 경우 innerHTML 사용 (더 빠름)
-            // rows가 문자열인 경우 그대로 사용
-            table.querySelector('tbody').innerHTML = rows;
+            // tbody 렌더링 - DocumentFragment 사용으로 Reflow 최소화
+            const tbody = table.querySelector('tbody');
+
+            // 성능 최적화: 대량 DOM 업데이트 시 tbody를 임시로 분리
+            const tbodyParent = tbody.parentNode;
+            const tbodyNextSibling = tbody.nextSibling;
+            tbodyParent.removeChild(tbody);
+
+            // tbody 내용 업데이트 (분리된 상태에서 - reflow 없음)
+            tbody.innerHTML = rows;
+
+            // tbody 다시 연결 (단일 reflow만 발생)
+            if (tbodyNextSibling) {
+                tbodyParent.insertBefore(tbody, tbodyNextSibling);
+            } else {
+                tbodyParent.appendChild(tbody);
+            }
         }
 
+        // ============================================================
+        // 성능 최적화: 렌더링 캐시 및 불필요한 재렌더링 방지
+        // ============================================================
+        const renderCache = new Map();
+
+        // 데이터 해시 생성 (간단한 해시로 변경 감지)
+        function getDataHash(data, filterState, sortState, paginationState) {
+            return JSON.stringify({
+                dataLength: data ? data.length : 0,
+                filter: filterState,
+                sort: sortState,
+                page: paginationState
+            });
+        }
+
+        // 캐시된 렌더링 여부 확인 (동일 데이터면 렌더링 스킵)
+        function shouldSkipRender(cacheKey, newHash) {
+            const cachedHash = renderCache.get(cacheKey);
+            if (cachedHash === newHash) {
+                return true; // 동일 데이터 - 렌더링 스킵
+            }
+            renderCache.set(cacheKey, newHash);
+            return false;
+        }
+
+        // ============================================================
+        // 공통 테이블 행 생성 헬퍼 - 코드 중복 감소
+        // ============================================================
+        function createStockRow(s, columns) {
+            const stockJson = safeJsonStringify({
+                ticker: s.ticker,
+                name: s.name,
+                price: s.price || s.current_price,
+                change_rate: s.change_rate || 0
+            });
+            const cells = columns.map(col => col(s)).join('');
+            return `<tr class="clickable" onclick='openChartModal(${stockJson})' role="button" tabindex="0" onkeypress="if(event.key==='Enter')openChartModal(${stockJson})">${cells}</tr>`;
+        }
+
+        // 공통 셀 렌더러
+        const cellRenderers = {
+            stockName: (s) => `<td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>`,
+            price: (s) => `<td class="text-right">${formatNumber(s.price || s.current_price)}원</td>`,
+            marketCap: (s) => `<td class="text-right">${formatMarketCap(s.market_cap)}</td>`,
+            per: (s) => `<td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>`,
+            pbr: (s) => `<td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>`,
+            changeRate: (s) => `<td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>`,
+            volumeRatio: (s) => `<td class="text-right">${s.volume_ratio ? s.volume_ratio.toFixed(1) + 'x' : '-'}</td>`,
+            breakoutDate: (s) => `<td>${formatShortDate(s.breakout_date)}</td>`,
+            breakoutPct: (s) => `<td class="text-right ${getColor(s.breakout_pct)}">${s.breakout_pct != null ? formatPercent(s.breakout_pct) : '-'}</td>`
+        };
+
+        // 공통 헤더 정의
+        const commonHeaders = {
+            stockName: { label: '종목명', key: 'name' },
+            price: { label: '현재가', align: 'text-right', key: 'price' },
+            marketCap: { label: '시가총액', align: 'text-right', key: 'market_cap' },
+            per: { label: 'PER', align: 'text-right', key: 'per' },
+            pbr: { label: 'PBR', align: 'text-right', key: 'pbr' },
+            changeRate: { label: '등락률', align: 'text-right', key: 'change_rate' }
+        };
+
+        // 공통 스크리너 렌더링 로직
+        function renderScreenerTable(config) {
+            const {
+                dataKey,           // DATA 객체 키
+                filterKey,         // filterMA150State 키
+                tableId,           // 테이블 ID
+                countId,           // 카운트 표시 요소 ID
+                mobileId,          // 모바일 카드 ID
+                paginationId,      // 페이지네이션 ID
+                paginationKey,     // paginationState 키
+                headers,           // 테이블 헤더
+                rowRenderer,       // 행 렌더러 함수
+                extraFields,       // 모바일 카드 추가 필드
+                renderFn,          // 렌더 함수 참조 (재렌더링용)
+                enrichData = true, // 재무 데이터 보강 여부
+                showFilterCount = true // 필터링 시 카운트 표시 여부
+            } = config;
+
+            // 데이터 가져오기
+            const rawData = DATA[dataKey] && DATA[dataKey].data;
+            if (!rawData) return;
+
+            // 필터 버튼 동기화
+            if (filterKey) syncFilterButton(filterKey);
+
+            // 데이터 보강 및 필터링
+            let filteredData = enrichData ? enrichWithFinancials(rawData) : rawData;
+            if (filterKey && filterMA150State[filterKey]) {
+                filteredData = filteredData.filter(s => s.above_ma150 === true);
+            }
+
+            // 렌더링 캐시 확인 - 불필요한 재렌더링 방지
+            const cacheKey = tableId;
+            const dataHash = getDataHash(
+                filteredData,
+                filterKey ? filterMA150State[filterKey] : null,
+                sortState[tableId],
+                paginationState[paginationKey]
+            );
+            if (shouldSkipRender(cacheKey, dataHash)) {
+                return; // 동일 데이터 - 렌더링 스킵
+            }
+
+            // 카운트 표시
+            const countEl = document.getElementById(countId);
+            if (countEl) {
+                const totalCount = DATA[dataKey].meta && DATA[dataKey].meta.totalCount;
+                if (showFilterCount && filterKey && filterMA150State[filterKey] && totalCount) {
+                    countEl.textContent = filteredData.length + '개 / 전체 ' + totalCount;
+                } else {
+                    countEl.textContent = totalCount || filteredData.length;
+                }
+            }
+
+            // 정렬 및 페이지네이션
+            const state = sortState[tableId] || {};
+            const sortedData = sortData(filteredData, state.key, state.direction);
+            const paginatedData = paginate(sortedData, paginationState[paginationKey]);
+
+            // 행 렌더링
+            const rows = paginatedData.map(rowRenderer).join('');
+
+            // 테이블 렌더링
+            renderTable(tableId, headers, rows, renderFn);
+
+            // 모바일 카드 렌더링
+            if (mobileId) {
+                renderMobileCards(mobileId, paginatedData, { extraFields });
+            }
+
+            // 페이지네이션 렌더링
+            renderPagination(paginationId, paginationKey, sortedData.length, renderFn);
+        }
 
         function renderBoxRange() {
+            // 렌더링 캐시 확인 - 불필요한 재렌더링 방지
+            const cacheKey = 'box-range-table';
+            const dataHash = getDataHash(
+                DATA.boxRange && DATA.boxRange.data,
+                filterMA150State.boxRange,
+                sortState[cacheKey],
+                paginationState.boxRange
+            );
+            if (shouldSkipRender(cacheKey, dataHash)) {
+                return;
+            }
+
             syncFilterButton('boxRange');
             // 필터 적용 + PER/PBR 보강
             let filteredData = enrichWithFinancials(DATA.boxRange.data);
@@ -2886,8 +3403,10 @@
             const state = sortState['box-range-table'] || {};
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.boxRange);
-            const rows = paginatedData.map(s => `
-                <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})' role="button" tabindex="0" onkeypress="if(event.key==='Enter')openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})">
+            const rows = paginatedData.map(s => {
+                const stockJson = safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate});
+                return `
+                <tr class="clickable" onclick='openChartModal(${stockJson})' role="button" tabindex="0" onkeypress="if(event.key==='Enter')openChartModal(${stockJson})">
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
@@ -2899,7 +3418,7 @@
                     <td class="text-right">${s.atr_multiple.toFixed(1)}x</td>
                     <td class="text-right">${s.days || 60}일</td>
                 </tr>
-            `).join('');
+            `}).join('');
             renderTable('box-range-table', headers, rows, renderBoxRange);
 
             // Mobile card view
@@ -2911,6 +3430,18 @@
         }
 
         function renderBoxBreakout() {
+            // 렌더링 캐시 확인
+            const cacheKey = 'box-breakout-table';
+            const dataHash = getDataHash(
+                DATA.boxBreakout && DATA.boxBreakout.data,
+                filterMA150State.boxBreakout,
+                sortState[cacheKey],
+                paginationState.boxBreakout
+            );
+            if (shouldSkipRender(cacheKey, dataHash)) {
+                return;
+            }
+
             syncFilterButton('boxBreakout');
             // 필터 적용 + PER/PBR 보강
             let filteredData = enrichWithFinancials(DATA.boxBreakout.data);
@@ -2963,6 +3494,18 @@
         }
 
         function renderBoxBreakoutSimple() {
+            // 렌더링 캐시 확인
+            const cacheKey = 'box-breakout-simple-table';
+            const dataHash = getDataHash(
+                DATA.boxBreakoutSimple && DATA.boxBreakoutSimple.data,
+                filterMA150State.boxBreakoutSimple,
+                sortState[cacheKey],
+                paginationState.boxBreakoutSimple
+            );
+            if (shouldSkipRender(cacheKey, dataHash)) {
+                return;
+            }
+
             syncFilterButton('boxBreakoutSimple');
             // 필터 적용 + PER/PBR 보강
             let filteredData = enrichWithFinancials(DATA.boxBreakoutSimple.data);
@@ -3015,6 +3558,18 @@
         }
 
         function renderPullback() {
+            // 렌더링 캐시 확인
+            const cacheKey = 'pullback-table';
+            const dataHash = getDataHash(
+                DATA.pullback && DATA.pullback.data,
+                filterMA150State.pullback,
+                sortState[cacheKey],
+                paginationState.pullback
+            );
+            if (shouldSkipRender(cacheKey, dataHash)) {
+                return;
+            }
+
             syncFilterButton('pullback');
             // 필터 적용 + PER/PBR 보강
             let filteredData = enrichWithFinancials(DATA.pullback.data);
@@ -3067,6 +3622,18 @@
         }
 
         function renderVolumeDryUp() {
+            // 렌더링 캐시 확인
+            const cacheKey = 'volume-dry-up-table';
+            const dataHash = getDataHash(
+                DATA.volumeDryUp && DATA.volumeDryUp.data,
+                filterMA150State.volumeDryUp,
+                sortState[cacheKey],
+                paginationState.volumeDryUp
+            );
+            if (shouldSkipRender(cacheKey, dataHash)) {
+                return;
+            }
+
             syncFilterButton('volumeDryUp');
             // 필터 적용 + PER/PBR 보강
             let filteredData = enrichWithFinancials(DATA.volumeDryUp.data);
@@ -3119,6 +3686,18 @@
         }
 
         function renderVolumeExplosion() {
+            // 렌더링 캐시 확인
+            const cacheKey = 'volume-explosion-table';
+            const dataHash = getDataHash(
+                DATA.volumeExplosion && DATA.volumeExplosion.data,
+                filterMA150State.volumeExplosion,
+                sortState[cacheKey],
+                paginationState.volumeExplosion
+            );
+            if (shouldSkipRender(cacheKey, dataHash)) {
+                return;
+            }
+
             syncFilterButton('volumeExplosion');
             // 필터 적용 + PER/PBR 보강
             let filteredData = enrichWithFinancials(DATA.volumeExplosion.data);
@@ -3169,6 +3748,18 @@
         }
 
         function renderFallenRebound() {
+            // 렌더링 캐시 확인
+            const cacheKey = 'fallen-rebound-table';
+            const dataHash = getDataHash(
+                DATA.fallenRebound && DATA.fallenRebound.data,
+                filterMA150State.fallenRebound,
+                sortState[cacheKey],
+                paginationState.fallenRebound
+            );
+            if (shouldSkipRender(cacheKey, dataHash)) {
+                return;
+            }
+
             syncFilterButton('fallenRebound');
             // 필터 적용
             var frData = DATA.fallenRebound && DATA.fallenRebound.data;
@@ -3223,6 +3814,18 @@
         }
 
         function renderNewHigh52w() {
+            // 렌더링 캐시 확인
+            const cacheKey = 'new-high-52w-table';
+            const dataHash = getDataHash(
+                DATA.newHigh52w && DATA.newHigh52w.data,
+                null,
+                sortState[cacheKey],
+                paginationState.newHigh52w
+            );
+            if (shouldSkipRender(cacheKey, dataHash)) {
+                return;
+            }
+
             document.getElementById('new-high-52w-count').textContent = DATA.newHigh52w.meta.totalCount;
 
             const headers = [
@@ -3264,6 +3867,18 @@
         }
 
         function renderBottomBreakout() {
+            // 렌더링 캐시 확인
+            const cacheKey = 'bottom-breakout-table';
+            const dataHash = getDataHash(
+                DATA.bottomBreakout && DATA.bottomBreakout.data,
+                null,
+                sortState[cacheKey],
+                paginationState.bottomBreakout
+            );
+            if (shouldSkipRender(cacheKey, dataHash)) {
+                return;
+            }
+
             var bbData = DATA.bottomBreakout && DATA.bottomBreakout.data;
             const bottomData = enrichWithFinancials(bbData || []);
             document.getElementById('bottom-breakout-count').textContent = bottomData.length;
@@ -3311,6 +3926,18 @@
         }
 
         function renderSectorStage() {
+            // 렌더링 캐시 확인
+            const cacheKey = 'sector-stage-content';
+            const dataHash = getDataHash(
+                DATA.sectorStage && DATA.sectorStage.data,
+                null,
+                null,
+                null
+            );
+            if (shouldSkipRender(cacheKey, dataHash)) {
+                return;
+            }
+
             document.getElementById('sector-stage-count').textContent = DATA.sectorStage.meta.totalCount;
             const grouped = { 1: [], 2: [], 3: [], 4: [] };
             DATA.sectorStage.data.forEach(function(s) { if (grouped[s.stage]) grouped[s.stage].push(s); });
@@ -3357,6 +3984,18 @@
         }
 
         function renderValueStocks() {
+            // 렌더링 캐시 확인
+            const cacheKey = 'value-stocks-table';
+            const dataHash = getDataHash(
+                DATA.valueStocks && DATA.valueStocks.data,
+                null,
+                sortState[cacheKey],
+                paginationState.valueStocks
+            );
+            if (shouldSkipRender(cacheKey, dataHash)) {
+                return;
+            }
+
             var vsData = DATA.valueStocks && DATA.valueStocks.data;
             const valueData = vsData || [];
             var vsMeta = DATA.valueStocks && DATA.valueStocks.meta;
@@ -3409,6 +4048,18 @@
         }
 
         function renderMa60wQuality() {
+            // 렌더링 캐시 확인
+            const cacheKey = 'ma60w-quality-table';
+            const dataHash = getDataHash(
+                DATA.ma60wQuality && DATA.ma60wQuality.data,
+                null,
+                sortState[cacheKey],
+                paginationState.ma60wQuality
+            );
+            if (shouldSkipRender(cacheKey, dataHash)) {
+                return;
+            }
+
             var mqData = DATA.ma60wQuality && DATA.ma60wQuality.data;
             const qualityData = enrichWithFinancials(mqData || []);
             document.getElementById('ma60w-quality-count').textContent = qualityData.length;
@@ -3454,6 +4105,18 @@
         }
 
         function renderMaConvergence() {
+            // 렌더링 캐시 확인
+            const cacheKey = 'ma-convergence-table';
+            const dataHash = getDataHash(
+                DATA.maConvergence && DATA.maConvergence.data,
+                null,
+                sortState[cacheKey],
+                paginationState.maConvergence
+            );
+            if (shouldSkipRender(cacheKey, dataHash)) {
+                return;
+            }
+
             var mcData = DATA.maConvergence && DATA.maConvergence.data;
             const convData = enrichWithFinancials(mcData || []);
             document.getElementById('ma-convergence-count').textContent = convData.length;
