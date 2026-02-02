@@ -3467,7 +3467,11 @@
                 { label: '거래량비', align: 'text-right', key: 'volume_ratio' },
                 { label: '저항선대비', align: 'text-right', key: 'breakout_pct' }
             ];
-            const state = sortState['box-breakout-table'] || {};
+            // 기본 정렬: 최신 돌파일 순 (사용자가 정렬 변경 가능)
+            if (!sortState['box-breakout-table']) {
+                sortState['box-breakout-table'] = { key: 'breakout_date', direction: 'desc' };
+            }
+            const state = sortState['box-breakout-table'];
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.boxBreakout);
             const rows = paginatedData.map(s => `
