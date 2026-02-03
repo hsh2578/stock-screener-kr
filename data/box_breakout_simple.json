@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-03T18:32:22.559936",
-    "totalCount": 60,
+    "lastUpdated": "2026-02-03T19:34:28.000174",
+    "totalCount": 69,
     "screened_from": 1541
   },
   "data": [
@@ -21,7 +21,7 @@
       "success_prob": 91.3,
       "predicted_gain": 30.7,
       "ai_score": 91.5,
-      "updated_at": "2026-02-03T18:32:22.019480"
+      "updated_at": "2026-02-03T19:34:27.596091"
     },
     {
       "ticker": "234340",
@@ -39,7 +39,7 @@
       "success_prob": 91.7,
       "predicted_gain": 28.0,
       "ai_score": 89.4,
-      "updated_at": "2026-02-03T18:32:20.556015"
+      "updated_at": "2026-02-03T19:34:26.466442"
     },
     {
       "ticker": "088130",
@@ -57,7 +57,7 @@
       "success_prob": 84.2,
       "predicted_gain": 35.1,
       "ai_score": 89.0,
-      "updated_at": "2026-02-03T18:32:22.323831"
+      "updated_at": "2026-02-03T19:34:27.834771"
     },
     {
       "ticker": "462860",
@@ -75,7 +75,7 @@
       "success_prob": 80.9,
       "predicted_gain": 24.5,
       "ai_score": 78.7,
-      "updated_at": "2026-02-03T18:32:20.486491"
+      "updated_at": "2026-02-03T19:34:26.418955"
     },
     {
       "ticker": "001200",
@@ -93,7 +93,7 @@
       "success_prob": 69.7,
       "predicted_gain": 24.6,
       "ai_score": 70.9,
-      "updated_at": "2026-02-03T18:32:17.841716"
+      "updated_at": "2026-02-03T19:34:24.411812"
     },
     {
       "ticker": "039560",
@@ -111,7 +111,7 @@
       "success_prob": 66.1,
       "predicted_gain": 24.1,
       "ai_score": 68.0,
-      "updated_at": "2026-02-03T18:32:21.683344"
+      "updated_at": "2026-02-03T19:34:27.306971"
     },
     {
       "ticker": "365330",
@@ -129,25 +129,7 @@
       "success_prob": 57.5,
       "predicted_gain": 23.9,
       "ai_score": 61.7,
-      "updated_at": "2026-02-03T18:32:21.171888"
-    },
-    {
-      "ticker": "050890",
-      "name": "쏠리드",
-      "price": 8630,
-      "change_rate": 3.73,
-      "breakout_date": "2026-01-29",
-      "resistance": 8560,
-      "days_since_breakout": 3,
-      "breakout_pct": 0.82,
-      "gain_since_breakout": -1.93,
-      "ma150": 7171,
-      "above_ma150": true,
-      "market_cap": 5243,
-      "success_prob": 65.1,
-      "predicted_gain": 15.7,
-      "ai_score": 59.7,
-      "updated_at": "2026-02-03T18:32:20.302709"
+      "updated_at": "2026-02-03T19:34:26.932246"
     },
     {
       "ticker": "128940",
@@ -165,7 +147,7 @@
       "success_prob": 56.7,
       "predicted_gain": 21.4,
       "ai_score": 59.0,
-      "updated_at": "2026-02-03T18:32:13.895236"
+      "updated_at": "2026-02-03T19:34:21.875936"
     },
     {
       "ticker": "151860",
@@ -183,7 +165,7 @@
       "success_prob": 57.9,
       "predicted_gain": 17.4,
       "ai_score": 56.2,
-      "updated_at": "2026-02-03T18:32:20.638375"
+      "updated_at": "2026-02-03T19:34:26.541462"
     },
     {
       "ticker": "340570",
@@ -201,7 +183,43 @@
       "success_prob": 57.8,
       "predicted_gain": 15.7,
       "ai_score": 54.6,
-      "updated_at": "2026-02-03T18:32:20.393647"
+      "updated_at": "2026-02-03T19:34:26.332979"
+    },
+    {
+      "ticker": "067990",
+      "name": "도이치모터스",
+      "price": 4260,
+      "change_rate": -0.23,
+      "breakout_date": "2026-01-29",
+      "resistance": 4345,
+      "days_since_breakout": 3,
+      "breakout_pct": -1.96,
+      "gain_since_breakout": -5.65,
+      "ma150": 4648,
+      "above_ma150": false,
+      "market_cap": 1243,
+      "success_prob": 60.1,
+      "predicted_gain": 10.1,
+      "ai_score": 51.2,
+      "updated_at": "2026-02-03T19:34:27.601982"
+    },
+    {
+      "ticker": "046890",
+      "name": "서울반도체",
+      "price": 7320,
+      "change_rate": 2.81,
+      "breakout_date": "2026-01-28",
+      "resistance": 7210,
+      "days_since_breakout": 4,
+      "breakout_pct": 1.53,
+      "gain_since_breakout": -2.01,
+      "ma150": 6600,
+      "above_ma150": true,
+      "market_cap": 4267,
+      "success_prob": 50.4,
+      "predicted_gain": 17.4,
+      "ai_score": 50.9,
+      "updated_at": "2026-02-03T19:34:26.336039"
     },
     {
       "ticker": "011760",
@@ -219,7 +237,7 @@
       "success_prob": 51.8,
       "predicted_gain": 15.2,
       "ai_score": 49.9,
-      "updated_at": "2026-02-03T18:32:18.136403"
+      "updated_at": "2026-02-03T19:34:24.618785"
     },
     {
       "ticker": "058820",
@@ -237,7 +255,7 @@
       "success_prob": 42.5,
       "predicted_gain": 19.5,
       "ai_score": 47.3,
-      "updated_at": "2026-02-03T18:32:20.712872"
+      "updated_at": "2026-02-03T19:34:26.575960"
     },
     {
       "ticker": "042420",
@@ -255,7 +273,7 @@
       "success_prob": 44.1,
       "predicted_gain": 17.9,
       "ai_score": 46.9,
-      "updated_at": "2026-02-03T18:32:20.990055"
+      "updated_at": "2026-02-03T19:34:26.800732"
     },
     {
       "ticker": "095660",
@@ -273,7 +291,7 @@
       "success_prob": 42.1,
       "predicted_gain": 18.2,
       "ai_score": 45.8,
-      "updated_at": "2026-02-03T18:32:20.251284"
+      "updated_at": "2026-02-03T19:34:26.185788"
     },
     {
       "ticker": "068760",
@@ -291,7 +309,25 @@
       "success_prob": 41.7,
       "predicted_gain": 16.0,
       "ai_score": 43.5,
-      "updated_at": "2026-02-03T18:32:19.926788"
+      "updated_at": "2026-02-03T19:34:25.936855"
+    },
+    {
+      "ticker": "001060",
+      "name": "JW중외제약",
+      "price": 33200,
+      "change_rate": 9.39,
+      "breakout_date": "2026-01-29",
+      "resistance": 30900,
+      "days_since_breakout": 3,
+      "breakout_pct": 7.44,
+      "gain_since_breakout": 4.73,
+      "ma150": 24274,
+      "above_ma150": true,
+      "market_cap": 7730,
+      "success_prob": 44.2,
+      "predicted_gain": 13.7,
+      "ai_score": 43.3,
+      "updated_at": "2026-02-03T19:34:24.001532"
     },
     {
       "ticker": "030210",
@@ -309,7 +345,25 @@
       "success_prob": 38.5,
       "predicted_gain": 17.2,
       "ai_score": 42.4,
-      "updated_at": "2026-02-03T18:32:18.565049"
+      "updated_at": "2026-02-03T19:34:24.918905"
+    },
+    {
+      "ticker": "293490",
+      "name": "카카오게임즈",
+      "price": 16170,
+      "change_rate": -0.86,
+      "breakout_date": "2026-01-28",
+      "resistance": 16320,
+      "days_since_breakout": 4,
+      "breakout_pct": -0.92,
+      "gain_since_breakout": -5.99,
+      "ma150": 16251,
+      "above_ma150": false,
+      "market_cap": 14518,
+      "success_prob": 39.3,
+      "predicted_gain": 16.3,
+      "ai_score": 42.2,
+      "updated_at": "2026-02-03T19:34:26.012032"
     },
     {
       "ticker": "241710",
@@ -327,7 +381,7 @@
       "success_prob": 33.2,
       "predicted_gain": 20.8,
       "ai_score": 41.9,
-      "updated_at": "2026-02-03T18:32:20.047310"
+      "updated_at": "2026-02-03T19:34:26.048911"
     },
     {
       "ticker": "012630",
@@ -345,7 +399,7 @@
       "success_prob": 31.6,
       "predicted_gain": 20.3,
       "ai_score": 40.4,
-      "updated_at": "2026-02-03T18:32:16.960712"
+      "updated_at": "2026-02-03T19:34:23.778438"
     },
     {
       "ticker": "071050",
@@ -363,7 +417,7 @@
       "success_prob": 32.3,
       "predicted_gain": 18.9,
       "ai_score": 39.6,
-      "updated_at": "2026-02-03T18:32:13.346070"
+      "updated_at": "2026-02-03T19:34:21.443428"
     },
     {
       "ticker": "015230",
@@ -381,7 +435,7 @@
       "success_prob": 38.6,
       "predicted_gain": 13.9,
       "ai_score": 39.5,
-      "updated_at": "2026-02-03T18:32:18.843866"
+      "updated_at": "2026-02-03T19:34:25.150080"
     },
     {
       "ticker": "001520",
@@ -399,7 +453,25 @@
       "success_prob": 36.3,
       "predicted_gain": 15.4,
       "ai_score": 39.3,
-      "updated_at": "2026-02-03T18:32:18.675341"
+      "updated_at": "2026-02-03T19:34:24.999091"
+    },
+    {
+      "ticker": "025320",
+      "name": "시노펙스",
+      "price": 7770,
+      "change_rate": 3.05,
+      "breakout_date": "2026-01-26",
+      "resistance": 6060,
+      "days_since_breakout": 6,
+      "breakout_pct": 28.22,
+      "gain_since_breakout": 21.98,
+      "ma150": 6414,
+      "above_ma150": true,
+      "market_cap": 7157,
+      "success_prob": 34.7,
+      "predicted_gain": 12.8,
+      "ai_score": 35.8,
+      "updated_at": "2026-02-03T19:34:26.157287"
     },
     {
       "ticker": "004700",
@@ -417,7 +489,7 @@
       "success_prob": 28.4,
       "predicted_gain": 16.3,
       "ai_score": 34.5,
-      "updated_at": "2026-02-03T18:32:17.604083"
+      "updated_at": "2026-02-03T19:34:24.276541"
     },
     {
       "ticker": "104830",
@@ -435,7 +507,7 @@
       "success_prob": 26.7,
       "predicted_gain": 17.2,
       "ai_score": 34.1,
-      "updated_at": "2026-02-03T18:32:20.292068"
+      "updated_at": "2026-02-03T19:34:26.237057"
     },
     {
       "ticker": "001750",
@@ -453,7 +525,7 @@
       "success_prob": 28.1,
       "predicted_gain": 15.8,
       "ai_score": 33.9,
-      "updated_at": "2026-02-03T18:32:18.401626"
+      "updated_at": "2026-02-03T19:34:24.810623"
     },
     {
       "ticker": "030610",
@@ -471,7 +543,7 @@
       "success_prob": 29.1,
       "predicted_gain": 14.8,
       "ai_score": 33.7,
-      "updated_at": "2026-02-03T18:32:16.916603"
+      "updated_at": "2026-02-03T19:34:23.745419"
     },
     {
       "ticker": "033100",
@@ -489,7 +561,7 @@
       "success_prob": 28.5,
       "predicted_gain": 15.0,
       "ai_score": 33.4,
-      "updated_at": "2026-02-03T18:32:20.202670"
+      "updated_at": "2026-02-03T19:34:26.146530"
     },
     {
       "ticker": "094480",
@@ -507,25 +579,7 @@
       "success_prob": 22.9,
       "predicted_gain": 18.7,
       "ai_score": 32.9,
-      "updated_at": "2026-02-03T18:32:20.370660"
-    },
-    {
-      "ticker": "125210",
-      "name": "아모그린텍",
-      "price": 7500,
-      "change_rate": 6.23,
-      "breakout_date": "2026-01-29",
-      "resistance": 6730,
-      "days_since_breakout": 3,
-      "breakout_pct": 11.44,
-      "gain_since_breakout": 5.04,
-      "ma150": 6619,
-      "above_ma150": true,
-      "market_cap": 1237,
-      "success_prob": 26.2,
-      "predicted_gain": 16.1,
-      "ai_score": 32.8,
-      "updated_at": "2026-02-03T18:32:22.044025"
+      "updated_at": "2026-02-03T19:34:26.301367"
     },
     {
       "ticker": "000370",
@@ -543,7 +597,7 @@
       "success_prob": 27.3,
       "predicted_gain": 14.1,
       "ai_score": 31.8,
-      "updated_at": "2026-02-03T18:32:17.255257"
+      "updated_at": "2026-02-03T19:34:24.031099"
     },
     {
       "ticker": "001630",
@@ -561,7 +615,7 @@
       "success_prob": 29.3,
       "predicted_gain": 12.3,
       "ai_score": 31.6,
-      "updated_at": "2026-02-03T18:32:18.553111"
+      "updated_at": "2026-02-03T19:34:24.900848"
     },
     {
       "ticker": "023590",
@@ -579,7 +633,7 @@
       "success_prob": 20.0,
       "predicted_gain": 19.2,
       "ai_score": 31.2,
-      "updated_at": "2026-02-03T18:32:15.412396"
+      "updated_at": "2026-02-03T19:34:23.575501"
     },
     {
       "ticker": "004690",
@@ -597,7 +651,7 @@
       "success_prob": 21.2,
       "predicted_gain": 17.6,
       "ai_score": 30.7,
-      "updated_at": "2026-02-03T18:32:17.457570"
+      "updated_at": "2026-02-03T19:34:24.182788"
     },
     {
       "ticker": "001390",
@@ -615,7 +669,43 @@
       "success_prob": 21.6,
       "predicted_gain": 17.3,
       "ai_score": 30.7,
-      "updated_at": "2026-02-03T18:32:17.897265"
+      "updated_at": "2026-02-03T19:34:24.447963"
+    },
+    {
+      "ticker": "163560",
+      "name": "동일고무벨트",
+      "price": 7440,
+      "change_rate": 8.14,
+      "breakout_date": "2026-02-03",
+      "resistance": 7210,
+      "days_since_breakout": 0,
+      "breakout_pct": 3.19,
+      "gain_since_breakout": 0.0,
+      "ma150": 6943,
+      "above_ma150": true,
+      "market_cap": 1034,
+      "success_prob": 27.4,
+      "predicted_gain": 12.4,
+      "ai_score": 30.4,
+      "updated_at": "2026-02-03T19:34:25.867074"
+    },
+    {
+      "ticker": "017940",
+      "name": "E1",
+      "price": 91800,
+      "change_rate": 6.13,
+      "breakout_date": "2026-02-03",
+      "resistance": 88200,
+      "days_since_breakout": 0,
+      "breakout_pct": 4.08,
+      "gain_since_breakout": 0.0,
+      "ma150": 81586,
+      "above_ma150": true,
+      "market_cap": 6297,
+      "success_prob": 24.1,
+      "predicted_gain": 14.5,
+      "ai_score": 30.0,
+      "updated_at": "2026-02-03T19:34:24.127649"
     },
     {
       "ticker": "003540",
@@ -633,7 +723,7 @@
       "success_prob": 19.0,
       "predicted_gain": 18.2,
       "ai_score": 29.6,
-      "updated_at": "2026-02-03T18:32:16.774693"
+      "updated_at": "2026-02-03T19:34:23.701762"
     },
     {
       "ticker": "001500",
@@ -651,7 +741,7 @@
       "success_prob": 20.7,
       "predicted_gain": 16.0,
       "ai_score": 28.9,
-      "updated_at": "2026-02-03T18:32:17.432104"
+      "updated_at": "2026-02-03T19:34:24.162871"
     },
     {
       "ticker": "057050",
@@ -669,7 +759,7 @@
       "success_prob": 24.3,
       "predicted_gain": 11.5,
       "ai_score": 27.4,
-      "updated_at": "2026-02-03T18:32:17.289043"
+      "updated_at": "2026-02-03T19:34:24.064603"
     },
     {
       "ticker": "102710",
@@ -687,7 +777,7 @@
       "success_prob": 20.0,
       "predicted_gain": 14.6,
       "ai_score": 27.1,
-      "updated_at": "2026-02-03T18:32:20.191502"
+      "updated_at": "2026-02-03T19:34:26.136586"
     },
     {
       "ticker": "282330",
@@ -705,7 +795,25 @@
       "success_prob": 23.2,
       "predicted_gain": 11.3,
       "ai_score": 26.5,
-      "updated_at": "2026-02-03T18:32:15.546289"
+      "updated_at": "2026-02-03T19:34:23.595756"
+    },
+    {
+      "ticker": "125210",
+      "name": "아모그린텍",
+      "price": 7500,
+      "change_rate": 6.23,
+      "breakout_date": "2026-01-29",
+      "resistance": 6830,
+      "days_since_breakout": 3,
+      "breakout_pct": 9.81,
+      "gain_since_breakout": 5.04,
+      "ma150": 6619,
+      "above_ma150": true,
+      "market_cap": 1237,
+      "success_prob": 17.7,
+      "predicted_gain": 15.4,
+      "ai_score": 26.2,
+      "updated_at": "2026-02-03T19:34:27.619138"
     },
     {
       "ticker": "078070",
@@ -723,7 +831,25 @@
       "success_prob": 24.8,
       "predicted_gain": 9.6,
       "ai_score": 26.0,
-      "updated_at": "2026-02-03T18:32:21.271510"
+      "updated_at": "2026-02-03T19:34:26.996574"
+    },
+    {
+      "ticker": "071200",
+      "name": "인피니트헬스케어",
+      "price": 6850,
+      "change_rate": 2.24,
+      "breakout_date": "2026-01-27",
+      "resistance": 6430,
+      "days_since_breakout": 5,
+      "breakout_pct": 6.53,
+      "gain_since_breakout": 2.54,
+      "ma150": 6313,
+      "above_ma150": true,
+      "market_cap": 1671,
+      "success_prob": 18.6,
+      "predicted_gain": 14.3,
+      "ai_score": 25.9,
+      "updated_at": "2026-02-03T19:34:27.118470"
     },
     {
       "ticker": "001045",
@@ -741,7 +867,7 @@
       "success_prob": 20.0,
       "predicted_gain": 13.0,
       "ai_score": 25.7,
-      "updated_at": "2026-02-03T18:32:18.669970"
+      "updated_at": "2026-02-03T19:34:24.992678"
     },
     {
       "ticker": "417500",
@@ -759,7 +885,7 @@
       "success_prob": 21.4,
       "predicted_gain": 11.6,
       "ai_score": 25.4,
-      "updated_at": "2026-02-03T18:32:22.260712"
+      "updated_at": "2026-02-03T19:34:27.772810"
     },
     {
       "ticker": "080160",
@@ -777,7 +903,7 @@
       "success_prob": 22.4,
       "predicted_gain": 10.5,
       "ai_score": 25.1,
-      "updated_at": "2026-02-03T18:32:21.062463"
+      "updated_at": "2026-02-03T19:34:26.853189"
     },
     {
       "ticker": "035600",
@@ -795,7 +921,7 @@
       "success_prob": 14.2,
       "predicted_gain": 15.6,
       "ai_score": 24.0,
-      "updated_at": "2026-02-03T18:32:20.586934"
+      "updated_at": "2026-02-03T19:34:26.501394"
     },
     {
       "ticker": "251970",
@@ -813,7 +939,7 @@
       "success_prob": 16.0,
       "predicted_gain": 14.0,
       "ai_score": 23.8,
-      "updated_at": "2026-02-03T18:32:20.198898"
+      "updated_at": "2026-02-03T19:34:26.142042"
     },
     {
       "ticker": "005880",
@@ -831,7 +957,7 @@
       "success_prob": 17.7,
       "predicted_gain": 12.0,
       "ai_score": 23.2,
-      "updated_at": "2026-02-03T18:32:17.316055"
+      "updated_at": "2026-02-03T19:34:24.083168"
     },
     {
       "ticker": "265520",
@@ -849,7 +975,7 @@
       "success_prob": 17.3,
       "predicted_gain": 11.9,
       "ai_score": 22.8,
-      "updated_at": "2026-02-03T18:32:20.604303"
+      "updated_at": "2026-02-03T19:34:26.516323"
     },
     {
       "ticker": "003547",
@@ -867,25 +993,25 @@
       "success_prob": 18.4,
       "predicted_gain": 10.8,
       "ai_score": 22.6,
-      "updated_at": "2026-02-03T18:32:18.697315"
+      "updated_at": "2026-02-03T19:34:25.021756"
     },
     {
-      "ticker": "131030",
-      "name": "옵투스제약",
-      "price": 7970,
-      "change_rate": 2.84,
-      "breakout_date": "2026-01-20",
-      "resistance": 7280,
-      "days_since_breakout": 10,
-      "breakout_pct": 9.48,
-      "gain_since_breakout": 7.7,
-      "ma150": 7111,
+      "ticker": "051500",
+      "name": "CJ프레시웨이",
+      "price": 30850,
+      "change_rate": 9.4,
+      "breakout_date": "2026-02-02",
+      "resistance": 27650,
+      "days_since_breakout": 1,
+      "breakout_pct": 11.57,
+      "gain_since_breakout": 9.4,
+      "ma150": 27606,
       "above_ma150": true,
-      "market_cap": 1406,
-      "success_prob": 17.3,
-      "predicted_gain": 10.9,
+      "market_cap": 3662,
+      "success_prob": 14.7,
+      "predicted_gain": 13.0,
       "ai_score": 21.9,
-      "updated_at": "2026-02-03T18:32:21.808398"
+      "updated_at": "2026-02-03T19:34:26.437768"
     },
     {
       "ticker": "195940",
@@ -903,7 +1029,7 @@
       "success_prob": 11.0,
       "predicted_gain": 15.7,
       "ai_score": 21.8,
-      "updated_at": "2026-02-03T18:32:19.998932"
+      "updated_at": "2026-02-03T19:34:25.989514"
     },
     {
       "ticker": "090430",
@@ -921,7 +1047,7 @@
       "success_prob": 12.1,
       "predicted_gain": 14.7,
       "ai_score": 21.7,
-      "updated_at": "2026-02-03T18:32:13.625153"
+      "updated_at": "2026-02-03T19:34:21.704909"
     },
     {
       "ticker": "003460",
@@ -939,7 +1065,25 @@
       "success_prob": 15.9,
       "predicted_gain": 11.5,
       "ai_score": 21.5,
-      "updated_at": "2026-02-03T18:32:19.026063"
+      "updated_at": "2026-02-03T19:34:25.278346"
+    },
+    {
+      "ticker": "131030",
+      "name": "옵투스제약",
+      "price": 7970,
+      "change_rate": 2.84,
+      "breakout_date": "2026-01-23",
+      "resistance": 7400,
+      "days_since_breakout": 7,
+      "breakout_pct": 7.7,
+      "gain_since_breakout": 5.15,
+      "ma150": 7111,
+      "above_ma150": true,
+      "market_cap": 1406,
+      "success_prob": 14.2,
+      "predicted_gain": 12.8,
+      "ai_score": 21.5,
+      "updated_at": "2026-02-03T19:34:27.428149"
     },
     {
       "ticker": "138490",
@@ -957,7 +1101,7 @@
       "success_prob": 11.5,
       "predicted_gain": 14.5,
       "ai_score": 21.2,
-      "updated_at": "2026-02-03T18:32:17.858962"
+      "updated_at": "2026-02-03T19:34:24.425379"
     },
     {
       "ticker": "012510",
@@ -975,7 +1119,7 @@
       "success_prob": 11.8,
       "predicted_gain": 13.6,
       "ai_score": 20.4,
-      "updated_at": "2026-02-03T18:32:15.112067"
+      "updated_at": "2026-02-03T19:34:23.477908"
     },
     {
       "ticker": "003555",
@@ -993,7 +1137,7 @@
       "success_prob": 16.4,
       "predicted_gain": 9.8,
       "ai_score": 20.3,
-      "updated_at": "2026-02-03T18:32:18.807197"
+      "updated_at": "2026-02-03T19:34:25.119369"
     },
     {
       "ticker": "003550",
@@ -1011,7 +1155,7 @@
       "success_prob": 8.8,
       "predicted_gain": 14.2,
       "ai_score": 18.9,
-      "updated_at": "2026-02-03T18:32:13.210846"
+      "updated_at": "2026-02-03T19:34:21.350117"
     },
     {
       "ticker": "005810",
@@ -1029,7 +1173,7 @@
       "success_prob": 6.5,
       "predicted_gain": 15.2,
       "ai_score": 18.2,
-      "updated_at": "2026-02-03T18:32:17.454499"
+      "updated_at": "2026-02-03T19:34:24.177648"
     },
     {
       "ticker": "063170",
@@ -1047,7 +1191,7 @@
       "success_prob": 10.4,
       "predicted_gain": 11.8,
       "ai_score": 17.9,
-      "updated_at": "2026-02-03T18:32:21.746146"
+      "updated_at": "2026-02-03T19:34:27.371112"
     },
     {
       "ticker": "003545",
@@ -1065,7 +1209,25 @@
       "success_prob": 9.8,
       "predicted_gain": 10.6,
       "ai_score": 16.4,
-      "updated_at": "2026-02-03T18:32:17.423231"
+      "updated_at": "2026-02-03T19:34:24.153690"
+    },
+    {
+      "ticker": "179290",
+      "name": "엠아이텍",
+      "price": 7250,
+      "change_rate": 1.12,
+      "breakout_date": "2026-01-23",
+      "resistance": 7220,
+      "days_since_breakout": 7,
+      "breakout_pct": 0.42,
+      "gain_since_breakout": -1.23,
+      "ma150": 7042,
+      "above_ma150": true,
+      "market_cap": 2346,
+      "success_prob": 9.2,
+      "predicted_gain": 10.2,
+      "ai_score": 15.6,
+      "updated_at": "2026-02-03T19:34:26.793169"
     },
     {
       "ticker": "082640",
@@ -1083,7 +1245,7 @@
       "success_prob": 4.6,
       "predicted_gain": 11.1,
       "ai_score": 13.2,
-      "updated_at": "2026-02-03T18:32:17.025809"
+      "updated_at": "2026-02-03T19:34:23.831224"
     }
   ]
 }

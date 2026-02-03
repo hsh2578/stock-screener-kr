@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-03T18:32:11.740148",
+    "lastUpdated": "2026-02-03T19:34:20.071910",
     "totalCount": 201,
     "screened_from": 1541
   },
@@ -20,7 +20,7 @@
       "success_probability": 82.6,
       "recommendation": "BUY",
       "market_cap": 3604,
-      "updated_at": "2026-02-03T18:32:11.209648"
+      "updated_at": "2026-02-03T19:34:19.529303"
     },
     {
       "ticker": "007070",
@@ -34,27 +34,10 @@
       "volume_ratio": 2.4,
       "vs_breakout_close": 0.0,
       "predicted_gain": 22.0,
-      "success_probability": 79.4,
+      "success_probability": 76.6,
       "recommendation": "BUY",
       "market_cap": 19480,
-      "updated_at": "2026-02-03T18:32:10.838161"
-    },
-    {
-      "ticker": "002020",
-      "name": "코오롱",
-      "price": 69900,
-      "change_rate": 12.2,
-      "high_52w": 63800,
-      "breakout_date": "2026-02-03",
-      "days_since": 0,
-      "above_high_percent": 9.56,
-      "volume_ratio": 2.4,
-      "vs_breakout_close": 0.0,
-      "predicted_gain": 21.8,
-      "success_probability": 76.3,
-      "recommendation": "BUY",
-      "market_cap": 9022,
-      "updated_at": "2026-02-03T18:32:10.872763"
+      "updated_at": "2026-02-03T19:34:19.198981"
     },
     {
       "ticker": "009150",
@@ -68,10 +51,61 @@
       "volume_ratio": 1.9,
       "vs_breakout_close": 0.0,
       "predicted_gain": 21.0,
-      "success_probability": 75.1,
+      "success_probability": 75.8,
       "recommendation": "BUY",
       "market_cap": 229683,
-      "updated_at": "2026-02-03T18:32:10.753002"
+      "updated_at": "2026-02-03T19:34:19.139577"
+    },
+    {
+      "ticker": "002020",
+      "name": "코오롱",
+      "price": 69900,
+      "change_rate": 12.2,
+      "high_52w": 63800,
+      "breakout_date": "2026-02-03",
+      "days_since": 0,
+      "above_high_percent": 9.56,
+      "volume_ratio": 2.4,
+      "vs_breakout_close": 0.0,
+      "predicted_gain": 21.8,
+      "success_probability": 72.8,
+      "recommendation": "BUY",
+      "market_cap": 9022,
+      "updated_at": "2026-02-03T19:34:19.228392"
+    },
+    {
+      "ticker": "139130",
+      "name": "iM금융지주",
+      "price": 16000,
+      "change_rate": 4.1,
+      "high_52w": 15960,
+      "breakout_date": "2026-02-03",
+      "days_since": 0,
+      "above_high_percent": 0.25,
+      "volume_ratio": 1.9,
+      "vs_breakout_close": 0.0,
+      "predicted_gain": 19.7,
+      "success_probability": 72.3,
+      "recommendation": "BUY",
+      "market_cap": 25699,
+      "updated_at": "2026-02-03T19:34:19.188538"
+    },
+    {
+      "ticker": "187870",
+      "name": "디바이스",
+      "price": 16060,
+      "change_rate": 3.68,
+      "high_52w": 15700,
+      "breakout_date": "2026-02-03",
+      "days_since": 0,
+      "above_high_percent": 2.29,
+      "volume_ratio": 2.6,
+      "vs_breakout_close": 0.0,
+      "predicted_gain": 37.3,
+      "success_probability": 71.8,
+      "recommendation": "BUY",
+      "market_cap": 1130,
+      "updated_at": "2026-02-03T19:34:19.657517"
     },
     {
       "ticker": "127120",
@@ -88,58 +122,7 @@
       "success_probability": 71.3,
       "recommendation": "BUY",
       "market_cap": 9330,
-      "updated_at": "2026-02-03T18:32:11.119688"
-    },
-    {
-      "ticker": "139130",
-      "name": "iM금융지주",
-      "price": 16000,
-      "change_rate": 4.1,
-      "high_52w": 15960,
-      "breakout_date": "2026-02-03",
-      "days_since": 0,
-      "above_high_percent": 0.25,
-      "volume_ratio": 1.9,
-      "vs_breakout_close": 0.0,
-      "predicted_gain": 19.7,
-      "success_probability": 71.1,
-      "recommendation": "BUY",
-      "market_cap": 25699,
-      "updated_at": "2026-02-03T18:32:10.823431"
-    },
-    {
-      "ticker": "187870",
-      "name": "디바이스",
-      "price": 16060,
-      "change_rate": 3.68,
-      "high_52w": 15700,
-      "breakout_date": "2026-02-03",
-      "days_since": 0,
-      "above_high_percent": 2.29,
-      "volume_ratio": 2.6,
-      "vs_breakout_close": 0.0,
-      "predicted_gain": 37.3,
-      "success_probability": 67.9,
-      "recommendation": "BUY",
-      "market_cap": 1130,
-      "updated_at": "2026-02-03T18:32:11.375130"
-    },
-    {
-      "ticker": "001060",
-      "name": "JW중외제약",
-      "price": 33200,
-      "change_rate": 9.39,
-      "high_52w": 32850,
-      "breakout_date": "2026-02-03",
-      "days_since": 0,
-      "above_high_percent": 1.07,
-      "volume_ratio": 1.7,
-      "vs_breakout_close": 0.0,
-      "predicted_gain": 25.2,
-      "success_probability": 62.0,
-      "recommendation": "BUY",
-      "market_cap": 7730,
-      "updated_at": "2026-02-03T18:32:10.886295"
+      "updated_at": "2026-02-03T19:34:19.460531"
     },
     {
       "ticker": "267270",
@@ -153,10 +136,27 @@
       "volume_ratio": 6.4,
       "vs_breakout_close": 0.0,
       "predicted_gain": 20.3,
-      "success_probability": 57.4,
+      "success_probability": 54.0,
       "recommendation": "HOLD",
       "market_cap": 65196,
-      "updated_at": "2026-02-03T18:32:10.779339"
+      "updated_at": "2026-02-03T19:34:19.163627"
+    },
+    {
+      "ticker": "001060",
+      "name": "JW중외제약",
+      "price": 33200,
+      "change_rate": 9.39,
+      "high_52w": 32850,
+      "breakout_date": "2026-02-03",
+      "days_since": 0,
+      "above_high_percent": 1.07,
+      "volume_ratio": 1.7,
+      "vs_breakout_close": 0.0,
+      "predicted_gain": 25.2,
+      "success_probability": 53.0,
+      "recommendation": "HOLD",
+      "market_cap": 7730,
+      "updated_at": "2026-02-03T19:34:19.235015"
     },
     {
       "ticker": "272210",
@@ -169,28 +169,11 @@
       "above_high_percent": 20.34,
       "volume_ratio": 3.0,
       "vs_breakout_close": 0.0,
-      "predicted_gain": 25.1,
+      "predicted_gain": 21.8,
       "success_probability": 51.8,
       "recommendation": "HOLD",
       "market_cap": 225758,
-      "updated_at": "2026-02-03T18:32:10.754925"
-    },
-    {
-      "ticker": "015230",
-      "name": "대창단조",
-      "price": 7120,
-      "change_rate": 7.72,
-      "high_52w": 7080,
-      "breakout_date": "2026-02-03",
-      "days_since": 0,
-      "above_high_percent": 0.56,
-      "volume_ratio": 5.1,
-      "vs_breakout_close": 0.0,
-      "predicted_gain": 27.4,
-      "success_probability": 47.3,
-      "recommendation": "HOLD",
-      "market_cap": 2034,
-      "updated_at": "2026-02-03T18:32:10.989919"
+      "updated_at": "2026-02-03T19:34:19.141167"
     },
     {
       "ticker": "001720",
@@ -204,10 +187,27 @@
       "volume_ratio": 1.7,
       "vs_breakout_close": 0.0,
       "predicted_gain": 21.2,
-      "success_probability": 47.2,
+      "success_probability": 45.2,
       "recommendation": "HOLD",
       "market_cap": 31564,
-      "updated_at": "2026-02-03T18:32:10.816152"
+      "updated_at": "2026-02-03T19:34:19.183349"
+    },
+    {
+      "ticker": "015230",
+      "name": "대창단조",
+      "price": 7120,
+      "change_rate": 7.72,
+      "high_52w": 7080,
+      "breakout_date": "2026-02-03",
+      "days_since": 0,
+      "above_high_percent": 0.56,
+      "volume_ratio": 5.1,
+      "vs_breakout_close": 0.0,
+      "predicted_gain": 27.4,
+      "success_probability": 42.1,
+      "recommendation": "HOLD",
+      "market_cap": 2034,
+      "updated_at": "2026-02-03T19:34:19.323619"
     },
     {
       "ticker": "003380",
@@ -221,10 +221,10 @@
       "volume_ratio": 2.7,
       "vs_breakout_close": 0.0,
       "predicted_gain": 21.8,
-      "success_probability": 45.7,
+      "success_probability": 41.0,
       "recommendation": "HOLD",
       "market_cap": 16901,
-      "updated_at": "2026-02-03T18:32:11.074039"
+      "updated_at": "2026-02-03T19:34:19.418105"
     },
     {
       "ticker": "004560",
@@ -237,11 +237,11 @@
       "above_high_percent": 26.75,
       "volume_ratio": 38.6,
       "vs_breakout_close": 3.31,
-      "predicted_gain": 45.9,
-      "success_probability": 87.8,
+      "predicted_gain": 38.6,
+      "success_probability": 87.0,
       "recommendation": "BUY",
       "market_cap": 2729,
-      "updated_at": "2026-02-03T18:32:10.966608"
+      "updated_at": "2026-02-03T19:34:19.296917"
     },
     {
       "ticker": "397030",
@@ -255,10 +255,10 @@
       "volume_ratio": 2.1,
       "vs_breakout_close": 2.79,
       "predicted_gain": 21.7,
-      "success_probability": 81.2,
+      "success_probability": 79.0,
       "recommendation": "BUY",
       "market_cap": 14635,
-      "updated_at": "2026-02-03T18:32:11.082342"
+      "updated_at": "2026-02-03T19:34:19.428430"
     },
     {
       "ticker": "038460",
@@ -271,11 +271,11 @@
       "above_high_percent": 32.32,
       "volume_ratio": 5.0,
       "vs_breakout_close": 7.04,
-      "predicted_gain": 22.1,
-      "success_probability": 77.3,
+      "predicted_gain": 20.6,
+      "success_probability": 75.6,
       "recommendation": "BUY",
       "market_cap": 1590,
-      "updated_at": "2026-02-03T18:32:11.337304"
+      "updated_at": "2026-02-03T19:34:19.618687"
     },
     {
       "ticker": "003310",
@@ -289,10 +289,10 @@
       "volume_ratio": 4.3,
       "vs_breakout_close": -0.56,
       "predicted_gain": 21.8,
-      "success_probability": 67.7,
+      "success_probability": 66.1,
       "recommendation": "BUY",
       "market_cap": 1900,
-      "updated_at": "2026-02-03T18:32:11.309551"
+      "updated_at": "2026-02-03T19:34:19.599088"
     },
     {
       "ticker": "012210",
@@ -309,7 +309,7 @@
       "success_probability": 20.8,
       "recommendation": "HOLD",
       "market_cap": 3972,
-      "updated_at": "2026-02-03T18:32:11.199508"
+      "updated_at": "2026-02-03T19:34:19.515176"
     },
     {
       "ticker": "088130",
@@ -322,11 +322,11 @@
       "above_high_percent": 44.01,
       "volume_ratio": 49.9,
       "vs_breakout_close": 20.66,
-      "predicted_gain": 45.5,
+      "predicted_gain": 42.7,
       "success_probability": 87.8,
       "recommendation": "BUY",
       "market_cap": 1092,
-      "updated_at": "2026-02-03T18:32:11.377520"
+      "updated_at": "2026-02-03T19:34:19.661741"
     },
     {
       "ticker": "032350",
@@ -340,10 +340,10 @@
       "volume_ratio": 2.3,
       "vs_breakout_close": -2.98,
       "predicted_gain": 21.7,
-      "success_probability": 84.7,
+      "success_probability": 83.8,
       "recommendation": "BUY",
       "market_cap": 19407,
-      "updated_at": "2026-02-03T18:32:10.839961"
+      "updated_at": "2026-02-03T19:34:19.200267"
     },
     {
       "ticker": "00104K",
@@ -360,7 +360,7 @@
       "success_probability": 81.4,
       "recommendation": "BUY",
       "market_cap": 7392,
-      "updated_at": "2026-02-03T18:32:10.889891"
+      "updated_at": "2026-02-03T19:34:19.240232"
     },
     {
       "ticker": "001440",
@@ -374,27 +374,10 @@
       "volume_ratio": 2.1,
       "vs_breakout_close": 4.76,
       "predicted_gain": 21.5,
-      "success_probability": 76.7,
+      "success_probability": 74.0,
       "recommendation": "BUY",
       "market_cap": 57425,
-      "updated_at": "2026-02-03T18:32:10.788663"
-    },
-    {
-      "ticker": "042520",
-      "name": "한스바이오메드",
-      "price": 44300,
-      "change_rate": 5.1,
-      "high_52w": 38000,
-      "breakout_date": "2026-01-30",
-      "days_since": 2,
-      "above_high_percent": 16.58,
-      "volume_ratio": 3.5,
-      "vs_breakout_close": 12.15,
-      "predicted_gain": 21.8,
-      "success_probability": 74.6,
-      "recommendation": "BUY",
-      "market_cap": 6308,
-      "updated_at": "2026-02-03T18:32:11.142671"
+      "updated_at": "2026-02-03T19:34:19.170497"
     },
     {
       "ticker": "033780",
@@ -408,10 +391,10 @@
       "volume_ratio": 3.0,
       "vs_breakout_close": 2.47,
       "predicted_gain": 19.3,
-      "success_probability": 73.7,
+      "success_probability": 73.2,
       "recommendation": "BUY",
       "market_cap": 186049,
-      "updated_at": "2026-02-03T18:32:10.758804"
+      "updated_at": "2026-02-03T19:34:19.144119"
     },
     {
       "ticker": "006805",
@@ -425,27 +408,10 @@
       "volume_ratio": 4.8,
       "vs_breakout_close": 12.88,
       "predicted_gain": 21.7,
-      "success_probability": 71.5,
+      "success_probability": 70.3,
       "recommendation": "BUY",
       "market_cap": 3096,
-      "updated_at": "2026-02-03T18:32:10.950303"
-    },
-    {
-      "ticker": "006730",
-      "name": "서부T&D",
-      "price": 18170,
-      "change_rate": 4.49,
-      "high_52w": 15800,
-      "breakout_date": "2026-01-30",
-      "days_since": 2,
-      "above_high_percent": 15.0,
-      "volume_ratio": 2.3,
-      "vs_breakout_close": 3.3,
-      "predicted_gain": 21.6,
-      "success_probability": 69.7,
-      "recommendation": "BUY",
-      "market_cap": 11797,
-      "updated_at": "2026-02-03T18:32:11.103941"
+      "updated_at": "2026-02-03T19:34:19.286819"
     },
     {
       "ticker": "281820",
@@ -459,27 +425,10 @@
       "volume_ratio": 2.8,
       "vs_breakout_close": 2.96,
       "predicted_gain": 20.3,
-      "success_probability": 68.6,
+      "success_probability": 69.4,
       "recommendation": "BUY",
       "market_cap": 10065,
-      "updated_at": "2026-02-03T18:32:10.868137"
-    },
-    {
-      "ticker": "290650",
-      "name": "엘앤씨바이오",
-      "price": 89500,
-      "change_rate": 1.94,
-      "high_52w": 80000,
-      "breakout_date": "2026-01-30",
-      "days_since": 2,
-      "above_high_percent": 11.88,
-      "volume_ratio": 3.4,
-      "vs_breakout_close": -2.93,
-      "predicted_gain": 21.9,
-      "success_probability": 60.3,
-      "recommendation": "BUY",
-      "market_cap": 22233,
-      "updated_at": "2026-02-03T18:32:11.064091"
+      "updated_at": "2026-02-03T19:34:19.225184"
     },
     {
       "ticker": "074600",
@@ -493,44 +442,61 @@
       "volume_ratio": 1.7,
       "vs_breakout_close": 0.53,
       "predicted_gain": 25.4,
-      "success_probability": 60.0,
-      "recommendation": "HOLD",
+      "success_probability": 68.7,
+      "recommendation": "BUY",
       "market_cap": 7531,
-      "updated_at": "2026-02-03T18:32:11.135891"
+      "updated_at": "2026-02-03T19:34:19.477360"
     },
     {
-      "ticker": "365270",
-      "name": "큐라클",
-      "price": 12780,
-      "change_rate": 14.01,
-      "high_52w": 11500,
+      "ticker": "006730",
+      "name": "서부T&D",
+      "price": 18170,
+      "change_rate": 4.49,
+      "high_52w": 15800,
       "breakout_date": "2026-01-30",
       "days_since": 2,
-      "above_high_percent": 11.13,
-      "volume_ratio": 4.8,
-      "vs_breakout_close": 5.79,
-      "predicted_gain": 29.7,
-      "success_probability": 56.7,
-      "recommendation": "HOLD",
-      "market_cap": 2684,
-      "updated_at": "2026-02-03T18:32:11.236458"
+      "above_high_percent": 15.0,
+      "volume_ratio": 2.3,
+      "vs_breakout_close": 3.3,
+      "predicted_gain": 21.6,
+      "success_probability": 67.2,
+      "recommendation": "BUY",
+      "market_cap": 11797,
+      "updated_at": "2026-02-03T19:34:19.444232"
     },
     {
-      "ticker": "001040",
-      "name": "CJ",
-      "price": 212000,
-      "change_rate": 0.47,
-      "high_52w": 208500,
+      "ticker": "042520",
+      "name": "한스바이오메드",
+      "price": 44300,
+      "change_rate": 5.1,
+      "high_52w": 38000,
       "breakout_date": "2026-01-30",
       "days_since": 2,
-      "above_high_percent": 1.68,
-      "volume_ratio": 1.9,
-      "vs_breakout_close": -2.53,
-      "predicted_gain": 20.4,
-      "success_probability": 56.1,
+      "above_high_percent": 16.58,
+      "volume_ratio": 3.5,
+      "vs_breakout_close": 12.15,
+      "predicted_gain": 21.8,
+      "success_probability": 64.8,
+      "recommendation": "BUY",
+      "market_cap": 6308,
+      "updated_at": "2026-02-03T19:34:19.484491"
+    },
+    {
+      "ticker": "290650",
+      "name": "엘앤씨바이오",
+      "price": 89500,
+      "change_rate": 1.94,
+      "high_52w": 80000,
+      "breakout_date": "2026-01-30",
+      "days_since": 2,
+      "above_high_percent": 11.88,
+      "volume_ratio": 3.4,
+      "vs_breakout_close": -2.93,
+      "predicted_gain": 21.9,
+      "success_probability": 58.3,
       "recommendation": "HOLD",
-      "market_cap": 61855,
-      "updated_at": "2026-02-03T18:32:10.785793"
+      "market_cap": 22233,
+      "updated_at": "2026-02-03T19:34:19.406265"
     },
     {
       "ticker": "001740",
@@ -544,61 +510,44 @@
       "volume_ratio": 13.8,
       "vs_breakout_close": -6.79,
       "predicted_gain": 26.2,
-      "success_probability": 54.8,
+      "success_probability": 57.0,
       "recommendation": "HOLD",
       "market_cap": 11550,
-      "updated_at": "2026-02-03T18:32:10.861531"
+      "updated_at": "2026-02-03T19:34:19.219312"
     },
     {
-      "ticker": "122640",
-      "name": "예스티",
-      "price": 22650,
-      "change_rate": 4.38,
-      "high_52w": 21500,
+      "ticker": "365270",
+      "name": "큐라클",
+      "price": 12780,
+      "change_rate": 14.01,
+      "high_52w": 11500,
       "breakout_date": "2026-01-30",
       "days_since": 2,
-      "above_high_percent": 5.35,
+      "above_high_percent": 11.13,
       "volume_ratio": 4.8,
-      "vs_breakout_close": 4.38,
-      "predicted_gain": 19.7,
-      "success_probability": 52.4,
-      "recommendation": "HOLD",
-      "market_cap": 4835,
-      "updated_at": "2026-02-03T18:32:11.182654"
-    },
-    {
-      "ticker": "059090",
-      "name": "미코",
-      "price": 17760,
-      "change_rate": 1.14,
-      "high_52w": 17620,
-      "breakout_date": "2026-01-30",
-      "days_since": 2,
-      "above_high_percent": 0.79,
-      "volume_ratio": 2.8,
-      "vs_breakout_close": 0.17,
-      "predicted_gain": 20.4,
-      "success_probability": 48.2,
-      "recommendation": "HOLD",
-      "market_cap": 5934,
-      "updated_at": "2026-02-03T18:32:11.168956"
-    },
-    {
-      "ticker": "102940",
-      "name": "코오롱생명과학",
-      "price": 70800,
-      "change_rate": 2.61,
-      "high_52w": 61900,
-      "breakout_date": "2026-01-30",
-      "days_since": 2,
-      "above_high_percent": 14.38,
-      "volume_ratio": 1.6,
-      "vs_breakout_close": 9.26,
+      "vs_breakout_close": 5.79,
       "predicted_gain": 21.7,
-      "success_probability": 47.7,
+      "success_probability": 56.1,
       "recommendation": "HOLD",
-      "market_cap": 9169,
-      "updated_at": "2026-02-03T18:32:11.123232"
+      "market_cap": 2684,
+      "updated_at": "2026-02-03T19:34:19.559319"
+    },
+    {
+      "ticker": "001040",
+      "name": "CJ",
+      "price": 212000,
+      "change_rate": 0.47,
+      "high_52w": 208500,
+      "breakout_date": "2026-01-30",
+      "days_since": 2,
+      "above_high_percent": 1.68,
+      "volume_ratio": 1.9,
+      "vs_breakout_close": -2.53,
+      "predicted_gain": 20.4,
+      "success_probability": 54.8,
+      "recommendation": "HOLD",
+      "market_cap": 61855,
+      "updated_at": "2026-02-03T19:34:19.168531"
     },
     {
       "ticker": "032500",
@@ -612,10 +561,61 @@
       "volume_ratio": 1.9,
       "vs_breakout_close": 0.53,
       "predicted_gain": 21.0,
-      "success_probability": 42.6,
+      "success_probability": 50.3,
       "recommendation": "HOLD",
       "market_cap": 7784,
-      "updated_at": "2026-02-03T18:32:11.131976"
+      "updated_at": "2026-02-03T19:34:19.472472"
+    },
+    {
+      "ticker": "059090",
+      "name": "미코",
+      "price": 17760,
+      "change_rate": 1.14,
+      "high_52w": 17620,
+      "breakout_date": "2026-01-30",
+      "days_since": 2,
+      "above_high_percent": 0.79,
+      "volume_ratio": 2.8,
+      "vs_breakout_close": 0.17,
+      "predicted_gain": 20.4,
+      "success_probability": 44.8,
+      "recommendation": "HOLD",
+      "market_cap": 5934,
+      "updated_at": "2026-02-03T19:34:19.490605"
+    },
+    {
+      "ticker": "122640",
+      "name": "예스티",
+      "price": 22650,
+      "change_rate": 4.38,
+      "high_52w": 21500,
+      "breakout_date": "2026-01-30",
+      "days_since": 2,
+      "above_high_percent": 5.35,
+      "volume_ratio": 4.8,
+      "vs_breakout_close": 4.38,
+      "predicted_gain": 19.7,
+      "success_probability": 44.7,
+      "recommendation": "HOLD",
+      "market_cap": 4835,
+      "updated_at": "2026-02-03T19:34:19.502686"
+    },
+    {
+      "ticker": "102940",
+      "name": "코오롱생명과학",
+      "price": 70800,
+      "change_rate": 2.61,
+      "high_52w": 61900,
+      "breakout_date": "2026-01-30",
+      "days_since": 2,
+      "above_high_percent": 14.38,
+      "volume_ratio": 1.6,
+      "vs_breakout_close": 9.26,
+      "predicted_gain": 21.7,
+      "success_probability": 43.4,
+      "recommendation": "HOLD",
+      "market_cap": 9169,
+      "updated_at": "2026-02-03T19:34:19.463695"
     },
     {
       "ticker": "067000",
@@ -629,10 +629,10 @@
       "volume_ratio": 6.5,
       "vs_breakout_close": -0.84,
       "predicted_gain": 20.7,
-      "success_probability": 37.9,
+      "success_probability": 38.1,
       "recommendation": "HOLD",
       "market_cap": 2058,
-      "updated_at": "2026-02-03T18:32:11.281794"
+      "updated_at": "2026-02-03T19:34:19.591577"
     },
     {
       "ticker": "396300",
@@ -646,27 +646,10 @@
       "volume_ratio": 6.3,
       "vs_breakout_close": 0.44,
       "predicted_gain": 19.1,
-      "success_probability": 34.0,
+      "success_probability": 27.9,
       "recommendation": "HOLD",
       "market_cap": 1206,
-      "updated_at": "2026-02-03T18:32:11.367147"
-    },
-    {
-      "ticker": "095570",
-      "name": "AJ네트웍스",
-      "price": 5460,
-      "change_rate": 3.21,
-      "high_52w": 4980,
-      "breakout_date": "2026-01-29",
-      "days_since": 3,
-      "above_high_percent": 9.64,
-      "volume_ratio": 3.8,
-      "vs_breakout_close": 9.53,
-      "predicted_gain": 27.0,
-      "success_probability": 88.0,
-      "recommendation": "BUY",
-      "market_cap": 2470,
-      "updated_at": "2026-02-03T18:32:10.972703"
+      "updated_at": "2026-02-03T19:34:19.648018"
     },
     {
       "ticker": "003800",
@@ -680,10 +663,27 @@
       "volume_ratio": 1.7,
       "vs_breakout_close": -0.72,
       "predicted_gain": 35.9,
-      "success_probability": 87.6,
+      "success_probability": 88.4,
       "recommendation": "BUY",
       "market_cap": 3837,
-      "updated_at": "2026-02-03T18:32:11.201650"
+      "updated_at": "2026-02-03T19:34:19.517370"
+    },
+    {
+      "ticker": "095570",
+      "name": "AJ네트웍스",
+      "price": 5460,
+      "change_rate": 3.21,
+      "high_52w": 4980,
+      "breakout_date": "2026-01-29",
+      "days_since": 3,
+      "above_high_percent": 9.64,
+      "volume_ratio": 3.8,
+      "vs_breakout_close": 9.53,
+      "predicted_gain": 27.0,
+      "success_probability": 87.0,
+      "recommendation": "BUY",
+      "market_cap": 2470,
+      "updated_at": "2026-02-03T19:34:19.309387"
     },
     {
       "ticker": "244920",
@@ -697,10 +697,10 @@
       "volume_ratio": 1.8,
       "vs_breakout_close": 13.16,
       "predicted_gain": 28.6,
-      "success_probability": 86.3,
+      "success_probability": 86.0,
       "recommendation": "BUY",
       "market_cap": 2993,
-      "updated_at": "2026-02-03T18:32:10.955029"
+      "updated_at": "2026-02-03T19:34:19.290506"
     },
     {
       "ticker": "274090",
@@ -713,28 +713,11 @@
       "above_high_percent": 15.1,
       "volume_ratio": 3.3,
       "vs_breakout_close": -5.53,
-      "predicted_gain": 38.8,
-      "success_probability": 85.1,
+      "predicted_gain": 21.7,
+      "success_probability": 83.7,
       "recommendation": "BUY",
       "market_cap": 3747,
-      "updated_at": "2026-02-03T18:32:11.203787"
-    },
-    {
-      "ticker": "002900",
-      "name": "TYM",
-      "price": 7420,
-      "change_rate": 8.01,
-      "high_52w": 7250,
-      "breakout_date": "2026-01-29",
-      "days_since": 3,
-      "above_high_percent": 2.34,
-      "volume_ratio": 2.8,
-      "vs_breakout_close": 1.5,
-      "predicted_gain": 25.6,
-      "success_probability": 82.0,
-      "recommendation": "BUY",
-      "market_cap": 3071,
-      "updated_at": "2026-02-03T18:32:10.952571"
+      "updated_at": "2026-02-03T19:34:19.522292"
     },
     {
       "ticker": "016610",
@@ -748,10 +731,44 @@
       "volume_ratio": 2.3,
       "vs_breakout_close": 3.9,
       "predicted_gain": 27.2,
-      "success_probability": 81.4,
+      "success_probability": 81.3,
       "recommendation": "BUY",
       "market_cap": 5772,
-      "updated_at": "2026-02-03T18:32:10.905867"
+      "updated_at": "2026-02-03T19:34:19.248852"
+    },
+    {
+      "ticker": "002900",
+      "name": "TYM",
+      "price": 7420,
+      "change_rate": 8.01,
+      "high_52w": 7250,
+      "breakout_date": "2026-01-29",
+      "days_since": 3,
+      "above_high_percent": 2.34,
+      "volume_ratio": 2.8,
+      "vs_breakout_close": 1.5,
+      "predicted_gain": 25.6,
+      "success_probability": 79.6,
+      "recommendation": "BUY",
+      "market_cap": 3071,
+      "updated_at": "2026-02-03T19:34:19.288668"
+    },
+    {
+      "ticker": "027360",
+      "name": "아주IB투자",
+      "price": 5110,
+      "change_rate": 14.19,
+      "high_52w": 4240,
+      "breakout_date": "2026-01-29",
+      "days_since": 3,
+      "above_high_percent": 20.52,
+      "volume_ratio": 7.4,
+      "vs_breakout_close": 13.3,
+      "predicted_gain": 20.5,
+      "success_probability": 72.9,
+      "recommendation": "BUY",
+      "market_cap": 6190,
+      "updated_at": "2026-02-03T19:34:19.486015"
     },
     {
       "ticker": "138490",
@@ -765,27 +782,10 @@
       "volume_ratio": 3.4,
       "vs_breakout_close": 4.94,
       "predicted_gain": 30.6,
-      "success_probability": 73.5,
+      "success_probability": 72.0,
       "recommendation": "BUY",
       "market_cap": 4039,
-      "updated_at": "2026-02-03T18:32:10.931575"
-    },
-    {
-      "ticker": "027360",
-      "name": "아주IB투자",
-      "price": 5110,
-      "change_rate": 14.19,
-      "high_52w": 4240,
-      "breakout_date": "2026-01-29",
-      "days_since": 3,
-      "above_high_percent": 20.52,
-      "volume_ratio": 7.4,
-      "vs_breakout_close": 13.3,
-      "predicted_gain": 22.1,
-      "success_probability": 70.5,
-      "recommendation": "BUY",
-      "market_cap": 6190,
-      "updated_at": "2026-02-03T18:32:11.144356"
+      "updated_at": "2026-02-03T19:34:19.270035"
     },
     {
       "ticker": "090435",
@@ -798,11 +798,11 @@
       "above_high_percent": 1.45,
       "volume_ratio": 1.7,
       "vs_breakout_close": -3.24,
-      "predicted_gain": 30.4,
-      "success_probability": 69.6,
+      "predicted_gain": 26.7,
+      "success_probability": 71.4,
       "recommendation": "BUY",
       "market_cap": 5352,
-      "updated_at": "2026-02-03T18:32:10.909548"
+      "updated_at": "2026-02-03T19:34:19.252903"
     },
     {
       "ticker": "290550",
@@ -816,44 +816,10 @@
       "volume_ratio": 4.6,
       "vs_breakout_close": 2.38,
       "predicted_gain": 25.7,
-      "success_probability": 69.2,
+      "success_probability": 63.4,
       "recommendation": "BUY",
       "market_cap": 2062,
-      "updated_at": "2026-02-03T18:32:11.280767"
-    },
-    {
-      "ticker": "033240",
-      "name": "자화전자",
-      "price": 34800,
-      "change_rate": 9.61,
-      "high_52w": 28400,
-      "breakout_date": "2026-01-29",
-      "days_since": 3,
-      "above_high_percent": 22.54,
-      "volume_ratio": 7.5,
-      "vs_breakout_close": 19.79,
-      "predicted_gain": 21.6,
-      "success_probability": 61.1,
-      "recommendation": "BUY",
-      "market_cap": 7571,
-      "updated_at": "2026-02-03T18:32:10.887859"
-    },
-    {
-      "ticker": "036540",
-      "name": "SFA반도체",
-      "price": 7560,
-      "change_rate": 8.46,
-      "high_52w": 6530,
-      "breakout_date": "2026-01-29",
-      "days_since": 3,
-      "above_high_percent": 15.77,
-      "volume_ratio": 2.7,
-      "vs_breakout_close": 10.2,
-      "predicted_gain": 26.9,
-      "success_probability": 59.7,
-      "recommendation": "HOLD",
-      "market_cap": 12433,
-      "updated_at": "2026-02-03T18:32:11.099115"
+      "updated_at": "2026-02-03T19:34:19.590588"
     },
     {
       "ticker": "138080",
@@ -867,10 +833,27 @@
       "volume_ratio": 3.1,
       "vs_breakout_close": 0.18,
       "predicted_gain": 20.4,
-      "success_probability": 58.9,
-      "recommendation": "HOLD",
+      "success_probability": 62.4,
+      "recommendation": "BUY",
       "market_cap": 2017,
-      "updated_at": "2026-02-03T18:32:11.283583"
+      "updated_at": "2026-02-03T19:34:19.593649"
+    },
+    {
+      "ticker": "033240",
+      "name": "자화전자",
+      "price": 34800,
+      "change_rate": 9.61,
+      "high_52w": 28400,
+      "breakout_date": "2026-01-29",
+      "days_since": 3,
+      "above_high_percent": 22.54,
+      "volume_ratio": 7.5,
+      "vs_breakout_close": 19.79,
+      "predicted_gain": 21.6,
+      "success_probability": 60.5,
+      "recommendation": "BUY",
+      "market_cap": 7571,
+      "updated_at": "2026-02-03T19:34:19.238026"
     },
     {
       "ticker": "232680",
@@ -884,10 +867,27 @@
       "volume_ratio": 5.4,
       "vs_breakout_close": 15.32,
       "predicted_gain": 21.1,
-      "success_probability": 58.5,
+      "success_probability": 58.9,
       "recommendation": "HOLD",
       "market_cap": 2830,
-      "updated_at": "2026-02-03T18:32:11.231743"
+      "updated_at": "2026-02-03T19:34:19.555102"
+    },
+    {
+      "ticker": "036540",
+      "name": "SFA반도체",
+      "price": 7560,
+      "change_rate": 8.46,
+      "high_52w": 6530,
+      "breakout_date": "2026-01-29",
+      "days_since": 3,
+      "above_high_percent": 15.77,
+      "volume_ratio": 2.7,
+      "vs_breakout_close": 10.2,
+      "predicted_gain": 26.9,
+      "success_probability": 57.8,
+      "recommendation": "HOLD",
+      "market_cap": 12433,
+      "updated_at": "2026-02-03T19:34:19.442220"
     },
     {
       "ticker": "054210",
@@ -904,7 +904,7 @@
       "success_probability": 53.8,
       "recommendation": "HOLD",
       "market_cap": 2673,
-      "updated_at": "2026-02-03T18:32:11.238347"
+      "updated_at": "2026-02-03T19:34:19.560855"
     },
     {
       "ticker": "034730",
@@ -918,10 +918,10 @@
       "volume_ratio": 1.8,
       "vs_breakout_close": 0.0,
       "predicted_gain": 21.1,
-      "success_probability": 53.5,
+      "success_probability": 52.7,
       "recommendation": "HOLD",
       "market_cap": 234908,
-      "updated_at": "2026-02-03T18:32:10.751095"
+      "updated_at": "2026-02-03T19:34:19.137950"
     },
     {
       "ticker": "474610",
@@ -935,129 +935,10 @@
       "volume_ratio": 7.0,
       "vs_breakout_close": 22.08,
       "predicted_gain": 26.6,
-      "success_probability": 52.9,
+      "success_probability": 48.3,
       "recommendation": "HOLD",
       "market_cap": 1208,
-      "updated_at": "2026-02-03T18:32:11.366041"
-    },
-    {
-      "ticker": "272290",
-      "name": "이녹스첨단소재",
-      "price": 38200,
-      "change_rate": 7.61,
-      "high_52w": 32200,
-      "breakout_date": "2026-01-29",
-      "days_since": 3,
-      "above_high_percent": 18.63,
-      "volume_ratio": 1.7,
-      "vs_breakout_close": 17.18,
-      "predicted_gain": 20.4,
-      "success_probability": 47.3,
-      "recommendation": "HOLD",
-      "market_cap": 7612,
-      "updated_at": "2026-02-03T18:32:11.134761"
-    },
-    {
-      "ticker": "060720",
-      "name": "KH바텍",
-      "price": 18590,
-      "change_rate": 2.71,
-      "high_52w": 16540,
-      "breakout_date": "2026-01-29",
-      "days_since": 3,
-      "above_high_percent": 12.39,
-      "volume_ratio": 11.1,
-      "vs_breakout_close": 11.92,
-      "predicted_gain": 20.6,
-      "success_probability": 37.5,
-      "recommendation": "HOLD",
-      "market_cap": 4401,
-      "updated_at": "2026-02-03T18:32:11.189275"
-    },
-    {
-      "ticker": "009470",
-      "name": "삼화전기",
-      "price": 55100,
-      "change_rate": 10.42,
-      "high_52w": 45700,
-      "breakout_date": "2026-01-29",
-      "days_since": 3,
-      "above_high_percent": 20.57,
-      "volume_ratio": 3.5,
-      "vs_breakout_close": 6.99,
-      "predicted_gain": 24.1,
-      "success_probability": 37.2,
-      "recommendation": "HOLD",
-      "market_cap": 3644,
-      "updated_at": "2026-02-03T18:32:10.938725"
-    },
-    {
-      "ticker": "417200",
-      "name": "LS머트리얼즈",
-      "price": 16510,
-      "change_rate": 3.51,
-      "high_52w": 16000,
-      "breakout_date": "2026-01-29",
-      "days_since": 3,
-      "above_high_percent": 3.19,
-      "volume_ratio": 7.9,
-      "vs_breakout_close": -0.54,
-      "predicted_gain": 20.5,
-      "success_probability": 37.2,
-      "recommendation": "HOLD",
-      "market_cap": 11169,
-      "updated_at": "2026-02-03T18:32:11.107821"
-    },
-    {
-      "ticker": "214150",
-      "name": "클래시스",
-      "price": 74600,
-      "change_rate": 2.61,
-      "high_52w": 74400,
-      "breakout_date": "2026-01-29",
-      "days_since": 3,
-      "above_high_percent": 0.27,
-      "volume_ratio": 4.6,
-      "vs_breakout_close": -1.32,
-      "predicted_gain": 19.8,
-      "success_probability": 35.5,
-      "recommendation": "HOLD",
-      "market_cap": 48867,
-      "updated_at": "2026-02-03T18:32:11.039623"
-    },
-    {
-      "ticker": "001510",
-      "name": "SK증권",
-      "price": 954,
-      "change_rate": 9.66,
-      "high_52w": 826,
-      "breakout_date": "2026-01-29",
-      "days_since": 3,
-      "above_high_percent": 15.5,
-      "volume_ratio": 14.8,
-      "vs_breakout_close": 6.71,
-      "predicted_gain": 22.2,
-      "success_probability": 35.3,
-      "recommendation": "HOLD",
-      "market_cap": 4508,
-      "updated_at": "2026-02-03T18:32:10.918119"
-    },
-    {
-      "ticker": "001200",
-      "name": "유진투자증권",
-      "price": 4275,
-      "change_rate": 7.68,
-      "high_52w": 4240,
-      "breakout_date": "2026-01-29",
-      "days_since": 3,
-      "above_high_percent": 0.83,
-      "volume_ratio": 16.6,
-      "vs_breakout_close": -0.81,
-      "predicted_gain": 20.4,
-      "success_probability": 35.0,
-      "recommendation": "HOLD",
-      "market_cap": 4141,
-      "updated_at": "2026-02-03T18:32:10.929275"
+      "updated_at": "2026-02-03T19:34:19.646845"
     },
     {
       "ticker": "007820",
@@ -1071,10 +952,112 @@
       "volume_ratio": 2.1,
       "vs_breakout_close": 4.82,
       "predicted_gain": 25.1,
-      "success_probability": 33.6,
+      "success_probability": 46.9,
       "recommendation": "HOLD",
       "market_cap": 1394,
-      "updated_at": "2026-02-03T18:32:11.352705"
+      "updated_at": "2026-02-03T19:34:19.632127"
+    },
+    {
+      "ticker": "272290",
+      "name": "이녹스첨단소재",
+      "price": 38200,
+      "change_rate": 7.61,
+      "high_52w": 32200,
+      "breakout_date": "2026-01-29",
+      "days_since": 3,
+      "above_high_percent": 18.63,
+      "volume_ratio": 1.7,
+      "vs_breakout_close": 17.18,
+      "predicted_gain": 20.4,
+      "success_probability": 45.2,
+      "recommendation": "HOLD",
+      "market_cap": 7612,
+      "updated_at": "2026-02-03T19:34:19.476126"
+    },
+    {
+      "ticker": "009470",
+      "name": "삼화전기",
+      "price": 55100,
+      "change_rate": 10.42,
+      "high_52w": 45700,
+      "breakout_date": "2026-01-29",
+      "days_since": 3,
+      "above_high_percent": 20.57,
+      "volume_ratio": 3.5,
+      "vs_breakout_close": 6.99,
+      "predicted_gain": 24.1,
+      "success_probability": 37.3,
+      "recommendation": "HOLD",
+      "market_cap": 3644,
+      "updated_at": "2026-02-03T19:34:19.275653"
+    },
+    {
+      "ticker": "214150",
+      "name": "클래시스",
+      "price": 74600,
+      "change_rate": 2.61,
+      "high_52w": 74400,
+      "breakout_date": "2026-01-29",
+      "days_since": 3,
+      "above_high_percent": 0.27,
+      "volume_ratio": 4.6,
+      "vs_breakout_close": -1.32,
+      "predicted_gain": 19.8,
+      "success_probability": 36.9,
+      "recommendation": "HOLD",
+      "market_cap": 48867,
+      "updated_at": "2026-02-03T19:34:19.381920"
+    },
+    {
+      "ticker": "417200",
+      "name": "LS머트리얼즈",
+      "price": 16510,
+      "change_rate": 3.51,
+      "high_52w": 16000,
+      "breakout_date": "2026-01-29",
+      "days_since": 3,
+      "above_high_percent": 3.19,
+      "volume_ratio": 7.9,
+      "vs_breakout_close": -0.54,
+      "predicted_gain": 20.5,
+      "success_probability": 36.7,
+      "recommendation": "HOLD",
+      "market_cap": 11169,
+      "updated_at": "2026-02-03T19:34:19.449666"
+    },
+    {
+      "ticker": "001510",
+      "name": "SK증권",
+      "price": 954,
+      "change_rate": 9.66,
+      "high_52w": 826,
+      "breakout_date": "2026-01-29",
+      "days_since": 3,
+      "above_high_percent": 15.5,
+      "volume_ratio": 14.8,
+      "vs_breakout_close": 6.71,
+      "predicted_gain": 22.2,
+      "success_probability": 34.0,
+      "recommendation": "HOLD",
+      "market_cap": 4508,
+      "updated_at": "2026-02-03T19:34:19.259645"
+    },
+    {
+      "ticker": "001200",
+      "name": "유진투자증권",
+      "price": 4275,
+      "change_rate": 7.68,
+      "high_52w": 4240,
+      "breakout_date": "2026-01-29",
+      "days_since": 3,
+      "above_high_percent": 0.83,
+      "volume_ratio": 16.6,
+      "vs_breakout_close": -0.81,
+      "predicted_gain": 20.4,
+      "success_probability": 33.5,
+      "recommendation": "HOLD",
+      "market_cap": 4141,
+      "updated_at": "2026-02-03T19:34:19.267876"
     },
     {
       "ticker": "110990",
@@ -1088,10 +1071,27 @@
       "volume_ratio": 1.9,
       "vs_breakout_close": 8.5,
       "predicted_gain": 19.8,
-      "success_probability": 31.2,
+      "success_probability": 31.3,
       "recommendation": "HOLD",
       "market_cap": 4101,
-      "updated_at": "2026-02-03T18:32:11.197531"
+      "updated_at": "2026-02-03T19:34:19.513218"
+    },
+    {
+      "ticker": "060720",
+      "name": "KH바텍",
+      "price": 18590,
+      "change_rate": 2.71,
+      "high_52w": 16540,
+      "breakout_date": "2026-01-29",
+      "days_since": 3,
+      "above_high_percent": 12.39,
+      "volume_ratio": 11.1,
+      "vs_breakout_close": 11.92,
+      "predicted_gain": 20.6,
+      "success_probability": 30.8,
+      "recommendation": "HOLD",
+      "market_cap": 4401,
+      "updated_at": "2026-02-03T19:34:19.508003"
     },
     {
       "ticker": "095340",
@@ -1105,10 +1105,10 @@
       "volume_ratio": 2.1,
       "vs_breakout_close": 13.75,
       "predicted_gain": 21.6,
-      "success_probability": 87.9,
+      "success_probability": 86.3,
       "recommendation": "BUY",
       "market_cap": 31731,
-      "updated_at": "2026-02-03T18:32:11.050282"
+      "updated_at": "2026-02-03T19:34:19.393888"
     },
     {
       "ticker": "023410",
@@ -1122,10 +1122,10 @@
       "volume_ratio": 5.2,
       "vs_breakout_close": 4.08,
       "predicted_gain": 27.0,
-      "success_probability": 85.3,
+      "success_probability": 85.5,
       "recommendation": "BUY",
       "market_cap": 3158,
-      "updated_at": "2026-02-03T18:32:11.220679"
+      "updated_at": "2026-02-03T19:34:19.543140"
     },
     {
       "ticker": "004170",
@@ -1139,10 +1139,10 @@
       "volume_ratio": 2.2,
       "vs_breakout_close": 8.24,
       "predicted_gain": 20.3,
-      "success_probability": 82.0,
+      "success_probability": 81.7,
       "recommendation": "BUY",
       "market_cap": 31057,
-      "updated_at": "2026-02-03T18:32:10.818063"
+      "updated_at": "2026-02-03T19:34:19.184673"
     },
     {
       "ticker": "015360",
@@ -1159,7 +1159,7 @@
       "success_probability": 79.8,
       "recommendation": "BUY",
       "market_cap": 4503,
-      "updated_at": "2026-02-03T18:32:10.919767"
+      "updated_at": "2026-02-03T19:34:19.260845"
     },
     {
       "ticker": "029460",
@@ -1173,27 +1173,10 @@
       "volume_ratio": 2.0,
       "vs_breakout_close": 0.61,
       "predicted_gain": 30.8,
-      "success_probability": 79.0,
+      "success_probability": 79.7,
       "recommendation": "BUY",
       "market_cap": 4353,
-      "updated_at": "2026-02-03T18:32:10.923448"
-    },
-    {
-      "ticker": "115180",
-      "name": "큐리언트",
-      "price": 33850,
-      "change_rate": -5.05,
-      "high_52w": 33600,
-      "breakout_date": "2026-01-28",
-      "days_since": 4,
-      "above_high_percent": 0.74,
-      "volume_ratio": 2.2,
-      "vs_breakout_close": -2.31,
-      "predicted_gain": 21.6,
-      "success_probability": 77.7,
-      "recommendation": "BUY",
-      "market_cap": 12589,
-      "updated_at": "2026-02-03T18:32:11.096311"
+      "updated_at": "2026-02-03T19:34:19.263534"
     },
     {
       "ticker": "005290",
@@ -1207,10 +1190,27 @@
       "volume_ratio": 3.1,
       "vs_breakout_close": 13.93,
       "predicted_gain": 20.3,
-      "success_probability": 77.5,
+      "success_probability": 79.3,
       "recommendation": "BUY",
       "market_cap": 28380,
-      "updated_at": "2026-02-03T18:32:11.053414"
+      "updated_at": "2026-02-03T19:34:19.396478"
+    },
+    {
+      "ticker": "080580",
+      "name": "오킨스전자",
+      "price": 14390,
+      "change_rate": 6.2,
+      "high_52w": 12180,
+      "breakout_date": "2026-01-28",
+      "days_since": 4,
+      "above_high_percent": 18.14,
+      "volume_ratio": 6.1,
+      "vs_breakout_close": 4.05,
+      "predicted_gain": 21.7,
+      "success_probability": 79.2,
+      "recommendation": "BUY",
+      "market_cap": 2961,
+      "updated_at": "2026-02-03T19:34:19.548230"
     },
     {
       "ticker": "323280",
@@ -1227,41 +1227,7 @@
       "success_probability": 77.4,
       "recommendation": "BUY",
       "market_cap": 22781,
-      "updated_at": "2026-02-03T18:32:11.061909"
-    },
-    {
-      "ticker": "080580",
-      "name": "오킨스전자",
-      "price": 14390,
-      "change_rate": 6.2,
-      "high_52w": 12180,
-      "breakout_date": "2026-01-28",
-      "days_since": 4,
-      "above_high_percent": 18.14,
-      "volume_ratio": 6.1,
-      "vs_breakout_close": 4.05,
-      "predicted_gain": 29.5,
-      "success_probability": 77.0,
-      "recommendation": "BUY",
-      "market_cap": 2961,
-      "updated_at": "2026-02-03T18:32:11.225899"
-    },
-    {
-      "ticker": "036810",
-      "name": "에프에스티",
-      "price": 44450,
-      "change_rate": 3.98,
-      "high_52w": 39965,
-      "breakout_date": "2026-01-28",
-      "days_since": 4,
-      "above_high_percent": 11.22,
-      "volume_ratio": 2.6,
-      "vs_breakout_close": -10.29,
-      "predicted_gain": 23.4,
-      "success_probability": 75.1,
-      "recommendation": "BUY",
-      "market_cap": 9759,
-      "updated_at": "2026-02-03T18:32:11.114780"
+      "updated_at": "2026-02-03T19:34:19.404594"
     },
     {
       "ticker": "010120",
@@ -1275,27 +1241,61 @@
       "volume_ratio": 2.0,
       "vs_breakout_close": 6.99,
       "predicted_gain": 21.7,
-      "success_probability": 74.5,
+      "success_probability": 74.4,
       "recommendation": "BUY",
       "market_cap": 183600,
-      "updated_at": "2026-02-03T18:32:10.761012"
+      "updated_at": "2026-02-03T19:34:19.145730"
     },
     {
-      "ticker": "080220",
-      "name": "제주반도체",
-      "price": 41200,
-      "change_rate": 5.1,
-      "high_52w": 35100,
+      "ticker": "019010",
+      "name": "베뉴지",
+      "price": 3915,
+      "change_rate": 6.82,
+      "high_52w": 3395,
       "breakout_date": "2026-01-28",
       "days_since": 4,
-      "above_high_percent": 17.38,
-      "volume_ratio": 3.0,
-      "vs_breakout_close": 12.88,
-      "predicted_gain": 21.9,
-      "success_probability": 74.3,
+      "above_high_percent": 15.32,
+      "volume_ratio": 2.5,
+      "vs_breakout_close": 5.67,
+      "predicted_gain": 26.7,
+      "success_probability": 74.2,
       "recommendation": "BUY",
-      "market_cap": 14190,
-      "updated_at": "2026-02-03T18:32:11.083852"
+      "market_cap": 1887,
+      "updated_at": "2026-02-03T19:34:19.600303"
+    },
+    {
+      "ticker": "115180",
+      "name": "큐리언트",
+      "price": 33850,
+      "change_rate": -5.05,
+      "high_52w": 33600,
+      "breakout_date": "2026-01-28",
+      "days_since": 4,
+      "above_high_percent": 0.74,
+      "volume_ratio": 2.2,
+      "vs_breakout_close": -2.31,
+      "predicted_gain": 21.6,
+      "success_probability": 73.9,
+      "recommendation": "BUY",
+      "market_cap": 12589,
+      "updated_at": "2026-02-03T19:34:19.440054"
+    },
+    {
+      "ticker": "036810",
+      "name": "에프에스티",
+      "price": 44450,
+      "change_rate": 3.98,
+      "high_52w": 39965,
+      "breakout_date": "2026-01-28",
+      "days_since": 4,
+      "above_high_percent": 11.22,
+      "volume_ratio": 2.6,
+      "vs_breakout_close": -10.29,
+      "predicted_gain": 23.4,
+      "success_probability": 73.2,
+      "recommendation": "BUY",
+      "market_cap": 9759,
+      "updated_at": "2026-02-03T19:34:19.456844"
     },
     {
       "ticker": "095610",
@@ -1312,41 +1312,24 @@
       "success_probability": 71.4,
       "recommendation": "BUY",
       "market_cap": 13897,
-      "updated_at": "2026-02-03T18:32:11.085293"
+      "updated_at": "2026-02-03T19:34:19.431283"
     },
     {
-      "ticker": "126340",
-      "name": "비나텍",
-      "price": 113900,
-      "change_rate": 15.99,
-      "high_52w": 94400,
+      "ticker": "080220",
+      "name": "제주반도체",
+      "price": 41200,
+      "change_rate": 5.1,
+      "high_52w": 35100,
       "breakout_date": "2026-01-28",
       "days_since": 4,
-      "above_high_percent": 20.66,
-      "volume_ratio": 1.8,
-      "vs_breakout_close": 14.93,
-      "predicted_gain": 21.8,
-      "success_probability": 71.4,
+      "above_high_percent": 17.38,
+      "volume_ratio": 3.0,
+      "vs_breakout_close": 12.88,
+      "predicted_gain": 21.9,
+      "success_probability": 71.1,
       "recommendation": "BUY",
-      "market_cap": 7669,
-      "updated_at": "2026-02-03T18:32:11.133349"
-    },
-    {
-      "ticker": "019010",
-      "name": "베뉴지",
-      "price": 3915,
-      "change_rate": 6.82,
-      "high_52w": 3395,
-      "breakout_date": "2026-01-28",
-      "days_since": 4,
-      "above_high_percent": 15.32,
-      "volume_ratio": 2.5,
-      "vs_breakout_close": 5.67,
-      "predicted_gain": 30.4,
-      "success_probability": 69.7,
-      "recommendation": "BUY",
-      "market_cap": 1887,
-      "updated_at": "2026-02-03T18:32:11.311499"
+      "market_cap": 14190,
+      "updated_at": "2026-02-03T19:34:19.430070"
     },
     {
       "ticker": "232140",
@@ -1363,7 +1346,7 @@
       "success_probability": 69.3,
       "recommendation": "BUY",
       "market_cap": 16409,
-      "updated_at": "2026-02-03T18:32:11.077142"
+      "updated_at": "2026-02-03T19:34:19.421897"
     },
     {
       "ticker": "028050",
@@ -1380,7 +1363,24 @@
       "success_probability": 65.9,
       "recommendation": "BUY",
       "market_cap": 62034,
-      "updated_at": "2026-02-03T18:32:10.784253"
+      "updated_at": "2026-02-03T19:34:19.167353"
+    },
+    {
+      "ticker": "126340",
+      "name": "비나텍",
+      "price": 113900,
+      "change_rate": 15.99,
+      "high_52w": 94400,
+      "breakout_date": "2026-01-28",
+      "days_since": 4,
+      "above_high_percent": 20.66,
+      "volume_ratio": 1.8,
+      "vs_breakout_close": 14.93,
+      "predicted_gain": 21.8,
+      "success_probability": 65.9,
+      "recommendation": "BUY",
+      "market_cap": 7669,
+      "updated_at": "2026-02-03T19:34:19.474433"
     },
     {
       "ticker": "403870",
@@ -1397,7 +1397,24 @@
       "success_probability": 64.7,
       "recommendation": "BUY",
       "market_cap": 39311,
-      "updated_at": "2026-02-03T18:32:11.043168"
+      "updated_at": "2026-02-03T19:34:19.386160"
+    },
+    {
+      "ticker": "137400",
+      "name": "피엔티",
+      "price": 53600,
+      "change_rate": 5.3,
+      "high_52w": 50700,
+      "breakout_date": "2026-01-28",
+      "days_since": 4,
+      "above_high_percent": 5.72,
+      "volume_ratio": 2.9,
+      "vs_breakout_close": 4.69,
+      "predicted_gain": 25.1,
+      "success_probability": 63.3,
+      "recommendation": "BUY",
+      "market_cap": 12698,
+      "updated_at": "2026-02-03T19:34:19.438955"
     },
     {
       "ticker": "253590",
@@ -1411,10 +1428,10 @@
       "volume_ratio": 15.5,
       "vs_breakout_close": 13.83,
       "predicted_gain": 31.0,
-      "success_probability": 64.5,
+      "success_probability": 62.3,
       "recommendation": "BUY",
       "market_cap": 8234,
-      "updated_at": "2026-02-03T18:32:11.125826"
+      "updated_at": "2026-02-03T19:34:19.466437"
     },
     {
       "ticker": "038500",
@@ -1427,45 +1444,11 @@
       "above_high_percent": 118.98,
       "volume_ratio": 5.6,
       "vs_breakout_close": 109.91,
-      "predicted_gain": 21.9,
-      "success_probability": 64.1,
+      "predicted_gain": 20.3,
+      "success_probability": 61.2,
       "recommendation": "BUY",
       "market_cap": 15313,
-      "updated_at": "2026-02-03T18:32:11.080102"
-    },
-    {
-      "ticker": "059120",
-      "name": "아진엑스텍",
-      "price": 10610,
-      "change_rate": 11.57,
-      "high_52w": 8990,
-      "breakout_date": "2026-01-28",
-      "days_since": 4,
-      "above_high_percent": 18.02,
-      "volume_ratio": 1.9,
-      "vs_breakout_close": 7.39,
-      "predicted_gain": 28.1,
-      "success_probability": 63.6,
-      "recommendation": "BUY",
-      "market_cap": 1034,
-      "updated_at": "2026-02-03T18:32:11.385002"
-    },
-    {
-      "ticker": "353200",
-      "name": "대덕전자",
-      "price": 64700,
-      "change_rate": 6.59,
-      "high_52w": 54300,
-      "breakout_date": "2026-01-28",
-      "days_since": 4,
-      "above_high_percent": 19.15,
-      "volume_ratio": 2.2,
-      "vs_breakout_close": 18.72,
-      "predicted_gain": 21.7,
-      "success_probability": 60.8,
-      "recommendation": "BUY",
-      "market_cap": 31972,
-      "updated_at": "2026-02-03T18:32:10.813749"
+      "updated_at": "2026-02-03T19:34:19.425619"
     },
     {
       "ticker": "078350",
@@ -1482,7 +1465,24 @@
       "success_probability": 59.7,
       "recommendation": "HOLD",
       "market_cap": 4527,
-      "updated_at": "2026-02-03T18:32:11.187179"
+      "updated_at": "2026-02-03T19:34:19.506484"
+    },
+    {
+      "ticker": "059120",
+      "name": "아진엑스텍",
+      "price": 10610,
+      "change_rate": 11.57,
+      "high_52w": 8990,
+      "breakout_date": "2026-01-28",
+      "days_since": 4,
+      "above_high_percent": 18.02,
+      "volume_ratio": 1.9,
+      "vs_breakout_close": 7.39,
+      "predicted_gain": 27.3,
+      "success_probability": 59.3,
+      "recommendation": "HOLD",
+      "market_cap": 1034,
+      "updated_at": "2026-02-03T19:34:19.667005"
     },
     {
       "ticker": "289930",
@@ -1496,27 +1496,10 @@
       "volume_ratio": 2.7,
       "vs_breakout_close": 15.45,
       "predicted_gain": 26.7,
-      "success_probability": 56.9,
+      "success_probability": 57.3,
       "recommendation": "HOLD",
       "market_cap": 1748,
-      "updated_at": "2026-02-03T18:32:11.320561"
-    },
-    {
-      "ticker": "137400",
-      "name": "피엔티",
-      "price": 53600,
-      "change_rate": 5.3,
-      "high_52w": 50700,
-      "breakout_date": "2026-01-28",
-      "days_since": 4,
-      "above_high_percent": 5.72,
-      "volume_ratio": 2.9,
-      "vs_breakout_close": 4.69,
-      "predicted_gain": 25.1,
-      "success_probability": 56.4,
-      "recommendation": "HOLD",
-      "market_cap": 12698,
-      "updated_at": "2026-02-03T18:32:11.094819"
+      "updated_at": "2026-02-03T19:34:19.607570"
     },
     {
       "ticker": "036830",
@@ -1533,7 +1516,7 @@
       "success_probability": 53.2,
       "recommendation": "HOLD",
       "market_cap": 10859,
-      "updated_at": "2026-02-03T18:32:11.109943"
+      "updated_at": "2026-02-03T19:34:19.452084"
     },
     {
       "ticker": "383310",
@@ -1550,7 +1533,24 @@
       "success_probability": 52.2,
       "recommendation": "HOLD",
       "market_cap": 8201,
-      "updated_at": "2026-02-03T18:32:11.127068"
+      "updated_at": "2026-02-03T19:34:19.467700"
+    },
+    {
+      "ticker": "353200",
+      "name": "대덕전자",
+      "price": 64700,
+      "change_rate": 6.59,
+      "high_52w": 54300,
+      "breakout_date": "2026-01-28",
+      "days_since": 4,
+      "above_high_percent": 19.15,
+      "volume_ratio": 2.2,
+      "vs_breakout_close": 18.72,
+      "predicted_gain": 21.7,
+      "success_probability": 51.5,
+      "recommendation": "HOLD",
+      "market_cap": 31972,
+      "updated_at": "2026-02-03T19:34:19.181644"
     },
     {
       "ticker": "028670",
@@ -1564,10 +1564,10 @@
       "volume_ratio": 1.9,
       "vs_breakout_close": 5.22,
       "predicted_gain": 19.4,
-      "success_probability": 48.9,
+      "success_probability": 49.8,
       "recommendation": "HOLD",
       "market_cap": 26381,
-      "updated_at": "2026-02-03T18:32:10.821837"
+      "updated_at": "2026-02-03T19:34:19.187422"
     },
     {
       "ticker": "128940",
@@ -1581,10 +1581,10 @@
       "volume_ratio": 2.9,
       "vs_breakout_close": -3.08,
       "predicted_gain": 20.4,
-      "success_probability": 48.3,
+      "success_probability": 47.8,
       "recommendation": "HOLD",
       "market_cap": 64439,
-      "updated_at": "2026-02-03T18:32:10.780875"
+      "updated_at": "2026-02-03T19:34:19.164810"
     },
     {
       "ticker": "119830",
@@ -1598,10 +1598,10 @@
       "volume_ratio": 5.2,
       "vs_breakout_close": 11.05,
       "predicted_gain": 26.2,
-      "success_probability": 44.4,
+      "success_probability": 45.4,
       "recommendation": "HOLD",
       "market_cap": 1999,
-      "updated_at": "2026-02-03T18:32:11.285041"
+      "updated_at": "2026-02-03T19:34:19.595290"
     },
     {
       "ticker": "045100",
@@ -1614,11 +1614,11 @@
       "above_high_percent": 17.67,
       "volume_ratio": 4.8,
       "vs_breakout_close": 7.56,
-      "predicted_gain": 26.1,
-      "success_probability": 38.9,
+      "predicted_gain": 25.4,
+      "success_probability": 37.0,
       "recommendation": "HOLD",
       "market_cap": 5634,
-      "updated_at": "2026-02-03T18:32:11.173916"
+      "updated_at": "2026-02-03T19:34:19.497278"
     },
     {
       "ticker": "218410",
@@ -1635,41 +1635,7 @@
       "success_probability": 81.2,
       "recommendation": "BUY",
       "market_cap": 13410,
-      "updated_at": "2026-02-03T18:32:11.088568"
-    },
-    {
-      "ticker": "00680K",
-      "name": "미래에셋증권2우B",
-      "price": 17800,
-      "change_rate": 17.49,
-      "high_52w": 13530,
-      "breakout_date": "2026-01-27",
-      "days_since": 5,
-      "above_high_percent": 31.56,
-      "volume_ratio": 2.1,
-      "vs_breakout_close": 27.14,
-      "predicted_gain": 21.7,
-      "success_probability": 80.0,
-      "recommendation": "BUY",
-      "market_cap": 24328,
-      "updated_at": "2026-02-03T18:32:10.827435"
-    },
-    {
-      "ticker": "053610",
-      "name": "프로텍",
-      "price": 53500,
-      "change_rate": 7.32,
-      "high_52w": 38600,
-      "breakout_date": "2026-01-27",
-      "days_since": 5,
-      "above_high_percent": 38.6,
-      "volume_ratio": 1.9,
-      "vs_breakout_close": 35.96,
-      "predicted_gain": 26.8,
-      "success_probability": 75.9,
-      "recommendation": "BUY",
-      "market_cap": 5885,
-      "updated_at": "2026-02-03T18:32:11.170108"
+      "updated_at": "2026-02-03T19:34:19.433853"
     },
     {
       "ticker": "067310",
@@ -1686,7 +1652,41 @@
       "success_probability": 75.7,
       "recommendation": "BUY",
       "market_cap": 24530,
-      "updated_at": "2026-02-03T18:32:11.057801"
+      "updated_at": "2026-02-03T19:34:19.400831"
+    },
+    {
+      "ticker": "053610",
+      "name": "프로텍",
+      "price": 53500,
+      "change_rate": 7.32,
+      "high_52w": 38600,
+      "breakout_date": "2026-01-27",
+      "days_since": 5,
+      "above_high_percent": 38.6,
+      "volume_ratio": 1.9,
+      "vs_breakout_close": 35.96,
+      "predicted_gain": 26.8,
+      "success_probability": 75.0,
+      "recommendation": "BUY",
+      "market_cap": 5885,
+      "updated_at": "2026-02-03T19:34:19.492533"
+    },
+    {
+      "ticker": "00680K",
+      "name": "미래에셋증권2우B",
+      "price": 17800,
+      "change_rate": 17.49,
+      "high_52w": 13530,
+      "breakout_date": "2026-01-27",
+      "days_since": 5,
+      "above_high_percent": 31.56,
+      "volume_ratio": 2.1,
+      "vs_breakout_close": 27.14,
+      "predicted_gain": 21.7,
+      "success_probability": 74.2,
+      "recommendation": "BUY",
+      "market_cap": 24328,
+      "updated_at": "2026-02-03T19:34:19.191745"
     },
     {
       "ticker": "319660",
@@ -1700,10 +1700,10 @@
       "volume_ratio": 2.5,
       "vs_breakout_close": 27.62,
       "predicted_gain": 21.6,
-      "success_probability": 75.4,
+      "success_probability": 74.2,
       "recommendation": "BUY",
       "market_cap": 17466,
-      "updated_at": "2026-02-03T18:32:11.071521"
+      "updated_at": "2026-02-03T19:34:19.414655"
     },
     {
       "ticker": "055550",
@@ -1717,10 +1717,10 @@
       "volume_ratio": 1.5,
       "vs_breakout_close": 2.21,
       "predicted_gain": 20.3,
-      "success_probability": 73.4,
+      "success_probability": 72.9,
       "recommendation": "BUY",
       "market_cap": 427235,
-      "updated_at": "2026-02-03T18:32:10.740500"
+      "updated_at": "2026-02-03T19:34:19.130422"
     },
     {
       "ticker": "078160",
@@ -1734,10 +1734,10 @@
       "volume_ratio": 14.0,
       "vs_breakout_close": 10.66,
       "predicted_gain": 32.0,
-      "success_probability": 70.2,
+      "success_probability": 71.6,
       "recommendation": "BUY",
       "market_cap": 10173,
-      "updated_at": "2026-02-03T18:32:11.113335"
+      "updated_at": "2026-02-03T19:34:19.455463"
     },
     {
       "ticker": "078930",
@@ -1751,10 +1751,10 @@
       "volume_ratio": 1.5,
       "vs_breakout_close": 6.57,
       "predicted_gain": 19.8,
-      "success_probability": 67.6,
+      "success_probability": 68.0,
       "recommendation": "BUY",
       "market_cap": 63275,
-      "updated_at": "2026-02-03T18:32:10.782417"
+      "updated_at": "2026-02-03T19:34:19.165978"
     },
     {
       "ticker": "353810",
@@ -1768,44 +1768,10 @@
       "volume_ratio": 2.4,
       "vs_breakout_close": 4.11,
       "predicted_gain": 27.4,
-      "success_probability": 57.5,
+      "success_probability": 56.5,
       "recommendation": "HOLD",
       "market_cap": 2428,
-      "updated_at": "2026-02-03T18:32:11.265260"
-    },
-    {
-      "ticker": "048410",
-      "name": "현대바이오",
-      "price": 11120,
-      "change_rate": 4.61,
-      "high_52w": 7940,
-      "breakout_date": "2026-01-27",
-      "days_since": 5,
-      "above_high_percent": 40.05,
-      "volume_ratio": 10.8,
-      "vs_breakout_close": 37.11,
-      "predicted_gain": 24.5,
-      "success_probability": 54.7,
-      "recommendation": "HOLD",
-      "market_cap": 10679,
-      "updated_at": "2026-02-03T18:32:11.110899"
-    },
-    {
-      "ticker": "079370",
-      "name": "제우스",
-      "price": 19740,
-      "change_rate": 6.76,
-      "high_52w": 17160,
-      "breakout_date": "2026-01-27",
-      "days_since": 5,
-      "above_high_percent": 15.03,
-      "volume_ratio": 33.4,
-      "vs_breakout_close": -0.65,
-      "predicted_gain": 19.7,
-      "success_probability": 53.6,
-      "recommendation": "HOLD",
-      "market_cap": 6122,
-      "updated_at": "2026-02-03T18:32:11.145873"
+      "updated_at": "2026-02-03T19:34:19.574450"
     },
     {
       "ticker": "417010",
@@ -1819,27 +1785,44 @@
       "volume_ratio": 11.6,
       "vs_breakout_close": 16.7,
       "predicted_gain": 20.4,
-      "success_probability": 51.4,
+      "success_probability": 53.6,
       "recommendation": "HOLD",
       "market_cap": 2410,
-      "updated_at": "2026-02-03T18:32:11.268317"
+      "updated_at": "2026-02-03T19:34:19.577496"
     },
     {
-      "ticker": "289080",
-      "name": "SV인베스트먼트",
-      "price": 2595,
-      "change_rate": 4.64,
-      "high_52w": 2165,
+      "ticker": "079370",
+      "name": "제우스",
+      "price": 19740,
+      "change_rate": 6.76,
+      "high_52w": 17160,
       "breakout_date": "2026-01-27",
       "days_since": 5,
-      "above_high_percent": 19.86,
-      "volume_ratio": 11.3,
-      "vs_breakout_close": 5.27,
-      "predicted_gain": 27.2,
-      "success_probability": 46.9,
+      "above_high_percent": 15.03,
+      "volume_ratio": 33.4,
+      "vs_breakout_close": -0.65,
+      "predicted_gain": 19.7,
+      "success_probability": 52.6,
       "recommendation": "HOLD",
-      "market_cap": 1409,
-      "updated_at": "2026-02-03T18:32:11.348664"
+      "market_cap": 6122,
+      "updated_at": "2026-02-03T19:34:19.487699"
+    },
+    {
+      "ticker": "048410",
+      "name": "현대바이오",
+      "price": 11120,
+      "change_rate": 4.61,
+      "high_52w": 7940,
+      "breakout_date": "2026-01-27",
+      "days_since": 5,
+      "above_high_percent": 40.05,
+      "volume_ratio": 10.8,
+      "vs_breakout_close": 37.11,
+      "predicted_gain": 24.5,
+      "success_probability": 52.0,
+      "recommendation": "HOLD",
+      "market_cap": 10679,
+      "updated_at": "2026-02-03T19:34:19.453160"
     },
     {
       "ticker": "241710",
@@ -1853,10 +1836,27 @@
       "volume_ratio": 1.5,
       "vs_breakout_close": 23.21,
       "predicted_gain": 20.4,
-      "success_probability": 46.5,
+      "success_probability": 51.4,
       "recommendation": "HOLD",
       "market_cap": 11000,
-      "updated_at": "2026-02-03T18:32:11.108799"
+      "updated_at": "2026-02-03T19:34:19.450776"
+    },
+    {
+      "ticker": "289080",
+      "name": "SV인베스트먼트",
+      "price": 2595,
+      "change_rate": 4.64,
+      "high_52w": 2165,
+      "breakout_date": "2026-01-27",
+      "days_since": 5,
+      "above_high_percent": 19.86,
+      "volume_ratio": 11.3,
+      "vs_breakout_close": 5.27,
+      "predicted_gain": 27.2,
+      "success_probability": 45.7,
+      "recommendation": "HOLD",
+      "market_cap": 1409,
+      "updated_at": "2026-02-03T19:34:19.629912"
     },
     {
       "ticker": "017670",
@@ -1873,7 +1873,7 @@
       "success_probability": 37.7,
       "recommendation": "HOLD",
       "market_cap": 158085,
-      "updated_at": "2026-02-03T18:32:10.763481"
+      "updated_at": "2026-02-03T19:34:19.147568"
     },
     {
       "ticker": "060250",
@@ -1887,10 +1887,10 @@
       "volume_ratio": 10.8,
       "vs_breakout_close": 3.04,
       "predicted_gain": 26.4,
-      "success_probability": 34.2,
+      "success_probability": 31.1,
       "recommendation": "HOLD",
       "market_cap": 9538,
-      "updated_at": "2026-02-03T18:32:11.118177"
+      "updated_at": "2026-02-03T19:34:19.458979"
     },
     {
       "ticker": "298050",
@@ -1904,10 +1904,10 @@
       "volume_ratio": 4.6,
       "vs_breakout_close": 6.53,
       "predicted_gain": 24.8,
-      "success_probability": 26.5,
+      "success_probability": 26.3,
       "recommendation": "HOLD",
       "market_cap": 11692,
-      "updated_at": "2026-02-03T18:32:10.859280"
+      "updated_at": "2026-02-03T19:34:19.216831"
     },
     {
       "ticker": "950160",
@@ -1924,7 +1924,7 @@
       "success_probability": 88.5,
       "recommendation": "BUY",
       "market_cap": 87382,
-      "updated_at": "2026-02-03T18:32:11.033102"
+      "updated_at": "2026-02-03T19:34:19.376347"
     },
     {
       "ticker": "035810",
@@ -1938,10 +1938,10 @@
       "volume_ratio": 3.9,
       "vs_breakout_close": 3.56,
       "predicted_gain": 27.3,
-      "success_probability": 85.9,
+      "success_probability": 86.3,
       "recommendation": "BUY",
       "market_cap": 3380,
-      "updated_at": "2026-02-03T18:32:11.214247"
+      "updated_at": "2026-02-03T19:34:19.533582"
     },
     {
       "ticker": "073560",
@@ -1955,10 +1955,10 @@
       "volume_ratio": 13.7,
       "vs_breakout_close": 0.91,
       "predicted_gain": 35.9,
-      "success_probability": 84.5,
+      "success_probability": 83.2,
       "recommendation": "BUY",
       "market_cap": 1156,
-      "updated_at": "2026-02-03T18:32:11.372062"
+      "updated_at": "2026-02-03T19:34:19.653862"
     },
     {
       "ticker": "348210",
@@ -1972,10 +1972,10 @@
       "volume_ratio": 2.4,
       "vs_breakout_close": 11.03,
       "predicted_gain": 19.7,
-      "success_probability": 81.4,
+      "success_probability": 81.9,
       "recommendation": "BUY",
       "market_cap": 9177,
-      "updated_at": "2026-02-03T18:32:11.122070"
+      "updated_at": "2026-02-03T19:34:19.462608"
     },
     {
       "ticker": "023590",
@@ -1989,27 +1989,27 @@
       "volume_ratio": 2.7,
       "vs_breakout_close": 14.55,
       "predicted_gain": 26.2,
-      "success_probability": 79.1,
+      "success_probability": 81.5,
       "recommendation": "BUY",
       "market_cap": 22612,
-      "updated_at": "2026-02-03T18:32:10.830199"
+      "updated_at": "2026-02-03T19:34:19.194925"
     },
     {
-      "ticker": "195870",
-      "name": "해성디에스",
-      "price": 65700,
-      "change_rate": 5.29,
-      "high_52w": 59200,
+      "ticker": "448730",
+      "name": "삼성FN리츠",
+      "price": 4945,
+      "change_rate": 1.33,
+      "high_52w": 4890,
       "breakout_date": "2026-01-26",
       "days_since": 6,
-      "above_high_percent": 10.98,
-      "volume_ratio": 1.8,
-      "vs_breakout_close": 10.42,
-      "predicted_gain": 21.6,
-      "success_probability": 78.2,
+      "above_high_percent": 1.12,
+      "volume_ratio": 3.2,
+      "vs_breakout_close": 0.92,
+      "predicted_gain": 34.3,
+      "success_probability": 79.9,
       "recommendation": "BUY",
-      "market_cap": 11169,
-      "updated_at": "2026-02-03T18:32:10.863549"
+      "market_cap": 4502,
+      "updated_at": "2026-02-03T19:34:19.262001"
     },
     {
       "ticker": "140410",
@@ -2026,7 +2026,7 @@
       "success_probability": 78.0,
       "recommendation": "BUY",
       "market_cap": 47640,
-      "updated_at": "2026-02-03T18:32:11.041089"
+      "updated_at": "2026-02-03T19:34:19.384080"
     },
     {
       "ticker": "330590",
@@ -2043,7 +2043,7 @@
       "success_probability": 77.5,
       "recommendation": "BUY",
       "market_cap": 12642,
-      "updated_at": "2026-02-03T18:32:10.853921"
+      "updated_at": "2026-02-03T19:34:19.213154"
     },
     {
       "ticker": "079960",
@@ -2057,10 +2057,10 @@
       "volume_ratio": 1.5,
       "vs_breakout_close": 4.17,
       "predicted_gain": 27.1,
-      "success_probability": 76.3,
+      "success_probability": 77.5,
       "recommendation": "BUY",
       "market_cap": 2456,
-      "updated_at": "2026-02-03T18:32:11.263701"
+      "updated_at": "2026-02-03T19:34:19.572742"
     },
     {
       "ticker": "214370",
@@ -2074,44 +2074,10 @@
       "volume_ratio": 3.7,
       "vs_breakout_close": 19.15,
       "predicted_gain": 21.7,
-      "success_probability": 75.5,
+      "success_probability": 75.1,
       "recommendation": "BUY",
       "market_cap": 64511,
-      "updated_at": "2026-02-03T18:32:11.036677"
-    },
-    {
-      "ticker": "448730",
-      "name": "삼성FN리츠",
-      "price": 4945,
-      "change_rate": 1.33,
-      "high_52w": 4890,
-      "breakout_date": "2026-01-26",
-      "days_since": 6,
-      "above_high_percent": 1.12,
-      "volume_ratio": 3.2,
-      "vs_breakout_close": 0.92,
-      "predicted_gain": 34.3,
-      "success_probability": 74.5,
-      "recommendation": "BUY",
-      "market_cap": 4502,
-      "updated_at": "2026-02-03T18:32:10.921365"
-    },
-    {
-      "ticker": "085660",
-      "name": "차바이오텍",
-      "price": 21100,
-      "change_rate": 1.44,
-      "high_52w": 16750,
-      "breakout_date": "2026-01-26",
-      "days_since": 6,
-      "above_high_percent": 25.97,
-      "volume_ratio": 3.3,
-      "vs_breakout_close": 16.57,
-      "predicted_gain": 19.7,
-      "success_probability": 74.0,
-      "recommendation": "BUY",
-      "market_cap": 16903,
-      "updated_at": "2026-02-03T18:32:11.072892"
+      "updated_at": "2026-02-03T19:34:19.379579"
     },
     {
       "ticker": "011690",
@@ -2125,10 +2091,44 @@
       "volume_ratio": 9.0,
       "vs_breakout_close": 11.39,
       "predicted_gain": 26.2,
-      "success_probability": 71.4,
+      "success_probability": 72.6,
       "recommendation": "BUY",
       "market_cap": 2110,
-      "updated_at": "2026-02-03T18:32:10.986944"
+      "updated_at": "2026-02-03T19:34:19.321309"
+    },
+    {
+      "ticker": "085660",
+      "name": "차바이오텍",
+      "price": 21100,
+      "change_rate": 1.44,
+      "high_52w": 16750,
+      "breakout_date": "2026-01-26",
+      "days_since": 6,
+      "above_high_percent": 25.97,
+      "volume_ratio": 3.3,
+      "vs_breakout_close": 16.57,
+      "predicted_gain": 19.7,
+      "success_probability": 72.2,
+      "recommendation": "BUY",
+      "market_cap": 16903,
+      "updated_at": "2026-02-03T19:34:19.416387"
+    },
+    {
+      "ticker": "195870",
+      "name": "해성디에스",
+      "price": 65700,
+      "change_rate": 5.29,
+      "high_52w": 59200,
+      "breakout_date": "2026-01-26",
+      "days_since": 6,
+      "above_high_percent": 10.98,
+      "volume_ratio": 1.8,
+      "vs_breakout_close": 10.42,
+      "predicted_gain": 21.6,
+      "success_probability": 70.8,
+      "recommendation": "BUY",
+      "market_cap": 11169,
+      "updated_at": "2026-02-03T19:34:19.221711"
     },
     {
       "ticker": "264850",
@@ -2142,10 +2142,10 @@
       "volume_ratio": 3.6,
       "vs_breakout_close": -0.47,
       "predicted_gain": 20.7,
-      "success_probability": 70.9,
+      "success_probability": 69.1,
       "recommendation": "BUY",
       "market_cap": 2584,
-      "updated_at": "2026-02-03T18:32:11.254017"
+      "updated_at": "2026-02-03T19:34:19.563147"
     },
     {
       "ticker": "131970",
@@ -2162,24 +2162,7 @@
       "success_probability": 68.4,
       "recommendation": "BUY",
       "market_cap": 12582,
-      "updated_at": "2026-02-03T18:32:11.097723"
-    },
-    {
-      "ticker": "120110",
-      "name": "코오롱인더",
-      "price": 57300,
-      "change_rate": 8.32,
-      "high_52w": 48900,
-      "breakout_date": "2026-01-26",
-      "days_since": 6,
-      "above_high_percent": 17.18,
-      "volume_ratio": 2.2,
-      "vs_breakout_close": 16.7,
-      "predicted_gain": 19.8,
-      "success_probability": 67.2,
-      "recommendation": "BUY",
-      "market_cap": 15768,
-      "updated_at": "2026-02-03T18:32:10.847423"
+      "updated_at": "2026-02-03T19:34:19.441125"
     },
     {
       "ticker": "451800",
@@ -2196,7 +2179,7 @@
       "success_probability": 65.9,
       "recommendation": "BUY",
       "market_cap": 8234,
-      "updated_at": "2026-02-03T18:32:10.878716"
+      "updated_at": "2026-02-03T19:34:19.232523"
     },
     {
       "ticker": "037460",
@@ -2210,27 +2193,10 @@
       "volume_ratio": 2.2,
       "vs_breakout_close": 16.54,
       "predicted_gain": 20.4,
-      "success_probability": 64.6,
-      "recommendation": "BUY",
-      "market_cap": 3622,
-      "updated_at": "2026-02-03T18:32:11.207364"
-    },
-    {
-      "ticker": "240810",
-      "name": "원익IPS",
-      "price": 114700,
-      "change_rate": 12.67,
-      "high_52w": 84800,
-      "breakout_date": "2026-01-26",
-      "days_since": 6,
-      "above_high_percent": 35.26,
-      "volume_ratio": 1.9,
-      "vs_breakout_close": 34.62,
-      "predicted_gain": 21.6,
       "success_probability": 64.2,
       "recommendation": "BUY",
-      "market_cap": 56299,
-      "updated_at": "2026-02-03T18:32:11.038397"
+      "market_cap": 3622,
+      "updated_at": "2026-02-03T19:34:19.527292"
     },
     {
       "ticker": "068760",
@@ -2244,10 +2210,10 @@
       "volume_ratio": 7.7,
       "vs_breakout_close": 0.0,
       "predicted_gain": 19.3,
-      "success_probability": 63.9,
+      "success_probability": 63.6,
       "recommendation": "BUY",
       "market_cap": 30577,
-      "updated_at": "2026-02-03T18:32:11.051541"
+      "updated_at": "2026-02-03T19:34:19.395205"
     },
     {
       "ticker": "032190",
@@ -2264,7 +2230,7 @@
       "success_probability": 63.1,
       "recommendation": "BUY",
       "market_cap": 10264,
-      "updated_at": "2026-02-03T18:32:11.112184"
+      "updated_at": "2026-02-03T19:34:19.454449"
     },
     {
       "ticker": "247540",
@@ -2278,10 +2244,27 @@
       "volume_ratio": 7.8,
       "vs_breakout_close": 4.78,
       "predicted_gain": 20.3,
-      "success_probability": 61.1,
+      "success_probability": 62.7,
       "recommendation": "BUY",
       "market_cap": 214184,
-      "updated_at": "2026-02-03T18:32:11.029193"
+      "updated_at": "2026-02-03T19:34:19.370183"
+    },
+    {
+      "ticker": "120110",
+      "name": "코오롱인더",
+      "price": 57300,
+      "change_rate": 8.32,
+      "high_52w": 48900,
+      "breakout_date": "2026-01-26",
+      "days_since": 6,
+      "above_high_percent": 17.18,
+      "volume_ratio": 2.2,
+      "vs_breakout_close": 16.7,
+      "predicted_gain": 19.8,
+      "success_probability": 61.9,
+      "recommendation": "BUY",
+      "market_cap": 15768,
+      "updated_at": "2026-02-03T19:34:19.206115"
     },
     {
       "ticker": "086520",
@@ -2295,44 +2278,10 @@
       "volume_ratio": 6.4,
       "vs_breakout_close": 30.41,
       "predicted_gain": 21.6,
-      "success_probability": 58.9,
-      "recommendation": "HOLD",
-      "market_cap": 230547,
-      "updated_at": "2026-02-03T18:32:11.027762"
-    },
-    {
-      "ticker": "064760",
-      "name": "티씨케이",
-      "price": 221500,
-      "change_rate": 7.0,
-      "high_52w": 198500,
-      "breakout_date": "2026-01-26",
-      "days_since": 6,
-      "above_high_percent": 11.59,
-      "volume_ratio": 2.3,
-      "vs_breakout_close": 10.81,
-      "predicted_gain": 21.6,
-      "success_probability": 57.4,
-      "recommendation": "HOLD",
-      "market_cap": 24762,
-      "updated_at": "2026-02-03T18:32:11.056110"
-    },
-    {
-      "ticker": "031980",
-      "name": "피에스케이홀딩스",
-      "price": 77900,
-      "change_rate": 5.84,
-      "high_52w": 62700,
-      "breakout_date": "2026-01-26",
-      "days_since": 6,
-      "above_high_percent": 24.24,
-      "volume_ratio": 2.5,
-      "vs_breakout_close": 13.72,
-      "predicted_gain": 20.5,
       "success_probability": 55.9,
       "recommendation": "HOLD",
-      "market_cap": 16797,
-      "updated_at": "2026-02-03T18:32:11.076087"
+      "market_cap": 230547,
+      "updated_at": "2026-02-03T19:34:19.368397"
     },
     {
       "ticker": "019210",
@@ -2346,10 +2295,27 @@
       "volume_ratio": 12.3,
       "vs_breakout_close": 27.2,
       "predicted_gain": 30.7,
-      "success_probability": 53.5,
+      "success_probability": 54.4,
       "recommendation": "HOLD",
       "market_cap": 3014,
-      "updated_at": "2026-02-03T18:32:11.223787"
+      "updated_at": "2026-02-03T19:34:19.546512"
+    },
+    {
+      "ticker": "031980",
+      "name": "피에스케이홀딩스",
+      "price": 77900,
+      "change_rate": 5.84,
+      "high_52w": 62700,
+      "breakout_date": "2026-01-26",
+      "days_since": 6,
+      "above_high_percent": 24.24,
+      "volume_ratio": 2.5,
+      "vs_breakout_close": 13.72,
+      "predicted_gain": 20.5,
+      "success_probability": 53.9,
+      "recommendation": "HOLD",
+      "market_cap": 16797,
+      "updated_at": "2026-02-03T19:34:19.420644"
     },
     {
       "ticker": "092870",
@@ -2366,7 +2332,7 @@
       "success_probability": 53.1,
       "recommendation": "HOLD",
       "market_cap": 3699,
-      "updated_at": "2026-02-03T18:32:11.205200"
+      "updated_at": "2026-02-03T19:34:19.525180"
     },
     {
       "ticker": "166090",
@@ -2380,10 +2346,44 @@
       "volume_ratio": 2.1,
       "vs_breakout_close": 4.68,
       "predicted_gain": 21.2,
-      "success_probability": 51.8,
+      "success_probability": 49.0,
       "recommendation": "HOLD",
       "market_cap": 12815,
-      "updated_at": "2026-02-03T18:32:11.093389"
+      "updated_at": "2026-02-03T19:34:19.437839"
+    },
+    {
+      "ticker": "064760",
+      "name": "티씨케이",
+      "price": 221500,
+      "change_rate": 7.0,
+      "high_52w": 198500,
+      "breakout_date": "2026-01-26",
+      "days_since": 6,
+      "above_high_percent": 11.59,
+      "volume_ratio": 2.3,
+      "vs_breakout_close": 10.81,
+      "predicted_gain": 21.6,
+      "success_probability": 48.1,
+      "recommendation": "HOLD",
+      "market_cap": 24762,
+      "updated_at": "2026-02-03T19:34:19.398483"
+    },
+    {
+      "ticker": "240810",
+      "name": "원익IPS",
+      "price": 114700,
+      "change_rate": 12.67,
+      "high_52w": 84800,
+      "breakout_date": "2026-01-26",
+      "days_since": 6,
+      "above_high_percent": 35.26,
+      "volume_ratio": 1.9,
+      "vs_breakout_close": 34.62,
+      "predicted_gain": 21.6,
+      "success_probability": 47.7,
+      "recommendation": "HOLD",
+      "market_cap": 56299,
+      "updated_at": "2026-02-03T19:34:19.380758"
     },
     {
       "ticker": "058610",
@@ -2397,27 +2397,10 @@
       "volume_ratio": 2.2,
       "vs_breakout_close": 30.25,
       "predicted_gain": 21.7,
-      "success_probability": 50.2,
+      "success_probability": 45.9,
       "recommendation": "HOLD",
       "market_cap": 34663,
-      "updated_at": "2026-02-03T18:32:11.044943"
-    },
-    {
-      "ticker": "234340",
-      "name": "헥토파이낸셜",
-      "price": 24350,
-      "change_rate": 7.98,
-      "high_52w": 23242,
-      "breakout_date": "2026-01-26",
-      "days_since": 6,
-      "above_high_percent": 4.77,
-      "volume_ratio": 22.2,
-      "vs_breakout_close": 1.46,
-      "predicted_gain": 26.9,
-      "success_probability": 46.3,
-      "recommendation": "HOLD",
-      "market_cap": 3401,
-      "updated_at": "2026-02-03T18:32:11.212913"
+      "updated_at": "2026-02-03T19:34:19.387569"
     },
     {
       "ticker": "214180",
@@ -2434,7 +2417,7 @@
       "success_probability": 45.4,
       "recommendation": "HOLD",
       "market_cap": 2583,
-      "updated_at": "2026-02-03T18:32:11.255388"
+      "updated_at": "2026-02-03T19:34:19.564233"
     },
     {
       "ticker": "058470",
@@ -2448,10 +2431,27 @@
       "volume_ratio": 3.7,
       "vs_breakout_close": 28.29,
       "predicted_gain": 19.3,
-      "success_probability": 41.3,
+      "success_probability": 41.2,
       "recommendation": "HOLD",
       "market_cap": 73620,
-      "updated_at": "2026-02-03T18:32:11.034538"
+      "updated_at": "2026-02-03T19:34:19.377857"
+    },
+    {
+      "ticker": "234340",
+      "name": "헥토파이낸셜",
+      "price": 24350,
+      "change_rate": 7.98,
+      "high_52w": 23242,
+      "breakout_date": "2026-01-26",
+      "days_since": 6,
+      "above_high_percent": 4.77,
+      "volume_ratio": 22.2,
+      "vs_breakout_close": 1.46,
+      "predicted_gain": 26.9,
+      "success_probability": 40.7,
+      "recommendation": "HOLD",
+      "market_cap": 3401,
+      "updated_at": "2026-02-03T19:34:19.532322"
     },
     {
       "ticker": "277810",
@@ -2464,11 +2464,11 @@
       "above_high_percent": 37.7,
       "volume_ratio": 5.5,
       "vs_breakout_close": 11.34,
-      "predicted_gain": 29.5,
-      "success_probability": 36.7,
+      "predicted_gain": 21.6,
+      "success_probability": 37.1,
       "recommendation": "HOLD",
       "market_cap": 146662,
-      "updated_at": "2026-02-03T18:32:11.030416"
+      "updated_at": "2026-02-03T19:34:19.371994"
     },
     {
       "ticker": "252990",
@@ -2485,7 +2485,7 @@
       "success_probability": 36.0,
       "recommendation": "HOLD",
       "market_cap": 6504,
-      "updated_at": "2026-02-03T18:32:11.141540"
+      "updated_at": "2026-02-03T19:34:19.483168"
     },
     {
       "ticker": "160190",
@@ -2499,10 +2499,27 @@
       "volume_ratio": 1.7,
       "vs_breakout_close": 0.81,
       "predicted_gain": 19.3,
-      "success_probability": 25.6,
+      "success_probability": 35.6,
       "recommendation": "HOLD",
       "market_cap": 23196,
-      "updated_at": "2026-02-03T18:32:11.060351"
+      "updated_at": "2026-02-03T19:34:19.403117"
+    },
+    {
+      "ticker": "093320",
+      "name": "케이아이엔엑스",
+      "price": 134000,
+      "change_rate": 2.29,
+      "high_52w": 127400,
+      "breakout_date": "2026-01-23",
+      "days_since": 7,
+      "above_high_percent": 5.18,
+      "volume_ratio": 2.3,
+      "vs_breakout_close": 2.37,
+      "predicted_gain": 27.3,
+      "success_probability": 86.4,
+      "recommendation": "BUY",
+      "market_cap": 6539,
+      "updated_at": "2026-02-03T19:34:19.482008"
     },
     {
       "ticker": "174900",
@@ -2516,44 +2533,10 @@
       "volume_ratio": 2.1,
       "vs_breakout_close": 3.79,
       "predicted_gain": 21.7,
-      "success_probability": 86.0,
+      "success_probability": 84.7,
       "recommendation": "BUY",
       "market_cap": 13079,
-      "updated_at": "2026-02-03T18:32:11.091652"
-    },
-    {
-      "ticker": "124500",
-      "name": "아이티센글로벌",
-      "price": 50800,
-      "change_rate": 7.51,
-      "high_52w": 37900,
-      "breakout_date": "2026-01-23",
-      "days_since": 7,
-      "above_high_percent": 34.04,
-      "volume_ratio": 2.5,
-      "vs_breakout_close": 27.0,
-      "predicted_gain": 21.7,
-      "success_probability": 85.1,
-      "recommendation": "BUY",
-      "market_cap": 11787,
-      "updated_at": "2026-02-03T18:32:11.105178"
-    },
-    {
-      "ticker": "093320",
-      "name": "케이아이엔엑스",
-      "price": 134000,
-      "change_rate": 2.29,
-      "high_52w": 127400,
-      "breakout_date": "2026-01-23",
-      "days_since": 7,
-      "above_high_percent": 5.18,
-      "volume_ratio": 2.3,
-      "vs_breakout_close": 2.37,
-      "predicted_gain": 31.0,
-      "success_probability": 85.1,
-      "recommendation": "BUY",
-      "market_cap": 6539,
-      "updated_at": "2026-02-03T18:32:11.140580"
+      "updated_at": "2026-02-03T19:34:19.436455"
     },
     {
       "ticker": "030610",
@@ -2570,24 +2553,24 @@
       "success_probability": 83.9,
       "recommendation": "BUY",
       "market_cap": 13595,
-      "updated_at": "2026-02-03T18:32:10.851837"
+      "updated_at": "2026-02-03T19:34:19.211310"
     },
     {
-      "ticker": "327260",
-      "name": "RF머트리얼즈",
-      "price": 37800,
-      "change_rate": 13.86,
-      "high_52w": 28100,
+      "ticker": "124500",
+      "name": "아이티센글로벌",
+      "price": 50800,
+      "change_rate": 7.51,
+      "high_52w": 37900,
       "breakout_date": "2026-01-23",
       "days_since": 7,
-      "above_high_percent": 34.52,
-      "volume_ratio": 1.9,
-      "vs_breakout_close": 32.17,
-      "predicted_gain": 21.6,
-      "success_probability": 83.1,
+      "above_high_percent": 34.04,
+      "volume_ratio": 2.5,
+      "vs_breakout_close": 27.0,
+      "predicted_gain": 21.7,
+      "success_probability": 83.8,
       "recommendation": "BUY",
-      "market_cap": 3187,
-      "updated_at": "2026-02-03T18:32:11.218244"
+      "market_cap": 11787,
+      "updated_at": "2026-02-03T19:34:19.445340"
     },
     {
       "ticker": "064850",
@@ -2601,10 +2584,10 @@
       "volume_ratio": 4.0,
       "vs_breakout_close": 28.42,
       "predicted_gain": 35.9,
-      "success_probability": 82.0,
+      "success_probability": 83.7,
       "recommendation": "BUY",
       "market_cap": 1392,
-      "updated_at": "2026-02-03T18:32:11.353821"
+      "updated_at": "2026-02-03T19:34:19.633301"
     },
     {
       "ticker": "237690",
@@ -2618,10 +2601,10 @@
       "volume_ratio": 7.7,
       "vs_breakout_close": 15.04,
       "predicted_gain": 20.3,
-      "success_probability": 81.1,
+      "success_probability": 80.8,
       "recommendation": "BUY",
       "market_cap": 33250,
-      "updated_at": "2026-02-03T18:32:11.048561"
+      "updated_at": "2026-02-03T19:34:19.391947"
     },
     {
       "ticker": "005945",
@@ -2635,10 +2618,27 @@
       "volume_ratio": 2.5,
       "vs_breakout_close": 5.13,
       "predicted_gain": 26.8,
-      "success_probability": 77.1,
+      "success_probability": 79.1,
       "recommendation": "BUY",
       "market_cap": 4255,
-      "updated_at": "2026-02-03T18:32:10.926658"
+      "updated_at": "2026-02-03T19:34:19.266074"
+    },
+    {
+      "ticker": "327260",
+      "name": "RF머트리얼즈",
+      "price": 37800,
+      "change_rate": 13.86,
+      "high_52w": 28100,
+      "breakout_date": "2026-01-23",
+      "days_since": 7,
+      "above_high_percent": 34.52,
+      "volume_ratio": 1.9,
+      "vs_breakout_close": 32.17,
+      "predicted_gain": 21.6,
+      "success_probability": 77.7,
+      "recommendation": "BUY",
+      "market_cap": 3187,
+      "updated_at": "2026-02-03T19:34:19.540525"
     },
     {
       "ticker": "002380",
@@ -2652,27 +2652,10 @@
       "volume_ratio": 2.1,
       "vs_breakout_close": 4.85,
       "predicted_gain": 20.4,
-      "success_probability": 74.0,
+      "success_probability": 74.3,
       "recommendation": "BUY",
       "market_cap": 44210,
-      "updated_at": "2026-02-03T18:32:10.795809"
-    },
-    {
-      "ticker": "039490",
-      "name": "키움증권",
-      "price": 455000,
-      "change_rate": 9.11,
-      "high_52w": 338000,
-      "breakout_date": "2026-01-23",
-      "days_since": 7,
-      "above_high_percent": 34.62,
-      "volume_ratio": 2.5,
-      "vs_breakout_close": 32.46,
-      "predicted_gain": 21.6,
-      "success_probability": 73.2,
-      "recommendation": "BUY",
-      "market_cap": 123057,
-      "updated_at": "2026-02-03T18:32:10.766431"
+      "updated_at": "2026-02-03T19:34:19.175554"
     },
     {
       "ticker": "056190",
@@ -2686,10 +2669,44 @@
       "volume_ratio": 2.2,
       "vs_breakout_close": 19.48,
       "predicted_gain": 25.1,
-      "success_probability": 69.2,
+      "success_probability": 73.1,
       "recommendation": "BUY",
       "market_cap": 11562,
-      "updated_at": "2026-02-03T18:32:11.106594"
+      "updated_at": "2026-02-03T19:34:19.448114"
+    },
+    {
+      "ticker": "039490",
+      "name": "키움증권",
+      "price": 455000,
+      "change_rate": 9.11,
+      "high_52w": 338000,
+      "breakout_date": "2026-01-23",
+      "days_since": 7,
+      "above_high_percent": 34.62,
+      "volume_ratio": 2.5,
+      "vs_breakout_close": 32.46,
+      "predicted_gain": 21.6,
+      "success_probability": 71.8,
+      "recommendation": "BUY",
+      "market_cap": 123057,
+      "updated_at": "2026-02-03T19:34:19.150057"
+    },
+    {
+      "ticker": "376270",
+      "name": "HEM파마",
+      "price": 93800,
+      "change_rate": 5.51,
+      "high_52w": 59000,
+      "breakout_date": "2026-01-23",
+      "days_since": 7,
+      "above_high_percent": 58.98,
+      "volume_ratio": 3.4,
+      "vs_breakout_close": 37.94,
+      "predicted_gain": 24.0,
+      "success_probability": 69.4,
+      "recommendation": "BUY",
+      "market_cap": 6713,
+      "updated_at": "2026-02-03T19:34:19.480513"
     },
     {
       "ticker": "236200",
@@ -2706,24 +2723,7 @@
       "success_probability": 68.8,
       "recommendation": "BUY",
       "market_cap": 3164,
-      "updated_at": "2026-02-03T18:32:11.219703"
-    },
-    {
-      "ticker": "376270",
-      "name": "HEM파마",
-      "price": 93800,
-      "change_rate": 5.51,
-      "high_52w": 59000,
-      "breakout_date": "2026-01-23",
-      "days_since": 7,
-      "above_high_percent": 58.98,
-      "volume_ratio": 3.4,
-      "vs_breakout_close": 37.94,
-      "predicted_gain": 24.9,
-      "success_probability": 66.8,
-      "recommendation": "BUY",
-      "market_cap": 6713,
-      "updated_at": "2026-02-03T18:32:11.138807"
+      "updated_at": "2026-02-03T19:34:19.542065"
     },
     {
       "ticker": "357580",
@@ -2740,41 +2740,7 @@
       "success_probability": 65.7,
       "recommendation": "BUY",
       "market_cap": 1815,
-      "updated_at": "2026-02-03T18:32:11.316325"
-    },
-    {
-      "ticker": "005940",
-      "name": "NH투자증권",
-      "price": 27050,
-      "change_rate": 7.55,
-      "high_52w": 23500,
-      "breakout_date": "2026-01-23",
-      "days_since": 7,
-      "above_high_percent": 15.11,
-      "volume_ratio": 2.4,
-      "vs_breakout_close": 12.71,
-      "predicted_gain": 19.8,
-      "success_probability": 63.7,
-      "recommendation": "BUY",
-      "market_cap": 96391,
-      "updated_at": "2026-02-03T18:32:10.773647"
-    },
-    {
-      "ticker": "071050",
-      "name": "한국금융지주",
-      "price": 218500,
-      "change_rate": 9.36,
-      "high_52w": 193200,
-      "breakout_date": "2026-01-23",
-      "days_since": 7,
-      "above_high_percent": 13.1,
-      "volume_ratio": 2.0,
-      "vs_breakout_close": 11.59,
-      "predicted_gain": 21.7,
-      "success_probability": 60.2,
-      "recommendation": "BUY",
-      "market_cap": 121761,
-      "updated_at": "2026-02-03T18:32:10.768020"
+      "updated_at": "2026-02-03T19:34:19.604975"
     },
     {
       "ticker": "085670",
@@ -2788,10 +2754,27 @@
       "volume_ratio": 3.7,
       "vs_breakout_close": 2.1,
       "predicted_gain": 21.7,
-      "success_probability": 58.4,
-      "recommendation": "HOLD",
+      "success_probability": 60.4,
+      "recommendation": "BUY",
       "market_cap": 1662,
-      "updated_at": "2026-02-03T18:32:11.329366"
+      "updated_at": "2026-02-03T19:34:19.612530"
+    },
+    {
+      "ticker": "071050",
+      "name": "한국금융지주",
+      "price": 218500,
+      "change_rate": 9.36,
+      "high_52w": 193200,
+      "breakout_date": "2026-01-23",
+      "days_since": 7,
+      "above_high_percent": 13.1,
+      "volume_ratio": 2.0,
+      "vs_breakout_close": 11.59,
+      "predicted_gain": 21.7,
+      "success_probability": 58.1,
+      "recommendation": "HOLD",
+      "market_cap": 121761,
+      "updated_at": "2026-02-03T19:34:19.151348"
     },
     {
       "ticker": "263750",
@@ -2805,10 +2788,44 @@
       "volume_ratio": 2.1,
       "vs_breakout_close": 19.45,
       "predicted_gain": 19.3,
-      "success_probability": 55.5,
+      "success_probability": 57.6,
       "recommendation": "HOLD",
       "market_cap": 33730,
-      "updated_at": "2026-02-03T18:32:11.047372"
+      "updated_at": "2026-02-03T19:34:19.390073"
+    },
+    {
+      "ticker": "005940",
+      "name": "NH투자증권",
+      "price": 27050,
+      "change_rate": 7.55,
+      "high_52w": 23500,
+      "breakout_date": "2026-01-23",
+      "days_since": 7,
+      "above_high_percent": 15.11,
+      "volume_ratio": 2.4,
+      "vs_breakout_close": 12.71,
+      "predicted_gain": 19.8,
+      "success_probability": 56.2,
+      "recommendation": "HOLD",
+      "market_cap": 96391,
+      "updated_at": "2026-02-03T19:34:19.157001"
+    },
+    {
+      "ticker": "016740",
+      "name": "두올",
+      "price": 4715,
+      "change_rate": 1.29,
+      "high_52w": 4240,
+      "breakout_date": "2026-01-23",
+      "days_since": 7,
+      "above_high_percent": 11.2,
+      "volume_ratio": 3.5,
+      "vs_breakout_close": 7.4,
+      "predicted_gain": 27.0,
+      "success_probability": 55.3,
+      "recommendation": "HOLD",
+      "market_cap": 1351,
+      "updated_at": "2026-02-03T19:34:19.350186"
     },
     {
       "ticker": "388720",
@@ -2822,44 +2839,10 @@
       "volume_ratio": 4.6,
       "vs_breakout_close": 27.91,
       "predicted_gain": 21.5,
-      "success_probability": 55.4,
+      "success_probability": 52.2,
       "recommendation": "HOLD",
       "market_cap": 15545,
-      "updated_at": "2026-02-03T18:32:11.078521"
-    },
-    {
-      "ticker": "016740",
-      "name": "두올",
-      "price": 4715,
-      "change_rate": 1.29,
-      "high_52w": 4240,
-      "breakout_date": "2026-01-23",
-      "days_since": 7,
-      "above_high_percent": 11.2,
-      "volume_ratio": 3.5,
-      "vs_breakout_close": 7.4,
-      "predicted_gain": 30.7,
-      "success_probability": 53.3,
-      "recommendation": "HOLD",
-      "market_cap": 1351,
-      "updated_at": "2026-02-03T18:32:11.013595"
-    },
-    {
-      "ticker": "071055",
-      "name": "한국금융지주우",
-      "price": 148200,
-      "change_rate": 5.56,
-      "high_52w": 142700,
-      "breakout_date": "2026-01-23",
-      "days_since": 7,
-      "above_high_percent": 3.85,
-      "volume_ratio": 1.8,
-      "vs_breakout_close": 3.2,
-      "predicted_gain": 21.1,
-      "success_probability": 52.4,
-      "recommendation": "HOLD",
-      "market_cap": 8681,
-      "updated_at": "2026-02-03T18:32:10.876115"
+      "updated_at": "2026-02-03T19:34:19.423344"
     },
     {
       "ticker": "006800",
@@ -2873,10 +2856,27 @@
       "volume_ratio": 3.9,
       "vs_breakout_close": 43.53,
       "predicted_gain": 21.8,
-      "success_probability": 52.3,
+      "success_probability": 49.9,
       "recommendation": "HOLD",
       "market_cap": 283259,
-      "updated_at": "2026-02-03T18:32:10.748741"
+      "updated_at": "2026-02-03T19:34:19.136194"
+    },
+    {
+      "ticker": "071055",
+      "name": "한국금융지주우",
+      "price": 148200,
+      "change_rate": 5.56,
+      "high_52w": 142700,
+      "breakout_date": "2026-01-23",
+      "days_since": 7,
+      "above_high_percent": 3.85,
+      "volume_ratio": 1.8,
+      "vs_breakout_close": 3.2,
+      "predicted_gain": 21.1,
+      "success_probability": 46.2,
+      "recommendation": "HOLD",
+      "market_cap": 8681,
+      "updated_at": "2026-02-03T19:34:19.230554"
     },
     {
       "ticker": "058650",
@@ -2890,10 +2890,10 @@
       "volume_ratio": 2.2,
       "vs_breakout_close": -3.37,
       "predicted_gain": 34.2,
-      "success_probability": 40.6,
+      "success_probability": 37.1,
       "recommendation": "HOLD",
       "market_cap": 6760,
-      "updated_at": "2026-02-03T18:32:10.893161"
+      "updated_at": "2026-02-03T19:34:19.243322"
     },
     {
       "ticker": "347700",
@@ -2907,27 +2907,10 @@
       "volume_ratio": 2.3,
       "vs_breakout_close": 32.48,
       "predicted_gain": 19.6,
-      "success_probability": 24.2,
+      "success_probability": 21.2,
       "recommendation": "HOLD",
       "market_cap": 13382,
-      "updated_at": "2026-02-03T18:32:11.090109"
-    },
-    {
-      "ticker": "010955",
-      "name": "S-Oil우",
-      "price": 55400,
-      "change_rate": 0.73,
-      "high_52w": 51000,
-      "breakout_date": "2026-01-22",
-      "days_since": 8,
-      "above_high_percent": 8.63,
-      "volume_ratio": 2.3,
-      "vs_breakout_close": 7.78,
-      "predicted_gain": 27.0,
-      "success_probability": 84.6,
-      "recommendation": "BUY",
-      "market_cap": 2228,
-      "updated_at": "2026-02-03T18:32:10.980539"
+      "updated_at": "2026-02-03T19:34:19.435275"
     },
     {
       "ticker": "458870",
@@ -2944,7 +2927,24 @@
       "success_probability": 83.2,
       "recommendation": "BUY",
       "market_cap": 21810,
-      "updated_at": "2026-02-03T18:32:11.065779"
+      "updated_at": "2026-02-03T19:34:19.407420"
+    },
+    {
+      "ticker": "010955",
+      "name": "S-Oil우",
+      "price": 55400,
+      "change_rate": 0.73,
+      "high_52w": 51000,
+      "breakout_date": "2026-01-22",
+      "days_since": 8,
+      "above_high_percent": 8.63,
+      "volume_ratio": 2.3,
+      "vs_breakout_close": 7.78,
+      "predicted_gain": 27.0,
+      "success_probability": 82.0,
+      "recommendation": "BUY",
+      "market_cap": 2228,
+      "updated_at": "2026-02-03T19:34:19.315867"
     },
     {
       "ticker": "059270",
@@ -2961,7 +2961,7 @@
       "success_probability": 79.1,
       "recommendation": "BUY",
       "market_cap": 1658,
-      "updated_at": "2026-02-03T18:32:11.330968"
+      "updated_at": "2026-02-03T19:34:19.614229"
     },
     {
       "ticker": "02826K",
@@ -2978,7 +2978,7 @@
       "success_probability": 76.4,
       "recommendation": "BUY",
       "market_cap": 2762,
-      "updated_at": "2026-02-03T18:32:10.964340"
+      "updated_at": "2026-02-03T19:34:19.294877"
     },
     {
       "ticker": "222080",
@@ -2992,10 +2992,10 @@
       "volume_ratio": 35.7,
       "vs_breakout_close": 29.87,
       "predicted_gain": 36.8,
-      "success_probability": 76.0,
+      "success_probability": 75.4,
       "recommendation": "BUY",
       "market_cap": 9284,
-      "updated_at": "2026-02-03T18:32:11.120938"
+      "updated_at": "2026-02-03T19:34:19.461641"
     },
     {
       "ticker": "357780",
@@ -3012,7 +3012,7 @@
       "success_probability": 72.8,
       "recommendation": "BUY",
       "market_cap": 34303,
-      "updated_at": "2026-02-03T18:32:11.046183"
+      "updated_at": "2026-02-03T19:34:19.388729"
     },
     {
       "ticker": "073490",
@@ -3029,7 +3029,7 @@
       "success_probability": 71.1,
       "recommendation": "BUY",
       "market_cap": 2345,
-      "updated_at": "2026-02-03T18:32:11.270264"
+      "updated_at": "2026-02-03T19:34:19.579603"
     },
     {
       "ticker": "138360",
@@ -3046,7 +3046,7 @@
       "success_probability": 70.6,
       "recommendation": "BUY",
       "market_cap": 2417,
-      "updated_at": "2026-02-03T18:32:11.267053"
+      "updated_at": "2026-02-03T19:34:19.576223"
     },
     {
       "ticker": "089470",
@@ -3063,7 +3063,24 @@
       "success_probability": 69.6,
       "recommendation": "BUY",
       "market_cap": 1639,
-      "updated_at": "2026-02-03T18:32:11.000948"
+      "updated_at": "2026-02-03T19:34:19.336167"
+    },
+    {
+      "ticker": "006405",
+      "name": "삼성SDI우",
+      "price": 206000,
+      "change_rate": 5.8,
+      "high_52w": 201500,
+      "breakout_date": "2026-01-22",
+      "days_since": 8,
+      "above_high_percent": 2.23,
+      "volume_ratio": 8.5,
+      "vs_breakout_close": -2.14,
+      "predicted_gain": 27.0,
+      "success_probability": 69.3,
+      "recommendation": "BUY",
+      "market_cap": 3332,
+      "updated_at": "2026-02-03T19:34:19.281514"
     },
     {
       "ticker": "264450",
@@ -3080,24 +3097,7 @@
       "success_probability": 67.3,
       "recommendation": "BUY",
       "market_cap": 1824,
-      "updated_at": "2026-02-03T18:32:11.315293"
-    },
-    {
-      "ticker": "006405",
-      "name": "삼성SDI우",
-      "price": 206000,
-      "change_rate": 5.8,
-      "high_52w": 201500,
-      "breakout_date": "2026-01-22",
-      "days_since": 8,
-      "above_high_percent": 2.23,
-      "volume_ratio": 8.5,
-      "vs_breakout_close": -2.14,
-      "predicted_gain": 30.8,
-      "success_probability": 66.6,
-      "recommendation": "BUY",
-      "market_cap": 3332,
-      "updated_at": "2026-02-03T18:32:10.945226"
+      "updated_at": "2026-02-03T19:34:19.604029"
     },
     {
       "ticker": "011500",
@@ -3111,10 +3111,10 @@
       "volume_ratio": 10.7,
       "vs_breakout_close": 8.75,
       "predicted_gain": 25.0,
-      "success_probability": 65.2,
+      "success_probability": 65.7,
       "recommendation": "BUY",
       "market_cap": 3885,
-      "updated_at": "2026-02-03T18:32:10.934595"
+      "updated_at": "2026-02-03T19:34:19.272883"
     },
     {
       "ticker": "014680",
@@ -3128,10 +3128,10 @@
       "volume_ratio": 2.3,
       "vs_breakout_close": 7.79,
       "predicted_gain": 21.7,
-      "success_probability": 65.1,
+      "success_probability": 63.6,
       "recommendation": "BUY",
       "market_cap": 33722,
-      "updated_at": "2026-02-03T18:32:10.800206"
+      "updated_at": "2026-02-03T19:34:19.178966"
     },
     {
       "ticker": "010950",
@@ -3148,7 +3148,7 @@
       "success_probability": 62.2,
       "recommendation": "BUY",
       "market_cap": 109993,
-      "updated_at": "2026-02-03T18:32:10.771255"
+      "updated_at": "2026-02-03T19:34:19.154937"
     },
     {
       "ticker": "178320",
@@ -3162,10 +3162,10 @@
       "volume_ratio": 4.1,
       "vs_breakout_close": 13.73,
       "predicted_gain": 19.6,
-      "success_probability": 59.9,
+      "success_probability": 59.4,
       "recommendation": "HOLD",
       "market_cap": 20365,
-      "updated_at": "2026-02-03T18:32:11.068272"
+      "updated_at": "2026-02-03T19:34:19.411469"
     },
     {
       "ticker": "365340",
@@ -3179,10 +3179,10 @@
       "volume_ratio": 6.1,
       "vs_breakout_close": 15.44,
       "predicted_gain": 21.9,
-      "success_probability": 54.8,
+      "success_probability": 54.6,
       "recommendation": "HOLD",
       "market_cap": 8050,
-      "updated_at": "2026-02-03T18:32:11.129825"
+      "updated_at": "2026-02-03T19:34:19.470453"
     },
     {
       "ticker": "457190",
@@ -3199,24 +3199,7 @@
       "success_probability": 53.8,
       "recommendation": "HOLD",
       "market_cap": 32473,
-      "updated_at": "2026-02-03T18:32:10.811746"
-    },
-    {
-      "ticker": "032830",
-      "name": "삼성생명",
-      "price": 186300,
-      "change_rate": 4.08,
-      "high_52w": 177600,
-      "breakout_date": "2026-01-22",
-      "days_since": 8,
-      "above_high_percent": 4.9,
-      "volume_ratio": 1.6,
-      "vs_breakout_close": 4.19,
-      "predicted_gain": 20.4,
-      "success_probability": 53.1,
-      "recommendation": "HOLD",
-      "market_cap": 372600,
-      "updated_at": "2026-02-03T18:32:10.743887"
+      "updated_at": "2026-02-03T19:34:19.180290"
     },
     {
       "ticker": "298020",
@@ -3233,24 +3216,7 @@
       "success_probability": 51.3,
       "recommendation": "HOLD",
       "market_cap": 17938,
-      "updated_at": "2026-02-03T18:32:10.842983"
-    },
-    {
-      "ticker": "281740",
-      "name": "레이크머티리얼즈",
-      "price": 25650,
-      "change_rate": -3.21,
-      "high_52w": 20400,
-      "breakout_date": "2026-01-22",
-      "days_since": 8,
-      "above_high_percent": 25.74,
-      "volume_ratio": 9.9,
-      "vs_breakout_close": 21.85,
-      "predicted_gain": 25.2,
-      "success_probability": 49.2,
-      "recommendation": "HOLD",
-      "market_cap": 16859,
-      "updated_at": "2026-02-03T18:32:11.075129"
+      "updated_at": "2026-02-03T19:34:19.202147"
     },
     {
       "ticker": "368770",
@@ -3267,7 +3233,41 @@
       "success_probability": 49.1,
       "recommendation": "HOLD",
       "market_cap": 5880,
-      "updated_at": "2026-02-03T18:32:11.171191"
+      "updated_at": "2026-02-03T19:34:19.494131"
+    },
+    {
+      "ticker": "281740",
+      "name": "레이크머티리얼즈",
+      "price": 25650,
+      "change_rate": -3.21,
+      "high_52w": 20400,
+      "breakout_date": "2026-01-22",
+      "days_since": 8,
+      "above_high_percent": 25.74,
+      "volume_ratio": 9.9,
+      "vs_breakout_close": 21.85,
+      "predicted_gain": 25.2,
+      "success_probability": 48.5,
+      "recommendation": "HOLD",
+      "market_cap": 16859,
+      "updated_at": "2026-02-03T19:34:19.419392"
+    },
+    {
+      "ticker": "000990",
+      "name": "DB하이텍",
+      "price": 112900,
+      "change_rate": 9.61,
+      "high_52w": 88500,
+      "breakout_date": "2026-01-22",
+      "days_since": 8,
+      "above_high_percent": 27.57,
+      "volume_ratio": 2.0,
+      "vs_breakout_close": 21.27,
+      "predicted_gain": 26.7,
+      "success_probability": 48.4,
+      "recommendation": "HOLD",
+      "market_cap": 49116,
+      "updated_at": "2026-02-03T19:34:19.172617"
     },
     {
       "ticker": "032820",
@@ -3284,41 +3284,24 @@
       "success_probability": 48.2,
       "recommendation": "HOLD",
       "market_cap": 15291,
-      "updated_at": "2026-02-03T18:32:11.081082"
+      "updated_at": "2026-02-03T19:34:19.426903"
     },
     {
-      "ticker": "000990",
-      "name": "DB하이텍",
-      "price": 112900,
-      "change_rate": 9.61,
-      "high_52w": 88500,
+      "ticker": "032830",
+      "name": "삼성생명",
+      "price": 186300,
+      "change_rate": 4.08,
+      "high_52w": 177600,
       "breakout_date": "2026-01-22",
       "days_since": 8,
-      "above_high_percent": 27.57,
-      "volume_ratio": 2.0,
-      "vs_breakout_close": 21.27,
-      "predicted_gain": 26.7,
-      "success_probability": 47.7,
+      "above_high_percent": 4.9,
+      "volume_ratio": 1.6,
+      "vs_breakout_close": 4.19,
+      "predicted_gain": 20.4,
+      "success_probability": 47.9,
       "recommendation": "HOLD",
-      "market_cap": 49116,
-      "updated_at": "2026-02-03T18:32:10.791902"
-    },
-    {
-      "ticker": "451760",
-      "name": "컨텍",
-      "price": 22350,
-      "change_rate": 6.68,
-      "high_52w": 18530,
-      "breakout_date": "2026-01-22",
-      "days_since": 8,
-      "above_high_percent": 20.62,
-      "volume_ratio": 3.5,
-      "vs_breakout_close": 9.56,
-      "predicted_gain": 20.1,
-      "success_probability": 46.4,
-      "recommendation": "HOLD",
-      "market_cap": 3409,
-      "updated_at": "2026-02-03T18:32:11.211774"
+      "market_cap": 372600,
+      "updated_at": "2026-02-03T19:34:19.132430"
     },
     {
       "ticker": "474170",
@@ -3332,27 +3315,27 @@
       "volume_ratio": 1.9,
       "vs_breakout_close": 40.62,
       "predicted_gain": 20.6,
-      "success_probability": 44.8,
+      "success_probability": 45.4,
       "recommendation": "HOLD",
       "market_cap": 3608,
-      "updated_at": "2026-02-03T18:32:11.208516"
+      "updated_at": "2026-02-03T19:34:19.528285"
     },
     {
-      "ticker": "171090",
-      "name": "선익시스템",
-      "price": 59000,
-      "change_rate": 0.68,
-      "high_52w": 57700,
+      "ticker": "451760",
+      "name": "컨텍",
+      "price": 22350,
+      "change_rate": 6.68,
+      "high_52w": 18530,
       "breakout_date": "2026-01-22",
       "days_since": 8,
-      "above_high_percent": 2.25,
-      "volume_ratio": 3.4,
-      "vs_breakout_close": 1.55,
-      "predicted_gain": 19.8,
-      "success_probability": 40.3,
+      "above_high_percent": 20.62,
+      "volume_ratio": 3.5,
+      "vs_breakout_close": 9.56,
+      "predicted_gain": 20.1,
+      "success_probability": 43.5,
       "recommendation": "HOLD",
-      "market_cap": 5660,
-      "updated_at": "2026-02-03T18:32:11.172948"
+      "market_cap": 3409,
+      "updated_at": "2026-02-03T19:34:19.531392"
     },
     {
       "ticker": "077360",
@@ -3366,27 +3349,10 @@
       "volume_ratio": 15.3,
       "vs_breakout_close": 12.09,
       "predicted_gain": 20.3,
-      "success_probability": 38.8,
+      "success_probability": 39.0,
       "recommendation": "HOLD",
       "market_cap": 4171,
-      "updated_at": "2026-02-03T18:32:11.193342"
-    },
-    {
-      "ticker": "000250",
-      "name": "삼천당제약",
-      "price": 529000,
-      "change_rate": 14.01,
-      "high_52w": 293500,
-      "breakout_date": "2026-01-22",
-      "days_since": 8,
-      "above_high_percent": 80.24,
-      "volume_ratio": 4.3,
-      "vs_breakout_close": 67.14,
-      "predicted_gain": 26.7,
-      "success_probability": 36.5,
-      "recommendation": "HOLD",
-      "market_cap": 124090,
-      "updated_at": "2026-02-03T18:32:11.031632"
+      "updated_at": "2026-02-03T19:34:19.511176"
     },
     {
       "ticker": "060280",
@@ -3400,10 +3366,44 @@
       "volume_ratio": 4.0,
       "vs_breakout_close": 6.06,
       "predicted_gain": 21.4,
-      "success_probability": 36.5,
+      "success_probability": 37.1,
       "recommendation": "HOLD",
       "market_cap": 8131,
-      "updated_at": "2026-02-03T18:32:11.128745"
+      "updated_at": "2026-02-03T19:34:19.469367"
+    },
+    {
+      "ticker": "171090",
+      "name": "선익시스템",
+      "price": 59000,
+      "change_rate": 0.68,
+      "high_52w": 57700,
+      "breakout_date": "2026-01-22",
+      "days_since": 8,
+      "above_high_percent": 2.25,
+      "volume_ratio": 3.4,
+      "vs_breakout_close": 1.55,
+      "predicted_gain": 19.8,
+      "success_probability": 36.9,
+      "recommendation": "HOLD",
+      "market_cap": 5660,
+      "updated_at": "2026-02-03T19:34:19.496236"
+    },
+    {
+      "ticker": "000250",
+      "name": "삼천당제약",
+      "price": 529000,
+      "change_rate": 14.01,
+      "high_52w": 293500,
+      "breakout_date": "2026-01-22",
+      "days_since": 8,
+      "above_high_percent": 80.24,
+      "volume_ratio": 4.3,
+      "vs_breakout_close": 67.14,
+      "predicted_gain": 26.0,
+      "success_probability": 36.2,
+      "recommendation": "HOLD",
+      "market_cap": 124090,
+      "updated_at": "2026-02-03T19:34:19.373923"
     },
     {
       "ticker": "006400",
@@ -3417,10 +3417,10 @@
       "volume_ratio": 8.5,
       "vs_breakout_close": -2.6,
       "predicted_gain": 20.3,
-      "success_probability": 27.6,
+      "success_probability": 30.5,
       "recommendation": "HOLD",
       "market_cap": 301792,
-      "updated_at": "2026-02-03T18:32:10.746554"
+      "updated_at": "2026-02-03T19:34:19.134514"
     }
   ]
 }
