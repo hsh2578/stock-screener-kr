@@ -21,6 +21,8 @@ from datetime import datetime, timedelta
 import os
 import time
 import threading
+import joblib
+from pathlib import Path
 
 # 로깅 설정
 logging.basicConfig(
@@ -89,6 +91,443 @@ MIN_TOUCHES = 2  # 최소 터치 횟수
 MAX_SLOPE_PERCENT = 0.05  # 최대 일평균 기울기 (%)
 VOLUME_DECREASE_THRESHOLD = 0.95  # 거래량 감소 임계값 (후반 < 전반 × 0.95, 5% 감소)
 BREAKOUT_WINDOW = 11  # 돌파 확인 윈도우 (10거래일 이내 = 오늘 포함 11행)
+
+# ============================================================================
+# ML 모델 (박스권 돌파)
+# ============================================================================
+MODEL_DIR = Path(SCRIPT_DIR) / "ml" / "models"
+_box_reg_model = None
+_box_cls_model = None
+_box_models_loaded = False
+_kospi_data = None
+
+# ============================================================================
+# ML 모델 (52주 신고가)
+# ============================================================================
+_52w_regressor = None
+_52w_classifier = None
+_52w_scaler = None
+_52w_models_loaded = False
+
+# 52주 신고가 ML 피처 (14개)
+FEATURES_52W = [
+    'breakout_pct', 'volume_surge', 'close_strength',
+    'base_length', 'volatility_contraction', 'volume_dry_up',
+    'ma200_slope', 'pct_above_52w_low',
+    'rs_vs_market', 'market_return',
+    'ma20_deviation', 'liquidity',
+    'days_since_ath', 'atr_ratio'
+]
+
+
+def load_box_breakout_models():
+    """박스권 돌파 ML 모델 로드"""
+    global _box_reg_model, _box_cls_model, _box_models_loaded
+
+    if _box_models_loaded:
+        return True
+
+    reg_path = MODEL_DIR / "box_breakout_regression_model.joblib"
+    cls_path = MODEL_DIR / "box_breakout_classification_model.joblib"
+
+    try:
+        if reg_path.exists() and cls_path.exists():
+            _box_reg_model = joblib.load(reg_path)
+            _box_cls_model = joblib.load(cls_path)
+            _box_models_loaded = True
+            print("[ML] 박스권 돌파 모델 로드 완료")
+            return True
+        else:
+            print("[ML] 박스권 돌파 모델 파일 없음")
+            return False
+    except Exception as e:
+        print(f"[ML] 모델 로드 실패: {e}")
+        return False
+
+
+def load_kospi_data():
+    """KOSPI 지수 데이터 로드"""
+    global _kospi_data
+    try:
+        end_date = datetime.now()
+        start_date = end_date - timedelta(days=400)
+        _kospi_data = fdr.DataReader('KS11', start_date.strftime('%Y-%m-%d'))
+        print(f"[ML] KOSPI 지수 로드 완료: {len(_kospi_data)}일")
+        return _kospi_data
+    except Exception as e:
+        print(f"[ML] KOSPI 지수 로드 실패: {e}")
+        return None
+
+
+def load_52w_models():
+    """52주 신고가 ML 모델 로드"""
+    global _52w_regressor, _52w_classifier, _52w_scaler, _52w_models_loaded
+
+    if _52w_models_loaded:
+        return True
+
+    model_dir = MODEL_DIR / "52w_high"
+    reg_path = model_dir / "regressor.pkl"
+    cls_path = model_dir / "classifier.pkl"
+    scaler_path = model_dir / "scaler.pkl"
+
+    try:
+        if all(p.exists() for p in [reg_path, cls_path, scaler_path]):
+            with open(reg_path, 'rb') as f:
+                _52w_regressor = pickle.load(f)
+            with open(cls_path, 'rb') as f:
+                _52w_classifier = pickle.load(f)
+            with open(scaler_path, 'rb') as f:
+                _52w_scaler = pickle.load(f)
+            _52w_models_loaded = True
+            print("[ML] 52주 신고가 모델 로드 완료")
+            return True
+        else:
+            print("[ML] 52주 신고가 모델 파일 없음")
+            return False
+    except Exception as e:
+        print(f"[ML] 52주 신고가 모델 로드 실패: {e}")
+        return False
+
+
+def calculate_52w_features(df, breakout_idx):
+    """52주 신고가 ML 피처 계산 (14개)"""
+    global _kospi_data
+
+    try:
+        close = df['Close']
+        high = df['High']
+        low = df['Low']
+        volume = df['Volume']
+
+        breakout_close = close.iloc[breakout_idx]
+
+        # 52주 고저 (돌파 전)
+        lookback_start = max(0, breakout_idx - HIGH_52W_PERIOD)
+        high_52w = close.iloc[lookback_start:breakout_idx].max()
+        low_52w = low.iloc[lookback_start:breakout_idx].min()
+
+        # 1. breakout_pct: 돌파 강도
+        breakout_pct = (breakout_close / high_52w - 1) * 100 if high_52w > 0 else 0
+
+        # 2. volume_surge: 거래량 급증
+        if breakout_idx >= 20:
+            vol_20d_avg = volume.iloc[breakout_idx - 20:breakout_idx].mean()
+            vol_breakout = volume.iloc[breakout_idx]
+            volume_surge = vol_breakout / vol_20d_avg if vol_20d_avg > 0 else 1
+        else:
+            volume_surge = 1
+
+        # 3. close_strength: 종가 강도
+        breakout_high = high.iloc[breakout_idx]
+        breakout_low = low.iloc[breakout_idx]
+        if breakout_high != breakout_low:
+            close_strength = (breakout_close - breakout_low) / (breakout_high - breakout_low)
+        else:
+            close_strength = 0.5
+
+        # 4. base_length: 베이스 기간 (60일 중 횡보일수)
+        if breakout_idx >= 60:
+            pct_change = close.iloc[breakout_idx - 60:breakout_idx].pct_change().abs()
+            base_length = (pct_change < 0.03).sum()
+        else:
+            base_length = 0
+
+        # 5. volatility_contraction: 변동성 수축
+        if breakout_idx >= 60:
+            recent_close = close.iloc[breakout_idx - 20:breakout_idx]
+            past_close = close.iloc[breakout_idx - 60:breakout_idx - 20]
+            recent_vol = recent_close.std() / recent_close.mean() if recent_close.mean() > 0 else 0
+            past_vol = past_close.std() / past_close.mean() if past_close.mean() > 0 else 0
+            volatility_contraction = recent_vol / past_vol if past_vol > 0 else 1
+        else:
+            volatility_contraction = 1
+
+        # 6. volume_dry_up: 거래량 고갈
+        if breakout_idx >= 40:
+            vol_recent = volume.iloc[breakout_idx - 10:breakout_idx].mean()
+            vol_past = volume.iloc[breakout_idx - 40:breakout_idx - 10].mean()
+            volume_dry_up = vol_recent / vol_past if vol_past > 0 else 1
+        else:
+            volume_dry_up = 1
+
+        # 7. ma200_slope: 200일선 기울기
+        if breakout_idx >= 220:
+            ma200_now = close.iloc[breakout_idx - 200:breakout_idx].mean()
+            ma200_20d_ago = close.iloc[breakout_idx - 220:breakout_idx - 20].mean()
+            ma200_slope = (ma200_now / ma200_20d_ago - 1) * 100 if ma200_20d_ago > 0 else 0
+        else:
+            ma200_slope = 0
+
+        # 8. pct_above_52w_low: 52주 저점 대비 상승률
+        pct_above_52w_low = (breakout_close / low_52w - 1) * 100 if low_52w > 0 else 0
+
+        # 9, 10. rs_vs_market, market_return: 시장 대비 상대강도
+        rs_vs_market = 0
+        market_return = 0
+        if _kospi_data is not None and len(_kospi_data) > 0:
+            try:
+                breakout_date = df.index[breakout_idx]
+                kospi_breakout_idx = _kospi_data.index.get_indexer([breakout_date], method='nearest')[0]
+                if kospi_breakout_idx >= 20:
+                    market_return = (_kospi_data['Close'].iloc[kospi_breakout_idx] / _kospi_data['Close'].iloc[kospi_breakout_idx - 20] - 1) * 100
+                    if breakout_idx >= 20:
+                        stock_return = (breakout_close / close.iloc[breakout_idx - 20] - 1) * 100
+                        rs_vs_market = stock_return - market_return
+            except:
+                pass
+
+        # 11. ma20_deviation: 20일선 대비 이격도
+        if breakout_idx >= 20:
+            ma20 = close.iloc[breakout_idx - 20:breakout_idx].mean()
+            ma20_deviation = (breakout_close / ma20 - 1) * 100 if ma20 > 0 else 0
+        else:
+            ma20_deviation = 0
+
+        # 12. liquidity: 유동성 (20일 평균 거래대금)
+        if breakout_idx >= 20:
+            liquidity = (close.iloc[breakout_idx - 20:breakout_idx] * volume.iloc[breakout_idx - 20:breakout_idx]).mean()
+        else:
+            liquidity = 0
+
+        # 13. days_since_ath: ATH 이후 경과일
+        ath_start = max(0, breakout_idx - HIGH_52W_PERIOD)
+        try:
+            ath_idx = high.iloc[ath_start:breakout_idx].idxmax()
+            breakout_date = df.index[breakout_idx]
+            days_since_ath = (breakout_date - ath_idx).days
+        except:
+            days_since_ath = 0
+
+        # 14. atr_ratio: ATR 비율
+        if breakout_idx >= 15:
+            h = high.iloc[breakout_idx - 14:breakout_idx].values
+            l = low.iloc[breakout_idx - 14:breakout_idx].values
+            c_prev = close.iloc[breakout_idx - 15:breakout_idx - 1].values
+
+            tr1 = h - l
+            tr2 = np.abs(h - c_prev)
+            tr3 = np.abs(l - c_prev)
+            tr = np.maximum(np.maximum(tr1, tr2), tr3)
+
+            atr_14 = tr.mean()
+            atr_ratio = atr_14 / breakout_close * 100 if breakout_close > 0 else 0
+        else:
+            atr_ratio = 0
+
+        return {
+            'breakout_pct': breakout_pct,
+            'volume_surge': volume_surge,
+            'close_strength': close_strength,
+            'base_length': base_length,
+            'volatility_contraction': volatility_contraction,
+            'volume_dry_up': volume_dry_up,
+            'ma200_slope': ma200_slope,
+            'pct_above_52w_low': pct_above_52w_low,
+            'rs_vs_market': rs_vs_market,
+            'market_return': market_return,
+            'ma20_deviation': ma20_deviation,
+            'liquidity': liquidity,
+            'days_since_ath': days_since_ath,
+            'atr_ratio': atr_ratio
+        }
+    except Exception as e:
+        return None
+
+
+def predict_52w_ml(features):
+    """52주 신고가 ML 예측"""
+    global _52w_regressor, _52w_classifier, _52w_scaler
+
+    if not _52w_models_loaded or _52w_regressor is None:
+        return None, None, "N/A"
+
+    try:
+        X = np.array([[features.get(f, 0) for f in FEATURES_52W]])
+        X_scaled = _52w_scaler.transform(X)
+
+        predicted_gain = float(_52w_regressor.predict(X_scaled)[0])
+        success_proba = float(_52w_classifier.predict_proba(X_scaled)[0][1]) * 100
+
+        # 추천 결정
+        if success_proba >= 60 and predicted_gain >= 10:
+            recommendation = 'BUY'
+        elif success_proba >= 50 or predicted_gain >= 5:
+            recommendation = 'HOLD'
+        else:
+            recommendation = 'PASS'
+
+        return predicted_gain, success_proba, recommendation
+    except Exception as e:
+        return None, None, "N/A"
+
+
+def calculate_box_features(df, breakout_idx, resistance, support):
+    """박스권 돌파 피처 계산 (15개)"""
+    try:
+        close = df['Close']
+        high = df['High']
+        low = df['Low']
+        volume = df['Volume']
+        open_price = df['Open']
+
+        breakout_close = close.iloc[breakout_idx]
+        breakout_high = high.iloc[breakout_idx]
+        breakout_low = low.iloc[breakout_idx]
+        breakout_open = open_price.iloc[breakout_idx]
+
+        features = {}
+
+        # 1. box_range_pct
+        features['box_range_pct'] = (resistance - support) / support * 100 if support > 0 else 0
+
+        # 2. breakout_strength
+        features['breakout_strength'] = (breakout_close / resistance - 1) * 100 if resistance > 0 else 0
+
+        # 3. volume_surge
+        if breakout_idx >= 20:
+            vol_20d_avg = volume.iloc[breakout_idx - 20:breakout_idx].mean()
+            features['volume_surge'] = volume.iloc[breakout_idx] / vol_20d_avg if vol_20d_avg > 0 else 1.0
+        else:
+            features['volume_surge'] = 1.0
+
+        # 4. volume_dry_up
+        if breakout_idx >= 40:
+            vol_recent = volume.iloc[breakout_idx - 10:breakout_idx].mean()
+            vol_past = volume.iloc[breakout_idx - 40:breakout_idx - 10].mean()
+            features['volume_dry_up'] = vol_recent / vol_past if vol_past > 0 else 1.0
+        else:
+            features['volume_dry_up'] = 1.0
+
+        # 5. close_strength
+        if breakout_high != breakout_low:
+            features['close_strength'] = (breakout_close - breakout_low) / (breakout_high - breakout_low)
+        else:
+            features['close_strength'] = 0.5
+
+        # 6. volatility_contraction
+        if breakout_idx >= 60:
+            recent_close = close.iloc[breakout_idx - 20:breakout_idx]
+            past_close = close.iloc[breakout_idx - 60:breakout_idx - 20]
+            recent_vol = recent_close.std() / recent_close.mean() if recent_close.mean() > 0 else 0
+            past_vol = past_close.std() / past_close.mean() if past_close.mean() > 0 else 0
+            features['volatility_contraction'] = recent_vol / past_vol if past_vol > 0 else 1.0
+        else:
+            features['volatility_contraction'] = 1.0
+
+        # 7. ma20_deviation
+        if breakout_idx >= 20:
+            ma20 = close.iloc[breakout_idx - 20:breakout_idx].mean()
+            features['ma20_deviation'] = (breakout_close / ma20 - 1) * 100 if ma20 > 0 else 0
+        else:
+            features['ma20_deviation'] = 0
+
+        # 8. breakout_gap
+        if breakout_idx >= 1:
+            prev_close = close.iloc[breakout_idx - 1]
+            features['breakout_gap'] = (breakout_open / prev_close - 1) * 100 if prev_close > 0 else 0
+        else:
+            features['breakout_gap'] = 0
+
+        # 9. ma200_slope
+        if breakout_idx >= 220:
+            ma200_now = close.iloc[breakout_idx - 200:breakout_idx].mean()
+            ma200_20d_ago = close.iloc[breakout_idx - 220:breakout_idx - 20].mean()
+            features['ma200_slope'] = (ma200_now / ma200_20d_ago - 1) * 100 if ma200_20d_ago > 0 else 0
+        else:
+            features['ma200_slope'] = 0
+
+        # 10. pct_above_52w_low
+        lookback_start = max(0, breakout_idx - 250)
+        low_52w = low.iloc[lookback_start:breakout_idx].min()
+        features['pct_above_52w_low'] = (breakout_close / low_52w - 1) * 100 if low_52w > 0 else 0
+
+        # 11. days_since_ath
+        try:
+            high_52w_idx = high.iloc[lookback_start:breakout_idx].idxmax()
+            breakout_date = df.index[breakout_idx]
+            features['days_since_ath'] = (breakout_date - high_52w_idx).days
+        except:
+            features['days_since_ath'] = 0
+
+        # 12. rs_vs_market, 13. market_return
+        if _kospi_data is not None and breakout_idx >= 20:
+            try:
+                breakout_date = df.index[breakout_idx]
+                kospi_idx = _kospi_data.index.get_indexer([breakout_date], method='nearest')[0]
+                if kospi_idx >= 20:
+                    market_return = (_kospi_data['Close'].iloc[kospi_idx] /
+                                   _kospi_data['Close'].iloc[kospi_idx - 20] - 1) * 100
+                    stock_return = (breakout_close / close.iloc[breakout_idx - 20] - 1) * 100
+                    features['market_return'] = market_return
+                    features['rs_vs_market'] = stock_return - market_return
+                else:
+                    features['market_return'] = 0
+                    features['rs_vs_market'] = 0
+            except:
+                features['market_return'] = 0
+                features['rs_vs_market'] = 0
+        else:
+            features['market_return'] = 0
+            features['rs_vs_market'] = 0
+
+        # 14. atr_ratio
+        if breakout_idx >= 14:
+            tr_values = []
+            for j in range(breakout_idx - 14, breakout_idx):
+                h = high.iloc[j]
+                l = low.iloc[j]
+                c_prev = close.iloc[j - 1] if j > 0 else close.iloc[j]
+                tr = max(h - l, abs(h - c_prev), abs(l - c_prev))
+                tr_values.append(tr)
+            atr_14 = np.mean(tr_values)
+            features['atr_ratio'] = atr_14 / breakout_close * 100 if breakout_close > 0 else 0
+        else:
+            features['atr_ratio'] = 0
+
+        # 15. liquidity
+        if breakout_idx >= 5:
+            liquidity = (close.iloc[breakout_idx - 5:breakout_idx] *
+                        volume.iloc[breakout_idx - 5:breakout_idx]).mean()
+            features['liquidity'] = np.log1p(liquidity)
+        else:
+            features['liquidity'] = 0
+
+        return features
+    except Exception as e:
+        return None
+
+
+def predict_box_breakout(features):
+    """ML 모델로 박스권 돌파 예측"""
+    if not _box_models_loaded or _box_reg_model is None or _box_cls_model is None:
+        return 0.0, 0.0, 0.0
+
+    try:
+        # 회귀 모델
+        reg_features = _box_reg_model['features']
+        X_reg = np.array([[features.get(f, 0) for f in reg_features]])
+        X_reg_scaled = _box_reg_model['scaler'].transform(X_reg)
+        predicted_gain = float(_box_reg_model['model'].predict(X_reg_scaled)[0])
+
+        # 분류 모델
+        cls_features = _box_cls_model['features']
+        X_cls = np.array([[features.get(f, 0) for f in cls_features]])
+        X_cls_scaled = _box_cls_model['scaler'].transform(X_cls)
+        success_prob = float(_box_cls_model['model'].predict_proba(X_cls_scaled)[0][1] * 100)
+
+        # AI 종합 점수
+        gain_score = min(100, max(0, predicted_gain * 3))
+        ai_score = float(success_prob * 0.7 + gain_score * 0.3)
+
+        # NaN 체크
+        if np.isnan(success_prob) or np.isnan(predicted_gain) or np.isnan(ai_score):
+            return 0.0, 0.0, 0.0
+
+        return success_prob, predicted_gain, ai_score
+    except Exception as e:
+        return 0.0, 0.0, 0.0
+
 
 # ============================================================================
 # 유틸리티 함수
@@ -978,6 +1417,12 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
         돌파 종목 리스트
     """
     print("\n[박스권 돌파 (거래량 동반) 스크리너 시작]")
+
+    # ML 모델 및 KOSPI 데이터 로드
+    load_box_breakout_models()
+    if _kospi_data is None:
+        load_kospi_data()
+
     results = []
 
     stats = {'total': len(stocks), 'box_history': 0, 'breakout': 0, 'volume': 0, 'ma150': 0}
@@ -1067,6 +1512,13 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
         # 저항선 대비 상승률
         breakout_pct = (current_price - box_high) / box_high * 100
 
+        # ML 예측
+        success_prob, predicted_gain, ai_score = 0.0, 0.0, 0.0
+        if _box_models_loaded:
+            features = calculate_box_features(df, breakout_idx, box_high, box_low)
+            if features:
+                success_prob, predicted_gain, ai_score = predict_box_breakout(features)
+
         results.append({
             'ticker': ticker,
             'name': name,
@@ -1079,11 +1531,17 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
             'ma150': int(ma150.iloc[-1]),
             'above_ma150': bool(current_price > ma150.iloc[-1]),
             'market_cap': int(market_cap),
+            'success_prob': round(success_prob, 1),
+            'predicted_gain': round(predicted_gain, 1),
+            'ai_score': round(ai_score, 1),
             'updated_at': datetime.now().isoformat()
         })
 
-    # 거래량 배수 높은 순 정렬
-    results.sort(key=lambda x: x['volume_ratio'], reverse=True)
+    # AI 점수 높은 순 정렬 (모델 있으면), 없으면 거래량
+    if _box_models_loaded:
+        results.sort(key=lambda x: x['ai_score'], reverse=True)
+    else:
+        results.sort(key=lambda x: x['volume_ratio'], reverse=True)
 
     print(f"├─ 박스권 이력: {stats['total']} → {stats['box_history']}개")
     print(f"├─ 돌파 확인: {stats['box_history']} → {stats['breakout']}개")
@@ -1100,7 +1558,7 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
 
 def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
     """
-    박스권 돌파 스크리너 (거래량 무관)
+    박스권 돌파 스크리너 (거래량 무관) + ML 예측
 
     조건:
         - 사전 조건: 박스권 전체 조건 만족 (60일 기간)
@@ -1109,13 +1567,22 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
         - 경과 기간: 돌파일로부터 10 거래일 이내
         - 거래량/이평선 조건: 없음
 
+    ML 예측:
+        - 성공확률: XGBoost 분류 모델 (15개 피처)
+        - 예상수익률: Ridge 회귀 모델 (10개 피처)
+        - AI점수: 성공확률 × 0.7 + 수익률점수 × 0.3
+
     Args:
         stocks: 종목 리스트 DataFrame
 
     Returns:
-        돌파 종목 리스트
+        돌파 종목 리스트 (AI점수 내림차순 정렬)
     """
     print("\n[박스권 돌파 (거래량 무관) 스크리너 시작]")
+
+    # ML 모델 로드
+    load_box_breakout_models()
+
     results = []
 
     for idx, row in stocks.iterrows():
@@ -1134,6 +1601,8 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
         breakout_day = None
         days_since = 0
         resistance = None
+        support = None
+        breakout_idx = None
 
         for box_end in range(BREAKOUT_WINDOW, 0, -1):
             box_start = BOX_PERIOD * 2 + box_end
@@ -1157,6 +1626,9 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
                     breakout_day = date
                     days_since = len(candidate_days) - i - 1
                     resistance = box_data['box_high']
+                    support = box_data['box_low']
+                    # 돌파 인덱스 계산
+                    breakout_idx = len(df) - box_end + i
                     break
             if breakout_day is not None:
                 break
@@ -1171,12 +1643,26 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
         # 저항선 대비 상승률
         breakout_pct = (current_price - resistance) / resistance * 100
 
+        # 돌파일 종가 기준 등락률
+        breakout_close = float(df['Close'].iloc[breakout_idx]) if breakout_idx is not None else resistance
+        gain_since_breakout = (current_price - breakout_close) / breakout_close * 100 if breakout_close > 0 else 0
+
         # 150일선 계산
         ma150 = None
         above_ma150 = False
         if len(df) >= 150:
             ma150 = int(df['Close'].rolling(150).mean().iloc[-1])
             above_ma150 = bool(current_price > ma150)
+
+        # ML 예측 (피처 계산 및 모델 적용)
+        success_prob = 0.0
+        predicted_gain = 0.0
+        ai_score = 0.0
+
+        if _box_models_loaded and breakout_idx is not None and support is not None:
+            features = calculate_box_features(df, breakout_idx, resistance, support)
+            if features is not None:
+                success_prob, predicted_gain, ai_score = predict_box_breakout(features)
 
         results.append({
             'ticker': ticker,
@@ -1187,14 +1673,21 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
             'resistance': int(resistance),
             'days_since_breakout': days_since,
             'breakout_pct': round(breakout_pct, 2),
+            'gain_since_breakout': round(gain_since_breakout, 2),
             'ma150': ma150,
             'above_ma150': above_ma150,
             'market_cap': int(market_cap),
+            'success_prob': round(success_prob, 1),
+            'predicted_gain': round(predicted_gain, 1),
+            'ai_score': round(ai_score, 1),
             'updated_at': datetime.now().isoformat()
         })
 
-    # 최근 돌파 순 정렬
-    results.sort(key=lambda x: x['days_since_breakout'])
+    # ML 모델 있으면 AI점수 내림차순, 없으면 최근 돌파 순 정렬
+    if _box_models_loaded:
+        results.sort(key=lambda x: x['ai_score'], reverse=True)
+    else:
+        results.sort(key=lambda x: x['days_since_breakout'])
 
     print(f"[완료] 박스권 돌파 (무관) 종목: {len(results)}개")
 
@@ -1779,7 +2272,7 @@ MAX_DAYS_SINCE_BREAKOUT = 8  # 돌파 후 최대 거래일
 
 def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
     """
-    52주 신고가를 돌파한 종목을 발굴합니다.
+    52주 신고가를 돌파한 종목을 발굴합니다. + ML 예측
 
     [52주 고가 기준]
         - High(고가) 기준 250거래일 최고가
@@ -1791,8 +2284,17 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         4. 150일선 우상향 (현재 150MA > 20일 전 150MA)
         5. 돌파 후 8거래일 이내
         6. 현재가 > 52주 고가 유지
+
+    [ML 예측]
+        - 예상수익: 돌파 후 20거래일 내 최고 수익률 예측
+        - 성공확률: 10% 이상 상승할 확률 예측
     """
     print("\n[52주 신고가 돌파] 분석 시작...")
+
+    # ML 모델 로드
+    load_52w_models()
+    if _kospi_data is None:
+        load_kospi_data()
 
     results = []
     required_days = HIGH_52W_PERIOD + MAX_DAYS_SINCE_BREAKOUT + 2
@@ -1851,6 +2353,7 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         breakout_date = None
         days_since = None
         breakout_idx = None
+        breakout_close = None
         for days_ago in range(MAX_DAYS_SINCE_BREAKOUT, -1, -1):
             idx = total_len - 1 - days_ago
             if idx < 0:
@@ -1859,6 +2362,7 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
                 breakout_date = df.index[idx]
                 days_since = days_ago
                 breakout_idx = idx
+                breakout_close = close.iloc[idx]
                 break
 
         if breakout_date is None:
@@ -1882,6 +2386,19 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         above_high_percent = (current_close - high_52w) / high_52w * 100
         vol_ratio = round(breakout_vol / avg_vol_20, 1) if avg_vol_20 > 0 else 0
 
+        # 돌파종가대비 현재가
+        vs_breakout_close = (current_close / breakout_close - 1) * 100 if breakout_close and breakout_close > 0 else 0
+
+        # --- ML 예측 ---
+        predicted_gain = None
+        success_probability = None
+        recommendation = "N/A"
+
+        if _52w_models_loaded:
+            features = calculate_52w_features(df, breakout_idx)
+            if features:
+                predicted_gain, success_probability, recommendation = predict_52w_ml(features)
+
         results.append({
             'ticker': ticker,
             'name': name,
@@ -1892,13 +2409,17 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
             'days_since': days_since,
             'above_high_percent': round(above_high_percent, 2),
             'volume_ratio': vol_ratio,
+            'vs_breakout_close': round(vs_breakout_close, 2),
+            'predicted_gain': round(predicted_gain, 1) if predicted_gain else None,
+            'success_probability': round(success_probability, 1) if success_probability else None,
+            'recommendation': recommendation,
             'market_cap': int(market_cap),
             'updated_at': datetime.now().isoformat()
         })
 
-    # 신고가 대비 상승률 내림차순 정렬
-    results.sort(key=lambda x: x['above_high_percent'], reverse=True)
-    print(f"[완료] 52주 신고가 돌파: {len(results)}개")
+    # 돌파일 기준 정렬 (최신순), 같은 날이면 성공확률 높은 순
+    results.sort(key=lambda x: (x['days_since'], -(x['success_probability'] or 0)))
+    print(f"[완료] 52주 신고가 돌파: {len(results)}개 (ML: {'활성화' if _52w_models_loaded else '비활성화'})")
     return results
 
 

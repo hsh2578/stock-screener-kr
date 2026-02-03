@@ -455,6 +455,10 @@
         /* 상승/하락 색상 - 한국식 */
         .positive { color: var(--color-success); font-weight: 700; }
         .negative { color: var(--color-danger); font-weight: 700; }
+        .ai-score { display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 0.85em; }
+        .ai-high { background: linear-gradient(135deg, #10b981, #059669); color: white; }
+        .ai-medium { background: linear-gradient(135deg, #f59e0b, #d97706); color: white; }
+        .ai-low { background: linear-gradient(135deg, #6b7280, #4b5563); color: white; }
         .neutral { color: var(--color-text-secondary); font-weight: 500; }
         .positive::before { content: ''; }
         .negative::before { content: ''; }
@@ -2380,6 +2384,7 @@
         const formatNumber = n => n.toLocaleString('ko-KR');
         const formatPercent = n => (n >= 0 ? '+' : '') + n.toFixed(2) + '%';
         const getColor = n => n > 0 ? 'positive' : n < 0 ? 'negative' : 'neutral';
+        const getAIScoreClass = score => { if (!score) return ''; if (score >= 50) return 'ai-high'; if (score >= 30) return 'ai-medium'; return 'ai-low'; };
         const formatShortDate = d => { const date = new Date(d); return (date.getMonth()+1) + '월 ' + date.getDate() + '일'; };
         const formatMarketCap = cap => { if (!cap) return '-'; if (cap >= 10000) return (cap / 10000).toFixed(1) + '조'; return formatNumber(cap) + '억'; };
 
@@ -3449,11 +3454,11 @@
                 { label: 'PER', align: 'text-right', key: 'per' },
                 { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '등락률', align: 'text-right', key: 'change_rate' },
-                { label: '돌파일', key: 'breakout_date' },
+                { label: '돌파일', key: 'breakout_date', defaultSort: 'desc' },
                 { label: '거래량비', align: 'text-right', key: 'volume_ratio' },
                 { label: '저항선대비', align: 'text-right', key: 'breakout_pct' }
             ];
-            // 기본 정렬: 최신 돌파일 순 (사용자가 정렬 변경 가능)
+            // 기본 정렬: 돌파일 내림차순
             if (!sortState['box-breakout-table']) {
                 sortState['box-breakout-table'] = { key: 'breakout_date', direction: 'desc' };
             }
@@ -3465,19 +3470,22 @@
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
-                    <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
-                    <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
+                    <td class="text-right">${s.per ? s.per.toFixed(1) : '-'}</td>
+                    <td class="text-right">${s.pbr ? s.pbr.toFixed(2) : '-'}</td>
                     <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td>${formatShortDate(s.breakout_date)}</td>
                     <td class="text-right">${s.volume_ratio.toFixed(1)}x</td>
-                    <td class="text-right ${getColor(s.breakout_pct)}">${s.breakout_pct != null ? formatPercent(s.breakout_pct) : '-'}</td>
+                    <td class="text-right ${getColor(s.breakout_pct)}">${s.breakout_pct ? formatPercent(s.breakout_pct) : '-'}</td>
                 </tr>
             `).join('');
             renderTable('box-breakout-table', headers, rows, renderBoxBreakout);
             renderMobileCards('box-breakout-mobile', paginatedData, {
                 extraFields: [
+                    { label: 'PER', key: 'per', format: function(s) { return s.per ? s.per.toFixed(1) : '-'; } },
+                    { label: 'PBR', key: 'pbr', format: function(s) { return s.pbr ? s.pbr.toFixed(2) : '-'; } },
                     { label: '돌파일', key: 'breakout_date', format: function(s) { return formatShortDate(s.breakout_date); } },
-                    { label: '거래량비', key: 'volume_ratio', format: function(s) { return s.volume_ratio.toFixed(1) + 'x'; } }
+                    { label: '거래량비', key: 'volume_ratio', format: function(s) { return s.volume_ratio.toFixed(1) + 'x'; } },
+                    { label: '저항선대비', key: 'breakout_pct', format: function(s) { return s.breakout_pct ? formatPercent(s.breakout_pct) : '-'; } }
                 ]
             });
             renderPagination('box-breakout-pagination', 'boxBreakout', sortedData.length, renderBoxBreakout);
@@ -3517,11 +3525,14 @@
                 { label: 'PER', align: 'text-right', key: 'per' },
                 { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '등락률', align: 'text-right', key: 'change_rate' },
-                { label: '돌파일', key: 'breakout_date' },
+                { label: 'AI점수', align: 'text-right', key: 'ai_score' },
+                { label: '성공확률', align: 'text-right', key: 'success_prob' },
+                { label: '예상수익', align: 'text-right', key: 'predicted_gain' },
+                { label: '돌파일', key: 'breakout_date', defaultSort: 'desc' },
                 { label: '경과일', align: 'text-right', key: 'days_since_breakout' },
-                { label: '저항선대비', align: 'text-right', key: 'breakout_pct' }
+                { label: '돌파후등락', align: 'text-right', key: 'gain_since_breakout' }
             ];
-            const state = sortState['box-breakout-simple-table'] || {};
+            const state = sortState['box-breakout-simple-table'] || { key: 'breakout_date', direction: 'desc' };
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.boxBreakoutSimple);
             const rows = paginatedData.map(s => `
@@ -3529,19 +3540,27 @@
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
-                    <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
-                    <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
+                    <td class="text-right">${s.per ? s.per.toFixed(1) : '-'}</td>
+                    <td class="text-right">${s.pbr ? s.pbr.toFixed(2) : '-'}</td>
                     <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
+                    <td class="text-right"><span class="ai-score ${getAIScoreClass(s.ai_score)}">${s.ai_score ? s.ai_score.toFixed(0) : '-'}</span></td>
+                    <td class="text-right">${s.success_prob ? s.success_prob.toFixed(0) + '%' : '-'}</td>
+                    <td class="text-right ${getColor(s.predicted_gain)}">${s.predicted_gain ? s.predicted_gain.toFixed(1) + '%' : '-'}</td>
                     <td>${formatShortDate(s.breakout_date)}</td>
                     <td class="text-right">${s.days_since_breakout}일</td>
-                    <td class="text-right ${getColor(s.breakout_pct)}">${s.breakout_pct != null ? formatPercent(s.breakout_pct) : '-'}</td>
+                    <td class="text-right ${getColor(s.gain_since_breakout)}">${s.gain_since_breakout != null ? s.gain_since_breakout.toFixed(1) + '%' : '-'}</td>
                 </tr>
             `).join('');
             renderTable('box-breakout-simple-table', headers, rows, renderBoxBreakoutSimple);
             renderMobileCards('box-breakout-simple-mobile', paginatedData, {
                 extraFields: [
+                    { label: 'PER', key: 'per', format: function(s) { return s.per ? s.per.toFixed(1) : '-'; } },
+                    { label: 'PBR', key: 'pbr', format: function(s) { return s.pbr ? s.pbr.toFixed(2) : '-'; } },
+                    { label: 'AI점수', key: 'ai_score', format: function(s) { return s.ai_score ? s.ai_score.toFixed(0) + '점' : '-'; } },
+                    { label: '성공확률', key: 'success_prob', format: function(s) { return s.success_prob ? s.success_prob.toFixed(0) + '%' : '-'; } },
+                    { label: '예상수익', key: 'predicted_gain', format: function(s) { return s.predicted_gain ? s.predicted_gain.toFixed(1) + '%' : '-'; } },
                     { label: '돌파일', key: 'breakout_date', format: function(s) { return formatShortDate(s.breakout_date); } },
-                    { label: '경과일', key: 'days_since_breakout', format: function(s) { return s.days_since_breakout + '일'; } }
+                    { label: '돌파후등락', key: 'gain_since_breakout', format: function(s) { return s.gain_since_breakout != null ? s.gain_since_breakout.toFixed(1) + '%' : '-'; } }
                 ]
             });
             renderPagination('box-breakout-simple-pagination', 'boxBreakoutSimple', sortedData.length, renderBoxBreakoutSimple);
@@ -3825,14 +3844,37 @@
                 { label: 'PER', align: 'text-right', key: 'per' },
                 { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '등락률', align: 'text-right', key: 'change_rate' },
-                { label: '신고가 대비', align: 'text-right', key: 'above_high_percent' },
+                { label: '돌파 강도', align: 'text-right', key: 'above_high_percent' },
+                { label: '돌파종가대비', align: 'text-right', key: 'vs_breakout_close' },
                 { label: '거래량비', align: 'text-right', key: 'volume_ratio' },
-                { label: '돌파 후', align: 'text-right', key: 'days_since' }
+                { label: '돌파일', align: 'text-right', key: 'days_since' },
+                { label: '예상수익', align: 'text-right', key: 'predicted_gain' },
+                { label: '성공확률', align: 'text-right', key: 'success_probability' },
+                { label: '추천', align: 'text-center', key: 'recommendation' }
             ];
             const state = sortState['new-high-52w-table'] || {};
             const enrichedData = enrichWithFinancials(DATA.newHigh52w.data);
             const sortedData = sortData(enrichedData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.newHigh52w);
+
+            // 추천 배지 색상
+            const getRecBadge = (rec) => {
+                if (rec === 'BUY') return '<span class="badge badge-success">BUY</span>';
+                if (rec === 'HOLD') return '<span class="badge badge-warning">HOLD</span>';
+                if (rec === 'PASS') return '<span class="badge badge-danger">PASS</span>';
+                return '<span class="badge">-</span>';
+            };
+
+            // 돌파일 포맷
+            const formatBreakoutDate = (breakoutDate, daysSince) => {
+                if (!breakoutDate) return '-';
+                const date = new Date(breakoutDate);
+                const month = date.getMonth() + 1;
+                const day = date.getDate();
+                const suffix = daysSince === 0 ? '(오늘)' : `(D+${daysSince})`;
+                return `${month}월${day}일 ${suffix}`;
+            };
+
             const rows = paginatedData.map(s => `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
@@ -3842,15 +3884,22 @@
                     <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
                     <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
                     <td class="text-right positive">+${s.above_high_percent.toFixed(1)}%</td>
+                    <td class="text-right ${getColor(s.vs_breakout_close || 0)}">${s.vs_breakout_close != null ? (s.vs_breakout_close >= 0 ? '+' : '') + s.vs_breakout_close.toFixed(1) + '%' : '-'}</td>
                     <td class="text-right">${s.volume_ratio ? s.volume_ratio.toFixed(1) + 'x' : '-'}</td>
-                    <td class="text-right">${s.days_since}일</td>
+                    <td class="text-right">${formatBreakoutDate(s.breakout_date, s.days_since)}</td>
+                    <td class="text-right positive">${s.predicted_gain != null ? '+' + s.predicted_gain.toFixed(1) + '%' : '-'}</td>
+                    <td class="text-right">${s.success_probability != null ? '<span style="color:' + (s.success_probability >= 60 ? '#16a34a' : s.success_probability >= 50 ? '#ca8a04' : '#dc2626') + '">' + s.success_probability.toFixed(1) + '%</span>' : '-'}</td>
+                    <td class="text-center">${getRecBadge(s.recommendation)}</td>
                 </tr>
             `).join('');
             renderTable('new-high-52w-table', headers, rows, renderNewHigh52w);
             renderMobileCards('new-high-52w-mobile', paginatedData, {
                 extraFields: [
-                    { label: '신고가대비', key: 'above_high_percent', format: function(s) { return '+' + s.above_high_percent.toFixed(1) + '%'; } },
-                    { label: '돌파후', key: 'days_since', format: function(s) { return s.days_since + '일'; } }
+                    { label: '돌파강도', key: 'above_high_percent', format: function(s) { return '+' + s.above_high_percent.toFixed(1) + '%'; } },
+                    { label: '돌파종가대비', key: 'vs_breakout_close', format: function(s) { return s.vs_breakout_close != null ? (s.vs_breakout_close >= 0 ? '+' : '') + s.vs_breakout_close.toFixed(1) + '%' : '-'; } },
+                    { label: '예상수익', key: 'predicted_gain', format: function(s) { return s.predicted_gain != null ? '+' + s.predicted_gain.toFixed(1) + '%' : '-'; } },
+                    { label: '성공확률', key: 'success_probability', format: function(s) { return s.success_probability != null ? s.success_probability.toFixed(1) + '%' : '-'; } },
+                    { label: '추천', key: 'recommendation', format: function(s) { return s.recommendation || '-'; } }
                 ]
             });
             renderPagination('new-high-52w-pagination', 'newHigh52w', sortedData.length, renderNewHigh52w);
