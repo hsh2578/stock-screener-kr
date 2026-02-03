@@ -1,0 +1,61 @@
+{
+  "model_type": "box_breakout",
+  "created_at": "2026-02-03T16:06:48.456293",
+  "data_samples": 14567,
+  "success_rate": 0.29134344751836344,
+  "regression": {
+    "model": "Ridge",
+    "features": [
+      "ma20_deviation",
+      "pct_above_52w_low",
+      "breakout_strength",
+      "close_strength",
+      "days_since_ath",
+      "atr_ratio",
+      "liquidity",
+      "breakout_gap",
+      "rs_vs_market",
+      "market_return"
+    ],
+    "params": {
+      "alpha": 10.0
+    },
+    "cv_r2": 0.06873958831417892,
+    "cv_mae": 11.267235052250495,
+    "cv_rmse": 20.39605080143317
+  },
+  "classification": {
+    "model": "XGBoost",
+    "features": [
+      "ma20_deviation",
+      "pct_above_52w_low",
+      "breakout_strength",
+      "close_strength",
+      "days_since_ath",
+      "atr_ratio",
+      "liquidity",
+      "breakout_gap",
+      "rs_vs_market",
+      "market_return",
+      "volume_surge",
+      "box_range_pct",
+      "volume_dry_up",
+      "ma200_slope",
+      "volatility_contraction"
+    ],
+    "params": {
+      "n_estimators": 200,
+      "max_depth": 7,
+      "learning_rate": 0.1,
+      "subsample": 0.8,
+      "colsample_bytree": 0.9,
+      "random_state": 42,
+      "eval_metric": "logloss"
+    },
+    "cv_accuracy": 0.7103041120340495,
+    "cv_precision": 0.5061919504643962,
+    "cv_recall": 0.2311498586239397,
+    "cv_f1": 0.3173730184406341,
+    "cv_auc": 0.6669777656711773
+  }
+}
