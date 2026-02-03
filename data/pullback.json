@@ -1,51 +1,51 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-03T14:55:33.633702",
+    "lastUpdated": "2026-02-03T16:39:17.303898",
     "totalCount": 5,
-    "screened_from": 1535
+    "screened_from": 1541
   },
   "data": [
     {
       "ticker": "010690",
       "name": "화신",
-      "price": 9120,
-      "change_rate": 1.67,
+      "price": 9150,
+      "change_rate": 2.01,
       "breakout_date": "2026-01-16",
       "resistance": 9200,
-      "pullback_ratio": 0.87,
+      "pullback_ratio": 0.54,
       "volume_decrease": 93,
       "ma150": 8512,
       "above_ma150": true,
-      "market_cap": 3153,
-      "updated_at": "2026-02-03T14:55:26.349960"
+      "market_cap": 3195,
+      "updated_at": "2026-02-03T16:39:09.905531"
     },
     {
       "ticker": "036190",
       "name": "금화피에스시",
-      "price": 32850,
-      "change_rate": 2.5,
+      "price": 32550,
+      "change_rate": 1.56,
       "breakout_date": "2026-01-27",
       "resistance": 32250,
-      "pullback_ratio": 1.86,
-      "volume_decrease": 76,
-      "ma150": 31844,
+      "pullback_ratio": 0.93,
+      "volume_decrease": 75,
+      "ma150": 31842,
       "above_ma150": true,
-      "market_cap": 1956,
-      "updated_at": "2026-02-03T14:55:29.735731"
+      "market_cap": 1953,
+      "updated_at": "2026-02-03T16:39:13.421102"
     },
     {
-      "ticker": "151860",
-      "name": "KG에코솔루션",
-      "price": 6340,
-      "change_rate": 1.28,
-      "breakout_date": "2026-01-28",
-      "resistance": 6190,
-      "pullback_ratio": 2.42,
-      "volume_decrease": 64,
-      "ma150": 5968,
+      "ticker": "347890",
+      "name": "엠투아이",
+      "price": 6700,
+      "change_rate": 1.52,
+      "breakout_date": "2026-01-15",
+      "resistance": 6870,
+      "pullback_ratio": 2.47,
+      "volume_decrease": 88,
+      "ma150": 6218,
       "above_ma150": true,
-      "market_cap": 3003,
-      "updated_at": "2026-02-03T14:55:29.327447"
+      "market_cap": 1133,
+      "updated_at": "2026-02-03T16:39:16.997918"
     },
     {
       "ticker": "336680",
@@ -58,22 +58,22 @@
       "volume_decrease": 95,
       "ma150": 4155,
       "above_ma150": true,
-      "market_cap": 1753,
-      "updated_at": "2026-02-03T14:55:29.949489"
+      "market_cap": 1751,
+      "updated_at": "2026-02-03T16:39:13.740070"
     },
     {
-      "ticker": "347890",
-      "name": "엠투아이",
-      "price": 6690,
-      "change_rate": 1.36,
-      "breakout_date": "2026-01-15",
-      "resistance": 6870,
-      "pullback_ratio": 2.62,
-      "volume_decrease": 88,
-      "ma150": 6218,
+      "ticker": "151860",
+      "name": "KG에코솔루션",
+      "price": 6380,
+      "change_rate": 1.92,
+      "breakout_date": "2026-01-28",
+      "resistance": 6190,
+      "pullback_ratio": 3.07,
+      "volume_decrease": 63,
+      "ma150": 5968,
       "above_ma150": true,
-      "market_cap": 1128,
-      "updated_at": "2026-02-03T14:55:32.895198"
+      "market_cap": 3037,
+      "updated_at": "2026-02-03T16:39:12.686929"
     }
   ]
 }
