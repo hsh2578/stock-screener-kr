@@ -336,7 +336,7 @@ def calculate_52w_features(df, breakout_idx):
 
 
 def predict_52w_ml(features):
-    """52주 신고가 ML 예측"""
+    """52주 신고가 ML 예측 (단일)"""
     global _52w_regressor, _52w_classifier, _52w_scaler
 
     if not _52w_models_loaded or _52w_regressor is None:
@@ -360,6 +360,39 @@ def predict_52w_ml(features):
         return predicted_gain, success_proba, recommendation
     except Exception as e:
         return None, None, "N/A"
+
+
+def predict_52w_ml_batch(features_list):
+    """52주 신고가 ML 배치 예측 (최적화)"""
+    global _52w_regressor, _52w_classifier, _52w_scaler
+
+    if not _52w_models_loaded or _52w_regressor is None or not features_list:
+        return [(None, None, "N/A")] * len(features_list)
+
+    try:
+        # 배치로 피처 배열 생성
+        X = np.array([[f.get(feat, 0) for feat in FEATURES_52W] for f in features_list])
+        X_scaled = _52w_scaler.transform(X)
+
+        # 배치 예측
+        predicted_gains = _52w_regressor.predict(X_scaled)
+        success_probas = _52w_classifier.predict_proba(X_scaled)[:, 1] * 100
+
+        results = []
+        for pg, sp in zip(predicted_gains, success_probas):
+            pg = float(pg)
+            sp = float(sp)
+            if sp >= 60 and pg >= 10:
+                rec = 'BUY'
+            elif sp >= 50 or pg >= 5:
+                rec = 'HOLD'
+            else:
+                rec = 'PASS'
+            results.append((pg, sp, rec))
+
+        return results
+    except Exception as e:
+        return [(None, None, "N/A")] * len(features_list)
 
 
 def calculate_box_features(df, breakout_idx, resistance, support):
@@ -499,7 +532,7 @@ def calculate_box_features(df, breakout_idx, resistance, support):
 
 
 def predict_box_breakout(features):
-    """ML 모델로 박스권 돌파 예측"""
+    """ML 모델로 박스권 돌파 예측 (단일)"""
     if not _box_models_loaded or _box_reg_model is None or _box_cls_model is None:
         return 0.0, 0.0, 0.0
 
@@ -527,6 +560,43 @@ def predict_box_breakout(features):
         return success_prob, predicted_gain, ai_score
     except Exception as e:
         return 0.0, 0.0, 0.0
+
+
+def predict_box_breakout_batch(features_list):
+    """박스권 돌파 ML 배치 예측 (최적화)"""
+    if not _box_models_loaded or _box_reg_model is None or _box_cls_model is None or not features_list:
+        return [(0.0, 0.0, 0.0)] * len(features_list)
+
+    try:
+        reg_features = _box_reg_model['features']
+        cls_features = _box_cls_model['features']
+
+        # 배치로 피처 배열 생성
+        X_reg = np.array([[f.get(feat, 0) for feat in reg_features] for f in features_list])
+        X_cls = np.array([[f.get(feat, 0) for feat in cls_features] for f in features_list])
+
+        # 배치 스케일링
+        X_reg_scaled = _box_reg_model['scaler'].transform(X_reg)
+        X_cls_scaled = _box_cls_model['scaler'].transform(X_cls)
+
+        # 배치 예측
+        predicted_gains = _box_reg_model['model'].predict(X_reg_scaled)
+        success_probs = _box_cls_model['model'].predict_proba(X_cls_scaled)[:, 1] * 100
+
+        results = []
+        for pg, sp in zip(predicted_gains, success_probs):
+            pg = float(pg)
+            sp = float(sp)
+            gain_score = min(100, max(0, pg * 3))
+            ai = float(sp * 0.7 + gain_score * 0.3)
+            if np.isnan(sp) or np.isnan(pg) or np.isnan(ai):
+                results.append((0.0, 0.0, 0.0))
+            else:
+                results.append((sp, pg, ai))
+
+        return results
+    except Exception as e:
+        return [(0.0, 0.0, 0.0)] * len(features_list)
 
 
 # ============================================================================
@@ -1512,12 +1582,10 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
         # 저항선 대비 상승률
         breakout_pct = (current_price - box_high) / box_high * 100
 
-        # ML 예측
-        success_prob, predicted_gain, ai_score = 0.0, 0.0, 0.0
+        # ML 피처 계산 (배치 예측용)
+        features = None
         if _box_models_loaded:
             features = calculate_box_features(df, breakout_idx, box_high, box_low)
-            if features:
-                success_prob, predicted_gain, ai_score = predict_box_breakout(features)
 
         results.append({
             'ticker': ticker,
@@ -1531,11 +1599,28 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
             'ma150': int(ma150.iloc[-1]),
             'above_ma150': bool(current_price > ma150.iloc[-1]),
             'market_cap': int(market_cap),
-            'success_prob': round(success_prob, 1),
-            'predicted_gain': round(predicted_gain, 1),
-            'ai_score': round(ai_score, 1),
-            'updated_at': datetime.now().isoformat()
+            'success_prob': 0.0,
+            'predicted_gain': 0.0,
+            'ai_score': 0.0,
+            'updated_at': datetime.now().isoformat(),
+            '_features': features  # 임시 저장
         })
+
+    # --- ML 배치 예측 (최적화) ---
+    if _box_models_loaded and results:
+        features_list = [r['_features'] for r in results if r['_features'] is not None]
+        valid_indices = [i for i, r in enumerate(results) if r['_features'] is not None]
+
+        if features_list:
+            predictions = predict_box_breakout_batch(features_list)
+            for idx, (sp, pg, ai) in zip(valid_indices, predictions):
+                results[idx]['success_prob'] = round(sp, 1)
+                results[idx]['predicted_gain'] = round(pg, 1)
+                results[idx]['ai_score'] = round(ai, 1)
+
+    # 임시 피처 필드 제거
+    for r in results:
+        r.pop('_features', None)
 
     # AI 점수 높은 순 정렬 (모델 있으면), 없으면 거래량
     if _box_models_loaded:
@@ -1654,15 +1739,10 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
             ma150 = int(df['Close'].rolling(150).mean().iloc[-1])
             above_ma150 = bool(current_price > ma150)
 
-        # ML 예측 (피처 계산 및 모델 적용)
-        success_prob = 0.0
-        predicted_gain = 0.0
-        ai_score = 0.0
-
+        # ML 피처 계산 (배치 예측용)
+        features = None
         if _box_models_loaded and breakout_idx is not None and support is not None:
             features = calculate_box_features(df, breakout_idx, resistance, support)
-            if features is not None:
-                success_prob, predicted_gain, ai_score = predict_box_breakout(features)
 
         results.append({
             'ticker': ticker,
@@ -1677,11 +1757,28 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
             'ma150': ma150,
             'above_ma150': above_ma150,
             'market_cap': int(market_cap),
-            'success_prob': round(success_prob, 1),
-            'predicted_gain': round(predicted_gain, 1),
-            'ai_score': round(ai_score, 1),
-            'updated_at': datetime.now().isoformat()
+            'success_prob': 0.0,
+            'predicted_gain': 0.0,
+            'ai_score': 0.0,
+            'updated_at': datetime.now().isoformat(),
+            '_features': features  # 임시 저장
         })
+
+    # --- ML 배치 예측 (최적화) ---
+    if _box_models_loaded and results:
+        features_list = [r['_features'] for r in results if r['_features'] is not None]
+        valid_indices = [i for i, r in enumerate(results) if r['_features'] is not None]
+
+        if features_list:
+            predictions = predict_box_breakout_batch(features_list)
+            for idx, (sp, pg, ai) in zip(valid_indices, predictions):
+                results[idx]['success_prob'] = round(sp, 1)
+                results[idx]['predicted_gain'] = round(pg, 1)
+                results[idx]['ai_score'] = round(ai, 1)
+
+    # 임시 피처 필드 제거
+    for r in results:
+        r.pop('_features', None)
 
     # ML 모델 있으면 AI점수 내림차순, 없으면 최근 돌파 순 정렬
     if _box_models_loaded:
@@ -2389,15 +2486,10 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         # 돌파종가대비 현재가
         vs_breakout_close = (current_close / breakout_close - 1) * 100 if breakout_close and breakout_close > 0 else 0
 
-        # --- ML 예측 ---
-        predicted_gain = None
-        success_probability = None
-        recommendation = "N/A"
-
+        # --- ML 피처 계산 (배치 예측용) ---
+        features = None
         if _52w_models_loaded:
             features = calculate_52w_features(df, breakout_idx)
-            if features:
-                predicted_gain, success_probability, recommendation = predict_52w_ml(features)
 
         results.append({
             'ticker': ticker,
@@ -2410,12 +2502,29 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
             'above_high_percent': round(above_high_percent, 2),
             'volume_ratio': vol_ratio,
             'vs_breakout_close': round(vs_breakout_close, 2),
-            'predicted_gain': round(predicted_gain, 1) if predicted_gain else None,
-            'success_probability': round(success_probability, 1) if success_probability else None,
-            'recommendation': recommendation,
+            'predicted_gain': None,
+            'success_probability': None,
+            'recommendation': "N/A",
             'market_cap': int(market_cap),
-            'updated_at': datetime.now().isoformat()
+            'updated_at': datetime.now().isoformat(),
+            '_features': features  # 임시 저장
         })
+
+    # --- ML 배치 예측 (최적화) ---
+    if _52w_models_loaded and results:
+        features_list = [r['_features'] for r in results if r['_features'] is not None]
+        valid_indices = [i for i, r in enumerate(results) if r['_features'] is not None]
+
+        if features_list:
+            predictions = predict_52w_ml_batch(features_list)
+            for idx, (pg, sp, rec) in zip(valid_indices, predictions):
+                results[idx]['predicted_gain'] = round(pg, 1) if pg else None
+                results[idx]['success_probability'] = round(sp, 1) if sp else None
+                results[idx]['recommendation'] = rec
+
+    # 임시 피처 필드 제거
+    for r in results:
+        r.pop('_features', None)
 
     # 돌파일 기준 정렬 (최신순), 같은 날이면 성공확률 높은 순
     results.sort(key=lambda x: (x['days_since'], -(x['success_probability'] or 0)))
