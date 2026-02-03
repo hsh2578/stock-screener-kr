@@ -1,93 +1,79 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-03T13:50:33.541422",
-    "totalCount": 6,
-    "screened_from": 1534
+    "lastUpdated": "2026-02-03T14:55:33.633702",
+    "totalCount": 5,
+    "screened_from": 1535
   },
   "data": [
     {
+      "ticker": "010690",
+      "name": "화신",
+      "price": 9120,
+      "change_rate": 1.67,
+      "breakout_date": "2026-01-16",
+      "resistance": 9200,
+      "pullback_ratio": 0.87,
+      "volume_decrease": 93,
+      "ma150": 8512,
+      "above_ma150": true,
+      "market_cap": 3153,
+      "updated_at": "2026-02-03T14:55:26.349960"
+    },
+    {
       "ticker": "036190",
       "name": "금화피에스시",
-      "price": 32800,
-      "change_rate": 2.34,
+      "price": 32850,
+      "change_rate": 2.5,
       "breakout_date": "2026-01-27",
       "resistance": 32250,
-      "pullback_ratio": 1.71,
+      "pullback_ratio": 1.86,
       "volume_decrease": 76,
       "ma150": 31844,
       "above_ma150": true,
-      "market_cap": 1974,
-      "updated_at": "2026-02-03T13:50:32.295141"
-    },
-    {
-      "ticker": "010690",
-      "name": "화신",
-      "price": 9030,
-      "change_rate": 0.67,
-      "breakout_date": "2026-01-16",
-      "resistance": 9200,
-      "pullback_ratio": 1.85,
-      "volume_decrease": 94,
-      "ma150": 8511,
-      "above_ma150": true,
-      "market_cap": 3153,
-      "updated_at": "2026-02-03T13:50:24.523130"
+      "market_cap": 1956,
+      "updated_at": "2026-02-03T14:55:29.735731"
     },
     {
       "ticker": "151860",
       "name": "KG에코솔루션",
-      "price": 6310,
-      "change_rate": 0.8,
+      "price": 6340,
+      "change_rate": 1.28,
       "breakout_date": "2026-01-28",
       "resistance": 6190,
-      "pullback_ratio": 1.94,
+      "pullback_ratio": 2.42,
       "volume_decrease": 64,
       "ma150": 5968,
       "above_ma150": true,
-      "market_cap": 3018,
-      "updated_at": "2026-02-03T13:50:28.394525"
+      "market_cap": 3003,
+      "updated_at": "2026-02-03T14:55:29.327447"
     },
     {
       "ticker": "336680",
       "name": "탑런토탈솔루션",
-      "price": 4485,
-      "change_rate": 6.28,
+      "price": 4475,
+      "change_rate": 6.04,
       "breakout_date": "2026-01-08",
       "resistance": 4365,
-      "pullback_ratio": 2.75,
+      "pullback_ratio": 2.52,
       "volume_decrease": 95,
       "ma150": 4155,
       "above_ma150": true,
       "market_cap": 1753,
-      "updated_at": "2026-02-03T13:50:32.403943"
+      "updated_at": "2026-02-03T14:55:29.949489"
     },
     {
       "ticker": "347890",
       "name": "엠투아이",
-      "price": 6620,
-      "change_rate": 0.3,
+      "price": 6690,
+      "change_rate": 1.36,
       "breakout_date": "2026-01-15",
       "resistance": 6870,
-      "pullback_ratio": 3.64,
+      "pullback_ratio": 2.62,
       "volume_decrease": 88,
-      "ma150": 6217,
+      "ma150": 6218,
       "above_ma150": true,
-      "market_cap": 1129,
-      "updated_at": "2026-02-03T13:50:33.319431"
-    },
-    {
-      "ticker": "030210",
-      "name": "다올투자증권",
-      "price": 3960,
-      "change_rate": 3.94,
-      "breakout_date": "2026-01-29",
-      "resistance": 3775,
-      "pullback_ratio": 4.9,
-      "volume_decrease": 54,
-      "ma150": 3579,
-      "above_ma150": true,
-      "market_cap": 2409,
-      "updated_at": "2026-02-03T13:50:24.918413"
+      "market_cap": 1128,
+      "updated_at": "2026-02-03T14:55:32.895198"
     }
   ]
 }
