@@ -204,7 +204,7 @@ def calculate_52w_features(df, breakout_idx):
 
         # 52주 고저 (돌파 전)
         lookback_start = max(0, breakout_idx - HIGH_52W_PERIOD)
-        high_52w = close.iloc[lookback_start:breakout_idx].max()
+        high_52w = high.iloc[lookback_start:breakout_idx].max()  # High 기준 (표준)
         low_52w = low.iloc[lookback_start:breakout_idx].min()
 
         # 1. breakout_pct: 돌파 강도
