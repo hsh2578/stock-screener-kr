@@ -1278,52 +1278,167 @@ def _download_single_stock(args: Tuple[str, str], max_retries: int = 2) -> Tuple
     return (ticker, None)
 
 
-def _get_cache_path() -> str:
-    """오늘 날짜 기준 캐시 파일 경로 반환"""
-    today = datetime.now().strftime('%Y-%m-%d')
-    return os.path.join(CACHE_DIR, f'stock_data_{today}.pkl')
+def _get_cache_path(date_str: str = None) -> str:
+    """
+    지정 날짜 기준 캐시 파일 경로 반환.
+
+    Args:
+        date_str: 날짜 문자열 (YYYY-MM-DD). None이면 오늘 날짜 사용.
+
+    Returns:
+        캐시 파일 경로
+    """
+    if date_str is None:
+        date_str = datetime.now().strftime('%Y-%m-%d')
+    return os.path.join(CACHE_DIR, f'stock_data_{date_str}.pkl')
+
+
+def _is_market_closed() -> bool:
+    """
+    현재 장이 마감되었는지 확인.
+    평일 15:30 이후 또는 주말이면 True 반환.
+
+    Returns:
+        장 마감 여부
+    """
+    now = datetime.now()
+    # 주말 (토:5, 일:6) 체크
+    if now.weekday() >= 5:
+        return True
+    # 평일 15:30 이후 체크
+    market_close = now.replace(hour=15, minute=30, second=0, microsecond=0)
+    return now >= market_close
+
+
+def _find_recent_cache() -> Tuple[Optional[str], Optional[str]]:
+    """
+    가장 최근 캐시 파일 찾기 (최대 7일 전까지).
+
+    Returns:
+        (캐시 파일 경로, 캐시 날짜) 또는 (None, None)
+    """
+    os.makedirs(CACHE_DIR, exist_ok=True)
+
+    for days_ago in range(8):  # 오늘부터 7일 전까지
+        check_date = datetime.now() - timedelta(days=days_ago)
+        date_str = check_date.strftime('%Y-%m-%d')
+        cache_path = _get_cache_path(date_str)
+        if os.path.exists(cache_path):
+            return cache_path, date_str
+
+    return None, None
+
+
+def _load_cache_with_fallback() -> Tuple[Dict, bool, Optional[str]]:
+    """
+    증분 캐시 전략: 당일 캐시 없으면 전일 캐시 로드 후 증분 업데이트.
+
+    Returns:
+        (캐시 데이터, 증분 업데이트 필요 여부, 캐시 날짜)
+        - 당일 캐시 존재: (캐시 데이터, False, 오늘 날짜)
+        - 전일 캐시 존재: (캐시 데이터, True, 전일 날짜)
+        - 캐시 없음: ({}, True, None)
+    """
+    today_str = datetime.now().strftime('%Y-%m-%d')
+    today_cache = _get_cache_path(today_str)
+
+    # 오늘자 캐시가 있으면 그대로 사용 (증분 불필요)
+    if os.path.exists(today_cache):
+        try:
+            with open(today_cache, 'rb') as f:
+                loaded_data = pickle.load(f)
+            return loaded_data, False, today_str
+        except Exception:
+            pass  # 로딩 실패 시 다음으로 진행
+
+    # 장 마감 후에는 당일 캐시가 완전하므로, 새로 다운로드할 필요 없음
+    # 다만 당일 캐시가 없다면 전일 캐시 사용
+
+    # 전일~최대 7일 전 캐시 찾기
+    for days_ago in range(1, 8):
+        check_date = datetime.now() - timedelta(days=days_ago)
+        date_str = check_date.strftime('%Y-%m-%d')
+        cache_path = _get_cache_path(date_str)
+
+        if os.path.exists(cache_path):
+            try:
+                with open(cache_path, 'rb') as f:
+                    loaded_data = pickle.load(f)
+                return loaded_data, True, date_str
+            except Exception:
+                continue  # 로딩 실패 시 더 오래된 캐시 시도
+
+    return {}, True, None
 
 
 def _load_cache() -> bool:
-    """디스크 캐시에서 데이터 로딩. 성공 시 True 반환. 스레드 안전."""
+    """
+    디스크 캐시에서 데이터 로딩. 성공 시 True 반환. 스레드 안전.
+    증분 캐시 전략 적용: 전일 캐시 활용하여 다운로드 최소화.
+
+    Returns:
+        캐시 로딩 성공 여부 (증분 업데이트 필요 시 False 반환)
+    """
     global _DATA_CACHE
-    cache_path = _get_cache_path()
 
     if FORCE_DOWNLOAD:
         print("\n[캐시] --fresh 옵션: 강제 다운로드")
         return False
 
-    if not os.path.exists(cache_path):
+    loaded_data, needs_update, cache_date = _load_cache_with_fallback()
+
+    if not loaded_data:
+        print("\n[캐시] 유효한 캐시 없음 - 전체 다운로드 필요")
         return False
 
-    try:
-        print(f"\n[캐시] 오늘자 캐시 로딩: {os.path.basename(cache_path)}")
-        with open(cache_path, 'rb') as f:
-            loaded_data = pickle.load(f)
-        with _CACHE_LOCK:
-            _DATA_CACHE = loaded_data
-        valid = sum(1 for v in _DATA_CACHE.values() if v is not None)
+    with _CACHE_LOCK:
+        _DATA_CACHE = loaded_data
+
+    valid = sum(1 for v in _DATA_CACHE.values() if v is not None)
+    today_str = datetime.now().strftime('%Y-%m-%d')
+
+    if not needs_update:
+        # 당일 캐시 - 그대로 사용
+        print(f"\n[캐시] 오늘자 캐시 로딩: stock_data_{cache_date}.pkl")
         print(f"  완료: {valid}개 종목 로딩됨 (캐시 사용)")
         return True
-    except Exception as e:
-        print(f"  캐시 로딩 실패: {e}")
-        return False
+    else:
+        # 전일 캐시 - 장 상태에 따라 처리
+        print(f"\n[캐시] 이전 캐시 발견: stock_data_{cache_date}.pkl ({valid}개 종목)")
+
+        if _is_market_closed():
+            # 장 마감 후: 전일 데이터로 스크리닝 (다운로드 스킵 가능)
+            # 단, 오늘 데이터가 없으므로 증분 업데이트 진행
+            print(f"  장 마감 상태 - 증분 업데이트 진행")
+            return False  # preload_all_data에서 증분 업데이트 진행
+        else:
+            # 장 중: 전일 캐시 기반으로 당일 데이터 증분 다운로드
+            print(f"  장 진행 중 - 증분 업데이트 필요")
+            return False  # preload_all_data에서 증분 업데이트 진행
 
 
 def _save_cache() -> None:
-    """현재 데이터를 디스크 캐시로 저장. 스레드 안전."""
+    """
+    현재 데이터를 디스크 캐시로 저장. 스레드 안전.
+    전일 캐시는 삭제하지 않고 보관 (증분 업데이트용).
+    """
     os.makedirs(CACHE_DIR, exist_ok=True)
-    cache_path = _get_cache_path()
+    cache_path = _get_cache_path()  # 오늘 날짜 캐시
 
-    # 이전 날짜 캐시 삭제
+    # 7일 이전 캐시만 삭제 (최근 캐시는 보관)
+    cutoff_date = datetime.now() - timedelta(days=7)
     for f in os.listdir(CACHE_DIR):
         if f.startswith('stock_data_') and f.endswith('.pkl'):
-            old_path = os.path.join(CACHE_DIR, f)
-            if old_path != cache_path:
-                try:
+            try:
+                # 파일명에서 날짜 추출
+                date_str = f.replace('stock_data_', '').replace('.pkl', '')
+                file_date = datetime.strptime(date_str, '%Y-%m-%d')
+                if file_date < cutoff_date:
+                    old_path = os.path.join(CACHE_DIR, f)
                     os.remove(old_path)
-                except OSError:
-                    pass  # 삭제 실패는 무시
+                    print(f"  오래된 캐시 삭제: {f}")
+            except (ValueError, OSError):
+                pass  # 날짜 파싱 실패 또는 삭제 실패는 무시
 
     try:
         # Lock 내에서 캐시 복사 후 저장 (Lock 보유 시간 최소화)
@@ -1395,10 +1510,64 @@ def parallel_screen_stocks(
     return results
 
 
+def _incremental_update_data(
+    ticker: str,
+    cached_df: Optional[pd.DataFrame],
+    cache_date: str,
+    end_date: datetime
+) -> Tuple[str, Optional[pd.DataFrame]]:
+    """
+    캐시된 데이터에 당일 데이터만 추가하는 증분 업데이트.
+
+    Args:
+        ticker: 종목코드
+        cached_df: 기존 캐시 데이터
+        cache_date: 캐시 날짜 (YYYY-MM-DD)
+        end_date: 종료 날짜
+
+    Returns:
+        (ticker, 업데이트된 DataFrame)
+    """
+    if cached_df is None or len(cached_df) == 0:
+        # 캐시 데이터 없으면 전체 다운로드
+        start_date = end_date - timedelta(days=250)
+        start_str = start_date.strftime('%Y-%m-%d')
+        return _download_single_stock((ticker, start_str))
+
+    try:
+        # 캐시 날짜 다음 날부터 오늘까지 데이터 가져오기
+        cache_dt = datetime.strptime(cache_date, '%Y-%m-%d')
+        incremental_start = (cache_dt + timedelta(days=1)).strftime('%Y-%m-%d')
+        end_str = end_date.strftime('%Y-%m-%d')
+
+        # 증분 데이터 다운로드
+        new_df = fdr.DataReader(ticker, incremental_start, end_str)
+
+        if new_df is not None and len(new_df) > 0:
+            # 기존 데이터와 새 데이터 병합
+            combined = pd.concat([cached_df, new_df])
+            # 중복 인덱스 제거 (마지막 값 유지)
+            combined = combined[~combined.index.duplicated(keep='last')]
+            # 날짜 정렬
+            combined = combined.sort_index()
+            # 최근 250일만 유지 (메모리 최적화)
+            if len(combined) > 250:
+                combined = combined.tail(250)
+            return (ticker, combined)
+        else:
+            # 새 데이터 없으면 기존 캐시 그대로 사용
+            return (ticker, cached_df)
+
+    except Exception as e:
+        logging.debug(f"증분 업데이트 실패 ({ticker}): {e}")
+        # 실패 시 기존 캐시 사용
+        return (ticker, cached_df)
+
+
 def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 100) -> None:
     """
     모든 종목의 데이터를 병렬로 다운로드하여 캐시합니다.
-    오늘자 디스크 캐시가 있으면 다운로드 없이 즉시 로딩합니다.
+    증분 캐시 전략: 전일 캐시가 있으면 당일 데이터만 추가 다운로드.
     스레드 안전한 캐시 접근을 보장합니다.
 
     Args:
@@ -1408,12 +1577,12 @@ def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 1
     """
     global _DATA_CACHE
 
-    # 디스크 캐시 확인
+    # 디스크 캐시 확인 (증분 캐시 전략 적용)
     if _load_cache():
         return
 
-    with _CACHE_LOCK:
-        _DATA_CACHE = {}
+    # 전일 캐시 데이터와 증분 업데이트 필요 여부 확인
+    loaded_data, needs_update, cache_date = _load_cache_with_fallback()
 
     end_date = datetime.now()
     start_date = end_date - timedelta(days=days + 50)
@@ -1426,28 +1595,95 @@ def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 1
         if ticker:
             tickers.append(ticker)
 
-    print(f"\n[데이터 다운로드] {len(tickers)}개 종목 (스레드 {max_workers}개)...")
+    # 증분 업데이트 가능 여부 판단
+    use_incremental = (
+        needs_update and
+        cache_date is not None and
+        len(loaded_data) > 0 and
+        not FORCE_DOWNLOAD
+    )
 
-    success_count = 0
-    fail_count = 0
+    if use_incremental:
+        # ====== 증분 업데이트 모드 ======
+        print(f"\n[증분 업데이트] 캐시 날짜: {cache_date} -> 오늘: {end_date.strftime('%Y-%m-%d')}")
+        print(f"  기존 캐시: {len(loaded_data)}개 종목")
 
-    # 병렬 다운로드
-    download_args = [(ticker, start_str) for ticker in tickers]
+        # 새로운 종목 또는 캐시에 없는 종목 식별
+        new_tickers = [t for t in tickers if t not in loaded_data]
+        update_tickers = [t for t in tickers if t in loaded_data]
 
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = {executor.submit(_download_single_stock, arg): arg[0] for arg in download_args}
+        print(f"  증분 업데이트: {len(update_tickers)}개 / 신규 다운로드: {len(new_tickers)}개")
 
-        for future in tqdm(as_completed(futures), total=len(futures), desc="데이터 로딩"):
-            ticker, df = future.result()
-            # 스레드 안전한 캐시 업데이트
-            with _CACHE_LOCK:
-                _DATA_CACHE[ticker] = df
-            if df is not None:
-                success_count += 1
-            else:
-                fail_count += 1
+        success_count = 0
+        fail_count = 0
 
-    print(f"  완료: 성공 {success_count}개, 실패 {fail_count}개")
+        # 기존 종목 증분 업데이트
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            update_futures = {
+                executor.submit(
+                    _incremental_update_data,
+                    ticker,
+                    loaded_data.get(ticker),
+                    cache_date,
+                    end_date
+                ): ticker
+                for ticker in update_tickers
+            }
+
+            for future in tqdm(as_completed(update_futures), total=len(update_futures), desc="증분 업데이트"):
+                ticker, df = future.result()
+                with _CACHE_LOCK:
+                    _DATA_CACHE[ticker] = df
+                if df is not None:
+                    success_count += 1
+                else:
+                    fail_count += 1
+
+        # 신규 종목 전체 다운로드
+        if new_tickers:
+            download_args = [(ticker, start_str) for ticker in new_tickers]
+
+            with ThreadPoolExecutor(max_workers=max_workers) as executor:
+                new_futures = {executor.submit(_download_single_stock, arg): arg[0] for arg in download_args}
+
+                for future in tqdm(as_completed(new_futures), total=len(new_futures), desc="신규 다운로드"):
+                    ticker, df = future.result()
+                    with _CACHE_LOCK:
+                        _DATA_CACHE[ticker] = df
+                    if df is not None:
+                        success_count += 1
+                    else:
+                        fail_count += 1
+
+        print(f"  완료: 성공 {success_count}개, 실패 {fail_count}개 (증분 업데이트)")
+
+    else:
+        # ====== 전체 다운로드 모드 ======
+        with _CACHE_LOCK:
+            _DATA_CACHE = {}
+
+        print(f"\n[데이터 다운로드] {len(tickers)}개 종목 (스레드 {max_workers}개)...")
+
+        success_count = 0
+        fail_count = 0
+
+        # 병렬 다운로드
+        download_args = [(ticker, start_str) for ticker in tickers]
+
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = {executor.submit(_download_single_stock, arg): arg[0] for arg in download_args}
+
+            for future in tqdm(as_completed(futures), total=len(futures), desc="데이터 로딩"):
+                ticker, df = future.result()
+                # 스레드 안전한 캐시 업데이트
+                with _CACHE_LOCK:
+                    _DATA_CACHE[ticker] = df
+                if df is not None:
+                    success_count += 1
+                else:
+                    fail_count += 1
+
+        print(f"  완료: 성공 {success_count}개, 실패 {fail_count}개")
 
     # 디스크에 캐시 저장
     _save_cache()
