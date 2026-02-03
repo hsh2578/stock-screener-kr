@@ -1023,19 +1023,19 @@ def get_ohlcv(ticker: str, days: int = 200) -> Optional[pd.DataFrame]:
         return None
 
 
-def _download_single_stock(args: Tuple[str, str], max_retries: int = 3) -> Tuple[str, Optional[pd.DataFrame]]:
+def _download_single_stock(args: Tuple[str, str], max_retries: int = 2) -> Tuple[str, Optional[pd.DataFrame]]:
     """
     단일 종목 데이터 다운로드 (병렬 처리용, 지수 백오프 재시도 포함)
 
     Args:
         args: (ticker, start_str) 튜플
-        max_retries: 최대 재시도 횟수 (기본 3회)
+        max_retries: 최대 재시도 횟수 (기본 2회)
 
     Returns:
         (ticker, DataFrame or None) 튜플
     """
     ticker, start_str = args
-    base_delay = 0.5  # 기본 대기 시간 (초)
+    base_delay = 0.2  # 기본 대기 시간 (초) - 최적화
 
     for attempt in range(max_retries):
         try:
@@ -1129,15 +1129,15 @@ import multiprocessing
 # CPU 코어 수 기반 최적 스레드 수 계산
 _CPU_COUNT = multiprocessing.cpu_count()
 
-# 스크리너 간 병렬 처리: min(4, CPU코어수) - 메모리 사용량 고려
-PARALLEL_SCREENER_WORKERS = min(4, _CPU_COUNT)
+# 스크리너 간 병렬 처리: min(6, CPU코어수) - 최적화로 증가
+PARALLEL_SCREENER_WORKERS = min(6, _CPU_COUNT)
 
 # 종목별 병렬 처리: I/O 바운드 작업이므로 코어 수의 2~4배 적절
-# 단, 최대 32개로 제한하여 과도한 스레드 생성 방지
-PARALLEL_STOCK_WORKERS = min(32, max(8, _CPU_COUNT * 2))
+# 최대 48개로 증가하여 처리 속도 향상
+PARALLEL_STOCK_WORKERS = min(48, max(16, _CPU_COUNT * 4))
 
-# 총 최대 동시 스레드 수 제한 (메모리 보호)
-_MAX_TOTAL_THREADS = 64
+# 총 최대 동시 스레드 수 제한 (메모리 보호) - 최적화로 증가
+_MAX_TOTAL_THREADS = 96
 if PARALLEL_SCREENER_WORKERS * PARALLEL_STOCK_WORKERS > _MAX_TOTAL_THREADS:
     PARALLEL_STOCK_WORKERS = _MAX_TOTAL_THREADS // PARALLEL_SCREENER_WORKERS
 
@@ -1179,7 +1179,7 @@ def parallel_screen_stocks(
     return results
 
 
-def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 60) -> None:
+def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 100) -> None:
     """
     모든 종목의 데이터를 병렬로 다운로드하여 캐시합니다.
     오늘자 디스크 캐시가 있으면 다운로드 없이 즉시 로딩합니다.
