@@ -22,11 +22,14 @@ import time
 from datetime import datetime
 from pathlib import Path
 
+import pandas as pd
 from tqdm import tqdm
 
 # 프로젝트 루트를 sys.path에 추가
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
+
+import FinanceDataReader as fdr
 
 from fetch_data import (
     check_market_open,
@@ -100,6 +103,29 @@ def collect_stock_data(stock_list: list[dict], days: int = 200) -> dict:
     return stock_data
 
 
+def load_kospi_index(days: int = 300) -> pd.DataFrame:
+    """
+    KOSPI 지수 데이터를 로드합니다.
+
+    Args:
+        days: 로드할 거래일 수 (기본 300일)
+
+    Returns:
+        KOSPI 지수 DataFrame (Close 컬럼 포함)
+    """
+    try:
+        from datetime import timedelta
+        end_date = datetime.now()
+        start_date = end_date - timedelta(days=int(days * 1.5))  # 공휴일 고려
+
+        kospi_df = fdr.DataReader('KS11', start_date.strftime('%Y-%m-%d'))
+        logger.info(f"KOSPI 지수 로드 완료: {len(kospi_df)}일")
+        return kospi_df
+    except Exception as e:
+        logger.warning(f"KOSPI 지수 로드 실패: {e}")
+        return None
+
+
 def run_screener_safe(name: str, screener_func, *args, **kwargs) -> list[dict]:
     """
     스크리너를 안전하게 실행합니다 (에러 발생 시 스킵).
@@ -122,7 +148,8 @@ def run_screener_safe(name: str, screener_func, *args, **kwargs) -> list[dict]:
 def run_all_screeners(
     stock_data: dict,
     stock_info,
-    volume_rank_list: list[str]
+    volume_rank_list: list[str],
+    kospi_data: pd.DataFrame = None
 ) -> dict[str, list[dict]]:
     """
     모든 스크리너를 순차적으로 실행합니다.
@@ -167,12 +194,12 @@ def run_all_screeners(
     screener_times["박스권 횡보"] = time.perf_counter() - start
 
     # ========================================================================
-    # 2. 박스권 돌파 (거래량 동반)
+    # 2. 박스권 돌파 (거래량 동반) + ML 모델
     # ========================================================================
     start = time.perf_counter()
     with timer("2. 박스권 돌파 (거래량)", logger):
         box_breakout_results = run_screener_safe(
-            "박스권 돌파(거래량)", screen_box_breakout, stock_data, stock_info
+            "박스권 돌파(거래량)", screen_box_breakout, stock_data, stock_info, kospi_data
         )
         results["box_breakout"] = box_breakout_results
 
@@ -180,10 +207,11 @@ def run_all_screeners(
             "meta": {
                 "type": "box-breakout",
                 "name": "박스권 돌파 (거래량 동반)",
-                "description": "박스권 돌파 + 거래량 2배 + 150일선 위",
+                "description": "박스권 돌파 + 거래량 2배 + 150일선 위 + AI 점수",
                 "lastUpdated": datetime.now().isoformat(),
                 "totalCount": len(box_breakout_results),
-                "screened_from": total_stocks
+                "screened_from": total_stocks,
+                "ml_model": True
             },
             "data": box_breakout_results
         })
@@ -424,12 +452,18 @@ def main() -> int:
             return 1
 
     # ========================================================================
-    # 5. 스크리너 실행
+    # 5. KOSPI 지수 데이터 로드 (ML 모델용)
     # ========================================================================
-    run_all_screeners(stock_data, stock_info, volume_rank_list)
+    with timer("KOSPI 지수 로드", logger):
+        kospi_data = load_kospi_index(days=300)
 
     # ========================================================================
-    # 6. 차트 데이터 생성 (스크리너에 걸린 종목만)
+    # 6. 스크리너 실행
+    # ========================================================================
+    run_all_screeners(stock_data, stock_info, volume_rank_list, kospi_data)
+
+    # ========================================================================
+    # 7. 차트 데이터 생성 (스크리너에 걸린 종목만)
     # ========================================================================
     with timer("차트 데이터 생성", logger):
         try:
