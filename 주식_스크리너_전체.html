@@ -3871,8 +3871,7 @@
                 const date = new Date(breakoutDate);
                 const month = date.getMonth() + 1;
                 const day = date.getDate();
-                const suffix = daysSince === 0 ? '(오늘)' : `(D+${daysSince})`;
-                return `${month}월${day}일 ${suffix}`;
+                return `${month}월${day}일`;
             };
 
             const rows = paginatedData.map(s => `
