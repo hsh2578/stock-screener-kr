@@ -1,65 +1,51 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-04T13:26:39.790105",
-    "totalCount": 8,
-    "screened_from": 1546
+    "lastUpdated": "2026-02-04T14:38:43.367854",
+    "totalCount": 6,
+    "screened_from": 1547
   },
   "data": [
     {
       "ticker": "010690",
       "name": "화신",
-      "price": 9250,
-      "change_rate": 1.09,
+      "price": 9300,
+      "change_rate": 1.64,
       "breakout_date": "2026-01-16",
       "resistance": 9200,
-      "pullback_ratio": 0.54,
+      "pullback_ratio": 1.09,
       "volume_decrease": 94,
       "ma150": 8517,
       "above_ma150": true,
-      "market_cap": 3233,
-      "updated_at": "2026-02-04T13:26:31.884245"
+      "market_cap": 3237,
+      "updated_at": "2026-02-04T14:38:35.874652"
     },
     {
       "ticker": "347890",
       "name": "엠투아이",
-      "price": 6670,
-      "change_rate": -0.45,
+      "price": 6680,
+      "change_rate": -0.3,
       "breakout_date": "2026-01-15",
       "resistance": 6870,
-      "pullback_ratio": 2.91,
+      "pullback_ratio": 2.77,
       "volume_decrease": 90,
-      "ma150": 6225,
+      "ma150": 6226,
       "above_ma150": true,
-      "market_cap": 1129,
-      "updated_at": "2026-02-04T13:26:39.431080"
+      "market_cap": 1126,
+      "updated_at": "2026-02-04T14:38:43.138182"
     },
     {
       "ticker": "086900",
       "name": "메디톡스",
-      "price": 132600,
-      "change_rate": 0.91,
+      "price": 133100,
+      "change_rate": 1.29,
       "breakout_date": "2026-01-28",
       "resistance": 128300,
-      "pullback_ratio": 3.35,
-      "volume_decrease": 54,
-      "ma150": 129719,
+      "pullback_ratio": 3.74,
+      "volume_decrease": 53,
+      "ma150": 129722,
       "above_ma150": true,
-      "market_cap": 9714,
-      "updated_at": "2026-02-04T13:26:33.880405"
-    },
-    {
-      "ticker": "044990",
-      "name": "에이치엔에스하이텍",
-      "price": 16570,
-      "change_rate": 1.41,
-      "breakout_date": "2026-01-13",
-      "resistance": 17160,
-      "pullback_ratio": 3.44,
-      "volume_decrease": 86,
-      "ma150": 16149,
-      "above_ma150": true,
-      "market_cap": 1275,
-      "updated_at": "2026-02-04T13:26:39.161622"
+      "market_cap": 9685,
+      "updated_at": "2026-02-04T14:38:36.956451"
     },
     {
       "ticker": "042420",
@@ -72,50 +58,36 @@
       "volume_decrease": 56,
       "ma150": 25334,
       "above_ma150": true,
-      "market_cap": 2317,
-      "updated_at": "2026-02-04T13:26:36.222174"
+      "market_cap": 2304,
+      "updated_at": "2026-02-04T14:38:37.585034"
+    },
+    {
+      "ticker": "044990",
+      "name": "에이치엔에스하이텍",
+      "price": 16510,
+      "change_rate": 1.04,
+      "breakout_date": "2026-01-13",
+      "resistance": 17160,
+      "pullback_ratio": 3.79,
+      "volume_decrease": 86,
+      "ma150": 16149,
+      "above_ma150": true,
+      "market_cap": 1262,
+      "updated_at": "2026-02-04T14:38:41.767305"
     },
     {
       "ticker": "336680",
       "name": "탑런토탈솔루션",
-      "price": 4535,
-      "change_rate": 1.34,
+      "price": 4540,
+      "change_rate": 1.45,
       "breakout_date": "2026-01-08",
       "resistance": 4365,
-      "pullback_ratio": 3.89,
-      "volume_decrease": 95,
+      "pullback_ratio": 4.01,
+      "volume_decrease": 94,
       "ma150": 4157,
       "above_ma150": true,
-      "market_cap": 1773,
-      "updated_at": "2026-02-04T13:26:37.361289"
-    },
-    {
-      "ticker": "251970",
-      "name": "펌텍코리아",
-      "price": 59500,
-      "change_rate": -3.88,
-      "breakout_date": "2026-01-22",
-      "resistance": 56900,
-      "pullback_ratio": 4.57,
-      "volume_decrease": 55,
-      "ma150": 58692,
-      "above_ma150": true,
-      "market_cap": 7415,
-      "updated_at": "2026-02-04T13:26:34.135997"
-    },
-    {
-      "ticker": "005950",
-      "name": "이수화학",
-      "price": 9640,
-      "change_rate": 1.69,
-      "breakout_date": "2026-01-19",
-      "resistance": 9200,
-      "pullback_ratio": 4.78,
-      "volume_decrease": 91,
-      "ma150": 7612,
-      "above_ma150": true,
-      "market_cap": 2550,
-      "updated_at": "2026-02-04T13:26:32.020393"
+      "market_cap": 1775,
+      "updated_at": "2026-02-04T14:38:38.180051"
     }
   ]
 }
