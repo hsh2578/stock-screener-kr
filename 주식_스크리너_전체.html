@@ -2214,7 +2214,8 @@
                     if (res.ok) {
                         const json = await res.json();
                         DATA[key] = json;
-                        console.log('  ✓ ' + key + ': ' + (json.data && json.data.length ? json.data.length : 0) + '개 종목');
+                        const count = json.data ? (Array.isArray(json.data) ? json.data.length : Object.keys(json.data).length) : 0;
+                        console.log('  ✓ ' + key + ': ' + count + '개 종목');
                     } else {
                         console.warn(`  ⚠ ${key}: 파일 없음 (${filename})`);
                     }

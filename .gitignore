@@ -41,3 +41,9 @@ Thumbs.db
 
 # 데이터 캐시
 .cache/
+
+# Windows 예약 파일
+nul
+
+# ML 모델 (워크플로우에서 자동 생성)
+ml/models/*.pkl
