@@ -3090,6 +3090,37 @@ def save_results(results: List[Dict], filename: str, screened_from: int) -> None
     print(f"  저장: {filename} ({len(results)}개)")
 
 
+def _fetch_chart_data_single(ticker: str) -> tuple:
+    """단일 종목 차트 데이터 fetch (병렬 실행용)."""
+    try:
+        end_date = datetime.now()
+        start_date = end_date - timedelta(days=1100)  # 750거래일 ≈ 캘린더 1100일
+        try:
+            df = fdr.DataReader(ticker, start_date.strftime('%Y-%m-%d'))
+        except Exception:
+            df = get_ohlcv(ticker, 200)  # fallback
+        if df is None or len(df) < 10:
+            return (ticker, None)
+
+        df = df.dropna(subset=['Open', 'High', 'Low', 'Close', 'Volume'])
+        if len(df) < 10:
+            return (ticker, None)
+
+        data = []
+        for idx, row in df.iterrows():
+            data.append({
+                'date': idx.strftime('%Y-%m-%d'),
+                'open': int(row['Open']),
+                'high': int(row['High']),
+                'low': int(row['Low']),
+                'close': int(row['Close']),
+                'volume': int(row['Volume'])
+            })
+        return (ticker, data)
+    except Exception:
+        return (ticker, None)
+
+
 def generate_chart_data(all_results: List[List[Dict]]) -> None:
     """스크리너 결과에 포함된 모든 종목의 차트 데이터를 생성합니다."""
     print("\n[차트 데이터 생성] 실행 중...")
@@ -3098,41 +3129,18 @@ def generate_chart_data(all_results: List[List[Dict]]) -> None:
     tickers = set()
     for results in all_results:
         for r in results:
-            tickers.add((r['ticker'], r['name']))
+            tickers.add(r['ticker'])
 
-    print(f"  총 {len(tickers)}개 종목 차트 데이터 생성")
+    ticker_list = sorted(tickers)
+    print(f"  총 {len(ticker_list)}개 종목 차트 데이터 생성 (병렬 50스레드)")
 
     chart_data = {}
-    for ticker, name in tickers:
-        try:
-            # 3년치 데이터 (약 750거래일) - 캐시는 200일만 보유하므로 별도 fetch
-            end_date = datetime.now()
-            start_date = end_date - timedelta(days=1100)  # 750거래일 ≈ 캘린더 1100일
-            try:
-                df = fdr.DataReader(ticker, start_date.strftime('%Y-%m-%d'))
-            except Exception:
-                df = get_ohlcv(ticker, 200)  # fallback
-            if df is None or len(df) < 10:
-                continue
-
-            # NaN 값이 있는 행 제거
-            df = df.dropna(subset=['Open', 'High', 'Low', 'Close', 'Volume'])
-            if len(df) < 10:
-                continue
-
-            data = []
-            for idx, row in df.iterrows():
-                data.append({
-                    'date': idx.strftime('%Y-%m-%d'),
-                    'open': int(row['Open']),
-                    'high': int(row['High']),
-                    'low': int(row['Low']),
-                    'close': int(row['Close']),
-                    'volume': int(row['Volume'])
-                })
-            chart_data[ticker] = data
-        except Exception:
-            continue
+    with ThreadPoolExecutor(max_workers=50) as executor:
+        futures = {executor.submit(_fetch_chart_data_single, t): t for t in ticker_list}
+        for future in as_completed(futures):
+            ticker, data = future.result()
+            if data:
+                chart_data[ticker] = data
 
     filepath = os.path.join(DATA_PATH, 'chart_data.json')
     with open(filepath, 'w', encoding='utf-8') as f:
