@@ -1,19 +1,24 @@
 # =============================================================================
-# 가치/우량주 스크리너 - 평일 자동 업데이트
+# 가치 스크리너 - 주간 자동 업데이트
 # Last updated: 2026-02-05
 # =============================================================================
 #
 # 이 워크플로우는:
-#   1. 평일(월-금) 20:00 KST에 저평가 우량주 + 60주선 우량주 데이터를 수집
+#   1. 매주 토요일 12:00 KST에 전체 재무데이터 크롤링
+#      (매출성장률, 영업이익률, EPS성장, 순이익 등 분기 데이터)
+#   2. 저평가 우량주 스크리닝
 #
+# 참고:
+#   - PER/PBR은 deploy.yml에서 평일 매일 경량 업데이트
+#   - 60주선 우량주도 deploy.yml에서 평일 매일 업데이트
 # =============================================================================
 
-name: Daily Value & Quality Stock Screener
+name: Weekly Value Stock Screener
 
 on:
-  # 평일(월-금) 20:00 KST (UTC 11:00)
+  # 매주 토요일 12:00 KST (UTC 03:00)
   schedule:
-    - cron: '0 11 * * 1-5'  # 평일 20:00 KST
+    - cron: '0 3 * * 6'  # Saturday 12:00 KST
 
   # 수동 실행 가능
   workflow_dispatch:
@@ -33,9 +38,9 @@ env:
 
 jobs:
   collect-value-stocks:
-    name: 📊 가치/우량주 데이터 수집
+    name: 📊 재무데이터 크롤링 + 저평가 우량주
     runs-on: ubuntu-latest
-    timeout-minutes: 90  # 최대 90분 (두 스크리너 크롤링 시간 고려)
+    timeout-minutes: 90
 
     steps:
       - name: 📥 저장소 체크아웃
@@ -68,16 +73,6 @@ jobs:
           echo "저평가 우량주 스크리너 완료"
           echo "=========================================="
 
-      - name: 🚀 60주선 우량주 스크리너 실행
-        run: |
-          echo "=========================================="
-          echo "60주선 우량주 스크리너 시작: $(date '+%Y-%m-%d %H:%M:%S %Z')"
-          echo "=========================================="
-          python ma60w_quality.py
-          echo "=========================================="
-          echo "60주선 우량주 스크리너 완료"
-          echo "=========================================="
-
       - name: 🔍 변경 사항 확인
         id: check_changes
         run: |
@@ -98,7 +93,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           COMMIT_DATE=$(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')
-          git commit -m "📈 가치/우량주 데이터 업데이트: ${COMMIT_DATE}"
+          git commit -m "📈 재무데이터 + 저평가 우량주 업데이트: ${COMMIT_DATE}"
           git pull --rebase origin main
           git push
 
@@ -113,9 +108,8 @@ jobs:
             echo "📊 저평가 우량주 결과:"
             python -c "import json; d=json.load(open('data/value_stocks.json')); print(f\"  총 {d['meta']['total_count']}개 종목\")"
           fi
-          echo ""
-          if [ -f "data/ma60w_quality.json" ]; then
-            echo "📊 60주선 우량주 결과:"
-            python -c "import json; d=json.load(open('data/ma60w_quality.json')); print(f\"  총 {d['meta']['total_count']}개 종목\")"
+          if [ -f "data/financial_data.json" ]; then
+            echo "📊 재무데이터:"
+            python -c "import json; d=json.load(open('data/financial_data.json')); print(f\"  총 {d['meta']['total_count']}개 종목\")"
           fi
           echo "=========================================="
