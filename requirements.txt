@@ -4,7 +4,7 @@ finance-datareader>=0.9.50
 
 # 데이터 처리
 pandas>=2.0.0
-numpy>=1.24.0
+numpy>=2.0.0  # pickle 모델이 numpy 2.x로 학습됨 (numpy._core 호환)
 scipy>=1.10.0
 
 # 진행 표시
