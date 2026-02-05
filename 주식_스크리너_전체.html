@@ -2941,7 +2941,12 @@
                        d.close >= stockData[i-1].close ? 'rgba(227, 27, 27, 0.4)' : 'rgba(18, 97, 196, 0.4)'
             })));
 
-            chartInstance.timeScale().fitContent();
+            // 초기 표시: 최근 8개월(~170거래일), 축소하면 3년치 전체 확인 가능
+            const barsToShow = Math.min(170, stockData.length);
+            chartInstance.timeScale().setVisibleLogicalRange({
+                from: stockData.length - barsToShow,
+                to: stockData.length - 1
+            });
 
             // Resize handler - WeakMap으로 관리
             const resizeHandler = () => {
