@@ -2798,24 +2798,12 @@
             const screenerId = tableToScreener[tableId];
             if (screenerId) paginationState[screenerId] = 1;
 
-            // 시각적 피드백: 정렬 중임을 표시
-            const table = document.getElementById(tableId);
-            if (table) {
-                table.style.opacity = '0.6';
-                table.style.transition = 'opacity 0.15s';
-            }
-
             // 캐시 무효화 - 정렬 변경 시 강제 재렌더링
             renderCache.delete(tableId);
 
             // 비동기로 렌더링하여 UI 블로킹 방지
             requestAnimationFrame(() => {
                 renderFn();
-                if (table) {
-                    setTimeout(() => {
-                        table.style.opacity = '1';
-                    }, 50);
-                }
             });
 
             // 스크린리더 안내 (정렬 해제 시에만)
@@ -3194,17 +3182,22 @@
                     if (cachedRows[i] !== newRowHtml) {
                         existingRows[i].innerHTML = innerContent;
                         // tr 속성 업데이트 (onclick 등)
-                        const tempDiv = document.createElement('div');
-                        tempDiv.innerHTML = newRowHtml;
-                        const tempRow = tempDiv.firstElementChild;
+                        // <tr>은 <table><tbody> 안에서만 올바르게 파싱됨
+                        const tempTable = document.createElement('table');
+                        const tempTbody = document.createElement('tbody');
+                        tempTable.appendChild(tempTbody);
+                        tempTbody.innerHTML = newRowHtml;
+                        const tempRow = tempTbody.firstElementChild;
                         if (tempRow) {
                             // onclick 속성 복사
                             if (tempRow.hasAttribute('onclick')) {
                                 existingRows[i].setAttribute('onclick', tempRow.getAttribute('onclick'));
                             }
                             // class 속성 복사
-                            if (tempRow.className) {
-                                existingRows[i].className = tempRow.className;
+                            existingRows[i].className = tempRow.className || '';
+                            // style 속성 복사
+                            if (tempRow.hasAttribute('style')) {
+                                existingRows[i].setAttribute('style', tempRow.getAttribute('style'));
                             }
                         }
                         updatedCount++;
@@ -3727,7 +3720,8 @@
                 { label: '등락률', align: 'text-right', key: 'change_rate' },
                 { label: '돌파일', key: 'breakout_date', defaultSort: 'desc' },
                 { label: '거래량비', align: 'text-right', key: 'volume_ratio' },
-                { label: '저항선대비', align: 'text-right', key: 'breakout_pct' }
+                { label: '저항선대비', align: 'text-right', key: 'breakout_pct' },
+                { label: '돌파후등락', align: 'text-right', key: 'gain_since_breakout' }
             ];
             // 기본 정렬: 돌파일 내림차순
             if (!sortState['box-breakout-table']) {
@@ -3747,6 +3741,7 @@
                     <td>${formatShortDate(s.breakout_date)}</td>
                     <td class="text-right">${s.volume_ratio.toFixed(1)}x</td>
                     <td class="text-right ${getColor(s.breakout_pct)}">${s.breakout_pct ? formatPercent(s.breakout_pct) : '-'}</td>
+                    <td class="text-right ${getColor(s.gain_since_breakout)}">${s.gain_since_breakout != null ? s.gain_since_breakout.toFixed(1) + '%' : '-'}</td>
                 </tr>
             `).join('');
             renderTable('box-breakout-table', headers, rows, renderBoxBreakout);
@@ -3756,7 +3751,8 @@
                     { label: 'PBR', key: 'pbr', format: function(s) { return s.pbr ? s.pbr.toFixed(2) : '-'; } },
                     { label: '돌파일', key: 'breakout_date', format: function(s) { return formatShortDate(s.breakout_date); } },
                     { label: '거래량비', key: 'volume_ratio', format: function(s) { return s.volume_ratio.toFixed(1) + 'x'; } },
-                    { label: '저항선대비', key: 'breakout_pct', format: function(s) { return s.breakout_pct ? formatPercent(s.breakout_pct) : '-'; } }
+                    { label: '저항선대비', key: 'breakout_pct', format: function(s) { return s.breakout_pct ? formatPercent(s.breakout_pct) : '-'; } },
+                    { label: '돌파후등락', key: 'gain_since_breakout', format: function(s) { return s.gain_since_breakout != null ? s.gain_since_breakout.toFixed(1) + '%' : '-'; } }
                 ]
             });
             renderPagination('box-breakout-pagination', 'boxBreakout', sortedData.length, renderBoxBreakout);
@@ -4115,26 +4111,19 @@
                 { label: 'PER', align: 'text-right', key: 'per' },
                 { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '등락률', align: 'text-right', key: 'change_rate' },
+                { label: 'AI점수', align: 'text-right', key: 'ai_score' },
+                { label: '성공확률', align: 'text-right', key: 'success_probability' },
+                { label: '예상수익', align: 'text-right', key: 'predicted_gain' },
                 { label: '돌파 강도', align: 'text-right', key: 'above_high_percent' },
                 { label: '돌파종가대비', align: 'text-right', key: 'vs_breakout_close' },
                 { label: '거래량비', align: 'text-right', key: 'volume_ratio' },
-                { label: '돌파일', align: 'text-right', key: 'days_since' },
-                { label: '예상수익', align: 'text-right', key: 'predicted_gain' },
-                { label: '성공확률', align: 'text-right', key: 'success_probability' },
-                { label: '추천', align: 'text-center', key: 'recommendation' }
+                { label: '돌파일', align: 'text-right', key: 'breakout_date' },
+                { label: '경과일', align: 'text-right', key: 'days_since' }
             ];
             const state = sortState['new-high-52w-table'] || {};
             const enrichedData = enrichWithFinancials(DATA.newHigh52w.data);
             const sortedData = sortData(enrichedData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.newHigh52w);
-
-            // 추천 배지 색상
-            const getRecBadge = (rec) => {
-                if (rec === 'BUY') return '<span class="badge badge-success">BUY</span>';
-                if (rec === 'HOLD') return '<span class="badge badge-warning">HOLD</span>';
-                if (rec === 'PASS') return '<span class="badge badge-danger">PASS</span>';
-                return '<span class="badge">-</span>';
-            };
 
             // 돌파일 포맷
             const formatBreakoutDate = (breakoutDate, daysSince) => {
@@ -4153,23 +4142,25 @@
                     <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
                     <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
                     <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
+                    <td class="text-right"><span class="ai-score ${getAIScoreClass(s.ai_score)}">${s.ai_score ? s.ai_score.toFixed(0) : '-'}</span></td>
+                    <td class="text-right">${s.success_probability != null ? '<span style="color:' + (s.success_probability >= 60 ? '#16a34a' : s.success_probability >= 50 ? '#ca8a04' : '#dc2626') + '">' + s.success_probability.toFixed(1) + '%</span>' : '-'}</td>
+                    <td class="text-right ${getColor(s.predicted_gain)}">${s.predicted_gain != null ? s.predicted_gain.toFixed(1) + '%' : '-'}</td>
                     <td class="text-right positive">+${s.above_high_percent.toFixed(1)}%</td>
                     <td class="text-right ${getColor(s.vs_breakout_close || 0)}">${s.vs_breakout_close != null ? (s.vs_breakout_close >= 0 ? '+' : '') + s.vs_breakout_close.toFixed(1) + '%' : '-'}</td>
                     <td class="text-right">${s.volume_ratio ? s.volume_ratio.toFixed(1) + 'x' : '-'}</td>
                     <td class="text-right">${formatBreakoutDate(s.breakout_date, s.days_since)}</td>
-                    <td class="text-right positive">${s.predicted_gain != null ? '+' + s.predicted_gain.toFixed(1) + '%' : '-'}</td>
-                    <td class="text-right">${s.success_probability != null ? '<span style="color:' + (s.success_probability >= 60 ? '#16a34a' : s.success_probability >= 50 ? '#ca8a04' : '#dc2626') + '">' + s.success_probability.toFixed(1) + '%</span>' : '-'}</td>
-                    <td class="text-center">${getRecBadge(s.recommendation)}</td>
+                    <td class="text-right">${s.days_since != null ? s.days_since + '일' : '-'}</td>
                 </tr>
             `).join('');
             renderTable('new-high-52w-table', headers, rows, renderNewHigh52w);
             renderMobileCards('new-high-52w-mobile', paginatedData, {
                 extraFields: [
+                    { label: 'AI점수', key: 'ai_score', format: function(s) { return s.ai_score ? s.ai_score.toFixed(0) + '점' : '-'; } },
+                    { label: '성공확률', key: 'success_probability', format: function(s) { return s.success_probability != null ? s.success_probability.toFixed(1) + '%' : '-'; } },
+                    { label: '예상수익', key: 'predicted_gain', format: function(s) { return s.predicted_gain != null ? s.predicted_gain.toFixed(1) + '%' : '-'; } },
                     { label: '돌파강도', key: 'above_high_percent', format: function(s) { return '+' + s.above_high_percent.toFixed(1) + '%'; } },
                     { label: '돌파종가대비', key: 'vs_breakout_close', format: function(s) { return s.vs_breakout_close != null ? (s.vs_breakout_close >= 0 ? '+' : '') + s.vs_breakout_close.toFixed(1) + '%' : '-'; } },
-                    { label: '예상수익', key: 'predicted_gain', format: function(s) { return s.predicted_gain != null ? '+' + s.predicted_gain.toFixed(1) + '%' : '-'; } },
-                    { label: '성공확률', key: 'success_probability', format: function(s) { return s.success_probability != null ? s.success_probability.toFixed(1) + '%' : '-'; } },
-                    { label: '추천', key: 'recommendation', format: function(s) { return s.recommendation || '-'; } }
+                    { label: '경과일', key: 'days_since', format: function(s) { return s.days_since != null ? s.days_since + '일' : '-'; } }
                 ]
             });
             renderPagination('new-high-52w-pagination', 'newHigh52w', sortedData.length, renderNewHigh52w);

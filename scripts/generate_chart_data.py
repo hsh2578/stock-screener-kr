@@ -28,7 +28,7 @@ logger = setup_logger()
 # 상수 정의
 # ============================================================================
 DATA_DIR = PROJECT_ROOT / "data"
-CHART_DAYS = 250  # 약 1년 (거래일 기준)
+CHART_DAYS = 750  # 약 3년 (거래일 기준)
 REQUEST_DELAY = 0.05  # API 요청 간 딜레이 (초)
 MAX_RETRIES = 3
 

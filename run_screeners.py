@@ -374,39 +374,12 @@ def calculate_52w_features(df, breakout_idx):
         return None
 
 
-def predict_52w_ml(features):
-    """52주 신고가 ML 예측 (단일)"""
-    global _52w_regressor, _52w_classifier, _52w_scaler
-
-    if not _52w_models_loaded or _52w_regressor is None:
-        return None, None, "N/A"
-
-    try:
-        X = np.array([[features.get(f, 0) for f in FEATURES_52W]])
-        X_scaled = _52w_scaler.transform(X)
-
-        predicted_gain = float(_52w_regressor.predict(X_scaled)[0])
-        success_proba = float(_52w_classifier.predict_proba(X_scaled)[0][1]) * 100
-
-        # 추천 결정
-        if success_proba >= 60 and predicted_gain >= 10:
-            recommendation = 'BUY'
-        elif success_proba >= 50 or predicted_gain >= 5:
-            recommendation = 'HOLD'
-        else:
-            recommendation = 'PASS'
-
-        return predicted_gain, success_proba, recommendation
-    except Exception as e:
-        return None, None, "N/A"
-
-
 def predict_52w_ml_batch(features_list):
     """52주 신고가 ML 배치 예측 (최적화)"""
     global _52w_regressor, _52w_classifier, _52w_scaler
 
     if not _52w_models_loaded or _52w_regressor is None or not features_list:
-        return [(None, None, "N/A")] * len(features_list)
+        return [(None, None)] * len(features_list)
 
     try:
         # 배치로 피처 배열 생성
@@ -419,19 +392,12 @@ def predict_52w_ml_batch(features_list):
 
         results = []
         for pg, sp in zip(predicted_gains, success_probas):
-            pg = float(pg)
-            sp = float(sp)
-            if sp >= 60 and pg >= 10:
-                rec = 'BUY'
-            elif sp >= 50 or pg >= 5:
-                rec = 'HOLD'
-            else:
-                rec = 'PASS'
-            results.append((pg, sp, rec))
+            results.append((float(pg), float(sp)))
 
         return results
     except Exception as e:
-        return [(None, None, "N/A")] * len(features_list)
+        print(f"[ML] 52주 신고가 배치 예측 실패: {e}")
+        return [(None, None)] * len(features_list)
 
 
 def calculate_box_features(df, breakout_idx, resistance, support):
@@ -658,6 +624,7 @@ def predict_box_breakout_batch(features_list):
 
         return results
     except Exception as e:
+        print(f"[ML] 박스권 돌파 배치 예측 실패: {e}")
         return [(0.0, 0.0, 0.0)] * len(features_list)
 
 
@@ -1530,7 +1497,7 @@ def _incremental_update_data(
     """
     if cached_df is None or len(cached_df) == 0:
         # 캐시 데이터 없으면 전체 다운로드
-        start_date = end_date - timedelta(days=250)
+        start_date = end_date - timedelta(days=400)
         start_str = start_date.strftime('%Y-%m-%d')
         return _download_single_stock((ticker, start_str))
 
@@ -1550,9 +1517,9 @@ def _incremental_update_data(
             combined = combined[~combined.index.duplicated(keep='last')]
             # 날짜 정렬
             combined = combined.sort_index()
-            # 최근 250일만 유지 (메모리 최적화)
-            if len(combined) > 250:
-                combined = combined.tail(250)
+            # 최근 280일만 유지 (52주 신고가 분석에 260일 필요)
+            if len(combined) > 280:
+                combined = combined.tail(280)
             return (ticker, combined)
         else:
             # 새 데이터 없으면 기존 캐시 그대로 사용
@@ -1964,6 +1931,10 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
         # 저항선 대비 상승률
         breakout_pct = (current_price - box_high) / box_high * 100
 
+        # 돌파일 종가 기준 등락률
+        breakout_close = float(df['Close'].iloc[breakout_idx]) if breakout_idx is not None else box_high
+        gain_since_breakout = (current_price - breakout_close) / breakout_close * 100 if breakout_close > 0 else 0
+
         # ML 피처 계산 (배치 예측용)
         features = None
         if _box_models_loaded:
@@ -1977,6 +1948,7 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
             'breakout_date': breakout_day.strftime('%Y-%m-%d'),
             'breakout_price': int(box_high),
             'breakout_pct': round(breakout_pct, 2),
+            'gain_since_breakout': round(gain_since_breakout, 2),
             'volume_ratio': round(volume_ratio, 1),
             'ma150': int(ma150.iloc[-1]),
             'above_ma150': bool(current_price > ma150.iloc[-1]),
@@ -2766,7 +2738,7 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
 
     [ML 예측]
         - 예상수익: 돌파 후 20거래일 내 최고 수익률 예측
-        - 성공확률: 10% 이상 상승할 확률 예측
+        - 성공확률: 15% 이상 상승할 확률 예측
     """
     print("\n[52주 신고가 돌파] 분석 시작...")
 
@@ -2886,7 +2858,7 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
             'vs_breakout_close': round(vs_breakout_close, 2),
             'predicted_gain': None,
             'success_probability': None,
-            'recommendation': "N/A",
+            'ai_score': 0.0,
             'market_cap': int(market_cap),
             'updated_at': datetime.now().isoformat(),
             '_features': features  # 임시 저장
@@ -2899,10 +2871,15 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
 
         if features_list:
             predictions = predict_52w_ml_batch(features_list)
-            for idx, (pg, sp, rec) in zip(valid_indices, predictions):
-                results[idx]['predicted_gain'] = round(pg, 1) if pg else None
-                results[idx]['success_probability'] = round(sp, 1) if sp else None
-                results[idx]['recommendation'] = rec
+            for idx, (pg, sp) in zip(valid_indices, predictions):
+                results[idx]['predicted_gain'] = round(pg, 1) if pg is not None else None
+                results[idx]['success_probability'] = round(sp, 1) if sp is not None else None
+                # AI 종합 점수 계산 (박스권 돌파와 동일 공식)
+                if pg is not None and sp is not None:
+                    gain_score = min(100, max(0, pg * 3))
+                    results[idx]['ai_score'] = round(float(sp * 0.7 + gain_score * 0.3), 1)
+                else:
+                    results[idx]['ai_score'] = 0.0
 
     # 임시 피처 필드 제거
     for r in results:
@@ -3128,7 +3105,13 @@ def generate_chart_data(all_results: List[List[Dict]]) -> None:
     chart_data = {}
     for ticker, name in tickers:
         try:
-            df = get_ohlcv(ticker, 200)
+            # 3년치 데이터 (약 750거래일) - 캐시는 200일만 보유하므로 별도 fetch
+            end_date = datetime.now()
+            start_date = end_date - timedelta(days=1100)  # 750거래일 ≈ 캘린더 1100일
+            try:
+                df = fdr.DataReader(ticker, start_date.strftime('%Y-%m-%d'))
+            except Exception:
+                df = get_ohlcv(ticker, 200)  # fallback
             if df is None or len(df) < 10:
                 continue
 

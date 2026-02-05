@@ -2,7 +2,7 @@
 최종 모델 학습 및 저장
 
 1. 회귀 모델: 20일 내 최고 수익률 예측 (LightGBM Regressor)
-2. 분류 모델: 10% 이상 상승 확률 예측 (LightGBM Classifier)
+2. 분류 모델: 15% 이상 상승 확률 예측 (LightGBM Classifier)
 """
 
 import pandas as pd
@@ -26,7 +26,7 @@ warnings.filterwarnings('ignore')
 # 경로
 ML_DIR = Path(__file__).parent.parent
 DATA_PATH = ML_DIR / "data" / "training_data_v2.csv"
-MODEL_PATH = ML_DIR / "models"
+MODEL_PATH = ML_DIR / "models" / "52w_high"
 MODEL_PATH.mkdir(exist_ok=True)
 
 # 피처셋 A (14개)
@@ -91,8 +91,8 @@ def train_regression_model(X_scaled, y_reg):
 
 
 def train_classification_model(X_scaled, y_cls):
-    """분류 모델 학습: 10%+ 확률 예측"""
-    print("\n  === 분류 모델 (10%+ 확률 예측) ===")
+    """분류 모델 학습: 15%+ 확률 예측"""
+    print("\n  === 분류 모델 (15%+ 확률 예측) ===")
 
     model = LGBMClassifier(**CLASSIFIER_PARAMS)
 
@@ -139,10 +139,10 @@ def main():
 
     X = df[FEATURES].values
     y_reg = df['max_gain_20d'].values  # 회귀용: 실제 수익률
-    y_cls = (df['max_gain_20d'] >= 10).astype(int).values  # 분류용: 10%+ 여부
+    y_cls = (df['max_gain_20d'] >= 15).astype(int).values  # 분류용: 15%+ 여부
 
     print(f"  샘플 수: {len(df)}")
-    print(f"  성공(10%+): {y_cls.sum()} ({y_cls.mean()*100:.1f}%)")
+    print(f"  성공(15%+): {y_cls.sum()} ({y_cls.mean()*100:.1f}%)")
     print(f"  평균 수익률: {y_reg.mean():.2f}%")
     print(f"  피처 수: {len(FEATURES)}")
 
@@ -219,7 +219,7 @@ def main():
   - R2: {reg_perf['r2']:.4f} ({reg_perf['r2']*100:.1f}% 설명력)
   - 용도: predicted_gain 칼럼
 
-[분류 모델] 10% 이상 상승 확률 예측
+[분류 모델] 15% 이상 상승 확률 예측
   - Precision: {cls_perf['precision']*100:.1f}% (예측 적중률)
   - AUC: {cls_perf['auc']:.4f}
   - 용도: success_probability 칼럼

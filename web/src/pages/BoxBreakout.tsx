@@ -20,6 +20,7 @@ interface BoxBreakoutStock {
   breakout_date: string;
   breakout_price: number;
   volume_ratio: number;
+  gain_since_breakout: number;
   ma150: number;
   updated_at: string;
 }
@@ -90,6 +91,16 @@ function BoxBreakout() {
       render: (value) => (
         <span style={{ color: (value as number) >= 2 ? 'var(--color-success)' : 'inherit' }}>
           {(value as number).toFixed(1)}배
+        </span>
+      ),
+    },
+    {
+      key: 'gain_since_breakout',
+      header: '돌파후등락',
+      align: 'right',
+      render: (value) => (
+        <span style={{ color: getChangeColor(value as number) }}>
+          {value != null ? (value as number).toFixed(1) + '%' : '-'}
         </span>
       ),
     },
