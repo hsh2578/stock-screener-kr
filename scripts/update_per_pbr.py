@@ -2,7 +2,7 @@
 PER/PBR 경량 업데이트 스크립트
 
 스크리너 결과에 포함된 종목들의 PER/PBR만 네이버 금융에서 빠르게 갱신합니다.
-전체 크롤링(90분) 대신, 스크리너 결과 종목만 업데이트하여 평일에도 실행 가능합니다.
+전체 크롤링(90분) 대신, 스크리너 결과 종목만 병렬로 업데이트합니다.
 
 사용법:
     python scripts/update_per_pbr.py
@@ -10,10 +10,9 @@ PER/PBR 경량 업데이트 스크립트
 import json
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
-
-from tqdm import tqdm
 
 # 프로젝트 루트를 sys.path에 추가
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -26,7 +25,7 @@ from naver_finance import fetch_naver_per_pbr
 # ============================================================================
 DATA_DIR = PROJECT_ROOT / "data"
 FINANCIAL_DATA_FILE = DATA_DIR / "financial_data.json"
-REQUEST_DELAY = 0.15  # 네이버 금융 요청 간 딜레이 (초)
+MAX_WORKERS = 8  # 병렬 스레드 수
 
 # 모든 스크리너 결과 파일
 SCREENER_FILES = [
@@ -66,12 +65,20 @@ def collect_tickers_from_screeners() -> set:
                     if ticker:
                         tickers.add(ticker)
             elif isinstance(data, dict):
-                # financial_data.json 등 dict 형태
                 tickers.update(data.keys())
         except Exception:
             continue
 
     return tickers
+
+
+def fetch_one(ticker: str) -> tuple:
+    """단일 종목 PER/PBR 조회. (ticker, result_dict or None) 반환."""
+    try:
+        per_pbr = fetch_naver_per_pbr(ticker)
+        return (ticker, per_pbr if per_pbr else None)
+    except Exception:
+        return (ticker, None)
 
 
 def load_financial_data() -> dict:
@@ -104,23 +111,25 @@ def main() -> int:
         print("스크리너 결과에 종목이 없습니다.")
         return 0
 
-    print(f"대상 종목: {len(tickers)}개")
+    ticker_list = sorted(tickers)
+    print(f"대상 종목: {len(ticker_list)}개 (스레드: {MAX_WORKERS}개)")
 
     # 2. 기존 데이터 로드
     fin_data = load_financial_data()
     data = fin_data.get("data", {})
 
-    # 3. PER/PBR 업데이트
+    # 3. 병렬 PER/PBR 업데이트
+    start_time = time.time()
     updated = 0
     failed = 0
 
-    for ticker in tqdm(sorted(tickers), desc="PER/PBR 업데이트", unit="종목", ncols=80):
-        try:
-            time.sleep(REQUEST_DELAY)
-            per_pbr = fetch_naver_per_pbr(ticker)
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        futures = {executor.submit(fetch_one, t): t for t in ticker_list}
+
+        for future in as_completed(futures):
+            ticker, per_pbr = future.result()
 
             if per_pbr:
-                # 기존 데이터가 있으면 PER/PBR만 갱신
                 if ticker in data:
                     if "metrics" not in data[ticker]:
                         data[ticker]["metrics"] = {}
@@ -129,15 +138,16 @@ def main() -> int:
                     if "pbr" in per_pbr:
                         data[ticker]["metrics"]["pbr"] = per_pbr["pbr"]
                 else:
-                    # 새로운 종목이면 기본 구조 생성
                     data[ticker] = {
                         "code": ticker,
                         "crawled_at": datetime.now().isoformat(),
                         "metrics": per_pbr,
                     }
                 updated += 1
-        except Exception:
-            failed += 1
+            else:
+                failed += 1
+
+    elapsed = time.time() - start_time
 
     # 4. 메타데이터 업데이트 및 저장
     fin_data["data"] = data
@@ -147,7 +157,7 @@ def main() -> int:
 
     save_financial_data(fin_data)
 
-    print(f"\n업데이트 완료: {updated}개 성공, {failed}개 실패")
+    print(f"\n업데이트 완료: {updated}개 성공, {failed}개 실패 ({elapsed:.1f}초)")
     print(f"저장: {FINANCIAL_DATA_FILE}")
     print("=" * 60)
 
