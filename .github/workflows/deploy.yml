@@ -124,6 +124,7 @@ jobs:
 
           COMMIT_DATE=$(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')
           git commit -m "📊 데이터 자동 업데이트: ${COMMIT_DATE}"
+          git pull --rebase origin main
           git push
 
       - name: 📋 실행 결과 요약
