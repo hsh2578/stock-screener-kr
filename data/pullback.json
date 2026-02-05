@@ -1,65 +1,65 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-05T14:44:55.252737",
+    "lastUpdated": "2026-02-05T16:37:45.703425",
     "totalCount": 4,
-    "screened_from": 1545
+    "screened_from": 1542
   },
   "data": [
     {
       "ticker": "067900",
       "name": "와이엔텍",
-      "price": 7030,
-      "change_rate": 3.99,
+      "price": 6920,
+      "change_rate": 2.37,
       "breakout_date": "2026-01-16",
       "resistance": 6890,
-      "pullback_ratio": 2.03,
-      "volume_decrease": 89,
+      "pullback_ratio": 0.44,
+      "volume_decrease": 88,
       "ma150": 6547,
       "above_ma150": true,
-      "market_cap": 1263,
-      "updated_at": "2026-02-05T14:44:55.042620"
-    },
-    {
-      "ticker": "086900",
-      "name": "메디톡스",
-      "price": 132500,
-      "change_rate": -0.53,
-      "breakout_date": "2026-01-28",
-      "resistance": 128300,
-      "pullback_ratio": 3.27,
-      "volume_decrease": 63,
-      "ma150": 129520,
-      "above_ma150": true,
-      "market_cap": 9655,
-      "updated_at": "2026-02-05T14:44:51.702819"
+      "market_cap": 1259,
+      "updated_at": "2026-02-05T16:37:45.245902"
     },
     {
       "ticker": "151860",
       "name": "KG에코솔루션",
-      "price": 6420,
-      "change_rate": -0.77,
+      "price": 6350,
+      "change_rate": -1.85,
       "breakout_date": "2026-01-28",
       "resistance": 6190,
-      "pullback_ratio": 3.72,
-      "volume_decrease": 82,
-      "ma150": 5974,
+      "pullback_ratio": 2.58,
+      "volume_decrease": 81,
+      "ma150": 5973,
       "above_ma150": true,
-      "market_cap": 3041,
-      "updated_at": "2026-02-05T14:44:54.126343"
+      "market_cap": 3022,
+      "updated_at": "2026-02-05T16:37:41.564917"
+    },
+    {
+      "ticker": "086900",
+      "name": "메디톡스",
+      "price": 131900,
+      "change_rate": -0.98,
+      "breakout_date": "2026-01-28",
+      "resistance": 128300,
+      "pullback_ratio": 2.81,
+      "volume_decrease": 62,
+      "ma150": 129516,
+      "above_ma150": true,
+      "market_cap": 9626,
+      "updated_at": "2026-02-05T16:37:39.503453"
     },
     {
       "ticker": "285490",
       "name": "노바텍",
-      "price": 28550,
-      "change_rate": -4.52,
+      "price": 28300,
+      "change_rate": -5.35,
       "breakout_date": "2026-01-29",
       "resistance": 27350,
-      "pullback_ratio": 4.39,
-      "volume_decrease": 81,
-      "ma150": 20705,
+      "pullback_ratio": 3.47,
+      "volume_decrease": 80,
+      "ma150": 20704,
       "above_ma150": true,
-      "market_cap": 2982,
-      "updated_at": "2026-02-05T14:44:54.304738"
+      "market_cap": 2992,
+      "updated_at": "2026-02-05T16:37:41.600085"
     }
   ]
 }
