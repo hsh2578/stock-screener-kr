@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-06T16:34:50.292653",
+    "lastUpdated": "2026-02-06T18:12:00.581601",
     "totalCount": 68,
     "screened_from": 1529
   },
@@ -21,7 +21,7 @@
       "success_prob": 91.7,
       "predicted_gain": 28.0,
       "ai_score": 89.4,
-      "updated_at": "2026-02-06T16:34:41.751964"
+      "updated_at": "2026-02-06T18:11:51.724742"
     },
     {
       "ticker": "088130",
@@ -39,7 +39,7 @@
       "success_prob": 83.5,
       "predicted_gain": 35.0,
       "ai_score": 88.4,
-      "updated_at": "2026-02-06T16:34:47.778851"
+      "updated_at": "2026-02-06T18:11:58.376277"
     },
     {
       "ticker": "047770",
@@ -57,7 +57,7 @@
       "success_prob": 75.9,
       "predicted_gain": 34.0,
       "ai_score": 83.2,
-      "updated_at": "2026-02-06T16:34:47.606565"
+      "updated_at": "2026-02-06T18:11:58.180886"
     },
     {
       "ticker": "462860",
@@ -75,7 +75,7 @@
       "success_prob": 84.9,
       "predicted_gain": 25.1,
       "ai_score": 82.0,
-      "updated_at": "2026-02-06T16:34:41.916731"
+      "updated_at": "2026-02-06T18:11:51.819211"
     },
     {
       "ticker": "001200",
@@ -93,7 +93,7 @@
       "success_prob": 63.8,
       "predicted_gain": 24.1,
       "ai_score": 66.4,
-      "updated_at": "2026-02-06T16:34:29.635222"
+      "updated_at": "2026-02-06T18:11:40.697955"
     },
     {
       "ticker": "365330",
@@ -111,7 +111,7 @@
       "success_prob": 60.8,
       "predicted_gain": 23.9,
       "ai_score": 64.1,
-      "updated_at": "2026-02-06T16:34:45.506989"
+      "updated_at": "2026-02-06T18:11:55.093505"
     },
     {
       "ticker": "151860",
@@ -129,7 +129,7 @@
       "success_prob": 67.3,
       "predicted_gain": 16.9,
       "ai_score": 62.3,
-      "updated_at": "2026-02-06T16:34:42.521044"
+      "updated_at": "2026-02-06T18:11:52.441683"
     },
     {
       "ticker": "090850",
@@ -147,7 +147,7 @@
       "success_prob": 74.4,
       "predicted_gain": 9.0,
       "ai_score": 60.1,
-      "updated_at": "2026-02-06T16:34:48.784930"
+      "updated_at": "2026-02-06T18:11:59.399728"
     },
     {
       "ticker": "128940",
@@ -165,7 +165,25 @@
       "success_prob": 56.7,
       "predicted_gain": 21.2,
       "ai_score": 58.8,
-      "updated_at": "2026-02-06T16:34:25.198848"
+      "updated_at": "2026-02-06T18:11:35.966852"
+    },
+    {
+      "ticker": "071050",
+      "name": "한국금융지주",
+      "price": 205500,
+      "change_rate": -2.84,
+      "breakout_date": "2026-01-23",
+      "resistance": 186600,
+      "days_since_breakout": 10,
+      "breakout_pct": 10.13,
+      "gain_since_breakout": 4.95,
+      "ma150": 158694,
+      "above_ma150": true,
+      "market_cap": 114516,
+      "success_prob": 54.5,
+      "predicted_gain": 21.7,
+      "ai_score": 57.7,
+      "updated_at": "2026-02-06T18:11:35.701563"
     },
     {
       "ticker": "241710",
@@ -183,7 +201,7 @@
       "success_prob": 55.5,
       "predicted_gain": 19.9,
       "ai_score": 56.8,
-      "updated_at": "2026-02-06T16:34:38.339933"
+      "updated_at": "2026-02-06T18:11:46.692059"
     },
     {
       "ticker": "071200",
@@ -201,7 +219,7 @@
       "success_prob": 56.9,
       "predicted_gain": 16.8,
       "ai_score": 54.9,
-      "updated_at": "2026-02-06T16:34:46.890454"
+      "updated_at": "2026-02-06T18:11:56.920190"
     },
     {
       "ticker": "340570",
@@ -219,7 +237,7 @@
       "success_prob": 57.8,
       "predicted_gain": 15.7,
       "ai_score": 54.6,
-      "updated_at": "2026-02-06T16:34:40.595517"
+      "updated_at": "2026-02-06T18:11:49.403746"
     },
     {
       "ticker": "062040",
@@ -237,7 +255,7 @@
       "success_prob": 52.2,
       "predicted_gain": 19.9,
       "ai_score": 54.5,
-      "updated_at": "2026-02-06T16:34:25.615621"
+      "updated_at": "2026-02-06T18:11:36.381865"
     },
     {
       "ticker": "095660",
@@ -255,7 +273,7 @@
       "success_prob": 52.5,
       "predicted_gain": 18.0,
       "ai_score": 52.9,
-      "updated_at": "2026-02-06T16:34:39.187991"
+      "updated_at": "2026-02-06T18:11:47.393997"
     },
     {
       "ticker": "067990",
@@ -273,7 +291,7 @@
       "success_prob": 60.1,
       "predicted_gain": 10.1,
       "ai_score": 51.2,
-      "updated_at": "2026-02-06T16:34:48.788061"
+      "updated_at": "2026-02-06T18:11:59.416597"
     },
     {
       "ticker": "007110",
@@ -291,7 +309,7 @@
       "success_prob": 55.3,
       "predicted_gain": 13.6,
       "ai_score": 51.0,
-      "updated_at": "2026-02-06T16:34:33.300560"
+      "updated_at": "2026-02-06T18:11:44.456064"
     },
     {
       "ticker": "046890",
@@ -309,7 +327,7 @@
       "success_prob": 50.4,
       "predicted_gain": 17.4,
       "ai_score": 50.9,
-      "updated_at": "2026-02-06T16:34:40.633077"
+      "updated_at": "2026-02-06T18:11:49.435534"
     },
     {
       "ticker": "241590",
@@ -327,7 +345,7 @@
       "success_prob": 54.4,
       "predicted_gain": 13.2,
       "ai_score": 49.9,
-      "updated_at": "2026-02-06T16:34:30.395333"
+      "updated_at": "2026-02-06T18:11:41.256014"
     },
     {
       "ticker": "012630",
@@ -345,25 +363,7 @@
       "success_prob": 44.8,
       "predicted_gain": 19.8,
       "ai_score": 49.2,
-      "updated_at": "2026-02-06T16:34:27.319452"
-    },
-    {
-      "ticker": "071050",
-      "name": "한국금융지주",
-      "price": 205500,
-      "change_rate": -2.84,
-      "breakout_date": "2026-01-23",
-      "resistance": 186600,
-      "days_since_breakout": 10,
-      "breakout_pct": 10.13,
-      "gain_since_breakout": 4.95,
-      "ma150": 158694,
-      "above_ma150": true,
-      "market_cap": 114516,
-      "success_prob": 38.6,
-      "predicted_gain": 23.4,
-      "ai_score": 48.0,
-      "updated_at": "2026-02-06T16:34:24.949975"
+      "updated_at": "2026-02-06T18:11:38.168529"
     },
     {
       "ticker": "058820",
@@ -381,7 +381,7 @@
       "success_prob": 42.5,
       "predicted_gain": 19.5,
       "ai_score": 47.3,
-      "updated_at": "2026-02-06T16:34:42.389911"
+      "updated_at": "2026-02-06T18:11:52.276458"
     },
     {
       "ticker": "042420",
@@ -399,7 +399,7 @@
       "success_prob": 44.1,
       "predicted_gain": 17.7,
       "ai_score": 46.8,
-      "updated_at": "2026-02-06T16:34:44.846906"
+      "updated_at": "2026-02-06T18:11:54.308178"
     },
     {
       "ticker": "057050",
@@ -417,7 +417,7 @@
       "success_prob": 48.5,
       "predicted_gain": 11.2,
       "ai_score": 44.0,
-      "updated_at": "2026-02-06T16:34:28.330744"
+      "updated_at": "2026-02-06T18:11:39.147363"
     },
     {
       "ticker": "030210",
@@ -435,7 +435,7 @@
       "success_prob": 40.5,
       "predicted_gain": 16.6,
       "ai_score": 43.3,
-      "updated_at": "2026-02-06T16:34:31.399243"
+      "updated_at": "2026-02-06T18:11:42.206239"
     },
     {
       "ticker": "293490",
@@ -453,7 +453,7 @@
       "success_prob": 39.3,
       "predicted_gain": 16.3,
       "ai_score": 42.2,
-      "updated_at": "2026-02-06T16:34:37.631978"
+      "updated_at": "2026-02-06T18:11:46.573863"
     },
     {
       "ticker": "068760",
@@ -471,7 +471,7 @@
       "success_prob": 39.4,
       "predicted_gain": 16.0,
       "ai_score": 41.9,
-      "updated_at": "2026-02-06T16:34:35.925740"
+      "updated_at": "2026-02-06T18:11:46.048780"
     },
     {
       "ticker": "183190",
@@ -489,7 +489,7 @@
       "success_prob": 44.5,
       "predicted_gain": 11.9,
       "ai_score": 41.8,
-      "updated_at": "2026-02-06T16:34:29.178025"
+      "updated_at": "2026-02-06T18:11:40.039383"
     },
     {
       "ticker": "001520",
@@ -507,7 +507,7 @@
       "success_prob": 38.5,
       "predicted_gain": 15.4,
       "ai_score": 40.8,
-      "updated_at": "2026-02-06T16:34:31.609111"
+      "updated_at": "2026-02-06T18:11:42.886951"
     },
     {
       "ticker": "126560",
@@ -525,7 +525,7 @@
       "success_prob": 43.8,
       "predicted_gain": 10.6,
       "ai_score": 40.2,
-      "updated_at": "2026-02-06T16:34:29.930834"
+      "updated_at": "2026-02-06T18:11:40.820875"
     },
     {
       "ticker": "044450",
@@ -543,7 +543,7 @@
       "success_prob": 45.3,
       "predicted_gain": 9.0,
       "ai_score": 39.8,
-      "updated_at": "2026-02-06T16:34:31.502068"
+      "updated_at": "2026-02-06T18:11:42.766668"
     },
     {
       "ticker": "015230",
@@ -561,7 +561,7 @@
       "success_prob": 38.0,
       "predicted_gain": 13.6,
       "ai_score": 38.8,
-      "updated_at": "2026-02-06T16:34:32.238142"
+      "updated_at": "2026-02-06T18:11:43.424672"
     },
     {
       "ticker": "120030",
@@ -579,7 +579,7 @@
       "success_prob": 42.9,
       "predicted_gain": 9.2,
       "ai_score": 38.3,
-      "updated_at": "2026-02-06T16:34:33.837520"
+      "updated_at": "2026-02-06T18:11:44.810471"
     },
     {
       "ticker": "001750",
@@ -597,7 +597,7 @@
       "success_prob": 34.7,
       "predicted_gain": 15.5,
       "ai_score": 38.2,
-      "updated_at": "2026-02-06T16:34:30.983633"
+      "updated_at": "2026-02-06T18:11:41.851075"
     },
     {
       "ticker": "143240",
@@ -615,7 +615,7 @@
       "success_prob": 36.9,
       "predicted_gain": 11.2,
       "ai_score": 35.9,
-      "updated_at": "2026-02-06T16:34:46.805898"
+      "updated_at": "2026-02-06T18:11:56.756601"
     },
     {
       "ticker": "004700",
@@ -633,7 +633,7 @@
       "success_prob": 26.3,
       "predicted_gain": 16.3,
       "ai_score": 33.0,
-      "updated_at": "2026-02-06T16:34:29.282934"
+      "updated_at": "2026-02-06T18:11:40.275382"
     },
     {
       "ticker": "094480",
@@ -651,7 +651,7 @@
       "success_prob": 22.9,
       "predicted_gain": 18.7,
       "ai_score": 32.9,
-      "updated_at": "2026-02-06T16:34:40.666247"
+      "updated_at": "2026-02-06T18:11:49.522007"
     },
     {
       "ticker": "008770",
@@ -669,7 +669,7 @@
       "success_prob": 27.6,
       "predicted_gain": 12.5,
       "ai_score": 30.6,
-      "updated_at": "2026-02-06T16:34:26.530261"
+      "updated_at": "2026-02-06T18:11:37.225005"
     },
     {
       "ticker": "001500",
@@ -687,7 +687,7 @@
       "success_prob": 23.2,
       "predicted_gain": 15.9,
       "ai_score": 30.5,
-      "updated_at": "2026-02-06T16:34:28.684104"
+      "updated_at": "2026-02-06T18:11:39.500223"
     },
     {
       "ticker": "163560",
@@ -705,7 +705,7 @@
       "success_prob": 27.4,
       "predicted_gain": 12.4,
       "ai_score": 30.4,
-      "updated_at": "2026-02-06T16:34:35.552153"
+      "updated_at": "2026-02-06T18:11:45.806173"
     },
     {
       "ticker": "003540",
@@ -723,7 +723,7 @@
       "success_prob": 19.0,
       "predicted_gain": 17.9,
       "ai_score": 29.4,
-      "updated_at": "2026-02-06T16:34:26.916548"
+      "updated_at": "2026-02-06T18:11:37.783414"
     },
     {
       "ticker": "000370",
@@ -741,7 +741,7 @@
       "success_prob": 23.9,
       "predicted_gain": 14.0,
       "ai_score": 29.4,
-      "updated_at": "2026-02-06T16:34:28.309092"
+      "updated_at": "2026-02-06T18:11:39.123990"
     },
     {
       "ticker": "004690",
@@ -759,7 +759,7 @@
       "success_prob": 19.3,
       "predicted_gain": 17.4,
       "ai_score": 29.2,
-      "updated_at": "2026-02-06T16:34:28.733684"
+      "updated_at": "2026-02-06T18:11:39.543043"
     },
     {
       "ticker": "017940",
@@ -777,7 +777,7 @@
       "success_prob": 23.2,
       "predicted_gain": 14.2,
       "ai_score": 29.0,
-      "updated_at": "2026-02-06T16:34:28.444869"
+      "updated_at": "2026-02-06T18:11:39.258942"
     },
     {
       "ticker": "102710",
@@ -795,7 +795,7 @@
       "success_prob": 20.0,
       "predicted_gain": 14.6,
       "ai_score": 27.1,
-      "updated_at": "2026-02-06T16:34:38.660946"
+      "updated_at": "2026-02-06T18:11:46.998637"
     },
     {
       "ticker": "001390",
@@ -813,7 +813,7 @@
       "success_prob": 16.4,
       "predicted_gain": 16.8,
       "ai_score": 26.7,
-      "updated_at": "2026-02-06T16:34:29.903476"
+      "updated_at": "2026-02-06T18:11:40.796875"
     },
     {
       "ticker": "037710",
@@ -831,7 +831,7 @@
       "success_prob": 25.3,
       "predicted_gain": 9.5,
       "ai_score": 26.2,
-      "updated_at": "2026-02-06T16:34:30.965834"
+      "updated_at": "2026-02-06T18:11:41.827086"
     },
     {
       "ticker": "001045",
@@ -849,7 +849,7 @@
       "success_prob": 20.0,
       "predicted_gain": 13.0,
       "ai_score": 25.7,
-      "updated_at": "2026-02-06T16:34:31.787011"
+      "updated_at": "2026-02-06T18:11:42.970972"
     },
     {
       "ticker": "125210",
@@ -867,7 +867,7 @@
       "success_prob": 17.1,
       "predicted_gain": 15.2,
       "ai_score": 25.6,
-      "updated_at": "2026-02-06T16:34:49.225214"
+      "updated_at": "2026-02-06T18:11:59.726407"
     },
     {
       "ticker": "092730",
@@ -885,7 +885,7 @@
       "success_prob": 15.5,
       "predicted_gain": 16.2,
       "ai_score": 25.4,
-      "updated_at": "2026-02-06T16:34:42.194461"
+      "updated_at": "2026-02-06T18:11:51.995892"
     },
     {
       "ticker": "417500",
@@ -903,7 +903,7 @@
       "success_prob": 21.4,
       "predicted_gain": 11.6,
       "ai_score": 25.4,
-      "updated_at": "2026-02-06T16:34:49.696726"
+      "updated_at": "2026-02-06T18:11:59.936857"
     },
     {
       "ticker": "080160",
@@ -921,7 +921,7 @@
       "success_prob": 22.4,
       "predicted_gain": 10.5,
       "ai_score": 25.1,
-      "updated_at": "2026-02-06T16:34:42.149841"
+      "updated_at": "2026-02-06T18:11:51.969464"
     },
     {
       "ticker": "032620",
@@ -939,7 +939,7 @@
       "success_prob": 14.6,
       "predicted_gain": 15.6,
       "ai_score": 24.2,
-      "updated_at": "2026-02-06T16:34:45.144097"
+      "updated_at": "2026-02-06T18:11:54.662361"
     },
     {
       "ticker": "090430",
@@ -957,7 +957,7 @@
       "success_prob": 15.9,
       "predicted_gain": 14.4,
       "ai_score": 24.1,
-      "updated_at": "2026-02-06T16:34:25.135183"
+      "updated_at": "2026-02-06T18:11:35.897013"
     },
     {
       "ticker": "069960",
@@ -975,7 +975,7 @@
       "success_prob": 15.8,
       "predicted_gain": 14.5,
       "ai_score": 24.1,
-      "updated_at": "2026-02-06T16:34:26.406075"
+      "updated_at": "2026-02-06T18:11:37.112557"
     },
     {
       "ticker": "100700",
@@ -993,7 +993,7 @@
       "success_prob": 18.2,
       "predicted_gain": 12.2,
       "ai_score": 23.7,
-      "updated_at": "2026-02-06T16:34:49.682033"
+      "updated_at": "2026-02-06T18:11:59.930295"
     },
     {
       "ticker": "003547",
@@ -1011,7 +1011,7 @@
       "success_prob": 16.3,
       "predicted_gain": 13.0,
       "ai_score": 23.1,
-      "updated_at": "2026-02-06T16:34:31.777040"
+      "updated_at": "2026-02-06T18:11:42.961653"
     },
     {
       "ticker": "005880",
@@ -1029,7 +1029,7 @@
       "success_prob": 17.0,
       "predicted_gain": 11.7,
       "ai_score": 22.4,
-      "updated_at": "2026-02-06T16:34:28.507630"
+      "updated_at": "2026-02-06T18:11:39.322002"
     },
     {
       "ticker": "051500",
@@ -1047,7 +1047,7 @@
       "success_prob": 14.7,
       "predicted_gain": 13.0,
       "ai_score": 21.9,
-      "updated_at": "2026-02-06T16:34:41.063750"
+      "updated_at": "2026-02-06T18:11:50.336711"
     },
     {
       "ticker": "138490",
@@ -1065,7 +1065,7 @@
       "success_prob": 10.8,
       "predicted_gain": 14.3,
       "ai_score": 20.4,
-      "updated_at": "2026-02-06T16:34:29.621938"
+      "updated_at": "2026-02-06T18:11:40.687718"
     },
     {
       "ticker": "265520",
@@ -1083,7 +1083,7 @@
       "success_prob": 13.5,
       "predicted_gain": 12.0,
       "ai_score": 20.2,
-      "updated_at": "2026-02-06T16:34:41.783635"
+      "updated_at": "2026-02-06T18:11:51.749990"
     },
     {
       "ticker": "003460",
@@ -1101,7 +1101,7 @@
       "success_prob": 14.5,
       "predicted_gain": 11.0,
       "ai_score": 20.1,
-      "updated_at": "2026-02-06T16:34:32.517712"
+      "updated_at": "2026-02-06T18:11:43.708655"
     },
     {
       "ticker": "003555",
@@ -1119,7 +1119,7 @@
       "success_prob": 15.5,
       "predicted_gain": 9.6,
       "ai_score": 19.6,
-      "updated_at": "2026-02-06T16:34:32.051389"
+      "updated_at": "2026-02-06T18:11:43.247493"
     },
     {
       "ticker": "004000",
@@ -1137,7 +1137,7 @@
       "success_prob": 9.6,
       "predicted_gain": 14.0,
       "ai_score": 19.3,
-      "updated_at": "2026-02-06T16:34:27.268295"
+      "updated_at": "2026-02-06T18:11:38.123112"
     },
     {
       "ticker": "267980",
@@ -1155,7 +1155,7 @@
       "success_prob": 15.4,
       "predicted_gain": 9.3,
       "ai_score": 19.1,
-      "updated_at": "2026-02-06T16:34:42.704342"
+      "updated_at": "2026-02-06T18:11:52.696591"
     },
     {
       "ticker": "005810",
@@ -1173,7 +1173,7 @@
       "success_prob": 6.8,
       "predicted_gain": 14.9,
       "ai_score": 18.2,
-      "updated_at": "2026-02-06T16:34:28.763451"
+      "updated_at": "2026-02-06T18:11:39.574396"
     },
     {
       "ticker": "082640",
@@ -1191,7 +1191,7 @@
       "success_prob": 7.4,
       "predicted_gain": 13.4,
       "ai_score": 17.3,
-      "updated_at": "2026-02-06T16:34:27.281350"
+      "updated_at": "2026-02-06T18:11:38.133680"
     },
     {
       "ticker": "003545",
@@ -1209,7 +1209,7 @@
       "success_prob": 11.2,
       "predicted_gain": 10.4,
       "ai_score": 17.2,
-      "updated_at": "2026-02-06T16:34:28.621875"
+      "updated_at": "2026-02-06T18:11:39.437646"
     },
     {
       "ticker": "383800",
@@ -1227,7 +1227,7 @@
       "success_prob": 9.2,
       "predicted_gain": 9.8,
       "ai_score": 15.3,
-      "updated_at": "2026-02-06T16:34:28.522966"
+      "updated_at": "2026-02-06T18:11:39.339859"
     }
   ]
 }
