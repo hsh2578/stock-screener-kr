@@ -1,23 +1,23 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-06T13:37:53.452938",
-    "totalCount": 5,
-    "screened_from": 1531
+    "lastUpdated": "2026-02-06T14:37:55.011468",
+    "totalCount": 4,
+    "screened_from": 1528
   },
   "data": [
     {
       "ticker": "151860",
       "name": "KG에코솔루션",
-      "price": 6240,
-      "change_rate": -1.73,
+      "price": 6210,
+      "change_rate": -2.2,
       "breakout_date": "2026-01-28",
       "resistance": 6170,
-      "pullback_ratio": 1.13,
-      "volume_decrease": 87,
-      "ma150": 5975,
+      "pullback_ratio": 0.65,
+      "volume_decrease": 86,
+      "ma150": 5974,
       "above_ma150": true,
-      "market_cap": 2984,
-      "updated_at": "2026-02-06T13:37:50.386089"
+      "market_cap": 2960,
+      "updated_at": "2026-02-06T14:37:51.902675"
     },
     {
       "ticker": "035600",
@@ -30,36 +30,22 @@
       "volume_decrease": 72,
       "ma150": 10627,
       "above_ma150": true,
-      "market_cap": 3083,
-      "updated_at": "2026-02-06T13:37:50.353498"
-    },
-    {
-      "ticker": "089980",
-      "name": "상아프론테크",
-      "price": 17230,
-      "change_rate": -3.74,
-      "breakout_date": "2026-01-29",
-      "resistance": 16850,
-      "pullback_ratio": 2.26,
-      "volume_decrease": 68,
-      "ma150": 17211,
-      "above_ma150": true,
-      "market_cap": 2764,
-      "updated_at": "2026-02-06T13:37:50.855317"
+      "market_cap": 3069,
+      "updated_at": "2026-02-06T14:37:51.849364"
     },
     {
       "ticker": "251970",
       "name": "펌텍코리아",
-      "price": 59000,
-      "change_rate": -0.17,
+      "price": 58900,
+      "change_rate": -0.34,
       "breakout_date": "2026-01-22",
       "resistance": 56500,
-      "pullback_ratio": 4.42,
-      "volume_decrease": 63,
-      "ma150": 58688,
+      "pullback_ratio": 4.25,
+      "volume_decrease": 62,
+      "ma150": 58687,
       "above_ma150": true,
-      "market_cap": 7340,
-      "updated_at": "2026-02-06T13:37:49.881670"
+      "market_cap": 7229,
+      "updated_at": "2026-02-06T14:37:51.060254"
     },
     {
       "ticker": "010690",
@@ -72,8 +58,8 @@
       "volume_decrease": 95,
       "ma150": 8526,
       "above_ma150": true,
-      "market_cap": 3083,
-      "updated_at": "2026-02-06T13:37:48.873367"
+      "market_cap": 3041,
+      "updated_at": "2026-02-06T14:37:50.117207"
     }
   ]
 }
