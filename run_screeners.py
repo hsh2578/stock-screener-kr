@@ -3177,6 +3177,7 @@ def main():
     try:
         # 병렬 실행을 위한 스크리너 정의
         from scripts.screeners.bottom_breakout import screen_bottom_breakout
+        from scripts.screeners.ma_convergence import screen_ma_convergence
 
         # 바닥 탈출 스크리너용 캐시 래퍼 함수
         def bottom_breakout_with_cache():
@@ -3211,6 +3212,7 @@ def main():
             ('52주 신고가', screen_new_high_52w, stocks, 'new_high_52w.json', len(stocks)),
             ('업종별 4단계', screen_sector_stage, None, 'sector_stage.json', len(NAVER_SECTOR_LIST)),
             ('바닥 탈출', bottom_breakout_with_cache, None, 'bottom_breakout.json', len(stocks)),
+            ('이평선 수렴', screen_ma_convergence, None, 'ma_convergence.json', len(stocks)),
         ]
 
         print(f"\n[병렬 스크리닝] {len(screener_tasks)}개 스크리너 실행 (스레드 {PARALLEL_SCREENER_WORKERS}개)...")
@@ -3236,10 +3238,11 @@ def main():
         new_high_results = screener_results.get('52주 신고가', [])
         sector_stage_results = screener_results.get('업종별 4단계', [])
         bottom_breakout_results = screener_results.get('바닥 탈출', [])
+        ma_convergence_results = screener_results.get('이평선 수렴', [])
 
         # 추가 스크리너 데이터 로드 (차트 데이터 생성용)
         extra_results = []
-        extra_files = ['value_stocks.json', 'ma60w_quality.json', 'ma_convergence.json']
+        extra_files = ['value_stocks.json', 'ma60w_quality.json']
         for filename in extra_files:
             filepath = os.path.join(DATA_PATH, filename)
             if os.path.exists(filepath):
@@ -3267,6 +3270,7 @@ def main():
             fallen_rebound_results,
             new_high_results,
             bottom_breakout_results,
+            ma_convergence_results,
             extra_results  # 저평가 우량주, 60주선 우량주 등 추가
         ]
         generate_chart_data(all_results)
@@ -3286,6 +3290,7 @@ def main():
         print(f"  52주 신고가: {len(new_high_results)}개")
         print(f"  업종별 4단계: {len(sector_stage_results)}개")
         print(f"  바닥 탈출: {len(bottom_breakout_results)}개")
+        print(f"  이평선 수렴: {len(ma_convergence_results)}개")
         print(f"\n총 실행 시간: {total_elapsed:.1f}초 ({total_elapsed/60:.1f}분)")
         print("=" * 70)
 
