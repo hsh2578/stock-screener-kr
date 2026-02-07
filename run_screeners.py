@@ -1604,7 +1604,11 @@ def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 1
             }
 
             for future in tqdm(as_completed(update_futures), total=len(update_futures), desc="증분 업데이트"):
-                ticker, df = future.result()
+                try:
+                    ticker, df = future.result(timeout=45)
+                except Exception:
+                    ticker = update_futures.get(future, '?')
+                    df = None
                 with _CACHE_LOCK:
                     _DATA_CACHE[ticker] = df
                 if df is not None:
@@ -1620,7 +1624,11 @@ def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 1
                 new_futures = {executor.submit(_download_single_stock, arg): arg[0] for arg in download_args}
 
                 for future in tqdm(as_completed(new_futures), total=len(new_futures), desc="신규 다운로드"):
-                    ticker, df = future.result()
+                    try:
+                        ticker, df = future.result(timeout=45)
+                    except Exception:
+                        ticker = new_futures.get(future, '?')
+                        df = None
                     with _CACHE_LOCK:
                         _DATA_CACHE[ticker] = df
                     if df is not None:
@@ -1647,7 +1655,11 @@ def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 1
             futures = {executor.submit(_download_single_stock, arg): arg[0] for arg in download_args}
 
             for future in tqdm(as_completed(futures), total=len(futures), desc="데이터 로딩"):
-                ticker, df = future.result()
+                try:
+                    ticker, df = future.result(timeout=45)
+                except Exception:
+                    ticker = futures.get(future, '?')
+                    df = None
                 # 스레드 안전한 캐시 업데이트
                 with _CACHE_LOCK:
                     _DATA_CACHE[ticker] = df
