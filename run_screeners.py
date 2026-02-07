@@ -1206,6 +1206,17 @@ def get_ohlcv(ticker: str, days: int = 200) -> Optional[pd.DataFrame]:
         return None
 
 
+def _download_with_timeout(ticker: str, start_str: str, timeout: int = 30) -> Optional[pd.DataFrame]:
+    """타임아웃 포함 단일 종목 다운로드"""
+    import concurrent.futures
+    with concurrent.futures.ThreadPoolExecutor(max_workers=1) as ex:
+        future = ex.submit(fdr.DataReader, ticker, start_str)
+        try:
+            return future.result(timeout=timeout)
+        except (concurrent.futures.TimeoutError, Exception):
+            return None
+
+
 def _download_single_stock(args: Tuple[str, str], max_retries: int = 2) -> Tuple[str, Optional[pd.DataFrame]]:
     """
     단일 종목 데이터 다운로드 (병렬 처리용, 지수 백오프 재시도 포함)
@@ -1222,7 +1233,7 @@ def _download_single_stock(args: Tuple[str, str], max_retries: int = 2) -> Tuple
 
     for attempt in range(max_retries):
         try:
-            df = fdr.DataReader(ticker, start_str)
+            df = _download_with_timeout(ticker, start_str, timeout=30)
 
             # 빈 데이터도 재시도 대상으로 처리
             if df is not None and len(df) > 0:
