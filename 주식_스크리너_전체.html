@@ -4328,7 +4328,7 @@
 
             const rows = paginatedData.map(s => {
                 const opMargin = s.op_margin_avg != null ? s.op_margin_avg : s.op_margin_5y;
-                const stockJson = safeJsonStringify({ ticker: s.ticker, name: s.name, price: s.market_cap * 100000000, change_rate: 0 });
+                const stockJson = safeJsonStringify({ ticker: s.ticker, name: s.name, price: s.current_price || 0, change_rate: 0 });
                 return `
                     <tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
                         <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
