@@ -4,6 +4,7 @@ TTM(Trailing Twelve Months) 기반으로 최근 12개월 실적을 분석합니�
 """
 
 import FinanceDataReader as fdr
+import pandas as pd
 import json
 import os
 from datetime import datetime
@@ -30,7 +31,7 @@ def get_top_stocks(n: int = 20, min_market_cap: int = 2000) -> list:
     kosdaq = fdr.StockListing('KOSDAQ')
     kosdaq['Market'] = 'KOSDAQ'
 
-    stocks = kospi._append(kosdaq, ignore_index=True)
+    stocks = pd.concat([kospi, kosdaq], ignore_index=True)
 
     # 시가총액 계산
     if 'Marcap' in stocks.columns:
