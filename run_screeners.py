@@ -1206,17 +1206,6 @@ def get_ohlcv(ticker: str, days: int = 200) -> Optional[pd.DataFrame]:
         return None
 
 
-def _download_with_timeout(ticker: str, start_str: str, timeout: int = 30) -> Optional[pd.DataFrame]:
-    """타임아웃 포함 단일 종목 다운로드"""
-    import concurrent.futures
-    with concurrent.futures.ThreadPoolExecutor(max_workers=1) as ex:
-        future = ex.submit(fdr.DataReader, ticker, start_str)
-        try:
-            return future.result(timeout=timeout)
-        except (concurrent.futures.TimeoutError, Exception):
-            return None
-
-
 def _download_single_stock(args: Tuple[str, str], max_retries: int = 2) -> Tuple[str, Optional[pd.DataFrame]]:
     """
     단일 종목 데이터 다운로드 (병렬 처리용, 지수 백오프 재시도 포함)
@@ -1233,7 +1222,7 @@ def _download_single_stock(args: Tuple[str, str], max_retries: int = 2) -> Tuple
 
     for attempt in range(max_retries):
         try:
-            df = _download_with_timeout(ticker, start_str, timeout=30)
+            df = fdr.DataReader(ticker, start_str)
 
             # 빈 데이터도 재시도 대상으로 처리
             if df is not None and len(df) > 0:
@@ -1555,8 +1544,14 @@ def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 1
     """
     global _DATA_CACHE
 
+    # 소켓 레벨 타임아웃 설정 (fdr.DataReader 무한 대기 방지)
+    import socket
+    old_timeout = socket.getdefaulttimeout()
+    socket.setdefaulttimeout(30)
+
     # 디스크 캐시 확인 (증분 캐시 전략 적용)
     if _load_cache():
+        socket.setdefaulttimeout(old_timeout)
         return
 
     # 전일 캐시 데이터와 증분 업데이트 필요 여부 확인
@@ -1665,6 +1660,9 @@ def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 1
 
     # 디스크에 캐시 저장
     _save_cache()
+
+    # 소켓 타임아웃 원복
+    socket.setdefaulttimeout(old_timeout)
 
 
 # ============================================================================
