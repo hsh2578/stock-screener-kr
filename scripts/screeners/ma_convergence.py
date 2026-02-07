@@ -190,7 +190,7 @@ def calculate_gap(value1: float, value2: float) -> float:
     return abs(value1 - value2) / value2 * 100
 
 
-def screen_ma_convergence(stocks: pd.DataFrame = None, get_data_func=None) -> List[Dict]:
+def screen_ma_convergence(stocks: pd.DataFrame = None, get_data_func=None, get_weekly_func=None) -> List[Dict]:
     """
     이평선 수렴 스크리너 실행
 
@@ -198,7 +198,8 @@ def screen_ma_convergence(stocks: pd.DataFrame = None, get_data_func=None) -> Li
         stocks: 종목 리스트 DataFrame (None이면 내부에서 조회)
         get_data_func: 일봉 데이터 조회 함수 (ticker, days) -> DataFrame
                        None이면 내부 함수 사용 (느림)
-                       주봉은 100주(700일) 필요하여 별도 조회
+        get_weekly_func: 주봉 데이터 조회 함수 (ticker, weeks) -> DataFrame
+                         None이면 내부 함수 사용 (개별 HTTP 요청)
     """
     print("\n[이평선 수렴 스크리너] 분석 시작...")
 
@@ -216,6 +217,13 @@ def screen_ma_convergence(stocks: pd.DataFrame = None, get_data_func=None) -> Li
     else:
         daily_fetcher = get_data_func
         print("  [최적화] 일봉 캐시 사용 모드")
+
+    # 주봉 데이터 조회 함수 설정
+    if get_weekly_func is None:
+        weekly_fetcher = get_weekly_data
+    else:
+        weekly_fetcher = get_weekly_func
+        print("  [최적화] 주봉 캐시 사용 모드")
 
     results = []
     stats = {
@@ -254,8 +262,8 @@ def screen_ma_convergence(stocks: pd.DataFrame = None, get_data_func=None) -> Li
             stats['volume_fail'] += 1
             continue
 
-        # 주봉 데이터 조회 (100주 필요 → 별도 다운로드 필수)
-        weekly_df = get_weekly_data(ticker)
+        # 주봉 데이터 조회 (100주 필요)
+        weekly_df = weekly_fetcher(ticker)
         if weekly_df is None:
             stats['no_data'] += 1
             continue

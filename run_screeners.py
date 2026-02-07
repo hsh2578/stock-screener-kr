@@ -3171,8 +3171,8 @@ def main():
     print(f"\n분석 대상: {len(stocks)}개 종목 (전체 {total_stocks}개 중)")
 
     # 데이터 사전 로딩 (한 번만 다운로드하고 모든 스크리너에서 재사용)
-    # 52주 신고가 스크리너: 260거래일 필요 → 500 캘린더일 ≈ 345거래일 확보
-    preload_all_data(stocks, days=500)
+    # 52주 신고가: 260거래일, 이평선 수렴: 100주봉(700일) 필요 → 800 캘린더일 확보
+    preload_all_data(stocks, days=800)
 
     try:
         # 병렬 실행을 위한 스크리너 정의
@@ -3184,9 +3184,25 @@ def main():
             """바닥 탈출 스크리너 (캐시 사용)"""
             return screen_bottom_breakout(stocks=stocks, get_data_func=get_ohlcv)
 
+        def get_weekly_from_cache(ticker, weeks=150):
+            """캐시된 일봉 데이터를 주봉으로 변환"""
+            df = get_ohlcv(ticker, 800)
+            if df is None or len(df) < 100:
+                return None
+            df_weekly = df.resample('W-FRI').agg({
+                'Open': 'first',
+                'High': 'max',
+                'Low': 'min',
+                'Close': 'last',
+                'Volume': 'sum'
+            }).dropna()
+            if len(df_weekly) >= 100:
+                return df_weekly
+            return None
+
         def ma_convergence_with_cache():
             """이평선 수렴 스크리너 (캐시 사용)"""
-            return screen_ma_convergence(stocks=stocks, get_data_func=get_ohlcv)
+            return screen_ma_convergence(stocks=stocks, get_data_func=get_ohlcv, get_weekly_func=get_weekly_from_cache)
 
         def run_screener(args):
             """스크리너 실행 래퍼 함수"""
