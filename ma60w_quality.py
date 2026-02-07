@@ -152,18 +152,39 @@ def extract_financial_metrics(fin_data: Dict) -> Tuple[Optional[float], Optional
     return op_margin, op_growth_3y
 
 
-def screen_ma60w_quality() -> List[Dict]:
-    """60주선 우량주 스크리너 실행"""
+def screen_ma60w_quality(stocks: pd.DataFrame = None, get_data_func=None) -> List[Dict]:
+    """
+    60주선 우량주 스크리너 실행
+
+    Args:
+        stocks: 종목 리스트 DataFrame (None이면 코스피200 자체 조회)
+        get_data_func: 일봉 데이터 조회 함수 (ticker, days) -> DataFrame
+                       None이면 내부 함수 사용 (개별 HTTP 요청)
+    """
     print("\n[60주선 우량주 스크리너] 분석 시작...")
 
     # 1. 코스피 200 종목 가져오기
-    stocks = get_kospi200_stocks()
+    if stocks is None or (isinstance(stocks, pd.DataFrame) and stocks.empty):
+        stocks = get_kospi200_stocks()
+    else:
+        # 외부에서 전체 종목을 받은 경우 코스피 상위 200개만 필터링
+        stocks = stocks.sort_values('MarketCap', ascending=False).head(200)
+        print(f"  공유 종목 리스트에서 상위 200개 선택")
+
     if stocks.empty:
         print("  종목 조회 실패")
         return []
 
     # 2. 재무 데이터 로드
     financial_data = load_financial_data()
+
+    # 일봉 데이터 조회 함수 설정
+    if get_data_func is None:
+        price_fetcher = get_stock_price_data
+        print("  [캐시 미사용] 개별 다운로드 모드")
+    else:
+        price_fetcher = get_data_func
+        print("  [최적화] 캐시 사용 모드")
 
     results = []
     stats = {
@@ -193,7 +214,7 @@ def screen_ma60w_quality() -> List[Dict]:
             print(f"  진행 중... {stats['no_price'] + stats['no_financial'] + stats['gap_fail'] + stats['op_margin_fail'] + stats['op_growth_fail'] + stats['passed'] + 1}/{len(stocks)}")
 
         # 주가 데이터 조회
-        df = get_stock_price_data(ticker)
+        df = price_fetcher(ticker, 400)
         if df is None or len(df) < MA60W_PERIOD:
             stats['no_price'] += 1
             continue

@@ -3044,8 +3044,8 @@
                 'bottom-breakout-date': getMeta('bottomBreakout', 'lastUpdated'),
                 'sector-stage-date': getMeta('sectorStage', 'lastUpdated'),
                 'value-stocks-date': getMeta('valueStocks', 'updated_at'),
-                'ma60w-quality-date': getMeta('ma60wQuality', 'updated_at'),
-                'ma-convergence-date': getMeta('maConvergence', 'updated_at')
+                'ma60w-quality-date': getMeta('ma60wQuality', 'lastUpdated') || getMeta('ma60wQuality', 'updated_at'),
+                'ma-convergence-date': getMeta('maConvergence', 'lastUpdated') || getMeta('maConvergence', 'updated_at')
             };
 
             for (const [elementId, lastUpdated] of Object.entries(dateMapping)) {
@@ -3085,8 +3085,8 @@
                 'bottom-breakout': getCount('bottomBreakout', 'totalCount', 'length'),
                 'sector-stage': getCount('sectorStage', 'totalCount'),
                 'value-stocks': getCount('valueStocks', 'total_count', 'length'),
-                'ma60w-quality': getCount('ma60wQuality', 'total_count', 'length'),
-                'ma-convergence': getCount('maConvergence', 'total_count', 'length')
+                'ma60w-quality': getCount('ma60wQuality', 'totalCount') || getCount('ma60wQuality', 'total_count', 'length'),
+                'ma-convergence': getCount('maConvergence', 'totalCount') || getCount('maConvergence', 'total_count', 'length')
             };
 
             // Render grouped screeners

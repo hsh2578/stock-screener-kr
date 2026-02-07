@@ -3178,6 +3178,7 @@ def main():
         # 병렬 실행을 위한 스크리너 정의
         from scripts.screeners.bottom_breakout import screen_bottom_breakout
         from scripts.screeners.ma_convergence import screen_ma_convergence
+        from ma60w_quality import screen_ma60w_quality
 
         # 캐시 래퍼 함수 (외부 스크리너에 공유 캐시 전달)
         def bottom_breakout_with_cache():
@@ -3203,6 +3204,10 @@ def main():
         def ma_convergence_with_cache():
             """이평선 수렴 스크리너 (캐시 사용)"""
             return screen_ma_convergence(stocks=stocks, get_data_func=get_ohlcv, get_weekly_func=get_weekly_from_cache)
+
+        def ma60w_quality_with_cache():
+            """60주선 우량주 스크리너 (캐시 사용)"""
+            return screen_ma60w_quality(stocks=stocks, get_data_func=get_ohlcv)
 
         def run_screener(args):
             """스크리너 실행 래퍼 함수"""
@@ -3233,6 +3238,7 @@ def main():
             ('업종별 4단계', screen_sector_stage, None, 'sector_stage.json', len(NAVER_SECTOR_LIST)),
             ('바닥 탈출', bottom_breakout_with_cache, None, 'bottom_breakout.json', len(stocks)),
             ('이평선 수렴', ma_convergence_with_cache, None, 'ma_convergence.json', len(stocks)),
+            ('60주선 우량주', ma60w_quality_with_cache, None, 'ma60w_quality.json', 200),
         ]
 
         print(f"\n[병렬 스크리닝] {len(screener_tasks)}개 스크리너 실행 (스레드 {PARALLEL_SCREENER_WORKERS}개)...")
@@ -3262,7 +3268,7 @@ def main():
 
         # 추가 스크리너 데이터 로드 (차트 데이터 생성용)
         extra_results = []
-        extra_files = ['value_stocks.json', 'ma60w_quality.json']
+        extra_files = ['value_stocks.json']
         for filename in extra_files:
             filepath = os.path.join(DATA_PATH, filename)
             if os.path.exists(filepath):

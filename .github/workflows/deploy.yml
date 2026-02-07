@@ -103,10 +103,6 @@ jobs:
           echo "스크리너 실행 완료"
           echo "=========================================="
 
-      - name: 📈 60주선 우량주 스크리너 실행
-        run: |
-          python ma60w_quality.py
-
       - name: 📈 PER/PBR 경량 업데이트
         run: |
           python scripts/update_per_pbr.py
