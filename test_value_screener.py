@@ -47,7 +47,7 @@ def get_top_stocks(n: int = 20, min_market_cap: int = 2000) -> list:
     top = stocks.head(n)
 
     return [
-        {'Code': row['Code'], 'Name': row['Name'], 'MarketCap': row['MarketCap']}
+        {'Code': row['Code'], 'Name': row['Name'], 'MarketCap': row['MarketCap'], 'Close': row.get('Close', 0)}
         for _, row in top.iterrows()
     ]
 
@@ -160,6 +160,7 @@ def main():
         results.append({
             'ticker': code,
             'name': fin_data.get('name', stock['Name']),
+            'current_price': int(stock.get('Close', 0)),
             'market_cap': round(stock['MarketCap'], 0),
             'per': round(per, 2) if per else None,
             'pbr': round(pbr, 2) if pbr else None,
