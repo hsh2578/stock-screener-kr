@@ -190,15 +190,49 @@ def calculate_gap(value1: float, value2: float) -> float:
     return abs(value1 - value2) / value2 * 100
 
 
-def screen_ma_convergence() -> List[Dict]:
-    """이평선 수렴 스크리너 실행"""
+def _daily_to_weekly(daily_df: pd.DataFrame) -> Optional[pd.DataFrame]:
+    """일봉 데이터를 주봉으로 변환"""
+    try:
+        df_weekly = daily_df.resample('W-FRI').agg({
+            'Open': 'first',
+            'High': 'max',
+            'Low': 'min',
+            'Close': 'last',
+            'Volume': 'sum'
+        }).dropna()
+
+        if len(df_weekly) >= 100:
+            return df_weekly
+    except:
+        pass
+    return None
+
+
+def screen_ma_convergence(stocks: pd.DataFrame = None, get_data_func=None) -> List[Dict]:
+    """
+    이평선 수렴 스크리너 실행
+
+    Args:
+        stocks: 종목 리스트 DataFrame (None이면 내부에서 조회)
+        get_data_func: 데이터 조회 함수 (ticker, days) -> DataFrame
+                       None이면 내부 함수 사용 (느림)
+    """
     print("\n[이평선 수렴 스크리너] 분석 시작...")
 
     # 1. 종목 리스트 가져오기
-    stocks = get_stock_list()
-    if stocks.empty:
-        print("  종목 조회 실패")
-        return []
+    if stocks is None or (isinstance(stocks, pd.DataFrame) and stocks.empty):
+        stocks = get_stock_list()
+        if stocks.empty:
+            print("  종목 조회 실패")
+            return []
+
+    # 데이터 조회 함수 설정
+    if get_data_func is None:
+        data_fetcher = get_daily_data
+        print("  [경고] 캐시 미사용 - 개별 다운로드 모드 (느림)")
+    else:
+        data_fetcher = get_data_func
+        print("  [최적화] 캐시 사용 모드")
 
     results = []
     stats = {
@@ -225,9 +259,9 @@ def screen_ma_convergence() -> List[Dict]:
         if (idx + 1) % 100 == 0:
             print(f"  진행 중... {idx + 1}/{len(stocks)}")
 
-        # 일봉 데이터 조회
-        daily_df = get_daily_data(ticker)
-        if daily_df is None:
+        # 일봉 데이터 조회 (캐시 또는 직접 다운로드)
+        daily_df = data_fetcher(ticker, 500)
+        if daily_df is None or len(daily_df) < 120:
             stats['no_data'] += 1
             continue
 
@@ -237,8 +271,8 @@ def screen_ma_convergence() -> List[Dict]:
             stats['volume_fail'] += 1
             continue
 
-        # 주봉 데이터 조회
-        weekly_df = get_weekly_data(ticker)
+        # 주봉 데이터 변환 (일봉에서 변환 - 추가 HTTP 요청 불필요)
+        weekly_df = _daily_to_weekly(daily_df)
         if weekly_df is None:
             stats['no_data'] += 1
             continue

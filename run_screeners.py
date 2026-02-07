@@ -3179,10 +3179,14 @@ def main():
         from scripts.screeners.bottom_breakout import screen_bottom_breakout
         from scripts.screeners.ma_convergence import screen_ma_convergence
 
-        # 바닥 탈출 스크리너용 캐시 래퍼 함수
+        # 캐시 래퍼 함수 (외부 스크리너에 공유 캐시 전달)
         def bottom_breakout_with_cache():
             """바닥 탈출 스크리너 (캐시 사용)"""
             return screen_bottom_breakout(stocks=stocks, get_data_func=get_ohlcv)
+
+        def ma_convergence_with_cache():
+            """이평선 수렴 스크리너 (캐시 사용)"""
+            return screen_ma_convergence(stocks=stocks, get_data_func=get_ohlcv)
 
         def run_screener(args):
             """스크리너 실행 래퍼 함수"""
@@ -3212,7 +3216,7 @@ def main():
             ('52주 신고가', screen_new_high_52w, stocks, 'new_high_52w.json', len(stocks)),
             ('업종별 4단계', screen_sector_stage, None, 'sector_stage.json', len(NAVER_SECTOR_LIST)),
             ('바닥 탈출', bottom_breakout_with_cache, None, 'bottom_breakout.json', len(stocks)),
-            ('이평선 수렴', screen_ma_convergence, None, 'ma_convergence.json', len(stocks)),
+            ('이평선 수렴', ma_convergence_with_cache, None, 'ma_convergence.json', len(stocks)),
         ]
 
         print(f"\n[병렬 스크리닝] {len(screener_tasks)}개 스크리너 실행 (스레드 {PARALLEL_SCREENER_WORKERS}개)...")
