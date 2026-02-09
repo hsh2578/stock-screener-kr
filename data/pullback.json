@@ -1,65 +1,51 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-09T14:58:32.993630",
-    "totalCount": 4,
-    "screened_from": 1543
+    "lastUpdated": "2026-02-09T16:38:27.744445",
+    "totalCount": 3,
+    "screened_from": 1549
   },
   "data": [
     {
-      "ticker": "388050",
-      "name": "지투파워",
-      "price": 9490,
-      "change_rate": 4.52,
-      "breakout_date": "2026-02-04",
-      "resistance": 9300,
-      "pullback_ratio": 2.04,
-      "volume_decrease": 65,
-      "ma150": 8650,
-      "above_ma150": true,
-      "market_cap": 1786,
-      "updated_at": "2026-02-09T14:58:30.708610"
-    },
-    {
       "ticker": "010690",
       "name": "화신",
-      "price": 8970,
-      "change_rate": 0.9,
+      "price": 9030,
+      "change_rate": 1.57,
       "breakout_date": "2026-01-16",
       "resistance": 9200,
-      "pullback_ratio": 2.5,
+      "pullback_ratio": 1.85,
       "volume_decrease": 95,
       "ma150": 8531,
       "above_ma150": true,
-      "market_cap": 3132,
-      "updated_at": "2026-02-09T14:58:27.635427"
+      "market_cap": 3153,
+      "updated_at": "2026-02-09T16:38:21.586337"
+    },
+    {
+      "ticker": "388050",
+      "name": "지투파워",
+      "price": 9520,
+      "change_rate": 4.85,
+      "breakout_date": "2026-02-04",
+      "resistance": 9300,
+      "pullback_ratio": 2.37,
+      "volume_decrease": 64,
+      "ma150": 8650,
+      "above_ma150": true,
+      "market_cap": 1781,
+      "updated_at": "2026-02-09T16:38:25.182964"
     },
     {
       "ticker": "151860",
       "name": "KG에코솔루션",
-      "price": 6450,
-      "change_rate": 3.04,
+      "price": 6430,
+      "change_rate": 2.72,
       "breakout_date": "2026-01-28",
       "resistance": 6170,
-      "pullback_ratio": 4.54,
+      "pullback_ratio": 4.21,
       "volume_decrease": 86,
       "ma150": 5975,
       "above_ma150": true,
-      "market_cap": 3075,
-      "updated_at": "2026-02-09T14:58:29.443271"
-    },
-    {
-      "ticker": "035600",
-      "name": "KG이니시스",
-      "price": 11480,
-      "change_rate": 2.04,
-      "breakout_date": "2026-01-28",
-      "resistance": 10950,
-      "pullback_ratio": 4.84,
-      "volume_decrease": 77,
-      "ma150": 10630,
-      "above_ma150": true,
-      "market_cap": 3160,
-      "updated_at": "2026-02-09T14:58:29.424515"
+      "market_cap": 3060,
+      "updated_at": "2026-02-09T16:38:23.444844"
     }
   ]
 }
