@@ -6,8 +6,9 @@
     <meta name="description" content="기술적 분석 기반 국내 주식 스크리닝 도구 - 박스권, 돌파, 거래량 분석">
     <title>국내 주식 종목 발굴 - Stock Screener</title>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-    <!-- Pretendard 폰트 (네이버, 카카오, 토스에서 사용하는 현대적인 한글 폰트) -->
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <!-- Pretendard 폰트: 비차단 로딩 (렌더 블로킹 제거) -->
+    <link rel="preload" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" /></noscript>
     <style>
         /* ============================================================
            MODERN FINANCIAL SCREENER - Professional UI/UX Design
@@ -2090,8 +2091,7 @@
         </div>
     </div>
 
-    <!-- Lightweight Charts CDN -->
-    <script src="https://unpkg.com/lightweight-charts@5.0.0/dist/lightweight-charts.standalone.production.js"></script>
+    <!-- Lightweight Charts: 차트 모달 열 때 동적 로딩 (초기 200KB 절감) -->
 
     <!-- Polyfills for Samsung Internet / older browsers -->
     <script>
@@ -2166,8 +2166,8 @@
             sectorStage: 'sector_stage.json',
             valueStocks: 'value_stocks.json',
             ma60wQuality: 'ma60w_quality.json',
-            maConvergence: 'ma_convergence.json',
-            financialData: 'financial_data.json'
+            maConvergence: 'ma_convergence.json'
+            // financialData는 레이지 로딩 (상세 페이지 방문 시)
         };
 
         // 데이터 경로 후보 (GitHub Pages, 로컬 등 다양한 환경 지원)
@@ -2237,6 +2237,35 @@
             console.log('✅ 데이터 로딩 완료');
 
             return true;
+        }
+
+        // financial_data.json 레이지 로딩 (상세 페이지 방문 시 1회만)
+        let financialDataLoaded = false;
+        let financialDataLoading = null;
+
+        async function loadFinancialData() {
+            if (financialDataLoaded) return;
+            if (financialDataLoading) return financialDataLoading;
+            financialDataLoading = (async () => {
+                try {
+                    // workingPath가 결정된 상태에서 로딩
+                    for (var bp of DATA_PATH_CANDIDATES) {
+                        try {
+                            var res = await fetch(bp + 'financial_data.json');
+                            if (res.ok) {
+                                DATA.financialData = await res.json();
+                                financialDataLoaded = true;
+                                console.log('✓ 재무 데이터 레이지 로드 완료');
+                                return;
+                            }
+                        } catch (e) { /* try next */ }
+                    }
+                    console.warn('⚠ financial_data.json 로드 실패');
+                } finally {
+                    financialDataLoading = null;
+                }
+            })();
+            return financialDataLoading;
         }
 
         // 로딩 상태 UI
@@ -2511,6 +2540,29 @@
         // Chart data cache
         let chartDataCache = null;
         let chartInstance = null;
+        let chartLibLoaded = false;
+        let chartLibLoading = null;
+
+        // TradingView Lightweight Charts 동적 로딩
+        function loadChartLibrary() {
+            if (chartLibLoaded) return Promise.resolve();
+            if (chartLibLoading) return chartLibLoading;
+            chartLibLoading = new Promise(function(resolve, reject) {
+                var script = document.createElement('script');
+                script.src = 'https://unpkg.com/lightweight-charts@5.0.0/dist/lightweight-charts.standalone.production.js';
+                script.onload = function() {
+                    chartLibLoaded = true;
+                    chartLibLoading = null;
+                    resolve();
+                };
+                script.onerror = function() {
+                    chartLibLoading = null;
+                    reject(new Error('차트 라이브러리 로드 실패'));
+                };
+                document.head.appendChild(script);
+            });
+            return chartLibLoading;
+        }
 
         // Load chart data
         async function loadChartData() {
@@ -2896,8 +2948,16 @@
                 chartInstance = null;
             }
 
-            // Load and render chart
-            const chartData = await loadChartData();
+            // Load chart library + data in parallel
+            var chartLibResult = loadChartLibrary();
+            var chartDataResult = loadChartData();
+            try {
+                await chartLibResult;
+            } catch (e) {
+                container.innerHTML = '<div class="chart-loading">차트 라이브러리를 불러올 수 없습니다<br><small style="margin-top:8px;display:block;color:#8B95A1">인터넷 연결을 확인해주세요</small></div>';
+                return;
+            }
+            const chartData = await chartDataResult;
             const stockData = chartData ? chartData[stock.ticker] : null;
 
             if (!stockData || stockData.length === 0) {
@@ -4517,11 +4577,20 @@
             if (pageId !== 'home' && !renderedPages.has(pageId)) {
                 const renderFn = pageRenderMap[pageId];
                 if (renderFn) {
-                    // requestAnimationFrame으로 렌더링 예약 (메인 스레드 블로킹 방지)
-                    requestAnimationFrame(() => {
-                        renderFn();
-                        renderedPages.add(pageId);
-                    });
+                    if (!financialDataLoaded) {
+                        // 재무 데이터 로드 후 렌더링
+                        loadFinancialData().then(() => {
+                            requestAnimationFrame(() => {
+                                renderFn();
+                                renderedPages.add(pageId);
+                            });
+                        });
+                    } else {
+                        requestAnimationFrame(() => {
+                            renderFn();
+                            renderedPages.add(pageId);
+                        });
+                    }
                 }
             }
 
@@ -4574,31 +4643,34 @@
             renderHome();
             updatePageDates();
 
-            // 4. 성능 최적화: 브라우저 Idle 시간에 자주 사용하는 페이지 미리 렌더링
-            if ('requestIdleCallback' in window) {
-                // 우선순위 높은 페이지들을 Idle 시간에 미리 렌더링
-                const priorityPages = ['box-range', 'box-breakout', 'volume-explosion'];
-                let pageIndex = 0;
+            // 4. 재무 데이터 백그라운드 프리로드 + Idle 시간 프리렌더
+            // 홈 렌더링 후 백그라운드에서 재무 데이터 미리 로딩 시작
+            loadFinancialData().then(() => {
+                // 5. 성능 최적화: 브라우저 Idle 시간에 자주 사용하는 페이지 미리 렌더링
+                if ('requestIdleCallback' in window) {
+                    const priorityPages = ['box-range', 'box-breakout', 'volume-explosion'];
+                    let pageIndex = 0;
 
-                const preRenderNext = (deadline) => {
-                    while (pageIndex < priorityPages.length && deadline.timeRemaining() > 10) {
-                        const pageId = priorityPages[pageIndex];
-                        if (!renderedPages.has(pageId)) {
-                            const renderFn = pageRenderMap[pageId];
-                            if (renderFn) {
-                                renderFn();
-                                renderedPages.add(pageId);
+                    const preRenderNext = (deadline) => {
+                        while (pageIndex < priorityPages.length && deadline.timeRemaining() > 10) {
+                            const pageId = priorityPages[pageIndex];
+                            if (!renderedPages.has(pageId)) {
+                                const renderFn = pageRenderMap[pageId];
+                                if (renderFn) {
+                                    renderFn();
+                                    renderedPages.add(pageId);
+                                }
                             }
+                            pageIndex++;
                         }
-                        pageIndex++;
-                    }
-                    if (pageIndex < priorityPages.length) {
-                        requestIdleCallback(preRenderNext, { timeout: 2000 });
-                    }
-                };
+                        if (pageIndex < priorityPages.length) {
+                            requestIdleCallback(preRenderNext, { timeout: 2000 });
+                        }
+                    };
 
-                requestIdleCallback(preRenderNext, { timeout: 2000 });
-            }
+                    requestIdleCallback(preRenderNext, { timeout: 2000 });
+                }
+            });
 
             console.log('✅ 앱 초기화 완료 (Lazy Rendering 적용)');
         }
