@@ -1,51 +1,65 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-08T14:25:53.687746",
-    "totalCount": 3,
-    "screened_from": 1529
+    "lastUpdated": "2026-02-09T13:44:29.517275",
+    "totalCount": 4,
+    "screened_from": 1545
   },
   "data": [
     {
-      "ticker": "151860",
-      "name": "KG에코솔루션",
-      "price": 6260,
-      "change_rate": -1.42,
-      "breakout_date": "2026-01-28",
-      "resistance": 6170,
-      "pullback_ratio": 1.46,
-      "volume_decrease": 86,
-      "ma150": 5975,
+      "ticker": "388050",
+      "name": "지투파워",
+      "price": 9520,
+      "change_rate": 4.85,
+      "breakout_date": "2026-02-04",
+      "resistance": 9300,
+      "pullback_ratio": 2.37,
+      "volume_decrease": 65,
+      "ma150": 8650,
       "above_ma150": true,
-      "market_cap": 2979,
-      "updated_at": "2026-02-08T14:25:51.292314"
-    },
-    {
-      "ticker": "035600",
-      "name": "KG이니시스",
-      "price": 11250,
-      "change_rate": -2.43,
-      "breakout_date": "2026-01-28",
-      "resistance": 10950,
-      "pullback_ratio": 2.74,
-      "volume_decrease": 71,
-      "ma150": 10628,
-      "above_ma150": true,
-      "market_cap": 3099,
-      "updated_at": "2026-02-08T14:25:51.243810"
+      "market_cap": 1796,
+      "updated_at": "2026-02-09T13:44:24.536616"
     },
     {
       "ticker": "010690",
       "name": "화신",
-      "price": 8890,
-      "change_rate": -4.41,
+      "price": 8920,
+      "change_rate": 0.34,
       "breakout_date": "2026-01-16",
       "resistance": 9200,
-      "pullback_ratio": 3.37,
+      "pullback_ratio": 3.04,
       "volume_decrease": 95,
-      "ma150": 8527,
+      "ma150": 8531,
       "above_ma150": true,
-      "market_cap": 3104,
-      "updated_at": "2026-02-08T14:25:49.041781"
+      "market_cap": 3118,
+      "updated_at": "2026-02-09T13:44:19.611839"
+    },
+    {
+      "ticker": "151860",
+      "name": "KG에코솔루션",
+      "price": 6440,
+      "change_rate": 2.88,
+      "breakout_date": "2026-01-28",
+      "resistance": 6170,
+      "pullback_ratio": 4.38,
+      "volume_decrease": 87,
+      "ma150": 5975,
+      "above_ma150": true,
+      "market_cap": 3056,
+      "updated_at": "2026-02-09T13:44:22.069198"
+    },
+    {
+      "ticker": "035600",
+      "name": "KG이니시스",
+      "price": 11440,
+      "change_rate": 1.69,
+      "breakout_date": "2026-01-28",
+      "resistance": 10950,
+      "pullback_ratio": 4.47,
+      "volume_decrease": 77,
+      "ma150": 10630,
+      "above_ma150": true,
+      "market_cap": 3163,
+      "updated_at": "2026-02-09T13:44:22.011058"
     }
   ]
 }
