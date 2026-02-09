@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-02-08T14:30:56.717277",
-    "total_count": 5,
+    "updated_at": "2026-02-09T18:27:42.273309",
+    "total_count": 4,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -12,62 +12,50 @@
     {
       "ticker": "207940",
       "name": "삼성바이오로직스",
-      "current_price": 1668000,
-      "ma60w": 1622181,
-      "ma60w_gap": 2.82,
+      "current_price": 1694000,
+      "ma60w": 1612038,
+      "ma60w_gap": 5.08,
       "op_margin": 39.8,
       "op_growth_3y": 34.2,
-      "market_cap": 772133,
+      "market_cap": 784168,
       "sector": "",
-      "updated_at": "2026-02-08T14:27:02.864991"
+      "updated_at": "2026-02-09T18:24:54.461634"
     },
     {
       "ticker": "035420",
       "name": "NAVER",
-      "current_price": 249000,
-      "ma60w": 228135,
-      "ma60w_gap": 9.15,
+      "current_price": 250000,
+      "ma60w": 228226,
+      "ma60w_gap": 9.54,
       "op_margin": 18.1,
       "op_growth_3y": 18.2,
-      "market_cap": 390563,
+      "market_cap": 392131,
       "sector": "",
-      "updated_at": "2026-02-08T14:27:15.911717"
+      "updated_at": "2026-02-09T18:25:05.796305"
     },
     {
       "ticker": "012510",
       "name": "더존비즈온",
-      "current_price": 83600,
-      "ma60w": 77148,
-      "ma60w_gap": 8.36,
+      "current_price": 84900,
+      "ma60w": 77188,
+      "ma60w_gap": 9.99,
       "op_margin": 25.6,
       "op_growth_3y": 34.8,
-      "market_cap": 25400,
+      "market_cap": 25794,
       "sector": "",
-      "updated_at": "2026-02-08T14:30:03.995670"
-    },
-    {
-      "ticker": "069620",
-      "name": "대웅제약",
-      "current_price": 163300,
-      "ma60w": 151033,
-      "ma60w_gap": 8.12,
-      "op_margin": 13.1,
-      "op_growth_3y": 29.0,
-      "market_cap": 18920,
-      "sector": "",
-      "updated_at": "2026-02-08T14:30:32.787875"
+      "updated_at": "2026-02-09T18:27:06.386984"
     },
     {
       "ticker": "003570",
       "name": "SNT다이내믹스",
-      "current_price": 49150,
-      "ma60w": 45144,
-      "ma60w_gap": 8.87,
+      "current_price": 49650,
+      "ma60w": 45163,
+      "ma60w_gap": 9.93,
       "op_margin": 13.8,
       "op_growth_3y": 69.3,
-      "market_cap": 16343,
+      "market_cap": 16509,
       "sector": "",
-      "updated_at": "2026-02-08T14:30:46.922132"
+      "updated_at": "2026-02-09T18:27:38.714834"
     }
   ]
 }
