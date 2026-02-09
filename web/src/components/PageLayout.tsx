@@ -15,6 +15,16 @@ interface PageLayoutProps {
   children: ReactNode;
 }
 
+const iconSvgMap: Record<string, ReactNode> = {
+  '📦': <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>,
+  '🚀': <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m4.5 16.5 2-2a5 5 0 0 1 3.5-1.5h4a5 5 0 0 1 3.5 1.5l2 2"/><path d="M5.5 6.5 12 2l6.5 4.5"/><path d="M12 2v6"/></svg>,
+  '📈': <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>,
+  '🎯': <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>,
+  '🏜️': <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg>,
+  '💥': <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
+  '🏭': <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>,
+};
+
 function PageLayout({
   icon,
   title,
@@ -44,13 +54,16 @@ function PageLayout({
         className="inline-flex items-center gap-2 mb-8 text-sm hover:opacity-80 transition-opacity"
         style={{ color: 'var(--color-text-secondary)' }}
       >
-        ← 홈으로
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+        홈으로
       </Link>
 
       {/* 헤더 */}
       <header className="mb-8">
         <div className="flex items-center gap-3 mb-2 flex-wrap">
-          <span className="text-3xl">{icon}</span>
+          <span className="flex items-center" style={{ color: 'var(--color-accent)' }}>{iconSvgMap[icon] || icon}</span>
           <h1
             className="text-2xl md:text-3xl font-bold"
             style={{ color: 'var(--color-text-primary)' }}
