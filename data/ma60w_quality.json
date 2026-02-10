@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-02-09T18:27:42.273309",
-    "total_count": 4,
+    "updated_at": "2026-02-10T18:31:10.383081",
+    "total_count": 6,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -12,50 +12,74 @@
     {
       "ticker": "207940",
       "name": "삼성바이오로직스",
-      "current_price": 1694000,
-      "ma60w": 1612038,
-      "ma60w_gap": 5.08,
+      "current_price": 1710000,
+      "ma60w": 1611241,
+      "ma60w_gap": 6.13,
       "op_margin": 39.8,
       "op_growth_3y": 34.2,
-      "market_cap": 784168,
+      "market_cap": 791575,
       "sector": "",
-      "updated_at": "2026-02-09T18:24:54.461634"
+      "updated_at": "2026-02-10T18:27:44.692531"
     },
     {
-      "ticker": "035420",
-      "name": "NAVER",
-      "current_price": 250000,
-      "ma60w": 228226,
-      "ma60w_gap": 9.54,
-      "op_margin": 18.1,
-      "op_growth_3y": 18.2,
-      "market_cap": 392131,
+      "ticker": "011200",
+      "name": "HMM",
+      "current_price": 21200,
+      "ma60w": 20495,
+      "ma60w_gap": 3.44,
+      "op_margin": 14.0,
+      "op_growth_3y": 116.7,
+      "market_cap": 199966,
       "sector": "",
-      "updated_at": "2026-02-09T18:25:05.796305"
+      "updated_at": "2026-02-10T18:28:20.112913"
+    },
+    {
+      "ticker": "003230",
+      "name": "삼양식품",
+      "current_price": 1148000,
+      "ma60w": 1134340,
+      "ma60w_gap": 1.2,
+      "op_margin": 22.5,
+      "op_growth_3y": 81.9,
+      "market_cap": 86479,
+      "sector": "",
+      "updated_at": "2026-02-10T18:28:56.271753"
+    },
+    {
+      "ticker": "021240",
+      "name": "코웨이",
+      "current_price": 87300,
+      "ma60w": 86190,
+      "ma60w_gap": 1.29,
+      "op_margin": 18.9,
+      "op_growth_3y": 11.2,
+      "market_cap": 62776,
+      "sector": "",
+      "updated_at": "2026-02-10T18:29:14.432052"
     },
     {
       "ticker": "012510",
       "name": "더존비즈온",
-      "current_price": 84900,
-      "ma60w": 77188,
-      "ma60w_gap": 9.99,
+      "current_price": 84300,
+      "ma60w": 77017,
+      "ma60w_gap": 9.46,
       "op_margin": 25.6,
       "op_growth_3y": 34.8,
-      "market_cap": 25794,
+      "market_cap": 25612,
       "sector": "",
-      "updated_at": "2026-02-09T18:27:06.386984"
+      "updated_at": "2026-02-10T18:30:27.114991"
     },
     {
       "ticker": "003570",
       "name": "SNT다이내믹스",
       "current_price": 49650,
-      "ma60w": 45163,
-      "ma60w_gap": 9.93,
+      "ma60w": 45198,
+      "ma60w_gap": 9.85,
       "op_margin": 13.8,
       "op_growth_3y": 69.3,
       "market_cap": 16509,
       "sector": "",
-      "updated_at": "2026-02-09T18:27:38.714834"
+      "updated_at": "2026-02-10T18:31:07.425616"
     }
   ]
 }
