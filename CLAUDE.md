@@ -6,7 +6,7 @@
 
 | 항목 | 값 |
 |------|-----|
-| **배포 파일** | `주식_스크리너_전체.html` (단독 SPA, ~4600줄) |
+| **배포 파일** | `주식_스크리너_전체.html` (단독 SPA, ~4800줄) |
 | **배포 URL** | https://hsh2578.github.io/stock-screener-kr/ |
 | **GitHub** | `hsh2578/stock-screener-kr` |
 | **로컬 경로** | `C:\Users\hsh\Desktop\vibecoding\주식웹사이트\국내주식웹사이트\stock-screener-kr` |
@@ -23,7 +23,7 @@
 ```
 stock-screener-kr/
 ├── 주식_스크리너_전체.html    ★ 배포되는 메인 파일 (CSS+HTML+JS 올인원 SPA)
-├── run_screeners.py           ★ 메인 스크리너 엔진 (9개 기술적 스크리너)
+├── run_screeners.py           ★ 메인 스크리너 엔진 (12개 기술적 스크리너 + ML 통합)
 ├── naver_finance.py             FnGuide 크롤러 (PER/PBR/성장률)
 ├── test_value_screener.py       저평가 우량주 스크리너 (TTM 재무)
 ├── ma60w_quality.py             60주선 우량주 스크리너
@@ -36,6 +36,7 @@ stock-screener-kr/
 │   ├── volume_explosion.json    거래량 폭발
 │   ├── volume_dry_up.json       거래량 급감
 │   ├── new_high_52w.json        52주 신고가
+│   ├── near_high_52w.json       52주 신고가 근접
 │   ├── ma_convergence.json      이평선 수렴
 │   ├── bottom_breakout.json     바닥 탈출
 │   ├── fallen_rebound.json      낙폭과대 반등
@@ -45,13 +46,20 @@ stock-screener-kr/
 │   ├── financial_data.json      재무 데이터 캐시
 │   └── chart_data.json          TradingView 차트 데이터 (37MB+)
 ├── scripts/screeners/           모듈화된 스크리너 구현체
-├── ml/                          ML 모델 (박스권 돌파, 52주 신고가 예측)
+├── ml/                          ML 모델 (3개: 박스권 돌파, 52주 신고가, 52주 근접)
+│   ├── models/box_breakout/     박스권 돌파 ML (XGBoost + Ridge)
+│   ├── models/52w_high/         52주 신고가 ML (LightGBM)
+│   ├── models/near_high_52w/    52주 근접 ML (Lasso + LogisticRegression)
+│   ├── src/                     학습 데이터 수집 + 모델 훈련 스크립트
+│   └── data/                    학습 데이터 CSV
+├── docs/                        프로젝트 문서
+│   └── 스크리너_조건식_설명서.md 전체 스크리너 조건식/로직 설명
 ├── .github/workflows/
-│   ├── deploy.yml               평일 4회 자동 배포
+│   ├── deploy.yml               평일 4회 자동 배포 (OHLCV 캐시 사용)
 │   ├── value-screener.yml       토요일 가치주 스크리너
-│   └── ml-retrain.yml           월간 ML 재훈련
+│   └── ml-retrain.yml           월간 ML 재훈련 (3개 모델)
 ├── web/                         ⚠️ React 앱 (미배포, 참고용)
-└── .cache/                      OHLCV pickle 캐시 (자동 생성)
+└── .cache/                      OHLCV pickle 캐시 (CI에서도 actions/cache로 유지)
 ```
 
 ---
@@ -73,9 +81,9 @@ stock-screener-kr/
 | 564~1515 | CSS: 유틸리티/반응형 | 정렬, 접근성, 토스트, 차트, 필터, 페이지네이션, 반응형 |
 | 1517~2093 | `<body>` HTML | **정적 HTML 페이지들** |
 | 1539~1554 | HTML: 홈 | `id="page-home"` |
-| 1555~2090 | HTML: 상세페이지 ×13 | `id="page-box-range"` ~ `id="page-ma-convergence"` |
+| 1555~2090 | HTML: 상세페이지 ×14 | `id="page-box-range"` ~ `id="page-ma-convergence"` |
 | 2094~2125 | `<script>` #1 | TradingView 라이브러리 + Lazy Load |
-| 2127~4608 | `<script>` #2 | **전체 JavaScript** |
+| 2127~4823 | `<script>` #2 | **전체 JavaScript** |
 | 2130~2180 | JS: 상태 관리 | 글로벌 변수, 데이터 저장소 |
 | 2183~2315 | JS: 데이터 로딩 | `loadAllData()`, 로딩/에러 UI |
 | 2318~2436 | JS: 아이콘/스크리너 정의 | `ICONS` 객체, `screenerGroups` 배열 |
@@ -92,7 +100,7 @@ stock-screener-kr/
 ```
 page-home, page-box-range, page-box-breakout, page-box-breakout-simple,
 page-pullback, page-volume-dry-up, page-volume-explosion, page-new-high-52w,
-page-bottom-breakout, page-fallen-rebound, page-sector-stage,
+page-near-high-52w, page-bottom-breakout, page-fallen-rebound, page-sector-stage,
 page-value-stocks, page-ma60w-quality, page-ma-convergence
 ```
 
@@ -106,7 +114,7 @@ const ICONS = { package, rocket, trendUp, target, volDown, zap, mountain, ... };
 const screenerGroups = [
     { title: '박스권 패턴', icon: ICONS.package, screeners: [...] },
     { title: '거래량 분석', icon: ICONS.barChart, screeners: [...] },
-    // ... 6개 그룹, 13개 스크리너
+    // ... 6개 그룹, 14개 스크리너
 ];
 ```
 
@@ -198,37 +206,52 @@ python ma60w_quality.py         # 60주선 우량주
 
 ---
 
-## 8. 알려진 제약사항
+## 8. ML 모델 정보
 
-- FDR 크롤링 속도: 1,529종목 × 800일 = 평일 7분, 주말 17분+
+| 스크리너 | 회귀 모델 | 분류 모델 | 피처 수 | 예측 내용 |
+|----------|----------|----------|---------|----------|
+| 박스권 돌파 | Ridge | XGBoost | 15개 | 20일 수익률 / 10%+ 상승 확률 |
+| 52주 신고가 | LGBMRegressor | LGBMClassifier | 14개 | 20일 수익률 / 15%+ 상승 확률 |
+| 52주 근접 | Lasso | LogisticRegression | 13개 | 20일 수익률 / 10일 내 돌파 확률 |
+
+- AI점수 공식: `확률 × 0.7 + min(100, max(0, 예상수익 × 3)) × 0.3`
+- 상세 조건식: `docs/스크리너_조건식_설명서.md` 참조
+
+---
+
+## 9. 알려진 제약사항
+
+- FDR 크롤링 속도: 로컬 ~3.5분 (캐시), CI ~5분 (증분 캐시)
 - `fdr.DataReader()`에 타임아웃 없음 → 간헐적 멈춤 가능
 - chart_data.json이 37MB+로 매우 큼 (첫 로딩 시 지연)
 - `pd.DataFrame._append`는 deprecated → `pd.concat()` 사용
 - GitHub Actions 스케줄은 최대 2시간 지연 가능
+- CI 캐시: `actions/cache`로 `.cache/` 유지 (당일 pkl 삭제 → 증분 업데이트)
 
 ---
 
-## 9. 스크리너 목록 (13개)
+## 10. 스크리너 목록 (14개)
 
-| ID | 한글명 | JSON 파일 | 핵심 조건 |
-|----|--------|-----------|----------|
-| box-range | 박스권 횡보 | box_range.json | 60일+ 횡보, ATR×5, 지지/저항 터치 |
-| box-breakout | 박스권 돌파 (거래량) | box_breakout.json | 저항선 돌파 + 거래량 2배 + 150MA 위 |
-| box-breakout-simple | 박스권 돌파 (단순) | box_breakout_simple.json | 저항선 돌파, 10일 이내 |
-| pullback | 풀백 | pullback.json | 돌파 후 되돌림 ±5%, 거래량 -50% |
-| volume-explosion | 거래량 폭발 | volume_explosion.json | 40일 평균 6배 + 6% 양봉 |
-| volume-dry-up | 거래량 급감 | volume_dry_up.json | 8%+3배 급등 후 거래량 50% 감소 |
-| new-high-52w | 52주 신고가 | new_high_52w.json | 52주 신고가, 8거래일 이내 |
-| ma-convergence | 이평선 수렴 | ma_convergence.json | MA 수렴 + 정배열 + 신고가 |
-| bottom-breakout | 바닥 탈출 | bottom_breakout.json | 150MA 크로스오버 + MACD 확인 |
-| fallen-rebound | 낙폭과대 반등 | fallen_rebound.json | 52주 고가 -40% + 바닥 상승 |
-| sector-stage | 업종별 4단계 | sector_stage.json | 업종 추세 분석 (4단계) |
-| value-stocks | 저평가 우량주 | value_stocks.json | PER/PBR/배당 기반 (TTM) |
-| ma60w-quality | 60주선 우량주 | ma60w_quality.json | 60주 EMA 지지 + 영업이익률/성장률 |
+| ID | 한글명 | JSON 파일 | 핵심 조건 | ML |
+|----|--------|-----------|----------|----|
+| box-range | 박스권 횡보 | box_range.json | 60일+ 횡보, ATR×6, 지지/저항 터치 | - |
+| box-breakout | 박스권 돌파 (거래량) | box_breakout.json | 저항선 돌파 + 거래량 2배 + 150MA 위 | O |
+| box-breakout-simple | 박스권 돌파 (단순) | box_breakout_simple.json | 저항선 돌파, 10일 이내 | O |
+| pullback | 풀백 | pullback.json | 돌파 후 되돌림 ±5%, 거래량 -50% | - |
+| volume-explosion | 거래량 폭발 | volume_explosion.json | 40일 평균 6배 + 6% 양봉 | - |
+| volume-dry-up | 거래량 급감 | volume_dry_up.json | 8%+4배 급등 후 거래량 60% 감소 | - |
+| new-high-52w | 52주 신고가 | new_high_52w.json | 52주 신고가 + 거래량 1.5배, 8거래일 | O |
+| near-high-52w | 52주 신고가 근접 | near_high_52w.json | 52주 고가 5% 이내 근접 (미돌파) | O |
+| ma-convergence | 이평선 수렴 | ma_convergence.json | MA 수렴 + 정배열 + 신고가 | - |
+| bottom-breakout | 바닥 탈출 | bottom_breakout.json | 150MA 크로스오버 + 점수제 6점+ | - |
+| fallen-rebound | 낙폭과대 반등 | fallen_rebound.json | 52주 고가 -40% + 바닥 상승 | - |
+| sector-stage | 업종별 4단계 | sector_stage.json | 업종 추세 분석 (와인스테인 4단계) | - |
+| value-stocks | 저평가 우량주 | value_stocks.json | PER/PBR/배당 기반 (TTM) | - |
+| ma60w-quality | 60주선 우량주 | ma60w_quality.json | 60주 EMA 지지 + 영업이익률/성장률 | - |
 
 ---
 
-## 10. 언어 및 스타일
+## 11. 언어 및 스타일
 
 - 사용자 대면 텍스트: **한국어**
 - 기술 용어: 영어 허용
