@@ -1845,6 +1845,42 @@
         </div>
     </div>
 
+    <!-- Near High 52w Page -->
+    <div id="page-near-high-52w" class="page">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">52주 신고가 근접</li>
+                </ol>
+            </nav>
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
+            <header class="page-header">
+                <div class="title-row">
+                    <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M2 20l6.5-14 4 7 3-4 6.5 11H2z"/></svg></span>
+                    <h1>52주 신고가 근접</h1>
+                    <span class="badge badge-warning">근접</span>
+                </div>
+                <p class="desc">52주 신고가 미돌파, 3% 이내 근접 종목 (돌파 전 매수 타이밍)</p>
+                <div class="meta">
+                    <span class="date" id="near-high-52w-date">데이터 기준: -</span>
+                    <span><span class="count" id="near-high-52w-count">-</span>개 종목</span>
+                </div>
+            </header>
+            <div id="near-high-52w-filter"></div>
+            <div class="card table-card">
+                <div class="table-wrapper">
+                    <table id="near-high-52w-table" role="table" aria-label="52주 신고가 근접 종목 목록"><thead></thead><tbody></tbody></table>
+                </div>
+                <div id="near-high-52w-mobile" class="mobile-card-list"></div>
+                <div id="near-high-52w-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bottom Breakout Page -->
     <div id="page-bottom-breakout" class="page">
         <div class="container">
@@ -2140,6 +2176,7 @@
             volumeExplosion: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
             fallenRebound: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
             newHigh52w: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
+            nearHigh52w: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
             bottomBreakout: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
             sectorStage: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
             valueStocks: { meta: { updated_at: null, total_count: 0 }, data: [] },
@@ -2162,6 +2199,7 @@
             volumeExplosion: 'volume_explosion.json',
             fallenRebound: 'fallen_rebound.json',
             newHigh52w: 'new_high_52w.json',
+            nearHigh52w: 'near_high_52w.json',
             bottomBreakout: 'bottom_breakout.json',
             sectorStage: 'sector_stage.json',
             valueStocks: 'value_stocks.json',
@@ -2395,6 +2433,7 @@
                 desc: '강세 추세와 돌파',
                 screeners: [
                     { id: 'new-high-52w', icon: ICONS.mountain, title: '52주 신고가', desc: '신고가 돌파 후 8거래일 이내', badge: { text: '신고가', type: 'success' } },
+                    { id: 'near-high-52w', icon: ICONS.mountain, title: '52주 신고가 근접', desc: '신고가 3% 이내 근접 (미돌파)', badge: { text: '근접', type: 'warning' } },
                     { id: 'ma-convergence', icon: ICONS.convergence, title: '이평선 수렴', desc: '이평선 수렴 + 정배열 + 신고가', badge: { text: '수렴', type: 'info' } }
                 ]
             },
@@ -2620,6 +2659,7 @@
             volumeExplosion: 1,
             fallenRebound: 1,
             newHigh52w: 1,
+            nearHigh52w: 1,
             bottomBreakout: 1,
             valueStocks: 1,
             ma60wQuality: 1,
@@ -2839,6 +2879,7 @@
             'volume-dry-up-table': 'volumeDryUp',
             'volume-explosion-table': 'volumeExplosion',
             'new-high-52w-table': 'newHigh52w',
+            'near-high-52w-table': 'nearHigh52w',
             'value-stocks-table': 'valueStocks',
             'fallen-rebound-table': 'fallenRebound',
             'bottom-breakout-table': 'bottomBreakout',
@@ -3120,6 +3161,7 @@
                 'volume-dry-up-date': getMeta('volumeDryUp', 'lastUpdated'),
                 'volume-explosion-date': getMeta('volumeExplosion', 'lastUpdated'),
                 'new-high-52w-date': getMeta('newHigh52w', 'lastUpdated'),
+                'near-high-52w-date': getMeta('nearHigh52w', 'lastUpdated'),
                 'bottom-breakout-date': getMeta('bottomBreakout', 'lastUpdated'),
                 'fallen-rebound-date': getMeta('fallenRebound', 'lastUpdated'),
                 'sector-stage-date': getMeta('sectorStage', 'lastUpdated'),
@@ -3162,6 +3204,7 @@
                 'volume-explosion': getCount('volumeExplosion', 'totalCount'),
                 'fallen-rebound': getCount('fallenRebound', 'totalCount', 'length'),
                 'new-high-52w': getCount('newHigh52w', 'totalCount'),
+                'near-high-52w': getCount('nearHigh52w', 'totalCount'),
                 'bottom-breakout': getCount('bottomBreakout', 'totalCount', 'length'),
                 'sector-stage': getCount('sectorStage', 'totalCount'),
                 'value-stocks': getCount('valueStocks', 'total_count', 'length'),
@@ -4252,6 +4295,110 @@
             renderPagination('new-high-52w-pagination', 'newHigh52w', sortedData.length, renderNewHigh52w);
         }
 
+        // 52주 신고가 근접 필터 상태 (기본 3%)
+        let nearHighFilter = 3;
+
+        function renderNearHigh52w() {
+            // 렌더링 캐시 확인 (nearHighFilter를 filterState에 포함)
+            const cacheKey = 'near-high-52w-table';
+            const dataHash = getDataHash(
+                DATA.nearHigh52w && DATA.nearHigh52w.data,
+                nearHighFilter,
+                sortState[cacheKey],
+                paginationState.nearHigh52w
+            );
+            if (shouldSkipRender(cacheKey, dataHash)) {
+                return;
+            }
+
+            // 기본 정렬: 경과일 오름차순 (0일부터)
+            if (!sortState['near-high-52w-table']) {
+                sortState['near-high-52w-table'] = { key: 'days_since', direction: 'asc' };
+            }
+
+            const allData = DATA.nearHigh52w && DATA.nearHigh52w.data || [];
+            // 필터: 괴리율 기준 + active는 괴리율 필터, breakout/dropped는 항상 표시
+            const filteredData = allData.filter(s =>
+                s.status === 'breakout' || s.status === 'dropped' ||
+                s.percent_from_high >= -nearHighFilter
+            );
+
+            document.getElementById('near-high-52w-count').textContent = filteredData.length;
+
+            // 필터 버튼 렌더링
+            const filterContainer = document.getElementById('near-high-52w-filter');
+            if (filterContainer) {
+                filterContainer.innerHTML = `
+                    <div class="filter-group" style="margin-bottom:12px;display:flex;gap:6px;">
+                        <button class="filter-btn ${nearHighFilter === 3 ? 'active' : ''}" onclick="nearHighFilter=3;paginationState.nearHigh52w=1;renderCache.delete('near-high-52w-table');renderNearHigh52w();">3% 이내</button>
+                        <button class="filter-btn ${nearHighFilter === 5 ? 'active' : ''}" onclick="nearHighFilter=5;paginationState.nearHigh52w=1;renderCache.delete('near-high-52w-table');renderNearHigh52w();">5% 이내</button>
+                    </div>
+                `;
+            }
+
+            const statusBadge = (status) => {
+                if (status === 'breakout') return '<span class="badge badge-success" style="font-size:11px;">돌파</span>';
+                if (status === 'dropped') return '<span class="badge badge-danger" style="font-size:11px;">이탈</span>';
+                return '';
+            };
+
+            const headers = [
+                { label: '종목명', key: 'name' },
+                { label: '현재가', align: 'text-right', key: 'price' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' },
+                { label: 'PER', align: 'text-right', key: 'per' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
+                { label: '등락률', align: 'text-right', key: 'change_rate' },
+                { label: 'AI점수', align: 'text-right', key: 'ai_score' },
+                { label: '돌파확률', align: 'text-right', key: 'breakout_probability' },
+                { label: '예상수익', align: 'text-right', key: 'predicted_gain' },
+                { label: '52주고가', align: 'text-right', key: 'high_52w' },
+                { label: '괴리율', align: 'text-right', key: 'percent_from_high' },
+                { label: '고가일', align: 'text-right', key: 'high_52w_date' },
+                { label: '경과일', align: 'text-right', key: 'days_since' }
+            ];
+            const state = sortState['near-high-52w-table'] || {};
+            const enrichedData = enrichWithFinancials(filteredData);
+            const sortedData = sortData(enrichedData, state.key, state.direction);
+            const paginatedData = paginate(sortedData, paginationState.nearHigh52w);
+
+            const formatHighDate = (dateStr) => {
+                if (!dateStr) return '-';
+                const date = new Date(dateStr);
+                return (date.getMonth() + 1) + '월' + date.getDate() + '일';
+            };
+
+            const rows = paginatedData.map(s => `
+                <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate||0})})'>
+                    <td><div class="stock-name">${s.name} ${statusBadge(s.status)}</div><div class="stock-ticker">${s.ticker}</div></td>
+                    <td class="text-right">${formatNumber(s.price)}원</td>
+                    <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                    <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
+                    <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
+                    <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
+                    <td class="text-right"><span class="ai-score ${getAIScoreClass(s.ai_score)}">${s.ai_score ? s.ai_score.toFixed(0) : '-'}</span></td>
+                    <td class="text-right">${s.breakout_probability != null ? '<span style="color:' + (s.breakout_probability >= 60 ? '#16a34a' : s.breakout_probability >= 50 ? '#ca8a04' : '#dc2626') + '">' + s.breakout_probability.toFixed(1) + '%</span>' : '-'}</td>
+                    <td class="text-right ${getColor(s.predicted_gain)}">${s.predicted_gain != null ? s.predicted_gain.toFixed(1) + '%' : '-'}</td>
+                    <td class="text-right">${formatNumber(s.high_52w)}원</td>
+                    <td class="text-right ${s.status === 'breakout' ? 'positive' : 'negative'}">${s.percent_from_high > 0 ? '+' : ''}${s.percent_from_high.toFixed(2)}%</td>
+                    <td class="text-right">${formatHighDate(s.high_52w_date)}</td>
+                    <td class="text-right">${s.days_since != null ? s.days_since + '일' : '-'}</td>
+                </tr>
+            `).join('');
+            renderTable('near-high-52w-table', headers, rows, renderNearHigh52w);
+            renderMobileCards('near-high-52w-mobile', paginatedData, {
+                extraFields: [
+                    { label: 'AI점수', key: 'ai_score', format: function(s) { return s.ai_score ? s.ai_score.toFixed(0) + '점' : '-'; } },
+                    { label: '돌파확률', key: 'breakout_probability', format: function(s) { return s.breakout_probability != null ? s.breakout_probability.toFixed(1) + '%' : '-'; } },
+                    { label: '예상수익', key: 'predicted_gain', format: function(s) { return s.predicted_gain != null ? s.predicted_gain.toFixed(1) + '%' : '-'; } },
+                    { label: '52주고가', key: 'high_52w', format: function(s) { return formatNumber(s.high_52w) + '원'; } },
+                    { label: '괴리율', key: 'percent_from_high', format: function(s) { return s.percent_from_high.toFixed(2) + '%'; } },
+                    { label: '경과일', key: 'days_since', format: function(s) { return s.days_since != null ? s.days_since + '일' : '-'; } }
+                ]
+            });
+            renderPagination('near-high-52w-pagination', 'nearHigh52w', sortedData.length, renderNearHigh52w);
+        }
+
         function renderBottomBreakout() {
             // 렌더링 캐시 확인
             const cacheKey = 'bottom-breakout-table';
@@ -4560,6 +4707,7 @@
             'volume-explosion': renderVolumeExplosion,
             'fallen-rebound': renderFallenRebound,
             'new-high-52w': renderNewHigh52w,
+            'near-high-52w': renderNearHigh52w,
             'bottom-breakout': renderBottomBreakout,
             'sector-stage': renderSectorStage,
             'value-stocks': renderValueStocks,
@@ -4605,6 +4753,7 @@
                 'volume-explosion': '거래량 폭발',
                 'fallen-rebound': '낙폭과대 반등',
                 'new-high-52w': '52주 신고가 돌파',
+                'near-high-52w': '52주 신고가 근접',
                 'bottom-breakout': '바닥 탈출',
                 'sector-stage': '업종별 4단계',
                 'value-stocks': '저평가 우량주',

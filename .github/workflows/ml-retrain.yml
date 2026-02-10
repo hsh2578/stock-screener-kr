@@ -70,6 +70,7 @@ jobs:
         run: |
           mkdir -p ml/data
           mkdir -p ml/models/52w_high
+          mkdir -p ml/models/near_high_52w
           mkdir -p ml/.cache
 
       # =========================================================================
@@ -95,6 +96,26 @@ jobs:
           echo "=========================================="
           cd ml/src
           python final_model.py
+
+      # =========================================================================
+      # 52주 신고가 근접 모델
+      # =========================================================================
+      - name: 📊 52주 신고가 근접 - 훈련 데이터 수집
+        if: github.event.inputs.force_data_collection == 'true' || !hashFiles('ml/data/near_high_training_data.csv')
+        run: |
+          echo "=========================================="
+          echo "52주 신고가 근접 훈련 데이터 수집 시작"
+          echo "=========================================="
+          cd ml/src
+          python collect_near_high_data.py
+
+      - name: 🧠 52주 신고가 근접 - 모델 학습
+        run: |
+          echo "=========================================="
+          echo "52주 신고가 근접 모델 학습 시작"
+          echo "=========================================="
+          cd ml/src
+          python train_near_high.py
 
       # =========================================================================
       # 박스권 돌파 모델
@@ -159,6 +180,7 @@ jobs:
           git commit -m "🤖 ML 모델 재학습: ${COMMIT_DATE}
 
           - 52주 신고가 모델 업데이트
+          - 52주 신고가 근접 모델 업데이트
           - 박스권 돌파 모델 업데이트
           - 최신 주가 데이터 반영"
           git push
@@ -173,6 +195,9 @@ jobs:
           echo "[52주 신고가 모델]"
           ls -lh ml/models/52w_high/ 2>/dev/null || echo "  (파일 없음)"
           echo ""
+          echo "[52주 신고가 근접 모델]"
+          ls -lh ml/models/near_high_52w/ 2>/dev/null || echo "  (파일 없음)"
+          echo ""
           echo "[박스권 돌파 모델]"
           ls -lh ml/models/*.joblib ml/models/*.json 2>/dev/null || echo "  (파일 없음)"
           echo ""
@@ -181,6 +206,9 @@ jobs:
           echo "=========================================="
           if [ -f "ml/data/training_data_v2.csv" ]; then
             echo "52주 신고가: $(wc -l < ml/data/training_data_v2.csv) 샘플"
+          fi
+          if [ -f "ml/data/near_high_training_data.csv" ]; then
+            echo "52주 신고가 근접: $(wc -l < ml/data/near_high_training_data.csv) 샘플"
           fi
           if [ -f "ml/data/box_breakout_history.csv" ]; then
             echo "박스권 돌파: $(wc -l < ml/data/box_breakout_history.csv) 샘플"

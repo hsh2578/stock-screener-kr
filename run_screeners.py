@@ -24,6 +24,10 @@ import threading
 import joblib
 from pathlib import Path
 
+# sklearn 모델 사전 임포트 (pickle 역직렬화 시 순환 임포트 방지)
+from sklearn.linear_model import Lasso, LogisticRegression
+from sklearn.preprocessing import StandardScaler
+
 # 로깅 설정
 logging.basicConfig(
     level=logging.INFO,
@@ -126,6 +130,24 @@ _52w_regressor = None
 _52w_classifier = None
 _52w_scaler = None
 _52w_models_loaded = False
+
+# ============================================================================
+# ML 모델 (52주 신고가 근접)
+# ============================================================================
+_near_high_regressor = None
+_near_high_classifier = None
+_near_high_scaler = None
+_near_high_models_loaded = False
+
+# 52주 신고가 근접 ML 피처 (13개)
+FEATURES_NEAR_HIGH = [
+    'gap_pct', 'resistance_tests', 'days_since_high',
+    'momentum_5d', 'volume_ratio', 'volume_trend',
+    'volatility_contraction', 'atr_pct',
+    'ma_alignment', 'trend_strength',
+    'rs_vs_market', 'market_return',
+    'pct_from_52w_low'
+]
 
 # 52주 신고가 ML 피처 (14개)
 FEATURES_52W = [
@@ -397,6 +419,215 @@ def predict_52w_ml_batch(features_list):
         return results
     except Exception as e:
         print(f"[ML] 52주 신고가 배치 예측 실패: {e}")
+        return [(None, None)] * len(features_list)
+
+
+# ============================================================================
+# ML 함수 (52주 신고가 근접)
+# ============================================================================
+
+def load_near_high_models():
+    """52주 신고가 근접 ML 모델 로드"""
+    global _near_high_regressor, _near_high_classifier, _near_high_scaler, _near_high_models_loaded
+
+    if _near_high_models_loaded:
+        return True
+
+    model_dir = MODEL_DIR / "near_high_52w"
+    reg_path = model_dir / "regressor.pkl"
+    cls_path = model_dir / "classifier.pkl"
+    scaler_path = model_dir / "scaler.pkl"
+
+    try:
+        if all(p.exists() for p in [reg_path, cls_path, scaler_path]):
+            with open(reg_path, 'rb') as f:
+                _near_high_regressor = pickle.load(f)
+            with open(cls_path, 'rb') as f:
+                _near_high_classifier = pickle.load(f)
+            with open(scaler_path, 'rb') as f:
+                _near_high_scaler = pickle.load(f)
+            _near_high_models_loaded = True
+            print("[ML] 52주 신고가 근접 모델 로드 완료")
+            return True
+        else:
+            print("[ML] 52주 신고가 근접 모델 파일 없음")
+            return False
+    except Exception as e:
+        print(f"[ML] 52주 신고가 근접 모델 로드 실패: {e}")
+        return False
+
+
+def calculate_near_high_features(df, event_idx, high_52w):
+    """
+    52주 신고가 근접 ML 피처 계산 (13개)
+
+    학습 데이터(collect_near_high_data.py)와 동일한 로직.
+    """
+    global _kospi_data
+
+    try:
+        if event_idx < 220:
+            return None
+
+        close = df['Close']
+        high = df['High']
+        low = df['Low']
+        volume = df['Volume']
+
+        event_price = close.iloc[event_idx]
+        if event_price <= 0:
+            return None
+
+        # 1. gap_pct: 괴리율
+        gap_pct = (event_price / high_52w - 1) * 100
+
+        # 2. resistance_tests: 최근 60일 중 고가 5% 이내 종가 일수
+        test_start = max(0, event_idx - 60)
+        test_count = 0
+        for d in range(test_start, event_idx):
+            d_gap = (high_52w - close.iloc[d]) / high_52w * 100
+            if 0 < d_gap <= NEAR_HIGH_52W_THRESHOLD:
+                test_count += 1
+        resistance_tests = test_count
+
+        # 3. days_since_high: 52주 고가 후 경과 거래일
+        high_52w_window = high.iloc[max(0, event_idx - HIGH_52W_PERIOD):event_idx]
+        high_52w_pos_rel = high_52w_window.values.argmax()
+        high_52w_pos = max(0, event_idx - HIGH_52W_PERIOD) + high_52w_pos_rel
+        days_since_high = event_idx - high_52w_pos
+
+        # 4. momentum_5d: 5거래일 수익률
+        if event_idx >= 5:
+            momentum_5d = (event_price / close.iloc[event_idx - 5] - 1) * 100
+        else:
+            momentum_5d = 0
+
+        # 5. volume_ratio: 당일 거래량 / 20일 평균
+        if event_idx >= 21:
+            avg_vol_20 = volume.iloc[event_idx - 20:event_idx].mean()
+            volume_ratio = volume.iloc[event_idx] / avg_vol_20 if avg_vol_20 > 0 else 1
+        else:
+            volume_ratio = 1
+
+        # 6. volume_trend: 5일 평균 / 20일 평균 거래량
+        if event_idx >= 20:
+            vol_5d = volume.iloc[event_idx - 4:event_idx + 1].mean()
+            vol_20d = volume.iloc[event_idx - 19:event_idx + 1].mean()
+            volume_trend = vol_5d / vol_20d if vol_20d > 0 else 1
+        else:
+            volume_trend = 1
+
+        # 7. volatility_contraction: 10일 수익률std / 60일 수익률std
+        if event_idx >= 61:
+            returns = close.pct_change()
+            std_10d = returns.iloc[event_idx - 9:event_idx + 1].std()
+            std_60d = returns.iloc[event_idx - 59:event_idx + 1].std()
+            volatility_contraction = std_10d / std_60d if std_60d > 0 else 1
+        else:
+            volatility_contraction = 1
+
+        # 8. atr_pct: ATR(14) / 종가 × 100
+        if event_idx >= 15:
+            h = high.iloc[event_idx - 13:event_idx + 1].values
+            l = low.iloc[event_idx - 13:event_idx + 1].values
+            c_prev = close.iloc[event_idx - 14:event_idx].values
+
+            tr1 = h - l
+            tr2 = np.abs(h - c_prev)
+            tr3 = np.abs(l - c_prev)
+            tr = np.maximum(np.maximum(tr1, tr2), tr3)
+            atr_14 = tr.mean()
+            atr_pct = atr_14 / event_price * 100
+        else:
+            atr_pct = 0
+
+        # 9. ma_alignment: 정배열 점수 (0~4)
+        score = 0
+        ma_vals = {}
+        for period in [5, 20, 60, 120, 200]:
+            if event_idx >= period:
+                ma_vals[period] = close.iloc[event_idx - period + 1:event_idx + 1].mean()
+            else:
+                ma_vals[period] = None
+
+        if ma_vals[5] and ma_vals[20] and ma_vals[5] > ma_vals[20]:
+            score += 1
+        if ma_vals[20] and ma_vals[60] and ma_vals[20] > ma_vals[60]:
+            score += 1
+        if ma_vals[60] and ma_vals[120] and ma_vals[60] > ma_vals[120]:
+            score += 1
+        if ma_vals[120] and ma_vals[200] and ma_vals[120] > ma_vals[200]:
+            score += 1
+        ma_alignment = score
+
+        # 10. trend_strength: 60일선 기울기
+        if event_idx >= 80:
+            ma60_now = close.iloc[event_idx - 59:event_idx + 1].mean()
+            ma60_20ago = close.iloc[event_idx - 79:event_idx - 19].mean()
+            trend_strength = (ma60_now / ma60_20ago - 1) * 100 if ma60_20ago > 0 else 0
+        else:
+            trend_strength = 0
+
+        # 11, 12. rs_vs_market, market_return
+        rs_vs_market = 0
+        market_return = 0
+
+        if event_idx >= 20 and _kospi_data is not None and len(_kospi_data) > 0:
+            stock_return_20d = (event_price / close.iloc[event_idx - 20] - 1) * 100
+            try:
+                current_date = df.index[event_idx]
+                market_idx = _kospi_data.index.get_indexer([current_date], method='nearest')[0]
+                if market_idx >= 20:
+                    m_close = _kospi_data['Close']
+                    market_return = (m_close.iloc[market_idx] / m_close.iloc[market_idx - 20] - 1) * 100
+                    rs_vs_market = stock_return_20d - market_return
+            except:
+                pass
+
+        # 13. pct_from_52w_low
+        low_52w = low.iloc[max(0, event_idx - HIGH_52W_PERIOD):event_idx + 1].min()
+        pct_from_52w_low = (event_price / low_52w - 1) * 100 if low_52w > 0 else 0
+
+        return {
+            'gap_pct': gap_pct,
+            'resistance_tests': resistance_tests,
+            'days_since_high': days_since_high,
+            'momentum_5d': momentum_5d,
+            'volume_ratio': volume_ratio,
+            'volume_trend': volume_trend,
+            'volatility_contraction': volatility_contraction,
+            'atr_pct': atr_pct,
+            'ma_alignment': ma_alignment,
+            'trend_strength': trend_strength,
+            'rs_vs_market': rs_vs_market,
+            'market_return': market_return,
+            'pct_from_52w_low': pct_from_52w_low,
+        }
+    except Exception as e:
+        return None
+
+
+def predict_near_high_ml_batch(features_list):
+    """52주 신고가 근접 ML 배치 예측"""
+    global _near_high_regressor, _near_high_classifier, _near_high_scaler
+
+    if not _near_high_models_loaded or _near_high_regressor is None or not features_list:
+        return [(None, None)] * len(features_list)
+
+    try:
+        X = np.array([[f.get(feat, 0) for feat in FEATURES_NEAR_HIGH] for f in features_list])
+        X_scaled = _near_high_scaler.transform(X)
+
+        predicted_gains = _near_high_regressor.predict(X_scaled)
+        breakout_probas = _near_high_classifier.predict_proba(X_scaled)[:, 1] * 100
+
+        results = []
+        for pg, bp in zip(predicted_gains, breakout_probas):
+            results.append((float(pg), float(bp)))
+
+        return results
+    except Exception as e:
+        print(f"[ML] 52주 신고가 근접 배치 예측 실패: {e}")
         return [(None, None)] * len(features_list)
 
 
@@ -2892,6 +3123,184 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
 
 
 # ============================================================================
+# 7-2. 52주 신고가 근접 스크리너
+# ============================================================================
+
+NEAR_HIGH_52W_THRESHOLD = 5.0  # 괴리율 임계값 (%), HTML에서 기본 3%로 필터
+NEAR_HIGH_MAX_DAYS = 8  # 8거래일 룩백
+
+def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
+    """
+    52주 신고가에 근접했던 종목을 발굴합니다 (8거래일 이내). + ML 예측
+
+    [52주 고가 기준]
+        - High(고가) 기준 250거래일 최고가 (HIGH_52W_PERIOD 재사용)
+
+    [조건]
+        1. 8거래일 이내에 52주 고가 NEAR_HIGH_52W_THRESHOLD% 이내에 진입한 적 있음
+        2. 52주 고가 기록일로부터 20거래일 이상 경과 (확립된 저항선)
+        3. 시가총액 1000억 이상
+
+    [출력]
+        - status: 'active' (구간 내), 'breakout' (52주 돌파), 'dropped' (이탈)
+        - days_since: 최초 진입 후 경과 거래일 (0=오늘)
+        - percent_from_high: 현재 괴리율
+
+    [ML 예측]
+        - predicted_gain: 20거래일 내 최고 수익률 예측
+        - breakout_probability: 10거래일 내 돌파 확률 예측
+    """
+    print("\n[52주 신고가 근접] 분석 시작...")
+
+    # ML 모델 로드
+    load_near_high_models()
+    if _kospi_data is None:
+        load_kospi_data()
+
+    results = []
+    required_days = HIGH_52W_PERIOD + NEAR_HIGH_MAX_DAYS + 30
+
+    for _, row in stocks.iterrows():
+        ticker = row.get('Code', row.get('Symbol', ''))
+        name = row.get('Name', '')
+        market_cap = row.get('MarketCap', 0)
+        if not isinstance(market_cap, (int, float)):
+            market_cap = 0
+
+        if market_cap < MIN_MARKET_CAP:
+            continue
+
+        df = get_ohlcv(ticker, required_days + 50)
+        if df is None or len(df) < HIGH_52W_PERIOD + NEAR_HIGH_MAX_DAYS + 20:
+            continue
+
+        close = df['Close']
+        high = df['High']
+        volume = df['Volume']
+
+        if close.isna().sum() > 10:
+            continue
+
+        total_len = len(df)
+        current_close = close.iloc[-1]
+
+        # --- 52주 신고가 계산 (돌파 스크리너와 동일: 룩백 구간 전 데이터) ---
+        # 룩백 8일 전까지의 데이터로 52주 고가 계산 → 돌파 감지 가능
+        base_idx = total_len - 1 - NEAR_HIGH_MAX_DAYS - 1
+        if base_idx < HIGH_52W_PERIOD:
+            continue
+
+        high_window = high.iloc[base_idx - HIGH_52W_PERIOD:base_idx]
+        if high_window.empty:
+            continue
+
+        high_52w = high_window.max()
+        if pd.isna(high_52w) or high_52w <= 0:
+            continue
+
+        # 52주 신고가 기록일
+        high_52w_idx = high_window.idxmax()
+        high_52w_date = high_52w_idx.strftime('%Y-%m-%d') if high_52w_idx is not None else None
+
+        # 확립된 저항선: 고가 기록 후 20거래일 이상 경과 (룩백 시작 시점 기준)
+        high_pos = high_window.index.get_loc(high_52w_idx)
+        days_since_high = len(high_window) - 1 - high_pos
+        if days_since_high < 20:
+            continue
+
+        # --- 8거래일 룩백: 근접 구간 최초 진입일 찾기 ---
+        # 52주 신고가 돌파 스크리너와 동일 패턴: 과거→현재 순회
+        days_since = None
+        entry_idx = None
+        for days_ago in range(NEAR_HIGH_MAX_DAYS, -1, -1):
+            idx = total_len - 1 - days_ago
+            if idx < 0:
+                continue
+            past_close = close.iloc[idx]
+            past_gap = (high_52w - past_close) / high_52w * 100
+            if past_gap <= NEAR_HIGH_52W_THRESHOLD and past_close < high_52w:
+                days_since = days_ago
+                entry_idx = idx
+                break
+
+        if days_since is None:
+            continue  # 8거래일 내 근접 구간 진입 없음
+
+        # --- 현재 상태 판정 ---
+        current_gap = (high_52w - current_close) / high_52w * 100
+        if current_close >= high_52w:
+            status = 'breakout'
+        elif current_gap <= NEAR_HIGH_52W_THRESHOLD:
+            status = 'active'
+        else:
+            status = 'dropped'
+
+        percent_from_high = -current_gap
+
+        # 등락률
+        prev_close = close.iloc[-2] if len(close) >= 2 else current_close
+        change_rate = (current_close - prev_close) / prev_close * 100 if prev_close > 0 else 0
+
+        # 거래량비
+        if total_len >= 21:
+            avg_vol_20 = volume.iloc[-21:-1].mean()
+            current_vol = volume.iloc[-1]
+            vol_ratio = round(current_vol / avg_vol_20, 1) if avg_vol_20 > 0 else 0
+        else:
+            vol_ratio = 0
+
+        # --- ML 피처 계산 (진입 시점 기준) ---
+        features = None
+        if _near_high_models_loaded and entry_idx is not None:
+            features = calculate_near_high_features(df, entry_idx, high_52w)
+
+        results.append({
+            'ticker': ticker,
+            'name': name,
+            'price': int(current_close),
+            'change_rate': round(change_rate, 2),
+            'high_52w': int(high_52w),
+            'percent_from_high': round(percent_from_high, 2),
+            'high_52w_date': high_52w_date,
+            'status': status,
+            'days_since': days_since,
+            'volume_ratio': vol_ratio,
+            'predicted_gain': None,
+            'breakout_probability': None,
+            'ai_score': 0.0,
+            'market_cap': int(market_cap),
+            'updated_at': datetime.now().isoformat(),
+            '_features': features,  # 임시 저장
+        })
+
+    # --- ML 배치 예측 ---
+    if _near_high_models_loaded and results:
+        features_list = [r['_features'] for r in results if r['_features'] is not None]
+        valid_indices = [i for i, r in enumerate(results) if r['_features'] is not None]
+
+        if features_list:
+            predictions = predict_near_high_ml_batch(features_list)
+            for idx, (pg, bp) in zip(valid_indices, predictions):
+                results[idx]['predicted_gain'] = round(pg, 1) if pg is not None else None
+                results[idx]['breakout_probability'] = round(bp, 1) if bp is not None else None
+                if pg is not None and bp is not None:
+                    gain_score = min(100, max(0, pg * 3))
+                    results[idx]['ai_score'] = round(float(bp * 0.7 + gain_score * 0.3), 1)
+                else:
+                    results[idx]['ai_score'] = 0.0
+
+    # 임시 피처 필드 제거
+    for r in results:
+        r.pop('_features', None)
+
+    # 정렬: active → breakout → dropped, 각 그룹 내에서 신고가에 가까운 순
+    status_order = {'active': 0, 'breakout': 1, 'dropped': 2}
+    results.sort(key=lambda x: (status_order.get(x['status'], 9), abs(x['percent_from_high'])))
+    print(f"[완료] 52주 신고가 근접: {len(results)}개 (ML: {'활성화' if _near_high_models_loaded else '비활성화'})")
+    return results
+
+
+# ============================================================================
 # 8. 업종별 4단계 스크리너 (네이버 증권 업종 기준, 와인스테인 4단계)
 # ============================================================================
 
@@ -3230,6 +3639,7 @@ def main():
             ('거래량 급감', screen_volume_dry_up, stocks, 'volume_dry_up.json', len(stocks)),
             ('낙폭과대 반등', screen_fallen_rebound, stocks, 'fallen_rebound.json', len(stocks)),
             ('52주 신고가', screen_new_high_52w, stocks, 'new_high_52w.json', len(stocks)),
+            ('52주 신고가 근접', screen_near_high_52w, stocks, 'near_high_52w.json', len(stocks)),
             ('업종별 4단계', screen_sector_stage, None, 'sector_stage.json', len(NAVER_SECTOR_LIST)),
             ('바닥 탈출', bottom_breakout_with_cache, None, 'bottom_breakout.json', len(stocks)),
             ('이평선 수렴', ma_convergence_with_cache, None, 'ma_convergence.json', len(stocks)),
@@ -3256,6 +3666,7 @@ def main():
         vol_dry_up_results = screener_results.get('거래량 급감', [])
         fallen_rebound_results = screener_results.get('낙폭과대 반등', [])
         new_high_results = screener_results.get('52주 신고가', [])
+        near_high_results = screener_results.get('52주 신고가 근접', [])
         sector_stage_results = screener_results.get('업종별 4단계', [])
         bottom_breakout_results = screener_results.get('바닥 탈출', [])
         ma_convergence_results = screener_results.get('이평선 수렴', [])
@@ -3289,6 +3700,7 @@ def main():
             vol_dry_up_results,
             fallen_rebound_results,
             new_high_results,
+            near_high_results,
             bottom_breakout_results,
             ma_convergence_results,
             extra_results  # 저평가 우량주, 60주선 우량주 등 추가
@@ -3308,6 +3720,7 @@ def main():
         print(f"  거래량 급감: {len(vol_dry_up_results)}개")
         print(f"  낙폭과대 반등: {len(fallen_rebound_results)}개")
         print(f"  52주 신고가: {len(new_high_results)}개")
+        print(f"  52주 신고가 근접: {len(near_high_results)}개")
         print(f"  업종별 4단계: {len(sector_stage_results)}개")
         print(f"  바닥 탈출: {len(bottom_breakout_results)}개")
         print(f"  이평선 수렴: {len(ma_convergence_results)}개")

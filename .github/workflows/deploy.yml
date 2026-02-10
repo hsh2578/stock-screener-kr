@@ -88,10 +88,29 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: 💾 OHLCV 캐시 복원
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: stock-data-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            stock-data-${{ runner.os }}-
+
       - name: 📁 디렉토리 생성
         run: |
           mkdir -p data
           mkdir -p logs
+          mkdir -p .cache
+
+      - name: 🔄 당일 캐시 삭제 (최신 데이터 증분 다운로드 유도)
+        run: |
+          TODAY=$(TZ=Asia/Seoul date +%Y-%m-%d)
+          if [ -f ".cache/stock_data_${TODAY}.pkl" ]; then
+            rm -f ".cache/stock_data_${TODAY}.pkl"
+            echo "당일 캐시 삭제 → 전일 캐시 기반 증분 업데이트"
+          fi
+          echo "캐시 상태:"
+          ls -lh .cache/ 2>/dev/null || echo "  (비어있음)"
 
       - name: 🚀 스크리너 실행
         run: |
