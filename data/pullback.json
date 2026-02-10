@@ -1,10 +1,24 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-10T15:12:23.490238",
-    "totalCount": 5,
-    "screened_from": 1556
+    "lastUpdated": "2026-02-10T16:48:01.429210",
+    "totalCount": 4,
+    "screened_from": 1558
   },
   "data": [
+    {
+      "ticker": "126720",
+      "name": "수산인더스트리",
+      "price": 26050,
+      "change_rate": -2.25,
+      "breakout_date": "2026-01-20",
+      "resistance": 26000,
+      "pullback_ratio": 0.19,
+      "volume_decrease": 69,
+      "ma150": 22591,
+      "above_ma150": true,
+      "market_cap": 3721,
+      "updated_at": "2026-02-10T16:47:55.045328"
+    },
     {
       "ticker": "010690",
       "name": "화신",
@@ -17,63 +31,35 @@
       "ma150": 8536,
       "above_ma150": true,
       "market_cap": 3219,
-      "updated_at": "2026-02-10T15:12:16.256405"
-    },
-    {
-      "ticker": "126720",
-      "name": "수산인더스트리",
-      "price": 26150,
-      "change_rate": -1.88,
-      "breakout_date": "2026-01-20",
-      "resistance": 26000,
-      "pullback_ratio": 0.58,
-      "volume_decrease": 70,
-      "ma150": 22592,
-      "above_ma150": true,
-      "market_cap": 3714,
-      "updated_at": "2026-02-10T15:12:15.990061"
+      "updated_at": "2026-02-10T16:47:55.120099"
     },
     {
       "ticker": "003555",
       "name": "LG우",
-      "price": 71400,
-      "change_rate": 2.44,
+      "price": 71200,
+      "change_rate": 2.15,
       "breakout_date": "2026-01-23",
       "resistance": 70000,
-      "pullback_ratio": 2.0,
+      "pullback_ratio": 1.71,
       "volume_decrease": 60,
-      "ma150": 65284,
+      "ma150": 65283,
       "above_ma150": true,
-      "market_cap": 2146,
-      "updated_at": "2026-02-10T15:12:16.508373"
-    },
-    {
-      "ticker": "035600",
-      "name": "KG이니시스",
-      "price": 11230,
-      "change_rate": -2.35,
-      "breakout_date": "2026-01-28",
-      "resistance": 10950,
-      "pullback_ratio": 2.56,
-      "volume_decrease": 75,
-      "ma150": 10632,
-      "above_ma150": true,
-      "market_cap": 3110,
-      "updated_at": "2026-02-10T15:12:19.411051"
+      "market_cap": 2143,
+      "updated_at": "2026-02-10T16:47:55.376199"
     },
     {
       "ticker": "466100",
       "name": "클로봇",
-      "price": 67800,
-      "change_rate": 0.15,
+      "price": 67400,
+      "change_rate": -0.44,
       "breakout_date": "2026-01-16",
       "resistance": 65900,
-      "pullback_ratio": 2.88,
+      "pullback_ratio": 2.28,
       "volume_decrease": 93,
-      "ma150": 39170,
+      "ma150": 39167,
       "above_ma150": true,
-      "market_cap": 16869,
-      "updated_at": "2026-02-10T15:12:18.084117"
+      "market_cap": 16844,
+      "updated_at": "2026-02-10T16:47:56.305354"
     }
   ]
 }
