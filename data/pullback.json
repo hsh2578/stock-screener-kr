@@ -1,65 +1,51 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-11T15:02:57.676553",
-    "totalCount": 4,
-    "screened_from": 1563
+    "lastUpdated": "2026-02-11T16:40:55.638782",
+    "totalCount": 3,
+    "screened_from": 1565
   },
   "data": [
     {
       "ticker": "035600",
       "name": "KG이니시스",
-      "price": 11220,
-      "change_rate": -0.44,
+      "price": 11290,
+      "change_rate": 0.18,
       "breakout_date": "2026-01-28",
       "resistance": 10950,
-      "pullback_ratio": 2.47,
+      "pullback_ratio": 3.11,
       "volume_decrease": 74,
-      "ma150": 10635,
+      "ma150": 10636,
       "above_ma150": true,
-      "market_cap": 3088,
-      "updated_at": "2026-02-11T15:02:52.166643"
+      "market_cap": 3110,
+      "updated_at": "2026-02-11T16:40:52.382245"
     },
     {
       "ticker": "025860",
       "name": "남해화학",
-      "price": 7270,
-      "change_rate": 1.11,
+      "price": 7290,
+      "change_rate": 1.39,
       "breakout_date": "2026-02-06",
       "resistance": 6990,
-      "pullback_ratio": 4.01,
+      "pullback_ratio": 4.29,
       "volume_decrease": 54,
       "ma150": 6904,
       "above_ma150": true,
-      "market_cap": 3606,
-      "updated_at": "2026-02-11T15:02:47.418580"
+      "market_cap": 3621,
+      "updated_at": "2026-02-11T16:40:47.697298"
     },
     {
       "ticker": "417840",
       "name": "저스템",
-      "price": 6710,
-      "change_rate": -2.04,
+      "price": 6690,
+      "change_rate": -2.34,
       "breakout_date": "2026-02-02",
       "resistance": 6990,
-      "pullback_ratio": 4.01,
+      "pullback_ratio": 4.29,
       "volume_decrease": 79,
       "ma150": 4308,
       "above_ma150": true,
-      "market_cap": 1503,
-      "updated_at": "2026-02-11T15:02:55.376229"
-    },
-    {
-      "ticker": "003555",
-      "name": "LG우",
-      "price": 73400,
-      "change_rate": 3.09,
-      "breakout_date": "2026-01-23",
-      "resistance": 70000,
-      "pullback_ratio": 4.86,
-      "volume_decrease": 50,
-      "ma150": 65339,
-      "above_ma150": true,
-      "market_cap": 2210,
-      "updated_at": "2026-02-11T15:02:48.459707"
+      "market_cap": 1510,
+      "updated_at": "2026-02-11T16:40:54.037894"
     }
   ]
 }
