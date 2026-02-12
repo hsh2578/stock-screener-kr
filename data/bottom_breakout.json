@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-12T16:36:04.409063",
-    "totalCount": 101,
+    "lastUpdated": "2026-02-12T18:16:14.024490",
+    "totalCount": 102,
     "screened_from": 1567
   },
   "data": [
@@ -25,7 +25,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 7.2,
-      "updated_at": "2026-02-12T16:35:57.788912"
+      "updated_at": "2026-02-12T18:16:11.729189"
     },
     {
       "ticker": "033340",
@@ -47,7 +47,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 4.6,
-      "updated_at": "2026-02-12T16:35:58.675330"
+      "updated_at": "2026-02-12T18:16:12.055073"
     },
     {
       "ticker": "230240",
@@ -69,7 +69,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 9.4,
-      "updated_at": "2026-02-12T16:35:57.465785"
+      "updated_at": "2026-02-12T18:16:11.644346"
     },
     {
       "ticker": "336570",
@@ -91,29 +91,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -2.2,
-      "updated_at": "2026-02-12T16:35:53.743348"
-    },
-    {
-      "ticker": "000390",
-      "name": "삼화페인트",
-      "grade": "A",
-      "score": 9,
-      "signal_date": "2026-02-03",
-      "days_since_signal": 7,
-      "current_price": 9990,
-      "change_since_signal": 41.3,
-      "drop_from_high": -30.14,
-      "ma150": 6369,
-      "above_ma150": true,
-      "market_cap": 2717,
-      "score_near_ma150": 2,
-      "score_ma_breakout": 0,
-      "score_higher_low": 2,
-      "score_slope": 2,
-      "score_volume": 2,
-      "score_macd": 1,
-      "ma150_gap": 13.5,
-      "updated_at": "2026-02-12T16:35:50.368189"
+      "updated_at": "2026-02-12T18:16:09.577290"
     },
     {
       "ticker": "042000",
@@ -135,7 +113,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 6.1,
-      "updated_at": "2026-02-12T16:35:53.604231"
+      "updated_at": "2026-02-12T18:16:09.524134"
     },
     {
       "ticker": "458650",
@@ -157,7 +135,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 10.9,
-      "updated_at": "2026-02-12T16:35:58.587190"
+      "updated_at": "2026-02-12T18:16:12.013978"
     },
     {
       "ticker": "087010",
@@ -179,7 +157,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 10.8,
-      "updated_at": "2026-02-12T16:35:52.404177"
+      "updated_at": "2026-02-12T18:16:09.091147"
     },
     {
       "ticker": "294570",
@@ -201,7 +179,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -2.8,
-      "updated_at": "2026-02-12T16:35:55.489211"
+      "updated_at": "2026-02-12T18:16:10.670066"
     },
     {
       "ticker": "037270",
@@ -223,7 +201,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": 0.1,
-      "updated_at": "2026-02-12T16:35:48.471480"
+      "updated_at": "2026-02-12T18:16:04.012378"
     },
     {
       "ticker": "336680",
@@ -245,7 +223,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 0.5,
-      "updated_at": "2026-02-12T16:36:00.129976"
+      "updated_at": "2026-02-12T18:16:12.337497"
     },
     {
       "ticker": "432720",
@@ -267,7 +245,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": -1.7,
-      "updated_at": "2026-02-12T16:35:59.011428"
+      "updated_at": "2026-02-12T18:16:12.092738"
     },
     {
       "ticker": "112040",
@@ -289,19 +267,19 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 13.3,
-      "updated_at": "2026-02-12T16:35:53.512447"
+      "updated_at": "2026-02-12T18:16:09.483173"
     },
     {
       "ticker": "403550",
       "name": "쏘카",
       "grade": "B",
       "score": 7,
-      "signal_date": "2026-02-12",
+      "signal_date": "2026-02-11",
       "days_since_signal": 0,
-      "current_price": 12080,
+      "current_price": 12160,
       "change_since_signal": 0.0,
-      "drop_from_high": -30.97,
-      "ma150": 12067,
+      "drop_from_high": -30.51,
+      "ma150": 12074,
       "above_ma150": true,
       "market_cap": 3967,
       "score_near_ma150": 2,
@@ -310,8 +288,8 @@
       "score_slope": 0,
       "score_volume": 0,
       "score_macd": 0,
-      "ma150_gap": 0.1,
-      "updated_at": "2026-02-12T16:35:48.961421"
+      "ma150_gap": 0.7,
+      "updated_at": "2026-02-12T18:16:04.899251"
     },
     {
       "ticker": "321550",
@@ -333,7 +311,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 4.8,
-      "updated_at": "2026-02-12T16:35:59.765220"
+      "updated_at": "2026-02-12T18:16:12.175368"
     },
     {
       "ticker": "109610",
@@ -355,7 +333,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 0.2,
-      "updated_at": "2026-02-12T16:36:02.884837"
+      "updated_at": "2026-02-12T18:16:12.626341"
     },
     {
       "ticker": "389140",
@@ -377,7 +355,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": -0.6,
-      "updated_at": "2026-02-12T16:36:03.452671"
+      "updated_at": "2026-02-12T18:16:12.747978"
     },
     {
       "ticker": "376300",
@@ -399,7 +377,29 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -0.2,
-      "updated_at": "2026-02-12T16:35:53.452355"
+      "updated_at": "2026-02-12T18:16:09.454578"
+    },
+    {
+      "ticker": "004980",
+      "name": "성신양회",
+      "grade": "B",
+      "score": 7,
+      "signal_date": "2026-02-09",
+      "days_since_signal": 2,
+      "current_price": 10660,
+      "change_since_signal": 3.5,
+      "drop_from_high": -31.09,
+      "ma150": 9920,
+      "above_ma150": true,
+      "market_cap": 2620,
+      "score_near_ma150": 2,
+      "score_ma_breakout": 3,
+      "score_higher_low": 0,
+      "score_slope": 2,
+      "score_volume": 0,
+      "score_macd": 0,
+      "ma150_gap": 4.0,
+      "updated_at": "2026-02-12T18:16:07.943518"
     },
     {
       "ticker": "453450",
@@ -421,29 +421,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": -5.0,
-      "updated_at": "2026-02-12T16:36:03.680638"
-    },
-    {
-      "ticker": "004980",
-      "name": "성신양회",
-      "grade": "B",
-      "score": 7,
-      "signal_date": "2026-02-09",
-      "days_since_signal": 3,
-      "current_price": 10690,
-      "change_since_signal": 3.79,
-      "drop_from_high": -30.9,
-      "ma150": 9928,
-      "above_ma150": true,
-      "market_cap": 2620,
-      "score_near_ma150": 2,
-      "score_ma_breakout": 3,
-      "score_higher_low": 0,
-      "score_slope": 2,
-      "score_volume": 0,
-      "score_macd": 0,
-      "ma150_gap": 4.0,
-      "updated_at": "2026-02-12T16:35:50.387898"
+      "updated_at": "2026-02-12T18:16:12.958967"
     },
     {
       "ticker": "365330",
@@ -465,7 +443,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 5.1,
-      "updated_at": "2026-02-12T16:35:57.981159"
+      "updated_at": "2026-02-12T18:16:11.773324"
     },
     {
       "ticker": "123330",
@@ -487,7 +465,29 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 3.2,
-      "updated_at": "2026-02-12T16:35:59.682349"
+      "updated_at": "2026-02-12T18:16:12.137997"
+    },
+    {
+      "ticker": "014820",
+      "name": "동원시스템즈",
+      "grade": "B",
+      "score": 7,
+      "signal_date": "2026-02-05",
+      "days_since_signal": 4,
+      "current_price": 28100,
+      "change_since_signal": -4.91,
+      "drop_from_high": -30.53,
+      "ma150": 28327,
+      "above_ma150": false,
+      "market_cap": 8334,
+      "score_near_ma150": 2,
+      "score_ma_breakout": 3,
+      "score_higher_low": 0,
+      "score_slope": 0,
+      "score_volume": 2,
+      "score_macd": 0,
+      "ma150_gap": 4.0,
+      "updated_at": "2026-02-12T18:16:03.658930"
     },
     {
       "ticker": "472850",
@@ -509,7 +509,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 5.6,
-      "updated_at": "2026-02-12T16:35:54.777893"
+      "updated_at": "2026-02-12T18:16:10.264546"
     },
     {
       "ticker": "103140",
@@ -531,7 +531,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": 0.2,
-      "updated_at": "2026-02-12T16:35:46.176962"
+      "updated_at": "2026-02-12T18:16:02.687553"
     },
     {
       "ticker": "003280",
@@ -553,7 +553,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 2.3,
-      "updated_at": "2026-02-12T16:35:48.806595"
+      "updated_at": "2026-02-12T18:16:04.397037"
     },
     {
       "ticker": "117580",
@@ -575,7 +575,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -0.6,
-      "updated_at": "2026-02-12T16:35:50.827959"
+      "updated_at": "2026-02-12T18:16:08.134015"
     },
     {
       "ticker": "340570",
@@ -597,7 +597,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 5.4,
-      "updated_at": "2026-02-12T16:35:54.679284"
+      "updated_at": "2026-02-12T18:16:10.146696"
     },
     {
       "ticker": "024060",
@@ -619,7 +619,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 10.2,
-      "updated_at": "2026-02-12T16:35:57.689666"
+      "updated_at": "2026-02-12T18:16:11.705979"
     },
     {
       "ticker": "356680",
@@ -641,7 +641,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -0.9,
-      "updated_at": "2026-02-12T16:35:57.722462"
+      "updated_at": "2026-02-12T18:16:11.714888"
     },
     {
       "ticker": "007390",
@@ -663,7 +663,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 0.4,
-      "updated_at": "2026-02-12T16:35:53.246435"
+      "updated_at": "2026-02-12T18:16:09.392283"
     },
     {
       "ticker": "293490",
@@ -685,7 +685,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -0.5,
-      "updated_at": "2026-02-12T16:35:53.347104"
+      "updated_at": "2026-02-12T18:16:09.410738"
     },
     {
       "ticker": "053030",
@@ -707,7 +707,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -0.2,
-      "updated_at": "2026-02-12T16:35:54.550150"
+      "updated_at": "2026-02-12T18:16:10.073525"
     },
     {
       "ticker": "200130",
@@ -729,7 +729,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 3.4,
-      "updated_at": "2026-02-12T16:35:54.718997"
+      "updated_at": "2026-02-12T18:16:10.243468"
     },
     {
       "ticker": "115500",
@@ -751,7 +751,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -3.9,
-      "updated_at": "2026-02-12T16:36:04.136508"
+      "updated_at": "2026-02-12T18:16:13.667323"
     },
     {
       "ticker": "002710",
@@ -773,7 +773,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -3.9,
-      "updated_at": "2026-02-12T16:35:48.724087"
+      "updated_at": "2026-02-12T18:16:04.300139"
     },
     {
       "ticker": "089030",
@@ -795,7 +795,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 2.2,
-      "updated_at": "2026-02-12T16:35:52.873720"
+      "updated_at": "2026-02-12T18:16:09.377007"
     },
     {
       "ticker": "030520",
@@ -817,7 +817,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -2.8,
-      "updated_at": "2026-02-12T16:35:54.100835"
+      "updated_at": "2026-02-12T18:16:09.913120"
     },
     {
       "ticker": "145020",
@@ -839,7 +839,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -3.1,
-      "updated_at": "2026-02-12T16:35:52.519524"
+      "updated_at": "2026-02-12T18:16:09.140512"
     },
     {
       "ticker": "053800",
@@ -861,7 +861,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 7.0,
-      "updated_at": "2026-02-12T16:35:53.801930"
+      "updated_at": "2026-02-12T18:16:09.639995"
     },
     {
       "ticker": "101730",
@@ -883,7 +883,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 10.7,
-      "updated_at": "2026-02-12T16:35:54.143332"
+      "updated_at": "2026-02-12T18:16:09.945881"
     },
     {
       "ticker": "101360",
@@ -905,7 +905,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 8.2,
-      "updated_at": "2026-02-12T16:35:54.959954"
+      "updated_at": "2026-02-12T18:16:10.509358"
     },
     {
       "ticker": "058820",
@@ -927,7 +927,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 6.2,
-      "updated_at": "2026-02-12T16:35:55.748877"
+      "updated_at": "2026-02-12T18:16:11.180341"
     },
     {
       "ticker": "095700",
@@ -949,7 +949,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -1.0,
-      "updated_at": "2026-02-12T16:35:57.866046"
+      "updated_at": "2026-02-12T18:16:11.743423"
     },
     {
       "ticker": "158430",
@@ -971,7 +971,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -0.9,
-      "updated_at": "2026-02-12T16:35:59.028226"
+      "updated_at": "2026-02-12T18:16:12.104799"
     },
     {
       "ticker": "452190",
@@ -993,7 +993,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 0.8,
-      "updated_at": "2026-02-12T16:36:04.038866"
+      "updated_at": "2026-02-12T18:16:13.567811"
     },
     {
       "ticker": "011790",
@@ -1015,7 +1015,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 2.7,
-      "updated_at": "2026-02-12T16:35:46.130586"
+      "updated_at": "2026-02-12T18:16:02.657168"
     },
     {
       "ticker": "097230",
@@ -1037,7 +1037,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 12.1,
-      "updated_at": "2026-02-12T16:35:46.224524"
+      "updated_at": "2026-02-12T18:16:02.725142"
     },
     {
       "ticker": "075580",
@@ -1059,7 +1059,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": -0.6,
-      "updated_at": "2026-02-12T16:35:46.789367"
+      "updated_at": "2026-02-12T18:16:03.223829"
     },
     {
       "ticker": "036530",
@@ -1081,7 +1081,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 0.9,
-      "updated_at": "2026-02-12T16:35:46.794868"
+      "updated_at": "2026-02-12T18:16:03.230293"
     },
     {
       "ticker": "100840",
@@ -1103,7 +1103,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": -1.4,
-      "updated_at": "2026-02-12T16:35:46.824885"
+      "updated_at": "2026-02-12T18:16:03.505227"
     },
     {
       "ticker": "010580",
@@ -1125,7 +1125,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 8.1,
-      "updated_at": "2026-02-12T16:35:50.475789"
+      "updated_at": "2026-02-12T18:16:07.973077"
     },
     {
       "ticker": "025620",
@@ -1147,7 +1147,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 7.6,
-      "updated_at": "2026-02-12T16:35:50.958560"
+      "updated_at": "2026-02-12T18:16:08.291048"
     },
     {
       "ticker": "028300",
@@ -1169,7 +1169,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 11.5,
-      "updated_at": "2026-02-12T16:35:52.360952"
+      "updated_at": "2026-02-12T18:16:09.076759"
     },
     {
       "ticker": "348370",
@@ -1191,7 +1191,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 9.5,
-      "updated_at": "2026-02-12T16:35:52.690099"
+      "updated_at": "2026-02-12T18:16:09.299569"
     },
     {
       "ticker": "025900",
@@ -1213,7 +1213,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 8.4,
-      "updated_at": "2026-02-12T16:35:54.343316"
+      "updated_at": "2026-02-12T18:16:10.047421"
     },
     {
       "ticker": "199800",
@@ -1235,7 +1235,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 11.5,
-      "updated_at": "2026-02-12T16:35:54.581200"
+      "updated_at": "2026-02-12T18:16:10.099259"
     },
     {
       "ticker": "089890",
@@ -1257,7 +1257,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 14.0,
-      "updated_at": "2026-02-12T16:35:54.966092"
+      "updated_at": "2026-02-12T18:16:10.512298"
     },
     {
       "ticker": "064820",
@@ -1279,7 +1279,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 5.6,
-      "updated_at": "2026-02-12T16:35:55.200729"
+      "updated_at": "2026-02-12T18:16:10.607648"
     },
     {
       "ticker": "332570",
@@ -1301,7 +1301,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 15.0,
-      "updated_at": "2026-02-12T16:35:56.586153"
+      "updated_at": "2026-02-12T18:16:11.435591"
     },
     {
       "ticker": "098120",
@@ -1323,7 +1323,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": -1.8,
-      "updated_at": "2026-02-12T16:36:00.071122"
+      "updated_at": "2026-02-12T18:16:12.316534"
     },
     {
       "ticker": "381620",
@@ -1345,7 +1345,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 3.8,
-      "updated_at": "2026-02-12T16:36:00.089314"
+      "updated_at": "2026-02-12T18:16:12.321162"
     },
     {
       "ticker": "259630",
@@ -1367,7 +1367,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 2.9,
-      "updated_at": "2026-02-12T16:36:02.815403"
+      "updated_at": "2026-02-12T18:16:12.530331"
     },
     {
       "ticker": "049950",
@@ -1389,7 +1389,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 2.5,
-      "updated_at": "2026-02-12T16:36:03.443760"
+      "updated_at": "2026-02-12T18:16:12.739634"
     },
     {
       "ticker": "294140",
@@ -1411,7 +1411,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 9.0,
-      "updated_at": "2026-02-12T16:36:03.448778"
+      "updated_at": "2026-02-12T18:16:12.744363"
     },
     {
       "ticker": "036710",
@@ -1433,7 +1433,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 4.4,
-      "updated_at": "2026-02-12T16:36:03.596954"
+      "updated_at": "2026-02-12T18:16:12.863560"
     },
     {
       "ticker": "460940",
@@ -1455,7 +1455,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 9.8,
-      "updated_at": "2026-02-12T16:36:03.673690"
+      "updated_at": "2026-02-12T18:16:12.951887"
     },
     {
       "ticker": "208370",
@@ -1477,7 +1477,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 10.9,
-      "updated_at": "2026-02-12T16:36:03.752223"
+      "updated_at": "2026-02-12T18:16:13.055735"
     },
     {
       "ticker": "044990",
@@ -1499,7 +1499,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 3.9,
-      "updated_at": "2026-02-12T16:36:03.794230"
+      "updated_at": "2026-02-12T18:16:13.101475"
     },
     {
       "ticker": "048530",
@@ -1521,7 +1521,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": 2.0,
-      "updated_at": "2026-02-12T16:36:03.841405"
+      "updated_at": "2026-02-12T18:16:13.149377"
     },
     {
       "ticker": "131400",
@@ -1543,7 +1543,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": -1.0,
-      "updated_at": "2026-02-12T16:36:04.184736"
+      "updated_at": "2026-02-12T18:16:13.724026"
     },
     {
       "ticker": "391710",
@@ -1565,7 +1565,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 4.3,
-      "updated_at": "2026-02-12T16:36:04.379694"
+      "updated_at": "2026-02-12T18:16:13.993269"
     },
     {
       "ticker": "450080",
@@ -1587,7 +1587,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 12.6,
-      "updated_at": "2026-02-12T16:35:46.119063"
+      "updated_at": "2026-02-12T18:16:02.646399"
     },
     {
       "ticker": "000320",
@@ -1609,7 +1609,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -2.2,
-      "updated_at": "2026-02-12T16:35:50.153476"
+      "updated_at": "2026-02-12T18:16:07.349182"
     },
     {
       "ticker": "203400",
@@ -1631,7 +1631,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 13.9,
-      "updated_at": "2026-02-12T16:35:55.512517"
+      "updated_at": "2026-02-12T18:16:10.678826"
     },
     {
       "ticker": "183490",
@@ -1653,7 +1653,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 5.7,
-      "updated_at": "2026-02-12T16:36:04.330976"
+      "updated_at": "2026-02-12T18:16:13.939436"
     },
     {
       "ticker": "176750",
@@ -1675,7 +1675,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 1.9,
-      "updated_at": "2026-02-12T16:35:56.216673"
+      "updated_at": "2026-02-12T18:16:11.367276"
     },
     {
       "ticker": "088800",
@@ -1697,7 +1697,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 4.4,
-      "updated_at": "2026-02-12T16:35:57.534880"
+      "updated_at": "2026-02-12T18:16:11.670563"
     },
     {
       "ticker": "235980",
@@ -1719,7 +1719,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 6.7,
-      "updated_at": "2026-02-12T16:35:57.967873"
+      "updated_at": "2026-02-12T18:16:11.765577"
     },
     {
       "ticker": "078000",
@@ -1741,7 +1741,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 0.4,
-      "updated_at": "2026-02-12T16:35:51.461097"
+      "updated_at": "2026-02-12T18:16:08.610693"
     },
     {
       "ticker": "328130",
@@ -1763,7 +1763,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -0.3,
-      "updated_at": "2026-02-12T16:35:53.429458"
+      "updated_at": "2026-02-12T18:16:09.436083"
     },
     {
       "ticker": "014940",
@@ -1785,7 +1785,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": -3.2,
-      "updated_at": "2026-02-12T16:35:55.087446"
+      "updated_at": "2026-02-12T18:16:10.566794"
     },
     {
       "ticker": "457550",
@@ -1807,7 +1807,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 9.2,
-      "updated_at": "2026-02-12T16:35:57.040171"
+      "updated_at": "2026-02-12T18:16:11.512882"
     },
     {
       "ticker": "003570",
@@ -1829,7 +1829,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": -5.0,
-      "updated_at": "2026-02-12T16:35:46.341370"
+      "updated_at": "2026-02-12T18:16:02.770696"
     },
     {
       "ticker": "257720",
@@ -1851,7 +1851,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -2.1,
-      "updated_at": "2026-02-12T16:35:52.629126"
+      "updated_at": "2026-02-12T18:16:09.269340"
     },
     {
       "ticker": "044490",
@@ -1873,7 +1873,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 1.2,
-      "updated_at": "2026-02-12T16:35:54.067695"
+      "updated_at": "2026-02-12T18:16:09.895594"
     },
     {
       "ticker": "305090",
@@ -1895,7 +1895,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": -4.4,
-      "updated_at": "2026-02-12T16:36:02.606513"
+      "updated_at": "2026-02-12T18:16:12.390876"
     },
     {
       "ticker": "396470",
@@ -1917,7 +1917,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -0.5,
-      "updated_at": "2026-02-12T16:36:03.998928"
+      "updated_at": "2026-02-12T18:16:13.431216"
     },
     {
       "ticker": "000440",
@@ -1939,7 +1939,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 3.0,
-      "updated_at": "2026-02-12T16:36:04.366098"
+      "updated_at": "2026-02-12T18:16:13.977788"
     },
     {
       "ticker": "101140",
@@ -1961,7 +1961,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": -1.2,
-      "updated_at": "2026-02-12T16:35:52.144588"
+      "updated_at": "2026-02-12T18:16:08.992200"
     },
     {
       "ticker": "278280",
@@ -1983,7 +1983,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 10.5,
-      "updated_at": "2026-02-12T16:35:53.964369"
+      "updated_at": "2026-02-12T18:16:09.850629"
     },
     {
       "ticker": "317330",
@@ -2005,7 +2005,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 9.8,
-      "updated_at": "2026-02-12T16:35:54.881468"
+      "updated_at": "2026-02-12T18:16:10.346999"
     },
     {
       "ticker": "377300",
@@ -2027,7 +2027,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 10.9,
-      "updated_at": "2026-02-12T16:35:45.970828"
+      "updated_at": "2026-02-12T18:16:02.572049"
     },
     {
       "ticker": "047920",
@@ -2049,7 +2049,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 2.8,
-      "updated_at": "2026-02-12T16:35:54.233271"
+      "updated_at": "2026-02-12T18:16:10.019971"
     },
     {
       "ticker": "067630",
@@ -2071,7 +2071,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -1.5,
-      "updated_at": "2026-02-12T16:35:54.455022"
+      "updated_at": "2026-02-12T18:16:10.062107"
     },
     {
       "ticker": "094480",
@@ -2093,7 +2093,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 9.7,
-      "updated_at": "2026-02-12T16:35:54.703200"
+      "updated_at": "2026-02-12T18:16:10.178191"
     },
     {
       "ticker": "063080",
@@ -2115,7 +2115,29 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 2.0,
-      "updated_at": "2026-02-12T16:36:03.694122"
+      "updated_at": "2026-02-12T18:16:12.972301"
+    },
+    {
+      "ticker": "077970",
+      "name": "STX엔진",
+      "grade": "B",
+      "score": 6,
+      "signal_date": "2026-01-29",
+      "days_since_signal": 9,
+      "current_price": 32500,
+      "change_since_signal": -7.41,
+      "drop_from_high": -34.74,
+      "ma150": 34254,
+      "above_ma150": false,
+      "market_cap": 13268,
+      "score_near_ma150": 2,
+      "score_ma_breakout": 0,
+      "score_higher_low": 2,
+      "score_slope": 2,
+      "score_volume": 0,
+      "score_macd": 0,
+      "ma150_gap": 4.4,
+      "updated_at": "2026-02-12T18:16:02.852902"
     },
     {
       "ticker": "003580",
@@ -2137,7 +2159,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -3.7,
-      "updated_at": "2026-02-12T16:35:52.128472"
+      "updated_at": "2026-02-12T18:16:08.982421"
     },
     {
       "ticker": "053300",
@@ -2159,7 +2181,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -0.6,
-      "updated_at": "2026-02-12T16:35:55.959863"
+      "updated_at": "2026-02-12T18:16:11.334591"
     },
     {
       "ticker": "333430",
@@ -2181,7 +2203,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": -3.8,
-      "updated_at": "2026-02-12T16:35:59.881155"
+      "updated_at": "2026-02-12T18:16:12.236241"
     },
     {
       "ticker": "101670",
@@ -2203,7 +2225,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 13.0,
-      "updated_at": "2026-02-12T16:36:03.791487"
+      "updated_at": "2026-02-12T18:16:13.097562"
     },
     {
       "ticker": "278650",
@@ -2225,7 +2247,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 2.1,
-      "updated_at": "2026-02-12T16:36:04.150864"
+      "updated_at": "2026-02-12T18:16:13.684346"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-12T16:36:03.756286",
-    "totalCount": 51,
+    "lastUpdated": "2026-02-12T18:16:02.979421",
+    "totalCount": 52,
     "screened_from": 1567
   },
   "data": [
@@ -21,7 +21,7 @@
       "success_prob": 83.5,
       "predicted_gain": 35.0,
       "ai_score": 88.4,
-      "updated_at": "2026-02-12T16:35:56.521387"
+      "updated_at": "2026-02-12T18:16:00.042617"
     },
     {
       "ticker": "047770",
@@ -39,7 +39,7 @@
       "success_prob": 75.9,
       "predicted_gain": 34.0,
       "ai_score": 83.2,
-      "updated_at": "2026-02-12T16:35:56.638973"
+      "updated_at": "2026-02-12T18:16:00.088624"
     },
     {
       "ticker": "001200",
@@ -57,7 +57,7 @@
       "success_prob": 61.3,
       "predicted_gain": 23.8,
       "ai_score": 64.3,
-      "updated_at": "2026-02-12T16:35:34.867844"
+      "updated_at": "2026-02-12T18:15:48.121755"
     },
     {
       "ticker": "365330",
@@ -75,7 +75,7 @@
       "success_prob": 60.8,
       "predicted_gain": 23.9,
       "ai_score": 64.1,
-      "updated_at": "2026-02-12T16:35:53.562980"
+      "updated_at": "2026-02-12T18:15:58.722985"
     },
     {
       "ticker": "340570",
@@ -93,7 +93,7 @@
       "success_prob": 64.5,
       "predicted_gain": 15.5,
       "ai_score": 59.1,
-      "updated_at": "2026-02-12T16:35:45.400946"
+      "updated_at": "2026-02-12T18:15:56.559843"
     },
     {
       "ticker": "090850",
@@ -111,25 +111,25 @@
       "success_prob": 62.4,
       "predicted_gain": 16.9,
       "ai_score": 58.9,
-      "updated_at": "2026-02-12T16:35:57.176298"
+      "updated_at": "2026-02-12T18:16:00.363969"
     },
     {
       "ticker": "002320",
       "name": "한진",
-      "price": 22050,
-      "change_rate": -3.29,
+      "price": 22800,
+      "change_rate": 1.79,
       "breakout_date": "2026-02-10",
       "resistance": 21550,
-      "days_since_breakout": 2,
-      "breakout_pct": 2.32,
-      "gain_since_breakout": -1.56,
-      "ma150": 20387,
+      "days_since_breakout": 1,
+      "breakout_pct": 5.8,
+      "gain_since_breakout": 1.79,
+      "ma150": 20379,
       "above_ma150": true,
       "market_cap": 3359,
       "success_prob": 62.2,
       "predicted_gain": 13.9,
       "ai_score": 56.1,
-      "updated_at": "2026-02-12T16:35:35.712833"
+      "updated_at": "2026-02-12T18:15:48.856114"
     },
     {
       "ticker": "062040",
@@ -147,7 +147,7 @@
       "success_prob": 52.2,
       "predicted_gain": 19.9,
       "ai_score": 54.5,
-      "updated_at": "2026-02-12T16:35:30.134948"
+      "updated_at": "2026-02-12T18:15:42.735145"
     },
     {
       "ticker": "007110",
@@ -165,25 +165,25 @@
       "success_prob": 54.6,
       "predicted_gain": 14.5,
       "ai_score": 51.3,
-      "updated_at": "2026-02-12T16:35:41.129823"
+      "updated_at": "2026-02-12T18:15:53.034720"
     },
     {
       "ticker": "090460",
       "name": "비에이치",
-      "price": 21900,
-      "change_rate": 1.15,
+      "price": 21650,
+      "change_rate": 8.52,
       "breakout_date": "2026-02-09",
       "resistance": 18740,
-      "days_since_breakout": 3,
-      "breakout_pct": 16.86,
-      "gain_since_breakout": 10.11,
-      "ma150": 16940,
+      "days_since_breakout": 2,
+      "breakout_pct": 15.53,
+      "gain_since_breakout": 8.85,
+      "ma150": 16878,
       "above_ma150": true,
       "market_cap": 7382,
       "success_prob": 47.6,
       "predicted_gain": 18.0,
       "ai_score": 49.6,
-      "updated_at": "2026-02-12T16:35:33.237625"
+      "updated_at": "2026-02-12T18:15:45.889269"
     },
     {
       "ticker": "012630",
@@ -201,7 +201,7 @@
       "success_prob": 44.8,
       "predicted_gain": 19.8,
       "ai_score": 49.2,
-      "updated_at": "2026-02-12T16:35:31.854381"
+      "updated_at": "2026-02-12T18:15:44.819684"
     },
     {
       "ticker": "057050",
@@ -219,25 +219,25 @@
       "success_prob": 51.0,
       "predicted_gain": 11.1,
       "ai_score": 45.7,
-      "updated_at": "2026-02-12T16:35:32.752818"
+      "updated_at": "2026-02-12T18:15:45.367954"
     },
     {
-      "ticker": "183190",
-      "name": "아세아시멘트",
-      "price": 13670,
-      "change_rate": 0.0,
-      "breakout_date": "2026-02-04",
-      "resistance": 12860,
-      "days_since_breakout": 6,
-      "breakout_pct": 6.3,
-      "gain_since_breakout": 2.63,
-      "ma150": 12635,
+      "ticker": "213500",
+      "name": "한솔제지",
+      "price": 8780,
+      "change_rate": 1.04,
+      "breakout_date": "2026-02-10",
+      "resistance": 8520,
+      "days_since_breakout": 1,
+      "breakout_pct": 3.05,
+      "gain_since_breakout": 1.04,
+      "ma150": 8487,
       "above_ma150": true,
-      "market_cap": 5048,
-      "success_prob": 48.5,
-      "predicted_gain": 11.7,
-      "ai_score": 44.5,
-      "updated_at": "2026-02-12T16:35:34.506093"
+      "market_cap": 2111,
+      "success_prob": 53.4,
+      "predicted_gain": 7.6,
+      "ai_score": 44.2,
+      "updated_at": "2026-02-12T18:15:51.382851"
     },
     {
       "ticker": "126560",
@@ -255,7 +255,7 @@
       "success_prob": 47.5,
       "predicted_gain": 10.4,
       "ai_score": 42.7,
-      "updated_at": "2026-02-12T16:35:35.151892"
+      "updated_at": "2026-02-12T18:15:48.395919"
     },
     {
       "ticker": "015230",
@@ -273,7 +273,7 @@
       "success_prob": 42.3,
       "predicted_gain": 13.6,
       "ai_score": 41.9,
-      "updated_at": "2026-02-12T16:35:38.730281"
+      "updated_at": "2026-02-12T18:15:51.487583"
     },
     {
       "ticker": "001520",
@@ -291,7 +291,25 @@
       "success_prob": 39.0,
       "predicted_gain": 16.0,
       "ai_score": 41.7,
-      "updated_at": "2026-02-12T16:35:37.703614"
+      "updated_at": "2026-02-12T18:15:50.697130"
+    },
+    {
+      "ticker": "183190",
+      "name": "아세아시멘트",
+      "price": 13670,
+      "change_rate": -0.51,
+      "breakout_date": "2026-02-04",
+      "resistance": 12860,
+      "days_since_breakout": 5,
+      "breakout_pct": 6.3,
+      "gain_since_breakout": 2.63,
+      "ma150": 12626,
+      "above_ma150": true,
+      "market_cap": 5048,
+      "success_prob": 44.0,
+      "predicted_gain": 11.8,
+      "ai_score": 41.4,
+      "updated_at": "2026-02-12T18:15:47.425401"
     },
     {
       "ticker": "120030",
@@ -309,7 +327,7 @@
       "success_prob": 42.9,
       "predicted_gain": 9.3,
       "ai_score": 38.4,
-      "updated_at": "2026-02-12T16:35:41.332004"
+      "updated_at": "2026-02-12T18:15:53.124782"
     },
     {
       "ticker": "003000",
@@ -327,7 +345,7 @@
       "success_prob": 35.0,
       "predicted_gain": 11.7,
       "ai_score": 35.1,
-      "updated_at": "2026-02-12T16:35:34.964668"
+      "updated_at": "2026-02-12T18:15:48.212476"
     },
     {
       "ticker": "185750",
@@ -345,7 +363,7 @@
       "success_prob": 33.8,
       "predicted_gain": 12.6,
       "ai_score": 35.0,
-      "updated_at": "2026-02-12T16:35:31.826453"
+      "updated_at": "2026-02-12T18:15:44.777872"
     },
     {
       "ticker": "344820",
@@ -363,7 +381,7 @@
       "success_prob": 39.7,
       "predicted_gain": 7.8,
       "ai_score": 34.8,
-      "updated_at": "2026-02-12T16:35:34.705563"
+      "updated_at": "2026-02-12T18:15:47.972893"
     },
     {
       "ticker": "001390",
@@ -381,7 +399,7 @@
       "success_prob": 36.2,
       "predicted_gain": 10.4,
       "ai_score": 34.7,
-      "updated_at": "2026-02-12T16:35:34.973620"
+      "updated_at": "2026-02-12T18:15:48.222384"
     },
     {
       "ticker": "125210",
@@ -399,7 +417,7 @@
       "success_prob": 27.7,
       "predicted_gain": 15.0,
       "ai_score": 32.9,
-      "updated_at": "2026-02-12T16:35:59.564711"
+      "updated_at": "2026-02-12T18:16:01.356499"
     },
     {
       "ticker": "004970",
@@ -417,7 +435,7 @@
       "success_prob": 31.8,
       "predicted_gain": 10.3,
       "ai_score": 31.5,
-      "updated_at": "2026-02-12T16:35:40.188368"
+      "updated_at": "2026-02-12T18:15:52.202318"
     },
     {
       "ticker": "066575",
@@ -435,7 +453,7 @@
       "success_prob": 28.7,
       "predicted_gain": 12.2,
       "ai_score": 31.1,
-      "updated_at": "2026-02-12T16:35:32.746951"
+      "updated_at": "2026-02-12T18:15:45.357397"
     },
     {
       "ticker": "227840",
@@ -453,7 +471,7 @@
       "success_prob": 31.6,
       "predicted_gain": 10.0,
       "ai_score": 31.1,
-      "updated_at": "2026-02-12T16:35:41.715166"
+      "updated_at": "2026-02-12T18:15:53.445027"
     },
     {
       "ticker": "008770",
@@ -471,7 +489,7 @@
       "success_prob": 27.6,
       "predicted_gain": 12.5,
       "ai_score": 30.6,
-      "updated_at": "2026-02-12T16:35:31.032489"
+      "updated_at": "2026-02-12T18:15:43.678856"
     },
     {
       "ticker": "037710",
@@ -489,43 +507,25 @@
       "success_prob": 31.1,
       "predicted_gain": 9.4,
       "ai_score": 30.2,
-      "updated_at": "2026-02-12T16:35:36.025229"
+      "updated_at": "2026-02-12T18:15:49.407300"
     },
     {
       "ticker": "039130",
       "name": "하나투어",
       "price": 51100,
-      "change_rate": 0.0,
+      "change_rate": 2.2,
       "breakout_date": "2026-02-11",
       "resistance": 49550,
-      "days_since_breakout": 1,
+      "days_since_breakout": 0,
       "breakout_pct": 3.13,
       "gain_since_breakout": 0.0,
-      "ma150": 49906,
+      "ma150": 49928,
       "above_ma150": true,
       "market_cap": 7915,
       "success_prob": 27.3,
       "predicted_gain": 11.9,
       "ai_score": 29.8,
-      "updated_at": "2026-02-12T16:35:33.142439"
-    },
-    {
-      "ticker": "090430",
-      "name": "아모레퍼시픽",
-      "price": 159400,
-      "change_rate": -2.21,
-      "breakout_date": "2026-01-29",
-      "resistance": 134800,
-      "days_since_breakout": 10,
-      "breakout_pct": 18.25,
-      "gain_since_breakout": 14.27,
-      "ma150": 126342,
-      "above_ma150": true,
-      "market_cap": 93237,
-      "success_prob": 23.8,
-      "predicted_gain": 14.2,
-      "ai_score": 29.4,
-      "updated_at": "2026-02-12T16:35:29.706270"
+      "updated_at": "2026-02-12T18:15:45.705163"
     },
     {
       "ticker": "004690",
@@ -543,7 +543,7 @@
       "success_prob": 18.1,
       "predicted_gain": 17.3,
       "ai_score": 28.3,
-      "updated_at": "2026-02-12T16:35:33.454913"
+      "updated_at": "2026-02-12T18:15:46.610877"
     },
     {
       "ticker": "032640",
@@ -561,7 +561,7 @@
       "success_prob": 26.1,
       "predicted_gain": 10.0,
       "ai_score": 27.3,
-      "updated_at": "2026-02-12T16:35:29.849268"
+      "updated_at": "2026-02-12T18:15:42.352961"
     },
     {
       "ticker": "003540",
@@ -579,25 +579,25 @@
       "success_prob": 14.8,
       "predicted_gain": 17.6,
       "ai_score": 26.2,
-      "updated_at": "2026-02-12T16:35:31.440038"
+      "updated_at": "2026-02-12T18:15:44.458204"
     },
     {
       "ticker": "298690",
       "name": "에어부산",
-      "price": 1972,
-      "change_rate": -0.45,
+      "price": 1981,
+      "change_rate": -0.3,
       "breakout_date": "2026-02-09",
       "resistance": 1900,
-      "days_since_breakout": 3,
-      "breakout_pct": 3.79,
-      "gain_since_breakout": 2.02,
-      "ma150": 1901,
+      "days_since_breakout": 2,
+      "breakout_pct": 4.26,
+      "gain_since_breakout": 2.48,
+      "ma150": 1903,
       "above_ma150": true,
       "market_cap": 2300,
       "success_prob": 23.7,
       "predicted_gain": 10.6,
       "ai_score": 26.2,
-      "updated_at": "2026-02-12T16:35:37.406237"
+      "updated_at": "2026-02-12T18:15:50.642042"
     },
     {
       "ticker": "001045",
@@ -615,7 +615,7 @@
       "success_prob": 20.0,
       "predicted_gain": 13.0,
       "ai_score": 25.7,
-      "updated_at": "2026-02-12T16:35:37.275123"
+      "updated_at": "2026-02-12T18:15:50.556295"
     },
     {
       "ticker": "092730",
@@ -633,7 +633,7 @@
       "success_prob": 15.5,
       "predicted_gain": 16.2,
       "ai_score": 25.4,
-      "updated_at": "2026-02-12T16:35:48.138024"
+      "updated_at": "2026-02-12T18:15:57.260537"
     },
     {
       "ticker": "192080",
@@ -651,7 +651,7 @@
       "success_prob": 20.4,
       "predicted_gain": 12.1,
       "ai_score": 25.2,
-      "updated_at": "2026-02-12T16:35:32.040132"
+      "updated_at": "2026-02-12T18:15:44.951186"
     },
     {
       "ticker": "272450",
@@ -669,7 +669,7 @@
       "success_prob": 23.0,
       "predicted_gain": 10.1,
       "ai_score": 25.2,
-      "updated_at": "2026-02-12T16:35:35.164134"
+      "updated_at": "2026-02-12T18:15:48.404590"
     },
     {
       "ticker": "080160",
@@ -687,7 +687,7 @@
       "success_prob": 22.4,
       "predicted_gain": 10.5,
       "ai_score": 25.1,
-      "updated_at": "2026-02-12T16:35:50.206051"
+      "updated_at": "2026-02-12T18:15:57.777486"
     },
     {
       "ticker": "265520",
@@ -705,7 +705,7 @@
       "success_prob": 19.3,
       "predicted_gain": 12.2,
       "ai_score": 24.5,
-      "updated_at": "2026-02-12T16:35:48.082061"
+      "updated_at": "2026-02-12T18:15:57.217372"
     },
     {
       "ticker": "069960",
@@ -723,7 +723,7 @@
       "success_prob": 14.2,
       "predicted_gain": 14.4,
       "ai_score": 22.9,
-      "updated_at": "2026-02-12T16:35:30.748373"
+      "updated_at": "2026-02-12T18:15:43.507415"
     },
     {
       "ticker": "003460",
@@ -741,7 +741,7 @@
       "success_prob": 18.7,
       "predicted_gain": 10.9,
       "ai_score": 22.9,
-      "updated_at": "2026-02-12T16:35:39.189032"
+      "updated_at": "2026-02-12T18:15:51.779470"
     },
     {
       "ticker": "044450",
@@ -759,25 +759,25 @@
       "success_prob": 16.9,
       "predicted_gain": 12.2,
       "ai_score": 22.8,
-      "updated_at": "2026-02-12T16:35:37.228333"
+      "updated_at": "2026-02-12T18:15:50.445349"
     },
     {
       "ticker": "005880",
       "name": "대한해운",
-      "price": 2210,
-      "change_rate": 4.25,
+      "price": 2120,
+      "change_rate": -4.29,
       "breakout_date": "2026-01-29",
-      "resistance": 1957,
-      "days_since_breakout": 10,
-      "breakout_pct": 12.93,
-      "gain_since_breakout": 9.68,
-      "ma150": 1815,
+      "resistance": 1953,
+      "days_since_breakout": 9,
+      "breakout_pct": 8.55,
+      "gain_since_breakout": 5.21,
+      "ma150": 1812,
       "above_ma150": true,
       "market_cap": 7132,
-      "success_prob": 16.0,
-      "predicted_gain": 11.6,
-      "ai_score": 21.6,
-      "updated_at": "2026-02-12T16:35:33.303985"
+      "success_prob": 17.0,
+      "predicted_gain": 11.7,
+      "ai_score": 22.4,
+      "updated_at": "2026-02-12T18:15:46.245461"
     },
     {
       "ticker": "051500",
@@ -795,7 +795,25 @@
       "success_prob": 13.9,
       "predicted_gain": 12.5,
       "ai_score": 21.0,
-      "updated_at": "2026-02-12T16:35:46.325970"
+      "updated_at": "2026-02-12T18:15:56.835165"
+    },
+    {
+      "ticker": "090430",
+      "name": "아모레퍼시픽",
+      "price": 159400,
+      "change_rate": -2.21,
+      "breakout_date": "2026-01-29",
+      "resistance": 134800,
+      "days_since_breakout": 10,
+      "breakout_pct": 18.25,
+      "gain_since_breakout": 14.27,
+      "ma150": 126342,
+      "above_ma150": true,
+      "market_cap": 93237,
+      "success_prob": 9.5,
+      "predicted_gain": 15.0,
+      "ai_score": 20.2,
+      "updated_at": "2026-02-12T18:15:42.214991"
     },
     {
       "ticker": "034950",
@@ -813,7 +831,7 @@
       "success_prob": 15.4,
       "predicted_gain": 10.2,
       "ai_score": 19.9,
-      "updated_at": "2026-02-12T16:35:44.825380"
+      "updated_at": "2026-02-12T18:15:56.028011"
     },
     {
       "ticker": "017890",
@@ -831,7 +849,7 @@
       "success_prob": 10.9,
       "predicted_gain": 12.9,
       "ai_score": 19.2,
-      "updated_at": "2026-02-12T16:35:50.731225"
+      "updated_at": "2026-02-12T18:15:57.928502"
     },
     {
       "ticker": "267980",
@@ -849,7 +867,7 @@
       "success_prob": 15.4,
       "predicted_gain": 9.3,
       "ai_score": 19.1,
-      "updated_at": "2026-02-12T16:35:48.504380"
+      "updated_at": "2026-02-12T18:15:57.396901"
     },
     {
       "ticker": "004000",
@@ -867,7 +885,7 @@
       "success_prob": 9.2,
       "predicted_gain": 13.6,
       "ai_score": 18.7,
-      "updated_at": "2026-02-12T16:35:31.862999"
+      "updated_at": "2026-02-12T18:15:44.837882"
     },
     {
       "ticker": "383800",
@@ -885,7 +903,7 @@
       "success_prob": 12.7,
       "predicted_gain": 10.5,
       "ai_score": 18.3,
-      "updated_at": "2026-02-12T16:35:33.318826"
+      "updated_at": "2026-02-12T18:15:46.359766"
     },
     {
       "ticker": "105740",
@@ -903,7 +921,7 @@
       "success_prob": 7.6,
       "predicted_gain": 10.5,
       "ai_score": 14.8,
-      "updated_at": "2026-02-12T16:36:02.954740"
+      "updated_at": "2026-02-12T18:16:01.969844"
     },
     {
       "ticker": "082640",
@@ -921,7 +939,7 @@
       "success_prob": 4.3,
       "predicted_gain": 11.4,
       "ai_score": 13.3,
-      "updated_at": "2026-02-12T16:35:32.017282"
+      "updated_at": "2026-02-12T18:15:44.930479"
     }
   ]
 }
