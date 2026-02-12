@@ -1,51 +1,79 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-11T18:23:34.072558",
-    "totalCount": 3,
-    "screened_from": 1565
+    "lastUpdated": "2026-02-12T13:37:43.635071",
+    "totalCount": 5,
+    "screened_from": 1566
   },
   "data": [
     {
-      "ticker": "035600",
-      "name": "KG이니시스",
-      "price": 11290,
-      "change_rate": 0.18,
-      "breakout_date": "2026-01-28",
-      "resistance": 10950,
-      "pullback_ratio": 3.11,
-      "volume_decrease": 74,
-      "ma150": 10636,
+      "ticker": "002150",
+      "name": "도화엔지니어링",
+      "price": 6690,
+      "change_rate": 0.9,
+      "breakout_date": "2026-02-05",
+      "resistance": 6490,
+      "pullback_ratio": 3.08,
+      "volume_decrease": 71,
+      "ma150": 6387,
       "above_ma150": true,
-      "market_cap": 3110,
-      "updated_at": "2026-02-11T18:23:30.125580"
+      "market_cap": 2255,
+      "updated_at": "2026-02-12T13:37:38.611593"
+    },
+    {
+      "ticker": "100700",
+      "name": "세운메디칼",
+      "price": 2610,
+      "change_rate": 1.75,
+      "breakout_date": "2026-02-06",
+      "resistance": 2505,
+      "pullback_ratio": 4.19,
+      "volume_decrease": 76,
+      "ma150": 2513,
+      "above_ma150": true,
+      "market_cap": 1143,
+      "updated_at": "2026-02-12T13:37:43.367233"
     },
     {
       "ticker": "025860",
       "name": "남해화학",
-      "price": 7290,
-      "change_rate": 1.39,
+      "price": 7310,
+      "change_rate": 0.27,
       "breakout_date": "2026-02-06",
       "resistance": 6990,
-      "pullback_ratio": 4.29,
-      "volume_decrease": 54,
-      "ma150": 6904,
+      "pullback_ratio": 4.58,
+      "volume_decrease": 56,
+      "ma150": 6901,
       "above_ma150": true,
-      "market_cap": 3621,
-      "updated_at": "2026-02-11T18:23:26.296987"
+      "market_cap": 3636,
+      "updated_at": "2026-02-12T13:37:37.923516"
     },
     {
-      "ticker": "417840",
-      "name": "저스템",
-      "price": 6690,
-      "change_rate": -2.34,
-      "breakout_date": "2026-02-02",
-      "resistance": 6990,
-      "pullback_ratio": 4.29,
-      "volume_decrease": 79,
-      "ma150": 4308,
+      "ticker": "101160",
+      "name": "월덱스",
+      "price": 26450,
+      "change_rate": 1.73,
+      "breakout_date": "2026-01-30",
+      "resistance": 25200,
+      "pullback_ratio": 4.96,
+      "volume_decrease": 72,
+      "ma150": 23566,
       "above_ma150": true,
-      "market_cap": 1510,
-      "updated_at": "2026-02-11T18:23:32.023384"
+      "market_cap": 4367,
+      "updated_at": "2026-02-12T13:37:40.523666"
+    },
+    {
+      "ticker": "003555",
+      "name": "LG우",
+      "price": 73500,
+      "change_rate": 0.0,
+      "breakout_date": "2026-01-23",
+      "resistance": 70000,
+      "pullback_ratio": 5.0,
+      "volume_decrease": 52,
+      "ma150": 65406,
+      "above_ma150": true,
+      "market_cap": 2210,
+      "updated_at": "2026-02-12T13:37:38.671407"
     }
   ]
 }
