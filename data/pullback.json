@@ -1,79 +1,79 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-12T13:37:43.635071",
+    "lastUpdated": "2026-02-12T14:59:01.626610",
     "totalCount": 5,
-    "screened_from": 1566
+    "screened_from": 1568
   },
   "data": [
     {
       "ticker": "002150",
       "name": "도화엔지니어링",
-      "price": 6690,
-      "change_rate": 0.9,
+      "price": 6680,
+      "change_rate": 0.75,
       "breakout_date": "2026-02-05",
       "resistance": 6490,
-      "pullback_ratio": 3.08,
+      "pullback_ratio": 2.93,
       "volume_decrease": 71,
       "ma150": 6387,
       "above_ma150": true,
-      "market_cap": 2255,
-      "updated_at": "2026-02-12T13:37:38.611593"
+      "market_cap": 2249,
+      "updated_at": "2026-02-12T14:58:56.125546"
     },
     {
       "ticker": "100700",
       "name": "세운메디칼",
-      "price": 2610,
-      "change_rate": 1.75,
+      "price": 2600,
+      "change_rate": 1.36,
       "breakout_date": "2026-02-06",
       "resistance": 2505,
-      "pullback_ratio": 4.19,
+      "pullback_ratio": 3.79,
       "volume_decrease": 76,
       "ma150": 2513,
       "above_ma150": true,
-      "market_cap": 1143,
-      "updated_at": "2026-02-12T13:37:43.367233"
+      "market_cap": 1140,
+      "updated_at": "2026-02-12T14:59:00.935559"
     },
     {
-      "ticker": "025860",
-      "name": "남해화학",
-      "price": 7310,
-      "change_rate": 0.27,
-      "breakout_date": "2026-02-06",
-      "resistance": 6990,
-      "pullback_ratio": 4.58,
-      "volume_decrease": 56,
-      "ma150": 6901,
+      "ticker": "035600",
+      "name": "KG이니시스",
+      "price": 11430,
+      "change_rate": 1.24,
+      "breakout_date": "2026-01-28",
+      "resistance": 10950,
+      "pullback_ratio": 4.38,
+      "volume_decrease": 75,
+      "ma150": 10640,
       "above_ma150": true,
-      "market_cap": 3636,
-      "updated_at": "2026-02-12T13:37:37.923516"
+      "market_cap": 3168,
+      "updated_at": "2026-02-12T14:58:58.585255"
     },
     {
-      "ticker": "101160",
-      "name": "월덱스",
-      "price": 26450,
-      "change_rate": 1.73,
-      "breakout_date": "2026-01-30",
-      "resistance": 25200,
-      "pullback_ratio": 4.96,
-      "volume_decrease": 72,
-      "ma150": 23566,
+      "ticker": "096530",
+      "name": "씨젠",
+      "price": 27800,
+      "change_rate": 0.36,
+      "breakout_date": "2026-01-28",
+      "resistance": 26550,
+      "pullback_ratio": 4.71,
+      "volume_decrease": 54,
+      "ma150": 26406,
       "above_ma150": true,
-      "market_cap": 4367,
-      "updated_at": "2026-02-12T13:37:40.523666"
+      "market_cap": 14518,
+      "updated_at": "2026-02-12T14:58:57.909346"
     },
     {
       "ticker": "003555",
       "name": "LG우",
-      "price": 73500,
-      "change_rate": 0.0,
+      "price": 73400,
+      "change_rate": -0.14,
       "breakout_date": "2026-01-23",
       "resistance": 70000,
-      "pullback_ratio": 5.0,
-      "volume_decrease": 52,
+      "pullback_ratio": 4.86,
+      "volume_decrease": 51,
       "ma150": 65406,
       "above_ma150": true,
-      "market_cap": 2210,
-      "updated_at": "2026-02-12T13:37:38.671407"
+      "market_cap": 2213,
+      "updated_at": "2026-02-12T14:58:56.265770"
     }
   ]
 }
