@@ -1,37 +1,51 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-13T13:44:03.540838",
-    "totalCount": 5,
+    "lastUpdated": "2026-02-13T14:55:10.503384",
+    "totalCount": 4,
     "screened_from": 1557
   },
   "data": [
     {
-      "ticker": "095660",
-      "name": "네오위즈",
-      "price": 26500,
-      "change_rate": 2.51,
-      "breakout_date": "2026-01-26",
-      "resistance": 26650,
-      "pullback_ratio": 0.56,
-      "volume_decrease": 71,
-      "ma150": 25353,
+      "ticker": "035600",
+      "name": "KG이니시스",
+      "price": 11270,
+      "change_rate": -1.57,
+      "breakout_date": "2026-01-28",
+      "resistance": 10950,
+      "pullback_ratio": 2.92,
+      "volume_decrease": 75,
+      "ma150": 10642,
       "above_ma150": true,
-      "market_cap": 5792,
-      "updated_at": "2026-02-13T13:44:00.136177"
+      "market_cap": 3135,
+      "updated_at": "2026-02-13T14:55:04.938381"
     },
     {
       "ticker": "100700",
       "name": "세운메디칼",
-      "price": 2580,
-      "change_rate": -0.96,
+      "price": 2585,
+      "change_rate": -0.77,
       "breakout_date": "2026-02-06",
       "resistance": 2505,
-      "pullback_ratio": 2.99,
+      "pullback_ratio": 3.19,
       "volume_decrease": 95,
       "ma150": 2513,
       "above_ma150": true,
-      "market_cap": 1132,
-      "updated_at": "2026-02-13T13:44:03.101351"
+      "market_cap": 1134,
+      "updated_at": "2026-02-13T14:55:07.495456"
+    },
+    {
+      "ticker": "003555",
+      "name": "LG우",
+      "price": 72700,
+      "change_rate": -0.82,
+      "breakout_date": "2026-01-23",
+      "resistance": 70000,
+      "pullback_ratio": 3.86,
+      "volume_decrease": 57,
+      "ma150": 65469,
+      "above_ma150": true,
+      "market_cap": 2198,
+      "updated_at": "2026-02-13T14:55:02.332519"
     },
     {
       "ticker": "025860",
@@ -41,39 +55,11 @@
       "breakout_date": "2026-02-06",
       "resistance": 6990,
       "pullback_ratio": 4.15,
-      "volume_decrease": 71,
+      "volume_decrease": 70,
       "ma150": 6898,
       "above_ma150": true,
-      "market_cap": 3616,
-      "updated_at": "2026-02-13T13:43:57.781602"
-    },
-    {
-      "ticker": "035600",
-      "name": "KG이니시스",
-      "price": 11430,
-      "change_rate": -0.17,
-      "breakout_date": "2026-01-28",
-      "resistance": 10950,
-      "pullback_ratio": 4.38,
-      "volume_decrease": 75,
-      "ma150": 10643,
-      "above_ma150": true,
-      "market_cap": 3146,
-      "updated_at": "2026-02-13T13:44:00.694295"
-    },
-    {
-      "ticker": "003555",
-      "name": "LG우",
-      "price": 73400,
-      "change_rate": 0.14,
-      "breakout_date": "2026-01-23",
-      "resistance": 70000,
-      "pullback_ratio": 4.86,
-      "volume_decrease": 58,
-      "ma150": 65474,
-      "above_ma150": true,
-      "market_cap": 2195,
-      "updated_at": "2026-02-13T13:43:58.517065"
+      "market_cap": 3626,
+      "updated_at": "2026-02-13T14:55:01.698974"
     }
   ]
 }
