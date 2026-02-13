@@ -1,23 +1,23 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-13T14:55:10.503384",
-    "totalCount": 4,
-    "screened_from": 1557
+    "lastUpdated": "2026-02-13T16:42:17.089357",
+    "totalCount": 6,
+    "screened_from": 1554
   },
   "data": [
     {
-      "ticker": "035600",
-      "name": "KG이니시스",
-      "price": 11270,
-      "change_rate": -1.57,
-      "breakout_date": "2026-01-28",
-      "resistance": 10950,
-      "pullback_ratio": 2.92,
-      "volume_decrease": 75,
-      "ma150": 10642,
+      "ticker": "095660",
+      "name": "네오위즈",
+      "price": 26150,
+      "change_rate": 1.16,
+      "breakout_date": "2026-01-26",
+      "resistance": 26650,
+      "pullback_ratio": 1.88,
+      "volume_decrease": 70,
+      "ma150": 25351,
       "above_ma150": true,
-      "market_cap": 3135,
-      "updated_at": "2026-02-13T14:55:04.938381"
+      "market_cap": 5715,
+      "updated_at": "2026-02-13T16:42:14.035588"
     },
     {
       "ticker": "100700",
@@ -30,36 +30,64 @@
       "volume_decrease": 95,
       "ma150": 2513,
       "above_ma150": true,
-      "market_cap": 1134,
-      "updated_at": "2026-02-13T14:55:07.495456"
+      "market_cap": 1132,
+      "updated_at": "2026-02-13T16:42:16.561829"
     },
     {
-      "ticker": "003555",
-      "name": "LG우",
-      "price": 72700,
-      "change_rate": -0.82,
-      "breakout_date": "2026-01-23",
-      "resistance": 70000,
-      "pullback_ratio": 3.86,
-      "volume_decrease": 57,
-      "ma150": 65469,
+      "ticker": "035600",
+      "name": "KG이니시스",
+      "price": 11370,
+      "change_rate": -0.7,
+      "breakout_date": "2026-01-28",
+      "resistance": 10950,
+      "pullback_ratio": 3.84,
+      "volume_decrease": 74,
+      "ma150": 10642,
       "above_ma150": true,
-      "market_cap": 2198,
-      "updated_at": "2026-02-13T14:55:02.332519"
+      "market_cap": 3132,
+      "updated_at": "2026-02-13T16:42:14.374205"
     },
     {
       "ticker": "025860",
       "name": "남해화학",
-      "price": 7280,
-      "change_rate": -1.09,
+      "price": 7270,
+      "change_rate": -1.22,
       "breakout_date": "2026-02-06",
       "resistance": 6990,
-      "pullback_ratio": 4.15,
+      "pullback_ratio": 4.01,
       "volume_decrease": 70,
       "ma150": 6898,
       "above_ma150": true,
-      "market_cap": 3626,
-      "updated_at": "2026-02-13T14:55:01.698974"
+      "market_cap": 3611,
+      "updated_at": "2026-02-13T16:42:11.810884"
+    },
+    {
+      "ticker": "251970",
+      "name": "펌텍코리아",
+      "price": 59100,
+      "change_rate": -1.83,
+      "breakout_date": "2026-01-22",
+      "resistance": 56500,
+      "pullback_ratio": 4.6,
+      "volume_decrease": 81,
+      "ma150": 58721,
+      "above_ma150": true,
+      "market_cap": 7142,
+      "updated_at": "2026-02-13T16:42:13.880088"
+    },
+    {
+      "ticker": "003555",
+      "name": "LG우",
+      "price": 73400,
+      "change_rate": 0.14,
+      "breakout_date": "2026-01-23",
+      "resistance": 70000,
+      "pullback_ratio": 4.86,
+      "volume_decrease": 56,
+      "ma150": 65474,
+      "above_ma150": true,
+      "market_cap": 2210,
+      "updated_at": "2026-02-13T16:42:12.344607"
     }
   ]
 }
