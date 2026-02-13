@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-13T16:42:14.464345",
-    "totalCount": 21,
+    "lastUpdated": "2026-02-13T18:12:27.908933",
+    "totalCount": 19,
     "screened_from": 1554
   },
   "data": [
@@ -23,7 +23,7 @@
       "days": 113,
       "ma150": 5574,
       "above_ma150": false,
-      "updated_at": "2026-02-13T16:42:14.133952"
+      "updated_at": "2026-02-13T18:12:27.541872"
     },
     {
       "ticker": "415640",
@@ -43,7 +43,7 @@
       "days": 83,
       "ma150": 9316,
       "above_ma150": true,
-      "updated_at": "2026-02-13T16:42:10.714633"
+      "updated_at": "2026-02-13T18:12:23.707755"
     },
     {
       "ticker": "122900",
@@ -63,7 +63,7 @@
       "days": 127,
       "ma150": 8062,
       "above_ma150": false,
-      "updated_at": "2026-02-13T16:42:11.128975"
+      "updated_at": "2026-02-13T18:12:24.354751"
     },
     {
       "ticker": "078000",
@@ -83,7 +83,7 @@
       "days": 95,
       "ma150": 15311,
       "above_ma150": true,
-      "updated_at": "2026-02-13T16:42:11.684073"
+      "updated_at": "2026-02-13T18:12:24.939125"
     },
     {
       "ticker": "083930",
@@ -103,7 +103,7 @@
       "days": 95,
       "ma150": 14335,
       "above_ma150": true,
-      "updated_at": "2026-02-13T16:42:12.872005"
+      "updated_at": "2026-02-13T18:12:26.501637"
     },
     {
       "ticker": "365550",
@@ -123,7 +123,7 @@
       "days": 100,
       "ma150": 4396,
       "above_ma150": true,
-      "updated_at": "2026-02-13T16:42:10.724529"
+      "updated_at": "2026-02-13T18:12:23.764618"
     },
     {
       "ticker": "009290",
@@ -143,7 +143,7 @@
       "days": 142,
       "ma150": 5990,
       "above_ma150": true,
-      "updated_at": "2026-02-13T16:42:11.066510"
+      "updated_at": "2026-02-13T18:12:24.275804"
     },
     {
       "ticker": "043150",
@@ -163,7 +163,7 @@
       "days": 66,
       "ma150": 21330,
       "above_ma150": false,
-      "updated_at": "2026-02-13T16:42:12.364552"
+      "updated_at": "2026-02-13T18:12:26.282118"
     },
     {
       "ticker": "052420",
@@ -183,7 +183,7 @@
       "days": 76,
       "ma150": 1555,
       "above_ma150": false,
-      "updated_at": "2026-02-13T16:42:13.787588"
+      "updated_at": "2026-02-13T18:12:27.300915"
     },
     {
       "ticker": "018470",
@@ -203,7 +203,7 @@
       "days": 113,
       "ma150": 1373,
       "above_ma150": false,
-      "updated_at": "2026-02-13T16:42:11.610854"
+      "updated_at": "2026-02-13T18:12:24.797860"
     },
     {
       "ticker": "005740",
@@ -223,7 +223,7 @@
       "days": 98,
       "ma150": 7179,
       "above_ma150": true,
-      "updated_at": "2026-02-13T16:42:12.013314"
+      "updated_at": "2026-02-13T18:12:25.466617"
     },
     {
       "ticker": "046890",
@@ -243,7 +243,7 @@
       "days": 98,
       "ma150": 6617,
       "above_ma150": true,
-      "updated_at": "2026-02-13T16:42:12.267912"
+      "updated_at": "2026-02-13T18:12:26.110029"
     },
     {
       "ticker": "179290",
@@ -263,67 +263,47 @@
       "days": 98,
       "ma150": 7029,
       "above_ma150": true,
-      "updated_at": "2026-02-13T16:42:12.877901"
+      "updated_at": "2026-02-13T18:12:26.502152"
     },
     {
       "ticker": "030190",
       "name": "NICE평가정보",
-      "price": 17700,
-      "change_rate": 0.91,
+      "price": 17540,
+      "change_rate": -0.45,
       "market_cap": 10427,
       "box_high": 18200,
-      "box_low": 15730,
-      "range_percent": 15.7,
-      "atr": 3.59,
-      "atr_multiple": 4.37,
+      "box_low": 15570,
+      "range_percent": 16.89,
+      "atr": 3.58,
+      "atr_multiple": 4.72,
       "support_touches": 3,
       "resistance_touches": 4,
-      "slope_daily": -0.0447,
-      "volume_decrease_rate": 33.19,
+      "slope_daily": -0.0396,
+      "volume_decrease_rate": 31.2,
       "days": 69,
-      "ma150": 15899,
+      "ma150": 15890,
       "above_ma150": true,
-      "updated_at": "2026-02-13T16:42:10.748674"
-    },
-    {
-      "ticker": "248070",
-      "name": "솔루엠",
-      "price": 17700,
-      "change_rate": -2.64,
-      "market_cap": 8463,
-      "box_high": 18200,
-      "box_low": 15730,
-      "range_percent": 15.7,
-      "atr": 3.59,
-      "atr_multiple": 4.37,
-      "support_touches": 3,
-      "resistance_touches": 4,
-      "slope_daily": -0.0447,
-      "volume_decrease_rate": 33.19,
-      "days": 69,
-      "ma150": 16875,
-      "above_ma150": true,
-      "updated_at": "2026-02-13T16:42:10.776700"
+      "updated_at": "2026-02-13T18:12:23.809206"
     },
     {
       "ticker": "007700",
       "name": "F&F홀딩스",
-      "price": 21050,
-      "change_rate": -1.86,
+      "price": 20600,
+      "change_rate": -2.14,
       "market_cap": 8057,
       "box_high": 21550,
       "box_low": 18300,
       "range_percent": 17.76,
-      "atr": 4.09,
-      "atr_multiple": 4.34,
+      "atr": 4.19,
+      "atr_multiple": 4.24,
       "support_touches": 2,
       "resistance_touches": 4,
-      "slope_daily": 0.0019,
-      "volume_decrease_rate": 7.1,
-      "days": 68,
-      "ma150": 19356,
+      "slope_daily": 0.0014,
+      "volume_decrease_rate": 8.12,
+      "days": 69,
+      "ma150": 19361,
       "above_ma150": true,
-      "updated_at": "2026-02-13T16:42:10.785350"
+      "updated_at": "2026-02-13T18:12:23.871017"
     },
     {
       "ticker": "093370",
@@ -343,7 +323,7 @@
       "days": 61,
       "ma150": 6935,
       "above_ma150": true,
-      "updated_at": "2026-02-13T16:42:10.776219"
+      "updated_at": "2026-02-13T18:12:23.853309"
     },
     {
       "ticker": "214680",
@@ -363,27 +343,7 @@
       "days": 128,
       "ma150": 1969,
       "above_ma150": true,
-      "updated_at": "2026-02-13T16:42:13.356456"
-    },
-    {
-      "ticker": "111770",
-      "name": "영원무역",
-      "price": 91400,
-      "change_rate": -2.87,
-      "market_cap": 40190,
-      "box_high": 97200,
-      "box_low": 79300,
-      "range_percent": 22.57,
-      "atr": 4.94,
-      "atr_multiple": 4.57,
-      "support_touches": 3,
-      "resistance_touches": 3,
-      "slope_daily": -0.0271,
-      "volume_decrease_rate": 12.65,
-      "days": 61,
-      "ma150": 71061,
-      "above_ma150": true,
-      "updated_at": "2026-02-13T16:42:10.602648"
+      "updated_at": "2026-02-13T18:12:26.851856"
     },
     {
       "ticker": "006340",
@@ -403,7 +363,7 @@
       "days": 88,
       "ma150": 3374,
       "above_ma150": true,
-      "updated_at": "2026-02-13T16:42:11.081531"
+      "updated_at": "2026-02-13T18:12:24.321844"
     },
     {
       "ticker": "144510",
@@ -423,7 +383,7 @@
       "days": 83,
       "ma150": 22539,
       "above_ma150": true,
-      "updated_at": "2026-02-13T16:42:12.285693"
+      "updated_at": "2026-02-13T18:12:26.137995"
     }
   ]
 }
