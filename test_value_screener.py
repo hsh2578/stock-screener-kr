@@ -1,95 +1,157 @@
 """
 저평가 우량주 스크리너 (TTM 버전)
 TTM(Trailing Twelve Months) 기반으로 최근 12개월 실적을 분석합니다.
+
+FnGuide 공유 캐시를 사용하여 개별 크롤링 없이 빠르게 실행합니다.
+캐시가 없으면 fallback으로 개별 수집합니다.
 """
 
-import FinanceDataReader as fdr
-import pandas as pd
 import json
 import os
-from datetime import datetime
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from naver_finance import (
-    fetch_financial_data_ttm,
-    pass_first_filter_ttm,
-    save_financial_data,
-    TREASURY_RATE
-)
+import sys
 import time
+from datetime import datetime
+from typing import Dict, List, Optional, Tuple, Any
 
+# 프로젝트 루트 설정
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, SCRIPT_DIR)
+
+from scripts.krx_data import get_stock_master
+from scripts.fnguide_data import (
+    load_fnguide_cache,
+    get_financial_data,
+    get_growth_rates_with_ttm,
+    get_operating_margins,
+    get_per_from_data,
+    get_pbr_from_data,
+)
+
+# 상수
 DATA_PATH = os.path.join(SCRIPT_DIR, 'data')
+FINANCIAL_DATA_FILE = os.path.join(DATA_PATH, 'financial_data.json')
+TREASURY_RATE = 3.4  # 국채금리 (호환성 유지)
+MIN_MARKET_CAP = 1000  # 시가총액 1,000억 이상
 
 
-def get_top_stocks(n: int = 20, min_market_cap: int = 2000) -> list:
-    """시가총액 상위 N개 종목 가져오기"""
-    print(f"종목 리스트 조회 중...")
+def save_financial_data(fnguide_cache: Dict[str, Dict]) -> None:
+    """
+    FnGuide 캐시 데이터를 financial_data.json으로 변환 저장.
+    ma60w_quality.py fallback 호환성을 위해 유지.
+    """
+    os.makedirs(DATA_PATH, exist_ok=True)
 
-    # KOSPI + KOSDAQ
-    kospi = fdr.StockListing('KOSPI')
-    kospi['Market'] = 'KOSPI'
-    kosdaq = fdr.StockListing('KOSDAQ')
-    kosdaq['Market'] = 'KOSDAQ'
+    # naver_finance.py의 save_financial_data() 호환 형식으로 변환
+    converted = {}
+    for code, data in fnguide_cache.items():
+        metrics = {}
 
-    stocks = pd.concat([kospi, kosdaq], ignore_index=True)
+        # 영업이익률
+        margins = get_operating_margins(data)
+        if margins:
+            metrics['operating_margin'] = margins
 
-    # 시가총액 계산
-    if 'Marcap' in stocks.columns:
-        stocks['MarketCap'] = stocks['Marcap'] / 100000000  # 원 -> 억원
+        # 영업이익 성장률
+        op_growth = get_growth_rates_with_ttm(data, 'operating_income')
+        if op_growth:
+            metrics['op_profit_growth_rate'] = op_growth
 
-    # 필터링 및 정렬
-    stocks = stocks[stocks['MarketCap'] >= min_market_cap].copy()
-    stocks = stocks.sort_values('MarketCap', ascending=False)
+        converted[code] = {
+            'code': code,
+            'metrics': metrics,
+        }
 
-    print(f"  시총 {min_market_cap}억 이상: {len(stocks)}개 종목")
-    print(f"  상위 {n}개 선택")
+    output = {
+        'meta': {
+            'updated_at': datetime.now().isoformat(),
+            'total_count': len(converted),
+            'treasury_rate': TREASURY_RATE,
+        },
+        'data': converted,
+    }
 
-    top = stocks.head(n)
+    with open(FINANCIAL_DATA_FILE, 'w', encoding='utf-8') as f:
+        json.dump(output, f, ensure_ascii=False, indent=2)
 
-    return [
-        {'Code': row['Code'], 'Name': row['Name'], 'MarketCap': row['MarketCap'], 'Close': row.get('Close', 0)}
-        for _, row in top.iterrows()
-    ]
-
-
-def fetch_single_stock_ttm(stock: dict) -> tuple:
-    """단일 종목 TTM 크롤링 (병렬 처리용)"""
-    code = stock['Code']
-    name = stock['Name']
-
-    data = fetch_financial_data_ttm(code)
-    if data and data.get('metrics'):
-        data['name'] = name
-        data['market_cap'] = stock['MarketCap']
-        return code, data
-    return code, None
+    print(f"financial_data.json 저장: {len(converted)}개 종목")
 
 
-def crawl_stocks_ttm(stocks: list, max_workers: int = 10) -> dict:
-    """종목들의 TTM 재무데이터 병렬 크롤링"""
-    print(f"\nTTM 재무데이터 병렬 크롤링 시작 ({len(stocks)}개 종목, {max_workers}개 스레드)")
+def pass_first_filter_ttm(fin_data: Dict, market_cap: float) -> Tuple[bool, Dict[str, Any]]:
+    """
+    TTM 기반 1차 필터 (6개 조건)
 
-    results = {}
-    success = 0
-    failed = 0
+    조건:
+    1. PER: 3 < PER < 30
+    2. 매출액 성장률: 3년 평균 > 10%
+    3. 영업이익률: 5년 평균 > 10%
+    4. 영업이익 성장률: 5년 평균 > 10%
+    5. EPS(순이익) 성장률: 5년 평균 > 10%
+    6. 순이익 증가율: 20% < 5년 평균 < 50%
+    """
+    results = {
+        'per_check': {'value': None, 'pass': False, 'condition': '3 < PER < 30'},
+        'revenue_growth': {'value': None, 'pass': False, 'condition': '매출성장률 3년평균 > 10%'},
+        'operating_margin_avg': {'value': None, 'pass': False, 'condition': '영업이익률 5년평균 > 10%'},
+        'operating_profit_growth': {'value': None, 'pass': False, 'condition': '영업이익성장률 5년평균 > 10%'},
+        'eps_growth': {'value': None, 'pass': False, 'condition': '순이익성장률 5년평균 > 10%'},
+        'net_income_growth': {'value': None, 'pass': False, 'condition': '순이익증가율 20~50%'},
+    }
 
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = {executor.submit(fetch_single_stock_ttm, stock): stock for stock in stocks}
+    # 1. PER: 3 < PER < 30
+    per = get_per_from_data(market_cap, fin_data)
+    if per is not None:
+        results['per_check']['value'] = round(per, 2)
+        results['per_check']['pass'] = 3 < per < 30
 
-        for i, future in enumerate(as_completed(futures)):
-            code, data = future.result()
-            if data:
-                results[code] = data
-                success += 1
-            else:
-                failed += 1
+    # 2. 매출액 성장률: 3년 평균 > 10%
+    rev_growth = get_growth_rates_with_ttm(fin_data, 'revenue', years=5)
+    if rev_growth:
+        valid_rates = [r for r in rev_growth[:3] if r is not None]
+        if valid_rates:
+            avg = sum(valid_rates) / len(valid_rates)
+            results['revenue_growth']['value'] = round(avg, 2)
+            results['revenue_growth']['pass'] = avg > 10
 
-            # 진행 상황 출력 (100개마다)
-            if (i + 1) % 100 == 0 or (i + 1) == len(stocks):
-                print(f"  진행: {i+1}/{len(stocks)} (성공: {success}, 실패: {failed})")
+    # 3. 영업이익률: 5년 평균 > 10%
+    margins = get_operating_margins(fin_data, years=5)
+    if margins:
+        valid_margins = [m for m in margins[:5] if m is not None]
+        if valid_margins:
+            avg = sum(valid_margins) / len(valid_margins)
+            results['operating_margin_avg']['value'] = round(avg, 2)
+            results['operating_margin_avg']['pass'] = avg > 10
 
-    print(f"\n크롤링 완료: 성공 {success}개, 실패 {failed}개")
-    return results
+    # 4. 영업이익 성장률: 5년 평균 > 10%
+    op_growth = get_growth_rates_with_ttm(fin_data, 'operating_income', years=5)
+    if op_growth:
+        valid_rates = [r for r in op_growth[:5] if r is not None]
+        if valid_rates:
+            avg = sum(valid_rates) / len(valid_rates)
+            results['operating_profit_growth']['value'] = round(avg, 2)
+            results['operating_profit_growth']['pass'] = avg > 10
+
+    # 5. EPS(순이익) 성장률: 5년 평균 > 10% (순이익 성장률로 대체)
+    ni_growth = get_growth_rates_with_ttm(fin_data, 'net_income', years=5)
+    if ni_growth:
+        valid_rates = [r for r in ni_growth[:5] if r is not None]
+        if valid_rates:
+            avg = sum(valid_rates) / len(valid_rates)
+            results['eps_growth']['value'] = round(avg, 2)
+            results['eps_growth']['pass'] = avg > 10
+
+    # 6. 순이익 증가율: 20% < 5년 평균 < 50%
+    if ni_growth:
+        valid_rates = [r for r in ni_growth[:5] if r is not None]
+        if valid_rates:
+            avg = sum(valid_rates) / len(valid_rates)
+            results['net_income_growth']['value'] = round(avg, 2)
+            results['net_income_growth']['pass'] = 20 < avg < 50
+
+    # 통과 여부: 6개 조건 모두 충족
+    pass_count = sum(1 for r in results.values() if r['pass'])
+    all_pass = pass_count == 6
+
+    return all_pass, results
 
 
 def save_results(results: list, filename: str):
@@ -101,7 +163,7 @@ def save_results(results: list, filename: str):
             'updated_at': datetime.now().isoformat(),
             'total_count': len(results),
             'treasury_rate': TREASURY_RATE,
-            'data_type': 'Q1-Q3 연환산'
+            'data_type': 'TTM (FnGuide)'
         },
         'data': results
     }
@@ -116,52 +178,91 @@ def save_results(results: list, filename: str):
 def main():
     print("=" * 60)
     print("저평가 우량주 스크리너 (TTM 버전)")
+    print(f"실행 시각: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 60)
 
-    # 1. 시가총액 1000억 이상 전체 종목 가져오기
-    stocks = get_top_stocks(n=9999, min_market_cap=1000)
+    start_time = time.time()
 
-    # 2. TTM 데이터 크롤링
-    financial_data = crawl_stocks_ttm(stocks)
+    # 1. KRX 종목 마스터 수집
+    print("\n[1/4] KRX 종목 마스터 수집...")
+    master = get_stock_master()
 
-    # 3. 재무데이터 저장
-    save_financial_data(financial_data)
+    # 필터링: 시총 1000억+, 보통주, 스팩/리츠 제외
+    filtered = master[
+        (master['시가총액'] >= MIN_MARKET_CAP) &
+        (master['is_common'] == True) &
+        (master['is_spac'] == False) &
+        (master['is_reit'] == False)
+    ].copy()
+
+    print(f"  필터링 후: {len(filtered)}개 종목")
+
+    # 2. FnGuide 재무데이터 로드 (캐시 → fallback 개별 수집)
+    print("\n[2/4] FnGuide 재무데이터 로드...")
+    fnguide_cache = load_fnguide_cache()
+    if fnguide_cache:
+        print(f"  캐시 사용: {len(fnguide_cache)}개 종목")
+    else:
+        print("  캐시 없음 — 개별 수집 모드 (느림)")
+        fnguide_cache = {}
+
+    # 캐시에 없는 종목 개별 수집
+    missing_codes = [
+        row['종목코드'] for _, row in filtered.iterrows()
+        if row['종목코드'] not in fnguide_cache
+    ]
+    if missing_codes:
+        print(f"  캐시 미포함 {len(missing_codes)}개 종목 개별 수집 중...")
+        for i, code in enumerate(missing_codes):
+            data = get_financial_data(code)
+            if data:
+                fnguide_cache[code] = data
+            if (i + 1) % 100 == 0:
+                print(f"    진행: {i+1}/{len(missing_codes)}")
+
+    # 3. financial_data.json 저장 (호환성)
+    print("\n[3/4] financial_data.json 저장 (호환용)...")
+    save_financial_data(fnguide_cache)
 
     # 4. 스크리닝 (TTM 6개 조건 모두 충족)
-    print("\nTTM 스크리닝 시작 (6개 조건 모두 충족)...")
+    print("\n[4/4] TTM 스크리닝 시작 (6개 조건 모두 충족)...")
 
     results = []
-    for stock in stocks:
-        code = stock['Code']
-        if code not in financial_data:
+    screened = 0
+
+    for _, row in filtered.iterrows():
+        code = row['종목코드']
+        name = row['종목명']
+        market_cap = row.get('시가총액', 0)
+        close = row.get('종가', 0)
+
+        fin_data = fnguide_cache.get(code)
+        if not fin_data:
             continue
 
-        fin_data = financial_data[code]
-        metrics = fin_data.get('metrics', {})
-
-        if not metrics:
+        # TTM 데이터 존재 확인
+        if not fin_data.get('revenue_ttm') and not fin_data.get('operating_income_ttm'):
             continue
 
         # TTM 1차 필터 적용
-        passed, first_filter_results = pass_first_filter_ttm(fin_data)
+        passed, first_filter_results = pass_first_filter_ttm(fin_data, market_cap)
+        screened += 1
+
         if not passed:
             continue
 
         # 지표 추출
-        per = metrics.get('per', [None])[0] if metrics.get('per') else None
-        pbr = metrics.get('pbr', [None])[0] if metrics.get('pbr') else None
-        annualized_year = fin_data.get('annualized_year')  # 2025(Q1-Q3 연환산)
-        net_income = metrics.get('net_income_2025_annualized')  # 2025년 연환산 순이익
+        per = get_per_from_data(market_cap, fin_data)
+        pbr = get_pbr_from_data(market_cap, fin_data)
 
-        # 2025 연환산 데이터가 없는 종목 제외
-        if not annualized_year or '2025' not in annualized_year:
-            continue
+        # TTM 순이익
+        net_income_ttm = fin_data.get('net_income_ttm')
 
         results.append({
             'ticker': code,
-            'name': fin_data.get('name', stock['Name']),
-            'current_price': int(stock.get('Close', 0)),
-            'market_cap': round(stock['MarketCap'], 0),
+            'name': name,
+            'current_price': int(close) if close else 0,
+            'market_cap': round(market_cap, 0),
             'per': round(per, 2) if per else None,
             'pbr': round(pbr, 2) if pbr else None,
             'revenue_growth_3y': first_filter_results.get('revenue_growth', {}).get('value'),
@@ -169,31 +270,33 @@ def main():
             'op_growth_5y': first_filter_results.get('operating_profit_growth', {}).get('value'),
             'eps_growth_5y': first_filter_results.get('eps_growth', {}).get('value'),
             'net_income_growth_5y': first_filter_results.get('net_income_growth', {}).get('value'),
-            'net_income_2025': round(net_income, 0) if net_income else None,
-            'data_year': annualized_year  # 2025(Q1-Q3 연환산) 형식
+            'net_income_ttm': round(net_income_ttm, 0) if net_income_ttm else None,
+            'data_year': 'TTM'
         })
 
     # 시가총액 순 정렬
     results.sort(key=lambda x: x['market_cap'], reverse=True)
 
-    # 5. 결과 저장
+    # 결과 저장
     save_results(results, 'value_stocks.json')
 
-    # 6. 결과 출력
+    elapsed = time.time() - start_time
+
+    # 결과 출력
     print("\n" + "=" * 80)
-    print("저평가 우량주 스크리닝 결과 (6개 조건 모두 충족, 2025년 Q1-Q3 연환산)")
+    print(f"저평가 우량주 스크리닝 결과 (6개 조건 모두 충족, TTM 기준)")
     print("=" * 80)
-    print(f"{'순위':<4} {'종목명':<12} {'시가총액':>10} {'PER':>6} {'데이터':>18} {'영업이익률':>10}")
+    print(f"{'순위':<4} {'종목명':<12} {'시가총액':>10} {'PER':>6} {'영업이익률':>10}")
     print("-" * 80)
 
     for i, r in enumerate(results[:20]):
         mc = f"{r['market_cap']:,.0f}억"
         per = f"{r['per']:.1f}" if r['per'] else "-"
-        year = r.get('data_year', '-') or '-'
         op_margin = f"{r['op_margin_avg']:.1f}%" if r['op_margin_avg'] else "-"
-        print(f"{i+1:<4} {r['name']:<12} {mc:>10} {per:>6} {year:>18} {op_margin:>10}")
+        print(f"{i+1:<4} {r['name']:<12} {mc:>10} {per:>6} {op_margin:>10}")
 
-    print(f"\n총 {len(results)}개 종목 스크리닝 완료 (2025년 Q1-Q3 연환산 기준)")
+    print(f"\n총 {len(results)}개 종목 스크리닝 완료 ({screened}개 분석)")
+    print(f"총 실행 시간: {elapsed:.1f}초 ({elapsed/60:.1f}분)")
 
 
 if __name__ == '__main__':

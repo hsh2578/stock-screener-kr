@@ -1,24 +1,25 @@
 # =============================================================================
-# 가치 스크리너 - 주간 자동 업데이트
-# Last updated: 2026-02-05
+# 퀀트 스크리너 - 매일 20:00 KST 통합 실행
+# Last updated: 2026-02-16
 # =============================================================================
 #
 # 이 워크플로우는:
-#   1. 매주 토요일 12:00 KST에 전체 재무데이터 크롤링
-#      (매출성장률, 영업이익률, EPS성장, 순이익 등 분기 데이터)
-#   2. 저평가 우량주 스크리닝
+#   1. FnGuide 재무데이터 1회 공유 수집 (collect_quant_data.py)
+#   2. 저평가 우량주 (TTM 재무데이터)
+#   3. 마법공식 (이익수익률 + 투하자본수익률)
+#   4. 멀티팩터 (Quality + Value + Momentum)
+#   5. 60주선 우량주 (60주선 이격도 + 재무)
 #
-# 참고:
-#   - PER/PBR은 deploy.yml에서 평일 매일 경량 업데이트
-#   - 60주선 우량주도 deploy.yml에서 평일 매일 업데이트
+# FnGuide 데이터를 1회 수집 → pickle 캐시 → 4개 스크리너가 공유
+# data/ 커밋 → push → deploy.yml 자동 트리거 → Pages 재배포
 # =============================================================================
 
-name: Weekly Value Stock Screener
+name: Daily Quant Screeners
 
 on:
-  # 매주 토요일 12:00 KST (UTC 03:00)
+  # 매일 평일 20:00 KST (UTC 11:00)
   schedule:
-    - cron: '0 3 * * 6'  # Saturday 12:00 KST
+    - cron: '0 11 * * 1-5'  # 평일 20:00 KST
 
   # 수동 실행 가능
   workflow_dispatch:
@@ -29,7 +30,7 @@ permissions:
 
 # 동시 실행 방지
 concurrency:
-  group: 'value-screener'
+  group: 'quant-screeners'
   cancel-in-progress: false
 
 env:
@@ -37,8 +38,8 @@ env:
   PYTHON_VERSION: '3.11'
 
 jobs:
-  collect-value-stocks:
-    name: 📊 재무데이터 크롤링 + 저평가 우량주
+  run-quant-screeners:
+    name: 📊 퀀트 스크리너 통합 실행
     runs-on: ubuntu-latest
     timeout-minutes: 90
 
@@ -62,6 +63,25 @@ jobs:
       - name: 📁 디렉토리 생성
         run: |
           mkdir -p data
+          mkdir -p .cache
+
+      - name: 💾 OHLCV 캐시 복원
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: stock-data-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            stock-data-${{ runner.os }}-
+
+      - name: 📊 FnGuide 재무데이터 공유 수집
+        run: |
+          echo "=========================================="
+          echo "FnGuide 데이터 수집 시작: $(date '+%Y-%m-%d %H:%M:%S %Z')"
+          echo "=========================================="
+          python collect_quant_data.py
+          echo "=========================================="
+          echo "FnGuide 데이터 수집 완료"
+          echo "=========================================="
 
       - name: 🚀 저평가 우량주 스크리너 실행 (TTM)
         run: |
@@ -71,6 +91,36 @@ jobs:
           python test_value_screener.py
           echo "=========================================="
           echo "저평가 우량주 스크리너 완료"
+          echo "=========================================="
+
+      - name: 🧙 마법공식 스크리너 실행
+        run: |
+          echo "=========================================="
+          echo "마법공식 스크리너 시작: $(date '+%Y-%m-%d %H:%M:%S %Z')"
+          echo "=========================================="
+          python magic_formula.py
+          echo "=========================================="
+          echo "마법공식 스크리너 완료"
+          echo "=========================================="
+
+      - name: 📊 멀티팩터 스크리너 실행
+        run: |
+          echo "=========================================="
+          echo "멀티팩터 스크리너 시작: $(date '+%Y-%m-%d %H:%M:%S %Z')"
+          echo "=========================================="
+          python multi_factor.py
+          echo "=========================================="
+          echo "멀티팩터 스크리너 완료"
+          echo "=========================================="
+
+      - name: 📈 60주선 우량주 스크리너 실행
+        run: |
+          echo "=========================================="
+          echo "60주선 우량주 스크리너 시작: $(date '+%Y-%m-%d %H:%M:%S %Z')"
+          echo "=========================================="
+          python ma60w_quality.py
+          echo "=========================================="
+          echo "60주선 우량주 스크리너 완료"
           echo "=========================================="
 
       - name: 🔍 변경 사항 확인
@@ -93,7 +143,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           COMMIT_DATE=$(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')
-          git commit -m "📈 재무데이터 + 저평가 우량주 업데이트: ${COMMIT_DATE}"
+          git commit -m "📊 퀀트 스크리너 업데이트: ${COMMIT_DATE}"
           git pull --rebase origin main
           git push
 
@@ -104,12 +154,16 @@ jobs:
           echo "📁 data 폴더 파일:"
           ls -lh data/ 2>/dev/null || echo "  (파일 없음)"
           echo ""
-          if [ -f "data/value_stocks.json" ]; then
-            echo "📊 저평가 우량주 결과:"
-            python -c "import json; d=json.load(open('data/value_stocks.json')); print(f\"  총 {d['meta']['total_count']}개 종목\")"
-          fi
-          if [ -f "data/financial_data.json" ]; then
-            echo "📊 재무데이터:"
-            python -c "import json; d=json.load(open('data/financial_data.json')); print(f\"  총 {d['meta']['total_count']}개 종목\")"
-          fi
+          for f in value_stocks.json magic_formula.json multi_factor.json ma60w_quality.json; do
+            if [ -f "data/$f" ]; then
+              echo "📊 $f:"
+              python -c "
+          import json
+          d=json.load(open('data/$f'))
+          meta=d.get('meta',{})
+          count=meta.get('totalCount', meta.get('total_count', len(d.get('data',[]))))
+          print(f'  총 {count}개 종목')
+          "
+            fi
+          done
           echo "=========================================="

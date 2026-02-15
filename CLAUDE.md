@@ -24,7 +24,10 @@
 stock-screener-kr/
 ├── 주식_스크리너_전체.html    ★ 배포되는 메인 파일 (CSS+HTML+JS 올인원 SPA)
 ├── run_screeners.py           ★ 메인 스크리너 엔진 (12개 기술적 스크리너 + ML 통합)
-├── naver_finance.py             FnGuide 크롤러 (PER/PBR/성장률)
+├── collect_quant_data.py        FnGuide 1회 수집 → .cache/fnguide_*.pkl
+├── magic_formula.py             마법공식 스크리너 (이익수익률+ROC)
+├── multi_factor.py              멀티팩터 스크리너 (Q+V+M)
+├── naver_finance.py             (레거시) FnGuide 크롤러 — 참고용
 ├── test_value_screener.py       저평가 우량주 스크리너 (TTM 재무)
 ├── ma60w_quality.py             60주선 우량주 스크리너
 ├── scheduler.py                 로컬 스케줄러
@@ -43,9 +46,15 @@ stock-screener-kr/
 │   ├── sector_stage.json        업종별 4단계
 │   ├── value_stocks.json        저평가 우량주
 │   ├── ma60w_quality.json       60주선 우량주
+│   ├── magic_formula.json       마법공식
+│   ├── multi_factor.json        멀티팩터
 │   ├── financial_data.json      재무 데이터 캐시
 │   └── chart_data.json          TradingView 차트 데이터 (37MB+)
-├── scripts/screeners/           모듈화된 스크리너 구현체
+├── scripts/
+│   ├── krx_data.py              KRX OTP 종목 마스터 + WiseIndex 섹터
+│   ├── fnguide_data.py          FnGuide read_html 재무제표 수집
+│   ├── screeners/               모듈화된 스크리너 구현체
+│   └── utils/                   유틸리티
 ├── ml/                          ML 모델 (3개: 박스권 돌파, 52주 신고가, 52주 근접)
 │   ├── models/box_breakout/     박스권 돌파 ML (XGBoost + Ridge)
 │   ├── models/52w_high/         52주 신고가 ML (LightGBM)
@@ -56,7 +65,7 @@ stock-screener-kr/
 │   └── 스크리너_조건식_설명서.md 전체 스크리너 조건식/로직 설명
 ├── .github/workflows/
 │   ├── deploy.yml               평일 4회 자동 배포 (OHLCV 캐시 사용)
-│   ├── value-screener.yml       토요일 가치주 스크리너
+│   ├── value-screener.yml       평일 20시 퀀트 스크리너 (가치주+마법공식+멀티팩터)
 │   └── ml-retrain.yml           월간 ML 재훈련 (3개 모델)
 ├── web/                         ⚠️ React 앱 (미배포, 참고용)
 └── .cache/                      OHLCV pickle 캐시 (CI에서도 actions/cache로 유지)
@@ -123,16 +132,18 @@ const screenerGroups = [
 ## 4. 데이터 흐름
 
 ```
-[FinanceDataReader]     [FnGuide 크롤링]
-     │ (OHLCV)              │ (재무)
-     ▼                      ▼
- run_screeners.py      naver_finance.py
-     │                      │
-     ▼                      ▼
- data/*.json ◄──────── financial_data.json
-     │
-     ▼
- 주식_스크리너_전체.html (fetch → JSON 파싱 → 테이블 렌더링)
+[deploy.yml 12/14/16/18시]              [value-screener.yml 20시]
+ run_screeners.py                        collect_quant_data.py
+     │ (FDR OHLCV)                           │ (FnGuide 1회 수집)
+     ▼                                       ▼
+ .cache/stock_data_*.pkl              .cache/fnguide_*.pkl
+ data/*.json (12개 기술 스크리너)             │
+     │                                       ├→ test_value_screener.py → data/value_stocks.json
+     │                                       ├→ magic_formula.py → data/magic_formula.json
+     │                                       ├→ multi_factor.py → data/multi_factor.json
+     │                                       └→ ma60w_quality.py → data/ma60w_quality.json
+     ▼                                                                      │
+ 주식_스크리너_전체.html (fetch → JSON 파싱 → 테이블 렌더링) ◄─────────────┘
      │
      ▼
  GitHub Pages (deploy.yml: cp HTML → _site/index.html)
@@ -150,8 +161,7 @@ const screenerGroups = [
 | 워크플로우 | 실행 시점 | 실행 내용 |
 |-----------|----------|----------|
 | `deploy.yml` | 평일 12/14/16/18시 KST | `run_screeners.py` + 배포 |
-| `deploy.yml` (18시) | 평일 18시에만 추가 | `ma60w_quality.py` |
-| `value-screener.yml` | 토요일 12시 KST | `test_value_screener.py` (전체 재무 크롤링) |
+| `value-screener.yml` | 평일 20시 KST | `collect_quant_data.py` → `test_value_screener.py` + `magic_formula.py` + `multi_factor.py` + `ma60w_quality.py` |
 | `ml-retrain.yml` | 월간 | ML 모델 재훈련 |
 
 ---
@@ -230,7 +240,7 @@ python ma60w_quality.py         # 60주선 우량주
 
 ---
 
-## 10. 스크리너 목록 (14개)
+## 10. 스크리너 목록 (16개)
 
 | ID | 한글명 | JSON 파일 | 핵심 조건 | ML |
 |----|--------|-----------|----------|----|
@@ -248,6 +258,8 @@ python ma60w_quality.py         # 60주선 우량주
 | sector-stage | 업종별 4단계 | sector_stage.json | 업종 추세 분석 (와인스테인 4단계) | - |
 | value-stocks | 저평가 우량주 | value_stocks.json | PER/PBR/배당 기반 (TTM) | - |
 | ma60w-quality | 60주선 우량주 | ma60w_quality.json | 60주 EMA 지지 + 영업이익률/성장률 | - |
+| magic-formula | 마법공식 | magic_formula.json | EBIT/EV + EBIT/IC 순위 합산 | - |
+| multi-factor | 멀티팩터 | multi_factor.json | Q+V+M 섹터 중립화 Z-Score | - |
 
 ---
 

@@ -1364,34 +1364,40 @@ def is_box_range(df: pd.DataFrame, period: int = 60, use_cache: bool = True) -> 
 def get_stock_list() -> pd.DataFrame:
     """
     KOSPI + KOSDAQ 종목 리스트를 가져옵니다.
+    KRX OTP 통신을 시도하고, 실패 시 FDR로 fallback합니다.
 
     시가총액 1,000억 이상 종목만 필터링합니다.
 
     Returns:
         DataFrame with columns: Code, Name, MarketCap, Market
     """
-    print("종목 리스트 조회 중...")
+    # KRX OTP 방식 시도
+    try:
+        from scripts.krx_data import get_filtered_stocks
+        print("종목 리스트 조회 중... (KRX OTP)")
+        stocks = get_filtered_stocks(min_market_cap=MIN_MARKET_CAP)
+        return stocks
+    except Exception as e:
+        print(f"  KRX OTP 실패 ({e}), FDR로 fallback")
 
-    # KOSPI 종목
+    # FDR fallback
+    print("종목 리스트 조회 중... (FDR)")
+
     kospi = fdr.StockListing('KOSPI')
     kospi['Market'] = 'KOSPI'
 
-    # KOSDAQ 종목
     kosdaq = fdr.StockListing('KOSDAQ')
     kosdaq['Market'] = 'KOSDAQ'
 
-    # 합치기
     stocks = pd.concat([kospi, kosdaq], ignore_index=True)
 
-    # 시가총액 컬럼 처리
     if 'Marcap' in stocks.columns:
-        stocks['MarketCap'] = stocks['Marcap'] / 100000000  # 원 -> 억원
+        stocks['MarketCap'] = stocks['Marcap'] / 100000000
     elif 'MarketCap' in stocks.columns:
         stocks['MarketCap'] = stocks['MarketCap'] / 100000000
     else:
         stocks['MarketCap'] = MIN_MARKET_CAP + 1
 
-    # 시가총액 필터링
     stocks = stocks[stocks['MarketCap'] >= MIN_MARKET_CAP].copy()
 
     print(f"  시가총액 {MIN_MARKET_CAP}억 이상: {len(stocks)}개 종목")
@@ -3673,7 +3679,7 @@ def main():
 
         # 추가 스크리너 데이터 로드 (차트 데이터 생성용)
         extra_results = []
-        extra_files = ['value_stocks.json', 'ma60w_quality.json']
+        extra_files = ['value_stocks.json', 'ma60w_quality.json', 'magic_formula.json', 'multi_factor.json']
         for filename in extra_files:
             filepath = os.path.join(DATA_PATH, filename)
             if os.path.exists(filepath):

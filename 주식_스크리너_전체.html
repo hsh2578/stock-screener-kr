@@ -2093,6 +2093,84 @@
         </div>
     </div>
 
+    <!-- Magic Formula Page -->
+    <div id="page-magic-formula" class="page">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">마법공식</li>
+                </ol>
+            </nav>
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
+            <header class="page-header">
+                <div class="title-row">
+                    <span class="icon" aria-hidden="true"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 7l8 5 8-5-8-5z" opacity="0.35"/><path d="M4 12l8 5 8-5" opacity="0.55" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 17l8 5 8-5" opacity="0.85" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+                    <h1>마법공식</h1>
+                    <span class="badge badge-success">그린블라트</span>
+                </div>
+                <p class="desc">이익수익률(EBIT/EV) + 투하자본수익률(EBIT/IC) 순위 합산 — 금융주/적자/소형주 제외</p>
+                <div class="meta">
+                    <span class="date" id="magic-formula-date">데이터 기준: -</span>
+                    <span><span class="count" id="magic-formula-count">-</span>개 종목</span>
+                </div>
+            </header>
+            <div class="card table-card">
+                <div class="table-wrapper">
+                    <table id="magic-formula-table" role="table" aria-label="마법공식 순위 목록"><thead></thead><tbody></tbody></table>
+                </div>
+                <div id="magic-formula-mobile" class="mobile-card-list"></div>
+                <div id="magic-formula-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Multi-Factor Page -->
+    <div id="page-multi-factor" class="page">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">멀티팩터</li>
+                </ol>
+            </nav>
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
+            <header class="page-header">
+                <div class="title-row">
+                    <span class="icon" aria-hidden="true"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h7v7H3z" opacity="0.85"/><path d="M14 3h7v7h-7z" opacity="0.55"/><path d="M3 14h7v7H3z" opacity="0.55"/><path d="M14 14h7v7h-7z" opacity="0.35"/></svg></span>
+                    <h1>멀티팩터</h1>
+                    <span class="badge badge-primary">Q+V+M</span>
+                </div>
+                <p class="desc" id="multi-factor-desc">Quality(ROE/GPA/CFO) + Value(PER/PBR/PSR/PCR/배당) + Momentum(12M수익률/K-Ratio) — 섹터 중립화</p>
+                <div class="meta">
+                    <span class="date" id="multi-factor-date">데이터 기준: -</span>
+                    <span><span class="count" id="multi-factor-count">-</span>개 종목</span>
+                </div>
+                <div id="mf-weight-controls" style="margin-top:12px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+                    <span style="font-size:0.9em;color:#4E5968;font-weight:600">팩터 비중:</span>
+                    <label style="font-size:0.85em;color:#6B7684">Q <input type="number" id="mf-weight-q" value="0.33" step="0.01" min="0" max="1" style="width:56px;padding:3px 6px;border:1px solid #D1D6DB;border-radius:4px;text-align:center;font-size:0.9em"></label>
+                    <label style="font-size:0.85em;color:#6B7684">V <input type="number" id="mf-weight-v" value="0.33" step="0.01" min="0" max="1" style="width:56px;padding:3px 6px;border:1px solid #D1D6DB;border-radius:4px;text-align:center;font-size:0.9em"></label>
+                    <label style="font-size:0.85em;color:#6B7684">M <input type="number" id="mf-weight-m" value="0.33" step="0.01" min="0" max="1" style="width:56px;padding:3px 6px;border:1px solid #D1D6DB;border-radius:4px;text-align:center;font-size:0.9em"></label>
+                    <button id="mf-weight-apply" style="padding:6px 16px;background:#3182F6;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:0.85em;font-weight:600">적용</button>
+                    <button id="mf-weight-reset" style="padding:4px 10px;background:#E5E8EB;color:#4E5968;border:none;border-radius:4px;cursor:pointer;font-size:0.85em">초기화</button>
+                </div>
+            </header>
+            <div class="card table-card">
+                <div class="table-wrapper">
+                    <table id="multi-factor-table" role="table" aria-label="멀티팩터 순위 목록"><thead></thead><tbody></tbody></table>
+                </div>
+                <div id="multi-factor-mobile" class="mobile-card-list"></div>
+                <div id="multi-factor-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Toast Notification Container -->
     <div id="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
 
@@ -2182,6 +2260,8 @@
             valueStocks: { meta: { updated_at: null, total_count: 0 }, data: [] },
             ma60wQuality: { meta: { updated_at: null, total_count: 0 }, data: [] },
             maConvergence: { meta: { updated_at: null, total_count: 0 }, data: [] },
+            magicFormula: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
+            multiFactor: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
             financialData: { meta: {}, data: {} }  // PER/PBR 조회용 재무데이터
         };
 
@@ -2204,7 +2284,9 @@
             sectorStage: 'sector_stage.json',
             valueStocks: 'value_stocks.json',
             ma60wQuality: 'ma60w_quality.json',
-            maConvergence: 'ma_convergence.json'
+            maConvergence: 'ma_convergence.json',
+            magicFormula: 'magic_formula.json',
+            multiFactor: 'multi_factor.json'
             // financialData는 레이지 로딩 (상세 페이지 방문 시)
         };
 
@@ -2403,7 +2485,9 @@
             barChart: '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="12" width="5" height="9" rx="1" opacity="0.45"/><rect x="10" y="4" width="5" height="17" rx="1"/><rect x="17" y="8" width="5" height="13" rx="1" opacity="0.7"/></svg>',
             building: '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M4 2h10v20H4z" opacity="0.85"/><path d="M15 8h6v14h-6z" opacity="0.5"/></svg>',
             gem: '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M6 3h12l4 6-10 13L2 9z" opacity="0.85"/><path d="M2 9h20L12 22z" opacity="0.45"/></svg>',
-            convergence: '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l-9.5 16.5a1 1 0 0 0 .87 1.5h19.26a1 1 0 0 0 .87-1.5L12 3z"/></svg>'
+            convergence: '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l-9.5 16.5a1 1 0 0 0 .87 1.5h19.26a1 1 0 0 0 .87-1.5L12 3z"/></svg>',
+            magicFormula: '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 7l8 5 8-5-8-5z" opacity="0.35"/><path d="M4 12l8 5 8-5" opacity="0.55" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 17l8 5 8-5" opacity="0.85" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+            multiFactor: '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h7v7H3z" opacity="0.85"/><path d="M14 3h7v7h-7z" opacity="0.55"/><path d="M3 14h7v7H3z" opacity="0.55"/><path d="M14 14h7v7h-7z" opacity="0.35"/></svg>'
         };
 
         const screenerGroups = [
@@ -2456,6 +2540,15 @@
                 ]
             },
             {
+                title: '퀀트 전략',
+                icon: ICONS.magicFormula,
+                desc: '팩터 기반 종목 선정',
+                screeners: [
+                    { id: 'magic-formula', icon: ICONS.magicFormula, title: '마법공식', desc: '이익수익률 + 투하자본수익률', badge: { text: '그린블라트', type: 'success' } },
+                    { id: 'multi-factor', icon: ICONS.multiFactor, title: '멀티팩터', desc: 'Q+V+M 섹터 중립화', badge: { text: 'Q+V+M', type: 'primary' } }
+                ]
+            },
+            {
                 title: '업종 분석',
                 icon: ICONS.building,
                 desc: '섹터 로테이션',
@@ -2492,12 +2585,19 @@
         const getPERColor = per => '';
         const getPBRColor = pbr => '';
 
-        // PER/PBR 값을 데이터에 추가하여 정렬 가능하게 만드는 헬퍼 함수
-        const enrichWithFinancials = data => data.map(s => {
-            var per = s.per != null ? s.per : getPER(s.ticker);
-            var pbr = s.pbr != null ? s.pbr : getPBR(s.ticker);
-            return Object.assign({}, s, { per: per, pbr: pbr });
-        });
+        // PER/PBR 값을 데이터에 추가하여 정렬 가능하게 만드는 헬퍼 함수 (캐싱 적용)
+        const _enrichCache = new WeakMap();
+        const enrichWithFinancials = data => {
+            if (_enrichCache.has(data)) return _enrichCache.get(data);
+            var result = data.map(s => {
+                var per = s.per != null ? s.per : getPER(s.ticker);
+                var pbr = s.pbr != null ? s.pbr : getPBR(s.ticker);
+                if (s.per === per && s.pbr === pbr) return s;
+                return Object.assign({}, s, { per: per, pbr: pbr });
+            });
+            _enrichCache.set(data, result);
+            return result;
+        };
 
         // 모바일 감지 - CSS 미디어 쿼리와 동기화 (768px 기준)
         const isMobileView = () => window.matchMedia('(max-width: 768px)').matches;
@@ -2663,7 +2763,9 @@
             bottomBreakout: 1,
             valueStocks: 1,
             ma60wQuality: 1,
-            maConvergence: 1
+            maConvergence: 1,
+            magicFormula: 1,
+            multiFactor: 1
         };
 
         // Pagination helper functions
@@ -2685,6 +2787,14 @@
                 if (tableId) renderCache.delete(tableId);
             }
             renderFn();
+            // 페이지 변경 후 테이블 상단으로 스크롤
+            var pageEl = document.querySelector('.page.active');
+            if (pageEl) {
+                var table = pageEl.querySelector('.data-table');
+                if (table) {
+                    table.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
         }
 
         function renderPagination(containerId, screenerId, totalItems, renderFn) {
@@ -2845,7 +2955,8 @@
             showToast('뷰 변경', `${viewName}로 전환되었습니다`, 1500);
         }
 
-        // Sort data
+        // Sort data (Intl.Collator 캐시로 한글 정렬 최적화)
+        const _koCollator = new Intl.Collator('ko');
         function sortData(data, key, direction) {
             if (!key || !direction) return data;
             return [...data].sort((a, b) => {
@@ -2857,8 +2968,8 @@
                 if (typeof aVal === 'number' && typeof bVal === 'number') {
                     return direction === 'asc' ? aVal - bVal : bVal - aVal;
                 }
-                const aStr = String(aVal), bStr = String(bVal);
-                return direction === 'asc' ? aStr.localeCompare(bStr, 'ko') : bStr.localeCompare(aStr, 'ko');
+                const result = _koCollator.compare(String(aVal), String(bVal));
+                return direction === 'asc' ? result : -result;
             });
         }
 
@@ -2932,7 +3043,13 @@
         }
 
         // Open chart modal
+        var _modalPrevFocus = null;
+        var _modalPrevScroll = 0;
+
         async function openChartModal(stock) {
+            _modalPrevFocus = document.activeElement;
+            _modalPrevScroll = window.scrollY;
+
             const modal = document.getElementById('chart-modal');
             document.getElementById('modal-name').textContent = stock.name;
             document.getElementById('modal-ticker').textContent = stock.ticker;
@@ -3104,6 +3221,13 @@
                 chartInstance.remove();
                 chartInstance = null;
             }
+
+            // 이전 포커스/스크롤 복원
+            window.scrollTo(0, _modalPrevScroll);
+            if (_modalPrevFocus && typeof _modalPrevFocus.focus === 'function') {
+                _modalPrevFocus.focus();
+                _modalPrevFocus = null;
+            }
         }
 
         // ESC key handler
@@ -3167,7 +3291,9 @@
                 'sector-stage-date': getMeta('sectorStage', 'lastUpdated'),
                 'value-stocks-date': getMeta('valueStocks', 'updated_at'),
                 'ma60w-quality-date': getMeta('ma60wQuality', 'lastUpdated') || getMeta('ma60wQuality', 'updated_at'),
-                'ma-convergence-date': getMeta('maConvergence', 'lastUpdated') || getMeta('maConvergence', 'updated_at')
+                'ma-convergence-date': getMeta('maConvergence', 'lastUpdated') || getMeta('maConvergence', 'updated_at'),
+                'magic-formula-date': getMeta('magicFormula', 'lastUpdated'),
+                'multi-factor-date': getMeta('multiFactor', 'lastUpdated')
             };
 
             for (const [elementId, lastUpdated] of Object.entries(dateMapping)) {
@@ -3209,7 +3335,9 @@
                 'sector-stage': getCount('sectorStage', 'totalCount'),
                 'value-stocks': getCount('valueStocks', 'total_count', 'length'),
                 'ma60w-quality': getCount('ma60wQuality', 'totalCount') || getCount('ma60wQuality', 'total_count', 'length'),
-                'ma-convergence': getCount('maConvergence', 'totalCount') || getCount('maConvergence', 'total_count', 'length')
+                'ma-convergence': getCount('maConvergence', 'totalCount') || getCount('maConvergence', 'total_count', 'length'),
+                'magic-formula': getCount('magicFormula', 'totalCount', 'length'),
+                'multi-factor': getCount('multiFactor', 'totalCount', 'length')
             };
 
             // Render grouped screeners
@@ -3521,6 +3649,16 @@
             let filteredData = enrichData ? enrichWithFinancials(rawData) : rawData;
             if (filterKey && filterMA150State[filterKey]) {
                 filteredData = filteredData.filter(s => s.above_ma150 === true);
+            }
+
+            // 빈 상태 처리 - 필터 결과 0건
+            if (filteredData.length === 0) {
+                var tbody = document.querySelector('#' + tableId + ' tbody');
+                if (tbody) tbody.innerHTML = '<tr><td colspan="20" style="padding:60px 20px;text-align:center;color:var(--color-text-muted)"><div style="font-size:32px;margin-bottom:12px" aria-hidden="true">&#128269;</div><div style="font-size:16px;font-weight:600;color:var(--color-text-primary);margin-bottom:6px">해당하는 종목이 없습니다</div><div style="font-size:14px">필터 조건을 변경하고 다시 시도해주세요</div></td></tr>';
+                if (mobileId) { var mc = document.getElementById(mobileId); if (mc) mc.innerHTML = ''; }
+                var cntEl = document.getElementById(countId);
+                if (cntEl) cntEl.textContent = '0';
+                return;
             }
 
             // 렌더링 캐시 확인 - 불필요한 재렌더링 방지
@@ -4417,12 +4555,12 @@
             document.getElementById('bottom-breakout-count').textContent = bottomData.length;
 
             const headers = [
-                { label: '등급', key: 'grade' },
                 { label: '종목명', key: 'name' },
                 { label: '현재가', align: 'text-right', key: 'current_price' },
                 { label: '시가총액', align: 'text-right', key: 'market_cap' },
                 { label: 'PER', align: 'text-right', key: 'per' },
                 { label: 'PBR', align: 'text-right', key: 'pbr' },
+                { label: '등급', key: 'grade' },
                 { label: '점수', align: 'text-right', key: 'score' },
                 { label: '150일선이격', align: 'text-right', key: 'ma150_gap' },
                 { label: '52주고점대비', align: 'text-right', key: 'drop_from_high' }
@@ -4436,12 +4574,12 @@
                 const gapColor = s.ma150_gap >= 0 ? 'positive' : 'negative';
                 return `
                     <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.current_price,change_rate:s.change_since_signal})})'>
-                        <td class="${gradeClass}" style="font-weight:bold">${gradeIcon}</td>
                         <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                         <td class="text-right">${formatNumber(s.current_price)}원</td>
                         <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                         <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
                         <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
+                        <td class="${gradeClass}" style="font-weight:bold">${gradeIcon}</td>
                         <td class="text-right"><strong>${s.score}</strong>점</td>
                         <td class="text-right ${gapColor}">${s.ma150_gap >= 0 ? '+' : ''}${s.ma150_gap.toFixed(1)}%</td>
                         <td class="text-right negative">${s.drop_from_high.toFixed(1)}%</td>
@@ -4694,6 +4832,201 @@
             renderPagination('ma-convergence-pagination', 'maConvergence', sortedData.length, renderMaConvergence);
         }
 
+        function renderMagicFormula() {
+            const cacheKey = 'magic-formula-table';
+            const dataHash = getDataHash(
+                DATA.magicFormula && DATA.magicFormula.data,
+                null,
+                sortState[cacheKey],
+                paginationState.magicFormula
+            );
+            if (shouldSkipRender(cacheKey, dataHash)) {
+                return;
+            }
+
+            var mfData = DATA.magicFormula && DATA.magicFormula.data;
+            const magicData = mfData || [];
+            document.getElementById('magic-formula-count').textContent = magicData.length;
+
+            const headers = [
+                { label: '순위', key: 'rank' },
+                { label: '종목명', key: 'name' },
+                { label: '현재가', align: 'text-right', key: 'current_price' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' },
+                { label: 'PER', align: 'text-right', key: 'per' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
+                { label: '종합순위', align: 'text-right', key: 'combined_rank' },
+                { label: '이익수익률', align: 'text-right', key: 'earnings_yield' },
+                { label: 'ROC', align: 'text-right', key: 'roc' },
+                { label: '섹터', key: 'sector' }
+            ];
+
+            const state = sortState[cacheKey] || {};
+            const sortedData = sortData(magicData, state.key, state.direction);
+            const paginatedData = paginate(sortedData, paginationState.magicFormula);
+
+            const rows = paginatedData.map(s => {
+                const eyBar = Math.min(100, Math.max(0, s.earnings_yield * 3));
+                const rocBar = Math.min(100, Math.max(0, s.roc * 1.5));
+                const stockJson = safeJsonStringify({ ticker: s.ticker, name: s.name, price: s.current_price || 0, change_rate: 0 });
+                return `
+                    <tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
+                        <td style="font-weight:bold;color:var(--color-primary)">${s.rank}</td>
+                        <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
+                        <td class="text-right">${s.current_price ? formatNumber(s.current_price) + '원' : '-'}</td>
+                        <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                        <td class="text-right">${s.per != null ? s.per.toFixed(1) : '-'}</td>
+                        <td class="text-right">${s.pbr != null ? s.pbr.toFixed(2) : '-'}</td>
+                        <td class="text-right"><strong>${s.combined_rank}</strong> <span style="color:#8B95A1;font-size:0.85em">(${s.ey_rank}+${s.roc_rank})</span></td>
+                        <td class="text-right">
+                            <div style="display:flex;align-items:center;justify-content:flex-end;gap:6px">
+                                <span>${s.earnings_yield.toFixed(1)}%</span>
+                                <div style="width:50px;height:6px;background:#E5E8EB;border-radius:3px;overflow:hidden">
+                                    <div style="width:${eyBar}%;height:100%;background:#0066CC;border-radius:3px"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-right">
+                            <div style="display:flex;align-items:center;justify-content:flex-end;gap:6px">
+                                <span>${s.roc.toFixed(1)}%</span>
+                                <div style="width:50px;height:6px;background:#E5E8EB;border-radius:3px;overflow:hidden">
+                                    <div style="width:${rocBar}%;height:100%;background:#00B894;border-radius:3px"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td style="color:#8B95A1;font-size:0.9em">${s.sector || '-'}</td>
+                    </tr>
+                `;
+            }).join('');
+
+            renderTable(cacheKey, headers, rows, renderMagicFormula);
+            renderMobileCards('magic-formula-mobile', paginatedData, {
+                extraFields: [
+                    { label: '현재가', key: 'current_price', format: function(s) { return s.current_price ? formatNumber(s.current_price) + '원' : '-'; } },
+                    { label: '종합순위', key: 'combined_rank', format: function(s) { return s.combined_rank + '위 (' + s.ey_rank + '+' + s.roc_rank + ')'; } },
+                    { label: '이익수익률', key: 'earnings_yield', format: function(s) { return s.earnings_yield.toFixed(1) + '%'; } },
+                    { label: 'ROC', key: 'roc', format: function(s) { return s.roc.toFixed(1) + '%'; } }
+                ]
+            });
+            renderPagination('magic-formula-pagination', 'magicFormula', sortedData.length, renderMagicFormula);
+        }
+
+        // 멀티팩터 현재 비중
+        var mfWeights = { q: 0.33, v: 0.33, m: 0.33 };
+
+        function recalcMultiFactorScores(data, weights) {
+            return data.map(function(s) {
+                var copy = Object.assign({}, s);
+                var q = s.quality_score != null ? s.quality_score : 0;
+                var v = s.value_score != null ? s.value_score : 0;
+                var m = s.momentum_score != null ? s.momentum_score : 0;
+                copy.total_score = Math.round((q * weights.q + v * weights.v + m * weights.m) * 1000) / 1000;
+                return copy;
+            }).sort(function(a, b) { return b.total_score - a.total_score; })
+              .map(function(s, i) { s.rank = i + 1; return s; });
+        }
+
+        function renderMultiFactor() {
+            const cacheKey = 'multi-factor-table';
+            // 비중 변경 시 캐시 무효화를 위해 weights를 hash에 포함
+            const weightKey = mfWeights.q + '|' + mfWeights.v + '|' + mfWeights.m;
+            const dataHash = getDataHash(
+                DATA.multiFactor && DATA.multiFactor.data,
+                weightKey,
+                sortState[cacheKey],
+                paginationState.multiFactor
+            );
+            if (shouldSkipRender(cacheKey, dataHash)) {
+                return;
+            }
+
+            var mfData = DATA.multiFactor && DATA.multiFactor.data;
+            var multiData = recalcMultiFactorScores(mfData || [], mfWeights);
+            document.getElementById('multi-factor-count').textContent = multiData.length;
+
+            const headers = [
+                { label: '순위', key: 'rank' },
+                { label: '종목명', key: 'name' },
+                { label: '현재가', align: 'text-right', key: 'current_price' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' },
+                { label: 'PER', align: 'text-right', key: 'per' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
+                { label: '총점', align: 'text-right', key: 'total_score' },
+                { label: 'Q점수', align: 'text-right', key: 'quality_score' },
+                { label: 'V점수', align: 'text-right', key: 'value_score' },
+                { label: 'M점수', align: 'text-right', key: 'momentum_score' },
+                { label: '섹터', key: 'sector' }
+            ];
+
+            const state = sortState[cacheKey] || {};
+            const sortedData = sortData(multiData, state.key, state.direction);
+            const paginatedData = paginate(sortedData, paginationState.multiFactor);
+
+            const scoreBar = (val, maxAbs) => {
+                if (val == null) return '';
+                const pct = Math.min(100, Math.abs(val) / maxAbs * 100);
+                const color = val >= 0 ? '#00B894' : '#E74C3C';
+                const align = val >= 0 ? 'left' : 'right';
+                return `<div style="width:40px;height:6px;background:#E5E8EB;border-radius:3px;overflow:hidden;display:inline-block;vertical-align:middle;margin-left:4px">
+                    <div style="width:${pct}%;height:100%;background:${color};border-radius:3px;float:${align}"></div>
+                </div>`;
+            };
+
+            const rows = paginatedData.map(s => {
+                const stockJson = safeJsonStringify({ ticker: s.ticker, name: s.name, price: s.current_price || 0, change_rate: 0 });
+                const fmtScore = (v) => v != null ? v.toFixed(2) : '-';
+                return `
+                    <tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
+                        <td style="font-weight:bold;color:var(--color-primary)">${s.rank}</td>
+                        <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
+                        <td class="text-right">${s.current_price ? formatNumber(s.current_price) + '원' : '-'}</td>
+                        <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                        <td class="text-right">${s.per != null ? s.per.toFixed(1) : '-'}</td>
+                        <td class="text-right">${s.pbr != null ? s.pbr.toFixed(2) : '-'}</td>
+                        <td class="text-right"><strong>${s.total_score != null ? s.total_score.toFixed(3) : '-'}</strong></td>
+                        <td class="text-right">${fmtScore(s.quality_score)}${scoreBar(s.quality_score, 2)}</td>
+                        <td class="text-right">${fmtScore(s.value_score)}${scoreBar(s.value_score, 2)}</td>
+                        <td class="text-right">${fmtScore(s.momentum_score)}${scoreBar(s.momentum_score, 2)}</td>
+                        <td style="color:#8B95A1;font-size:0.9em">${s.sector || '-'}</td>
+                    </tr>
+                `;
+            }).join('');
+
+            renderTable(cacheKey, headers, rows, renderMultiFactor);
+            renderMobileCards('multi-factor-mobile', paginatedData, {
+                extraFields: [
+                    { label: '현재가', key: 'current_price', format: function(s) { return s.current_price ? formatNumber(s.current_price) + '원' : '-'; } },
+                    { label: '총점', key: 'total_score', format: function(s) { return s.total_score != null ? s.total_score.toFixed(3) : '-'; } },
+                    { label: 'Q점수', key: 'quality_score', format: function(s) { return s.quality_score != null ? s.quality_score.toFixed(2) : '-'; } },
+                    { label: 'V점수', key: 'value_score', format: function(s) { return s.value_score != null ? s.value_score.toFixed(2) : '-'; } }
+                ]
+            });
+            renderPagination('multi-factor-pagination', 'multiFactor', sortedData.length, renderMultiFactor);
+
+            // 비중 조절 이벤트 바인딩 (한번만)
+            var applyBtn = document.getElementById('mf-weight-apply');
+            var resetBtn = document.getElementById('mf-weight-reset');
+            if (applyBtn && !applyBtn._bound) {
+                applyBtn._bound = true;
+                applyBtn.addEventListener('click', function() {
+                    var wq = parseFloat(document.getElementById('mf-weight-q').value) || 0;
+                    var wv = parseFloat(document.getElementById('mf-weight-v').value) || 0;
+                    var wm = parseFloat(document.getElementById('mf-weight-m').value) || 0;
+                    mfWeights = { q: wq, v: wv, m: wm };
+                    renderCache['multi-factor-table'] = null;
+                    renderMultiFactor();
+                });
+                resetBtn.addEventListener('click', function() {
+                    mfWeights = { q: 0.33, v: 0.33, m: 0.33 };
+                    document.getElementById('mf-weight-q').value = '0.33';
+                    document.getElementById('mf-weight-v').value = '0.33';
+                    document.getElementById('mf-weight-m').value = '0.33';
+                    renderCache['multi-factor-table'] = null;
+                    renderMultiFactor();
+                });
+            }
+        }
+
         // 렌더링 상태 추적 - Lazy Rendering용
         const renderedPages = new Set();
 
@@ -4712,7 +5045,9 @@
             'sector-stage': renderSectorStage,
             'value-stocks': renderValueStocks,
             'ma60w-quality': renderMa60wQuality,
-            'ma-convergence': renderMaConvergence
+            'ma-convergence': renderMaConvergence,
+            'magic-formula': renderMagicFormula,
+            'multi-factor': renderMultiFactor
         };
 
         // Navigation - Lazy Rendering 적용
@@ -4758,7 +5093,9 @@
                 'sector-stage': '업종별 4단계',
                 'value-stocks': '저평가 우량주',
                 'ma60w-quality': '60주선 우량주',
-                'ma-convergence': '이평선 수렴'
+                'ma-convergence': '이평선 수렴',
+                'magic-formula': '마법공식 (그린블라트)',
+                'multi-factor': '멀티팩터 (Q+V+M)'
             };
 
             const pageTitle = pageTitles[pageId] || '국내 주식 종목 발굴';
@@ -4820,6 +5157,11 @@
                     requestIdleCallback(preRenderNext, { timeout: 2000 });
                 }
             });
+
+            // 6. 차트 데이터 백그라운드 프리로드 (37MB+ → 첫 차트 열기 시 즉시 표시)
+            setTimeout(function() {
+                loadChartData().catch(function() {});
+            }, 3000);
 
             console.log('✅ 앱 초기화 완료 (Lazy Rendering 적용)');
         }
