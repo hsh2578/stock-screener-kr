@@ -3,7 +3,7 @@
     "type": "magic-formula",
     "name": "마법공식 (그린블라트)",
     "description": "이익수익률 + 투하자본수익률 순위 합산",
-    "lastUpdated": "2026-02-16T05:29:18.374527",
+    "lastUpdated": "2026-02-16T06:17:04.039905",
     "totalCount": 20,
     "screened_from": 1126
   },
@@ -214,23 +214,6 @@
     },
     {
       "rank": 13,
-      "ticker": "005710",
-      "name": "대원산업",
-      "sector": "경기소비재",
-      "current_price": 14250,
-      "per": 2.5,
-      "pbr": 0.56,
-      "combined_rank": 116,
-      "ey_rank": 7,
-      "roc_rank": 109,
-      "earnings_yield": 29.16,
-      "roc": 25.55,
-      "ebit": 1414.0,
-      "market_cap": 2855.0,
-      "ev": 4849.0
-    },
-    {
-      "rank": 14,
       "ticker": "051360",
       "name": "토비스",
       "sector": "IT",
@@ -245,6 +228,23 @@
       "ebit": 887.0,
       "market_cap": 2374.0,
       "ev": 5010.0
+    },
+    {
+      "rank": 14,
+      "ticker": "005710",
+      "name": "대원산업",
+      "sector": "경기소비재",
+      "current_price": 14250,
+      "per": 2.5,
+      "pbr": 0.56,
+      "combined_rank": 116,
+      "ey_rank": 7,
+      "roc_rank": 109,
+      "earnings_yield": 29.16,
+      "roc": 25.55,
+      "ebit": 1414.0,
+      "market_cap": 2855.0,
+      "ev": 4849.0
     },
     {
       "rank": 15,
