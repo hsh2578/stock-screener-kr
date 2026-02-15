@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-16T05:14:44.727203",
-    "totalCount": 61,
+    "lastUpdated": "2026-02-16T06:07:59.788800",
+    "totalCount": 62,
     "screened_from": 1554
   },
   "data": [
@@ -17,10 +17,10 @@
       "low_rise_percent": 5.1,
       "per": null,
       "pbr": null,
-      "ma150": 17738,
+      "ma150": 17708,
       "above_ma150": true,
       "market_cap": 1562,
-      "updated_at": "2026-02-16T05:14:44.612452"
+      "updated_at": "2026-02-16T06:07:59.624334"
     },
     {
       "ticker": "115450",
@@ -34,10 +34,27 @@
       "low_rise_percent": 3.9,
       "per": null,
       "pbr": null,
-      "ma150": 3305,
+      "ma150": 3296,
       "above_ma150": false,
       "market_cap": 2421,
-      "updated_at": "2026-02-16T05:14:44.529627"
+      "updated_at": "2026-02-16T06:07:59.531971"
+    },
+    {
+      "ticker": "091120",
+      "name": "이엠텍",
+      "price": 7310,
+      "change_rate": -4.07,
+      "high_52w": 26800,
+      "drop_percent": 72.7,
+      "prev_low": 7070,
+      "recent_low": 7090,
+      "low_rise_percent": 0.3,
+      "per": null,
+      "pbr": null,
+      "ma150": 9111,
+      "above_ma150": false,
+      "market_cap": 1252,
+      "updated_at": "2026-02-16T06:07:59.684221"
     },
     {
       "ticker": "105550",
@@ -51,10 +68,10 @@
       "low_rise_percent": 2.0,
       "per": null,
       "pbr": null,
-      "ma150": 1985,
+      "ma150": 1974,
       "above_ma150": false,
       "market_cap": 1162,
-      "updated_at": "2026-02-16T05:14:44.670079"
+      "updated_at": "2026-02-16T06:07:59.723576"
     },
     {
       "ticker": "389140",
@@ -68,10 +85,10 @@
       "low_rise_percent": 2.8,
       "per": null,
       "pbr": null,
-      "ma150": 10386,
+      "ma150": 10366,
       "above_ma150": false,
       "market_cap": 1431,
-      "updated_at": "2026-02-16T05:14:44.624548"
+      "updated_at": "2026-02-16T06:07:59.646945"
     },
     {
       "ticker": "067630",
@@ -85,10 +102,10 @@
       "low_rise_percent": 7.0,
       "per": null,
       "pbr": null,
-      "ma150": 4083,
+      "ma150": 4077,
       "above_ma150": false,
       "market_cap": 4913,
-      "updated_at": "2026-02-16T05:14:44.467956"
+      "updated_at": "2026-02-16T06:07:59.427051"
     },
     {
       "ticker": "205500",
@@ -102,10 +119,10 @@
       "low_rise_percent": 6.1,
       "per": null,
       "pbr": null,
-      "ma150": 2741,
+      "ma150": 2735,
       "above_ma150": false,
       "market_cap": 1182,
-      "updated_at": "2026-02-16T05:14:44.667645"
+      "updated_at": "2026-02-16T06:07:59.720454"
     },
     {
       "ticker": "014160",
@@ -119,27 +136,10 @@
       "low_rise_percent": 3.8,
       "per": null,
       "pbr": null,
-      "ma150": 1113,
+      "ma150": 1112,
       "above_ma150": false,
       "market_cap": 1169,
-      "updated_at": "2026-02-16T05:14:44.344657"
-    },
-    {
-      "ticker": "091810",
-      "name": "티웨이항공",
-      "price": 1442,
-      "change_rate": -2.24,
-      "high_52w": 3358,
-      "drop_percent": 57.1,
-      "prev_low": 1243,
-      "recent_low": 1334,
-      "low_rise_percent": 7.3,
-      "per": null,
-      "pbr": null,
-      "ma150": 1638,
-      "above_ma150": false,
-      "market_cap": 4844,
-      "updated_at": "2026-02-16T05:14:44.244668"
+      "updated_at": "2026-02-16T06:07:59.266145"
     },
     {
       "ticker": "315640",
@@ -153,10 +153,27 @@
       "low_rise_percent": 1.6,
       "per": null,
       "pbr": null,
-      "ma150": 4267,
+      "ma150": 4252,
       "above_ma150": false,
       "market_cap": 1029,
-      "updated_at": "2026-02-16T05:14:44.724617"
+      "updated_at": "2026-02-16T06:07:59.770836"
+    },
+    {
+      "ticker": "091810",
+      "name": "티웨이항공",
+      "price": 1442,
+      "change_rate": -2.24,
+      "high_52w": 3324,
+      "drop_percent": 56.6,
+      "prev_low": 1243,
+      "recent_low": 1334,
+      "low_rise_percent": 7.3,
+      "per": null,
+      "pbr": null,
+      "ma150": 1635,
+      "above_ma150": false,
+      "market_cap": 4844,
+      "updated_at": "2026-02-16T06:07:58.649887"
     },
     {
       "ticker": "068290",
@@ -170,10 +187,10 @@
       "low_rise_percent": 0.2,
       "per": null,
       "pbr": null,
-      "ma150": 14659,
+      "ma150": 14611,
       "above_ma150": false,
       "market_cap": 1054,
-      "updated_at": "2026-02-16T05:14:44.395858"
+      "updated_at": "2026-02-16T06:07:59.334006"
     },
     {
       "ticker": "360070",
@@ -187,10 +204,10 @@
       "low_rise_percent": 4.0,
       "per": null,
       "pbr": null,
-      "ma150": 23085,
+      "ma150": 23060,
       "above_ma150": false,
       "market_cap": 1665,
-      "updated_at": "2026-02-16T05:14:44.605890"
+      "updated_at": "2026-02-16T06:07:59.607674"
     },
     {
       "ticker": "241590",
@@ -204,10 +221,10 @@
       "low_rise_percent": 7.9,
       "per": null,
       "pbr": null,
-      "ma150": 6015,
+      "ma150": 5998,
       "above_ma150": false,
       "market_cap": 3229,
-      "updated_at": "2026-02-16T05:14:44.281349"
+      "updated_at": "2026-02-16T06:07:59.187554"
     },
     {
       "ticker": "008970",
@@ -217,14 +234,14 @@
       "high_52w": 4041,
       "drop_percent": 55.6,
       "prev_low": 1608,
-      "recent_low": 1691,
-      "low_rise_percent": 5.2,
+      "recent_low": 1710,
+      "low_rise_percent": 6.3,
       "per": null,
       "pbr": null,
-      "ma150": 2382,
+      "ma150": 2375,
       "above_ma150": false,
       "market_cap": 1861,
-      "updated_at": "2026-02-16T05:14:44.304929"
+      "updated_at": "2026-02-16T06:07:59.231399"
     },
     {
       "ticker": "003580",
@@ -238,10 +255,10 @@
       "low_rise_percent": 1.2,
       "per": null,
       "pbr": null,
-      "ma150": 2279,
+      "ma150": 2276,
       "above_ma150": false,
       "market_cap": 1071,
-      "updated_at": "2026-02-16T05:14:44.380939"
+      "updated_at": "2026-02-16T06:07:59.317634"
     },
     {
       "ticker": "082800",
@@ -255,10 +272,10 @@
       "low_rise_percent": 0.2,
       "per": null,
       "pbr": null,
-      "ma150": 5482,
+      "ma150": 5467,
       "above_ma150": false,
       "market_cap": 2066,
-      "updated_at": "2026-02-16T05:14:44.570698"
+      "updated_at": "2026-02-16T06:07:59.559354"
     },
     {
       "ticker": "003030",
@@ -272,10 +289,10 @@
       "low_rise_percent": 4.1,
       "per": null,
       "pbr": null,
-      "ma150": 159681,
+      "ma150": 159098,
       "above_ma150": false,
       "market_cap": 5632,
-      "updated_at": "2026-02-16T05:14:44.232314"
+      "updated_at": "2026-02-16T06:07:58.480785"
     },
     {
       "ticker": "039980",
@@ -289,10 +306,10 @@
       "low_rise_percent": 0.6,
       "per": null,
       "pbr": null,
-      "ma150": 2199,
+      "ma150": 2193,
       "above_ma150": false,
       "market_cap": 1196,
-      "updated_at": "2026-02-16T05:14:44.664227"
+      "updated_at": "2026-02-16T06:07:59.712324"
     },
     {
       "ticker": "002710",
@@ -306,27 +323,10 @@
       "low_rise_percent": 0.7,
       "per": null,
       "pbr": null,
-      "ma150": 16798,
+      "ma150": 16791,
       "above_ma150": false,
       "market_cap": 4144,
-      "updated_at": "2026-02-16T05:14:44.252282"
-    },
-    {
-      "ticker": "058970",
-      "name": "엠로",
-      "price": 39500,
-      "change_rate": 0.38,
-      "high_52w": 82900,
-      "drop_percent": 52.4,
-      "prev_low": 33700,
-      "recent_low": 33800,
-      "low_rise_percent": 0.3,
-      "per": null,
-      "pbr": null,
-      "ma150": 41672,
-      "above_ma150": false,
-      "market_cap": 4882,
-      "updated_at": "2026-02-16T05:14:44.468515"
+      "updated_at": "2026-02-16T06:07:58.924664"
     },
     {
       "ticker": "123330",
@@ -336,14 +336,14 @@
       "high_52w": 44100,
       "drop_percent": 51.9,
       "prev_low": 15570,
-      "recent_low": 15880,
-      "low_rise_percent": 2.0,
+      "recent_low": 15990,
+      "low_rise_percent": 2.7,
       "per": null,
       "pbr": null,
-      "ma150": 24628,
+      "ma150": 24539,
       "above_ma150": false,
       "market_cap": 1689,
-      "updated_at": "2026-02-16T05:14:44.603336"
+      "updated_at": "2026-02-16T06:07:59.605146"
     },
     {
       "ticker": "095720",
@@ -357,10 +357,10 @@
       "low_rise_percent": 0.2,
       "per": null,
       "pbr": null,
-      "ma150": 1570,
+      "ma150": 1564,
       "above_ma150": false,
       "market_cap": 1364,
-      "updated_at": "2026-02-16T05:14:44.326174"
+      "updated_at": "2026-02-16T06:07:59.256569"
     },
     {
       "ticker": "042000",
@@ -374,10 +374,10 @@
       "low_rise_percent": 3.9,
       "per": null,
       "pbr": null,
-      "ma150": 37230,
+      "ma150": 37154,
       "above_ma150": false,
       "market_cap": 8233,
-      "updated_at": "2026-02-16T05:14:44.445067"
+      "updated_at": "2026-02-16T06:07:59.391852"
     },
     {
       "ticker": "047920",
@@ -391,10 +391,27 @@
       "low_rise_percent": 4.2,
       "per": null,
       "pbr": null,
-      "ma150": 15746,
+      "ma150": 15739,
       "above_ma150": true,
       "market_cap": 5310,
-      "updated_at": "2026-02-16T05:14:44.463227"
+      "updated_at": "2026-02-16T06:07:59.416697"
+    },
+    {
+      "ticker": "058970",
+      "name": "엠로",
+      "price": 39500,
+      "change_rate": 0.38,
+      "high_52w": 80400,
+      "drop_percent": 50.9,
+      "prev_low": 33700,
+      "recent_low": 33900,
+      "low_rise_percent": 0.6,
+      "per": null,
+      "pbr": null,
+      "ma150": 41604,
+      "above_ma150": false,
+      "market_cap": 4882,
+      "updated_at": "2026-02-16T06:07:59.432458"
     },
     {
       "ticker": "402030",
@@ -408,10 +425,10 @@
       "low_rise_percent": 7.3,
       "per": null,
       "pbr": null,
-      "ma150": 25355,
+      "ma150": 25259,
       "above_ma150": false,
       "market_cap": 2828,
-      "updated_at": "2026-02-16T05:14:44.510638"
+      "updated_at": "2026-02-16T06:07:59.509232"
     },
     {
       "ticker": "049630",
@@ -425,10 +442,10 @@
       "low_rise_percent": 46.6,
       "per": null,
       "pbr": null,
-      "ma150": 2122,
+      "ma150": 2146,
       "above_ma150": true,
       "market_cap": 4675,
-      "updated_at": "2026-02-16T05:14:44.469679"
+      "updated_at": "2026-02-16T06:07:59.435404"
     },
     {
       "ticker": "001530",
@@ -442,10 +459,10 @@
       "low_rise_percent": 2.7,
       "per": null,
       "pbr": null,
-      "ma150": 26309,
+      "ma150": 26195,
       "above_ma150": false,
       "market_cap": 4596,
-      "updated_at": "2026-02-16T05:14:44.250188"
+      "updated_at": "2026-02-16T06:07:58.705553"
     },
     {
       "ticker": "225530",
@@ -459,10 +476,10 @@
       "low_rise_percent": 0.2,
       "per": null,
       "pbr": null,
-      "ma150": 3134,
+      "ma150": 3129,
       "above_ma150": false,
       "market_cap": 1066,
-      "updated_at": "2026-02-16T05:14:44.696875"
+      "updated_at": "2026-02-16T06:07:59.739512"
     },
     {
       "ticker": "063080",
@@ -476,10 +493,10 @@
       "low_rise_percent": 7.6,
       "per": null,
       "pbr": null,
-      "ma150": 20992,
+      "ma150": 20929,
       "above_ma150": false,
       "market_cap": 1274,
-      "updated_at": "2026-02-16T05:14:44.653552"
+      "updated_at": "2026-02-16T06:07:59.682528"
     },
     {
       "ticker": "290670",
@@ -489,14 +506,14 @@
       "high_52w": 25350,
       "drop_percent": 49.1,
       "prev_low": 11730,
-      "recent_low": 11800,
-      "low_rise_percent": 0.6,
+      "recent_low": 11950,
+      "low_rise_percent": 1.9,
       "per": null,
       "pbr": null,
-      "ma150": 15514,
+      "ma150": 15471,
       "above_ma150": false,
       "market_cap": 1013,
-      "updated_at": "2026-02-16T05:14:44.726316"
+      "updated_at": "2026-02-16T06:07:59.786612"
     },
     {
       "ticker": "048870",
@@ -510,27 +527,10 @@
       "low_rise_percent": 0.7,
       "per": null,
       "pbr": null,
-      "ma150": 2578,
+      "ma150": 2576,
       "above_ma150": false,
       "market_cap": 2101,
-      "updated_at": "2026-02-16T05:14:44.560834"
-    },
-    {
-      "ticker": "114840",
-      "name": "아이패밀리에스씨",
-      "price": 14770,
-      "change_rate": -0.67,
-      "high_52w": 28600,
-      "drop_percent": 48.4,
-      "prev_low": 13080,
-      "recent_low": 14110,
-      "low_rise_percent": 7.9,
-      "per": null,
-      "pbr": null,
-      "ma150": 17625,
-      "above_ma150": false,
-      "market_cap": 2558,
-      "updated_at": "2026-02-16T05:14:44.520497"
+      "updated_at": "2026-02-16T06:07:59.549149"
     },
     {
       "ticker": "028300",
@@ -544,10 +544,10 @@
       "low_rise_percent": 10.0,
       "per": null,
       "pbr": null,
-      "ma150": 46798,
+      "ma150": 46817,
       "above_ma150": true,
       "market_cap": 68023,
-      "updated_at": "2026-02-16T05:14:44.399792"
+      "updated_at": "2026-02-16T06:07:59.340054"
     },
     {
       "ticker": "036420",
@@ -561,10 +561,10 @@
       "low_rise_percent": 7.4,
       "per": null,
       "pbr": null,
-      "ma150": 9553,
+      "ma150": 9525,
       "above_ma150": false,
       "market_cap": 1394,
-      "updated_at": "2026-02-16T05:14:44.316951"
+      "updated_at": "2026-02-16T06:07:59.248614"
     },
     {
       "ticker": "458650",
@@ -578,10 +578,27 @@
       "low_rise_percent": 7.9,
       "per": null,
       "pbr": null,
-      "ma150": 11916,
+      "ma150": 11917,
       "above_ma150": true,
       "market_cap": 1928,
-      "updated_at": "2026-02-16T05:14:44.581751"
+      "updated_at": "2026-02-16T06:07:59.574987"
+    },
+    {
+      "ticker": "114840",
+      "name": "아이패밀리에스씨",
+      "price": 14770,
+      "change_rate": -0.67,
+      "high_52w": 27650,
+      "drop_percent": 46.6,
+      "prev_low": 13080,
+      "recent_low": 14110,
+      "low_rise_percent": 7.9,
+      "per": null,
+      "pbr": null,
+      "ma150": 17604,
+      "above_ma150": false,
+      "market_cap": 2558,
+      "updated_at": "2026-02-16T06:07:59.519953"
     },
     {
       "ticker": "377300",
@@ -595,10 +612,10 @@
       "low_rise_percent": 8.1,
       "per": null,
       "pbr": null,
-      "ma150": 56312,
+      "ma150": 56189,
       "above_ma150": true,
       "market_cap": 84469,
-      "updated_at": "2026-02-16T05:14:44.165365"
+      "updated_at": "2026-02-16T06:07:58.171512"
     },
     {
       "ticker": "363280",
@@ -612,10 +629,10 @@
       "low_rise_percent": 2.1,
       "per": null,
       "pbr": null,
-      "ma150": 2957,
+      "ma150": 2949,
       "above_ma150": false,
       "market_cap": 1275,
-      "updated_at": "2026-02-16T05:14:44.328132"
+      "updated_at": "2026-02-16T06:07:59.261481"
     },
     {
       "ticker": "036710",
@@ -629,10 +646,10 @@
       "low_rise_percent": 5.7,
       "per": null,
       "pbr": null,
-      "ma150": 2533,
+      "ma150": 2540,
       "above_ma150": true,
       "market_cap": 1376,
-      "updated_at": "2026-02-16T05:14:44.634887"
+      "updated_at": "2026-02-16T06:07:59.657780"
     },
     {
       "ticker": "217500",
@@ -642,14 +659,14 @@
       "high_52w": 5930,
       "drop_percent": 45.2,
       "prev_low": 1857,
-      "recent_low": 2950,
-      "low_rise_percent": 58.9,
+      "recent_low": 3200,
+      "low_rise_percent": 72.3,
       "per": null,
       "pbr": null,
-      "ma150": 2288,
+      "ma150": 2298,
       "above_ma150": true,
       "market_cap": 1033,
-      "updated_at": "2026-02-16T05:14:44.715055"
+      "updated_at": "2026-02-16T06:07:59.756978"
     },
     {
       "ticker": "025620",
@@ -663,10 +680,10 @@
       "low_rise_percent": 4.8,
       "per": null,
       "pbr": null,
-      "ma150": 10495,
+      "ma150": 10522,
       "above_ma150": true,
       "market_cap": 1975,
-      "updated_at": "2026-02-16T05:14:44.302927"
+      "updated_at": "2026-02-16T06:07:59.226803"
     },
     {
       "ticker": "084690",
@@ -680,10 +697,10 @@
       "low_rise_percent": 4.3,
       "per": null,
       "pbr": null,
-      "ma150": 9682,
+      "ma150": 9680,
       "above_ma150": true,
       "market_cap": 3769,
-      "updated_at": "2026-02-16T05:14:44.256391"
+      "updated_at": "2026-02-16T06:07:59.086336"
     },
     {
       "ticker": "950130",
@@ -697,10 +714,10 @@
       "low_rise_percent": 3.3,
       "per": null,
       "pbr": null,
-      "ma150": 4103,
+      "ma150": 4098,
       "above_ma150": false,
       "market_cap": 1331,
-      "updated_at": "2026-02-16T05:14:44.639434"
+      "updated_at": "2026-02-16T06:07:59.676268"
     },
     {
       "ticker": "418550",
@@ -710,14 +727,14 @@
       "high_52w": 15930,
       "drop_percent": 43.8,
       "prev_low": 6460,
-      "recent_low": 7110,
-      "low_rise_percent": 10.1,
+      "recent_low": 7130,
+      "low_rise_percent": 10.4,
       "per": null,
       "pbr": null,
-      "ma150": 8189,
+      "ma150": 8194,
       "above_ma150": true,
       "market_cap": 2865,
-      "updated_at": "2026-02-16T05:14:44.507046"
+      "updated_at": "2026-02-16T06:07:59.506339"
     },
     {
       "ticker": "348370",
@@ -731,10 +748,10 @@
       "low_rise_percent": 1.3,
       "per": null,
       "pbr": null,
-      "ma150": 72703,
+      "ma150": 72844,
       "above_ma150": true,
       "market_cap": 16496,
-      "updated_at": "2026-02-16T05:14:44.422280"
+      "updated_at": "2026-02-16T06:07:59.361807"
     },
     {
       "ticker": "328130",
@@ -748,10 +765,10 @@
       "low_rise_percent": 1.1,
       "per": null,
       "pbr": null,
-      "ma150": 41625,
+      "ma150": 41573,
       "above_ma150": false,
       "market_cap": 12006,
-      "updated_at": "2026-02-16T05:14:44.436002"
+      "updated_at": "2026-02-16T06:07:59.369362"
     },
     {
       "ticker": "047820",
@@ -765,10 +782,10 @@
       "low_rise_percent": 1.2,
       "per": null,
       "pbr": null,
-      "ma150": 5319,
+      "ma150": 5309,
       "above_ma150": false,
       "market_cap": 1127,
-      "updated_at": "2026-02-16T05:14:44.693239"
+      "updated_at": "2026-02-16T06:07:59.731776"
     },
     {
       "ticker": "461300",
@@ -778,14 +795,14 @@
       "high_52w": 27550,
       "drop_percent": 42.9,
       "prev_low": 14130,
-      "recent_low": 14380,
-      "low_rise_percent": 1.8,
+      "recent_low": 14400,
+      "low_rise_percent": 1.9,
       "per": null,
       "pbr": null,
-      "ma150": 18720,
+      "ma150": 18677,
       "above_ma150": false,
       "market_cap": 2093,
-      "updated_at": "2026-02-16T05:14:44.561708"
+      "updated_at": "2026-02-16T06:07:59.557460"
     },
     {
       "ticker": "380540",
@@ -795,14 +812,14 @@
       "high_52w": 5550,
       "drop_percent": 42.8,
       "prev_low": 1694,
-      "recent_low": 2800,
-      "low_rise_percent": 65.3,
+      "recent_low": 3115,
+      "low_rise_percent": 83.9,
       "per": null,
       "pbr": null,
-      "ma150": 2081,
+      "ma150": 2091,
       "above_ma150": true,
       "market_cap": 1549,
-      "updated_at": "2026-02-16T05:14:44.614952"
+      "updated_at": "2026-02-16T06:07:59.626485"
     },
     {
       "ticker": "217330",
@@ -811,15 +828,15 @@
       "change_rate": -3.17,
       "high_52w": 11200,
       "drop_percent": 42.8,
-      "prev_low": 4025,
+      "prev_low": 4720,
       "recent_low": 6310,
-      "low_rise_percent": 56.8,
+      "low_rise_percent": 33.7,
       "per": null,
       "pbr": null,
-      "ma150": 4215,
+      "ma150": 4241,
       "above_ma150": true,
       "market_cap": 1482,
-      "updated_at": "2026-02-16T05:14:44.622371"
+      "updated_at": "2026-02-16T06:07:59.640207"
     },
     {
       "ticker": "203400",
@@ -836,7 +853,7 @@
       "ma150": 3077,
       "above_ma150": true,
       "market_cap": 3207,
-      "updated_at": "2026-02-16T05:14:44.486260"
+      "updated_at": "2026-02-16T06:07:59.468354"
     },
     {
       "ticker": "041020",
@@ -850,10 +867,10 @@
       "low_rise_percent": 0.8,
       "per": null,
       "pbr": null,
-      "ma150": 5217,
+      "ma150": 5205,
       "above_ma150": false,
       "market_cap": 2222,
-      "updated_at": "2026-02-16T05:14:44.556433"
+      "updated_at": "2026-02-16T06:07:59.540794"
     },
     {
       "ticker": "145720",
@@ -867,16 +884,16 @@
       "low_rise_percent": 3.5,
       "per": null,
       "pbr": null,
-      "ma150": 55161,
+      "ma150": 55069,
       "above_ma150": false,
       "market_cap": 5468,
-      "updated_at": "2026-02-16T05:14:44.239738"
+      "updated_at": "2026-02-16T06:07:58.502762"
     },
     {
       "ticker": "306200",
       "name": "세아제강",
       "price": 127100,
-      "change_rate": 1.03,
+      "change_rate": 1.27,
       "high_52w": 217500,
       "drop_percent": 41.6,
       "prev_low": 112000,
@@ -884,10 +901,10 @@
       "low_rise_percent": 2.4,
       "per": null,
       "pbr": null,
-      "ma150": 130202,
+      "ma150": 130199,
       "above_ma150": false,
       "market_cap": 3604,
-      "updated_at": "2026-02-16T05:14:44.258898"
+      "updated_at": "2026-02-16T06:07:59.160349"
     },
     {
       "ticker": "007110",
@@ -897,14 +914,14 @@
       "high_52w": 3010,
       "drop_percent": 41.1,
       "prev_low": 1507,
-      "recent_low": 1520,
-      "low_rise_percent": 0.9,
+      "recent_low": 1530,
+      "low_rise_percent": 1.5,
       "per": null,
       "pbr": null,
-      "ma150": 1911,
+      "ma150": 1907,
       "above_ma150": false,
       "market_cap": 1372,
-      "updated_at": "2026-02-16T05:14:44.325665"
+      "updated_at": "2026-02-16T06:07:59.255416"
     },
     {
       "ticker": "101330",
@@ -913,15 +930,15 @@
       "change_rate": -4.95,
       "high_52w": 9140,
       "drop_percent": 41.1,
-      "prev_low": 3115,
+      "prev_low": 3135,
       "recent_low": 4630,
-      "low_rise_percent": 48.6,
+      "low_rise_percent": 47.7,
       "per": null,
       "pbr": null,
-      "ma150": 3679,
+      "ma150": 3695,
       "above_ma150": true,
       "market_cap": 1245,
-      "updated_at": "2026-02-16T05:14:44.656825"
+      "updated_at": "2026-02-16T06:07:59.698319"
     },
     {
       "ticker": "009780",
@@ -935,10 +952,10 @@
       "low_rise_percent": 0.3,
       "per": null,
       "pbr": null,
-      "ma150": 8792,
+      "ma150": 8785,
       "above_ma150": false,
       "market_cap": 1381,
-      "updated_at": "2026-02-16T05:14:44.631901"
+      "updated_at": "2026-02-16T06:07:59.652958"
     },
     {
       "ticker": "017860",
@@ -952,10 +969,10 @@
       "low_rise_percent": 4.0,
       "per": null,
       "pbr": null,
-      "ma150": 21089,
+      "ma150": 21045,
       "above_ma150": false,
       "market_cap": 3311,
-      "updated_at": "2026-02-16T05:14:44.261423"
+      "updated_at": "2026-02-16T06:07:59.168389"
     },
     {
       "ticker": "336570",
@@ -969,10 +986,10 @@
       "low_rise_percent": 12.1,
       "per": null,
       "pbr": null,
-      "ma150": 9392,
+      "ma150": 9368,
       "above_ma150": false,
       "market_cap": 7188,
-      "updated_at": "2026-02-16T05:14:44.453819"
+      "updated_at": "2026-02-16T06:07:59.405136"
     },
     {
       "ticker": "473980",
@@ -981,15 +998,15 @@
       "change_rate": -3.62,
       "high_52w": 38000,
       "drop_percent": 40.4,
-      "prev_low": 21200,
+      "prev_low": 21750,
       "recent_low": 21850,
-      "low_rise_percent": 3.1,
+      "low_rise_percent": 0.5,
       "per": null,
       "pbr": null,
-      "ma150": 28030,
+      "ma150": 27959,
       "above_ma150": false,
       "market_cap": 2504,
-      "updated_at": "2026-02-16T05:14:44.521474"
+      "updated_at": "2026-02-16T06:07:59.528816"
     },
     {
       "ticker": "452190",
@@ -1003,10 +1020,10 @@
       "low_rise_percent": 0.6,
       "per": null,
       "pbr": null,
-      "ma150": 4859,
+      "ma150": 4857,
       "above_ma150": true,
       "market_cap": 1139,
-      "updated_at": "2026-02-16T05:14:44.671467"
+      "updated_at": "2026-02-16T06:07:59.728551"
     },
     {
       "ticker": "215100",
@@ -1016,14 +1033,14 @@
       "high_52w": 15300,
       "drop_percent": 40.0,
       "prev_low": 7110,
-      "recent_low": 8120,
-      "low_rise_percent": 14.2,
+      "recent_low": 8670,
+      "low_rise_percent": 21.9,
       "per": null,
       "pbr": null,
-      "ma150": 7286,
+      "ma150": 7318,
       "above_ma150": true,
       "market_cap": 1867,
-      "updated_at": "2026-02-16T05:14:44.588525"
+      "updated_at": "2026-02-16T06:07:59.584542"
     },
     {
       "ticker": "250060",
@@ -1037,10 +1054,10 @@
       "low_rise_percent": 35.6,
       "per": null,
       "pbr": null,
-      "ma150": 3187,
+      "ma150": 3203,
       "above_ma150": true,
       "market_cap": 1820,
-      "updated_at": "2026-02-16T05:14:44.590765"
+      "updated_at": "2026-02-16T06:07:59.590266"
     }
   ]
 }
