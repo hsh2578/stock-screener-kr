@@ -1,23 +1,23 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-13T18:12:28.820320",
-    "totalCount": 5,
+    "lastUpdated": "2026-02-16T05:14:54.754158",
+    "totalCount": 6,
     "screened_from": 1554
   },
   "data": [
     {
-      "ticker": "095660",
-      "name": "네오위즈",
-      "price": 26150,
-      "change_rate": 1.16,
-      "breakout_date": "2026-01-26",
-      "resistance": 26650,
-      "pullback_ratio": 1.88,
-      "volume_decrease": 70,
-      "ma150": 25351,
+      "ticker": "002150",
+      "name": "도화엔지니어링",
+      "price": 6680,
+      "change_rate": -0.15,
+      "breakout_date": "2026-02-05",
+      "resistance": 6490,
+      "pullback_ratio": 2.93,
+      "volume_decrease": 73,
+      "ma150": 6387,
       "above_ma150": true,
-      "market_cap": 5715,
-      "updated_at": "2026-02-13T18:12:26.694402"
+      "market_cap": 2252,
+      "updated_at": "2026-02-16T05:14:48.562966"
     },
     {
       "ticker": "100700",
@@ -27,11 +27,25 @@
       "breakout_date": "2026-02-06",
       "resistance": 2505,
       "pullback_ratio": 3.19,
-      "volume_decrease": 95,
-      "ma150": 2513,
+      "volume_decrease": 76,
+      "ma150": 2514,
       "above_ma150": true,
       "market_cap": 1132,
-      "updated_at": "2026-02-13T18:12:28.574128"
+      "updated_at": "2026-02-16T05:14:54.339334"
+    },
+    {
+      "ticker": "096530",
+      "name": "씨젠",
+      "price": 27400,
+      "change_rate": -1.44,
+      "breakout_date": "2026-01-28",
+      "resistance": 26550,
+      "pullback_ratio": 3.2,
+      "volume_decrease": 58,
+      "ma150": 26406,
+      "above_ma150": true,
+      "market_cap": 14309,
+      "updated_at": "2026-02-16T05:14:50.466429"
     },
     {
       "ticker": "035600",
@@ -41,11 +55,11 @@
       "breakout_date": "2026-01-28",
       "resistance": 10950,
       "pullback_ratio": 3.84,
-      "volume_decrease": 74,
-      "ma150": 10642,
+      "volume_decrease": 77,
+      "ma150": 10640,
       "above_ma150": true,
       "market_cap": 3132,
-      "updated_at": "2026-02-13T18:12:26.950150"
+      "updated_at": "2026-02-16T05:14:51.442915"
     },
     {
       "ticker": "025860",
@@ -55,11 +69,11 @@
       "breakout_date": "2026-02-06",
       "resistance": 6990,
       "pullback_ratio": 4.01,
-      "volume_decrease": 70,
-      "ma150": 6898,
+      "volume_decrease": 55,
+      "ma150": 6901,
       "above_ma150": true,
       "market_cap": 3611,
-      "updated_at": "2026-02-13T18:12:24.426841"
+      "updated_at": "2026-02-16T05:14:46.934998"
     },
     {
       "ticker": "003555",
@@ -69,11 +83,11 @@
       "breakout_date": "2026-01-23",
       "resistance": 70000,
       "pullback_ratio": 4.86,
-      "volume_decrease": 56,
-      "ma150": 65474,
+      "volume_decrease": 59,
+      "ma150": 65406,
       "above_ma150": true,
       "market_cap": 2210,
-      "updated_at": "2026-02-13T18:12:25.026804"
+      "updated_at": "2026-02-16T05:14:48.620068"
     }
   ]
 }
