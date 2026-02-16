@@ -2442,6 +2442,7 @@
             '/stock-screener-kr/data/',  // GitHub Pages repo 경로
             'web/public/data/'   // 로컬 개발 경로
         ];
+        let _resolvedDataPath = null; // 캐시된 데이터 경로
 
         // 데이터 로드 함수
         async function loadAllData() {
@@ -2459,6 +2460,7 @@
                     const res = await fetch(testUrl);
                     if (res.ok) {
                         workingPath = basePath;
+                        _resolvedDataPath = basePath;
                         console.log(`✅ 데이터 경로 발견: ${basePath}`);
                         break;
                     }
@@ -2512,10 +2514,10 @@
             if (financialDataLoading) return financialDataLoading;
             financialDataLoading = (async () => {
                 try {
-                    // workingPath가 결정된 상태에서 로딩
-                    for (var bp of DATA_PATH_CANDIDATES) {
+                    const paths = _resolvedDataPath ? [_resolvedDataPath] : DATA_PATH_CANDIDATES;
+                    for (const bp of paths) {
                         try {
-                            var res = await fetch(bp + 'financial_data.json');
+                            const res = await fetch(bp + 'financial_data.json');
                             if (res.ok) {
                                 DATA.financialData = await res.json();
                                 financialDataLoaded = true;
@@ -2721,7 +2723,8 @@
         const screeners = screenerGroups.flatMap(g => g.screeners);
 
         // Utils
-        const formatNumber = n => n.toLocaleString('ko-KR');
+        const _krFmt = new Intl.NumberFormat('ko-KR');
+        const formatNumber = n => _krFmt.format(n);
         const formatPercent = n => (n >= 0 ? '+' : '') + n.toFixed(2) + '%';
         const getColor = n => n > 0 ? 'positive' : n < 0 ? 'negative' : 'neutral';
         const getAIScoreClass = score => { if (!score) return ''; if (score >= 50) return 'ai-high'; if (score >= 30) return 'ai-medium'; return 'ai-low'; };
@@ -2807,15 +2810,18 @@
             }).join('');
         }
 
-        // 뷰포트 변경 시 캐시 무효화
+        // 뷰포트 변경 시 캐시 무효화 (debounced)
         let lastIsMobile = isMobileView();
+        let _resizeTimer = null;
         window.addEventListener('resize', () => {
-            const currentIsMobile = isMobileView();
-            if (currentIsMobile !== lastIsMobile) {
-                lastIsMobile = currentIsMobile;
-                // 렌더링 캐시 무효화하여 다음 방문 시 재렌더링
-                renderedPages.clear();
-            }
+            if (_resizeTimer) clearTimeout(_resizeTimer);
+            _resizeTimer = setTimeout(() => {
+                const currentIsMobile = isMobileView();
+                if (currentIsMobile !== lastIsMobile) {
+                    lastIsMobile = currentIsMobile;
+                    renderedPages.clear();
+                }
+            }, 200);
         }, { passive: true });
 
         // XSS 방어를 위한 안전한 JSON 문자열화
@@ -2866,15 +2872,9 @@
         async function loadChartData() {
             if (chartDataCache) return chartDataCache;
             try {
-                // Try loading from various paths (GitHub Pages, local dev)
-                const paths = [
-                    './data/chart_data.json',
-                    'data/chart_data.json',
-                    '/stock-screener-kr/data/chart_data.json',
-                    'chart_data.json',
-                    './chart_data.json',
-                    'web/public/data/chart_data.json'
-                ];
+                const paths = _resolvedDataPath
+                    ? [_resolvedDataPath + 'chart_data.json']
+                    : ['./data/chart_data.json', 'data/chart_data.json', '/stock-screener-kr/data/chart_data.json', 'chart_data.json', './chart_data.json', 'web/public/data/chart_data.json'];
                 for (const path of paths) {
                     try {
                         const res = await fetch(path);
@@ -3394,7 +3394,7 @@
         }
 
         // ESC key handler
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { const m = document.getElementById('chart-modal'); if (m && m.classList.contains('active')) closeModal(); } });
 
         // Date formatting function
         function formatDateFromISO(isoString) {
@@ -4868,7 +4868,7 @@
                 return `
                     <tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
                         <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
-                        <td class="text-right">${s.current_price ? s.current_price.toLocaleString() + '원' : '-'}</td>
+                        <td class="text-right">${s.current_price ? formatNumber(s.current_price) + '원' : '-'}</td>
                         <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                         <td class="text-right ${getPERColor(s.per)}">${s.per != null ? s.per.toFixed(1) : '-'}</td>
                         <td class="text-right ${getPBRColor(s.pbr)}">${s.pbr != null ? s.pbr.toFixed(2) : '-'}</td>
@@ -4928,7 +4928,7 @@
                 return `
                 <tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
-                    <td class="text-right">${s.current_price != null ? s.current_price.toLocaleString() + '원' : '-'}</td>
+                    <td class="text-right">${s.current_price != null ? formatNumber(s.current_price) + '원' : '-'}</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                     <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
                     <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
@@ -4983,7 +4983,7 @@
             const rows = paginatedData.map(s => `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.current_price,change_rate:null})})' role="button" tabindex="0" onkeypress="if(event.key==='Enter')openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.current_price,change_rate:null})})">
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
-                    <td class="text-right">${s.current_price != null ? s.current_price.toLocaleString() + '원' : '-'}</td>
+                    <td class="text-right">${s.current_price != null ? formatNumber(s.current_price) + '원' : '-'}</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                     <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
                     <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
@@ -5042,7 +5042,7 @@
                 const stockJson = safeJsonStringify({ ticker: s.ticker, name: s.name, price: s.current_price || 0, change_rate: 0 });
                 return `
                     <tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
-                        <td style="font-weight:bold;color:var(--color-primary)">${s.rank}</td>
+                        <td style="font-weight:bold;color:var(--color-accent)">${s.rank}</td>
                         <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                         <td class="text-right">${s.current_price ? formatNumber(s.current_price) + '원' : '-'}</td>
                         <td class="text-right">${formatMarketCap(s.market_cap)}</td>
@@ -5148,7 +5148,7 @@
                 const fmtScore = (v) => v != null ? v.toFixed(2) : '-';
                 return `
                     <tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
-                        <td style="font-weight:bold;color:var(--color-primary)">${s.rank}</td>
+                        <td style="font-weight:bold;color:var(--color-accent)">${s.rank}</td>
                         <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                         <td class="text-right">${s.current_price ? formatNumber(s.current_price) + '원' : '-'}</td>
                         <td class="text-right">${formatMarketCap(s.market_cap)}</td>
@@ -5184,7 +5184,7 @@
                     var wv = parseFloat(document.getElementById('mf-weight-v').value) || 0;
                     var wm = parseFloat(document.getElementById('mf-weight-m').value) || 0;
                     mfWeights = { q: wq, v: wv, m: wm };
-                    renderCache['multi-factor-table'] = null;
+                    renderCache.delete('multi-factor-table');
                     renderMultiFactor();
                 });
                 resetBtn.addEventListener('click', function() {
@@ -5192,7 +5192,7 @@
                     document.getElementById('mf-weight-q').value = '0.33';
                     document.getElementById('mf-weight-v').value = '0.33';
                     document.getElementById('mf-weight-m').value = '0.33';
-                    renderCache['multi-factor-table'] = null;
+                    renderCache.delete('multi-factor-table');
                     renderMultiFactor();
                 });
             }
@@ -5438,11 +5438,16 @@
             'graham': renderGraham
         };
 
-        // Navigation - Lazy Rendering 적용
-        function showPage(pageId) {
+        // Navigation - Lazy Rendering 적용 + Hash Routing
+        function showPage(pageId, pushState = true) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(`page-${pageId}`).classList.add('active');
             window.scrollTo(0, 0);
+            if (pushState && pageId !== 'home') {
+                history.pushState({ page: pageId }, '', '#' + pageId);
+            } else if (pushState && pageId === 'home') {
+                history.pushState({ page: 'home' }, '', window.location.pathname);
+            }
 
             // Lazy Rendering: 처음 방문하는 페이지만 렌더링
             if (pageId !== 'home' && !renderedPages.has(pageId)) {
@@ -5554,6 +5559,20 @@
             setTimeout(function() {
                 loadChartData().catch(function() {});
             }, 3000);
+
+            // 7. 해시 라우팅: 뒤로가기/앞으로가기 지원
+            window.addEventListener('popstate', (e) => {
+                const pageId = (e.state && e.state.page) || (location.hash ? location.hash.slice(1) : 'home');
+                showPage(pageId, false);
+            });
+
+            // 8. URL 해시가 있으면 해당 페이지로 이동
+            if (location.hash) {
+                const hashPage = location.hash.slice(1);
+                if (document.getElementById('page-' + hashPage)) {
+                    showPage(hashPage, false);
+                }
+            }
 
             console.log('✅ 앱 초기화 완료 (Lazy Rendering 적용)');
         }

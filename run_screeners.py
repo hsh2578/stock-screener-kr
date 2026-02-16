@@ -335,7 +335,7 @@ def calculate_52w_features(df, breakout_idx):
                     if close_20d is not None:
                         stock_return = (breakout_close / close_20d.iloc[0] - 1) * 100
                         rs_vs_market = stock_return - market_return
-            except:
+            except Exception:
                 pass
 
         # 11. ma20_deviation: 20일선 대비 이격도
@@ -357,7 +357,7 @@ def calculate_52w_features(df, breakout_idx):
             ath_idx = high_52w_slice.idxmax()
             breakout_date = df.index[breakout_idx]
             days_since_ath = (breakout_date - ath_idx).days
-        except:
+        except Exception:
             days_since_ath = 0
 
         # 14. atr_ratio: ATR 비율
@@ -581,7 +581,7 @@ def calculate_near_high_features(df, event_idx, high_52w):
                     m_close = _kospi_data['Close']
                     market_return = (m_close.iloc[market_idx] / m_close.iloc[market_idx - 20] - 1) * 100
                     rs_vs_market = stock_return_20d - market_return
-            except:
+            except Exception:
                 pass
 
         # 13. pct_from_52w_low
@@ -734,7 +734,7 @@ def calculate_box_features(df, breakout_idx, resistance, support):
             high_52w_idx = high_52w_slice.idxmax()
             breakout_date = df.index[breakout_idx]
             features['days_since_ath'] = (breakout_date - high_52w_idx).days
-        except:
+        except Exception:
             features['days_since_ath'] = 0
 
         # 12. rs_vs_market, 13. market_return
@@ -752,7 +752,7 @@ def calculate_box_features(df, breakout_idx, resistance, support):
                 else:
                     features['market_return'] = 0
                     features['rs_vs_market'] = 0
-            except:
+            except Exception:
                 features['market_return'] = 0
                 features['rs_vs_market'] = 0
         else:
@@ -888,7 +888,7 @@ def _generate_df_hash(df: pd.DataFrame) -> str:
         # 마지막 종가도 포함하여 동일 기간 다른 데이터 구분
         last_close = df['Close'].iloc[-1] if 'Close' in df.columns else 0
         return f"{first_date}_{last_date}_{length}_{last_close:.2f}"
-    except:
+    except Exception:
         return str(id(df))
 
 
@@ -3506,14 +3506,19 @@ def save_results(results: List[Dict], filename: str, screened_from: int) -> None
 
 
 def _fetch_chart_data_single(ticker: str) -> tuple:
-    """단일 종목 차트 데이터 fetch (병렬 실행용)."""
+    """단일 종목 차트 데이터 fetch (병렬 실행용). OHLCV 캐시 우선 사용."""
     try:
-        end_date = datetime.now()
-        start_date = end_date - timedelta(days=1100)  # 750거래일 ≈ 캘린더 1100일
-        try:
-            df = fdr.DataReader(ticker, start_date.strftime('%Y-%m-%d'))
-        except Exception:
-            df = get_ohlcv(ticker, 200)  # fallback
+        # 캐시에 데이터가 있으면 우선 사용
+        df = None
+        if ticker in _DATA_CACHE and _DATA_CACHE[ticker] is not None and len(_DATA_CACHE[ticker]) >= 10:
+            df = _DATA_CACHE[ticker]
+        if df is None or len(df) < 10:
+            end_date = datetime.now()
+            start_date = end_date - timedelta(days=1100)
+            try:
+                df = fdr.DataReader(ticker, start_date.strftime('%Y-%m-%d'))
+            except Exception:
+                df = get_ohlcv(ticker, 200)
         if df is None or len(df) < 10:
             return (ticker, None)
 
@@ -3679,7 +3684,8 @@ def main():
 
         # 추가 스크리너 데이터 로드 (차트 데이터 생성용)
         extra_results = []
-        extra_files = ['value_stocks.json', 'ma60w_quality.json', 'magic_formula.json', 'multi_factor.json']
+        extra_files = ['value_stocks.json', 'ma60w_quality.json', 'magic_formula.json', 'multi_factor.json',
+                       'buffett.json', 'ackman.json', 'lynch.json', 'graham.json']
         for filename in extra_files:
             filepath = os.path.join(DATA_PATH, filename)
             if os.path.exists(filepath):

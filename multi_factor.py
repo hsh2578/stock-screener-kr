@@ -191,7 +191,8 @@ def preprocess_factor(df: pd.DataFrame, factor_col: str, sector_col: str,
         df[f'{col}_zscore'] = np.nan
         return df
 
-    # 1. Winsorizing (상하위 1%)
+    # 1. Winsorizing (상하위 1%) — 원본 보존
+    df[f'{col}_orig'] = df[col].copy()
     df.loc[mask, col] = winsorize(df.loc[mask, col])
 
     # 2. Rank 변환
@@ -446,16 +447,16 @@ def run_multi_factor():
             'quality_score': round(row['quality_score'], 3) if pd.notna(row['quality_score']) else None,
             'value_score': round(row['value_score'], 3) if pd.notna(row['value_score']) else None,
             'momentum_score': round(row['momentum_score'], 3) if pd.notna(row['momentum_score']) else None,
-            'roe': round(row['roe'], 1) if pd.notna(row.get('roe')) else None,
-            'gpa': round(row['gpa'], 3) if pd.notna(row.get('gpa')) else None,
-            'cfo': round(row['cfo'], 3) if pd.notna(row.get('cfo')) else None,
-            'per': round(row['per'], 1) if pd.notna(row.get('per')) else None,
-            'pbr': round(row['pbr'], 2) if pd.notna(row.get('pbr')) else None,
-            'psr': round(row['psr'], 2) if pd.notna(row.get('psr')) else None,
-            'pcr': round(row['pcr'], 1) if pd.notna(row.get('pcr')) else None,
-            'div_yield': round(row['div_yield'], 1) if pd.notna(row.get('div_yield')) else None,
-            'return_12m': round(row['return_12m'], 1) if pd.notna(row.get('return_12m')) else None,
-            'k_ratio': round(row['k_ratio'], 3) if pd.notna(row.get('k_ratio')) else None,
+            'roe': round(row.get('roe_orig', row['roe']), 1) if pd.notna(row.get('roe')) else None,
+            'gpa': round(row.get('gpa_orig', row['gpa']), 3) if pd.notna(row.get('gpa')) else None,
+            'cfo': round(row.get('cfo_orig', row['cfo']), 3) if pd.notna(row.get('cfo')) else None,
+            'per': round(row.get('per_orig', row['per']), 1) if pd.notna(row.get('per')) else None,
+            'pbr': round(row.get('pbr_orig', row['pbr']), 2) if pd.notna(row.get('pbr')) else None,
+            'psr': round(row.get('psr_orig', row['psr']), 2) if pd.notna(row.get('psr')) else None,
+            'pcr': round(row.get('pcr_orig', row['pcr']), 1) if pd.notna(row.get('pcr')) else None,
+            'div_yield': round(row.get('div_yield_orig', row['div_yield']), 1) if pd.notna(row.get('div_yield')) else None,
+            'return_12m': round(row.get('return_12m_orig', row['return_12m']), 1) if pd.notna(row.get('return_12m')) else None,
+            'k_ratio': round(row.get('k_ratio_orig', row['k_ratio']), 3) if pd.notna(row.get('k_ratio')) else None,
             'market_cap': row['market_cap'],
         })
 
