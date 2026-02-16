@@ -123,6 +123,16 @@ jobs:
           echo "60주선 우량주 스크리너 완료"
           echo "=========================================="
 
+      - name: 🏛️ 대가 스크리너 실행 (Buffett/Ackman/Lynch/Graham)
+        run: |
+          echo "=========================================="
+          echo "대가 스크리너 시작: $(date '+%Y-%m-%d %H:%M:%S %Z')"
+          echo "=========================================="
+          python guru_screeners.py
+          echo "=========================================="
+          echo "대가 스크리너 완료"
+          echo "=========================================="
+
       - name: 🔍 변경 사항 확인
         id: check_changes
         run: |
@@ -154,7 +164,7 @@ jobs:
           echo "📁 data 폴더 파일:"
           ls -lh data/ 2>/dev/null || echo "  (파일 없음)"
           echo ""
-          for f in value_stocks.json magic_formula.json multi_factor.json ma60w_quality.json; do
+          for f in value_stocks.json magic_formula.json multi_factor.json ma60w_quality.json buffett.json ackman.json lynch.json graham.json; do
             if [ -f "data/$f" ]; then
               echo "📊 $f:"
               python -c "

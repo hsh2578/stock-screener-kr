@@ -2171,6 +2171,146 @@
         </div>
     </div>
 
+    <!-- Buffett Page -->
+    <div id="page-buffett" class="page">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">워렌 버핏 전략</li>
+                </ol>
+            </nav>
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
+            <header class="page-header">
+                <div class="title-row">
+                    <span class="icon" aria-hidden="true"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" opacity="0.15"/><path d="M12 6v6l4.5 2.7-.75 1.23L11 13V6h1.5z" opacity="0.85"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+                    <h1>워렌 버핏 전략</h1>
+                    <span class="badge badge-success">내재가치</span>
+                </div>
+                <p class="desc">ROE > 15%, PER < 17, PBR < 1.5, 유동비율 > 1.5, 부채비율 < 150%, 장기부채비율 < 100%, FCF > 0, EPS성장률 > 10%</p>
+                <div class="meta">
+                    <span class="date" id="buffett-date">데이터 기준: -</span>
+                    <span><span class="count" id="buffett-count">-</span>개 종목</span>
+                </div>
+            </header>
+            <div class="card table-card">
+                <div class="table-wrapper">
+                    <table id="buffett-table" role="table" aria-label="버핏 전략 종목 목록"><thead></thead><tbody></tbody></table>
+                </div>
+                <div id="buffett-mobile" class="mobile-card-list"></div>
+                <div id="buffett-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ackman Page -->
+    <div id="page-ackman" class="page">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">빌 애크먼 전략</li>
+                </ol>
+            </nav>
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
+            <header class="page-header">
+                <div class="title-row">
+                    <span class="icon" aria-hidden="true"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" opacity="0.85"/></svg></span>
+                    <h1>빌 애크먼 전략</h1>
+                    <span class="badge badge-primary">재평가</span>
+                </div>
+                <p class="desc">ROIC > 15%, ROE > 12%, PER < 15, PBR < 2, 부채비율 < 150%, FCF > 0, 배당수익률 > 3%</p>
+                <div class="meta">
+                    <span class="date" id="ackman-date">데이터 기준: -</span>
+                    <span><span class="count" id="ackman-count">-</span>개 종목</span>
+                </div>
+            </header>
+            <div class="card table-card">
+                <div class="table-wrapper">
+                    <table id="ackman-table" role="table" aria-label="애크먼 전략 종목 목록"><thead></thead><tbody></tbody></table>
+                </div>
+                <div id="ackman-mobile" class="mobile-card-list"></div>
+                <div id="ackman-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lynch Page -->
+    <div id="page-lynch" class="page">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">피터 린치 전략</li>
+                </ol>
+            </nav>
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
+            <header class="page-header">
+                <div class="title-row">
+                    <span class="icon" aria-hidden="true"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M7 17l4-8 4 8H7z" opacity="0.35"/><path d="M3 20l6-12 4 7 3-4 5 9H3z" opacity="0.85"/></svg></span>
+                    <h1>피터 린치 전략</h1>
+                    <span class="badge badge-warning">GARP</span>
+                </div>
+                <p class="desc">PER < 25, 0 < PEG < 1.8, ROE > 5%, ROA > 1%, 부채비율 < 150%, 배당수익률 > 3%, 재고/매출 < 5%</p>
+                <div class="meta">
+                    <span class="date" id="lynch-date">데이터 기준: -</span>
+                    <span><span class="count" id="lynch-count">-</span>개 종목</span>
+                </div>
+            </header>
+            <div class="card table-card">
+                <div class="table-wrapper">
+                    <table id="lynch-table" role="table" aria-label="린치 전략 종목 목록"><thead></thead><tbody></tbody></table>
+                </div>
+                <div id="lynch-mobile" class="mobile-card-list"></div>
+                <div id="lynch-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Graham Page -->
+    <div id="page-graham" class="page">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <ol>
+                    <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
+                    <li aria-hidden="true" class="separator">›</li>
+                    <li aria-current="page" class="current">벤저민 그레이엄 전략</li>
+                </ol>
+            </nav>
+            <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
+                <span aria-hidden="true">←</span> 홈으로
+            </a>
+            <header class="page-header">
+                <div class="title-row">
+                    <span class="icon" aria-hidden="true"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" opacity="0.15"/><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" fill="none" stroke="currentColor" stroke-width="2" opacity="0.85"/><path d="M10 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <h1>벤저민 그레이엄 전략</h1>
+                    <span class="badge badge-info">안전마진</span>
+                </div>
+                <p class="desc">PER < 15, PBR×PER < 22, 유동비율 > 200%, 순유동자산 > 장기부채, 5년 흑자(순이익+영업이익), EPS 5년 성장 > 30%, 매출 > 1000억, IT 제외</p>
+                <div class="meta">
+                    <span class="date" id="graham-date">데이터 기준: -</span>
+                    <span><span class="count" id="graham-count">-</span>개 종목</span>
+                </div>
+            </header>
+            <div class="card table-card">
+                <div class="table-wrapper">
+                    <table id="graham-table" role="table" aria-label="그레이엄 전략 종목 목록"><thead></thead><tbody></tbody></table>
+                </div>
+                <div id="graham-mobile" class="mobile-card-list"></div>
+                <div id="graham-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Toast Notification Container -->
     <div id="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
 
@@ -2286,7 +2426,11 @@
             ma60wQuality: 'ma60w_quality.json',
             maConvergence: 'ma_convergence.json',
             magicFormula: 'magic_formula.json',
-            multiFactor: 'multi_factor.json'
+            multiFactor: 'multi_factor.json',
+            buffett: 'buffett.json',
+            ackman: 'ackman.json',
+            lynch: 'lynch.json',
+            graham: 'graham.json'
             // financialData는 레이지 로딩 (상세 페이지 방문 시)
         };
 
@@ -2487,7 +2631,11 @@
             gem: '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M6 3h12l4 6-10 13L2 9z" opacity="0.85"/><path d="M2 9h20L12 22z" opacity="0.45"/></svg>',
             convergence: '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l-9.5 16.5a1 1 0 0 0 .87 1.5h19.26a1 1 0 0 0 .87-1.5L12 3z"/></svg>',
             magicFormula: '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 7l8 5 8-5-8-5z" opacity="0.35"/><path d="M4 12l8 5 8-5" opacity="0.55" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 17l8 5 8-5" opacity="0.85" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
-            multiFactor: '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h7v7H3z" opacity="0.85"/><path d="M14 3h7v7h-7z" opacity="0.55"/><path d="M3 14h7v7H3z" opacity="0.55"/><path d="M14 14h7v7h-7z" opacity="0.35"/></svg>'
+            multiFactor: '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h7v7H3z" opacity="0.85"/><path d="M14 3h7v7h-7z" opacity="0.55"/><path d="M3 14h7v7H3z" opacity="0.55"/><path d="M14 14h7v7h-7z" opacity="0.35"/></svg>',
+            buffett: '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" opacity="0.15"/><path d="M12 6v6l4.5 2.7-.75 1.23L11 13V6h1.5z" opacity="0.85"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+            ackman: '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" opacity="0.85"/></svg>',
+            lynch: '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M7 17l4-8 4 8H7z" opacity="0.35"/><path d="M3 20l6-12 4 7 3-4 5 9H3z" opacity="0.85"/></svg>',
+            graham: '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" opacity="0.15"/><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" fill="none" stroke="currentColor" stroke-width="2" opacity="0.85"/><path d="M10 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
         };
 
         const screenerGroups = [
@@ -2546,6 +2694,17 @@
                 screeners: [
                     { id: 'magic-formula', icon: ICONS.magicFormula, title: '마법공식', desc: '이익수익률 + 투하자본수익률', badge: { text: '그린블라트', type: 'success' } },
                     { id: 'multi-factor', icon: ICONS.multiFactor, title: '멀티팩터', desc: 'Q+V+M 섹터 중립화', badge: { text: 'Q+V+M', type: 'primary' } }
+                ]
+            },
+            {
+                title: '투자 대가',
+                icon: ICONS.buffett,
+                desc: '대가들의 투자 전략',
+                screeners: [
+                    { id: 'buffett', icon: ICONS.buffett, title: '워렌 버핏', desc: 'ROE·FCF·부채 기반 내재가치', badge: { text: '내재가치', type: 'success' } },
+                    { id: 'ackman', icon: ICONS.ackman, title: '빌 애크먼', desc: 'ROIC·배당·FCF 주가 재평가', badge: { text: '재평가', type: 'primary' } },
+                    { id: 'lynch', icon: ICONS.lynch, title: '피터 린치', desc: 'PEG·ROE 합리적 성장주', badge: { text: 'GARP', type: 'warning' } },
+                    { id: 'graham', icon: ICONS.graham, title: '벤저민 그레이엄', desc: 'PER×PBR·유동비율 안전마진', badge: { text: '안전마진', type: 'info' } }
                 ]
             },
             {
@@ -2765,7 +2924,11 @@
             ma60wQuality: 1,
             maConvergence: 1,
             magicFormula: 1,
-            multiFactor: 1
+            multiFactor: 1,
+            buffett: 1,
+            ackman: 1,
+            lynch: 1,
+            graham: 1
         };
 
         // Pagination helper functions
@@ -3293,7 +3456,11 @@
                 'ma60w-quality-date': getMeta('ma60wQuality', 'lastUpdated') || getMeta('ma60wQuality', 'updated_at'),
                 'ma-convergence-date': getMeta('maConvergence', 'lastUpdated') || getMeta('maConvergence', 'updated_at'),
                 'magic-formula-date': getMeta('magicFormula', 'lastUpdated'),
-                'multi-factor-date': getMeta('multiFactor', 'lastUpdated')
+                'multi-factor-date': getMeta('multiFactor', 'lastUpdated'),
+                'buffett-date': getMeta('buffett', 'lastUpdated'),
+                'ackman-date': getMeta('ackman', 'lastUpdated'),
+                'lynch-date': getMeta('lynch', 'lastUpdated'),
+                'graham-date': getMeta('graham', 'lastUpdated')
             };
 
             for (const [elementId, lastUpdated] of Object.entries(dateMapping)) {
@@ -3337,7 +3504,11 @@
                 'ma60w-quality': getCount('ma60wQuality', 'totalCount') || getCount('ma60wQuality', 'total_count', 'length'),
                 'ma-convergence': getCount('maConvergence', 'totalCount') || getCount('maConvergence', 'total_count', 'length'),
                 'magic-formula': getCount('magicFormula', 'totalCount', 'length'),
-                'multi-factor': getCount('multiFactor', 'totalCount', 'length')
+                'multi-factor': getCount('multiFactor', 'totalCount', 'length'),
+                'buffett': getCount('buffett', 'totalCount', 'length'),
+                'ackman': getCount('ackman', 'totalCount', 'length'),
+                'lynch': getCount('lynch', 'totalCount', 'length'),
+                'graham': getCount('graham', 'totalCount', 'length')
             };
 
             // Render grouped screeners
@@ -5027,6 +5198,219 @@
             }
         }
 
+        // ============================================================
+        // 투자 대가 스크리너 렌더 함수 (Buffett / Ackman / Lynch / Graham)
+        // ============================================================
+
+        function renderBuffett() {
+            const cacheKey = 'buffett-table';
+            const rawData = DATA.buffett && DATA.buffett.data;
+            const dataHash = getDataHash(rawData, null, sortState[cacheKey], paginationState.buffett);
+            if (shouldSkipRender(cacheKey, dataHash)) return;
+            const items = rawData || [];
+            document.getElementById('buffett-count').textContent = items.length;
+            const headers = [
+                { label: '종목명', key: 'name' },
+                { label: '현재가', align: 'text-right', key: 'current_price' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' },
+                { label: 'PER', align: 'text-right', key: 'per' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
+                { label: 'ROE%', align: 'text-right', key: 'roe' },
+                { label: '유동비율', align: 'text-right', key: 'current_ratio' },
+                { label: '부채비율', align: 'text-right', key: 'debt_ratio' },
+                { label: 'FCF', align: 'text-right', key: 'fcf' },
+                { label: 'EPS성장%', align: 'text-right', key: 'eps_growth' },
+                { label: '배당%', align: 'text-right', key: 'dividend_yield' },
+                { label: '섹터', key: 'sector' }
+            ];
+            const state = sortState[cacheKey] || {};
+            const sortedData = sortData(items, state.key, state.direction);
+            const paginatedData = paginate(sortedData, paginationState.buffett);
+            const rows = paginatedData.map(s => {
+                const stockJson = safeJsonStringify({ ticker: s.ticker, name: s.name, price: s.current_price || 0, change_rate: 0 });
+                return `<tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
+                    <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
+                    <td class="text-right">${s.current_price ? formatNumber(s.current_price) + '원' : '-'}</td>
+                    <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                    <td class="text-right">${s.per != null ? s.per.toFixed(1) : '-'}</td>
+                    <td class="text-right">${s.pbr != null ? s.pbr.toFixed(2) : '-'}</td>
+                    <td class="text-right" style="color:#0066CC;font-weight:600">${s.roe != null ? s.roe.toFixed(1) : '-'}</td>
+                    <td class="text-right">${s.current_ratio != null ? s.current_ratio.toFixed(2) : '-'}</td>
+                    <td class="text-right">${s.debt_ratio != null ? s.debt_ratio.toFixed(1) + '%' : '-'}</td>
+                    <td class="text-right">${s.fcf != null ? formatNumber(Math.round(s.fcf)) : '-'}</td>
+                    <td class="text-right positive">${s.eps_growth != null ? '+' + s.eps_growth.toFixed(1) + '%' : '-'}</td>
+                    <td class="text-right">${s.dividend_yield != null ? s.dividend_yield.toFixed(2) + '%' : '-'}</td>
+                    <td style="color:#8B95A1;font-size:0.9em">${s.sector || '-'}</td>
+                </tr>`;
+            }).join('');
+            renderTable(cacheKey, headers, rows, renderBuffett);
+            renderMobileCards('buffett-mobile', paginatedData, {
+                extraFields: [
+                    { label: 'ROE', format: s => s.roe != null ? s.roe.toFixed(1) + '%' : '-' },
+                    { label: '유동비율', format: s => s.current_ratio != null ? s.current_ratio.toFixed(2) : '-' },
+                    { label: 'FCF', format: s => s.fcf != null ? formatNumber(Math.round(s.fcf)) + '억' : '-' },
+                    { label: 'EPS성장', format: s => s.eps_growth != null ? '+' + s.eps_growth.toFixed(1) + '%' : '-' }
+                ]
+            });
+            renderPagination('buffett-pagination', 'buffett', sortedData.length, renderBuffett);
+        }
+
+        function renderAckman() {
+            const cacheKey = 'ackman-table';
+            const rawData = DATA.ackman && DATA.ackman.data;
+            const dataHash = getDataHash(rawData, null, sortState[cacheKey], paginationState.ackman);
+            if (shouldSkipRender(cacheKey, dataHash)) return;
+            const items = rawData || [];
+            document.getElementById('ackman-count').textContent = items.length;
+            const headers = [
+                { label: '종목명', key: 'name' },
+                { label: '현재가', align: 'text-right', key: 'current_price' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' },
+                { label: 'PER', align: 'text-right', key: 'per' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
+                { label: 'ROIC%', align: 'text-right', key: 'roic' },
+                { label: 'ROE%', align: 'text-right', key: 'roe' },
+                { label: '부채비율', align: 'text-right', key: 'debt_ratio' },
+                { label: 'FCF', align: 'text-right', key: 'fcf' },
+                { label: '배당%', align: 'text-right', key: 'dividend_yield' },
+                { label: '섹터', key: 'sector' }
+            ];
+            const state = sortState[cacheKey] || {};
+            const sortedData = sortData(items, state.key, state.direction);
+            const paginatedData = paginate(sortedData, paginationState.ackman);
+            const rows = paginatedData.map(s => {
+                const stockJson = safeJsonStringify({ ticker: s.ticker, name: s.name, price: s.current_price || 0, change_rate: 0 });
+                return `<tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
+                    <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
+                    <td class="text-right">${s.current_price ? formatNumber(s.current_price) + '원' : '-'}</td>
+                    <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                    <td class="text-right">${s.per != null ? s.per.toFixed(1) : '-'}</td>
+                    <td class="text-right">${s.pbr != null ? s.pbr.toFixed(2) : '-'}</td>
+                    <td class="text-right" style="color:#0066CC;font-weight:600">${s.roic != null ? s.roic.toFixed(1) : '-'}</td>
+                    <td class="text-right">${s.roe != null ? s.roe.toFixed(1) : '-'}</td>
+                    <td class="text-right">${s.debt_ratio != null ? s.debt_ratio.toFixed(1) + '%' : '-'}</td>
+                    <td class="text-right">${s.fcf != null ? formatNumber(Math.round(s.fcf)) : '-'}</td>
+                    <td class="text-right" style="color:#00B894;font-weight:600">${s.dividend_yield != null ? s.dividend_yield.toFixed(2) + '%' : '-'}</td>
+                    <td style="color:#8B95A1;font-size:0.9em">${s.sector || '-'}</td>
+                </tr>`;
+            }).join('');
+            renderTable(cacheKey, headers, rows, renderAckman);
+            renderMobileCards('ackman-mobile', paginatedData, {
+                extraFields: [
+                    { label: 'ROIC', format: s => s.roic != null ? s.roic.toFixed(1) + '%' : '-' },
+                    { label: '배당률', format: s => s.dividend_yield != null ? s.dividend_yield.toFixed(2) + '%' : '-' },
+                    { label: 'FCF', format: s => s.fcf != null ? formatNumber(Math.round(s.fcf)) + '억' : '-' },
+                    { label: '부채비율', format: s => s.debt_ratio != null ? s.debt_ratio.toFixed(1) + '%' : '-' }
+                ]
+            });
+            renderPagination('ackman-pagination', 'ackman', sortedData.length, renderAckman);
+        }
+
+        function renderLynch() {
+            const cacheKey = 'lynch-table';
+            const rawData = DATA.lynch && DATA.lynch.data;
+            const dataHash = getDataHash(rawData, null, sortState[cacheKey], paginationState.lynch);
+            if (shouldSkipRender(cacheKey, dataHash)) return;
+            const items = rawData || [];
+            document.getElementById('lynch-count').textContent = items.length;
+            const headers = [
+                { label: '종목명', key: 'name' },
+                { label: '현재가', align: 'text-right', key: 'current_price' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' },
+                { label: 'PER', align: 'text-right', key: 'per' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
+                { label: 'PEG', align: 'text-right', key: 'peg' },
+                { label: 'ROE%', align: 'text-right', key: 'roe' },
+                { label: 'ROA%', align: 'text-right', key: 'roa' },
+                { label: '부채비율', align: 'text-right', key: 'debt_ratio' },
+                { label: '배당%', align: 'text-right', key: 'dividend_yield' },
+                { label: '섹터', key: 'sector' }
+            ];
+            const state = sortState[cacheKey] || {};
+            const sortedData = sortData(items, state.key, state.direction);
+            const paginatedData = paginate(sortedData, paginationState.lynch);
+            const rows = paginatedData.map(s => {
+                const pegColor = s.peg < 1 ? '#00B894' : s.peg < 1.5 ? '#0066CC' : '#E17055';
+                const stockJson = safeJsonStringify({ ticker: s.ticker, name: s.name, price: s.current_price || 0, change_rate: 0 });
+                return `<tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
+                    <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
+                    <td class="text-right">${s.current_price ? formatNumber(s.current_price) + '원' : '-'}</td>
+                    <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                    <td class="text-right">${s.per != null ? s.per.toFixed(1) : '-'}</td>
+                    <td class="text-right">${s.pbr != null ? s.pbr.toFixed(2) : '-'}</td>
+                    <td class="text-right" style="color:${pegColor};font-weight:600">${s.peg != null ? s.peg.toFixed(2) : '-'}</td>
+                    <td class="text-right">${s.roe != null ? s.roe.toFixed(1) : '-'}</td>
+                    <td class="text-right">${s.roa != null ? s.roa.toFixed(1) : '-'}</td>
+                    <td class="text-right">${s.debt_ratio != null ? s.debt_ratio.toFixed(1) + '%' : '-'}</td>
+                    <td class="text-right">${s.dividend_yield != null ? s.dividend_yield.toFixed(2) + '%' : '-'}</td>
+                    <td style="color:#8B95A1;font-size:0.9em">${s.sector || '-'}</td>
+                </tr>`;
+            }).join('');
+            renderTable(cacheKey, headers, rows, renderLynch);
+            renderMobileCards('lynch-mobile', paginatedData, {
+                extraFields: [
+                    { label: 'PEG', format: s => s.peg != null ? s.peg.toFixed(2) : '-' },
+                    { label: 'ROE', format: s => s.roe != null ? s.roe.toFixed(1) + '%' : '-' },
+                    { label: '부채비율', format: s => s.debt_ratio != null ? s.debt_ratio.toFixed(1) + '%' : '-' },
+                    { label: '배당률', format: s => s.dividend_yield != null ? s.dividend_yield.toFixed(2) + '%' : '-' }
+                ]
+            });
+            renderPagination('lynch-pagination', 'lynch', sortedData.length, renderLynch);
+        }
+
+        function renderGraham() {
+            const cacheKey = 'graham-table';
+            const rawData = DATA.graham && DATA.graham.data;
+            const dataHash = getDataHash(rawData, null, sortState[cacheKey], paginationState.graham);
+            if (shouldSkipRender(cacheKey, dataHash)) return;
+            const items = rawData || [];
+            document.getElementById('graham-count').textContent = items.length;
+            const headers = [
+                { label: '종목명', key: 'name' },
+                { label: '현재가', align: 'text-right', key: 'current_price' },
+                { label: '시가총액', align: 'text-right', key: 'market_cap' },
+                { label: 'PER', align: 'text-right', key: 'per' },
+                { label: 'PBR', align: 'text-right', key: 'pbr' },
+                { label: 'PER×PBR', align: 'text-right', key: 'per_x_pbr' },
+                { label: '유동비율', align: 'text-right', key: 'current_ratio' },
+                { label: '순유동자산', align: 'text-right', key: 'net_current_assets' },
+                { label: '5Y성장%', align: 'text-right', key: 'cumulative_growth' },
+                { label: '부채비율', align: 'text-right', key: 'debt_ratio' },
+                { label: '배당%', align: 'text-right', key: 'dividend_yield' },
+                { label: '섹터', key: 'sector' }
+            ];
+            const state = sortState[cacheKey] || {};
+            const sortedData = sortData(items, state.key, state.direction);
+            const paginatedData = paginate(sortedData, paginationState.graham);
+            const rows = paginatedData.map(s => {
+                const stockJson = safeJsonStringify({ ticker: s.ticker, name: s.name, price: s.current_price || 0, change_rate: 0 });
+                return `<tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
+                    <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
+                    <td class="text-right">${s.current_price ? formatNumber(s.current_price) + '원' : '-'}</td>
+                    <td class="text-right">${formatMarketCap(s.market_cap)}</td>
+                    <td class="text-right">${s.per != null ? s.per.toFixed(1) : '-'}</td>
+                    <td class="text-right">${s.pbr != null ? s.pbr.toFixed(2) : '-'}</td>
+                    <td class="text-right" style="color:#0066CC;font-weight:600">${s.per_x_pbr != null ? s.per_x_pbr.toFixed(2) : '-'}</td>
+                    <td class="text-right">${s.current_ratio != null ? s.current_ratio.toFixed(2) : '-'}</td>
+                    <td class="text-right">${s.net_current_assets != null ? formatNumber(Math.round(s.net_current_assets)) : '-'}</td>
+                    <td class="text-right positive">${s.cumulative_growth != null ? '+' + s.cumulative_growth.toFixed(1) + '%' : '-'}</td>
+                    <td class="text-right">${s.debt_ratio != null ? s.debt_ratio.toFixed(1) + '%' : '-'}</td>
+                    <td class="text-right">${s.dividend_yield != null ? s.dividend_yield.toFixed(2) + '%' : '-'}</td>
+                    <td style="color:#8B95A1;font-size:0.9em">${s.sector || '-'}</td>
+                </tr>`;
+            }).join('');
+            renderTable(cacheKey, headers, rows, renderGraham);
+            renderMobileCards('graham-mobile', paginatedData, {
+                extraFields: [
+                    { label: 'PER×PBR', format: s => s.per_x_pbr != null ? s.per_x_pbr.toFixed(2) : '-' },
+                    { label: '유동비율', format: s => s.current_ratio != null ? s.current_ratio.toFixed(2) : '-' },
+                    { label: '5Y성장', format: s => s.cumulative_growth != null ? '+' + s.cumulative_growth.toFixed(1) + '%' : '-' },
+                    { label: '부채비율', format: s => s.debt_ratio != null ? s.debt_ratio.toFixed(1) + '%' : '-' }
+                ]
+            });
+            renderPagination('graham-pagination', 'graham', sortedData.length, renderGraham);
+        }
+
         // 렌더링 상태 추적 - Lazy Rendering용
         const renderedPages = new Set();
 
@@ -5047,7 +5431,11 @@
             'ma60w-quality': renderMa60wQuality,
             'ma-convergence': renderMaConvergence,
             'magic-formula': renderMagicFormula,
-            'multi-factor': renderMultiFactor
+            'multi-factor': renderMultiFactor,
+            'buffett': renderBuffett,
+            'ackman': renderAckman,
+            'lynch': renderLynch,
+            'graham': renderGraham
         };
 
         // Navigation - Lazy Rendering 적용
@@ -5095,7 +5483,11 @@
                 'ma60w-quality': '60주선 우량주',
                 'ma-convergence': '이평선 수렴',
                 'magic-formula': '마법공식 (그린블라트)',
-                'multi-factor': '멀티팩터 (Q+V+M)'
+                'multi-factor': '멀티팩터 (Q+V+M)',
+                'buffett': '워렌 버핏 전략',
+                'ackman': '빌 애크먼 전략',
+                'lynch': '피터 린치 전략',
+                'graham': '벤저민 그레이엄 전략'
             };
 
             const pageTitle = pageTitles[pageId] || '국내 주식 종목 발굴';

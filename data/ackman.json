@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "type": "ackman",
+    "name": "빌 애크먼 전략",
+    "description": "ROIC·배당·FCF 기반 주가 재평가 전략",
+    "lastUpdated": "2026-02-16T16:21:36.646913",
+    "totalCount": 8,
+    "conditions": [
+      "ROIC > 15%",
+      "ROE > 12%",
+      "PER < 15",
+      "PBR < 2",
+      "부채비율 < 150%",
+      "FCF > 0",
+      "배당수익률 > 3%"
+    ]
+  },
+  "data": [
+    {
+      "ticker": "461300",
+      "name": "아이스크림미디어",
+      "sector": "경기소비재",
+      "current_price": 15740,
+      "market_cap": 2094.0,
+      "roic": 25.1,
+      "per": 6.7,
+      "pbr": 1.14,
+      "debt_ratio": 21.6,
+      "fcf": 105.0,
+      "dividend_yield": 4.69,
+      "roe": 17.0
+    },
+    {
+      "ticker": "069510",
+      "name": "에스텍",
+      "sector": "IT",
+      "current_price": 15390,
+      "market_cap": 1679.0,
+      "roic": 18.7,
+      "per": 4.1,
+      "pbr": 0.83,
+      "debt_ratio": 90.6,
+      "fcf": 266.0,
+      "dividend_yield": 5.52,
+      "roe": 19.5
+    },
+    {
+      "ticker": "030000",
+      "name": "제일기획",
+      "sector": "통신서비스",
+      "current_price": 22200,
+      "market_cap": 25539.0,
+      "roic": 18.4,
+      "per": 14.0,
+      "pbr": 1.75,
+      "debt_ratio": 124.3,
+      "fcf": 2319.0,
+      "dividend_yield": 5.54,
+      "roe": 12.8
+    },
+    {
+      "ticker": "068930",
+      "name": "디지털대성",
+      "sector": "경기소비재",
+      "current_price": 8560,
+      "market_cap": 2369.0,
+      "roic": 16.7,
+      "per": 11.5,
+      "pbr": 1.78,
+      "debt_ratio": 109.8,
+      "fcf": 248.0,
+      "dividend_yield": 5.84,
+      "roe": 15.7
+    },
+    {
+      "ticker": "134380",
+      "name": "미원화학",
+      "sector": "소재",
+      "current_price": 119300,
+      "market_cap": 2624.0,
+      "roic": 16.6,
+      "per": 9.8,
+      "pbr": 1.62,
+      "debt_ratio": 15.3,
+      "fcf": 230.0,
+      "dividend_yield": 3.35,
+      "roe": 16.6
+    },
+    {
+      "ticker": "092730",
+      "name": "네오팜",
+      "sector": "경기소비재",
+      "current_price": 19850,
+      "market_cap": 3182.0,
+      "roic": 15.6,
+      "per": 11.4,
+      "pbr": 1.8,
+      "debt_ratio": 8.8,
+      "fcf": 212.0,
+      "dividend_yield": 3.02,
+      "roe": 15.4
+    },
+    {
+      "ticker": "018120",
+      "name": "진로발효",
+      "sector": "필수소비재",
+      "current_price": 18210,
+      "market_cap": 1206.0,
+      "roic": 15.6,
+      "per": 9.8,
+      "pbr": 1.4,
+      "debt_ratio": 10.1,
+      "fcf": 57.0,
+      "dividend_yield": 6.04,
+      "roe": 14.2
+    },
+    {
+      "ticker": "337930",
+      "name": "젝시믹스",
+      "sector": "경기소비재",
+      "current_price": 5490,
+      "market_cap": 1629.0,
+      "roic": 15.2,
+      "per": 11.8,
+      "pbr": 1.47,
+      "debt_ratio": 50.8,
+      "fcf": 198.0,
+      "dividend_yield": 3.28,
+      "roe": 12.4
+    }
+  ]
+}

@@ -6,8 +6,9 @@ comp.fnguide.com에서 재무제표를 수집합니다.
 
 수집 데이터:
 - 연간/분기 손익계산서: 매출액, 매출총이익, 영업이익(EBIT), 당기순이익
-- 연간/분기 재무상태표: 총자산, 자본총계, 지배주주지분, 유동자산, 유동부채, 비유동자산, 차입금, 현금
-- 연간/분기 현금흐름표: 영업활동현금흐름
+- 연간/분기 재무상태표: 총자산, 자본총계, 지배주주지분, 유동자산, 유동부채, 비유동자산, 차입금, 현금, 재고자산
+- 연간/분기 현금흐름표: 영업활동현금흐름, 투자활동현금흐름
+- 페이지 헤더: PER, 12M PER, 업종 PER, PBR, 배당수익률
 
 사용법:
     from scripts.fnguide_data import get_financial_data
@@ -72,6 +73,7 @@ BALANCE_SEARCH = {
     'short_term_debt': ['단기차입금'],
     'long_term_debt': ['장기차입금'],
     'bonds': ['사채'],
+    'inventory': ['재고자산'],
 }
 
 # 현금흐름표 항목 매핑
@@ -80,21 +82,32 @@ CASHFLOW_ITEMS = {
     '영업활동현금흐름': 'cfo',
 }
 
+CASHFLOW_INVEST_ITEMS = ['투자활동으로인한현금흐름', '투자활동현금흐름']
+
+# 페이지 헤더 지표 ID 매핑 (corp_group2 영역)
+HEADER_METRIC_IDS = {
+    'h_per': 'per',
+    'h_12m': 'per_12m',
+    'h_u_per': 'sector_per',
+    'h_pbr': 'pbr',
+    'h_rate': 'dividend_yield',
+}
+
 
 # ============================================================================
 # 데이터 수집 함수
 # ============================================================================
 
-def _fetch_tables(code: str, report_type: str = 'D') -> Optional[List[pd.DataFrame]]:
+def _fetch_tables(code: str, report_type: str = 'D') -> Optional[tuple]:
     """
-    FnGuide 재무제표 페이지에서 테이블들을 추출합니다.
+    FnGuide 재무제표 페이지에서 테이블들과 HTML을 추출합니다.
 
     Args:
         code: 종목코드 (6자리)
         report_type: 'D' = 연결, 'I' = 개별
 
     Returns:
-        6개 테이블 리스트 또는 None
+        (6개 테이블 리스트, HTML 텍스트) 튜플 또는 None
     """
     params = {
         'pGB': '1',
@@ -110,7 +123,10 @@ def _fetch_tables(code: str, report_type: str = 'D') -> Optional[List[pd.DataFra
         resp = requests.get(FNGUIDE_FINANCE_URL, params=params, headers=HEADERS, timeout=20)
         resp.raise_for_status()
 
-        tables = pd.read_html(io.StringIO(resp.text), encoding='utf-8')
+        html_text = resp.text
+        tables = pd.read_html(
+            io.StringIO(html_text), encoding='utf-8', displayed_only=False
+        )
 
         if len(tables) < 6:
             # 개별 재무제표로 재시도
@@ -118,13 +134,32 @@ def _fetch_tables(code: str, report_type: str = 'D') -> Optional[List[pd.DataFra
                 return _fetch_tables(code, 'I')
             return None
 
-        return tables
+        return tables, html_text
 
     except Exception as e:
         if report_type == 'D':
             # 개별 재무제표로 재시도
             return _fetch_tables(code, 'I')
         return None
+
+
+def _parse_header_metrics(html: str) -> Dict[str, float]:
+    """
+    FnGuide 페이지 헤더에서 PER, 12M PER, 업종 PER, PBR, 배당수익률을 추출합니다.
+    corp_group2 영역의 anchor ID로 매핑합니다.
+    """
+    metrics = {}
+    pattern = r'class="tip_in"\s*id="(\w+)"[^>]*>.*?</a>\s*</dt>\s*<dd>([^<]*)</dd>'
+    for match in re.finditer(pattern, html, re.DOTALL):
+        anchor_id = match.group(1)
+        value_str = match.group(2).strip().replace('%', '').replace(',', '')
+        metric_key = HEADER_METRIC_IDS.get(anchor_id)
+        if metric_key:
+            try:
+                metrics[metric_key] = float(value_str)
+            except (ValueError, TypeError):
+                pass
+    return metrics
 
 
 def _clean_table(df: pd.DataFrame) -> pd.DataFrame:
@@ -244,8 +279,14 @@ def get_financial_data(code: str, retry: int = 2) -> Optional[Dict[str, Any]]:
     """
     for attempt in range(retry):
         try:
-            tables = _fetch_tables(code)
-            if not tables or len(tables) < 6:
+            fetch_result = _fetch_tables(code)
+            if not fetch_result:
+                if attempt < retry - 1:
+                    time.sleep(0.5)
+                continue
+
+            tables, html_text = fetch_result
+            if len(tables) < 6:
                 if attempt < retry - 1:
                     time.sleep(0.5)
                 continue
@@ -257,6 +298,9 @@ def get_financial_data(code: str, retry: int = 2) -> Optional[Dict[str, Any]]:
                 'balance': {},
                 'cashflow': {},
             }
+
+            # 0. 페이지 헤더 지표 (PER, PBR, 배당수익률 등)
+            result['header'] = _parse_header_metrics(html_text)
 
             # 1. 연간 손익계산서
             annual_income = _clean_table(tables[TABLE_IDX['annual_income']])
@@ -322,6 +366,17 @@ def get_financial_data(code: str, retry: int = 2) -> Optional[Dict[str, Any]]:
                 cfo_q_series = _extract_item(quarter_cf, list(CASHFLOW_ITEMS.keys()))
                 if not cfo_q_series.empty:
                     result['cashflow']['cfo_quarter'] = cfo_q_series.dropna().to_dict()
+
+            # 4-2. 투자활동현금흐름
+            if not annual_cf.empty:
+                invest_series = _extract_item(annual_cf, CASHFLOW_INVEST_ITEMS)
+                if not invest_series.empty:
+                    result['cashflow']['invest_cf_annual'] = invest_series.dropna().to_dict()
+
+            if not quarter_cf.empty:
+                invest_q_series = _extract_item(quarter_cf, CASHFLOW_INVEST_ITEMS)
+                if not invest_q_series.empty:
+                    result['cashflow']['invest_cf_quarter'] = invest_q_series.dropna().to_dict()
 
             # TTM 계산
             _calculate_ttm(result)
@@ -389,6 +444,27 @@ def _calculate_ttm(data: Dict[str, Any]) -> None:
     if cfo_ttm is not None:
         data['cfo_ttm'] = cfo_ttm
 
+    # 투자활동CF TTM
+    inv_annual = data['cashflow'].get('invest_cf_annual', {})
+    inv_quarter = data['cashflow'].get('invest_cf_quarter', {})
+
+    inv_ttm = None
+    if len(inv_quarter) >= 4:
+        sorted_q = sorted(inv_quarter.items(), key=lambda x: x[0], reverse=True)
+        recent_4 = [v for _, v in sorted_q[:4] if v is not None and not np.isnan(v)]
+        if len(recent_4) == 4:
+            inv_ttm = sum(recent_4)
+
+    if inv_ttm is None and inv_annual:
+        sorted_a = sorted(inv_annual.items(), key=lambda x: x[0], reverse=True)
+        for _, v in sorted_a:
+            if v is not None and not np.isnan(v):
+                inv_ttm = v
+                break
+
+    if inv_ttm is not None:
+        data['invest_cf_ttm'] = inv_ttm
+
 
 # ============================================================================
 # 배치 수집
@@ -433,9 +509,15 @@ def get_financial_data_batch(codes: List[str], max_workers: int = 5,
 
 def get_ebit(data: Dict) -> Optional[float]:
     """
-    EBIT = 당기순이익 + 법인세비용 + 금융원가 (이자비용)
-    3개 항목이 모두 있으면 합산, 없으면 영업이익(TTM)으로 fallback.
+    EBIT = 영업이익 (Operating Income, TTM)
+    K-IFRS '영업이익'이 그린블라트의 EBIT과 동일.
+    NI+Tax+FC는 비영업수익(금융수익, 자산매각 등)을 포함하므로 사용하지 않음.
     """
+    op = data.get('operating_income_ttm')
+    if op is not None:
+        return op
+
+    # fallback: NI + Tax + Finance Cost (영업이익 데이터 없을 때만)
     ni = data.get('net_income_ttm')
     tax = data.get('tax_expense_ttm')
     fin_cost = data.get('finance_cost_ttm')
@@ -443,8 +525,7 @@ def get_ebit(data: Dict) -> Optional[float]:
     if ni is not None and tax is not None and fin_cost is not None:
         return ni + tax + fin_cost
 
-    # fallback: 영업이익
-    return data.get('operating_income_ttm')
+    return None
 
 
 def get_invested_capital(data: Dict) -> Optional[float]:
@@ -531,6 +612,104 @@ def get_pcr(market_cap: float, data: Dict) -> Optional[float]:
     if cfo is not None and cfo > 0:
         return market_cap / cfo
     return None
+
+
+def get_current_ratio(data: Dict) -> Optional[float]:
+    """유동비율 = 유동자산 / 유동부채 (배수)"""
+    bs = data.get('balance', {})
+    ca = bs.get('current_assets')
+    cl = bs.get('current_liabilities')
+    if ca is not None and cl is not None and cl > 0:
+        return ca / cl
+    return None
+
+
+def get_debt_ratio(data: Dict) -> Optional[float]:
+    """부채비율 = (유동부채+비유동부채) / 자본총계 × 100"""
+    bs = data.get('balance', {})
+    cl = bs.get('current_liabilities', 0) or 0
+    ncl = bs.get('non_current_liabilities', 0) or 0
+    eq = bs.get('total_equity')
+    if eq is not None and eq > 0:
+        return ((cl + ncl) / eq) * 100
+    return None
+
+
+def get_long_term_debt_ratio(data: Dict) -> Optional[float]:
+    """장기부채비율 = (장기차입금+사채) / 자본총계 × 100"""
+    bs = data.get('balance', {})
+    long_debt = bs.get('long_term_debt', 0) or 0
+    bonds = bs.get('bonds', 0) or 0
+    eq = bs.get('total_equity')
+    if eq is not None and eq > 0 and (long_debt + bonds) > 0:
+        return ((long_debt + bonds) / eq) * 100
+    return None
+
+
+def get_roa(data: Dict) -> Optional[float]:
+    """ROA = 순이익(TTM) / 총자산(4분기 평균) × 100"""
+    ni = data.get('net_income_ttm')
+    bs = data.get('balance_avg') or data.get('balance', {})
+    ta = bs.get('total_assets')
+    if ni is not None and ta is not None and ta > 0:
+        return (ni / ta) * 100
+    return None
+
+
+def get_roic(data: Dict) -> Optional[float]:
+    """ROIC = EBIT / 투하자본 × 100"""
+    ebit = get_ebit(data)
+    ic = get_invested_capital(data)
+    if ebit is not None and ic is not None and ic > 0:
+        return (ebit / ic) * 100
+    return None
+
+
+def get_net_current_assets(data: Dict) -> Optional[float]:
+    """순유동자산 = 유동자산 - 유동부채 (억원)"""
+    bs = data.get('balance', {})
+    ca = bs.get('current_assets')
+    cl = bs.get('current_liabilities')
+    if ca is not None and cl is not None:
+        return ca - cl
+    return None
+
+
+def get_fcf(data: Dict) -> Optional[float]:
+    """FCF = CFO(TTM) + 투자활동CF(TTM)  (투자CF는 음수이므로 + 연산)"""
+    cfo = data.get('cfo_ttm')
+    inv_cf = data.get('invest_cf_ttm')
+    if cfo is not None and inv_cf is not None:
+        return cfo + inv_cf
+    return None
+
+
+def get_inventory_ratio(data: Dict) -> Optional[float]:
+    """재고/매출 비율 = 재고자산(4Q평균) / 매출액(TTM) × 100"""
+    bs = data.get('balance_avg') or data.get('balance', {})
+    inv = bs.get('inventory')
+    rev = data.get('revenue_ttm')
+    if inv is not None and rev is not None and rev > 0:
+        return (inv / rev) * 100
+    return None
+
+
+def get_peg(market_cap: float, data: Dict) -> Optional[float]:
+    """PEG = PER / EPS성장률(3년평균). 성장률이 음수면 None."""
+    per = get_per_from_data(market_cap, data)
+    if per is None or per <= 0:
+        return None
+
+    growth_rates = get_growth_rates_with_ttm(data, 'net_income', years=3)
+    valid_rates = [r for r in growth_rates if r is not None and r > 0]
+    if not valid_rates:
+        return None
+
+    avg_growth = sum(valid_rates) / len(valid_rates)
+    if avg_growth <= 0:
+        return None
+
+    return per / avg_growth
 
 
 # ============================================================================
@@ -711,7 +890,7 @@ if __name__ == '__main__':
         for key in ['revenue_ttm', 'operating_income_ttm', 'net_income_ttm',
                      'gross_profit_ttm', 'tax_expense_ttm', 'finance_cost_ttm', 'cfo_ttm']:
             print(f"  {key}: {data.get(key)}")
-        print(f"\nEBIT (당기순이익+법인세+금융원가): {get_ebit(data)}")
+        print(f"\nEBIT (영업이익 TTM): {get_ebit(data)}")
 
         print(f"\n재무상태표:")
         for key, value in data.get('balance', {}).items():

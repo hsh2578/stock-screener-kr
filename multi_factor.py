@@ -195,7 +195,7 @@ def preprocess_factor(df: pd.DataFrame, factor_col: str, sector_col: str,
     df.loc[mask, col] = winsorize(df.loc[mask, col])
 
     # 2. Rank 변환
-    df[f'{col}_rank'] = df[col].rank(ascending=ascending, na_option='bottom')
+    df[f'{col}_rank'] = df[col].rank(ascending=ascending, na_option='keep')
 
     # 3. 섹터별 Z-Score
     def sector_zscore(group):
@@ -328,6 +328,11 @@ def run_multi_factor():
                 if eq and eq > 0 and market_cap > 0:
                     record['pbr'] = round(market_cap / eq, 2)
 
+            if record['div_yield'] is None or (isinstance(record['div_yield'], float) and np.isnan(record['div_yield'])):
+                header_div = fin_data.get('header', {}).get('dividend_yield')
+                if header_div is not None and not (isinstance(header_div, float) and np.isnan(header_div)):
+                    record['div_yield'] = round(header_div, 2)
+
             has_fin = True
 
         # Momentum
@@ -352,7 +357,7 @@ def run_multi_factor():
 
     # 유효 데이터 필터
     # 조건1: 각 팩터 그룹에 최소 1개 이상 유효
-    # 조건2: 전체 10개 지표 중 최소 5개 이상 유효
+    # 조건2: 전체 10개 지표 중 최소 7개 이상 유효
     all_indicators = ['roe', 'gpa', 'cfo', 'per', 'pbr', 'psr', 'pcr', 'div_yield', 'return_12m', 'k_ratio']
     has_quality = df[['roe', 'gpa', 'cfo']].notna().any(axis=1)
     has_value = df[['per', 'pbr', 'psr', 'pcr', 'div_yield']].notna().any(axis=1)
@@ -360,7 +365,7 @@ def run_multi_factor():
     valid_count = df[all_indicators].notna().sum(axis=1)
 
     before_count = len(df)
-    df = df[has_quality & has_value & has_momentum & (valid_count >= 5)].copy()
+    df = df[has_quality & has_value & has_momentum & (valid_count >= 7)].copy()
 
     print(f"\n  유효 데이터: {len(df)}개 종목 (필터 전: {before_count}, 제외: {before_count - len(df)})")
 
