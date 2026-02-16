@@ -34,17 +34,35 @@ TREASURY_RATE = 3.4  # 국채금리 (호환성 유지)
 MIN_MARKET_CAP = 1000  # 시가총액 1,000억 이상
 
 
-def save_financial_data(fnguide_cache: Dict[str, Dict]) -> None:
+def save_financial_data(fnguide_cache: Dict[str, Dict], master: 'pd.DataFrame' = None) -> None:
     """
     FnGuide 캐시 데이터를 financial_data.json으로 변환 저장.
-    ma60w_quality.py fallback 호환성을 위해 유지.
+    PER/PBR 포함 — HTML에서 모든 스크리너의 PER/PBR 표시에 사용.
     """
     os.makedirs(DATA_PATH, exist_ok=True)
 
-    # naver_finance.py의 save_financial_data() 호환 형식으로 변환
+    # KRX 마스터에서 시가총액 조회용 딕셔너리
+    market_cap_map = {}
+    if master is not None:
+        for _, row in master.iterrows():
+            code = row.get('종목코드', '')
+            cap = row.get('시가총액', 0)
+            if code and cap:
+                market_cap_map[code] = cap
+
     converted = {}
     for code, data in fnguide_cache.items():
         metrics = {}
+
+        # PER/PBR (시가총액 + FnGuide TTM 데이터 기반 계산)
+        market_cap = market_cap_map.get(code, 0)
+        if market_cap > 0:
+            per = get_per_from_data(market_cap, data)
+            pbr = get_pbr_from_data(market_cap, data)
+            if per is not None:
+                metrics['per'] = [round(per, 2)]
+            if pbr is not None:
+                metrics['pbr'] = [round(pbr, 2)]
 
         # 영업이익률
         margins = get_operating_margins(data)
@@ -73,7 +91,8 @@ def save_financial_data(fnguide_cache: Dict[str, Dict]) -> None:
     with open(FINANCIAL_DATA_FILE, 'w', encoding='utf-8') as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    print(f"financial_data.json 저장: {len(converted)}개 종목")
+    per_count = sum(1 for v in converted.values() if 'per' in v['metrics'])
+    print(f"financial_data.json 저장: {len(converted)}개 종목 (PER/PBR: {per_count}개)")
 
 
 def pass_first_filter_ttm(fin_data: Dict, market_cap: float) -> Tuple[bool, Dict[str, Any]]:
@@ -220,9 +239,9 @@ def main():
             if (i + 1) % 100 == 0:
                 print(f"    진행: {i+1}/{len(missing_codes)}")
 
-    # 3. financial_data.json 저장 (호환성)
-    print("\n[3/4] financial_data.json 저장 (호환용)...")
-    save_financial_data(fnguide_cache)
+    # 3. financial_data.json 저장 (PER/PBR 포함)
+    print("\n[3/4] financial_data.json 저장 (PER/PBR 포함)...")
+    save_financial_data(fnguide_cache, master)
 
     # 4. 스크리닝 (TTM 6개 조건 모두 충족)
     print("\n[4/4] TTM 스크리닝 시작 (6개 조건 모두 충족)...")
