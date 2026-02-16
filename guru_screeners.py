@@ -485,8 +485,8 @@ def screen_graham(filtered, fnguide_cache, sector_map):
     - 매출 > 1000억
     - 유동비율 > 200% (= 유동자산/유동부채 > 2)
     - 순유동자산 > 장기부채
-    - EPS 5년 성장률 > 30% (누적)
-    - 최근 5년 흑자 (순이익 + 영업이익 모두 > 0)
+    - EPS 누적 성장률 > 30% (가용 연간 데이터 기준, ~3-4년)
+    - 전 기간 흑자 (순이익 + 영업이익 모두 > 0, ~4년)
     - PER < 15
     - PBR × PER < 22
     """
@@ -526,7 +526,7 @@ def screen_graham(filtered, fnguide_cache, sector_map):
         if nca is None or nca <= long_debt:
             continue
 
-        # 최근 5년 흑자 (순이익 + 영업이익 모두 > 0) + 5년 누적 성장률 > 30%
+        # 전 기간 흑자 (순이익 + 영업이익 모두 > 0) + 누적 성장률 > 30%
         annual_ni = fin.get('annual', {}).get('net_income', {})
         sorted_annual = sorted(annual_ni.items(), key=lambda x: x[0], reverse=True)
         annual_values = [v for _, v in sorted_annual]
@@ -544,7 +544,7 @@ def screen_graham(filtered, fnguide_cache, sector_map):
         if not oi_values or not all(v is not None and not np.isnan(v) and v > 0 for v in oi_values):
             continue
 
-        # 5년 누적 성장률
+        # 누적 성장률 (가용 연간 데이터 기준)
         oldest = annual_values[-1] if len(annual_values) >= 2 else None
         newest = annual_values[0]
         if oldest is not None and oldest > 0:
@@ -594,8 +594,8 @@ def screen_graham(filtered, fnguide_cache, sector_map):
     _save_result('graham.json', 'graham', '벤저민 그레이엄 전략',
                  '유동비율·PER×PBR·흑자 기반 보수적 가치투자',
                  ['PER < 15', 'PBR×PER < 22', '유동비율 > 200%',
-                  '순유동자산 > 장기부채', '5년 흑자(순이익+영업이익)',
-                  '매출 > 1000억', 'IT 제외'],
+                  '순유동자산 > 장기부채', '전 기간 흑자(순이익+영업이익)',
+                  'EPS 누적 성장 > 30%', '매출 > 1000억', 'IT 제외'],
                  results)
 
     _print_result('벤저민 그레이엄 전략', results, [
