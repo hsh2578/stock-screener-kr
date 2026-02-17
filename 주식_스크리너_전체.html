@@ -154,6 +154,18 @@
         .badge-warning { background-color: var(--color-warning-bg); color: #B45309; }
         .badge-danger { background-color: var(--color-danger-bg); color: var(--color-danger); }
         .badge-info { background-color: var(--color-accent-light); color: var(--color-accent); }
+        .overlap-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 1px 6px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-left: 6px;
+            cursor: help;
+            background: var(--color-accent-light);
+            color: var(--color-accent);
+        }
 
         /* ============================================================
            LAYOUT
@@ -2444,6 +2456,34 @@
         ];
         let _resolvedDataPath = null; // 캐시된 데이터 경로
 
+        // 교차 선정 맵 (가치/퀀트/대가 스크리너 간 겹치는 종목 추적)
+        const OVERLAP_SCREENERS = {
+            buffett: '버핏', ackman: '애크먼', lynch: '린치', graham: '그레이엄',
+            magicFormula: '마법공식', multiFactor: '멀티팩터', valueStocks: '저평가',
+        };
+        let _overlapMap = {};
+
+        function buildOverlapMap() {
+            const map = {};
+            for (const [key, label] of Object.entries(OVERLAP_SCREENERS)) {
+                const items = DATA[key]?.data;
+                if (!Array.isArray(items)) continue;
+                for (const item of items) {
+                    if (!map[item.ticker]) map[item.ticker] = [];
+                    map[item.ticker].push(label);
+                }
+            }
+            _overlapMap = map;
+        }
+
+        function getOverlapBadge(ticker, currentLabel) {
+            const all = _overlapMap[ticker];
+            if (!all || all.length < 2) return '';
+            const others = all.filter(l => l !== currentLabel);
+            if (!others.length) return '';
+            return `<span class="overlap-badge" title="${others.join(', ')}">${all.length}개 선정</span>`;
+        }
+
         // 데이터 로드 함수
         async function loadAllData() {
             console.log('📊 스크리너 데이터 로딩 시작...');
@@ -2500,6 +2540,7 @@
             await Promise.all(loadPromises);
 
             dataLoaded = true;
+            buildOverlapMap();
             console.log('✅ 데이터 로딩 완료');
 
             return true;
@@ -2776,6 +2817,7 @@
 
             var opts = options || {};
             var extraFields = opts.extraFields || [];
+            var overlapLabel = opts.overlapLabel || '';
 
             container.innerHTML = data.map(function(s) {
                 var per = s.per != null ? s.per : getPER(s.ticker);
@@ -2783,6 +2825,7 @@
                 var price = s.price || s.current_price || 0;
                 var changeRate = s.change_rate || 0;
                 var stockJson = safeJsonStringify({ticker: s.ticker, name: s.name, price: price, change_rate: changeRate});
+                var badge = overlapLabel ? getOverlapBadge(s.ticker, overlapLabel) : '';
 
                 var extraHtml = extraFields.map(function(f) {
                     var value = f.format ? f.format(s) : (s[f.key] != null ? s[f.key] : '-');
@@ -2792,7 +2835,7 @@
                 return '<div class="stock-card-mobile" onclick=\'openChartModal(' + stockJson + ')\' onkeypress="if(event.key===\'Enter\'||event.key===\' \')openChartModal(' + stockJson + ')" role="button" tabindex="0" aria-label="' + s.name + ' 차트 보기">' +
                     '<div class="header-row">' +
                         '<div class="stock-info">' +
-                            '<h3>' + s.name + '</h3>' +
+                            '<h3>' + s.name + badge + '</h3>' +
                             '<div class="ticker">' + s.ticker + '</div>' +
                         '</div>' +
                         '<div class="price-info">' +
@@ -4867,7 +4910,7 @@
                 const stockJson = safeJsonStringify({ ticker: s.ticker, name: s.name, price: s.current_price || 0, change_rate: 0 });
                 return `
                     <tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
-                        <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
+                        <td><div class="stock-name">${s.name}${getOverlapBadge(s.ticker, '저평가')}</div><div class="stock-ticker">${s.ticker}</div></td>
                         <td class="text-right">${s.current_price ? formatNumber(s.current_price) + '원' : '-'}</td>
                         <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                         <td class="text-right ${getPERColor(s.per)}">${s.per != null ? s.per.toFixed(1) : '-'}</td>
@@ -4883,6 +4926,7 @@
 
             renderTable('value-stocks-table', headers, rows, renderValueStocks);
             renderMobileCards('value-stocks-mobile', paginatedData, {
+                overlapLabel: '저평가',
                 extraFields: [
                     { label: '영업이익률', key: 'op_margin_avg', format: function(s) { var v = s.op_margin_avg != null ? s.op_margin_avg : s.op_margin_5y; return v != null ? v.toFixed(1) + '%' : '-'; } },
                     { label: 'EPS성장', key: 'eps_growth_5y', format: function(s) { return s.eps_growth_5y != null ? s.eps_growth_5y.toFixed(1) + '%' : '-'; } }
@@ -5043,7 +5087,7 @@
                 return `
                     <tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
                         <td style="font-weight:bold;color:var(--color-accent)">${s.rank}</td>
-                        <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
+                        <td><div class="stock-name">${s.name}${getOverlapBadge(s.ticker, '마법공식')}</div><div class="stock-ticker">${s.ticker}</div></td>
                         <td class="text-right">${s.current_price ? formatNumber(s.current_price) + '원' : '-'}</td>
                         <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                         <td class="text-right">${s.per != null ? s.per.toFixed(1) : '-'}</td>
@@ -5072,6 +5116,7 @@
 
             renderTable(cacheKey, headers, rows, renderMagicFormula);
             renderMobileCards('magic-formula-mobile', paginatedData, {
+                overlapLabel: '마법공식',
                 extraFields: [
                     { label: '현재가', key: 'current_price', format: function(s) { return s.current_price ? formatNumber(s.current_price) + '원' : '-'; } },
                     { label: '종합순위', key: 'combined_rank', format: function(s) { return s.combined_rank + '위 (' + s.ey_rank + '+' + s.roc_rank + ')'; } },
@@ -5149,7 +5194,7 @@
                 return `
                     <tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
                         <td style="font-weight:bold;color:var(--color-accent)">${s.rank}</td>
-                        <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
+                        <td><div class="stock-name">${s.name}${getOverlapBadge(s.ticker, '멀티팩터')}</div><div class="stock-ticker">${s.ticker}</div></td>
                         <td class="text-right">${s.current_price ? formatNumber(s.current_price) + '원' : '-'}</td>
                         <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                         <td class="text-right">${s.per != null ? s.per.toFixed(1) : '-'}</td>
@@ -5165,6 +5210,7 @@
 
             renderTable(cacheKey, headers, rows, renderMultiFactor);
             renderMobileCards('multi-factor-mobile', paginatedData, {
+                overlapLabel: '멀티팩터',
                 extraFields: [
                     { label: '현재가', key: 'current_price', format: function(s) { return s.current_price ? formatNumber(s.current_price) + '원' : '-'; } },
                     { label: '총점', key: 'total_score', format: function(s) { return s.total_score != null ? s.total_score.toFixed(3) : '-'; } },
@@ -5229,7 +5275,7 @@
             const rows = paginatedData.map(s => {
                 const stockJson = safeJsonStringify({ ticker: s.ticker, name: s.name, price: s.current_price || 0, change_rate: 0 });
                 return `<tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
-                    <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
+                    <td><div class="stock-name">${s.name}${getOverlapBadge(s.ticker, '버핏')}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${s.current_price ? formatNumber(s.current_price) + '원' : '-'}</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                     <td class="text-right">${s.per != null ? s.per.toFixed(1) : '-'}</td>
@@ -5245,6 +5291,7 @@
             }).join('');
             renderTable(cacheKey, headers, rows, renderBuffett);
             renderMobileCards('buffett-mobile', paginatedData, {
+                overlapLabel: '버핏',
                 extraFields: [
                     { label: 'ROE', format: s => s.roe != null ? s.roe.toFixed(1) + '%' : '-' },
                     { label: '유동비율', format: s => s.current_ratio != null ? s.current_ratio.toFixed(2) : '-' },
@@ -5281,7 +5328,7 @@
             const rows = paginatedData.map(s => {
                 const stockJson = safeJsonStringify({ ticker: s.ticker, name: s.name, price: s.current_price || 0, change_rate: 0 });
                 return `<tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
-                    <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
+                    <td><div class="stock-name">${s.name}${getOverlapBadge(s.ticker, '애크먼')}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${s.current_price ? formatNumber(s.current_price) + '원' : '-'}</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                     <td class="text-right">${s.per != null ? s.per.toFixed(1) : '-'}</td>
@@ -5296,6 +5343,7 @@
             }).join('');
             renderTable(cacheKey, headers, rows, renderAckman);
             renderMobileCards('ackman-mobile', paginatedData, {
+                overlapLabel: '애크먼',
                 extraFields: [
                     { label: 'ROIC', format: s => s.roic != null ? s.roic.toFixed(1) + '%' : '-' },
                     { label: '배당률', format: s => s.dividend_yield != null ? s.dividend_yield.toFixed(2) + '%' : '-' },
@@ -5333,7 +5381,7 @@
                 const pegColor = s.peg < 1 ? '#00B894' : s.peg < 1.5 ? '#0066CC' : '#E17055';
                 const stockJson = safeJsonStringify({ ticker: s.ticker, name: s.name, price: s.current_price || 0, change_rate: 0 });
                 return `<tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
-                    <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
+                    <td><div class="stock-name">${s.name}${getOverlapBadge(s.ticker, '린치')}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${s.current_price ? formatNumber(s.current_price) + '원' : '-'}</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                     <td class="text-right">${s.per != null ? s.per.toFixed(1) : '-'}</td>
@@ -5348,6 +5396,7 @@
             }).join('');
             renderTable(cacheKey, headers, rows, renderLynch);
             renderMobileCards('lynch-mobile', paginatedData, {
+                overlapLabel: '린치',
                 extraFields: [
                     { label: 'PEG', format: s => s.peg != null ? s.peg.toFixed(2) : '-' },
                     { label: 'ROE', format: s => s.roe != null ? s.roe.toFixed(1) + '%' : '-' },
@@ -5385,7 +5434,7 @@
             const rows = paginatedData.map(s => {
                 const stockJson = safeJsonStringify({ ticker: s.ticker, name: s.name, price: s.current_price || 0, change_rate: 0 });
                 return `<tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
-                    <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
+                    <td><div class="stock-name">${s.name}${getOverlapBadge(s.ticker, '그레이엄')}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${s.current_price ? formatNumber(s.current_price) + '원' : '-'}</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                     <td class="text-right">${s.per != null ? s.per.toFixed(1) : '-'}</td>
@@ -5401,6 +5450,7 @@
             }).join('');
             renderTable(cacheKey, headers, rows, renderGraham);
             renderMobileCards('graham-mobile', paginatedData, {
+                overlapLabel: '그레이엄',
                 extraFields: [
                     { label: 'PER×PBR', format: s => s.per_x_pbr != null ? s.per_x_pbr.toFixed(2) : '-' },
                     { label: '유동비율', format: s => s.current_ratio != null ? s.current_ratio.toFixed(2) : '-' },
