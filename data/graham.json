@@ -3,8 +3,8 @@
     "type": "graham",
     "name": "벤저민 그레이엄 전략",
     "description": "유동비율·PER×PBR·흑자 기반 보수적 가치투자",
-    "lastUpdated": "2026-02-16T21:10:49.115709",
-    "totalCount": 30,
+    "lastUpdated": "2026-02-17T21:09:52.667476",
+    "totalCount": 37,
     "conditions": [
       "PER < 15",
       "PBR×PER < 22",
@@ -20,7 +20,7 @@
     {
       "ticker": "092230",
       "name": "KPX홀딩스",
-      "sector": "소재",
+      "sector": "",
       "current_price": 80900,
       "market_cap": 3418.0,
       "per": 3.7,
@@ -36,7 +36,7 @@
     {
       "ticker": "025000",
       "name": "KPX케미칼",
-      "sector": "소재",
+      "sector": "",
       "current_price": 53600,
       "market_cap": 2347.0,
       "per": 3.9,
@@ -52,7 +52,7 @@
     {
       "ticker": "005710",
       "name": "대원산업",
-      "sector": "경기소비재",
+      "sector": "",
       "current_price": 14250,
       "market_cap": 2855.0,
       "per": 2.5,
@@ -68,7 +68,7 @@
     {
       "ticker": "027410",
       "name": "BGF",
-      "sector": "소재",
+      "sector": "",
       "current_price": 4255,
       "market_cap": 4073.0,
       "per": 7.0,
@@ -84,7 +84,7 @@
     {
       "ticker": "010960",
       "name": "삼호개발",
-      "sector": "산업재",
+      "sector": "",
       "current_price": 4155,
       "market_cap": 1002.0,
       "per": 5.3,
@@ -98,9 +98,25 @@
       "revenue_ttm": 4134.0
     },
     {
+      "ticker": "079960",
+      "name": "동양이엔피",
+      "sector": "",
+      "current_price": 33600,
+      "market_cap": 2641.0,
+      "per": 3.9,
+      "pbr": 0.67,
+      "per_x_pbr": 2.6,
+      "current_ratio": 3.9,
+      "net_current_assets": 2089.0,
+      "cumulative_growth": 69.6,
+      "debt_ratio": 21.8,
+      "dividend_yield": 1.79,
+      "revenue_ttm": 5918.0
+    },
+    {
       "ticker": "005990",
       "name": "매일홀딩스",
-      "sector": "필수소비재",
+      "sector": "",
       "current_price": 11150,
       "market_cap": 1483.0,
       "per": 7.1,
@@ -116,7 +132,7 @@
     {
       "ticker": "003650",
       "name": "미창석유",
-      "sector": "소재",
+      "sector": "",
       "current_price": 138000,
       "market_cap": 2401.0,
       "per": 4.6,
@@ -132,7 +148,7 @@
     {
       "ticker": "067830",
       "name": "세이브존I&C",
-      "sector": "경기소비재",
+      "sector": "",
       "current_price": 3225,
       "market_cap": 1324.0,
       "per": 10.5,
@@ -146,9 +162,25 @@
       "revenue_ttm": 1172.0
     },
     {
+      "ticker": "052420",
+      "name": "오성첨단소재",
+      "sector": "",
+      "current_price": 1535,
+      "market_cap": 1449.0,
+      "per": 4.7,
+      "pbr": 0.6,
+      "per_x_pbr": 2.84,
+      "current_ratio": 7.03,
+      "net_current_assets": 1230.0,
+      "cumulative_growth": 845.8,
+      "debt_ratio": 22.3,
+      "dividend_yield": null,
+      "revenue_ttm": 1605.0
+    },
+    {
       "ticker": "267980",
       "name": "매일유업",
-      "sector": "필수소비재",
+      "sector": "",
       "current_price": 40300,
       "market_cap": 3088.0,
       "per": 6.2,
@@ -164,7 +196,7 @@
     {
       "ticker": "023910",
       "name": "대한약품",
-      "sector": "건강관리",
+      "sector": "",
       "current_price": 29850,
       "market_cap": 1791.0,
       "per": 5.3,
@@ -180,7 +212,7 @@
     {
       "ticker": "005430",
       "name": "한국공항",
-      "sector": "산업재",
+      "sector": "",
       "current_price": 69400,
       "market_cap": 2197.0,
       "per": 6.2,
@@ -194,9 +226,25 @@
       "revenue_ttm": 6535.0
     },
     {
+      "ticker": "049520",
+      "name": "유아이엘",
+      "sector": "",
+      "current_price": 3840,
+      "market_cap": 1238.0,
+      "per": 6.1,
+      "pbr": 0.62,
+      "per_x_pbr": 3.78,
+      "current_ratio": 2.56,
+      "net_current_assets": 1057.0,
+      "cumulative_growth": 116.2,
+      "debt_ratio": 41.5,
+      "dividend_yield": 7.04,
+      "revenue_ttm": 4078.0
+    },
+    {
       "ticker": "071200",
       "name": "인피니트헬스케어",
-      "sector": "건강관리",
+      "sector": "",
       "current_price": 6650,
       "market_cap": 1622.0,
       "per": 4.4,
@@ -212,7 +260,7 @@
     {
       "ticker": "004490",
       "name": "세방전지",
-      "sector": "경기소비재",
+      "sector": "",
       "current_price": 66900,
       "market_cap": 9272.0,
       "per": 7.0,
@@ -228,7 +276,7 @@
     {
       "ticker": "025540",
       "name": "한국단자",
-      "sector": "경기소비재",
+      "sector": "",
       "current_price": 74000,
       "market_cap": 7485.0,
       "per": 6.8,
@@ -244,7 +292,7 @@
     {
       "ticker": "054050",
       "name": "농우바이오",
-      "sector": "건강관리",
+      "sector": "",
       "current_price": 8350,
       "market_cap": 1339.0,
       "per": 10.1,
@@ -260,7 +308,7 @@
     {
       "ticker": "036530",
       "name": "SNT홀딩스",
-      "sector": "경기소비재",
+      "sector": "",
       "current_price": 64800,
       "market_cap": 10565.0,
       "per": 7.7,
@@ -274,9 +322,25 @@
       "revenue_ttm": 21032.0
     },
     {
+      "ticker": "267850",
+      "name": "아시아나IDT",
+      "sector": "",
+      "current_price": 10800,
+      "market_cap": 1199.0,
+      "per": 10.2,
+      "pbr": 0.71,
+      "per_x_pbr": 7.21,
+      "current_ratio": 2.95,
+      "net_current_assets": 877.0,
+      "cumulative_growth": 37.2,
+      "debt_ratio": 30.3,
+      "dividend_yield": 4.63,
+      "revenue_ttm": 1940.0
+    },
+    {
       "ticker": "023900",
       "name": "풍국주정",
-      "sector": "소재",
+      "sector": "",
       "current_price": 9170,
       "market_cap": 1155.0,
       "per": 10.6,
@@ -292,7 +356,7 @@
     {
       "ticker": "461300",
       "name": "아이스크림미디어",
-      "sector": "경기소비재",
+      "sector": "",
       "current_price": 15740,
       "market_cap": 2094.0,
       "per": 6.7,
@@ -308,7 +372,7 @@
     {
       "ticker": "005850",
       "name": "에스엘",
-      "sector": "경기소비재",
+      "sector": "",
       "current_price": 52500,
       "market_cap": 24385.0,
       "per": 7.8,
@@ -322,9 +386,25 @@
       "revenue_ttm": 50683.0
     },
     {
+      "ticker": "025770",
+      "name": "한국정보통신",
+      "sector": "",
+      "current_price": 8120,
+      "market_cap": 3040.0,
+      "per": 8.8,
+      "pbr": 0.99,
+      "per_x_pbr": 8.75,
+      "current_ratio": 2.43,
+      "net_current_assets": 2053.0,
+      "cumulative_growth": 46.8,
+      "debt_ratio": 51.0,
+      "dividend_yield": null,
+      "revenue_ttm": 8099.0
+    },
+    {
       "ticker": "194700",
       "name": "노바렉스",
-      "sector": "건강관리",
+      "sector": "",
       "current_price": 15000,
       "market_cap": 2813.0,
       "per": 7.8,
@@ -338,9 +418,25 @@
       "revenue_ttm": 3858.0
     },
     {
+      "ticker": "160980",
+      "name": "싸이맥스",
+      "sector": "",
+      "current_price": 20050,
+      "market_cap": 2190.0,
+      "per": 8.0,
+      "pbr": 1.26,
+      "per_x_pbr": 10.11,
+      "current_ratio": 2.56,
+      "net_current_assets": 790.0,
+      "cumulative_growth": 97.4,
+      "debt_ratio": 30.9,
+      "dividend_yield": 1.75,
+      "revenue_ttm": 1803.0
+    },
+    {
       "ticker": "005180",
       "name": "빙그레",
-      "sector": "필수소비재",
+      "sector": "",
       "current_price": 84800,
       "market_cap": 8103.0,
       "per": 10.1,
@@ -356,7 +452,7 @@
     {
       "ticker": "016800",
       "name": "퍼시스",
-      "sector": "산업재",
+      "sector": "",
       "current_price": 41900,
       "market_cap": 4818.0,
       "per": 13.7,
@@ -372,7 +468,7 @@
     {
       "ticker": "036030",
       "name": "케이티알파",
-      "sector": "경기소비재",
+      "sector": "",
       "current_price": 5020,
       "market_cap": 2461.0,
       "per": 12.5,
@@ -388,7 +484,7 @@
     {
       "ticker": "018120",
       "name": "진로발효",
-      "sector": "필수소비재",
+      "sector": "",
       "current_price": 18210,
       "market_cap": 1206.0,
       "per": 9.8,
@@ -404,7 +500,7 @@
     {
       "ticker": "134380",
       "name": "미원화학",
-      "sector": "소재",
+      "sector": "",
       "current_price": 119300,
       "market_cap": 2624.0,
       "per": 9.8,
@@ -420,7 +516,7 @@
     {
       "ticker": "023160",
       "name": "태광",
-      "sector": "산업재",
+      "sector": "",
       "current_price": 29050,
       "market_cap": 7698.0,
       "per": 11.7,
@@ -436,7 +532,7 @@
     {
       "ticker": "054950",
       "name": "제이브이엠",
-      "sector": "건강관리",
+      "sector": "",
       "current_price": 26150,
       "market_cap": 3162.0,
       "per": 10.3,
@@ -452,7 +548,7 @@
     {
       "ticker": "092460",
       "name": "한라IMS",
-      "sector": "산업재",
+      "sector": "",
       "current_price": 15010,
       "market_cap": 2568.0,
       "per": 11.0,
@@ -468,7 +564,7 @@
     {
       "ticker": "259960",
       "name": "크래프톤",
-      "sector": "통신서비스",
+      "sector": "",
       "current_price": 257000,
       "market_cap": 121828.0,
       "per": 9.8,
@@ -496,6 +592,22 @@
       "debt_ratio": 38.8,
       "dividend_yield": null,
       "revenue_ttm": 2075.0
+    },
+    {
+      "ticker": "110990",
+      "name": "디아이티",
+      "sector": "",
+      "current_price": 21200,
+      "market_cap": 4007.0,
+      "per": 11.1,
+      "pbr": 1.88,
+      "per_x_pbr": 20.87,
+      "current_ratio": 7.28,
+      "net_current_assets": 1677.0,
+      "cumulative_growth": 153.8,
+      "debt_ratio": 13.2,
+      "dividend_yield": 1.79,
+      "revenue_ttm": 1303.0
     }
   ]
 }

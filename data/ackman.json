@@ -3,7 +3,7 @@
     "type": "ackman",
     "name": "빌 애크먼 전략",
     "description": "ROIC·배당·FCF 기반 주가 재평가 전략",
-    "lastUpdated": "2026-02-16T21:10:41.599394",
+    "lastUpdated": "2026-02-17T21:09:44.995891",
     "totalCount": 8,
     "conditions": [
       "ROIC > 15%",
@@ -19,7 +19,7 @@
     {
       "ticker": "461300",
       "name": "아이스크림미디어",
-      "sector": "경기소비재",
+      "sector": "",
       "current_price": 15740,
       "market_cap": 2094.0,
       "roic": 25.1,
@@ -33,7 +33,7 @@
     {
       "ticker": "069510",
       "name": "에스텍",
-      "sector": "IT",
+      "sector": "",
       "current_price": 15390,
       "market_cap": 1679.0,
       "roic": 18.7,
@@ -47,7 +47,7 @@
     {
       "ticker": "030000",
       "name": "제일기획",
-      "sector": "통신서비스",
+      "sector": "",
       "current_price": 22200,
       "market_cap": 25539.0,
       "roic": 18.4,
@@ -61,7 +61,7 @@
     {
       "ticker": "068930",
       "name": "디지털대성",
-      "sector": "경기소비재",
+      "sector": "",
       "current_price": 8560,
       "market_cap": 2369.0,
       "roic": 16.7,
@@ -75,7 +75,7 @@
     {
       "ticker": "134380",
       "name": "미원화학",
-      "sector": "소재",
+      "sector": "",
       "current_price": 119300,
       "market_cap": 2624.0,
       "roic": 16.6,
@@ -89,7 +89,7 @@
     {
       "ticker": "092730",
       "name": "네오팜",
-      "sector": "경기소비재",
+      "sector": "",
       "current_price": 19850,
       "market_cap": 3182.0,
       "roic": 15.6,
@@ -103,7 +103,7 @@
     {
       "ticker": "018120",
       "name": "진로발효",
-      "sector": "필수소비재",
+      "sector": "",
       "current_price": 18210,
       "market_cap": 1206.0,
       "roic": 15.6,
@@ -117,7 +117,7 @@
     {
       "ticker": "337930",
       "name": "젝시믹스",
-      "sector": "경기소비재",
+      "sector": "",
       "current_price": 5490,
       "market_cap": 1629.0,
       "roic": 15.2,

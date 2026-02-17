@@ -3,7 +3,7 @@
     "type": "buffett",
     "name": "워렌 버핏 전략",
     "description": "ROE·FCF·부채비율 기반 내재가치 전략",
-    "lastUpdated": "2026-02-16T21:10:37.667331",
+    "lastUpdated": "2026-02-17T21:09:41.041366",
     "totalCount": 15,
     "conditions": [
       "ROE > 15%",
@@ -35,7 +35,7 @@
     {
       "ticker": "005710",
       "name": "대원산업",
-      "sector": "경기소비재",
+      "sector": "",
       "current_price": 14250,
       "market_cap": 2855.0,
       "roe": 20.8,
@@ -51,7 +51,7 @@
     {
       "ticker": "071200",
       "name": "인피니트헬스케어",
-      "sector": "건강관리",
+      "sector": "",
       "current_price": 6650,
       "market_cap": 1622.0,
       "roe": 20.5,
@@ -67,7 +67,7 @@
     {
       "ticker": "123410",
       "name": "코리아에프티",
-      "sector": "경기소비재",
+      "sector": "",
       "current_price": 8260,
       "market_cap": 2300.0,
       "roe": 20.2,
@@ -83,7 +83,7 @@
     {
       "ticker": "035610",
       "name": "솔본",
-      "sector": "건강관리",
+      "sector": "",
       "current_price": 3915,
       "market_cap": 1071.0,
       "roe": 19.6,
@@ -99,7 +99,7 @@
     {
       "ticker": "069510",
       "name": "에스텍",
-      "sector": "IT",
+      "sector": "",
       "current_price": 15390,
       "market_cap": 1679.0,
       "roe": 19.5,
@@ -115,7 +115,7 @@
     {
       "ticker": "097520",
       "name": "엠씨넥스",
-      "sector": "IT",
+      "sector": "",
       "current_price": 29050,
       "market_cap": 5055.0,
       "roe": 18.8,
@@ -131,7 +131,7 @@
     {
       "ticker": "035150",
       "name": "백산",
-      "sector": "경기소비재",
+      "sector": "",
       "current_price": 13820,
       "market_cap": 2807.0,
       "roe": 17.9,
@@ -147,7 +147,7 @@
     {
       "ticker": "461300",
       "name": "아이스크림미디어",
-      "sector": "경기소비재",
+      "sector": "",
       "current_price": 15740,
       "market_cap": 2094.0,
       "roe": 17.0,
@@ -163,7 +163,7 @@
     {
       "ticker": "066620",
       "name": "국보디자인",
-      "sector": "산업재",
+      "sector": "",
       "current_price": 24600,
       "market_cap": 1845.0,
       "roe": 16.8,
@@ -179,7 +179,7 @@
     {
       "ticker": "079960",
       "name": "동양이엔피",
-      "sector": "IT",
+      "sector": "",
       "current_price": 33600,
       "market_cap": 2641.0,
       "roe": 16.7,
@@ -195,7 +195,7 @@
     {
       "ticker": "083930",
       "name": "아바코",
-      "sector": "IT",
+      "sector": "",
       "current_price": 15960,
       "market_cap": 2342.0,
       "roe": 15.8,
@@ -211,7 +211,7 @@
     {
       "ticker": "101970",
       "name": "우양에이치씨",
-      "sector": "에너지",
+      "sector": "",
       "current_price": 12410,
       "market_cap": 1835.0,
       "roe": 15.8,
@@ -227,7 +227,7 @@
     {
       "ticker": "160980",
       "name": "싸이맥스",
-      "sector": "IT",
+      "sector": "",
       "current_price": 20050,
       "market_cap": 2190.0,
       "roe": 15.1,
@@ -243,7 +243,7 @@
     {
       "ticker": "187870",
       "name": "디바이스",
-      "sector": "IT",
+      "sector": "",
       "current_price": 19250,
       "market_cap": 1355.0,
       "roe": 15.1,
