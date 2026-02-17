@@ -148,7 +148,7 @@ def run_magic_formula():
         results.append({
             'ticker': code,
             'name': name,
-            'sector': sector_map.get(code, row.get('업종', '')),
+            'sector': sector_map.get(code, '기타'),
             'current_price': int(current_price),
             'per': round(per, 1) if per is not None else None,
             'pbr': round(pbr, 2) if pbr is not None else None,

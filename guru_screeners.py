@@ -229,7 +229,7 @@ def screen_buffett(filtered, fnguide_cache, sector_map):
         results.append({
             'ticker': code,
             'name': name,
-            'sector': sector_map.get(code, ''),
+            'sector': sector_map.get(code, '기타'),
             'current_price': int(row.get('종가', 0) or 0),
             'market_cap': round(market_cap, 0),
             'roe': round(roe, 1),
@@ -331,7 +331,7 @@ def screen_ackman(filtered, fnguide_cache, sector_map):
         results.append({
             'ticker': code,
             'name': name,
-            'sector': sector_map.get(code, ''),
+            'sector': sector_map.get(code, '기타'),
             'current_price': int(row.get('종가', 0) or 0),
             'market_cap': round(market_cap, 0),
             'roic': round(roic, 1),
@@ -433,7 +433,7 @@ def screen_lynch(filtered, fnguide_cache, sector_map):
         results.append({
             'ticker': code,
             'name': name,
-            'sector': sector_map.get(code, ''),
+            'sector': sector_map.get(code, '기타'),
             'current_price': int(row.get('종가', 0) or 0),
             'market_cap': round(market_cap, 0),
             'per': round(per, 1),
@@ -499,7 +499,7 @@ def screen_graham(filtered, fnguide_cache, sector_map):
         code = row['종목코드']
         name = row['종목명']
         market_cap = row.get('시가총액', 0)
-        sector = sector_map.get(code, '')
+        sector = sector_map.get(code, '기타')
 
         # IT 기업 제외
         if sector in IT_SECTORS:
