@@ -247,19 +247,22 @@ def get_sector_data(date: str = None) -> pd.DataFrame:
             else:
                 items = []
 
-            # 첫 섹터에서 0개면 전 거래일로 재시도 (장 시작 전 등)
+            # 첫 섹터에서 0개면 이전 거래일로 최대 5영업일 재시도 (공휴일 대응)
             if not items and not date_adjusted and not all_data:
-                prev = datetime.strptime(date, '%Y%m%d') - timedelta(days=1)
-                while prev.weekday() >= 5:
-                    prev -= timedelta(days=1)
-                date = prev.strftime('%Y%m%d')
+                for _ in range(5):
+                    prev = datetime.strptime(date, '%Y%m%d') - timedelta(days=1)
+                    while prev.weekday() >= 5:
+                        prev -= timedelta(days=1)
+                    date = prev.strftime('%Y%m%d')
+                    print(f"  데이터 없음, 전 거래일로 재시도: {date}")
+                    params['dt'] = date
+                    resp = requests.get(WISEINDEX_URL, params=params, headers=HEADERS, timeout=15)
+                    resp.raise_for_status()
+                    data = resp.json()
+                    items = data if isinstance(data, list) else (data.get('list', data.get('data', [])) if isinstance(data, dict) else [])
+                    if items:
+                        break
                 date_adjusted = True
-                print(f"  데이터 없음, 전 거래일로 재시도: {date}")
-                params['dt'] = date
-                resp = requests.get(WISEINDEX_URL, params=params, headers=HEADERS, timeout=15)
-                resp.raise_for_status()
-                data = resp.json()
-                items = data if isinstance(data, list) else (data.get('list', data.get('data', [])) if isinstance(data, dict) else [])
 
             for item in items:
                 ticker = str(item.get('CMP_CD', item.get('IDX_CD', ''))).replace('A', '')
