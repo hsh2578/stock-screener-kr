@@ -6,7 +6,7 @@
 - Value: PER, PBR, PSR, PCR, 배당수익률
 - Momentum: 12개월 수익률, K-Ratio
 
-전처리: Winsorizing + 섹터 중립화 (Z-Score)
+전처리: Winsorizing + 글로벌 Z-Score
 
 사용법:
     python multi_factor.py
@@ -28,7 +28,7 @@ from scipy.stats import zscore, linregress
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, SCRIPT_DIR)
 
-from scripts.krx_data import get_stock_master, get_sector_data, merge_sector_info
+from scripts.krx_data import get_stock_master
 from scripts.fnguide_data import (
     get_financial_data,
     get_roe,
@@ -171,15 +171,14 @@ def winsorize(series: pd.Series, lower_pct: float = 0.01, upper_pct: float = 0.9
     return series.clip(lower, upper)
 
 
-def preprocess_factor(df: pd.DataFrame, factor_col: str, sector_col: str,
+def preprocess_factor(df: pd.DataFrame, factor_col: str,
                       ascending: bool = True) -> pd.DataFrame:
     """
-    팩터 전처리: Winsorize → Rank → 섹터별 Z-Score
+    팩터 전처리: Winsorize → Rank → 글로벌 Z-Score
 
     Args:
         df: 데이터프레임
         factor_col: 팩터 컬럼명
-        sector_col: 섹터 컬럼명
         ascending: True면 값이 높을수록 좋음
     """
     df = df.copy()
@@ -198,21 +197,15 @@ def preprocess_factor(df: pd.DataFrame, factor_col: str, sector_col: str,
     # 2. Rank 변환
     df[f'{col}_rank'] = df[col].rank(ascending=ascending, na_option='keep')
 
-    # 3. 섹터별 Z-Score
-    def sector_zscore(group):
-        if len(group) < 3:
-            return pd.Series(0, index=group.index)
-        vals = group.values
-        valid = ~np.isnan(vals)
-        if valid.sum() < 3:
-            return pd.Series(0, index=group.index)
-        result = np.full(len(vals), np.nan)
-        result[valid] = zscore(vals[valid], nan_policy='omit')
-        return pd.Series(result, index=group.index)
+    # 3. 글로벌 Z-Score
+    rank_vals = df[f'{col}_rank']
+    valid = rank_vals.notna()
+    if valid.sum() >= 3:
+        df.loc[valid, f'{col}_zscore'] = zscore(rank_vals[valid].values, nan_policy='omit')
+    else:
+        df[f'{col}_zscore'] = 0
 
-    df[f'{col}_zscore'] = df.groupby(sector_col)[f'{col}_rank'].transform(sector_zscore)
-
-    # NaN을 0으로 (섹터 내 종목 부족 등)
+    # NaN을 0으로
     df[f'{col}_zscore'] = df[f'{col}_zscore'].fillna(0)
 
     return df
@@ -232,7 +225,7 @@ def run_multi_factor():
     start_time = time.time()
 
     # 1. KRX 종목 마스터 수집
-    print("\n[1/6] KRX 종목 마스터 수집...")
+    print("\n[1/5] KRX 종목 마스터 수집...")
     master = get_stock_master()
 
     # 필터링: 시총 1000억+, 보통주, 스팩/리츠 제외
@@ -245,20 +238,8 @@ def run_multi_factor():
 
     print(f"  필터링 후: {len(filtered)}개 종목")
 
-    # 2. 섹터 데이터 수집
-    print("\n[2/6] WiseIndex 섹터 데이터 수집...")
-    try:
-        sector_df = get_sector_data()
-        filtered = merge_sector_info(filtered, sector_df)
-    except Exception as e:
-        print(f"  섹터 수집 실패 ({e}), 업종 컬럼 사용")
-        if '업종' in filtered.columns:
-            filtered['섹터명'] = filtered['업종']
-        else:
-            filtered['섹터명'] = '기타'
-
-    # 3. OHLCV 캐시 로드 + Momentum 계산
-    print("\n[3/6] Momentum 계산 (OHLCV 캐시)...")
+    # 2. OHLCV 캐시 로드 + Momentum 계산
+    print("\n[2/5] Momentum 계산 (OHLCV 캐시)...")
     ohlcv_cache = _load_ohlcv_cache()
 
     momentum_data = {}
@@ -275,8 +256,8 @@ def run_multi_factor():
 
     print(f"  Momentum 계산: {len(momentum_data)}개 종목")
 
-    # 4. FnGuide 재무데이터 (캐시 → fallback 개별 수집)
-    print(f"\n[4/6] FnGuide 재무데이터 로드 ({len(filtered)}개 종목)...")
+    # 3. FnGuide 재무데이터 (캐시 → fallback 개별 수집)
+    print(f"\n[3/5] FnGuide 재무데이터 로드 ({len(filtered)}개 종목)...")
 
     fnguide_cache = load_fnguide_cache()
     if fnguide_cache:
@@ -294,7 +275,6 @@ def run_multi_factor():
         name = row['종목명']
         market_cap = row.get('시가총액', 0)
         current_price = row.get('종가', 0) or 0
-        sector = row.get('섹터명', '기타')
 
         fin_data = fnguide_cache.get(code)
         if not fin_data:
@@ -303,7 +283,6 @@ def run_multi_factor():
         record = {
             'ticker': code,
             'name': name,
-            'sector': sector,
             'current_price': int(current_price),
             'market_cap': round(market_cap, 0),
             'per': row.get('PER'),
@@ -374,27 +353,26 @@ def run_multi_factor():
         print("유효 데이터가 부족합니다.")
         return
 
-    # 5. 팩터 전처리 (Winsorize + 섹터 Z-Score)
-    print("\n[5/6] 팩터 전처리...")
-    sector_col = 'sector'
+    # 4. 팩터 전처리 (Winsorize + 글로벌 Z-Score)
+    print("\n[4/5] 팩터 전처리...")
 
     # Quality (높을수록 좋음)
     for col in ['roe', 'gpa', 'cfo']:
-        df = preprocess_factor(df, col, sector_col, ascending=True)
+        df = preprocess_factor(df, col, ascending=True)
 
     # Value (낮을수록 좋음 → ascending=False로 rank 반전)
     for col in ['per', 'pbr', 'psr', 'pcr']:
-        df = preprocess_factor(df, col, sector_col, ascending=False)
+        df = preprocess_factor(df, col, ascending=False)
 
     # 배당수익률 (높을수록 좋음)
-    df = preprocess_factor(df, 'div_yield', sector_col, ascending=True)
+    df = preprocess_factor(df, 'div_yield', ascending=True)
 
     # Momentum (높을수록 좋음)
     for col in ['return_12m', 'k_ratio']:
-        df = preprocess_factor(df, col, sector_col, ascending=True)
+        df = preprocess_factor(df, col, ascending=True)
 
-    # 6. 팩터 결합
-    print("\n[6/6] 팩터 결합 및 최종 순위...")
+    # 5. 팩터 결합
+    print("\n[5/5] 팩터 결합 및 최종 순위...")
 
     # Step 4: 팩터 내부 Z-Score 합산
     q_cols = [f'{c}_zscore' for c in ['roe', 'gpa', 'cfo']]
@@ -441,7 +419,6 @@ def run_multi_factor():
             'rank': i + 1,
             'ticker': row['ticker'],
             'name': row['name'],
-            'sector': row['sector'],
             'current_price': int(row.get('current_price', 0)),
             'total_score': round(row['total_score'], 3),
             'quality_score': round(row['quality_score'], 3) if pd.notna(row['quality_score']) else None,
@@ -466,7 +443,7 @@ def run_multi_factor():
         'meta': {
             'type': 'multi-factor',
             'name': '멀티팩터 (Q+V+M)',
-            'description': 'Quality + Value + Momentum 섹터 중립화 멀티팩터',
+            'description': 'Quality + Value + Momentum 글로벌 Z-Score 멀티팩터',
             'lastUpdated': datetime.now().isoformat(),
             'totalCount': len(output_data),
             'screened_from': len(df),
@@ -484,8 +461,8 @@ def run_multi_factor():
     print(f"\n{'=' * 90}")
     print(f"멀티팩터 Top {TOP_N}")
     print(f"{'=' * 90}")
-    print(f"{'순위':<4} {'종목명':<12} {'섹터':<8} {'총점':>7} {'Q점수':>7} {'V점수':>7} {'M점수':>7} {'ROE':>6} {'PER':>6}")
-    print(f"{'-' * 90}")
+    print(f"{'순위':<4} {'종목명':<12} {'총점':>7} {'Q점수':>7} {'V점수':>7} {'M점수':>7} {'ROE':>6} {'PER':>6}")
+    print(f"{'-' * 80}")
 
     for item in output_data:
         q = f"{item['quality_score']:.2f}" if item['quality_score'] else '-'
@@ -494,7 +471,7 @@ def run_multi_factor():
         roe = f"{item['roe']:.1f}" if item['roe'] else '-'
         per = f"{item['per']:.1f}" if item['per'] else '-'
         print(
-            f"{item['rank']:<4} {item['name']:<12} {item['sector']:<8} "
+            f"{item['rank']:<4} {item['name']:<12} "
             f"{item['total_score']:>7.3f} {q:>7} {v:>7} {m:>7} {roe:>6} {per:>6}"
         )
 

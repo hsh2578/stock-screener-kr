@@ -3526,17 +3526,12 @@ def _fetch_chart_data_single(ticker: str) -> tuple:
         if len(df) < 10:
             return (ticker, None)
 
-        data = []
-        for idx, row in df.iterrows():
-            data.append({
-                'date': idx.strftime('%Y-%m-%d'),
-                'open': int(row['Open']),
-                'high': int(row['High']),
-                'low': int(row['Low']),
-                'close': int(row['Close']),
-                'volume': int(row['Volume'])
-            })
-        return (ticker, data)
+        # 벡터화 변환 (iterrows 대비 ~10x 빠름)
+        result = df[['Open', 'High', 'Low', 'Close', 'Volume']].copy()
+        result.columns = ['open', 'high', 'low', 'close', 'volume']
+        result = result.astype(int)
+        result.insert(0, 'date', df.index.strftime('%Y-%m-%d'))
+        return (ticker, result.to_dict(orient='records'))
     except Exception:
         return (ticker, None)
 

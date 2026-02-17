@@ -17,7 +17,7 @@ from typing import Dict, List, Optional, Tuple, Any
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, SCRIPT_DIR)
 
-from scripts.krx_data import get_stock_master, get_sector_data
+from scripts.krx_data import get_stock_master
 from scripts.fnguide_data import (
     load_fnguide_cache,
     get_financial_data,
@@ -216,14 +216,8 @@ def main():
 
     print(f"  필터링 후: {len(filtered)}개 종목")
 
-    # 2. 섹터 데이터 수집
-    print("\n[2/5] 섹터 데이터 수집...")
-    sector_data = get_sector_data()
-    sector_map = {item['code']: item['sector'] for item in sector_data} if sector_data else {}
-    print(f"  섹터 데이터: {len(sector_map)}개 종목")
-
-    # 3. FnGuide 재무데이터 로드 (캐시 → fallback 개별 수집)
-    print("\n[3/5] FnGuide 재무데이터 로드...")
+    # 2. FnGuide 재무데이터 로드 (캐시 → fallback 개별 수집)
+    print("\n[2/4] FnGuide 재무데이터 로드...")
     fnguide_cache = load_fnguide_cache()
     if fnguide_cache:
         print(f"  캐시 사용: {len(fnguide_cache)}개 종목")
@@ -245,12 +239,12 @@ def main():
             if (i + 1) % 100 == 0:
                 print(f"    진행: {i+1}/{len(missing_codes)}")
 
-    # 4. financial_data.json 저장 (PER/PBR 포함)
-    print("\n[4/5] financial_data.json 저장 (PER/PBR 포함)...")
+    # 3. financial_data.json 저장 (PER/PBR 포함)
+    print("\n[3/4] financial_data.json 저장 (PER/PBR 포함)...")
     save_financial_data(fnguide_cache, master)
 
-    # 5. 스크리닝 (TTM 6개 조건 모두 충족)
-    print("\n[5/5] TTM 스크리닝 시작 (6개 조건 모두 충족)...")
+    # 4. 스크리닝 (TTM 6개 조건 모두 충족)
+    print("\n[4/4] TTM 스크리닝 시작 (6개 조건 모두 충족)...")
 
     results = []
     screened = 0
@@ -286,7 +280,6 @@ def main():
         results.append({
             'ticker': code,
             'name': name,
-            'sector': sector_map.get(code, '기타'),
             'current_price': int(close) if close else 0,
             'market_cap': round(market_cap, 0),
             'per': round(per, 2) if per else None,

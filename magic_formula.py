@@ -25,7 +25,7 @@ import pandas as pd
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, SCRIPT_DIR)
 
-from scripts.krx_data import get_stock_master, is_financial_stock, get_sector_data
+from scripts.krx_data import get_stock_master, is_financial_stock
 from scripts.fnguide_data import (
     get_financial_data,
     get_ebit,
@@ -87,16 +87,6 @@ def run_magic_formula():
 
     print(f"  필터링 후: {len(filtered)}개 종목 (금융주/우선주/스팩/리츠 제외)")
 
-    # 2.5. WiseIndex 섹터 데이터 수집
-    print("\n  WiseIndex 섹터 데이터 수집...")
-    try:
-        sector_df = get_sector_data()
-        sector_map = dict(zip(sector_df['종목코드'], sector_df['섹터명']))
-        print(f"  섹터 데이터: {len(sector_map)}개 종목")
-    except Exception as e:
-        print(f"  섹터 데이터 수집 실패: {e}")
-        sector_map = {}
-
     # 3. FnGuide 재무데이터 (캐시 → fallback 개별 수집)
     print(f"\n[3/4] FnGuide 재무데이터 로드 ({len(filtered)}개 종목)...")
 
@@ -148,7 +138,6 @@ def run_magic_formula():
         results.append({
             'ticker': code,
             'name': name,
-            'sector': sector_map.get(code, '기타'),
             'current_price': int(current_price),
             'per': round(per, 1) if per is not None else None,
             'pbr': round(pbr, 2) if pbr is not None else None,
@@ -195,7 +184,6 @@ def run_magic_formula():
             'rank': i + 1,
             'ticker': row['ticker'],
             'name': row['name'],
-            'sector': row['sector'],
             'current_price': int(row['current_price']),
             'per': row['per'] if pd.notna(row.get('per')) else None,
             'pbr': row['pbr'] if pd.notna(row.get('pbr')) else None,
@@ -232,12 +220,12 @@ def run_magic_formula():
     print(f"\n{'=' * 80}")
     print(f"마법공식 Top {TOP_N}")
     print(f"{'=' * 80}")
-    print(f"{'순위':<4} {'종목명':<12} {'업종':<10} {'종합':>6} {'EY순위':>6} {'ROC순위':>6} {'EY%':>8} {'ROC%':>8}")
-    print(f"{'-' * 80}")
+    print(f"{'순위':<4} {'종목명':<12} {'종합':>6} {'EY순위':>6} {'ROC순위':>6} {'EY%':>8} {'ROC%':>8}")
+    print(f"{'-' * 70}")
 
     for item in output_data:
         print(
-            f"{item['rank']:<4} {item['name']:<12} {item['sector']:<10} "
+            f"{item['rank']:<4} {item['name']:<12} "
             f"{item['combined_rank']:>6} {item['ey_rank']:>6} {item['roc_rank']:>6} "
             f"{item['earnings_yield']:>7.1f}% {item['roc']:>7.1f}%"
         )

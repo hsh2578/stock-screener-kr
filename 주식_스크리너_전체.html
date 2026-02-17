@@ -154,6 +154,7 @@
         .badge-warning { background-color: var(--color-warning-bg); color: #B45309; }
         .badge-danger { background-color: var(--color-danger-bg); color: var(--color-danger); }
         .badge-info { background-color: var(--color-accent-light); color: var(--color-accent); }
+        .badge-primary { background-color: #EBF5FF; color: #1D4ED8; }
         .overlap-badge {
             display: inline-flex;
             align-items: center;
@@ -2159,7 +2160,7 @@
                     <h1>멀티팩터</h1>
                     <span class="badge badge-primary">Q+V+M</span>
                 </div>
-                <p class="desc" id="multi-factor-desc">Quality(ROE/GPA/CFO) + Value(PER/PBR/PSR/PCR/배당) + Momentum(12M수익률/K-Ratio) — 섹터 중립화</p>
+                <p class="desc" id="multi-factor-desc">Quality(ROE/GPA/CFO) + Value(PER/PBR/PSR/PCR/배당) + Momentum(12M수익률/K-Ratio)</p>
                 <div class="meta">
                     <span class="date" id="multi-factor-date">데이터 기준: -</span>
                     <span><span class="count" id="multi-factor-count">-</span>개 종목</span>
@@ -2736,7 +2737,7 @@
                 desc: '팩터 기반 종목 선정',
                 screeners: [
                     { id: 'magic-formula', icon: ICONS.magicFormula, title: '마법공식', desc: '이익수익률 + 투하자본수익률', badge: { text: '그린블라트', type: 'success' } },
-                    { id: 'multi-factor', icon: ICONS.multiFactor, title: '멀티팩터', desc: 'Q+V+M 섹터 중립화', badge: { text: 'Q+V+M', type: 'primary' } }
+                    { id: 'multi-factor', icon: ICONS.multiFactor, title: '멀티팩터', desc: 'Q+V+M 글로벌 Z-Score', badge: { text: 'Q+V+M', type: 'primary' } }
                 ]
             },
             {
@@ -2877,13 +2878,6 @@
                 .replace(/"/g, '&quot;');
         };
 
-        // onclick 속성에서 안전하게 사용할 수 있는 data attribute 생성
-        const createDataAttr = obj => {
-            return Object.entries(obj)
-                .map(([k, v]) => `data-${k}="${String(v).replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}"`)
-                .join(' ');
-        };
-
         // Chart data cache
         let chartDataCache = null;
         let chartInstance = null;
@@ -2996,7 +2990,7 @@
             // 페이지 변경 후 테이블 상단으로 스크롤
             var pageEl = document.querySelector('.page.active');
             if (pageEl) {
-                var table = pageEl.querySelector('.data-table');
+                var table = pageEl.querySelector('table');
                 if (table) {
                     table.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
@@ -3770,6 +3764,13 @@
                     tbodyParent.appendChild(tbody);
                 }
             }
+
+            // 접근성: 클릭 가능한 행에 role/tabindex 자동 부여
+            var clickableRows = tbody.querySelectorAll('tr[onclick]');
+            for (var ri = 0; ri < clickableRows.length; ri++) {
+                if (!clickableRows[ri].getAttribute('role')) clickableRows[ri].setAttribute('role', 'button');
+                if (!clickableRows[ri].getAttribute('tabindex')) clickableRows[ri].setAttribute('tabindex', '0');
+            }
         }
 
         // ============================================================
@@ -3796,43 +3797,6 @@
             renderCache.set(cacheKey, newHash);
             return false;
         }
-
-        // ============================================================
-        // 공통 테이블 행 생성 헬퍼 - 코드 중복 감소
-        // ============================================================
-        function createStockRow(s, columns) {
-            const stockJson = safeJsonStringify({
-                ticker: s.ticker,
-                name: s.name,
-                price: s.price || s.current_price,
-                change_rate: s.change_rate || 0
-            });
-            const cells = columns.map(col => col(s)).join('');
-            return `<tr class="clickable" onclick='openChartModal(${stockJson})' role="button" tabindex="0" onkeypress="if(event.key==='Enter')openChartModal(${stockJson})">${cells}</tr>`;
-        }
-
-        // 공통 셀 렌더러
-        const cellRenderers = {
-            stockName: (s) => `<td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>`,
-            price: (s) => `<td class="text-right">${formatNumber(s.price || s.current_price)}원</td>`,
-            marketCap: (s) => `<td class="text-right">${formatMarketCap(s.market_cap)}</td>`,
-            per: (s) => `<td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>`,
-            pbr: (s) => `<td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>`,
-            changeRate: (s) => `<td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>`,
-            volumeRatio: (s) => `<td class="text-right">${s.volume_ratio ? s.volume_ratio.toFixed(1) + 'x' : '-'}</td>`,
-            breakoutDate: (s) => `<td>${formatShortDate(s.breakout_date)}</td>`,
-            breakoutPct: (s) => `<td class="text-right ${getColor(s.breakout_pct)}">${s.breakout_pct != null ? formatPercent(s.breakout_pct) : '-'}</td>`
-        };
-
-        // 공통 헤더 정의
-        const commonHeaders = {
-            stockName: { label: '종목명', key: 'name' },
-            price: { label: '현재가', align: 'text-right', key: 'price' },
-            marketCap: { label: '시가총액', align: 'text-right', key: 'market_cap' },
-            per: { label: 'PER', align: 'text-right', key: 'per' },
-            pbr: { label: 'PBR', align: 'text-right', key: 'pbr' },
-            changeRate: { label: '등락률', align: 'text-right', key: 'change_rate' }
-        };
 
         // 공통 스크리너 렌더링 로직
         function renderScreenerTable(config) {
@@ -3917,188 +3881,6 @@
             // 페이지네이션 렌더링
             renderPagination(paginationId, paginationKey, sortedData.length, renderFn);
         }
-
-        // ============================================================
-        // 스크리너 설정 객체 정의 - 모든 스크리너의 공통 구조
-        // 각 스크리너별 설정을 config 객체로 관리하여 코드 중복 최소화
-        // ============================================================
-        const screenerConfigs = {
-            // 박스권 횡보 스크리너
-            boxRange: {
-                dataKey: 'boxRange',
-                filterKey: 'boxRange',
-                tableId: 'box-range-table',
-                countId: 'box-range-count',
-                mobileId: 'box-range-mobile',
-                paginationId: 'box-range-pagination',
-                paginationKey: 'boxRange',
-                headers: [
-                    { label: '종목명', key: 'name' },
-                    { label: '현재가', align: 'text-right', key: 'price' },
-                    { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                    { label: 'PER', align: 'text-right', key: 'per' },
-                    { label: 'PBR', align: 'text-right', key: 'pbr' },
-                    { label: '등락률', align: 'text-right', key: 'change_rate' },
-                    { label: '변동폭', align: 'text-right', key: 'range_percent' },
-                    { label: '지지 터치', align: 'text-center', key: 'support_touches' },
-                    { label: 'ATR배수', align: 'text-right', key: 'atr_multiple' },
-                    { label: '횡보 기간', align: 'text-right', key: 'days' }
-                ],
-                rowRenderer: function(s) {
-                    const stockJson = safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate});
-                    return `<tr class="clickable" onclick='openChartModal(${stockJson})' role="button" tabindex="0" onkeypress="if(event.key==='Enter')openChartModal(${stockJson})">
-                        <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
-                        <td class="text-right">${formatNumber(s.price)}원</td>
-                        <td class="text-right">${formatMarketCap(s.market_cap)}</td>
-                        <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
-                        <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
-                        <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
-                        <td class="text-right">${formatPercent(s.range_percent)}</td>
-                        <td class="text-center">${s.support_touches}/${s.resistance_touches}</td>
-                        <td class="text-right">${s.atr_multiple.toFixed(1)}x</td>
-                        <td class="text-right">${s.days || 60}일</td>
-                    </tr>`;
-                },
-                extraFields: [
-                    { label: '횡보 기간', key: 'days', format: function(s) { return (s.days || 60) + '일'; } }
-                ]
-            },
-
-            // 풀백 스크리너
-            pullback: {
-                dataKey: 'pullback',
-                filterKey: 'pullback',
-                tableId: 'pullback-table',
-                countId: 'pullback-count',
-                mobileId: 'pullback-mobile',
-                paginationId: 'pullback-pagination',
-                paginationKey: 'pullback',
-                headers: [
-                    { label: '종목명', key: 'name' },
-                    { label: '현재가', align: 'text-right', key: 'price' },
-                    { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                    { label: 'PER', align: 'text-right', key: 'per' },
-                    { label: 'PBR', align: 'text-right', key: 'pbr' },
-                    { label: '등락률', align: 'text-right', key: 'change_rate' },
-                    { label: '돌파일', key: 'breakout_date' },
-                    { label: '풀백률', align: 'text-right', key: 'pullback_ratio' },
-                    { label: '거래량감소', align: 'text-right', key: 'volume_decrease' }
-                ],
-                rowRenderer: function(s) {
-                    return `<tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
-                        <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
-                        <td class="text-right">${formatNumber(s.price)}원</td>
-                        <td class="text-right">${formatMarketCap(s.market_cap)}</td>
-                        <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
-                        <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
-                        <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
-                        <td>${formatShortDate(s.breakout_date)}</td>
-                        <td class="text-right">${s.pullback_ratio.toFixed(1)}%</td>
-                        <td class="text-right" style="color: var(--color-success)">-${s.volume_decrease}%</td>
-                    </tr>`;
-                },
-                extraFields: [
-                    { label: '돌파일', key: 'breakout_date', format: function(s) { return formatShortDate(s.breakout_date); } },
-                    { label: '풀백률', key: 'pullback_ratio', format: function(s) { return s.pullback_ratio.toFixed(1) + '%'; } }
-                ]
-            },
-
-            // 거래량 급감 스크리너
-            volumeDryUp: {
-                dataKey: 'volumeDryUp',
-                filterKey: 'volumeDryUp',
-                tableId: 'volume-dry-up-table',
-                countId: 'volume-dry-up-count',
-                mobileId: 'volume-dry-up-mobile',
-                paginationId: 'volume-dry-up-pagination',
-                paginationKey: 'volumeDryUp',
-                headers: [
-                    { label: '종목명', key: 'name' },
-                    { label: '현재가', align: 'text-right', key: 'price' },
-                    { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                    { label: 'PER', align: 'text-right', key: 'per' },
-                    { label: 'PBR', align: 'text-right', key: 'pbr' },
-                    { label: '급등일', key: 'explosion_date' },
-                    { label: '급등폭', align: 'text-right', key: 'explosion_change_rate' },
-                    { label: '경과', align: 'text-right', key: 'days_since_detected' },
-                    { label: '거래량감소', align: 'text-right', key: 'volume_decrease_rate' }
-                ],
-                rowRenderer: function(s) {
-                    return `<tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate||0})})'>
-                        <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
-                        <td class="text-right">${formatNumber(s.price)}원</td>
-                        <td class="text-right">${formatMarketCap(s.market_cap)}</td>
-                        <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
-                        <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
-                        <td>${formatShortDate(s.explosion_date)}</td>
-                        <td class="text-right positive">+${s.explosion_change_rate != null ? s.explosion_change_rate.toFixed(1) : '-'}%</td>
-                        <td class="text-right">${s.days_since_detected != null ? s.days_since_detected + '일' : '-'}</td>
-                        <td class="text-right" style="color: var(--color-success)">-${s.volume_decrease_rate}%</td>
-                    </tr>`;
-                },
-                extraFields: [
-                    { label: '급등일', key: 'explosion_date', format: function(s) { return formatShortDate(s.explosion_date); } },
-                    { label: '급등폭', key: 'explosion_change_rate', format: function(s) { return '+' + (s.explosion_change_rate != null ? s.explosion_change_rate.toFixed(1) : '-') + '%'; } }
-                ]
-            },
-
-            // 거래량 폭발 스크리너
-            volumeExplosion: {
-                dataKey: 'volumeExplosion',
-                filterKey: 'volumeExplosion',
-                tableId: 'volume-explosion-table',
-                countId: 'volume-explosion-count',
-                mobileId: 'volume-explosion-mobile',
-                paginationId: 'volume-explosion-pagination',
-                paginationKey: 'volumeExplosion',
-                headers: [
-                    { label: '종목명', key: 'name' },
-                    { label: '현재가', align: 'text-right', key: 'price' },
-                    { label: '시가총액', align: 'text-right', key: 'market_cap' },
-                    { label: 'PER', align: 'text-right', key: 'per' },
-                    { label: 'PBR', align: 'text-right', key: 'pbr' },
-                    { label: '등락률', align: 'text-right', key: 'change_rate' },
-                    { label: '거래량비', align: 'text-right', key: 'volume_ratio' },
-                    { label: '순위', align: 'text-right', key: 'volume_rank' }
-                ],
-                rowRenderer: function(s) {
-                    return `<tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
-                        <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
-                        <td class="text-right">${formatNumber(s.price)}원</td>
-                        <td class="text-right">${formatMarketCap(s.market_cap)}</td>
-                        <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
-                        <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
-                        <td class="text-right ${getColor(s.change_rate)}">${formatPercent(s.change_rate)}</td>
-                        <td class="text-right">${s.volume_ratio.toFixed(1)}x</td>
-                        <td class="text-right">${s.volume_rank}위</td>
-                    </tr>`;
-                },
-                extraFields: [
-                    { label: '거래량비', key: 'volume_ratio', format: function(s) { return s.volume_ratio.toFixed(1) + 'x'; } },
-                    { label: '순위', key: 'volume_rank', format: function(s) { return s.volume_rank + '위'; } }
-                ]
-            }
-        };
-
-        // ============================================================
-        // 통합 렌더링 함수 팩토리 - config 기반 렌더링 함수 생성
-        // ============================================================
-        function createScreenerRenderer(configKey) {
-            return function() {
-                const config = screenerConfigs[configKey];
-                if (!config) return;
-                renderScreenerTable({
-                    ...config,
-                    renderFn: createScreenerRenderer(configKey)
-                });
-            };
-        }
-
-        // 통합 렌더러 (설정 기반)
-        const renderBoxRangeNew = createScreenerRenderer('boxRange');
-        const renderPullbackNew = createScreenerRenderer('pullback');
-        const renderVolumeDryUpNew = createScreenerRenderer('volumeDryUp');
-        const renderVolumeExplosionNew = createScreenerRenderer('volumeExplosion');
 
         function renderBoxRange() {
             // 렌더링 캐시 확인 - 불필요한 재렌더링 방지
@@ -4890,7 +4672,6 @@
 
             const headers = [
                 { label: '종목명', key: 'name' },
-                { label: '업종', key: 'sector' },
                 { label: '현재가', align: 'text-right', key: 'current_price' },
                 { label: '시가총액', align: 'text-right', key: 'market_cap' },
                 { label: 'PER', align: 'text-right', key: 'per' },
@@ -4912,7 +4693,6 @@
                 return `
                     <tr onclick='openChartModal(${stockJson})' style="cursor:pointer">
                         <td><div class="stock-name">${s.name}${getOverlapBadge(s.ticker, '저평가')}</div><div class="stock-ticker">${s.ticker}</div></td>
-                        <td style="color:#8B95A1;font-size:0.9em">${s.sector || '-'}</td>
                         <td class="text-right">${s.current_price ? formatNumber(s.current_price) + '원' : '-'}</td>
                         <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                         <td class="text-right ${getPERColor(s.per)}">${s.per != null ? s.per.toFixed(1) : '-'}</td>
@@ -5074,8 +4854,7 @@
                 { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '종합순위', align: 'text-right', key: 'combined_rank' },
                 { label: '이익수익률', align: 'text-right', key: 'earnings_yield' },
-                { label: 'ROC', align: 'text-right', key: 'roc' },
-                { label: '섹터', key: 'sector' }
+                { label: 'ROC', align: 'text-right', key: 'roc' }
             ];
 
             const state = sortState[cacheKey] || {};
@@ -5111,7 +4890,6 @@
                                 </div>
                             </div>
                         </td>
-                        <td style="color:#8B95A1;font-size:0.9em">${s.sector || '-'}</td>
                     </tr>
                 `;
             }).join('');
@@ -5172,8 +4950,7 @@
                 { label: '총점', align: 'text-right', key: 'total_score' },
                 { label: 'Q점수', align: 'text-right', key: 'quality_score' },
                 { label: 'V점수', align: 'text-right', key: 'value_score' },
-                { label: 'M점수', align: 'text-right', key: 'momentum_score' },
-                { label: '섹터', key: 'sector' }
+                { label: 'M점수', align: 'text-right', key: 'momentum_score' }
             ];
 
             const state = sortState[cacheKey] || {};
@@ -5205,7 +4982,6 @@
                         <td class="text-right">${fmtScore(s.quality_score)}${scoreBar(s.quality_score, 2)}</td>
                         <td class="text-right">${fmtScore(s.value_score)}${scoreBar(s.value_score, 2)}</td>
                         <td class="text-right">${fmtScore(s.momentum_score)}${scoreBar(s.momentum_score, 2)}</td>
-                        <td style="color:#8B95A1;font-size:0.9em">${s.sector || '-'}</td>
                     </tr>
                 `;
             }).join('');
@@ -5268,8 +5044,7 @@
                 { label: '부채비율', align: 'text-right', key: 'debt_ratio' },
                 { label: 'FCF', align: 'text-right', key: 'fcf' },
                 { label: 'EPS성장%', align: 'text-right', key: 'eps_growth' },
-                { label: '배당%', align: 'text-right', key: 'dividend_yield' },
-                { label: '섹터', key: 'sector' }
+                { label: '배당%', align: 'text-right', key: 'dividend_yield' }
             ];
             const state = sortState[cacheKey] || {};
             const sortedData = sortData(items, state.key, state.direction);
@@ -5288,7 +5063,6 @@
                     <td class="text-right">${s.fcf != null ? formatNumber(Math.round(s.fcf)) : '-'}</td>
                     <td class="text-right positive">${s.eps_growth != null ? '+' + s.eps_growth.toFixed(1) + '%' : '-'}</td>
                     <td class="text-right">${s.dividend_yield != null ? s.dividend_yield.toFixed(2) + '%' : '-'}</td>
-                    <td style="color:#8B95A1;font-size:0.9em">${s.sector || '-'}</td>
                 </tr>`;
             }).join('');
             renderTable(cacheKey, headers, rows, renderBuffett);
@@ -5321,8 +5095,7 @@
                 { label: 'ROE%', align: 'text-right', key: 'roe' },
                 { label: '부채비율', align: 'text-right', key: 'debt_ratio' },
                 { label: 'FCF', align: 'text-right', key: 'fcf' },
-                { label: '배당%', align: 'text-right', key: 'dividend_yield' },
-                { label: '섹터', key: 'sector' }
+                { label: '배당%', align: 'text-right', key: 'dividend_yield' }
             ];
             const state = sortState[cacheKey] || {};
             const sortedData = sortData(items, state.key, state.direction);
@@ -5340,7 +5113,6 @@
                     <td class="text-right">${s.debt_ratio != null ? s.debt_ratio.toFixed(1) + '%' : '-'}</td>
                     <td class="text-right">${s.fcf != null ? formatNumber(Math.round(s.fcf)) : '-'}</td>
                     <td class="text-right" style="color:#00B894;font-weight:600">${s.dividend_yield != null ? s.dividend_yield.toFixed(2) + '%' : '-'}</td>
-                    <td style="color:#8B95A1;font-size:0.9em">${s.sector || '-'}</td>
                 </tr>`;
             }).join('');
             renderTable(cacheKey, headers, rows, renderAckman);
@@ -5373,8 +5145,7 @@
                 { label: 'ROE%', align: 'text-right', key: 'roe' },
                 { label: 'ROA%', align: 'text-right', key: 'roa' },
                 { label: '부채비율', align: 'text-right', key: 'debt_ratio' },
-                { label: '배당%', align: 'text-right', key: 'dividend_yield' },
-                { label: '섹터', key: 'sector' }
+                { label: '배당%', align: 'text-right', key: 'dividend_yield' }
             ];
             const state = sortState[cacheKey] || {};
             const sortedData = sortData(items, state.key, state.direction);
@@ -5393,7 +5164,6 @@
                     <td class="text-right">${s.roa != null ? s.roa.toFixed(1) : '-'}</td>
                     <td class="text-right">${s.debt_ratio != null ? s.debt_ratio.toFixed(1) + '%' : '-'}</td>
                     <td class="text-right">${s.dividend_yield != null ? s.dividend_yield.toFixed(2) + '%' : '-'}</td>
-                    <td style="color:#8B95A1;font-size:0.9em">${s.sector || '-'}</td>
                 </tr>`;
             }).join('');
             renderTable(cacheKey, headers, rows, renderLynch);
@@ -5425,10 +5195,9 @@
                 { label: 'PER×PBR', align: 'text-right', key: 'per_x_pbr' },
                 { label: '유동비율', align: 'text-right', key: 'current_ratio' },
                 { label: '순유동자산', align: 'text-right', key: 'net_current_assets' },
-                { label: '5Y성장%', align: 'text-right', key: 'cumulative_growth' },
+                { label: '누적성장%', align: 'text-right', key: 'cumulative_growth' },
                 { label: '부채비율', align: 'text-right', key: 'debt_ratio' },
-                { label: '배당%', align: 'text-right', key: 'dividend_yield' },
-                { label: '섹터', key: 'sector' }
+                { label: '배당%', align: 'text-right', key: 'dividend_yield' }
             ];
             const state = sortState[cacheKey] || {};
             const sortedData = sortData(items, state.key, state.direction);
@@ -5447,7 +5216,6 @@
                     <td class="text-right positive">${s.cumulative_growth != null ? '+' + s.cumulative_growth.toFixed(1) + '%' : '-'}</td>
                     <td class="text-right">${s.debt_ratio != null ? s.debt_ratio.toFixed(1) + '%' : '-'}</td>
                     <td class="text-right">${s.dividend_yield != null ? s.dividend_yield.toFixed(2) + '%' : '-'}</td>
-                    <td style="color:#8B95A1;font-size:0.9em">${s.sector || '-'}</td>
                 </tr>`;
             }).join('');
             renderTable(cacheKey, headers, rows, renderGraham);
@@ -5625,6 +5393,17 @@
                     showPage(hashPage, false);
                 }
             }
+
+            // 9. 키보드 접근성: 모든 클릭 가능한 행에 Enter/Space 지원
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    var tr = e.target.closest('tr[onclick]');
+                    if (tr) {
+                        e.preventDefault();
+                        tr.click();
+                    }
+                }
+            });
 
             console.log('✅ 앱 초기화 완료 (Lazy Rendering 적용)');
         }

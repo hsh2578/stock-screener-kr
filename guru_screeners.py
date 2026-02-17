@@ -22,7 +22,7 @@ import pandas as pd
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, SCRIPT_DIR)
 
-from scripts.krx_data import get_stock_master, get_sector_data
+from scripts.krx_data import get_stock_master
 from scripts.fnguide_data import (
     get_financial_data,
     get_ebit,
@@ -58,8 +58,8 @@ MIN_MARKET_CAP = 1000  # 시가총액 1,000억 이상
 # ============================================================================
 
 def _load_data():
-    """KRX 마스터 + FnGuide 캐시 + WiseIndex 섹터 로드"""
-    print("\n[1/3] KRX 종목 마스터 수집...")
+    """KRX 마스터 + FnGuide 캐시 로드"""
+    print("\n[1/2] KRX 종목 마스터 수집...")
     master = get_stock_master()
 
     # 기본 필터링 (보통주, 시총 1000억+, 스팩/리츠 제외)
@@ -71,7 +71,7 @@ def _load_data():
     ].copy()
     print(f"  기본 필터링: {len(filtered)}개 종목")
 
-    print("\n[2/3] FnGuide 캐시 로드...")
+    print("\n[2/2] FnGuide 캐시 로드...")
     fnguide_cache = load_fnguide_cache()
     if fnguide_cache:
         print(f"  캐시: {len(fnguide_cache)}개 종목")
@@ -79,16 +79,7 @@ def _load_data():
         print("  캐시 없음 -개별 수집 모드 (느림)")
         fnguide_cache = {}
 
-    print("\n[3/3] WiseIndex 섹터 데이터 수집...")
-    try:
-        sector_df = get_sector_data()
-        sector_map = dict(zip(sector_df['종목코드'], sector_df['섹터명']))
-        print(f"  섹터: {len(sector_map)}개 종목")
-    except Exception as e:
-        print(f"  섹터 수집 실패: {e}")
-        sector_map = {}
-
-    return filtered, fnguide_cache, sector_map
+    return filtered, fnguide_cache
 
 
 def _get_fin_data(code, fnguide_cache):
@@ -158,7 +149,7 @@ def _print_result(title, data_list, columns):
 # 워렌 버핏 -내재가치 전략
 # ============================================================================
 
-def screen_buffett(filtered, fnguide_cache, sector_map):
+def screen_buffett(filtered, fnguide_cache):
     """
     워렌 버핏 전략: 경쟁우위를 가진 우량 기업을 합리적 가격에 매수
 
@@ -229,7 +220,6 @@ def screen_buffett(filtered, fnguide_cache, sector_map):
         results.append({
             'ticker': code,
             'name': name,
-            'sector': sector_map.get(code, '기타'),
             'current_price': int(row.get('종가', 0) or 0),
             'market_cap': round(market_cap, 0),
             'roe': round(roe, 1),
@@ -254,7 +244,6 @@ def screen_buffett(filtered, fnguide_cache, sector_map):
 
     _print_result('워렌 버핏 전략', results, [
         {'key': 'name', 'label': '종목명', 'width': 14},
-        {'key': 'sector', 'label': '업종', 'width': 10},
         {'key': 'roe', 'label': 'ROE%', 'width': 8, 'fmt': '.1f'},
         {'key': 'per', 'label': 'PER', 'width': 8, 'fmt': '.1f'},
         {'key': 'pbr', 'label': 'PBR', 'width': 7, 'fmt': '.2f'},
@@ -271,7 +260,7 @@ def screen_buffett(filtered, fnguide_cache, sector_map):
 # 빌 애크먼 -주가 재평가 전략
 # ============================================================================
 
-def screen_ackman(filtered, fnguide_cache, sector_map):
+def screen_ackman(filtered, fnguide_cache):
     """
     빌 애크먼 전략: 높은 ROIC + 저평가 + 배당으로 주가 재평가 기대
 
@@ -331,7 +320,6 @@ def screen_ackman(filtered, fnguide_cache, sector_map):
         results.append({
             'ticker': code,
             'name': name,
-            'sector': sector_map.get(code, '기타'),
             'current_price': int(row.get('종가', 0) or 0),
             'market_cap': round(market_cap, 0),
             'roic': round(roic, 1),
@@ -354,7 +342,6 @@ def screen_ackman(filtered, fnguide_cache, sector_map):
 
     _print_result('빌 애크먼 전략', results, [
         {'key': 'name', 'label': '종목명', 'width': 14},
-        {'key': 'sector', 'label': '업종', 'width': 10},
         {'key': 'roic', 'label': 'ROIC%', 'width': 8, 'fmt': '.1f'},
         {'key': 'per', 'label': 'PER', 'width': 8, 'fmt': '.1f'},
         {'key': 'pbr', 'label': 'PBR', 'width': 7, 'fmt': '.2f'},
@@ -370,7 +357,7 @@ def screen_ackman(filtered, fnguide_cache, sector_map):
 # 피터 린치 -성장주 전략
 # ============================================================================
 
-def screen_lynch(filtered, fnguide_cache, sector_map):
+def screen_lynch(filtered, fnguide_cache):
     """
     피터 린치 전략: 합리적 가격의 성장주 (GARP)
 
@@ -433,7 +420,6 @@ def screen_lynch(filtered, fnguide_cache, sector_map):
         results.append({
             'ticker': code,
             'name': name,
-            'sector': sector_map.get(code, '기타'),
             'current_price': int(row.get('종가', 0) or 0),
             'market_cap': round(market_cap, 0),
             'per': round(per, 1),
@@ -458,7 +444,6 @@ def screen_lynch(filtered, fnguide_cache, sector_map):
 
     _print_result('피터 린치 전략', results, [
         {'key': 'name', 'label': '종목명', 'width': 14},
-        {'key': 'sector', 'label': '업종', 'width': 10},
         {'key': 'peg', 'label': 'PEG', 'width': 7, 'fmt': '.2f'},
         {'key': 'per', 'label': 'PER', 'width': 8, 'fmt': '.1f'},
         {'key': 'roe', 'label': 'ROE%', 'width': 8, 'fmt': '.1f'},
@@ -474,14 +459,11 @@ def screen_lynch(filtered, fnguide_cache, sector_map):
 # 벤저민 그레이엄 -가치투자 전략
 # ============================================================================
 
-IT_SECTORS = {'IT'}
-
-def screen_graham(filtered, fnguide_cache, sector_map):
+def screen_graham(filtered, fnguide_cache):
     """
     벤저민 그레이엄 전략: 안전마진 중심의 보수적 가치투자
 
     조건:
-    - 기술(IT) 기업 제외
     - 매출 > 1000억
     - 유동비율 > 200% (= 유동자산/유동부채 > 2)
     - 순유동자산 > 장기부채
@@ -499,11 +481,6 @@ def screen_graham(filtered, fnguide_cache, sector_map):
         code = row['종목코드']
         name = row['종목명']
         market_cap = row.get('시가총액', 0)
-        sector = sector_map.get(code, '기타')
-
-        # IT 기업 제외
-        if sector in IT_SECTORS:
-            continue
 
         fin = _get_fin_data(code, fnguide_cache)
         if not fin:
@@ -574,7 +551,6 @@ def screen_graham(filtered, fnguide_cache, sector_map):
         results.append({
             'ticker': code,
             'name': name,
-            'sector': sector,
             'current_price': int(row.get('종가', 0) or 0),
             'market_cap': round(market_cap, 0),
             'per': round(per, 1),
@@ -595,12 +571,11 @@ def screen_graham(filtered, fnguide_cache, sector_map):
                  '유동비율·PER×PBR·흑자 기반 보수적 가치투자',
                  ['PER < 15', 'PBR×PER < 22', '유동비율 > 200%',
                   '순유동자산 > 장기부채', '전 기간 흑자(순이익+영업이익)',
-                  'EPS 누적 성장 > 30%', '매출 > 1000억', 'IT 제외'],
+                  'EPS 누적 성장 > 30%', '매출 > 1000억'],
                  results)
 
     _print_result('벤저민 그레이엄 전략', results, [
         {'key': 'name', 'label': '종목명', 'width': 14},
-        {'key': 'sector', 'label': '업종', 'width': 10},
         {'key': 'per', 'label': 'PER', 'width': 8, 'fmt': '.1f'},
         {'key': 'pbr', 'label': 'PBR', 'width': 7, 'fmt': '.2f'},
         {'key': 'per_x_pbr', 'label': 'PxB', 'width': 7, 'fmt': '.2f'},
@@ -625,13 +600,13 @@ def main():
     start_time = time.time()
 
     # 데이터 로드
-    filtered, fnguide_cache, sector_map = _load_data()
+    filtered, fnguide_cache = _load_data()
 
     # 4개 전략 실행
-    buffett_results = screen_buffett(filtered, fnguide_cache, sector_map)
-    ackman_results = screen_ackman(filtered, fnguide_cache, sector_map)
-    lynch_results = screen_lynch(filtered, fnguide_cache, sector_map)
-    graham_results = screen_graham(filtered, fnguide_cache, sector_map)
+    buffett_results = screen_buffett(filtered, fnguide_cache)
+    ackman_results = screen_ackman(filtered, fnguide_cache)
+    lynch_results = screen_lynch(filtered, fnguide_cache)
+    graham_results = screen_graham(filtered, fnguide_cache)
 
     elapsed = time.time() - start_time
 

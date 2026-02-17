@@ -149,19 +149,17 @@ def check_new_high_condition(weekly_df: pd.DataFrame) -> tuple[bool, int]:
     Returns:
         (조건 충족 여부, 신고가 이후 주 수)
     """
-    if len(weekly_df) < 100:
+    if len(weekly_df) < NEW_HIGH_LOOKBACK:
         return False, 0
 
-    close = weekly_df['Close'].values
     high = weekly_df['High'].values
-
-    # 최근 100봉 고가
-    high_100 = high[-100:].max()
+    n = len(high)
 
     # 10봉전 ~ 30봉전 구간에서 100봉 신고가가 있는지 확인
-    for i in range(10, min(31, len(weekly_df))):
-        idx = -i
-        period_high = high[max(-100, idx-100):idx+1].max()
+    for i in range(NEW_HIGH_AFTER, min(NEW_HIGH_WITHIN + 1, n)):
+        idx = n - i  # positive index
+        start = max(0, idx - NEW_HIGH_LOOKBACK + 1)
+        period_high = high[start:idx + 1].max()
         if high[idx] >= period_high * 0.99:  # 1% 오차 허용
             return True, i
 
@@ -256,8 +254,8 @@ def screen_ma_convergence(stocks: pd.DataFrame = None, get_data_func=None, get_w
             stats['no_data'] += 1
             continue
 
-        # A. 거래량 체크 (최근 거래량)
-        recent_volume = daily_df['Volume'].iloc[-1]
+        # A. 거래량 체크 (5일 평균 — 단일일 저거래 방지)
+        recent_volume = daily_df['Volume'].iloc[-5:].mean()
         if recent_volume < MIN_VOLUME:
             stats['volume_fail'] += 1
             continue

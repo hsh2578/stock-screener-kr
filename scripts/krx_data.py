@@ -1,20 +1,15 @@
 """
-KRX 종목 마스터 + WiseIndex 섹터 데이터 수집 모듈
+KRX 종목 마스터 수집 모듈
 
 KRX OTP 2단계 통신으로 전 종목 데이터를 1회 수집합니다.
-WiseIndex API에서 WICS 섹터별 구성 종목을 수집합니다.
 
 사용법:
-    from scripts.krx_data import get_stock_master, get_sector_data
+    from scripts.krx_data import get_stock_master
     stocks = get_stock_master()
-    sectors = get_sector_data()
 """
 
 import io
 import re
-import time
-from datetime import datetime, timedelta
-
 import pandas as pd
 import requests
 
@@ -29,21 +24,6 @@ HEADERS = {
 KRX_GENERATE_URL = 'http://data.krx.co.kr/comm/fileDn/GenerateOTP/generate.cmd'
 KRX_DOWNLOAD_URL = 'http://data.krx.co.kr/comm/fileDn/download_csv/download.cmd'
 KRX_REFERER = 'http://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd'
-
-# WICS 섹터 코드
-WICS_SECTORS = {
-    'G10': '에너지',
-    'G15': '소재',
-    'G20': '산업재',
-    'G25': '경기소비재',
-    'G30': '필수소비재',
-    'G35': '건강관리',
-    'G40': '금융',
-    'G45': 'IT',
-    'G50': '통신서비스',
-    'G55': '유틸리티',
-    'G60': '부동산',
-}
 
 # 금융 업종 키워드 (마법공식에서 제외)
 FINANCIAL_SECTORS = {'금융'}
@@ -126,7 +106,7 @@ def get_stock_master(market: str = 'ALL') -> pd.DataFrame:
     df['is_spac'] = df['종목명'].apply(lambda x: bool(SPAC_PATTERN.search(str(x))))
     df['is_reit'] = df['종목명'].apply(lambda x: bool(REIT_PATTERN.search(str(x))))
 
-    # 업종 정보는 FDR에 없으므로 기본값 '기타' (WiseIndex 병합 후 덮어씀)
+    # 업종 정보
     if 'Dept' in df.columns:
         df['업종'] = df['Dept'].replace('', '기타').fillna('기타')
     else:
@@ -198,125 +178,6 @@ def is_financial_stock(sector: str, name: str = '') -> bool:
     return False
 
 
-# ============================================================================
-# WiseIndex 섹터 데이터
-# ============================================================================
-
-WISEINDEX_URL = 'https://www.wiseindex.com/Index/GetIndexComponets'
-
-
-def get_sector_data(date: str = None) -> pd.DataFrame:
-    """
-    WiseIndex에서 WICS 섹터별 구성 종목을 수집합니다.
-
-    Args:
-        date: 조회 기준일 (YYYYMMDD). None이면 오늘.
-
-    Returns:
-        DataFrame with columns: 종목코드, 종목명, 섹터코드, 섹터명, 비중
-    """
-    if date is None:
-        today = datetime.now()
-        # 주말이면 금요일로 조정
-        if today.weekday() == 5:
-            today -= timedelta(days=1)
-        elif today.weekday() == 6:
-            today -= timedelta(days=2)
-        date = today.strftime('%Y%m%d')
-
-    print(f"WiseIndex 섹터 데이터 수집 중... (기준일: {date})")
-
-    all_data = []
-    date_adjusted = False
-
-    for code, name in WICS_SECTORS.items():
-        try:
-            params = {
-                'ceil_yn': '0',
-                'dt': date,
-                'sec_cd': code,
-            }
-            resp = requests.get(WISEINDEX_URL, params=params, headers=HEADERS, timeout=15)
-            resp.raise_for_status()
-
-            data = resp.json()
-            if isinstance(data, list):
-                items = data
-            elif isinstance(data, dict):
-                items = data.get('list', data.get('data', []))
-            else:
-                items = []
-
-            # 첫 섹터에서 0개면 이전 거래일로 최대 5영업일 재시도 (공휴일 대응)
-            if not items and not date_adjusted and not all_data:
-                for _ in range(5):
-                    prev = datetime.strptime(date, '%Y%m%d') - timedelta(days=1)
-                    while prev.weekday() >= 5:
-                        prev -= timedelta(days=1)
-                    date = prev.strftime('%Y%m%d')
-                    print(f"  데이터 없음, 전 거래일로 재시도: {date}")
-                    params['dt'] = date
-                    resp = requests.get(WISEINDEX_URL, params=params, headers=HEADERS, timeout=15)
-                    resp.raise_for_status()
-                    data = resp.json()
-                    items = data if isinstance(data, list) else (data.get('list', data.get('data', [])) if isinstance(data, dict) else [])
-                    if items:
-                        break
-                date_adjusted = True
-
-            for item in items:
-                ticker = str(item.get('CMP_CD', item.get('IDX_CD', ''))).replace('A', '')
-                all_data.append({
-                    '종목코드': ticker.zfill(6),
-                    '종목명': item.get('CMP_KOR', item.get('IDX_NM_KOR', '')),
-                    '섹터코드': code,
-                    '섹터명': name,
-                    '비중': item.get('WT', 0),
-                })
-
-            time.sleep(2)  # 서버 부하 방지
-
-        except Exception as e:
-            print(f"  [경고] 섹터 {name}({code}) 수집 실패: {e}")
-            continue
-
-    df = pd.DataFrame(all_data)
-    print(f"  섹터 데이터: {len(df)}개 종목, {len(WICS_SECTORS)}개 섹터")
-
-    return df
-
-
-# ============================================================================
-# 유틸리티
-# ============================================================================
-
-def merge_sector_info(stocks_df: pd.DataFrame, sector_df: pd.DataFrame) -> pd.DataFrame:
-    """
-    종목 마스터에 섹터 정보를 병합합니다.
-
-    Args:
-        stocks_df: get_stock_master() 또는 get_filtered_stocks() 결과
-        sector_df: get_sector_data() 결과
-
-    Returns:
-        섹터 정보가 추가된 DataFrame
-    """
-    code_col = 'Code' if 'Code' in stocks_df.columns else '종목코드'
-
-    sector_map = sector_df.drop_duplicates('종목코드').set_index('종목코드')[['섹터코드', '섹터명']]
-    merged = stocks_df.merge(
-        sector_map,
-        left_on=code_col,
-        right_index=True,
-        how='left'
-    )
-    # 섹터 없는 종목은 '기타'
-    merged['섹터명'] = merged['섹터명'].fillna('기타')
-    merged['섹터코드'] = merged['섹터코드'].fillna('G99')
-
-    return merged
-
-
 if __name__ == '__main__':
     # 테스트
     print("=" * 60)
@@ -326,13 +187,3 @@ if __name__ == '__main__':
     stocks = get_stock_master()
     print(f"\n전체 종목 수: {len(stocks)}")
     print(stocks[['종목코드', '종목명', 'PER', 'PBR', '시가총액']].head(10))
-
-    print("\n" + "=" * 60)
-    print("WiseIndex 섹터 테스트")
-    print("=" * 60)
-
-    sectors = get_sector_data()
-    print(f"\n섹터 데이터: {len(sectors)}개")
-    for code, name in WICS_SECTORS.items():
-        count = len(sectors[sectors['섹터코드'] == code])
-        print(f"  {name} ({code}): {count}개")
