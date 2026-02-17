@@ -858,7 +858,10 @@ def get_operating_margins(data: Dict, years: int = 5) -> List[Optional[float]]:
 
 
 def get_per_from_data(market_cap: float, data: Dict) -> Optional[float]:
-    """PER = 시가총액(억원) / 순이익(TTM, 억원)"""
+    """PER: FnGuide 헤더값 우선, 없으면 시가총액/순이익TTM으로 계산"""
+    header_per = data.get('header', {}).get('per')
+    if header_per is not None and header_per > 0:
+        return round(header_per, 2)
     ni = data.get('net_income_controlling_ttm') or data.get('net_income_ttm')
     if ni is not None and ni > 0 and market_cap > 0:
         return round(market_cap / ni, 2)
@@ -866,7 +869,10 @@ def get_per_from_data(market_cap: float, data: Dict) -> Optional[float]:
 
 
 def get_pbr_from_data(market_cap: float, data: Dict) -> Optional[float]:
-    """PBR = 시가총액(억원) / 자본총계(억원)"""
+    """PBR: FnGuide 헤더값 우선, 없으면 시가총액/자본총계로 계산"""
+    header_pbr = data.get('header', {}).get('pbr')
+    if header_pbr is not None and header_pbr > 0:
+        return round(header_pbr, 2)
     bs = data.get('balance', {})
     eq = bs.get('controlling_equity') or bs.get('total_equity')
     if eq is not None and eq > 0 and market_cap > 0:

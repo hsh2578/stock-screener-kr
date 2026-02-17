@@ -126,11 +126,11 @@ def get_stock_master(market: str = 'ALL') -> pd.DataFrame:
     df['is_spac'] = df['종목명'].apply(lambda x: bool(SPAC_PATTERN.search(str(x))))
     df['is_reit'] = df['종목명'].apply(lambda x: bool(REIT_PATTERN.search(str(x))))
 
-    # 업종 정보는 FDR에 없으므로 빈값
+    # 업종 정보는 FDR에 없으므로 기본값 '기타' (WiseIndex 병합 후 덮어씀)
     if 'Dept' in df.columns:
-        df['업종'] = df['Dept']
+        df['업종'] = df['Dept'].replace('', '기타').fillna('기타')
     else:
-        df['업종'] = ''
+        df['업종'] = '기타'
 
     print(f"  전체 종목: {len(df)}개")
     print(f"  보통주: {df['is_common'].sum()}개")
