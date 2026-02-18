@@ -3,7 +3,7 @@
     "type": "magic-formula",
     "name": "마법공식 (그린블라트)",
     "description": "이익수익률 + 투하자본수익률 순위 합산",
-    "lastUpdated": "2026-02-18T05:21:52.754724",
+    "lastUpdated": "2026-02-18T21:01:38.420684",
     "totalCount": 20,
     "screened_from": 1051
   },
@@ -122,22 +122,6 @@
     },
     {
       "rank": 8,
-      "ticker": "033100",
-      "name": "제룡전기",
-      "current_price": 51400,
-      "per": 10.3,
-      "pbr": 4.2,
-      "combined_rank": 105,
-      "ey_rank": 95,
-      "roc_rank": 10,
-      "earnings_yield": 11.54,
-      "roc": 49.39,
-      "ebit": 978.0,
-      "market_cap": 8256.0,
-      "ev": 8473.0
-    },
-    {
-      "rank": 9,
       "ticker": "037460",
       "name": "삼지전자",
       "current_price": 21950,
@@ -151,6 +135,22 @@
       "ebit": 1475.0,
       "market_cap": 3582.0,
       "ev": 7611.0
+    },
+    {
+      "rank": 9,
+      "ticker": "033100",
+      "name": "제룡전기",
+      "current_price": 51400,
+      "per": 10.3,
+      "pbr": 4.2,
+      "combined_rank": 105,
+      "ey_rank": 95,
+      "roc_rank": 10,
+      "earnings_yield": 11.54,
+      "roc": 49.39,
+      "ebit": 978.0,
+      "market_cap": 8256.0,
+      "ev": 8473.0
     },
     {
       "rank": 10,
