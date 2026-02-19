@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-19T16:42:31.551972",
-    "totalCount": 17,
+    "lastUpdated": "2026-02-19T18:14:36.256358",
+    "totalCount": 13,
     "screened_from": 1563
   },
   "data": [
@@ -23,7 +23,7 @@
       "days": 114,
       "ma150": 5575,
       "above_ma150": true,
-      "updated_at": "2026-02-19T16:42:31.123206"
+      "updated_at": "2026-02-19T18:14:35.873495"
     },
     {
       "ticker": "415640",
@@ -43,7 +43,7 @@
       "days": 83,
       "ma150": 9328,
       "above_ma150": true,
-      "updated_at": "2026-02-19T16:42:27.760227"
+      "updated_at": "2026-02-19T18:14:32.540256"
     },
     {
       "ticker": "122900",
@@ -63,7 +63,7 @@
       "days": 128,
       "ma150": 8061,
       "above_ma150": true,
-      "updated_at": "2026-02-19T16:42:28.118756"
+      "updated_at": "2026-02-19T18:14:33.106388"
     },
     {
       "ticker": "078000",
@@ -83,27 +83,27 @@
       "days": 96,
       "ma150": 15322,
       "above_ma150": true,
-      "updated_at": "2026-02-19T16:42:28.592277"
+      "updated_at": "2026-02-19T18:14:33.619078"
     },
     {
       "ticker": "365550",
       "name": "ESR켄달스퀘어리츠",
-      "price": 4440,
-      "change_rate": 0.91,
+      "price": 4450,
+      "change_rate": 0.23,
       "market_cap": 10950,
       "box_high": 4485,
       "box_low": 4115,
       "range_percent": 8.99,
-      "atr": 1.89,
-      "atr_multiple": 4.75,
+      "atr": 1.88,
+      "atr_multiple": 4.78,
       "support_touches": 2,
       "resistance_touches": 5,
-      "slope_daily": 0.009,
-      "volume_decrease_rate": 36.55,
-      "days": 100,
-      "ma150": 4396,
+      "slope_daily": 0.0153,
+      "volume_decrease_rate": 37.8,
+      "days": 101,
+      "ma150": 4398,
       "above_ma150": true,
-      "updated_at": "2026-02-19T16:42:27.805718"
+      "updated_at": "2026-02-19T18:14:32.593861"
     },
     {
       "ticker": "002620",
@@ -123,47 +123,27 @@
       "days": 87,
       "ma150": 8384,
       "above_ma150": false,
-      "updated_at": "2026-02-19T16:42:28.630887"
-    },
-    {
-      "ticker": "043150",
-      "name": "바텍",
-      "price": 20950,
-      "change_rate": 0.72,
-      "market_cap": 3275,
-      "box_high": 20950,
-      "box_low": 18890,
-      "range_percent": 10.91,
-      "atr": 2.11,
-      "atr_multiple": 5.17,
-      "support_touches": 2,
-      "resistance_touches": 4,
-      "slope_daily": 0.0156,
-      "volume_decrease_rate": 7.23,
-      "days": 66,
-      "ma150": 21330,
-      "above_ma150": false,
-      "updated_at": "2026-02-19T16:42:29.321225"
+      "updated_at": "2026-02-19T18:14:33.781790"
     },
     {
       "ticker": "052420",
       "name": "오성첨단소재",
-      "price": 1570,
-      "change_rate": 2.28,
+      "price": 1535,
+      "change_rate": -0.84,
       "market_cap": 1482,
       "box_high": 1617,
       "box_low": 1418,
       "range_percent": 14.03,
-      "atr": 3.03,
-      "atr_multiple": 4.63,
+      "atr": 3.09,
+      "atr_multiple": 4.54,
       "support_touches": 4,
       "resistance_touches": 4,
-      "slope_daily": 0.0176,
-      "volume_decrease_rate": 19.83,
-      "days": 77,
+      "slope_daily": 0.0152,
+      "volume_decrease_rate": 21.1,
+      "days": 76,
       "ma150": 1555,
-      "above_ma150": true,
-      "updated_at": "2026-02-19T16:42:30.869342"
+      "above_ma150": false,
+      "updated_at": "2026-02-19T18:14:35.723494"
     },
     {
       "ticker": "018470",
@@ -183,7 +163,7 @@
       "days": 114,
       "ma150": 1372,
       "above_ma150": false,
-      "updated_at": "2026-02-19T16:42:28.533360"
+      "updated_at": "2026-02-19T18:14:33.512566"
     },
     {
       "ticker": "005740",
@@ -203,87 +183,27 @@
       "days": 99,
       "ma150": 7168,
       "above_ma150": true,
-      "updated_at": "2026-02-19T16:42:28.753211"
-    },
-    {
-      "ticker": "091120",
-      "name": "이엠텍",
-      "price": 7230,
-      "change_rate": -1.09,
-      "market_cap": 1238,
-      "box_high": 7230,
-      "box_low": 6250,
-      "range_percent": 15.68,
-      "atr": 3.1,
-      "atr_multiple": 5.06,
-      "support_touches": 3,
-      "resistance_touches": 4,
-      "slope_daily": -0.0367,
-      "volume_decrease_rate": 38.66,
-      "days": 99,
-      "ma150": 9095,
-      "above_ma150": false,
-      "updated_at": "2026-02-19T16:42:31.130148"
-    },
-    {
-      "ticker": "030190",
-      "name": "NICE평가정보",
-      "price": 17540,
-      "change_rate": -0.45,
-      "market_cap": 10020,
-      "box_high": 18200,
-      "box_low": 15570,
-      "range_percent": 16.89,
-      "atr": 3.58,
-      "atr_multiple": 4.72,
-      "support_touches": 3,
-      "resistance_touches": 4,
-      "slope_daily": -0.0396,
-      "volume_decrease_rate": 31.2,
-      "days": 69,
-      "ma150": 15890,
-      "above_ma150": true,
-      "updated_at": "2026-02-19T16:42:27.825543"
-    },
-    {
-      "ticker": "007700",
-      "name": "F&F홀딩스",
-      "price": 20600,
-      "change_rate": -2.14,
-      "market_cap": 8311,
-      "box_high": 21550,
-      "box_low": 18300,
-      "range_percent": 17.76,
-      "atr": 4.19,
-      "atr_multiple": 4.24,
-      "support_touches": 2,
-      "resistance_touches": 4,
-      "slope_daily": 0.0014,
-      "volume_decrease_rate": 8.12,
-      "days": 69,
-      "ma150": 19361,
-      "above_ma150": true,
-      "updated_at": "2026-02-19T16:42:27.849247"
+      "updated_at": "2026-02-19T18:14:34.027454"
     },
     {
       "ticker": "093370",
       "name": "후성",
-      "price": 8280,
-      "change_rate": 2.48,
+      "price": 8400,
+      "change_rate": 1.45,
       "market_cap": 9009,
-      "box_high": 8640,
+      "box_high": 8500,
       "box_low": 7280,
-      "range_percent": 18.68,
-      "atr": 4.41,
-      "atr_multiple": 4.24,
+      "range_percent": 16.76,
+      "atr": 4.31,
+      "atr_multiple": 3.89,
       "support_touches": 4,
-      "resistance_touches": 4,
-      "slope_daily": -0.0072,
-      "volume_decrease_rate": 34.92,
-      "days": 61,
-      "ma150": 6935,
+      "resistance_touches": 5,
+      "slope_daily": 0.0183,
+      "volume_decrease_rate": 27.49,
+      "days": 62,
+      "ma150": 6959,
       "above_ma150": true,
-      "updated_at": "2026-02-19T16:42:27.840759"
+      "updated_at": "2026-02-19T18:14:32.643225"
     },
     {
       "ticker": "006340",
@@ -303,7 +223,7 @@
       "days": 76,
       "ma150": 3379,
       "above_ma150": true,
-      "updated_at": "2026-02-19T16:42:28.081690"
+      "updated_at": "2026-02-19T18:14:33.038020"
     },
     {
       "ticker": "214680",
@@ -323,7 +243,7 @@
       "days": 129,
       "ma150": 1972,
       "above_ma150": true,
-      "updated_at": "2026-02-19T16:42:30.429055"
+      "updated_at": "2026-02-19T18:14:35.523405"
     },
     {
       "ticker": "054540",
@@ -343,7 +263,7 @@
       "days": 61,
       "ma150": 12406,
       "above_ma150": true,
-      "updated_at": "2026-02-19T16:42:30.329533"
+      "updated_at": "2026-02-19T18:14:35.481784"
     }
   ]
 }

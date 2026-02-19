@@ -1,21 +1,33 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-19T16:42:32.198783",
-    "totalCount": 31,
+    "lastUpdated": "2026-02-19T18:14:37.224788",
+    "totalCount": 29,
     "screened_from": 1563
   },
   "data": [
+    {
+      "ticker": "001500",
+      "name": "현대차증권",
+      "price": 13800,
+      "change_rate": 29.21,
+      "volume_ratio": 52.8,
+      "volume_rank": 1,
+      "ma150": 8557,
+      "above_ma150": true,
+      "market_cap": 8532,
+      "updated_at": "2026-02-19T18:14:36.578490"
+    },
     {
       "ticker": "003000",
       "name": "부광약품",
       "price": 5480,
       "change_rate": 28.04,
       "volume_ratio": 18.5,
-      "volume_rank": 1,
+      "volume_rank": 2,
       "ma150": 3711,
       "above_ma150": true,
       "market_cap": 5406,
-      "updated_at": "2026-02-19T16:42:31.731779"
+      "updated_at": "2026-02-19T18:14:36.618281"
     },
     {
       "ticker": "125020",
@@ -23,11 +35,11 @@
       "price": 5290,
       "change_rate": 25.5,
       "volume_ratio": 18.4,
-      "volume_rank": 2,
+      "volume_rank": 3,
       "ma150": 4354,
       "above_ma150": true,
       "market_cap": 1853,
-      "updated_at": "2026-02-19T16:42:32.029836"
+      "updated_at": "2026-02-19T18:14:36.999447"
     },
     {
       "ticker": "078020",
@@ -35,11 +47,11 @@
       "price": 8600,
       "change_rate": 13.01,
       "volume_ratio": 18.0,
-      "volume_rank": 3,
+      "volume_rank": 4,
       "ma150": 5239,
       "above_ma150": true,
       "market_cap": 4771,
-      "updated_at": "2026-02-19T16:42:31.929194"
+      "updated_at": "2026-02-19T18:14:36.883822"
     },
     {
       "ticker": "030210",
@@ -47,11 +59,11 @@
       "price": 5370,
       "change_rate": 20.95,
       "volume_ratio": 17.2,
-      "volume_rank": 4,
+      "volume_rank": 5,
       "ma150": 3617,
       "above_ma150": true,
       "market_cap": 3270,
-      "updated_at": "2026-02-19T16:42:31.762382"
+      "updated_at": "2026-02-19T18:14:36.707517"
     },
     {
       "ticker": "003460",
@@ -59,11 +71,11 @@
       "price": 3970,
       "change_rate": 13.59,
       "volume_ratio": 17.2,
-      "volume_rank": 5,
+      "volume_rank": 6,
       "ma150": 2827,
       "above_ma150": true,
       "market_cap": 2251,
-      "updated_at": "2026-02-19T16:42:31.789547"
+      "updated_at": "2026-02-19T18:14:36.762084"
     },
     {
       "ticker": "081000",
@@ -71,23 +83,11 @@
       "price": 16350,
       "change_rate": 17.97,
       "volume_ratio": 17.0,
-      "volume_rank": 6,
+      "volume_rank": 7,
       "ma150": 12758,
       "above_ma150": true,
       "market_cap": 2322,
-      "updated_at": "2026-02-19T16:42:31.785616"
-    },
-    {
-      "ticker": "005440",
-      "name": "현대지에프홀딩스",
-      "price": 14420,
-      "change_rate": 19.17,
-      "volume_ratio": 16.3,
-      "volume_rank": 7,
-      "ma150": 8462,
-      "above_ma150": true,
-      "market_cap": 22606,
-      "updated_at": "2026-02-19T16:42:31.644649"
+      "updated_at": "2026-02-19T18:14:36.730979"
     },
     {
       "ticker": "001460",
@@ -99,19 +99,7 @@
       "ma150": 41055,
       "above_ma150": true,
       "market_cap": 3741,
-      "updated_at": "2026-02-19T16:42:31.753275"
-    },
-    {
-      "ticker": "098120",
-      "name": "마이크로컨텍솔",
-      "price": 25650,
-      "change_rate": 26.98,
-      "volume_ratio": 15.4,
-      "volume_rank": 9,
-      "ma150": 20612,
-      "above_ma150": true,
-      "market_cap": 2601,
-      "updated_at": "2026-02-19T16:42:31.986244"
+      "updated_at": "2026-02-19T18:14:36.695812"
     },
     {
       "ticker": "009290",
@@ -119,11 +107,11 @@
       "price": 8000,
       "change_rate": 29.87,
       "volume_ratio": 14.2,
-      "volume_rank": 10,
+      "volume_rank": 9,
       "ma150": 6004,
       "above_ma150": true,
       "market_cap": 3983,
-      "updated_at": "2026-02-19T16:42:31.748902"
+      "updated_at": "2026-02-19T18:14:36.690819"
     },
     {
       "ticker": "001200",
@@ -131,23 +119,11 @@
       "price": 5990,
       "change_rate": 25.31,
       "volume_ratio": 13.4,
-      "volume_rank": 11,
+      "volume_rank": 10,
       "ma150": 3654,
       "above_ma150": true,
       "market_cap": 5802,
-      "updated_at": "2026-02-19T16:42:31.728880"
-    },
-    {
-      "ticker": "003530",
-      "name": "한화투자증권",
-      "price": 7360,
-      "change_rate": 13.23,
-      "volume_ratio": 13.3,
-      "volume_rank": 12,
-      "ma150": 5551,
-      "above_ma150": true,
-      "market_cap": 20510,
-      "updated_at": "2026-02-19T16:42:31.653416"
+      "updated_at": "2026-02-19T18:14:36.615071"
     },
     {
       "ticker": "019550",
@@ -155,11 +131,23 @@
       "price": 910,
       "change_rate": 12.76,
       "volume_ratio": 13.2,
-      "volume_rank": 13,
+      "volume_rank": 11,
       "ma150": 738,
       "above_ma150": true,
       "market_cap": 1474,
-      "updated_at": "2026-02-19T16:42:32.088506"
+      "updated_at": "2026-02-19T18:14:37.158406"
+    },
+    {
+      "ticker": "003470",
+      "name": "유안타증권",
+      "price": 5880,
+      "change_rate": 16.67,
+      "volume_ratio": 10.7,
+      "volume_rank": 12,
+      "ma150": 3832,
+      "above_ma150": true,
+      "market_cap": 11736,
+      "updated_at": "2026-02-19T18:14:36.558965"
     },
     {
       "ticker": "058400",
@@ -167,11 +155,23 @@
       "price": 856,
       "change_rate": 7.27,
       "volume_ratio": 9.8,
-      "volume_rank": 14,
+      "volume_rank": 13,
       "ma150": 721,
       "above_ma150": true,
       "market_cap": 1133,
-      "updated_at": "2026-02-19T16:42:32.140225"
+      "updated_at": "2026-02-19T18:14:37.199456"
+    },
+    {
+      "ticker": "003530",
+      "name": "한화투자증권",
+      "price": 9560,
+      "change_rate": 29.89,
+      "volume_ratio": 9.4,
+      "volume_rank": 14,
+      "ma150": 5571,
+      "above_ma150": true,
+      "market_cap": 20510,
+      "updated_at": "2026-02-19T18:14:36.508500"
     },
     {
       "ticker": "018880",
@@ -183,7 +183,7 @@
       "ma150": 3368,
       "above_ma150": true,
       "market_cap": 54084,
-      "updated_at": "2026-02-19T16:42:31.623191"
+      "updated_at": "2026-02-19T18:14:36.471513"
     },
     {
       "ticker": "054620",
@@ -195,7 +195,7 @@
       "ma150": 4405,
       "above_ma150": true,
       "market_cap": 1009,
-      "updated_at": "2026-02-19T16:42:32.175231"
+      "updated_at": "2026-02-19T18:14:37.222799"
     },
     {
       "ticker": "023760",
@@ -207,7 +207,7 @@
       "ma150": 806,
       "above_ma150": true,
       "market_cap": 3481,
-      "updated_at": "2026-02-19T16:42:31.953757"
+      "updated_at": "2026-02-19T18:14:36.913371"
     },
     {
       "ticker": "131030",
@@ -219,19 +219,7 @@
       "ma150": 7225,
       "above_ma150": true,
       "market_cap": 1537,
-      "updated_at": "2026-02-19T16:42:32.070397"
-    },
-    {
-      "ticker": "088350",
-      "name": "한화생명",
-      "price": 4830,
-      "change_rate": 7.45,
-      "volume_ratio": 7.4,
-      "volume_rank": 19,
-      "ma150": 3302,
-      "above_ma150": true,
-      "market_cap": 44121,
-      "updated_at": "2026-02-19T16:42:31.627886"
+      "updated_at": "2026-02-19T18:14:37.149979"
     },
     {
       "ticker": "016610",
@@ -239,35 +227,35 @@
       "price": 17540,
       "change_rate": 14.19,
       "volume_ratio": 7.4,
-      "volume_rank": 20,
+      "volume_rank": 19,
       "ma150": 10326,
       "above_ma150": true,
       "market_cap": 7445,
-      "updated_at": "2026-02-19T16:42:31.698228"
+      "updated_at": "2026-02-19T18:14:36.585198"
     },
     {
-      "ticker": "317770",
-      "name": "엑스페릭스",
-      "price": 4190,
-      "change_rate": 7.44,
+      "ticker": "475150",
+      "name": "SK이터닉스",
+      "price": 28400,
+      "change_rate": 18.83,
       "volume_ratio": 7.2,
-      "volume_rank": 21,
-      "ma150": 3332,
+      "volume_rank": 20,
+      "ma150": 21653,
       "above_ma150": true,
-      "market_cap": 1394,
-      "updated_at": "2026-02-19T16:42:32.097371"
+      "market_cap": 9586,
+      "updated_at": "2026-02-19T18:14:36.570015"
     },
     {
-      "ticker": "001500",
-      "name": "현대차증권",
-      "price": 10680,
-      "change_rate": 8.98,
+      "ticker": "389140",
+      "name": "포바이포",
+      "price": 12150,
+      "change_rate": 21.14,
       "volume_ratio": 7.1,
-      "volume_rank": 22,
-      "ma150": 8523,
+      "volume_rank": 21,
+      "ma150": 10358,
       "above_ma150": true,
-      "market_cap": 8532,
-      "updated_at": "2026-02-19T16:42:31.691995"
+      "market_cap": 1733,
+      "updated_at": "2026-02-19T18:14:37.018896"
     },
     {
       "ticker": "112610",
@@ -275,11 +263,11 @@
       "price": 50400,
       "change_rate": 18.31,
       "volume_ratio": 7.0,
-      "volume_rank": 23,
+      "volume_rank": 22,
       "ma150": 43614,
       "above_ma150": true,
       "market_cap": 21254,
-      "updated_at": "2026-02-19T16:42:31.645823"
+      "updated_at": "2026-02-19T18:14:36.507016"
     },
     {
       "ticker": "030610",
@@ -287,11 +275,23 @@
       "price": 15940,
       "change_rate": 26.11,
       "volume_ratio": 7.0,
-      "volume_rank": 24,
+      "volume_rank": 23,
       "ma150": 9605,
       "above_ma150": true,
       "market_cap": 18165,
-      "updated_at": "2026-02-19T16:42:31.658166"
+      "updated_at": "2026-02-19T18:14:36.523476"
+    },
+    {
+      "ticker": "297090",
+      "name": "씨에스베어링",
+      "price": 6990,
+      "change_rate": 8.2,
+      "volume_ratio": 7.0,
+      "volume_rank": 24,
+      "ma150": 6561,
+      "above_ma150": true,
+      "market_cap": 1906,
+      "updated_at": "2026-02-19T18:14:36.991245"
     },
     {
       "ticker": "000180",
@@ -303,19 +303,7 @@
       "ma150": 1569,
       "above_ma150": true,
       "market_cap": 1260,
-      "updated_at": "2026-02-19T16:42:31.824760"
-    },
-    {
-      "ticker": "003470",
-      "name": "유안타증권",
-      "price": 5040,
-      "change_rate": 7.12,
-      "volume_ratio": 6.6,
-      "volume_rank": 26,
-      "ma150": 3820,
-      "above_ma150": true,
-      "market_cap": 11736,
-      "updated_at": "2026-02-19T16:42:31.670243"
+      "updated_at": "2026-02-19T18:14:36.799519"
     },
     {
       "ticker": "004710",
@@ -323,11 +311,11 @@
       "price": 6390,
       "change_rate": 8.67,
       "volume_ratio": 6.4,
-      "volume_rank": 27,
+      "volume_rank": 26,
       "ma150": 6022,
       "above_ma150": true,
       "market_cap": 2051,
-      "updated_at": "2026-02-19T16:42:31.793836"
+      "updated_at": "2026-02-19T18:14:36.766798"
     },
     {
       "ticker": "181710",
@@ -335,23 +323,11 @@
       "price": 42400,
       "change_rate": 27.9,
       "volume_ratio": 6.3,
-      "volume_rank": 28,
+      "volume_rank": 27,
       "ma150": 29403,
       "above_ma150": true,
       "market_cap": 13887,
-      "updated_at": "2026-02-19T16:42:31.663869"
-    },
-    {
-      "ticker": "221800",
-      "name": "유투바이오",
-      "price": 14670,
-      "change_rate": 29.94,
-      "volume_ratio": 6.2,
-      "volume_rank": 29,
-      "ma150": 4206,
-      "above_ma150": true,
-      "market_cap": 3038,
-      "updated_at": "2026-02-19T16:42:31.970600"
+      "updated_at": "2026-02-19T18:14:36.551986"
     },
     {
       "ticker": "047770",
@@ -359,11 +335,11 @@
       "price": 5040,
       "change_rate": 14.68,
       "volume_ratio": 6.1,
-      "volume_rank": 30,
+      "volume_rank": 28,
       "ma150": 2633,
       "above_ma150": true,
       "market_cap": 1907,
-      "updated_at": "2026-02-19T16:42:32.024249"
+      "updated_at": "2026-02-19T18:14:36.982001"
     },
     {
       "ticker": "086450",
@@ -371,11 +347,11 @@
       "price": 20800,
       "change_rate": 14.92,
       "volume_ratio": 6.0,
-      "volume_rank": 31,
+      "volume_rank": 29,
       "ma150": 18092,
       "above_ma150": true,
       "market_cap": 9407,
-      "updated_at": "2026-02-19T16:42:31.893784"
+      "updated_at": "2026-02-19T18:14:36.850667"
     }
   ]
 }
