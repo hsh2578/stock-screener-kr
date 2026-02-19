@@ -3508,11 +3508,11 @@ def save_results(results: List[Dict], filename: str, screened_from: int) -> None
 def _fetch_chart_data_single(ticker: str) -> tuple:
     """단일 종목 차트 데이터 fetch (병렬 실행용). OHLCV 캐시 우선 사용."""
     try:
-        # 캐시에 데이터가 있으면 우선 사용
+        # 캐시에 3년치(~730거래일) 이상 있으면 우선 사용
         df = None
-        if ticker in _DATA_CACHE and _DATA_CACHE[ticker] is not None and len(_DATA_CACHE[ticker]) >= 10:
+        if ticker in _DATA_CACHE and _DATA_CACHE[ticker] is not None and len(_DATA_CACHE[ticker]) >= 700:
             df = _DATA_CACHE[ticker]
-        if df is None or len(df) < 10:
+        if df is None or len(df) < 700:
             end_date = datetime.now()
             start_date = end_date - timedelta(days=1100)
             try:
