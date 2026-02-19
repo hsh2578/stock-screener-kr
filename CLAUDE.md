@@ -151,7 +151,7 @@ const screenerGroups = [
 
 | 워크플로우 | 실행 시점 | 실행 내용 |
 |-----------|----------|----------|
-| `deploy.yml` | 평일 12/14/16/18시 KST | `run_screeners.py` + 배포 |
+| `deploy.yml` | 평일 10/12/14/16/18시 KST | `run_screeners.py` + 배포 |
 | `value-screener.yml` | 평일 20시 KST | `collect_quant_data.py` → 가치주 + 마법공식 + 멀티팩터 + 60주선 + 대가 4종 |
 | `ml-retrain.yml` | 월간 | ML 모델 재훈련 |
 
