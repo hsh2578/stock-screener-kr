@@ -1459,7 +1459,12 @@ def _download_single_stock(args: Tuple[str, str], max_retries: int = 2) -> Tuple
 
     for attempt in range(max_retries):
         try:
-            df = fdr.DataReader(ticker, start_str)
+            _ex = ThreadPoolExecutor(max_workers=1)
+            _fut = _ex.submit(fdr.DataReader, ticker, start_str)
+            try:
+                df = _fut.result(timeout=30)
+            finally:
+                _ex.shutdown(wait=False)
 
             # 빈 데이터도 재시도 대상으로 처리
             if df is not None and len(df) > 0:
@@ -1744,8 +1749,13 @@ def _incremental_update_data(
         incremental_start = (cache_dt + timedelta(days=1)).strftime('%Y-%m-%d')
         end_str = end_date.strftime('%Y-%m-%d')
 
-        # 증분 데이터 다운로드
-        new_df = fdr.DataReader(ticker, incremental_start, end_str)
+        # 증분 데이터 다운로드 (타임아웃 30초: fdr.DataReader 무한 대기 방지)
+        _ex = ThreadPoolExecutor(max_workers=1)
+        _fut = _ex.submit(fdr.DataReader, ticker, incremental_start, end_str)
+        try:
+            new_df = _fut.result(timeout=30)
+        finally:
+            _ex.shutdown(wait=False)
 
         if new_df is not None and len(new_df) > 0:
             # 기존 데이터와 새 데이터 병합
