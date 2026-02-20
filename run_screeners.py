@@ -1459,12 +1459,24 @@ def _download_single_stock(args: Tuple[str, str], max_retries: int = 2) -> Tuple
 
     for attempt in range(max_retries):
         try:
-            _ex = ThreadPoolExecutor(max_workers=1)
-            _fut = _ex.submit(fdr.DataReader, ticker, start_str)
-            try:
-                df = _fut.result(timeout=30)
-            finally:
-                _ex.shutdown(wait=False)
+            result = [None]
+            exc = [None]
+
+            def _fetch():
+                try:
+                    result[0] = fdr.DataReader(ticker, start_str)
+                except Exception as e:
+                    exc[0] = e
+
+            t = threading.Thread(target=_fetch, daemon=True)
+            t.start()
+            t.join(timeout=30)
+
+            if t.is_alive():
+                raise TimeoutError(f"fdr.DataReader timeout: {ticker}")
+            if exc[0] is not None:
+                raise exc[0]
+            df = result[0]
 
             # 빈 데이터도 재시도 대상으로 처리
             if df is not None and len(df) > 0:
@@ -1749,13 +1761,25 @@ def _incremental_update_data(
         incremental_start = (cache_dt + timedelta(days=1)).strftime('%Y-%m-%d')
         end_str = end_date.strftime('%Y-%m-%d')
 
-        # 증분 데이터 다운로드 (타임아웃 30초: fdr.DataReader 무한 대기 방지)
-        _ex = ThreadPoolExecutor(max_workers=1)
-        _fut = _ex.submit(fdr.DataReader, ticker, incremental_start, end_str)
-        try:
-            new_df = _fut.result(timeout=30)
-        finally:
-            _ex.shutdown(wait=False)
+        # 증분 데이터 다운로드 (타임아웃 30초, daemon 스레드: 프로세스 종료 시 자동 정리)
+        _result = [None]
+        _exc = [None]
+
+        def _fetch_incremental():
+            try:
+                _result[0] = fdr.DataReader(ticker, incremental_start, end_str)
+            except Exception as e:
+                _exc[0] = e
+
+        _t = threading.Thread(target=_fetch_incremental, daemon=True)
+        _t.start()
+        _t.join(timeout=30)
+
+        if _t.is_alive():
+            raise TimeoutError(f"fdr.DataReader timeout (incremental): {ticker}")
+        if _exc[0] is not None:
+            raise _exc[0]
+        new_df = _result[0]
 
         if new_df is not None and len(new_df) > 0:
             # 기존 데이터와 새 데이터 병합
