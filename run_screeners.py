@@ -1737,9 +1737,9 @@ def _incremental_update_data(
     Returns:
         (ticker, 업데이트된 DataFrame)
     """
-    if cached_df is None or len(cached_df) == 0:
-        # 캐시 데이터 없으면 전체 다운로드
-        start_date = end_date - timedelta(days=400)
+    if cached_df is None or len(cached_df) < 700:
+        # 캐시 없거나 부족하면 전체 다운로드 (이평선 수렴 100주봉 필요 → 800 캘린더일)
+        start_date = end_date - timedelta(days=800)
         start_str = start_date.strftime('%Y-%m-%d')
         return _download_single_stock((ticker, start_str))
 
@@ -1764,9 +1764,9 @@ def _incremental_update_data(
             combined = combined[~combined.index.duplicated(keep='last')]
             # 날짜 정렬
             combined = combined.sort_index()
-            # 최근 280일만 유지 (52주 신고가 분석에 260일 필요)
-            if len(combined) > 280:
-                combined = combined.tail(280)
+            # 최근 800일 유지 (이평선 수렴 100주봉=700일, 차트 캐시 히트 700일 필요)
+            if len(combined) > 800:
+                combined = combined.tail(800)
             return (ticker, combined)
         else:
             # 새 데이터 없으면 기존 캐시 그대로 사용
