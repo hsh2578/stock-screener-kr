@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-02-19T21:07:51.311472",
-    "total_count": 2,
+    "updated_at": "2026-02-20T20:55:55.721825",
+    "total_count": 3,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -12,26 +12,38 @@
     {
       "ticker": "207940",
       "name": "삼성바이오로직스",
-      "current_price": 1720000,
-      "ma60w": 1617791,
-      "ma60w_gap": 6.32,
+      "current_price": 1736000,
+      "ma60w": 1619056,
+      "ma60w_gap": 7.22,
       "op_margin": 36.6,
       "op_growth_3y": 22.0,
-      "market_cap": 796204,
+      "market_cap": 803610,
       "sector": "기타",
-      "updated_at": "2026-02-19T21:03:52.651445"
+      "updated_at": "2026-02-20T20:53:03.191907"
     },
     {
       "ticker": "003230",
       "name": "삼양식품",
-      "current_price": 1171000,
-      "ma60w": 1136305,
-      "ma60w_gap": 3.05,
+      "current_price": 1164000,
+      "ma60w": 1133882,
+      "ma60w_gap": 2.66,
       "op_margin": 21.6,
       "op_growth_3y": 56.0,
-      "market_cap": 88211,
+      "market_cap": 87684,
       "sector": "기타",
-      "updated_at": "2026-02-19T21:05:24.002707"
+      "updated_at": "2026-02-20T20:54:09.063196"
+    },
+    {
+      "ticker": "112610",
+      "name": "씨에스윈드",
+      "current_price": 47800,
+      "ma60w": 45789,
+      "ma60w_gap": 4.39,
+      "op_margin": 10.1,
+      "op_growth_3y": 52.4,
+      "market_cap": 20157,
+      "sector": "기타",
+      "updated_at": "2026-02-20T20:55:39.645965"
     }
   ]
 }
