@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-21T13:06:24.548355",
-    "totalCount": 3,
+    "lastUpdated": "2026-02-21T17:13:54.268171",
+    "totalCount": 4,
     "screened_from": 1563
   },
   "data": [
@@ -17,7 +17,7 @@
       "ma150": 25347,
       "above_ma150": true,
       "market_cap": 2367,
-      "updated_at": "2026-02-21T13:06:19.849083"
+      "updated_at": "2026-02-21T17:13:52.900264"
     },
     {
       "ticker": "095660",
@@ -31,7 +31,21 @@
       "ma150": 25392,
       "above_ma150": true,
       "market_cap": 5945,
-      "updated_at": "2026-02-21T13:06:17.178584"
+      "updated_at": "2026-02-21T17:13:51.786251"
+    },
+    {
+      "ticker": "172670",
+      "name": "에이엘티",
+      "price": 14520,
+      "change_rate": -4.28,
+      "breakout_date": "2026-01-21",
+      "resistance": 14010,
+      "pullback_ratio": 3.64,
+      "volume_decrease": 56,
+      "ma150": 10383,
+      "above_ma150": true,
+      "market_cap": 1301,
+      "updated_at": "2026-02-21T17:13:53.761309"
     },
     {
       "ticker": "002320",
@@ -45,7 +59,7 @@
       "ma150": 20402,
       "above_ma150": true,
       "market_cap": 3344,
-      "updated_at": "2026-02-21T13:06:13.373233"
+      "updated_at": "2026-02-21T17:13:48.608290"
     }
   ]
 }
