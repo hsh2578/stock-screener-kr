@@ -186,12 +186,13 @@ def preprocess_factor(df: pd.DataFrame, factor_col: str,
 
     # NaN 제외
     mask = df[col].notna()
+    # 원본 보존 (winsorize 전 항상 저장 — 유효 데이터 부족 시에도)
+    df[f'{col}_orig'] = df[col].copy()
     if mask.sum() < 10:
         df[f'{col}_zscore'] = np.nan
         return df
 
-    # 1. Winsorizing (상하위 1%) — 원본 보존
-    df[f'{col}_orig'] = df[col].copy()
+    # 1. Winsorizing (상하위 1%)
     df.loc[mask, col] = winsorize(df.loc[mask, col])
 
     # 2. Rank 변환

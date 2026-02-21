@@ -206,9 +206,9 @@ def screen_buffett(filtered, fnguide_cache):
         if fcf is None or fcf <= 0:
             continue
 
-        # EPS 성장률 (3년 평균 > 10%)
+        # EPS 성장률 (3년 평균 > 10%, 양수 성장률만 집계)
         growth = get_growth_rates_with_ttm(fin, 'net_income', years=3)
-        valid_growth = [g for g in growth if g is not None]
+        valid_growth = [g for g in growth if g is not None and g > 0]
         avg_growth = sum(valid_growth) / len(valid_growth) if valid_growth else None
         if avg_growth is None or avg_growth <= 10:
             continue
@@ -580,7 +580,7 @@ def screen_graham(filtered, fnguide_cache):
         {'key': 'pbr', 'label': 'PBR', 'width': 7, 'fmt': '.2f'},
         {'key': 'per_x_pbr', 'label': 'PxB', 'width': 7, 'fmt': '.2f'},
         {'key': 'current_ratio', 'label': '유동비율', 'width': 8, 'fmt': '.2f'},
-        {'key': 'cumulative_growth', 'label': '5Y성장', 'width': 8, 'fmt': '.1f'},
+        {'key': 'cumulative_growth', 'label': '누적성장', 'width': 8, 'fmt': '.1f'},
         {'key': 'debt_ratio', 'label': '부채비율', 'width': 8, 'fmt': '.1f'},
     ])
 

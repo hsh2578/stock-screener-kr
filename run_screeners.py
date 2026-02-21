@@ -481,14 +481,11 @@ def calculate_near_high_features(df, event_idx, high_52w):
         # 1. gap_pct: 괴리율
         gap_pct = (event_price / high_52w - 1) * 100
 
-        # 2. resistance_tests: 최근 60일 중 고가 5% 이내 종가 일수
+        # 2. resistance_tests: 최근 60일 중 고가 5% 이내 종가 일수 (벡터화)
         test_start = max(0, event_idx - 60)
-        test_count = 0
-        for d in range(test_start, event_idx):
-            d_gap = (high_52w - close.iloc[d]) / high_52w * 100
-            if 0 < d_gap <= NEAR_HIGH_52W_THRESHOLD:
-                test_count += 1
-        resistance_tests = test_count
+        close_window = close.iloc[test_start:event_idx]
+        d_gap = (high_52w - close_window) / high_52w * 100
+        resistance_tests = int(((d_gap > 0) & (d_gap <= NEAR_HIGH_52W_THRESHOLD)).sum())
 
         # 3. days_since_high: 52주 고가 후 경과 거래일
         high_52w_window = high.iloc[max(0, event_idx - HIGH_52W_PERIOD):event_idx]
@@ -1163,15 +1160,14 @@ def calculate_actual_box_days(df: pd.DataFrame, box_high: float, box_low: float,
     # 최근 min_period 일은 이미 박스권으로 확인됨
     total_days = min_period
 
-    # 그 이전 날짜들을 역순으로 확인
-    for i in range(len(close_prices) - min_period - 1, -1, -1):
-        price = close_prices[i]
-        # 가격이 확장된 박스 범위 내에 있으면 기간 추가
-        if extended_low <= price <= extended_high:
-            total_days += 1
-        else:
-            # 박스 범위를 벗어나면 중단
-            break
+    # 그 이전 날짜들을 역순으로 확인 (벡터화)
+    prior = close_prices[:len(close_prices) - min_period][::-1]
+    in_box = (prior >= extended_low) & (prior <= extended_high)
+    if in_box.all():
+        total_days += len(prior)
+    elif in_box.any():
+        total_days += int(np.argmin(in_box))
+    # in_box가 전부 False면 추가 없음
 
     return total_days
 
@@ -1991,7 +1987,7 @@ def screen_box_range(stocks: pd.DataFrame) -> List[Dict]:
         # 박스권 판별
         is_box, box_data = is_box_range(df, BOX_PERIOD)
 
-        # 통계 업데이트
+        # 통계 업데이트 (각 단계에서 해당 카운터만 증가)
         failed = box_data['failed_reason']
         if failed == '':
             pass
@@ -1999,25 +1995,15 @@ def screen_box_range(stocks: pd.DataFrame) -> List[Dict]:
             stats['range_atr'] += 1
             continue
         elif failed == 'support_touches_insufficient':
-            stats['range_atr'] += 1
             stats['support_touch'] += 1
             continue
         elif failed == 'resistance_touches_insufficient':
-            stats['range_atr'] += 1
-            stats['support_touch'] += 1
             stats['resistance_touch'] += 1
             continue
         elif failed == 'trending':
-            stats['range_atr'] += 1
-            stats['support_touch'] += 1
-            stats['resistance_touch'] += 1
             stats['trend'] += 1
             continue
         elif failed == 'volume_not_decreasing':
-            stats['range_atr'] += 1
-            stats['support_touch'] += 1
-            stats['resistance_touch'] += 1
-            stats['trend'] += 1
             stats['volume'] += 1
             continue
         else:
@@ -2716,17 +2702,12 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
 
             explosion_volume = curr_volume
 
-            # 급등 이후 캔들 종가 필터: 장대양봉 종가 대비 -3% ~ +2% 구간에 있어야 함
-            # (장대양봉 종가 기준, 이후 모든 종가가 해당 구간을 벗어나면 탈락)
-            candles_ok = True
-            for post_idx in range(explosion_idx + 1, today_idx + 1):
-                post_close = df['Close'].iloc[post_idx]
-                pct_from_explosion = (post_close - curr_close) / curr_close * 100
-                if pct_from_explosion > DRYUP_CANDLE_MAX_UP or pct_from_explosion < -DRYUP_CANDLE_MAX_DOWN:
-                    candles_ok = False
-                    break
-            if not candles_ok:
-                continue
+            # 급등 이후 캔들 종가 필터: 장대양봉 종가 대비 -4% ~ +2% 구간에 있어야 함 (벡터화)
+            post_closes = df['Close'].iloc[explosion_idx + 1:today_idx + 1]
+            if len(post_closes) > 0:
+                pct = (post_closes - curr_close) / curr_close * 100
+                if (pct > DRYUP_CANDLE_MAX_UP).any() or (pct < -DRYUP_CANDLE_MAX_DOWN).any():
+                    continue
 
             # 오늘 기준 거래량 급감 체크
             vol_start = max(explosion_idx + 1, today_idx - DRYUP_RECENT_DAYS + 1)
@@ -2835,6 +2816,9 @@ def screen_fallen_rebound(stocks: pd.DataFrame) -> List[Dict]:
         name = row.get('Name', '')
         market_cap = row.get('MarketCap', 0)
 
+        if not ticker:
+            continue
+
         # PER/PBR from financial_data
         fin_info = financial_data.get(ticker, {})
         metrics = fin_info.get('metrics', {})
@@ -2842,9 +2826,6 @@ def screen_fallen_rebound(stocks: pd.DataFrame) -> List[Dict]:
         pbr_list = metrics.get('pbr', [])
         per = per_list[0] if per_list else None
         pbr = pbr_list[0] if pbr_list else None
-
-        if not ticker:
-            continue
 
         df = get_ohlcv(ticker, required_days)
         if df is None or len(df) < FALLEN_52W_PERIOD:
