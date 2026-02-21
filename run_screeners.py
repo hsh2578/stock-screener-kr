@@ -2655,7 +2655,7 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
         3. 거래량 >= 20일 평균 × 3배
 
     [급등 후 구간 조건] (급등봉 다음날 ~ 오늘 전체)
-        - 각 캔들 종가가 장대양봉 종가 대비 -3% ~ +2% 구간 이내
+        - 각 캔들 종가가 장대양봉 종가 대비 -4% ~ +2% 구간 이내
         - 구간 이탈 = 하락 추세 전환 or 이미 재급등 → 탈락
 
     [오늘 거래량 조건]
@@ -2994,7 +2994,7 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
             continue
 
         # --- 52주 신고가 계산 (High 기준) ---
-        base_idx = total_len - 1 - MAX_DAYS_SINCE_BREAKOUT - 1
+        base_idx = total_len - 1 - MAX_DAYS_SINCE_BREAKOUT
         if base_idx < HIGH_52W_PERIOD:
             continue
 
@@ -3006,8 +3006,8 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         if pd.isna(high_52w) or high_52w <= 0:
             continue
 
-        # 52주 고가 기록일 절대 인덱스 계산
-        high_52w_pos = int(high_52w_prices.values.argmax())
+        # 52주 고가 기록일 절대 인덱스 계산 (NaN 안전 처리)
+        high_52w_pos = int(np.nanargmax(high_52w_prices.values))
         high_52w_abs_idx = (base_idx - HIGH_52W_PERIOD) + high_52w_pos
 
         # --- 돌파일 찾기 (8일 전부터 오늘까지) ---
