@@ -1750,7 +1750,7 @@
                 <ol>
                     <li><a href="#" onclick="showPage('home'); return false;">홈</a></li>
                     <li aria-hidden="true" class="separator">›</li>
-                    <li aria-current="page" class="current">거래량 급감 눌림목</li>
+                    <li aria-current="page" class="current">눌림목매매</li>
                 </ol>
             </nav>
             <a href="#" class="back-link" onclick="showPage('home'); return false;" aria-label="홈으로 돌아가기">
@@ -1759,10 +1759,10 @@
             <header class="page-header">
                 <div class="title-row">
                     <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="4" width="5" height="17" rx="1"/><rect x="10" y="10" width="5" height="11" rx="1" opacity="0.65"/><rect x="17" y="15" width="5" height="6" rx="1" opacity="0.35"/></svg></span>
-                    <h1>거래량 급감 눌림목</h1>
-                    <span class="badge badge-warning">세력 보유</span>
+                    <h1>눌림목매매</h1>
+                    <span class="badge badge-warning">눌림목</span>
                 </div>
-                <p class="desc">20일 평균 3배 거래량 + 8% 장대양봉 후 10일 이내 거래량 고갈</p>
+                <p class="desc">10% 장대양봉+3배 거래량 후 3~10거래일 내 종가 구간 유지(-4%~+2%) + 거래량 급감</p>
                 <div class="filter-row" style="margin: 12px 0; display: flex; gap: 8px; align-items: center;">
                     <button id="filter-ma150-volume-dry-up" class="filter-btn" onclick="toggleMA150Filter('volumeDryUp')">
                         150일선 위만
@@ -1775,7 +1775,7 @@
             </header>
             <div class="card table-card">
                 <div class="table-wrapper">
-                    <table id="volume-dry-up-table" role="table" aria-label="거래량 급감 종목 목록"><thead></thead><tbody></tbody></table>
+                    <table id="volume-dry-up-table" role="table" aria-label="눌림목매매 종목 목록"><thead></thead><tbody></tbody></table>
                 </div>
                 <div id="volume-dry-up-mobile" class="mobile-card-list"></div>
                 <div id="volume-dry-up-pagination" class="pagination" role="navigation" aria-label="페이지 네비게이션"></div>
@@ -2700,7 +2700,7 @@
                 desc: '거래량 기반 신호',
                 screeners: [
                     { id: 'volume-explosion', icon: ICONS.zap, title: '거래량 폭발', desc: '40일 평균 6배+6% 양봉', badge: { text: '당일', type: 'danger' } },
-                    { id: 'volume-dry-up', icon: ICONS.volDown, title: '거래량 급감', desc: '3배 거래량+8% 양봉 후 10일내', badge: { text: '세력 보유', type: 'warning' } }
+                    { id: 'volume-dry-up', icon: ICONS.volDown, title: '눌림목매매', desc: '10% 장대양봉 후 3~10일 내 종가 구간 유지+거래량 급감', badge: { text: '눌림목', type: 'warning' } }
                 ]
             },
             {
@@ -4193,9 +4193,10 @@
                 { label: '시가총액', align: 'text-right', key: 'market_cap' },
                 { label: 'PER', align: 'text-right', key: 'per' },
                 { label: 'PBR', align: 'text-right', key: 'pbr' },
-                { label: '급등일', key: 'explosion_date' },
+                { label: '장대양봉일', key: 'explosion_date' },
                 { label: '급등폭', align: 'text-right', key: 'explosion_change_rate' },
-                { label: '경과', align: 'text-right', key: 'days_since_detected' },
+                { label: '거래량배수', align: 'text-right', key: 'explosion_volume_ratio' },
+                { label: '급등후', align: 'text-right', key: 'days_since_detected' },
                 { label: '거래량감소', align: 'text-right', key: 'volume_decrease_rate' }
             ];
             const state = sortState['volume-dry-up-table'] || {};
@@ -4210,6 +4211,7 @@
                     <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
                     <td>${formatShortDate(s.explosion_date)}</td>
                     <td class="text-right positive">+${s.explosion_change_rate != null ? s.explosion_change_rate.toFixed(1) : '-'}%</td>
+                    <td class="text-right">${s.explosion_volume_ratio != null ? s.explosion_volume_ratio.toFixed(1) + '배' : '-'}</td>
                     <td class="text-right">${s.days_since_detected != null ? s.days_since_detected + '일' : '-'}</td>
                     <td class="text-right" style="color: var(--color-success)">-${s.volume_decrease_rate}%</td>
                 </tr>
@@ -4217,8 +4219,9 @@
             renderTable('volume-dry-up-table', headers, rows, renderVolumeDryUp);
             renderMobileCards('volume-dry-up-mobile', paginatedData, {
                 extraFields: [
-                    { label: '급등일', key: 'explosion_date', format: function(s) { return formatShortDate(s.explosion_date); } },
-                    { label: '급등폭', key: 'explosion_change_rate', format: function(s) { return '+' + (s.explosion_change_rate != null ? s.explosion_change_rate.toFixed(1) : '-') + '%'; } }
+                    { label: '장대양봉일', key: 'explosion_date', format: function(s) { return formatShortDate(s.explosion_date); } },
+                    { label: '급등폭', key: 'explosion_change_rate', format: function(s) { return '+' + (s.explosion_change_rate != null ? s.explosion_change_rate.toFixed(1) : '-') + '%'; } },
+                    { label: '거래량배수', key: 'explosion_volume_ratio', format: function(s) { return s.explosion_volume_ratio != null ? s.explosion_volume_ratio.toFixed(1) + '배' : '-'; } }
                 ]
             });
             renderPagination('volume-dry-up-pagination', 'volumeDryUp', sortedData.length, renderVolumeDryUp);
@@ -5297,7 +5300,7 @@
                 'box-breakout': '박스권 돌파 (거래량 동반)',
                 'box-breakout-simple': '박스권 돌파 (거래량 무관)',
                 'pullback': '풀백 스크리너',
-                'volume-dry-up': '거래량 급감 눌림목',
+                'volume-dry-up': '눌림목매매',
                 'volume-explosion': '거래량 폭발',
                 'fallen-rebound': '낙폭과대 반등',
                 'new-high-52w': '52주 신고가 돌파',

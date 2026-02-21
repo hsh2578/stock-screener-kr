@@ -2634,46 +2634,35 @@ def screen_volume_explosion(stocks: pd.DataFrame) -> List[Dict]:
 # 거래량 급감 스크리너
 # ============================================================================
 
-# 거래량 급감 설정
+# 눌림목매매 설정
 DRYUP_LOOKBACK = 20            # 급등일 탐색 기간 (거래일)
-DRYUP_MIN_CHANGE = 8           # 최소 급등 변화율 (%)
-DRYUP_GAP_LIMIT = 0.97         # 갭다운 제한 (전일종가 대비)
-DRYUP_MAX_SHADOW = 0.3         # 최대 윗꼬리 비율
-DRYUP_VOLUME_MULTIPLE = 4      # 급등일 최소 거래량 배수
-DRYUP_MIN_DAYS = 3             # 눌림목 최소 경과일 (급등 후)
-DRYUP_MAX_DAYS = 8             # 눌림목 최대 경과일 (급등 후)
-DRYUP_DISPLAY_DAYS = 8         # 포착 후 표시 유지 기간
-DRYUP_PRICE_VS_OPEN = 0.98     # 현재가 vs 급등봉 시가
-DRYUP_PRICE_VS_HIGH = 0.90     # 현재가 vs 급등 고점
+DRYUP_MIN_CHANGE = 10          # 최소 급등 변화율 (%)
+DRYUP_VOLUME_MULTIPLE = 3      # 급등일 최소 거래량 배수
+DRYUP_MIN_DAYS = 3             # 급등 후 최소 경과일 (오늘 기준)
+DRYUP_MAX_DAYS = 10            # 급등 후 최대 경과일 (오늘 기준)
 DRYUP_RECENT_DAYS = 3          # 최근 거래량 평균 기간
 DRYUP_VOLUME_DECREASE = 60     # 거래량 감소율 임계값 (%)
+DRYUP_CANDLE_MAX_UP = 2.0      # 급등 후 이후 캔들 최대 상승폭 (%) — 이 이상 튀면 이미 재급등
+DRYUP_CANDLE_MAX_DOWN = 4.0    # 급등 후 이후 캔들 최대 하락폭 (%) — 이 이상 빠지면 하락 추세
 
 def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
     """
-    거래량 급감 눌림목 스크리너
+    눌림목매매 스크리너 (오늘 기준 실시간 체크)
 
-    [급등봉 조건]
-        1. 종가 > 전일종가 × 1.08 (8% 이상 양봉)
-        2. 거래량 > 20일 평균 × 4배
-        3. (고가 - 종가) / (고가 - 저가) < 0.3 (윗꼬리 30% 이하)
-        4. 종가 > 20일선
-        5. 시가 >= 전일종가 × 0.97 (갭다운 -3% 이상 제외)
+    [장대양봉 조건] - 3~10거래일 전
+        1. 변화율 >= 10%
+        2. 종가 > 시가 (양봉)
+        3. 거래량 >= 20일 평균 × 4배
 
-    [눌림목 조건] (급등 후 3~8일)
-        1. 현재가 > 급등봉 시가 × 0.98 (가격 유지)
-        2. 현재가 > 급등 고점 × 0.90 (조정폭 -10% 이내)
-        3. 현재가 > 급등 전일종가 (급등 전 가격 위)
-        4. 현재가 > 20일선 (추세 유지)
-        5. 최근 3일 평균 거래량 < 급등일 × 0.4 (60% 감소)
+    [급등 후 구간 조건] (급등봉 다음날 ~ 오늘 전체)
+        - 각 캔들 종가가 장대양봉 종가 대비 -3% ~ +2% 구간 이내
+        - 구간 이탈 = 하락 추세 전환 or 이미 재급등 → 탈락
 
-    [표시 조건]
-        - 조건 포착 후 8거래일까지 계속 표시 (추이 관찰용)
+    [오늘 거래량 조건]
+        - 최근 3거래일 평균 거래량 <= 장대양봉 거래량 × 40% (60% 감소)
     """
-    print("\n[거래량 급감 눌림목 스크리너 시작]")
+    print("\n[눌림목매매 스크리너 시작]")
     results = []
-
-    # 탐색 범위 확대: 포착 후 DISPLAY_DAYS까지 표시하기 위해
-    max_search_days = DRYUP_MAX_DAYS + DRYUP_DISPLAY_DAYS
 
     for idx, row in stocks.iterrows():
         ticker = row.get('Code', row.get('Symbol', ''))
@@ -2687,21 +2676,21 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
         if df is None or len(df) < 30:
             continue
 
-        # 급등일 후보 찾기 (더 넓은 범위에서 탐색)
+        today_idx = len(df) - 1
+        today_close = float(df['Close'].iloc[today_idx])
+
+        # 급등봉 탐색 (3~10거래일 전)
         found_result = None
 
-        for days_ago in range(DRYUP_MIN_DAYS, max_search_days + 1):
-            if days_ago >= len(df) - DRYUP_LOOKBACK - 1:
+        for days_ago in range(DRYUP_MIN_DAYS, DRYUP_MAX_DAYS + 1):
+            explosion_idx = today_idx - days_ago
+
+            if explosion_idx < DRYUP_LOOKBACK:
                 continue
 
-            explosion_idx = len(df) - 1 - days_ago
-
-            # 급등봉 조건 검증
             prev_close = df['Close'].iloc[explosion_idx - 1]
             curr_close = df['Close'].iloc[explosion_idx]
             curr_open = df['Open'].iloc[explosion_idx]
-            curr_high = df['High'].iloc[explosion_idx]
-            curr_low = df['Low'].iloc[explosion_idx]
             curr_volume = df['Volume'].iloc[explosion_idx]
 
             if prev_close <= 0:
@@ -2709,25 +2698,15 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
 
             change = (curr_close - prev_close) / prev_close * 100
 
-            # 조건1: 최소 급등폭 이상 양봉
+            # 급등봉 조건1: 변화율 >= 10%
             if change < DRYUP_MIN_CHANGE:
                 continue
 
-            # 조건5: 시가 >= 전일종가 × 갭다운 제한
-            if curr_open < prev_close * DRYUP_GAP_LIMIT:
+            # 급등봉 조건2: 양봉
+            if curr_close <= curr_open:
                 continue
 
-            # 조건3: 윗꼬리 제한
-            candle_range = curr_high - curr_low
-            if candle_range <= 0:
-                continue
-            upper_shadow_ratio = (curr_high - curr_close) / candle_range
-            if upper_shadow_ratio >= DRYUP_MAX_SHADOW:
-                continue
-
-            # 조건2: 거래량 > 20일 평균 × N배
-            if explosion_idx < DRYUP_LOOKBACK:
-                continue
+            # 급등봉 조건3: 거래량 >= 20일 평균 × 4배
             avg_volume_20d = df['Volume'].iloc[explosion_idx - DRYUP_LOOKBACK:explosion_idx].mean()
             if avg_volume_20d <= 0:
                 continue
@@ -2735,89 +2714,46 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
             if volume_ratio < DRYUP_VOLUME_MULTIPLE:
                 continue
 
-            # 조건4: 종가 > 20일선
-            ma20_at_explosion = df['Close'].iloc[explosion_idx - (DRYUP_LOOKBACK - 1):explosion_idx + 1].mean()
-            if curr_close <= ma20_at_explosion:
-                continue
-
-            # 급등봉 조건 통과 - 눌림목 조건 확인
-            explosion_day = df.index[explosion_idx]
             explosion_volume = curr_volume
 
-            # 급감 조건 확인: 급등 후 3~8일 사이에 급감이 발생했는지 찾기
-            for detect_offset in range(DRYUP_MIN_DAYS, DRYUP_MAX_DAYS + 1):
-                detect_idx = explosion_idx + detect_offset
-
-                if detect_idx >= len(df):
-                    continue
-
-                # 포착일까지의 거래량 평균 (최근 3일)
-                vol_start = max(explosion_idx + 1, detect_idx - DRYUP_RECENT_DAYS + 1)
-                post_volumes = df['Volume'].iloc[vol_start:detect_idx + 1]
-                if len(post_volumes) < 1:
-                    continue
-
-                recent_avg_volume = post_volumes.mean()
-                if pd.isna(recent_avg_volume) or explosion_volume <= 0:
-                    continue
-
-                # 급감 조건: 폭발일 대비 60% 이상 감소
-                volume_decrease_rate = (1 - recent_avg_volume / explosion_volume) * 100
-                if volume_decrease_rate < DRYUP_VOLUME_DECREASE:
-                    continue
-
-                # 포착일 가격 조건 확인
-                detect_price = df['Close'].iloc[detect_idx]
-
-                # 눌림목 조건1: 포착일 종가 > 급등봉 시가
-                if detect_price <= curr_open * DRYUP_PRICE_VS_OPEN:
-                    continue
-
-                # 눌림목 조건2: 포착일 종가 > 급등 고점
-                if detect_price <= curr_high * DRYUP_PRICE_VS_HIGH:
-                    continue
-
-                # 눌림목 조건3: 포착일 종가 > 급등 전일종가
-                if detect_price <= prev_close:
-                    continue
-
-                # 눌림목 조건4: 포착일 종가 > 20일선
-                ma20_at_detect = df['Close'].iloc[detect_idx - (DRYUP_LOOKBACK - 1):detect_idx + 1].mean()
-                if detect_price <= ma20_at_detect:
-                    continue
-
-                # 모든 조건 통과 - 포착일 확정
-                detected_date = df.index[detect_idx]
-                days_since_detected = len(df) - 1 - detect_idx
-
-                # 포착 후 8거래일 이내만 표시
-                if days_since_detected <= DRYUP_DISPLAY_DAYS:
-                    found_result = {
-                        'explosion_day': explosion_day,
-                        'explosion_change': change,
-                        'explosion_volume_ratio': volume_ratio,
-                        'explosion_open': curr_open,
-                        'explosion_high': curr_high,
-                        'explosion_prev_close': prev_close,
-                        'explosion_volume': explosion_volume,
-                        'detected_date': detected_date,
-                        'days_since_detected': days_since_detected,
-                        'volume_decrease_rate': volume_decrease_rate
-                    }
+            # 급등 이후 캔들 종가 필터: 장대양봉 종가 대비 -3% ~ +2% 구간에 있어야 함
+            # (장대양봉 종가 기준, 이후 모든 종가가 해당 구간을 벗어나면 탈락)
+            candles_ok = True
+            for post_idx in range(explosion_idx + 1, today_idx + 1):
+                post_close = df['Close'].iloc[post_idx]
+                pct_from_explosion = (post_close - curr_close) / curr_close * 100
+                if pct_from_explosion > DRYUP_CANDLE_MAX_UP or pct_from_explosion < -DRYUP_CANDLE_MAX_DOWN:
+                    candles_ok = False
                     break
+            if not candles_ok:
+                continue
 
-            if found_result:
-                break
+            # 오늘 기준 거래량 급감 체크
+            vol_start = max(explosion_idx + 1, today_idx - DRYUP_RECENT_DAYS + 1)
+            post_volumes = df['Volume'].iloc[vol_start:today_idx + 1]
+            if len(post_volumes) < 1:
+                continue
+
+            recent_avg_volume = post_volumes.mean()
+            if pd.isna(recent_avg_volume) or explosion_volume <= 0:
+                continue
+
+            volume_decrease_rate = (1 - recent_avg_volume / explosion_volume) * 100
+            if volume_decrease_rate < DRYUP_VOLUME_DECREASE:
+                continue
+
+            # 모든 조건 통과
+            found_result = {
+                'explosion_day': df.index[explosion_idx],
+                'explosion_change': change,
+                'explosion_volume_ratio': volume_ratio,
+                'explosion_volume': explosion_volume,
+                'days_from_explosion': days_ago,
+                'volume_decrease_rate': volume_decrease_rate,
+            }
+            break  # 가장 최근 급등봉 기준으로만 체크
 
         if not found_result:
-            continue
-
-        # 현재 가격 조건도 확인 (현재도 조건 유지 중인지)
-        current_price = float(df['Close'].iloc[-1])
-        ma20_current = df['Close'].iloc[-DRYUP_LOOKBACK:].mean()
-
-        # 현재가 조건 체크 (너무 많이 빠지면 제외)
-        if current_price <= found_result['explosion_prev_close'] * 0.95:
             continue
 
         # 150일선 계산
@@ -2825,22 +2761,21 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
         above_ma150 = False
         if len(df) >= 150:
             ma150 = int(df['Close'].rolling(150).mean().iloc[-1])
-            above_ma150 = bool(current_price > ma150)
+            above_ma150 = bool(today_close > ma150)
 
         # 등락률
         prev_price = float(df['Close'].iloc[-2])
-        change_rate = (current_price - prev_price) / prev_price * 100 if prev_price > 0 else 0
+        change_rate = (today_close - prev_price) / prev_price * 100 if prev_price > 0 else 0
 
         results.append({
             'ticker': ticker,
             'name': name,
-            'price': int(current_price),
+            'price': int(today_close),
             'change_rate': round(change_rate, 2),
             'explosion_date': found_result['explosion_day'].strftime('%Y-%m-%d'),
             'explosion_change_rate': round(found_result['explosion_change'], 1),
             'explosion_volume_ratio': round(found_result['explosion_volume_ratio'], 1),
-            'detected_date': found_result['detected_date'].strftime('%Y-%m-%d'),
-            'days_since_detected': found_result['days_since_detected'],
+            'days_since_detected': found_result['days_from_explosion'],
             'volume_decrease_rate': int(found_result['volume_decrease_rate']),
             'volume_rank': 0,
             'ma150': ma150,
@@ -2849,13 +2784,13 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
             'updated_at': datetime.now().isoformat()
         })
 
-    # 포착 경과일 오름차순, 같으면 거래량 감소율 높은 순
+    # 급등 후 경과일 오름차순, 같으면 거래량 감소율 높은 순
     results.sort(key=lambda x: (x['days_since_detected'], -x['volume_decrease_rate']))
 
     for i, r in enumerate(results):
         r['volume_rank'] = i + 1
 
-    print(f"[완료] 거래량 급감 눌림목: {len(results)}개")
+    print(f"[완료] 눌림목매매: {len(results)}개")
 
     return results
 
@@ -3001,7 +2936,7 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
 
     [돌파 조건]
         1. 종가 > 52주 고가 (High 기준)
-        2. 돌파일 거래량 ≥ 20일 평균 × 1.5
+        2. 52주 고가 기록 후 20거래일+ 경과 (확립된 저항선)
         3. 현재가 > 150일선
         4. 150일선 우상향 (현재 150MA > 20일 전 150MA)
         5. 돌파 후 8거래일 이내
@@ -3071,6 +3006,10 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         if pd.isna(high_52w) or high_52w <= 0:
             continue
 
+        # 52주 고가 기록일 절대 인덱스 계산
+        high_52w_pos = int(high_52w_prices.values.argmax())
+        high_52w_abs_idx = (base_idx - HIGH_52W_PERIOD) + high_52w_pos
+
         # --- 돌파일 찾기 (8일 전부터 오늘까지) ---
         breakout_date = None
         days_since = None
@@ -3090,14 +3029,15 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         if breakout_date is None:
             continue
 
-        # --- 거래량 확인: 돌파일 거래량 ≥ 20일 평균 × 1.5 ---
+        # --- 52주 고가 기록 후 20거래일+ 경과 확인 ---
+        if breakout_idx - high_52w_abs_idx < 20:
+            continue
+
+        # --- 거래량 계산 (표시용, 임계값 조건 없음) ---
         if breakout_idx < 20:
             continue
         avg_vol_20 = volume.iloc[breakout_idx - 20:breakout_idx].mean()
         breakout_vol = volume.iloc[breakout_idx]
-
-        if avg_vol_20 <= 0 or breakout_vol < avg_vol_20 * 1.5:
-            continue
 
         # --- 현재가가 52주 신고가 위에 있어야 함 ---
         if current_close <= high_52w:
