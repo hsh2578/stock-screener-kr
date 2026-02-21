@@ -2652,7 +2652,7 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
     [장대양봉 조건] - 3~10거래일 전
         1. 변화율 >= 10%
         2. 종가 > 시가 (양봉)
-        3. 거래량 >= 20일 평균 × 4배
+        3. 거래량 >= 20일 평균 × 3배
 
     [급등 후 구간 조건] (급등봉 다음날 ~ 오늘 전체)
         - 각 캔들 종가가 장대양봉 종가 대비 -3% ~ +2% 구간 이내
@@ -2706,7 +2706,7 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
             if curr_close <= curr_open:
                 continue
 
-            # 급등봉 조건3: 거래량 >= 20일 평균 × 4배
+            # 급등봉 조건3: 거래량 >= 20일 평균 × 3배
             avg_volume_20d = df['Volume'].iloc[explosion_idx - DRYUP_LOOKBACK:explosion_idx].mean()
             if avg_volume_20d <= 0:
                 continue
