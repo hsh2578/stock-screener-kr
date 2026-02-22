@@ -107,9 +107,11 @@ MIN_MARKET_CAP = 1000  # 최소 시가총액 (억원)
 MAX_BOX_RANGE_PERCENT = 25.0  # 최대 허용 변동폭 (%)
 ATR_PERIOD = 60  # ATR 계산 기간 (박스 기간과 동일)
 ATR_MULTIPLE_MAX = 6  # ATR 배수 최대
-ATR_TOUCH_MULTIPLE = 1.5  # ATR 기반 터치 허용범위 배수
+ATR_TOUCH_MULTIPLE = 1.5  # ATR 기반 터치 허용범위 배수 (지지선 참고용)
 PIVOT_WINDOW = 5  # 피벗 포인트 검출 윈도우
 MIN_TOUCHES = 2  # 최소 터치 횟수
+RESISTANCE_TOLERANCE = 0.02   # 저항선 터치 허용 오차 (고정 2%)
+RESISTANCE_MIN_GAP = 5  # 저항선 터치 최소 간격 (거래일)
 MAX_SLOPE_PERCENT = 0.05  # 최대 일평균 기울기 (%)
 VOLUME_DECREASE_THRESHOLD = 0.95  # 거래량 감소 임계값 (후반 < 전반 × 0.95, 5% 감소)
 BREAKOUT_WINDOW = 11  # 돌파 확인 윈도우 (10거래일 이내 = 오늘 포함 11행)
@@ -1020,36 +1022,53 @@ def find_pivot_highs(prices: np.ndarray, n: int = 5) -> List[Tuple[int, float]]:
     return pivots
 
 
-def count_touches_near_level(pivots: List[Tuple[int, float]], level: float, tolerance: float = 0.03) -> int:
+def count_touches_near_level(pivots: List[Tuple[int, float]], level: float, tolerance: float = 0.03, min_gap: int = 0) -> int:
     """
     특정 레벨 근처의 피벗 포인트 개수를 셉니다.
 
     지지선/저항선 확인에 사용됩니다.
     level ± tolerance 범위 안에 있는 피벗 개수를 반환합니다.
+    min_gap > 0이면 연속된 터치 간 최소 간격(거래일)을 적용하여
+    같은 봉 클러스터를 별개의 터치로 오인하는 것을 방지합니다.
 
     Args:
         pivots: [(인덱스, 가격), ...] 형태의 피벗 리스트
         level: 기준 레벨 (가격)
         tolerance: 허용 오차 비율 (기본 3%)
+        min_gap: 연속 터치 간 최소 간격 거래일 (기본 0 = 제한 없음)
 
     Returns:
         터치 횟수
 
     Example:
-        >>> touches = count_touches_near_level(pivot_lows, box_low, 0.03)
+        >>> touches = count_touches_near_level(pivot_highs, resistance, 0.015, min_gap=5)
         >>> if touches >= 2:
-        ...     print("지지선 확인됨")
+        ...     print("저항선 확인됨")
     """
     if level <= 0 or not pivots:
         return 0
 
-    # 벡터화된 계산으로 성능 개선
-    prices = np.array([p[1] for p in pivots])
     lower_bound = level * (1 - tolerance)
     upper_bound = level * (1 + tolerance)
 
-    # 조건을 만족하는 개수를 한 번에 계산
-    return int(np.sum((prices >= lower_bound) & (prices <= upper_bound)))
+    # 허용 범위 내 피벗만 필터 (인덱스 오름차순 유지)
+    valid = [(idx, price) for idx, price in pivots
+             if lower_bound <= price <= upper_bound]
+
+    if not valid:
+        return 0
+
+    if min_gap == 0:
+        return len(valid)
+
+    # 최소 간격 적용: 그리디로 이전 터치와 min_gap 이상 떨어진 것만 카운트
+    count = 0
+    last_idx = -min_gap - 1
+    for idx, _ in valid:
+        if idx - last_idx >= min_gap:
+            count += 1
+            last_idx = idx
+    return count
 
 
 def calculate_linear_slope(prices: np.ndarray) -> float:
@@ -1174,16 +1193,16 @@ def calculate_actual_box_days(df: pd.DataFrame, box_high: float, box_low: float,
 
 def is_box_range(df: pd.DataFrame, period: int = 60, use_cache: bool = True) -> Tuple[bool, Dict[str, Any]]:
     """
-    박스권 여부를 7가지 조건으로 판단합니다.
+    박스권 여부를 6가지 조건으로 판단합니다.
 
     조건:
         ① 데이터 검증: period일 데이터 온전함 (NaN 없음)
         ② 박스 기간: period 거래일 이상
         ③ 변동폭: 박스 범위 ≤ ATR(60) × 6 AND 박스 범위 ≤ 25%
-        ④ 저점 터치: 박스 하단 ±ATR×1.5 영역에 로컬 저점 2개 이상
-        ⑤ 고점 터치: 박스 상단 ±ATR×1.5 영역에 로컬 고점 2개 이상
-        ⑥ 추세 필터: |선형회귀 기울기| ≤ 0.05% (일평균)
-        ⑦ 거래량 감소: 후반부 평균 < 전반부 평균 × 0.95
+        ④ 저항선 터치: 종가 기준 ±2% 범위, 5거래일+ 간격으로 2회 이상
+        ⑤ 추세 필터: |선형회귀 기울기| ≤ 0.05% (일평균)
+        ⑥ 거래량 감소: 후반부 평균 < 전반부 평균 × 0.95
+        (저점 지지 터치는 참고용, 필수 조건 아님)
 
     Args:
         df: OHLCV 데이터프레임
@@ -1287,24 +1306,17 @@ def is_box_range(df: pd.DataFrame, period: int = 60, use_cache: bool = True) -> 
                 _BOX_RANGE_CACHE[cache_key] = (False, result_data.copy())
         return False, result_data
 
-    # 적응적 터치 허용범위: ATR × 1.5 (저변동 종목은 좁게, 고변동 종목은 넓게)
+    # 저점 지지 터치 (참고용, 필수 조건 아님 — ATR 기반 동적 허용범위)
     touch_tolerance = atr * ATR_TOUCH_MULTIPLE
-
-    # ④ 저점 터치 확인
     pivot_lows = find_pivot_lows(close_prices, PIVOT_WINDOW)
     support_touches = count_touches_near_level(pivot_lows, box_low, touch_tolerance)
     result_data['support_touches'] = support_touches
 
-    if support_touches < MIN_TOUCHES:
-        result_data['failed_reason'] = 'support_touches_insufficient'
-        if use_cache:
-            with _BOX_RANGE_CACHE_LOCK:
-                _BOX_RANGE_CACHE[cache_key] = (False, result_data.copy())
-        return False, result_data
-
-    # ⑤ 고점 터치 확인
+    # ④ 저항선 터치 확인 (종가 기준, 고정 2%, 5거래일+ 간격)
     pivot_highs = find_pivot_highs(close_prices, PIVOT_WINDOW)
-    resistance_touches = count_touches_near_level(pivot_highs, box_high, touch_tolerance)
+    resistance_touches = count_touches_near_level(
+        pivot_highs, box_high, RESISTANCE_TOLERANCE, min_gap=RESISTANCE_MIN_GAP
+    )
     result_data['resistance_touches'] = resistance_touches
 
     if resistance_touches < MIN_TOUCHES:
@@ -1931,14 +1943,13 @@ def screen_box_range(stocks: pd.DataFrame) -> List[Dict]:
     """
     박스권 스크리너: 60거래일 이상 진짜 횡보 중인 종목 발굴
 
-    7가지 조건을 모두 충족해야 합니다:
+    6가지 조건을 모두 충족해야 합니다:
         ① 시가총액 1,000억 원 이상
         ② 60일 데이터 검증 (NaN 없음)
         ③ 변동폭 ≤ ATR(60) × 6 AND ≤ 25%
-        ④ 저점 터치 2회 이상 (±ATR×1.5 적응적 허용범위)
-        ⑤ 고점 터치 2회 이상 (±ATR×1.5 적응적 허용범위)
-        ⑥ 추세 필터: |기울기| ≤ 0.05%
-        ⑦ 거래량 감소: 후반 30일 < 전반 30일 × 0.95
+        ④ 저항선 터치 2회 이상 (종가 기준 ±2%, 5거래일+ 간격)
+        ⑤ 추세 필터: |기울기| ≤ 0.05%
+        ⑥ 거래량 감소: 후반 30일 < 전반 30일 × 0.95
 
     Args:
         stocks: 종목 리스트 DataFrame
@@ -1957,7 +1968,6 @@ def screen_box_range(stocks: pd.DataFrame) -> List[Dict]:
         'market_cap': 0,
         'data_valid': 0,
         'range_atr': 0,
-        'support_touch': 0,
         'resistance_touch': 0,
         'trend': 0,
         'volume': 0
@@ -1994,9 +2004,6 @@ def screen_box_range(stocks: pd.DataFrame) -> List[Dict]:
         elif failed in ['range_too_wide', 'atr_multiple_exceeded']:
             stats['range_atr'] += 1
             continue
-        elif failed == 'support_touches_insufficient':
-            stats['support_touch'] += 1
-            continue
         elif failed == 'resistance_touches_insufficient':
             stats['resistance_touch'] += 1
             continue
@@ -2014,7 +2021,6 @@ def screen_box_range(stocks: pd.DataFrame) -> List[Dict]:
 
         # 모든 조건 통과
         stats['range_atr'] += 1
-        stats['support_touch'] += 1
         stats['resistance_touch'] += 1
         stats['trend'] += 1
         stats['volume'] += 1
@@ -2062,8 +2068,7 @@ def screen_box_range(stocks: pd.DataFrame) -> List[Dict]:
     print(f"├─ 시총 {MIN_MARKET_CAP}억+ 필터: {stats['total']} → {stats['market_cap']}개")
     print(f"├─ 데이터 검증: {stats['market_cap']} → {stats['data_valid']}개")
     print(f"├─ 변동폭(ATR) 필터: {stats['data_valid']} → {stats['range_atr']}개")
-    print(f"├─ 저점 터치 필터: {stats['range_atr']} → {stats['support_touch']}개")
-    print(f"├─ 고점 터치 필터: {stats['support_touch']} → {stats['resistance_touch']}개")
+    print(f"├─ 저항선 터치 필터: {stats['range_atr']} → {stats['resistance_touch']}개")
     print(f"├─ 추세 필터: {stats['resistance_touch']} → {stats['trend']}개")
     print(f"└─ 거래량 감소 필터: {stats['trend']} → {stats['volume']}개")
     print(f"[완료] 박스권 종목: {len(results)}개 (소요시간: {elapsed:.1f}초)")
