@@ -1587,7 +1587,7 @@
                     <h1>박스권 스크리너</h1>
                     <span class="badge badge-info">퀀트</span>
                 </div>
-                <p class="desc">60거래일 ATR기반 횡보 + 지지/저항 터치 확인 + 추세 필터 + 거래량 감소 (7조건)</p>
+                <p class="desc">60거래일 ATR기반 횡보 + 저항선 터치 확인 + 추세 필터 + 거래량 감소 (6조건)</p>
                 <div class="filter-row" style="margin: 12px 0; display: flex; gap: 8px; align-items: center; flex-wrap: wrap;" role="group" aria-label="필터 및 보기 옵션">
                     <button id="filter-ma150-btn" class="filter-btn" onclick="toggleMA150Filter()" aria-pressed="false" aria-label="150일 이동평균선 위 종목만 표시">
                         <span class="sr-only">필터:</span>
@@ -3475,7 +3475,7 @@
             // Helper to safely get nested property
             function getMeta(key, field) {
                 var d = DATA[key];
-                return d && d.meta && d.meta[field];
+                return d && ((d.meta && d.meta[field]) || d[field]);
             }
             const dateMapping = {
                 'box-range-date': getMeta('boxRange', 'lastUpdated'),
