@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-21T17:14:04.202664",
-    "totalCount": 41,
+    "lastUpdated": "2026-02-23T02:01:16.521423",
+    "totalCount": 37,
     "screened_from": 1563
   },
   "data": [
@@ -21,7 +21,7 @@
       "success_prob": 91.6,
       "predicted_gain": 36.7,
       "ai_score": 94.1,
-      "updated_at": "2026-02-21T17:13:51.928063"
+      "updated_at": "2026-02-23T02:01:02.343111"
     },
     {
       "ticker": "085620",
@@ -39,43 +39,43 @@
       "success_prob": 87.5,
       "predicted_gain": 35.8,
       "ai_score": 91.2,
-      "updated_at": "2026-02-21T17:13:49.877857"
+      "updated_at": "2026-02-23T02:00:59.551754"
     },
     {
-      "ticker": "002320",
-      "name": "한진",
-      "price": 21950,
-      "change_rate": 0.0,
-      "breakout_date": "2026-02-10",
-      "resistance": 21550,
-      "days_since_breakout": 5,
-      "breakout_pct": 1.86,
-      "gain_since_breakout": -2.01,
-      "ma150": 20402,
+      "ticker": "062040",
+      "name": "산일전기",
+      "price": 149600,
+      "change_rate": 2.26,
+      "breakout_date": "2026-02-04",
+      "resistance": 153000,
+      "days_since_breakout": 9,
+      "breakout_pct": -2.22,
+      "gain_since_breakout": -4.71,
+      "ma150": 129798,
       "above_ma150": true,
-      "market_cap": 3344,
-      "success_prob": 67.3,
-      "predicted_gain": 13.8,
-      "ai_score": 59.5,
-      "updated_at": "2026-02-21T17:13:53.232268"
+      "market_cap": 45695,
+      "success_prob": 77.3,
+      "predicted_gain": 20.6,
+      "ai_score": 72.7,
+      "updated_at": "2026-02-23T02:00:58.766252"
     },
     {
       "ticker": "090850",
       "name": "현대이지웰",
       "price": 6290,
       "change_rate": 2.28,
-      "breakout_date": "2026-02-11",
-      "resistance": 5330,
-      "days_since_breakout": 4,
-      "breakout_pct": 18.01,
-      "gain_since_breakout": 8.45,
+      "breakout_date": "2026-02-05",
+      "resistance": 5220,
+      "days_since_breakout": 8,
+      "breakout_pct": 20.5,
+      "gain_since_breakout": 18.23,
       "ma150": 5731,
       "above_ma150": true,
       "market_cap": 1493,
-      "success_prob": 62.4,
-      "predicted_gain": 16.9,
-      "ai_score": 58.9,
-      "updated_at": "2026-02-21T17:14:02.258330"
+      "success_prob": 74.4,
+      "predicted_gain": 9.0,
+      "ai_score": 60.1,
+      "updated_at": "2026-02-23T02:01:14.149772"
     },
     {
       "ticker": "058400",
@@ -93,43 +93,7 @@
       "success_prob": 54.3,
       "predicted_gain": 19.3,
       "ai_score": 55.4,
-      "updated_at": "2026-02-21T17:14:03.563490"
-    },
-    {
-      "ticker": "062040",
-      "name": "산일전기",
-      "price": 149600,
-      "change_rate": 2.26,
-      "breakout_date": "2026-02-04",
-      "resistance": 153000,
-      "days_since_breakout": 9,
-      "breakout_pct": -2.22,
-      "gain_since_breakout": -4.71,
-      "ma150": 129798,
-      "above_ma150": true,
-      "market_cap": 45695,
-      "success_prob": 52.2,
-      "predicted_gain": 19.8,
-      "ai_score": 54.4,
-      "updated_at": "2026-02-21T17:13:49.146378"
-    },
-    {
-      "ticker": "015860",
-      "name": "일진홀딩스",
-      "price": 9000,
-      "change_rate": 6.38,
-      "breakout_date": "2026-02-19",
-      "resistance": 8230,
-      "days_since_breakout": 1,
-      "breakout_pct": 9.36,
-      "gain_since_breakout": 6.38,
-      "ma150": 6590,
-      "above_ma150": true,
-      "market_cap": 4441,
-      "success_prob": 51.3,
-      "predicted_gain": 17.3,
-      "ai_score": 51.5,
-      "updated_at": "2026-02-21T17:13:52.314270"
+      "updated_at": "2026-02-23T02:01:15.699251"
     },
     {
       "ticker": "090460",
@@ -147,7 +111,7 @@
       "success_prob": 47.6,
       "predicted_gain": 18.0,
       "ai_score": 49.6,
-      "updated_at": "2026-02-21T17:13:51.458860"
+      "updated_at": "2026-02-23T02:01:01.813211"
     },
     {
       "ticker": "003480",
@@ -165,25 +129,7 @@
       "success_prob": 59.1,
       "predicted_gain": 9.0,
       "ai_score": 49.5,
-      "updated_at": "2026-02-21T17:13:55.551611"
-    },
-    {
-      "ticker": "181710",
-      "name": "NHN",
-      "price": 42400,
-      "change_rate": 0.0,
-      "breakout_date": "2026-02-13",
-      "resistance": 34800,
-      "days_since_breakout": 2,
-      "breakout_pct": 21.84,
-      "gain_since_breakout": 14.13,
-      "ma150": 29594,
-      "above_ma150": true,
-      "market_cap": 13887,
-      "success_prob": 36.7,
-      "predicted_gain": 21.0,
-      "ai_score": 44.6,
-      "updated_at": "2026-02-21T17:13:50.339991"
+      "updated_at": "2026-02-23T02:01:06.435602"
     },
     {
       "ticker": "183190",
@@ -201,7 +147,7 @@
       "success_prob": 48.5,
       "predicted_gain": 11.7,
       "ai_score": 44.5,
-      "updated_at": "2026-02-21T17:13:51.958928"
+      "updated_at": "2026-02-23T02:01:02.381227"
     },
     {
       "ticker": "126560",
@@ -219,25 +165,7 @@
       "success_prob": 45.4,
       "predicted_gain": 10.4,
       "ai_score": 41.1,
-      "updated_at": "2026-02-21T17:13:52.581449"
-    },
-    {
-      "ticker": "149950",
-      "name": "아바텍",
-      "price": 11150,
-      "change_rate": 3.24,
-      "breakout_date": "2026-02-20",
-      "resistance": 10790,
-      "days_since_breakout": 0,
-      "breakout_pct": 3.34,
-      "gain_since_breakout": 0.0,
-      "ma150": 9225,
-      "above_ma150": true,
-      "market_cap": 1523,
-      "success_prob": 35.6,
-      "predicted_gain": 16.7,
-      "ai_score": 40.0,
-      "updated_at": "2026-02-21T17:14:02.127173"
+      "updated_at": "2026-02-23T02:01:03.145895"
     },
     {
       "ticker": "043150",
@@ -255,7 +183,7 @@
       "success_prob": 38.0,
       "predicted_gain": 11.0,
       "ai_score": 36.4,
-      "updated_at": "2026-02-21T17:13:59.328958"
+      "updated_at": "2026-02-23T02:01:10.670638"
     },
     {
       "ticker": "005740",
@@ -273,7 +201,25 @@
       "success_prob": 34.7,
       "predicted_gain": 12.2,
       "ai_score": 35.3,
-      "updated_at": "2026-02-21T17:13:56.920542"
+      "updated_at": "2026-02-23T02:01:07.783736"
+    },
+    {
+      "ticker": "344820",
+      "name": "KCC글라스",
+      "price": 30300,
+      "change_rate": 0.0,
+      "breakout_date": "2026-02-10",
+      "resistance": 27650,
+      "days_since_breakout": 5,
+      "breakout_pct": 9.58,
+      "gain_since_breakout": 7.45,
+      "ma150": 28311,
+      "above_ma150": true,
+      "market_cap": 4839,
+      "success_prob": 39.7,
+      "predicted_gain": 7.8,
+      "ai_score": 34.8,
+      "updated_at": "2026-02-23T02:01:02.625404"
     },
     {
       "ticker": "001390",
@@ -291,7 +237,7 @@
       "success_prob": 36.2,
       "predicted_gain": 10.4,
       "ai_score": 34.7,
-      "updated_at": "2026-02-21T17:13:52.499698"
+      "updated_at": "2026-02-23T02:01:03.054436"
     },
     {
       "ticker": "267980",
@@ -309,7 +255,25 @@
       "success_prob": 32.1,
       "predicted_gain": 13.1,
       "ai_score": 34.3,
-      "updated_at": "2026-02-21T17:13:59.414236"
+      "updated_at": "2026-02-23T02:01:10.770543"
+    },
+    {
+      "ticker": "214680",
+      "name": "디알텍",
+      "price": 2265,
+      "change_rate": 3.9,
+      "breakout_date": "2026-02-20",
+      "resistance": 2200,
+      "days_since_breakout": 0,
+      "breakout_pct": 2.95,
+      "gain_since_breakout": 0.0,
+      "ma150": 1976,
+      "above_ma150": true,
+      "market_cap": 1890,
+      "success_prob": 30.0,
+      "predicted_gain": 14.6,
+      "ai_score": 34.2,
+      "updated_at": "2026-02-23T02:01:12.789836"
     },
     {
       "ticker": "102260",
@@ -327,25 +291,7 @@
       "success_prob": 35.8,
       "predicted_gain": 9.1,
       "ai_score": 33.3,
-      "updated_at": "2026-02-21T17:13:54.509786"
-    },
-    {
-      "ticker": "214680",
-      "name": "디알텍",
-      "price": 2265,
-      "change_rate": 3.9,
-      "breakout_date": "2026-02-20",
-      "resistance": 2200,
-      "days_since_breakout": 0,
-      "breakout_pct": 2.95,
-      "gain_since_breakout": 0.0,
-      "ma150": 1976,
-      "above_ma150": true,
-      "market_cap": 1890,
-      "success_prob": 28.7,
-      "predicted_gain": 14.6,
-      "ai_score": 33.3,
-      "updated_at": "2026-02-21T17:14:00.949069"
+      "updated_at": "2026-02-23T02:01:04.962090"
     },
     {
       "ticker": "003000",
@@ -363,7 +309,7 @@
       "success_prob": 31.8,
       "predicted_gain": 11.5,
       "ai_score": 32.6,
-      "updated_at": "2026-02-21T17:13:51.807740"
+      "updated_at": "2026-02-23T02:01:02.207969"
     },
     {
       "ticker": "004970",
@@ -381,25 +327,7 @@
       "success_prob": 31.8,
       "predicted_gain": 10.3,
       "ai_score": 31.5,
-      "updated_at": "2026-02-21T17:13:55.374816"
-    },
-    {
-      "ticker": "066620",
-      "name": "국보디자인",
-      "price": 25700,
-      "change_rate": 0.39,
-      "breakout_date": "2026-02-13",
-      "resistance": 23550,
-      "days_since_breakout": 2,
-      "breakout_pct": 9.13,
-      "gain_since_breakout": 4.47,
-      "ma150": 21768,
-      "above_ma150": true,
-      "market_cap": 1927,
-      "success_prob": 26.0,
-      "predicted_gain": 14.8,
-      "ai_score": 31.5,
-      "updated_at": "2026-02-21T17:14:00.896057"
+      "updated_at": "2026-02-23T02:01:06.233267"
     },
     {
       "ticker": "185750",
@@ -417,7 +345,7 @@
       "success_prob": 28.5,
       "predicted_gain": 12.5,
       "ai_score": 31.3,
-      "updated_at": "2026-02-21T17:13:50.381378"
+      "updated_at": "2026-02-23T02:01:00.179985"
     },
     {
       "ticker": "066575",
@@ -435,7 +363,7 @@
       "success_prob": 28.7,
       "predicted_gain": 12.2,
       "ai_score": 31.1,
-      "updated_at": "2026-02-21T17:13:50.906194"
+      "updated_at": "2026-02-23T02:01:00.934631"
     },
     {
       "ticker": "016710",
@@ -453,7 +381,25 @@
       "success_prob": 26.8,
       "predicted_gain": 10.5,
       "ai_score": 28.2,
-      "updated_at": "2026-02-21T17:13:55.714485"
+      "updated_at": "2026-02-23T02:01:06.643438"
+    },
+    {
+      "ticker": "032640",
+      "name": "LG유플러스",
+      "price": 17500,
+      "change_rate": 1.39,
+      "breakout_date": "2026-02-11",
+      "resistance": 16320,
+      "days_since_breakout": 4,
+      "breakout_pct": 7.23,
+      "gain_since_breakout": 5.55,
+      "ma150": 15150,
+      "above_ma150": true,
+      "market_cap": 75219,
+      "success_prob": 26.5,
+      "predicted_gain": 10.6,
+      "ai_score": 28.1,
+      "updated_at": "2026-02-23T02:00:58.512741"
     },
     {
       "ticker": "035150",
@@ -471,7 +417,7 @@
       "success_prob": 25.9,
       "predicted_gain": 9.9,
       "ai_score": 27.1,
-      "updated_at": "2026-02-21T17:13:53.701165"
+      "updated_at": "2026-02-23T02:01:04.074246"
     },
     {
       "ticker": "037710",
@@ -489,7 +435,7 @@
       "success_prob": 25.6,
       "predicted_gain": 9.3,
       "ai_score": 26.3,
-      "updated_at": "2026-02-21T17:13:53.377614"
+      "updated_at": "2026-02-23T02:01:03.761454"
     },
     {
       "ticker": "298690",
@@ -507,7 +453,7 @@
       "success_prob": 23.7,
       "predicted_gain": 10.6,
       "ai_score": 26.2,
-      "updated_at": "2026-02-21T17:13:54.500983"
+      "updated_at": "2026-02-23T02:01:04.942497"
     },
     {
       "ticker": "272450",
@@ -525,7 +471,25 @@
       "success_prob": 23.0,
       "predicted_gain": 10.1,
       "ai_score": 25.2,
-      "updated_at": "2026-02-21T17:13:52.850239"
+      "updated_at": "2026-02-23T02:01:03.235551"
+    },
+    {
+      "ticker": "004490",
+      "name": "세방전지",
+      "price": 69200,
+      "change_rate": 1.17,
+      "breakout_date": "2026-02-20",
+      "resistance": 67900,
+      "days_since_breakout": 0,
+      "breakout_pct": 1.91,
+      "gain_since_breakout": 0.0,
+      "ma150": 64693,
+      "above_ma150": true,
+      "market_cap": 9591,
+      "success_prob": 21.6,
+      "predicted_gain": 9.3,
+      "ai_score": 23.5,
+      "updated_at": "2026-02-23T02:01:00.963424"
     },
     {
       "ticker": "044450",
@@ -543,7 +507,7 @@
       "success_prob": 16.9,
       "predicted_gain": 12.2,
       "ai_score": 22.8,
-      "updated_at": "2026-02-21T17:13:54.022266"
+      "updated_at": "2026-02-23T02:01:04.346618"
     },
     {
       "ticker": "092730",
@@ -561,7 +525,7 @@
       "success_prob": 11.8,
       "predicted_gain": 15.6,
       "ai_score": 22.2,
-      "updated_at": "2026-02-21T17:13:59.273378"
+      "updated_at": "2026-02-23T02:01:10.615380"
     },
     {
       "ticker": "000440",
@@ -579,7 +543,7 @@
       "success_prob": 13.2,
       "predicted_gain": 14.0,
       "ai_score": 21.9,
-      "updated_at": "2026-02-21T17:14:03.027021"
+      "updated_at": "2026-02-23T02:01:15.032534"
     },
     {
       "ticker": "039340",
@@ -597,7 +561,7 @@
       "success_prob": 17.5,
       "predicted_gain": 10.3,
       "ai_score": 21.5,
-      "updated_at": "2026-02-21T17:14:02.845631"
+      "updated_at": "2026-02-23T02:01:14.825108"
     },
     {
       "ticker": "069960",
@@ -615,7 +579,7 @@
       "success_prob": 11.9,
       "predicted_gain": 14.4,
       "ai_score": 21.3,
-      "updated_at": "2026-02-21T17:13:49.815490"
+      "updated_at": "2026-02-23T02:00:59.458913"
     },
     {
       "ticker": "034950",
@@ -633,7 +597,7 @@
       "success_prob": 15.4,
       "predicted_gain": 10.1,
       "ai_score": 19.9,
-      "updated_at": "2026-02-21T17:13:58.416610"
+      "updated_at": "2026-02-23T02:01:09.587039"
     },
     {
       "ticker": "017890",
@@ -651,7 +615,7 @@
       "success_prob": 10.9,
       "predicted_gain": 12.9,
       "ai_score": 19.2,
-      "updated_at": "2026-02-21T17:13:59.783116"
+      "updated_at": "2026-02-23T02:01:11.386129"
     },
     {
       "ticker": "092230",
@@ -669,7 +633,7 @@
       "success_prob": 13.8,
       "predicted_gain": 10.3,
       "ai_score": 18.9,
-      "updated_at": "2026-02-21T17:13:52.886765"
+      "updated_at": "2026-02-23T02:01:03.274180"
     },
     {
       "ticker": "004000",
@@ -687,7 +651,7 @@
       "success_prob": 8.6,
       "predicted_gain": 13.5,
       "ai_score": 18.2,
-      "updated_at": "2026-02-21T17:13:50.409619"
+      "updated_at": "2026-02-23T02:01:00.219325"
     },
     {
       "ticker": "383800",
@@ -705,43 +669,7 @@
       "success_prob": 12.4,
       "predicted_gain": 10.3,
       "ai_score": 18.0,
-      "updated_at": "2026-02-21T17:13:51.394214"
-    },
-    {
-      "ticker": "001045",
-      "name": "CJ우",
-      "price": 100600,
-      "change_rate": 0.5,
-      "breakout_date": "2026-02-10",
-      "resistance": 99300,
-      "days_since_breakout": 5,
-      "breakout_pct": 1.31,
-      "gain_since_breakout": -0.89,
-      "ma150": 91717,
-      "above_ma150": true,
-      "market_cap": 2273,
-      "success_prob": 5.7,
-      "predicted_gain": 12.0,
-      "ai_score": 14.8,
-      "updated_at": "2026-02-21T17:13:54.551227"
-    },
-    {
-      "ticker": "105740",
-      "name": "디케이락",
-      "price": 10820,
-      "change_rate": -3.39,
-      "breakout_date": "2026-02-12",
-      "resistance": 10480,
-      "days_since_breakout": 3,
-      "breakout_pct": 3.24,
-      "gain_since_breakout": 0.74,
-      "ma150": 9565,
-      "above_ma150": true,
-      "market_cap": 1100,
-      "success_prob": 7.6,
-      "predicted_gain": 10.5,
-      "ai_score": 14.8,
-      "updated_at": "2026-02-21T17:14:03.742015"
+      "updated_at": "2026-02-23T02:01:01.738333"
     }
   ]
 }
