@@ -3521,7 +3521,8 @@
                 var d = DATA[key];
                 if (!d) return 0;
                 if (d.meta && d.meta[metaField] != null) return d.meta[metaField];
-                if (fallbackField && d.data && Array.isArray(d.data)) return d.data.length;
+                if (d[metaField] != null) return d[metaField];
+                if (d.data && Array.isArray(d.data)) return d.data.length;
                 return 0;
             }
             // Get stock counts for each screener
