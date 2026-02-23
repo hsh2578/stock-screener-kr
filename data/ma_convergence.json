@@ -1,72 +1,53 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-23T11:42:47.097247",
-    "totalCount": 5,
-    "screened_from": 1576
+    "lastUpdated": "2026-02-23T12:26:10.389590",
+    "totalCount": 4,
+    "screened_from": 1577
   },
   "data": [
     {
       "ticker": "395400",
       "name": "SK리츠",
-      "current_price": 5620,
-      "volume": 307807,
-      "ma10w": 5646,
+      "current_price": 5610,
+      "volume": 313716,
+      "ma10w": 5645,
       "ma20w": 5509,
       "ma60w": 5113,
-      "ma20d": 5580,
+      "ma20d": 5579,
       "ma60d": 5615,
       "ma120d": 5388,
       "gap_20_60": 0.64,
-      "gap_20_120": 3.55,
-      "gap_60_120": 4.22,
-      "gap_price_20": 0.72,
+      "gap_20_120": 3.54,
+      "gap_60_120": 4.21,
+      "gap_price_20": 0.55,
       "weeks_since_high": 11,
-      "market_cap": 16947,
-      "updated_at": "2026-02-23T11:42:35.758858"
-    },
-    {
-      "ticker": "441270",
-      "name": "파인엠텍",
-      "current_price": 10480,
-      "volume": 827402,
-      "ma10w": 9997,
-      "ma20w": 9649,
-      "ma60w": 8112,
-      "ma20d": 10039,
-      "ma60d": 9791,
-      "ma120d": 10195,
-      "gap_20_60": 2.53,
-      "gap_20_120": 1.53,
-      "gap_60_120": 3.96,
-      "gap_price_20": 4.39,
-      "weeks_since_high": 26,
-      "market_cap": 4211,
-      "updated_at": "2026-02-23T11:42:42.558713"
+      "market_cap": 16887,
+      "updated_at": "2026-02-23T12:26:01.891237"
     },
     {
       "ticker": "084990",
       "name": "헬릭스미스",
-      "current_price": 6440,
-      "volume": 368224,
-      "ma10w": 6257,
-      "ma20w": 6047,
-      "ma60w": 4328,
-      "ma20d": 6344,
-      "ma60d": 6361,
-      "ma120d": 6130,
-      "gap_20_60": 0.27,
-      "gap_20_120": 3.48,
-      "gap_60_120": 3.76,
-      "gap_price_20": 1.51,
+      "current_price": 6530,
+      "volume": 370850,
+      "ma10w": 6266,
+      "ma20w": 6051,
+      "ma60w": 4330,
+      "ma20d": 6348,
+      "ma60d": 6362,
+      "ma120d": 6131,
+      "gap_20_60": 0.22,
+      "gap_20_120": 3.54,
+      "gap_60_120": 3.77,
+      "gap_price_20": 2.86,
       "weeks_since_high": 13,
-      "market_cap": 2940,
-      "updated_at": "2026-02-23T11:42:43.292046"
+      "market_cap": 3009,
+      "updated_at": "2026-02-23T12:26:07.867217"
     },
     {
       "ticker": "015230",
       "name": "대창단조",
       "current_price": 7050,
-      "volume": 137562,
+      "volume": 140631,
       "ma10w": 6570,
       "ma20w": 6523,
       "ma60w": 5903,
@@ -78,14 +59,14 @@
       "gap_60_120": 0.76,
       "gap_price_20": 4.59,
       "weeks_since_high": 18,
-      "market_cap": 2011,
-      "updated_at": "2026-02-23T11:42:38.119089"
+      "market_cap": 2020,
+      "updated_at": "2026-02-23T12:26:04.459670"
     },
     {
       "ticker": "123690",
       "name": "한국화장품",
       "current_price": 9980,
-      "volume": 230300,
+      "volume": 232571,
       "ma10w": 10372,
       "ma20w": 10302,
       "ma60w": 8875,
@@ -97,8 +78,8 @@
       "gap_60_120": 0.18,
       "gap_price_20": 4.01,
       "weeks_since_high": 18,
-      "market_cap": 1605,
-      "updated_at": "2026-02-23T11:42:38.756999"
+      "market_cap": 1603,
+      "updated_at": "2026-02-23T12:26:04.731986"
     }
   ]
 }
