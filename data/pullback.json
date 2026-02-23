@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-23T12:25:43.329209",
-    "totalCount": 2,
-    "screened_from": 1577
+    "lastUpdated": "2026-02-23T13:39:05.658855",
+    "totalCount": 3,
+    "screened_from": 1582
   },
   "data": [
     {
@@ -13,25 +13,39 @@
       "breakout_date": "2026-01-26",
       "resistance": 26650,
       "pullback_ratio": 0.38,
-      "volume_decrease": 76,
+      "volume_decrease": 75,
       "ma150": 25407,
       "above_ma150": true,
-      "market_cap": 5824,
-      "updated_at": "2026-02-23T12:25:38.219459"
+      "market_cap": 5802,
+      "updated_at": "2026-02-23T13:39:01.790559"
     },
     {
       "ticker": "032620",
       "name": "유비케어",
-      "price": 4200,
-      "change_rate": -0.12,
+      "price": 4215,
+      "change_rate": 0.24,
       "breakout_date": "2026-02-05",
       "resistance": 4085,
-      "pullback_ratio": 2.82,
+      "pullback_ratio": 3.18,
       "volume_decrease": 91,
       "ma150": 3938,
       "above_ma150": true,
-      "market_cap": 2194,
-      "updated_at": "2026-02-23T12:25:40.611459"
+      "market_cap": 2197,
+      "updated_at": "2026-02-23T13:39:03.160491"
+    },
+    {
+      "ticker": "001045",
+      "name": "CJ우",
+      "price": 100000,
+      "change_rate": -0.6,
+      "breakout_date": "2026-01-30",
+      "resistance": 95500,
+      "pullback_ratio": 4.71,
+      "volume_decrease": 66,
+      "ma150": 91791,
+      "above_ma150": true,
+      "market_cap": 2260,
+      "updated_at": "2026-02-23T13:38:59.402759"
     }
   ]
 }

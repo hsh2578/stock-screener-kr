@@ -1,31 +1,31 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-23T12:25:53.068991",
+    "lastUpdated": "2026-02-23T13:39:13.828279",
     "totalCount": 10,
-    "screened_from": 1577
+    "screened_from": 1582
   },
   "data": [
     {
       "ticker": "086670",
       "name": "비엠티",
-      "price": 13680,
-      "change_rate": 0.29,
+      "price": 13560,
+      "change_rate": -0.59,
       "explosion_date": "2026-02-12",
       "explosion_change_rate": 13.6,
       "explosion_volume_ratio": 38.8,
       "days_since_detected": 4,
-      "volume_decrease_rate": 95,
+      "volume_decrease_rate": 94,
       "volume_rank": 1,
-      "ma150": 11841,
+      "ma150": 11840,
       "above_ma150": true,
-      "market_cap": 1356,
-      "updated_at": "2026-02-23T12:25:52.466894"
+      "market_cap": 1344,
+      "updated_at": "2026-02-23T13:39:13.288528"
     },
     {
       "ticker": "480370",
       "name": "씨케이솔루션",
-      "price": 11750,
-      "change_rate": 0.69,
+      "price": 11700,
+      "change_rate": 0.26,
       "explosion_date": "2026-02-12",
       "explosion_change_rate": 24.9,
       "explosion_volume_ratio": 35.5,
@@ -34,30 +34,30 @@
       "volume_rank": 2,
       "ma150": 9538,
       "above_ma150": true,
-      "market_cap": 1289,
-      "updated_at": "2026-02-23T12:25:48.063895"
+      "market_cap": 1281,
+      "updated_at": "2026-02-23T13:39:09.890909"
     },
     {
       "ticker": "009450",
       "name": "경동나비엔",
-      "price": 68800,
-      "change_rate": 0.73,
+      "price": 69000,
+      "change_rate": 1.02,
       "explosion_date": "2026-02-12",
       "explosion_change_rate": 10.9,
       "explosion_volume_ratio": 6.5,
       "days_since_detected": 4,
-      "volume_decrease_rate": 79,
+      "volume_decrease_rate": 77,
       "volume_rank": 3,
-      "ma150": 68851,
-      "above_ma150": false,
-      "market_cap": 10066,
-      "updated_at": "2026-02-23T12:25:45.301477"
+      "ma150": 68852,
+      "above_ma150": true,
+      "market_cap": 10052,
+      "updated_at": "2026-02-23T13:39:07.377902"
     },
     {
       "ticker": "071840",
       "name": "롯데하이마트",
-      "price": 8830,
-      "change_rate": 0.34,
+      "price": 8940,
+      "change_rate": 1.59,
       "explosion_date": "2026-02-11",
       "explosion_change_rate": 10.4,
       "explosion_volume_ratio": 47.9,
@@ -66,72 +66,72 @@
       "volume_rank": 4,
       "ma150": 8041,
       "above_ma150": true,
-      "market_cap": 2086,
-      "updated_at": "2026-02-23T12:25:47.318263"
+      "market_cap": 2105,
+      "updated_at": "2026-02-23T13:39:09.138738"
     },
     {
       "ticker": "331740",
       "name": "아우토크립트",
-      "price": 18300,
-      "change_rate": 0.38,
+      "price": 18510,
+      "change_rate": 1.54,
       "explosion_date": "2026-02-11",
       "explosion_change_rate": 14.3,
       "explosion_volume_ratio": 5.5,
       "days_since_detected": 5,
-      "volume_decrease_rate": 85,
+      "volume_decrease_rate": 84,
       "volume_rank": 5,
       "ma150": null,
       "above_ma150": false,
-      "market_cap": 1769,
-      "updated_at": "2026-02-23T12:25:51.968469"
+      "market_cap": 1808,
+      "updated_at": "2026-02-23T13:39:12.819357"
     },
     {
       "ticker": "282330",
       "name": "BGF리테일",
-      "price": 137300,
-      "change_rate": 0.22,
+      "price": 137800,
+      "change_rate": 0.58,
       "explosion_date": "2026-02-11",
       "explosion_change_rate": 11.5,
       "explosion_volume_ratio": 4.3,
       "days_since_detected": 5,
-      "volume_decrease_rate": 78,
+      "volume_decrease_rate": 76,
       "volume_rank": 6,
-      "ma150": 113174,
+      "ma150": 113178,
       "above_ma150": true,
-      "market_cap": 23765,
-      "updated_at": "2026-02-23T12:25:44.733164"
+      "market_cap": 23817,
+      "updated_at": "2026-02-23T13:39:06.865787"
     },
     {
       "ticker": "023530",
       "name": "롯데쇼핑",
-      "price": 114100,
-      "change_rate": 4.01,
+      "price": 114200,
+      "change_rate": 4.1,
       "explosion_date": "2026-02-10",
       "explosion_change_rate": 14.9,
       "explosion_volume_ratio": 4.9,
       "days_since_detected": 6,
-      "volume_decrease_rate": 73,
+      "volume_decrease_rate": 71,
       "volume_rank": 7,
-      "ma150": 73823,
+      "ma150": 73824,
       "above_ma150": true,
-      "market_cap": 32503,
-      "updated_at": "2026-02-23T12:25:44.263151"
+      "market_cap": 32616,
+      "updated_at": "2026-02-23T13:39:06.683279"
     },
     {
       "ticker": "093190",
       "name": "빅솔론",
-      "price": 7910,
-      "change_rate": -0.38,
+      "price": 7990,
+      "change_rate": 0.63,
       "explosion_date": "2026-02-09",
       "explosion_change_rate": 10.8,
       "explosion_volume_ratio": 5.9,
       "days_since_detected": 7,
-      "volume_decrease_rate": 92,
+      "volume_decrease_rate": 91,
       "volume_rank": 8,
-      "ma150": 6079,
+      "ma150": 6080,
       "above_ma150": true,
-      "market_cap": 1531,
-      "updated_at": "2026-02-23T12:25:52.267397"
+      "market_cap": 1533,
+      "updated_at": "2026-02-23T13:39:13.110657"
     },
     {
       "ticker": "002790",
@@ -146,24 +146,24 @@
       "volume_rank": 9,
       "ma150": 28159,
       "above_ma150": true,
-      "market_cap": 27095,
-      "updated_at": "2026-02-23T12:25:44.688887"
+      "market_cap": 27015,
+      "updated_at": "2026-02-23T13:39:06.834346"
     },
     {
       "ticker": "090435",
       "name": "아모레퍼시픽우",
-      "price": 54300,
-      "change_rate": -0.37,
+      "price": 54600,
+      "change_rate": 0.18,
       "explosion_date": "2026-02-09",
       "explosion_change_rate": 12.0,
       "explosion_volume_ratio": 4.3,
       "days_since_detected": 7,
       "volume_decrease_rate": 80,
       "volume_rank": 10,
-      "ma150": 44322,
+      "ma150": 44324,
       "above_ma150": true,
       "market_cap": 5754,
-      "updated_at": "2026-02-23T12:25:45.841632"
+      "updated_at": "2026-02-23T13:39:07.867161"
     }
   ]
 }
