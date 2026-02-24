@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-02-24T10:25:58.595588",
-    "total_count": 3,
+    "updated_at": "2026-02-24T21:04:12.756308",
+    "total_count": 4,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -12,38 +12,50 @@
     {
       "ticker": "207940",
       "name": "삼성바이오로직스",
-      "current_price": 1726000,
-      "ma60w": 1591548,
-      "ma60w_gap": 8.45,
+      "current_price": 1723000,
+      "ma60w": 1591528,
+      "ma60w_gap": 8.26,
       "op_margin": 36.6,
       "op_growth_3y": 22.0,
-      "market_cap": 802685,
+      "market_cap": 797593,
       "sector": "기타",
-      "updated_at": "2026-02-24T10:25:53.517016"
+      "updated_at": "2026-02-24T21:04:06.141624"
     },
     {
       "ticker": "003230",
       "name": "삼양식품",
-      "current_price": 1228000,
-      "ma60w": 1142745,
-      "ma60w_gap": 7.46,
+      "current_price": 1232000,
+      "ma60w": 1142771,
+      "ma60w_gap": 7.81,
       "op_margin": 21.6,
       "op_growth_3y": 56.0,
-      "market_cap": 93108,
+      "market_cap": 92806,
       "sector": "기타",
-      "updated_at": "2026-02-24T10:25:54.206172"
+      "updated_at": "2026-02-24T21:04:06.671470"
+    },
+    {
+      "ticker": "443060",
+      "name": "HD현대마린솔루션",
+      "current_price": 182600,
+      "ma60w": 181585,
+      "ma60w_gap": 0.56,
+      "op_margin": 16.9,
+      "op_growth_3y": 18.6,
+      "market_cap": 81862,
+      "sector": "기타",
+      "updated_at": "2026-02-24T21:04:06.674534"
     },
     {
       "ticker": "395400",
       "name": "SK리츠",
-      "current_price": 5620,
-      "ma60w": 5170,
-      "ma60w_gap": 8.7,
+      "current_price": 5600,
+      "ma60w": 5169,
+      "ma60w_gap": 8.32,
       "op_margin": 85.7,
       "op_growth_3y": 101.2,
-      "market_cap": 16947,
+      "market_cap": 16856,
       "sector": "기타",
-      "updated_at": "2026-02-24T10:25:58.578489"
+      "updated_at": "2026-02-24T21:04:12.741605"
     }
   ]
 }
