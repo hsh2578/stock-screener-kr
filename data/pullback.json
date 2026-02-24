@@ -1,23 +1,23 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-24T14:44:59.499295",
-    "totalCount": 3,
-    "screened_from": 1575
+    "lastUpdated": "2026-02-24T18:14:03.653676",
+    "totalCount": 5,
+    "screened_from": 1579
   },
   "data": [
     {
       "ticker": "095660",
       "name": "네오위즈",
-      "price": 26350,
-      "change_rate": -0.19,
+      "price": 26150,
+      "change_rate": -0.95,
       "breakout_date": "2026-01-26",
       "resistance": 26650,
-      "pullback_ratio": 1.13,
-      "volume_decrease": 78,
-      "ma150": 25419,
+      "pullback_ratio": 1.88,
+      "volume_decrease": 77,
+      "ma150": 25417,
       "above_ma150": true,
-      "market_cap": 5759,
-      "updated_at": "2026-02-24T14:44:55.017377"
+      "market_cap": 5715,
+      "updated_at": "2026-02-24T18:13:59.359831"
     },
     {
       "ticker": "032620",
@@ -30,22 +30,50 @@
       "volume_decrease": 89,
       "ma150": 3939,
       "above_ma150": true,
-      "market_cap": 2202,
-      "updated_at": "2026-02-24T14:44:56.644588"
+      "market_cap": 2207,
+      "updated_at": "2026-02-24T18:13:59.998363"
     },
     {
       "ticker": "143240",
       "name": "사람인",
-      "price": 14460,
-      "change_rate": -0.14,
+      "price": 14450,
+      "change_rate": -0.21,
       "breakout_date": "2026-02-05",
       "resistance": 13830,
-      "pullback_ratio": 4.56,
+      "pullback_ratio": 4.48,
       "volume_decrease": 82,
       "ma150": 13854,
       "above_ma150": true,
-      "market_cap": 1700,
-      "updated_at": "2026-02-24T14:44:57.178165"
+      "market_cap": 1691,
+      "updated_at": "2026-02-24T18:14:00.986513"
+    },
+    {
+      "ticker": "001045",
+      "name": "CJ우",
+      "price": 100100,
+      "change_rate": -0.4,
+      "breakout_date": "2026-01-30",
+      "resistance": 95500,
+      "pullback_ratio": 4.82,
+      "volume_decrease": 66,
+      "ma150": 91880,
+      "above_ma150": true,
+      "market_cap": 2262,
+      "updated_at": "2026-02-24T18:13:56.831567"
+    },
+    {
+      "ticker": "235980",
+      "name": "메드팩토",
+      "price": 5810,
+      "change_rate": -0.17,
+      "breakout_date": "2026-02-02",
+      "resistance": 6110,
+      "pullback_ratio": 4.91,
+      "volume_decrease": 87,
+      "ma150": 5418,
+      "above_ma150": true,
+      "market_cap": 1991,
+      "updated_at": "2026-02-24T18:14:00.470135"
     }
   ]
 }
