@@ -1,65 +1,79 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-25T13:34:13.727862",
-    "totalCount": 4,
-    "screened_from": 1585
+    "lastUpdated": "2026-02-25T14:46:07.720969",
+    "totalCount": 5,
+    "screened_from": 1584
   },
   "data": [
     {
-      "ticker": "337930",
-      "name": "젝시믹스",
-      "price": 5500,
-      "change_rate": -1.79,
-      "breakout_date": "2026-02-02",
-      "resistance": 5400,
-      "pullback_ratio": 1.85,
-      "volume_decrease": 79,
-      "ma150": 5237,
-      "above_ma150": true,
-      "market_cap": 1635,
-      "updated_at": "2026-02-25T13:34:11.775118"
-    },
-    {
       "ticker": "005810",
       "name": "풍산홀딩스",
-      "price": 41300,
-      "change_rate": 0.0,
+      "price": 40900,
+      "change_rate": -0.97,
       "breakout_date": "2026-01-30",
       "resistance": 40500,
-      "pullback_ratio": 1.98,
-      "volume_decrease": 60,
-      "ma150": 40410,
+      "pullback_ratio": 0.99,
+      "volume_decrease": 59,
+      "ma150": 40407,
       "above_ma150": true,
-      "market_cap": 5961,
-      "updated_at": "2026-02-25T13:34:04.712578"
+      "market_cap": 5932,
+      "updated_at": "2026-02-25T14:45:58.477123"
+    },
+    {
+      "ticker": "337930",
+      "name": "젝시믹스",
+      "price": 5470,
+      "change_rate": -2.32,
+      "breakout_date": "2026-02-02",
+      "resistance": 5400,
+      "pullback_ratio": 1.3,
+      "volume_decrease": 78,
+      "ma150": 5237,
+      "above_ma150": true,
+      "market_cap": 1629,
+      "updated_at": "2026-02-25T14:46:05.718618"
     },
     {
       "ticker": "032620",
       "name": "유비케어",
-      "price": 4170,
-      "change_rate": -1.42,
+      "price": 4145,
+      "change_rate": -2.01,
       "breakout_date": "2026-02-05",
       "resistance": 4085,
-      "pullback_ratio": 2.08,
-      "volume_decrease": 88,
-      "ma150": 3941,
+      "pullback_ratio": 1.47,
+      "volume_decrease": 87,
+      "ma150": 3940,
       "above_ma150": true,
-      "market_cap": 2174,
-      "updated_at": "2026-02-25T13:34:10.631555"
+      "market_cap": 2160,
+      "updated_at": "2026-02-25T14:46:04.686630"
     },
     {
       "ticker": "001045",
       "name": "CJ우",
-      "price": 99800,
-      "change_rate": -0.3,
+      "price": 99200,
+      "change_rate": -0.9,
       "breakout_date": "2026-01-30",
       "resistance": 95500,
-      "pullback_ratio": 4.5,
+      "pullback_ratio": 3.87,
       "volume_decrease": 67,
-      "ma150": 91913,
+      "ma150": 91909,
       "above_ma150": true,
-      "market_cap": 2260,
-      "updated_at": "2026-02-25T13:34:06.373882"
+      "market_cap": 2248,
+      "updated_at": "2026-02-25T14:45:59.750644"
+    },
+    {
+      "ticker": "365330",
+      "name": "에스와이스틸텍",
+      "price": 3815,
+      "change_rate": -2.18,
+      "breakout_date": "2026-02-03",
+      "resistance": 3635,
+      "pullback_ratio": 4.95,
+      "volume_decrease": 95,
+      "ma150": 3704,
+      "above_ma150": true,
+      "market_cap": 1914,
+      "updated_at": "2026-02-25T14:46:04.994860"
     }
   ]
 }
