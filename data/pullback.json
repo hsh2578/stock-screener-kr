@@ -1,37 +1,37 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-25T12:21:26.324237",
-    "totalCount": 3,
+    "lastUpdated": "2026-02-25T13:34:13.727862",
+    "totalCount": 4,
     "screened_from": 1585
   },
   "data": [
     {
-      "ticker": "005810",
-      "name": "풍산홀딩스",
-      "price": 41250,
-      "change_rate": -0.12,
-      "breakout_date": "2026-01-30",
-      "resistance": 40500,
-      "pullback_ratio": 1.85,
-      "volume_decrease": 61,
-      "ma150": 40409,
-      "above_ma150": true,
-      "market_cap": 5936,
-      "updated_at": "2026-02-25T12:21:17.974991"
-    },
-    {
       "ticker": "337930",
       "name": "젝시믹스",
-      "price": 5510,
-      "change_rate": -1.61,
+      "price": 5500,
+      "change_rate": -1.79,
       "breakout_date": "2026-02-02",
       "resistance": 5400,
-      "pullback_ratio": 2.04,
-      "volume_decrease": 80,
+      "pullback_ratio": 1.85,
+      "volume_decrease": 79,
       "ma150": 5237,
       "above_ma150": true,
-      "market_cap": 1647,
-      "updated_at": "2026-02-25T12:21:24.313718"
+      "market_cap": 1635,
+      "updated_at": "2026-02-25T13:34:11.775118"
+    },
+    {
+      "ticker": "005810",
+      "name": "풍산홀딩스",
+      "price": 41300,
+      "change_rate": 0.0,
+      "breakout_date": "2026-01-30",
+      "resistance": 40500,
+      "pullback_ratio": 1.98,
+      "volume_decrease": 60,
+      "ma150": 40410,
+      "above_ma150": true,
+      "market_cap": 5961,
+      "updated_at": "2026-02-25T13:34:04.712578"
     },
     {
       "ticker": "032620",
@@ -41,11 +41,25 @@
       "breakout_date": "2026-02-05",
       "resistance": 4085,
       "pullback_ratio": 2.08,
-      "volume_decrease": 89,
+      "volume_decrease": 88,
       "ma150": 3941,
       "above_ma150": true,
       "market_cap": 2174,
-      "updated_at": "2026-02-25T12:21:23.748629"
+      "updated_at": "2026-02-25T13:34:10.631555"
+    },
+    {
+      "ticker": "001045",
+      "name": "CJ우",
+      "price": 99800,
+      "change_rate": -0.3,
+      "breakout_date": "2026-01-30",
+      "resistance": 95500,
+      "pullback_ratio": 4.5,
+      "volume_decrease": 67,
+      "ma150": 91913,
+      "above_ma150": true,
+      "market_cap": 2260,
+      "updated_at": "2026-02-25T13:34:06.373882"
     }
   ]
 }
