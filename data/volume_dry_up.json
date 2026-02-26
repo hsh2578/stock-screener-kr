@@ -1,31 +1,31 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-26T12:17:30.267352",
-    "totalCount": 7,
-    "screened_from": 1577
+    "lastUpdated": "2026-02-26T13:31:01.326649",
+    "totalCount": 6,
+    "screened_from": 1570
   },
   "data": [
     {
       "ticker": "363280",
       "name": "티와이홀딩스",
-      "price": 2995,
-      "change_rate": -1.48,
+      "price": 3000,
+      "change_rate": -1.32,
       "explosion_date": "2026-02-23",
       "explosion_change_rate": 16.4,
       "explosion_volume_ratio": 8.0,
       "days_since_detected": 3,
-      "volume_decrease_rate": 79,
+      "volume_decrease_rate": 78,
       "volume_rank": 1,
       "ma150": 2897,
       "above_ma150": true,
-      "market_cap": 1510,
-      "updated_at": "2026-02-26T12:17:24.315550"
+      "market_cap": 1507,
+      "updated_at": "2026-02-26T13:30:55.286008"
     },
     {
       "ticker": "004100",
       "name": "태양금속",
-      "price": 3005,
-      "change_rate": -1.48,
+      "price": 3020,
+      "change_rate": -0.98,
       "explosion_date": "2026-02-23",
       "explosion_change_rate": 17.9,
       "explosion_volume_ratio": 6.2,
@@ -34,24 +34,24 @@
       "volume_rank": 2,
       "ma150": 2300,
       "above_ma150": true,
-      "market_cap": 1102,
-      "updated_at": "2026-02-26T12:17:24.718337"
+      "market_cap": 1110,
+      "updated_at": "2026-02-26T13:30:55.680713"
     },
     {
       "ticker": "065450",
       "name": "빅텍",
-      "price": 4300,
-      "change_rate": 0.0,
+      "price": 4305,
+      "change_rate": 0.12,
       "explosion_date": "2026-02-20",
       "explosion_change_rate": 11.2,
       "explosion_volume_ratio": 32.7,
       "days_since_detected": 4,
       "volume_decrease_rate": 89,
       "volume_rank": 3,
-      "ma150": 3837,
+      "ma150": 3838,
       "above_ma150": true,
-      "market_cap": 1232,
-      "updated_at": "2026-02-26T12:17:29.879870"
+      "market_cap": 1247,
+      "updated_at": "2026-02-26T13:31:00.909360"
     },
     {
       "ticker": "009450",
@@ -62,44 +62,28 @@
       "explosion_change_rate": 10.9,
       "explosion_volume_ratio": 6.5,
       "days_since_detected": 7,
-      "volume_decrease_rate": 85,
+      "volume_decrease_rate": 84,
       "volume_rank": 4,
       "ma150": 68735,
       "above_ma150": false,
       "market_cap": 9760,
-      "updated_at": "2026-02-26T12:17:21.997791"
-    },
-    {
-      "ticker": "071840",
-      "name": "롯데하이마트",
-      "price": 8690,
-      "change_rate": -2.36,
-      "explosion_date": "2026-02-11",
-      "explosion_change_rate": 10.4,
-      "explosion_volume_ratio": 47.9,
-      "days_since_detected": 8,
-      "volume_decrease_rate": 97,
-      "volume_rank": 5,
-      "ma150": 8030,
-      "above_ma150": true,
-      "market_cap": 2056,
-      "updated_at": "2026-02-26T12:17:23.926860"
+      "updated_at": "2026-02-26T13:30:53.150287"
     },
     {
       "ticker": "090435",
       "name": "아모레퍼시픽우",
-      "price": 53500,
-      "change_rate": -0.19,
+      "price": 53400,
+      "change_rate": -0.37,
       "explosion_date": "2026-02-09",
       "explosion_change_rate": 12.0,
       "explosion_volume_ratio": 4.3,
       "days_since_detected": 10,
-      "volume_decrease_rate": 89,
-      "volume_rank": 6,
-      "ma150": 44480,
+      "volume_decrease_rate": 88,
+      "volume_rank": 5,
+      "ma150": 44479,
       "above_ma150": true,
-      "market_cap": 5637,
-      "updated_at": "2026-02-26T12:17:22.440691"
+      "market_cap": 5606,
+      "updated_at": "2026-02-26T13:30:53.606181"
     },
     {
       "ticker": "093190",
@@ -111,11 +95,11 @@
       "explosion_volume_ratio": 5.9,
       "days_since_detected": 10,
       "volume_decrease_rate": 86,
-      "volume_rank": 7,
+      "volume_rank": 6,
       "ma150": 6109,
       "above_ma150": true,
-      "market_cap": 1487,
-      "updated_at": "2026-02-26T12:17:29.136664"
+      "market_cap": 1489,
+      "updated_at": "2026-02-26T13:31:00.530369"
     }
   ]
 }

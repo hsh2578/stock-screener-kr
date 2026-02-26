@@ -1,37 +1,51 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-26T12:17:20.280126",
-    "totalCount": 2,
-    "screened_from": 1577
+    "lastUpdated": "2026-02-26T13:30:51.511246",
+    "totalCount": 3,
+    "screened_from": 1570
   },
   "data": [
     {
       "ticker": "015230",
       "name": "대창단조",
-      "price": 6960,
-      "change_rate": -0.71,
+      "price": 6900,
+      "change_rate": -1.57,
       "breakout_date": "2026-02-03",
       "resistance": 6840,
-      "pullback_ratio": 1.75,
-      "volume_decrease": 78,
-      "ma150": 6390,
+      "pullback_ratio": 0.88,
+      "volume_decrease": 77,
+      "ma150": 6389,
       "above_ma150": true,
       "market_cap": 1982,
-      "updated_at": "2026-02-26T12:17:13.551556"
+      "updated_at": "2026-02-26T13:30:45.241481"
     },
     {
       "ticker": "143240",
       "name": "사람인",
-      "price": 14480,
-      "change_rate": -0.28,
+      "price": 14430,
+      "change_rate": -0.62,
       "breakout_date": "2026-02-05",
       "resistance": 13830,
-      "pullback_ratio": 4.7,
-      "volume_decrease": 79,
+      "pullback_ratio": 4.34,
+      "volume_decrease": 78,
       "ma150": 13846,
       "above_ma150": true,
-      "market_cap": 1700,
-      "updated_at": "2026-02-26T12:17:18.027949"
+      "market_cap": 1689,
+      "updated_at": "2026-02-26T13:30:49.505026"
+    },
+    {
+      "ticker": "001045",
+      "name": "CJ우",
+      "price": 99800,
+      "change_rate": 0.0,
+      "breakout_date": "2026-01-30",
+      "resistance": 95500,
+      "pullback_ratio": 4.5,
+      "volume_decrease": 70,
+      "ma150": 91945,
+      "above_ma150": true,
+      "market_cap": 2255,
+      "updated_at": "2026-02-26T13:30:44.708793"
     }
   ]
 }
