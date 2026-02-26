@@ -1,51 +1,51 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-26T14:42:36.200429",
+    "lastUpdated": "2026-02-26T16:34:58.803440",
     "totalCount": 3,
-    "screened_from": 1570
+    "screened_from": 1566
   },
   "data": [
     {
       "ticker": "015230",
       "name": "대창단조",
-      "price": 6910,
-      "change_rate": -1.43,
+      "price": 6840,
+      "change_rate": -2.43,
       "breakout_date": "2026-02-03",
       "resistance": 6840,
-      "pullback_ratio": 1.02,
-      "volume_decrease": 76,
+      "pullback_ratio": 0.0,
+      "volume_decrease": 75,
       "ma150": 6389,
       "above_ma150": true,
-      "market_cap": 1968,
-      "updated_at": "2026-02-26T14:42:29.905932"
-    },
-    {
-      "ticker": "001045",
-      "name": "CJ우",
-      "price": 100100,
-      "change_rate": 0.3,
-      "breakout_date": "2026-01-30",
-      "resistance": 95500,
-      "pullback_ratio": 4.82,
-      "volume_decrease": 69,
-      "ma150": 91947,
-      "above_ma150": true,
-      "market_cap": 2253,
-      "updated_at": "2026-02-26T14:42:29.715444"
+      "market_cap": 1954,
+      "updated_at": "2026-02-26T16:34:52.045462"
     },
     {
       "ticker": "143240",
       "name": "사람인",
-      "price": 14500,
-      "change_rate": -0.14,
+      "price": 14430,
+      "change_rate": -0.62,
       "breakout_date": "2026-02-05",
       "resistance": 13830,
-      "pullback_ratio": 4.84,
+      "pullback_ratio": 4.34,
       "volume_decrease": 78,
       "ma150": 13846,
       "above_ma150": true,
-      "market_cap": 1693,
-      "updated_at": "2026-02-26T14:42:34.240104"
+      "market_cap": 1689,
+      "updated_at": "2026-02-26T16:34:56.714242"
+    },
+    {
+      "ticker": "001045",
+      "name": "CJ우",
+      "price": 100200,
+      "change_rate": 0.4,
+      "breakout_date": "2026-01-30",
+      "resistance": 95500,
+      "pullback_ratio": 4.92,
+      "volume_decrease": 69,
+      "ma150": 91948,
+      "above_ma150": true,
+      "market_cap": 2264,
+      "updated_at": "2026-02-26T16:34:51.831563"
     }
   ]
 }
