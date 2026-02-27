@@ -1384,6 +1384,11 @@ def get_stock_list() -> pd.DataFrame:
         from scripts.krx_data import get_filtered_stocks
         print("종목 리스트 조회 중... (KRX OTP)")
         stocks = get_filtered_stocks(min_market_cap=MIN_MARKET_CAP)
+        # 우선주 제외
+        if 'is_common' in stocks.columns:
+            before = len(stocks)
+            stocks = stocks[stocks['is_common'] == True].copy()
+            print(f"  우선주 제외: {before - len(stocks)}개 → {len(stocks)}개 종목")
         return stocks
     except Exception as e:
         print(f"  KRX OTP 실패 ({e}), FDR로 fallback")
@@ -1407,6 +1412,12 @@ def get_stock_list() -> pd.DataFrame:
         stocks['MarketCap'] = MIN_MARKET_CAP + 1
 
     stocks = stocks[stocks['MarketCap'] >= MIN_MARKET_CAP].copy()
+
+    # 우선주 제외 (코드 끝자리 0이 보통주)
+    if 'Code' in stocks.columns:
+        before = len(stocks)
+        stocks = stocks[stocks['Code'].astype(str).str[-1] == '0'].copy()
+        print(f"  우선주 제외: {before - len(stocks)}개 → {len(stocks)}개 종목")
 
     print(f"  시가총액 {MIN_MARKET_CAP}억 이상: {len(stocks)}개 종목")
 
