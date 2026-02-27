@@ -5435,17 +5435,16 @@
                 items: [
                     { label: '횡보 기간', value: '60거래일 이상' },
                     { label: '변동폭', value: '≤ ATR×6 & ≤ 25%', key: true },
-                    { label: '지지선 터치', value: '2회 이상' },
-                    { label: '저항선 터치', value: '2회 이상' },
-                    { label: '추세 없음', value: '기울기 ≤ 0.05%/일' },
+                    { label: '저항선 터치', value: '고점 ±2%, 5거래일+ 간격, 2회 이상', key: true },
+                    { label: '추세 없음', value: '|기울기| ≤ 0.05%/일' },
                     { label: '거래량 감소', value: '후반 30일 < 전반 30일×0.95' },
                     { label: '시가총액', value: '1,000억 이상' },
                 ],
-                note: 'ATR = 60일 평균 진폭 | 정렬: 변동폭 좁은 순'
+                note: 'ATR = 60일 평균 진폭 | 저점 지지터치는 필수 조건 아님 (결과에 참고 데이터로만 표시) | 정렬: 변동폭 좁은 순'
             },
             'box-breakout': {
                 items: [
-                    { label: '박스권 형성', value: '60거래일 횡보 7조건 충족' },
+                    { label: '박스권 형성', value: '60거래일 횡보 6조건 충족' },
                     { label: '종가 돌파', value: '박스 상단 +1.5% 초과', key: true },
                     { label: '거래량', value: '돌파일 20일 평균×2배', key: true },
                     { label: '이평선', value: '종가 > 150일선' },
@@ -5455,7 +5454,7 @@
             },
             'box-breakout-simple': {
                 items: [
-                    { label: '박스권 형성', value: '60거래일 횡보 7조건 충족' },
+                    { label: '박스권 형성', value: '60거래일 횡보 6조건 충족' },
                     { label: '종가 돌파', value: '박스 상단 +1.5% 초과', key: true },
                     { label: '경과 기간', value: '10거래일 이내' },
                 ],
