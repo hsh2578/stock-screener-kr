@@ -66,6 +66,7 @@ jobs:
   collect-data:
     name: 📊 데이터 수집
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     # push 이벤트가 아닐 때만 실행 (또는 수동으로 skip 선택 시 건너뜀)
     if: github.event_name != 'push' && github.event.inputs.skip_data_collection != 'true'
 
