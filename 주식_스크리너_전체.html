@@ -1573,6 +1573,98 @@
            ============================================================ */
         .nowrap { white-space: nowrap; }
         .font-mono { font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+
+        /* ============================================================
+           CONDITIONS PANEL - 스크리너 조건 상세 패널
+           ============================================================ */
+        .conditions-panel {
+            margin-top: 12px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+        .conditions-summary {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--color-accent);
+            cursor: pointer;
+            background: var(--color-accent-light);
+            user-select: none;
+            list-style: none;
+            transition: background 0.15s;
+        }
+        .conditions-summary::-webkit-details-marker { display: none; }
+        .conditions-summary::before {
+            content: '';
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border: 1.5px solid currentColor;
+            border-top: none;
+            border-left: none;
+            transform: rotate(45deg);
+            transition: transform 0.2s;
+            flex-shrink: 0;
+            margin-top: -2px;
+        }
+        details[open] > .conditions-summary::before {
+            transform: rotate(-135deg);
+            margin-top: 2px;
+        }
+        .conditions-summary:hover { background: rgba(0, 102, 204, 0.12); }
+        .conditions-body {
+            padding: 14px 16px;
+            background: var(--color-bg-primary);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            align-items: flex-start;
+        }
+        .condition-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            border-radius: 20px;
+            font-size: 12px;
+            line-height: 1.4;
+            white-space: nowrap;
+        }
+        .condition-item .cond-label {
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+        .condition-item .cond-sep {
+            color: var(--color-text-muted);
+            font-size: 11px;
+        }
+        .condition-item .cond-value {
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+        .condition-item.cond-key {
+            background: var(--color-accent-light);
+            border-color: rgba(0, 102, 204, 0.2);
+        }
+        .condition-note {
+            width: 100%;
+            font-size: 12px;
+            color: var(--color-text-muted);
+            margin-top: 6px;
+            padding-top: 8px;
+            border-top: 1px solid var(--color-border);
+            line-height: 1.5;
+        }
+        @media (max-width: 768px) {
+            .conditions-body { gap: 6px; padding: 12px; }
+            .condition-item { font-size: 11px; padding: 3px 8px; }
+        }
     </style>
 </head>
 <body>
@@ -5335,6 +5427,262 @@
             'graham': renderGraham
         };
 
+        // ============================================================
+        // 스크리너 조건 상세 데이터 (20개 스크리너)
+        // ============================================================
+        const SCREENER_CONDITIONS = {
+            'box-range': {
+                items: [
+                    { label: '횡보 기간', value: '60거래일 이상' },
+                    { label: '변동폭', value: '≤ ATR×6 & ≤ 25%', key: true },
+                    { label: '지지선 터치', value: '2회 이상' },
+                    { label: '저항선 터치', value: '2회 이상' },
+                    { label: '추세 없음', value: '기울기 ≤ 0.05%/일' },
+                    { label: '거래량 감소', value: '후반 30일 < 전반 30일×0.95' },
+                    { label: '시가총액', value: '1,000억 이상' },
+                ],
+                note: 'ATR = 60일 평균 진폭 | 정렬: 변동폭 좁은 순'
+            },
+            'box-breakout': {
+                items: [
+                    { label: '박스권 형성', value: '60거래일 횡보 7조건 충족' },
+                    { label: '종가 돌파', value: '박스 상단 +1.5% 초과', key: true },
+                    { label: '거래량', value: '돌파일 20일 평균×2배', key: true },
+                    { label: '이평선', value: '종가 > 150일선' },
+                    { label: '경과 기간', value: '10거래일 이내' },
+                ],
+                note: 'AI 예측: Ridge(예상수익) + XGBoost(성공확률) | 20일 내 10%+ 상승 확률'
+            },
+            'box-breakout-simple': {
+                items: [
+                    { label: '박스권 형성', value: '60거래일 횡보 7조건 충족' },
+                    { label: '종가 돌파', value: '박스 상단 +1.5% 초과', key: true },
+                    { label: '경과 기간', value: '10거래일 이내' },
+                ],
+                note: '거래량·이평선 조건 없음 → 더 많은 종목 포착 | AI 예측 동일 모델 적용'
+            },
+            'pullback': {
+                items: [
+                    { label: '선행 조건', value: '거래량 동반 박스권 돌파 발생' },
+                    { label: '풀백 위치', value: '저항선 ±5% 이내', key: true },
+                    { label: '거래량', value: '최근 구간 < 돌파일×50%' },
+                    { label: '이평선', value: '종가 > 150일선' },
+                    { label: '탐색 기간', value: '돌파 후 20거래일 이내' },
+                ],
+                note: '돌파 후 저항선으로 되돌림 — 2차 매수 기회 | 정렬: 저항선 근접 순'
+            },
+            'volume-explosion': {
+                items: [
+                    { label: '거래량', value: '40일 평균×6배 이상', key: true },
+                    { label: '등락률', value: '+6% 이상 (장대양봉)', key: true },
+                ],
+                note: '거래량 비교 기준: 당일 제외 과거 40일 평균 | 정렬: 거래량 배수 높은 순'
+            },
+            'volume-dry-up': {
+                items: [
+                    { label: '[급등봉] 양봉', value: '전일 대비 +8% 이상' },
+                    { label: '[급등봉] 거래량', value: '20일 평균×4배', key: true },
+                    { label: '[급등봉] 윗꼬리', value: '(고가-종가)/(고가-저가) < 30%' },
+                    { label: '[급등봉] 이평선', value: '종가 > 20일선' },
+                    { label: '[눌림목] 가격', value: '급등봉 시가×0.98 이상' },
+                    { label: '[눌림목] 조정폭', value: '고점 대비 -10% 이내' },
+                    { label: '[눌림목] 거래량 고갈', value: '최근 3일 < 급등일×40%', key: true },
+                ],
+                note: '급등 후 3~8거래일 내 거래량 소화 구간 | 포착 후 8거래일간 표시 유지'
+            },
+            'new-high-52w': {
+                items: [
+                    { label: '52주 신고가 돌파', value: '종가 > 250거래일 최고가', key: true },
+                    { label: '거래량', value: '돌파일 20일 평균×1.5배' },
+                    { label: '이평선', value: '종가 > 150일선' },
+                    { label: '추세', value: '150일선 우상향 (20일 전 대비 상승)' },
+                    { label: '시가총액', value: '1,000억 이상' },
+                    { label: '경과 기간', value: '8거래일 이내' },
+                ],
+                note: 'AI 예측: LightGBM | 14개 피처 | 20일 내 15%+ 상승 확률'
+            },
+            'near-high-52w': {
+                items: [
+                    { label: '괴리율', value: '52주 고가 5% 이내 (미돌파)', key: true },
+                    { label: '저항선 확립', value: '52주 고가 기록 후 20거래일 이상' },
+                    { label: '시가총액', value: '1,000억 이상' },
+                    { label: '경과 기간', value: '8거래일 이내 근접 진입' },
+                ],
+                note: 'AI 예측: Lasso + LogisticRegression | 10거래일 내 돌파 확률 | 기본 3% 필터 적용 (5% 전환 가능)'
+            },
+            'ma-convergence': {
+                items: [
+                    { label: '정배열', value: '10주선 > 20주선 > 60주선' },
+                    { label: '신고가 시점', value: '100주봉 최고가가 30주봉 이내', key: true },
+                    { label: '이격도 1', value: '20일선 vs 60일선 ≤ 5%', key: true },
+                    { label: '이격도 2', value: '20일선 vs 120일선 ≤ 5%' },
+                    { label: '이격도 3', value: '60일선 vs 120일선 ≤ 5%' },
+                    { label: '현재 위치', value: '종가 vs 20일선 ≤ 5%' },
+                    { label: '거래량', value: '10만주 이상 (유동성)' },
+                ],
+                note: '이격도 = |A-B|/B×100 | 이평선 수렴 = 에너지 축적, 큰 방향성 이동 전 신호'
+            },
+            'bottom-breakout': {
+                items: [
+                    { label: '낙폭', value: '52주 고점 대비 -30% ~ -75%' },
+                    { label: '신저가 없음', value: '최근 10일간 52주 신저가 미갱신' },
+                    { label: '거래대금', value: '5일 평균 1억 이상' },
+                    { label: '탈출 점수', value: '6점 이상 / 12점 만점', key: true },
+                    { label: '150일선 돌파', value: '3점 (5일 이내 + 거래량1.5배 + 양봉)' },
+                    { label: '저점 상승', value: '2점 (Higher Low)' },
+                    { label: 'MACD 골든크로스', value: '1점 (5일 이내)' },
+                ],
+                note: 'A급(9점+): 강력 신호 | B급(6~8점): 유력 신호 | 10거래일 내 달성 종목 표시'
+            },
+            'fallen-rebound': {
+                items: [
+                    { label: '낙폭', value: '52주 고가 대비 -40% 이상', key: true },
+                    { label: '바닥 상승', value: '최근 20일 저점 > 이전 20일 저점', key: true },
+                ],
+                note: 'Higher Low 형성 = 하락 추세 속 매집 신호 | PER/PBR 함께 표시 | 정렬: 낙폭 큰 순'
+            },
+            'sector-stage': {
+                items: [
+                    { label: '1단계 (바닥)', value: '종가 < 150일선 & 기울기 상승 전환' },
+                    { label: '2단계 (상승)', value: '종가 > 150일선 & 기울기 > 0', key: true },
+                    { label: '3단계 (천장)', value: '종가 > 150일선 & 기울기 하락 전환' },
+                    { label: '4단계 (하락)', value: '종가 < 150일선 & 기울기 < 0' },
+                ],
+                note: '네이버 증권 45개 업종 | 와인스테인 4단계 이론 | 기울기 임계값 ±1.0% | 2단계(상승) = 매수 구간'
+            },
+            'value-stocks': {
+                items: [
+                    { label: 'PER', value: '업종 평균 이하' },
+                    { label: 'PBR', value: '업종 평균 이하' },
+                    { label: '매출 성장률', value: '기준 이상 (3년)' },
+                    { label: '영업이익률', value: '기준 이상 (평균)', key: true },
+                    { label: '영업이익 성장률', value: '기준 이상 (가용 기간)' },
+                    { label: 'EPS 성장률', value: '기준 이상 (가용 기간)', key: true },
+                ],
+                note: 'TTM(최근 4분기 합산) 기반 | FnGuide 재무 데이터 | 평일 20시 1회 업데이트'
+            },
+            'ma60w-quality': {
+                items: [
+                    { label: '이격도', value: '0% ~ 10% (60주선 바로 위)', key: true },
+                    { label: '이평선', value: '종가 ≥ 60주 EMA' },
+                    { label: '영업이익률', value: '≥ 10% (최근 결산)', key: true },
+                    { label: '영업이익 성장', value: '≥ 10% (3년 평균)' },
+                ],
+                note: '대상: 코스피 시총 상위 200종목 | 60주선 = 300일 지수이동평균(EMA) | 평일 18시 1회 업데이트'
+            },
+            'magic-formula': {
+                items: [
+                    { label: '이익수익률', value: 'EBIT(TTM) / EV', key: true },
+                    { label: '투하자본수익률', value: 'EBIT(TTM) / Invested Capital', key: true },
+                    { label: '최종 순위', value: '두 순위 합산 오름차순' },
+                    { label: '시가총액', value: '1,000억 이상' },
+                    { label: '출력', value: '상위 20개 종목' },
+                ],
+                note: 'EV = 시총 + 총부채 - 여유자금 | IC = 자본총계 + 차입금 - 현금(4분기 평균) | 금융주 제외 | EBIT = 영업이익'
+            },
+            'multi-factor': {
+                items: [
+                    { label: 'Quality (40%)', value: 'ROE + GPA + CFO/총자산', key: true },
+                    { label: 'Value (40%)', value: 'PER + PBR + PSR + PCR + 배당수익률', key: true },
+                    { label: 'Momentum (20%)', value: '12개월 수익률 + K-Ratio' },
+                    { label: '정규화', value: 'Winsorize(1%-99%) → Z-Score' },
+                    { label: '유효 지표', value: '최소 5/10개 & 팩터그룹별 1개 이상' },
+                ],
+                note: 'GPA = 매출총이익/총자산 | Q/V/M 비중 조절 가능 | 스팩·리츠·ETF 제외'
+            },
+            'buffett': {
+                items: [
+                    { label: 'ROE', value: '> 15%', key: true },
+                    { label: 'PER', value: '0 ~ 17' },
+                    { label: 'PBR', value: '0 ~ 1.5' },
+                    { label: '유동비율', value: '> 1.5' },
+                    { label: '부채비율', value: '< 150%' },
+                    { label: '장기부채비율', value: '< 100%' },
+                    { label: 'FCF', value: '> 0 (영업CF + 투자CF)', key: true },
+                    { label: 'EPS 성장률', value: '> 10% (3년 평균)' },
+                    { label: '시가총액', value: '> 1,000억' },
+                ],
+                note: '금융주 제외 | 정렬: ROE 내림차순 | 내재가치 전략'
+            },
+            'ackman': {
+                items: [
+                    { label: 'ROIC', value: '> 13%', key: true },
+                    { label: 'PER', value: '0 ~ 20' },
+                    { label: 'PBR', value: '0 ~ 2' },
+                    { label: '부채비율', value: '< 150%' },
+                    { label: 'FCF', value: '> 0', key: true },
+                    { label: '배당수익률', value: '> 2%' },
+                ],
+                note: 'ROIC = EBIT / Invested Capital | 금융주 제외 | 정렬: ROIC 내림차순'
+            },
+            'lynch': {
+                items: [
+                    { label: 'PER', value: '0 ~ 30' },
+                    { label: 'PEG', value: '0 ~ 1.8', key: true },
+                    { label: 'ROE', value: '> 5%' },
+                    { label: 'ROA', value: '> 1%' },
+                    { label: '부채비율', value: '< 150%' },
+                    { label: '배당수익률', value: '> 3%' },
+                    { label: '재고/매출 비율', value: '< 5%' },
+                ],
+                note: 'PEG = PER / EPS성장률(3년평균) | GARP(합리적 가격 성장주) 전략 | 정렬: PEG 오름차순'
+            },
+            'graham': {
+                items: [
+                    { label: 'PER', value: '0 ~ 15' },
+                    { label: 'PER × PBR', value: '< 22', key: true },
+                    { label: '유동비율', value: '> 200%', key: true },
+                    { label: '순유동자산', value: '> 장기부채' },
+                    { label: '전 기간 흑자', value: '순이익 & 영업이익 > 0 (가용 기간 ~4년)' },
+                    { label: 'EPS 누적 성장', value: '> 30% (oldest → newest)' },
+                    { label: '매출', value: '> 1,000억' },
+                ],
+                note: '안전마진 중심 보수적 가치투자 | 정렬: PER×PBR 오름차순'
+            },
+        };
+
+        // 조건 패널 주입 함수
+        function injectConditions(pageId) {
+            if (pageId === 'home') return;
+            const page = document.getElementById('page-' + pageId);
+            if (!page || page.querySelector('.conditions-panel')) return;
+            const condData = SCREENER_CONDITIONS[pageId];
+            if (!condData) return;
+            const desc = page.querySelector('.page-header .desc');
+            if (!desc) return;
+
+            const panel = document.createElement('details');
+            panel.className = 'conditions-panel';
+
+            const summary = document.createElement('summary');
+            summary.className = 'conditions-summary';
+            summary.textContent = '조건 상세 보기';
+
+            const body = document.createElement('div');
+            body.className = 'conditions-body';
+
+            condData.items.forEach(item => {
+                const el = document.createElement('div');
+                el.className = 'condition-item' + (item.key ? ' cond-key' : '');
+                el.innerHTML =
+                    '<span class="cond-label">' + item.label + '</span>' +
+                    '<span class="cond-sep">:</span>' +
+                    '<span class="cond-value">' + item.value + '</span>';
+                body.appendChild(el);
+            });
+
+            if (condData.note) {
+                const note = document.createElement('div');
+                note.className = 'condition-note';
+                note.textContent = condData.note;
+                body.appendChild(note);
+            }
+
+            panel.appendChild(summary);
+            panel.appendChild(body);
+            desc.after(panel);
+        }
+
         // Navigation - Lazy Rendering 적용 + Hash Routing
         function showPage(pageId, pushState = true) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -5345,6 +5693,9 @@
             } else if (pushState && pageId === 'home') {
                 history.pushState({ page: 'home' }, '', window.location.pathname);
             }
+
+            // 조건 패널 주입 (최초 1회)
+            injectConditions(pageId);
 
             // Lazy Rendering: 처음 방문하는 페이지만 렌더링
             if (pageId !== 'home' && !renderedPages.has(pageId)) {
