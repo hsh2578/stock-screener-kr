@@ -1,37 +1,37 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-27T13:27:31.661492",
+    "lastUpdated": "2026-02-27T13:53:51.625842",
     "totalCount": 4,
-    "screened_from": 1563
+    "screened_from": 1530
   },
   "data": [
     {
       "ticker": "015230",
       "name": "대창단조",
-      "price": 6830,
-      "change_rate": -0.15,
+      "price": 6820,
+      "change_rate": -0.29,
       "breakout_date": "2026-02-03",
       "resistance": 6820,
-      "pullback_ratio": 0.15,
+      "pullback_ratio": 0.0,
       "volume_decrease": 75,
       "ma150": 6395,
       "above_ma150": true,
-      "market_cap": 1957,
-      "updated_at": "2026-02-27T13:27:24.835244"
+      "market_cap": 1945,
+      "updated_at": "2026-02-27T13:53:45.284028"
     },
     {
       "ticker": "058820",
       "name": "CMG제약",
-      "price": 1983,
-      "change_rate": -1.34,
+      "price": 1979,
+      "change_rate": -1.54,
       "breakout_date": "2026-01-29",
       "resistance": 2020,
-      "pullback_ratio": 1.83,
+      "pullback_ratio": 2.03,
       "volume_decrease": 77,
       "ma150": 1905,
       "above_ma150": true,
-      "market_cap": 2934,
-      "updated_at": "2026-02-27T13:27:28.213548"
+      "market_cap": 2930,
+      "updated_at": "2026-02-27T13:53:48.339492"
     },
     {
       "ticker": "143240",
@@ -44,22 +44,22 @@
       "volume_decrease": 79,
       "ma150": 13841,
       "above_ma150": true,
-      "market_cap": 1660,
-      "updated_at": "2026-02-27T13:27:29.598518"
+      "market_cap": 1667,
+      "updated_at": "2026-02-27T13:53:49.663011"
     },
     {
       "ticker": "365330",
       "name": "에스와이스틸텍",
-      "price": 3800,
-      "change_rate": -0.65,
+      "price": 3805,
+      "change_rate": -0.52,
       "breakout_date": "2026-02-03",
       "resistance": 3635,
-      "pullback_ratio": 4.54,
+      "pullback_ratio": 4.68,
       "volume_decrease": 96,
       "ma150": 3703,
       "above_ma150": true,
-      "market_cap": 1906,
-      "updated_at": "2026-02-27T13:27:29.198624"
+      "market_cap": 1903,
+      "updated_at": "2026-02-27T13:53:49.364568"
     }
   ]
 }
