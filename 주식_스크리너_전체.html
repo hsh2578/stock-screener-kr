@@ -2836,8 +2836,8 @@
                 return '<div class="stock-card-mobile" onclick=\'openChartModal(' + stockJson + ')\' onkeypress="if(event.key===\'Enter\'||event.key===\' \')openChartModal(' + stockJson + ')" role="button" tabindex="0" aria-label="' + s.name + ' 차트 보기">' +
                     '<div class="header-row">' +
                         '<div class="stock-info">' +
-                            '<h3>' + s.name + badge + '</h3>' +
-                            '<div class="ticker">' + s.ticker + '</div>' +
+                            '<h3>' + escapeHtml(s.name) + badge + '</h3>' +
+                            '<div class="ticker">' + escapeHtml(s.ticker) + '</div>' +
                         '</div>' +
                         '<div class="price-info">' +
                             '<div class="price">' + formatNumber(price) + '원</div>' +
@@ -2864,18 +2864,36 @@
                 if (currentIsMobile !== lastIsMobile) {
                     lastIsMobile = currentIsMobile;
                     renderedPages.clear();
+                    // 현재 활성 페이지 즉시 재렌더링 (다른 페이지로 이동 없이도 업데이트)
+                    const activePage = document.querySelector('.page.active');
+                    if (activePage) {
+                        const activeId = activePage.id.replace('page-', '');
+                        if (activeId !== 'home') showPage(activeId, false);
+                    }
                 }
             }, 200);
         }, { passive: true });
 
-        // XSS 방어를 위한 안전한 JSON 문자열화
+        // XSS 방어를 위한 안전한 JSON 문자열화 (onclick 단따옴표 속성용)
         const safeJsonStringify = obj => {
             return JSON.stringify(obj)
                 .replace(/</g, '\\u003c')
                 .replace(/>/g, '\\u003e')
                 .replace(/&/g, '\\u0026')
-                .replace(/'/g, '\\u0027')
-                .replace(/"/g, '&quot;');
+                .replace(/'/g, '\\u0027');
+            // " → &quot; 제거: onclick='' 단따옴표 속성에서 큰따옴표는 이스케이프 불필요
+            // &quot;로 변환 시 JS 파서에 HTML 엔티티가 그대로 전달되어 파싱 오류 위험
+        };
+
+        // HTML 텍스트 이스케이프 (innerHTML 삽입 시 XSS 방지)
+        const escapeHtml = str => {
+            if (str == null) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
         };
 
         // Chart data cache

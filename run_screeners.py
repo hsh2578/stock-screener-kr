@@ -884,9 +884,12 @@ def _generate_df_hash(df: pd.DataFrame) -> str:
         first_date = str(df.index[0])
         last_date = str(df.index[-1])
         length = len(df)
-        # 마지막 종가도 포함하여 동일 기간 다른 데이터 구분
-        last_close = df['Close'].iloc[-1] if 'Close' in df.columns else 0
-        return f"{first_date}_{last_date}_{length}_{last_close:.2f}"
+        if 'Close' in df.columns:
+            first_close = df['Close'].iloc[0]
+            last_close = df['Close'].iloc[-1]
+        else:
+            first_close = last_close = 0
+        return f"{first_date}_{last_date}_{length}_{first_close:.2f}_{last_close:.2f}"
     except Exception:
         return str(id(df))
 
@@ -974,7 +977,7 @@ def find_pivot_lows(prices: np.ndarray, n: int = 5) -> List[Tuple[int, float]]:
     # scipy가 사용 가능하면 벡터화된 argrelextrema 사용 (약 3-5배 빠름)
     if SCIPY_AVAILABLE:
         # argrelextrema는 order=n으로 앞뒤 n개와 비교
-        indices = argrelextrema(prices, np.less_equal, order=n)[0]
+        indices = argrelextrema(prices, np.less, order=n)[0]
         return [(int(i), float(prices[i])) for i in indices]
 
     # 폴백: 기존 Python 루프 방식
@@ -1010,7 +1013,7 @@ def find_pivot_highs(prices: np.ndarray, n: int = 5) -> List[Tuple[int, float]]:
     # scipy가 사용 가능하면 벡터화된 argrelextrema 사용 (약 3-5배 빠름)
     if SCIPY_AVAILABLE:
         # argrelextrema는 order=n으로 앞뒤 n개와 비교
-        indices = argrelextrema(prices, np.greater_equal, order=n)[0]
+        indices = argrelextrema(prices, np.greater, order=n)[0]
         return [(int(i), float(prices[i])) for i in indices]
 
     # 폴백: 기존 Python 루프 방식

@@ -470,15 +470,13 @@ def _calculate_ttm(data: Dict[str, Any]) -> None:
 # 배치 수집
 # ============================================================================
 
-def get_financial_data_batch(codes: List[str], max_workers: int = 5,
-                             delay: float = 0.3) -> Dict[str, Dict]:
+def get_financial_data_batch(codes: List[str], delay: float = 0.3) -> Dict[str, Dict]:
     """
     여러 종목의 재무데이터를 순차 수집합니다.
 
     Args:
         codes: 종목코드 리스트
-        max_workers: 사용하지 않음 (FnGuide 요청 속도 제한)
-        delay: 요청 간 대기시간
+        delay: 요청 간 대기시간 (FnGuide 속도 제한으로 병렬 처리 불가)
 
     Returns:
         {code: financial_data} 딕셔너리

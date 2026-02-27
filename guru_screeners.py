@@ -199,16 +199,16 @@ def screen_buffett(filtered, fnguide_cache):
             continue
 
         ltdr = get_long_term_debt_ratio(fin)
-        if ltdr is not None and ltdr > 100:
+        if ltdr is None or ltdr > 100:
             continue
 
         fcf = get_fcf(fin)
         if fcf is None or fcf <= 0:
             continue
 
-        # EPS 성장률 (3년 평균 > 10%, 양수 성장률만 집계)
+        # EPS 성장률 (3년 평균 > 10%, 음수 연도 포함 전체 평균)
         growth = get_growth_rates_with_ttm(fin, 'net_income', years=3)
-        valid_growth = [g for g in growth if g is not None and g > 0]
+        valid_growth = [g for g in growth if g is not None]
         avg_growth = sum(valid_growth) / len(valid_growth) if valid_growth else None
         if avg_growth is None or avg_growth <= 10:
             continue
