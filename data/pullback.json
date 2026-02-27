@@ -1,51 +1,93 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-26T18:11:18.338891",
-    "totalCount": 3,
-    "screened_from": 1566
+    "lastUpdated": "2026-02-27T12:14:43.419195",
+    "totalCount": 6,
+    "screened_from": 1563
   },
   "data": [
     {
       "ticker": "015230",
       "name": "대창단조",
-      "price": 6840,
-      "change_rate": -2.43,
+      "price": 6810,
+      "change_rate": -0.44,
       "breakout_date": "2026-02-03",
-      "resistance": 6840,
-      "pullback_ratio": 0.0,
-      "volume_decrease": 75,
-      "ma150": 6389,
+      "resistance": 6820,
+      "pullback_ratio": 0.15,
+      "volume_decrease": 76,
+      "ma150": 6394,
       "above_ma150": true,
-      "market_cap": 1954,
-      "updated_at": "2026-02-26T18:11:11.821200"
+      "market_cap": 1951,
+      "updated_at": "2026-02-27T12:14:37.396192"
+    },
+    {
+      "ticker": "034950",
+      "name": "한국기업평가",
+      "price": 102000,
+      "change_rate": -1.92,
+      "breakout_date": "2026-02-11",
+      "resistance": 100900,
+      "pullback_ratio": 1.09,
+      "volume_decrease": 51,
+      "ma150": 99137,
+      "above_ma150": true,
+      "market_cap": 4640,
+      "updated_at": "2026-02-27T12:14:39.460908"
+    },
+    {
+      "ticker": "058820",
+      "name": "CMG제약",
+      "price": 1991,
+      "change_rate": -0.95,
+      "breakout_date": "2026-01-29",
+      "resistance": 2020,
+      "pullback_ratio": 1.44,
+      "volume_decrease": 78,
+      "ma150": 1905,
+      "above_ma150": true,
+      "market_cap": 2942,
+      "updated_at": "2026-02-27T12:14:40.138894"
     },
     {
       "ticker": "143240",
       "name": "사람인",
-      "price": 14430,
-      "change_rate": -0.62,
+      "price": 14240,
+      "change_rate": -1.32,
       "breakout_date": "2026-02-05",
       "resistance": 13830,
-      "pullback_ratio": 4.34,
-      "volume_decrease": 78,
-      "ma150": 13846,
+      "pullback_ratio": 2.96,
+      "volume_decrease": 79,
+      "ma150": 13841,
       "above_ma150": true,
-      "market_cap": 1689,
-      "updated_at": "2026-02-26T18:11:16.087134"
+      "market_cap": 1670,
+      "updated_at": "2026-02-27T12:14:41.301517"
+    },
+    {
+      "ticker": "365330",
+      "name": "에스와이스틸텍",
+      "price": 3800,
+      "change_rate": -0.65,
+      "breakout_date": "2026-02-03",
+      "resistance": 3635,
+      "pullback_ratio": 4.54,
+      "volume_decrease": 96,
+      "ma150": 3703,
+      "above_ma150": true,
+      "market_cap": 1898,
+      "updated_at": "2026-02-27T12:14:40.922978"
     },
     {
       "ticker": "001045",
       "name": "CJ우",
-      "price": 100200,
-      "change_rate": 0.4,
+      "price": 100100,
+      "change_rate": -0.1,
       "breakout_date": "2026-01-30",
       "resistance": 95500,
-      "pullback_ratio": 4.92,
-      "volume_decrease": 69,
-      "ma150": 91948,
+      "pullback_ratio": 4.82,
+      "volume_decrease": 72,
+      "ma150": 92005,
       "above_ma150": true,
-      "market_cap": 2264,
-      "updated_at": "2026-02-26T18:11:11.515520"
+      "market_cap": 2262,
+      "updated_at": "2026-02-27T12:14:36.920165"
     }
   ]
 }
