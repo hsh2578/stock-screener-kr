@@ -1762,7 +1762,7 @@
                     <h1>눌림목매매</h1>
                     <span class="badge badge-warning">눌림목</span>
                 </div>
-                <p class="desc">10% 장대양봉+3배 거래량 후 3~10거래일 내 종가 구간 유지(-4%~+2%) + 거래량 급감</p>
+                <p class="desc">10% 장대양봉+3배 거래량 후 거래량 급감 | A: 3~10일 종가 구간(-4%~+2%) | B: 9~20일 MA20 1.5% 이내 접근</p>
                 <div class="filter-row" style="margin: 12px 0; display: flex; gap: 8px; align-items: center;">
                     <button id="filter-ma150-volume-dry-up" class="filter-btn" onclick="toggleMA150Filter('volumeDryUp')">
                         150일선 위만
@@ -4198,14 +4198,22 @@
                 { label: '급등폭', align: 'text-right', key: 'explosion_change_rate' },
                 { label: '거래량배수', align: 'text-right', key: 'explosion_volume_ratio' },
                 { label: '급등후', align: 'text-right', key: 'days_since_detected' },
-                { label: '거래량감소', align: 'text-right', key: 'volume_decrease_rate' }
+                { label: '거래량감소/MA20거리', align: 'text-right', key: 'volume_decrease_rate' }
             ];
             const state = sortState['volume-dry-up-table'] || {};
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.volumeDryUp);
-            const rows = paginatedData.map(s => `
+            const rows = paginatedData.map(s => {
+                const isMa20 = s.pattern_type === 'ma20_approach';
+                const patternBadge = isMa20
+                    ? '<span class="badge badge-info" style="font-size:10px;padding:1px 5px;margin-left:4px">MA20</span>'
+                    : '<span class="badge badge-warning" style="font-size:10px;padding:1px 5px;margin-left:4px">단기</span>';
+                const lastCol = isMa20
+                    ? `<td class="text-right" style="color:var(--color-accent)">+${s.ma20_distance != null ? s.ma20_distance.toFixed(1) : '-'}%</td>`
+                    : `<td class="text-right" style="color: var(--color-success)">-${s.volume_decrease_rate}%</td>`;
+                return `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate||0})})'>
-                    <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
+                    <td><div class="stock-name">${s.name}${patternBadge}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                     <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
@@ -4214,9 +4222,9 @@
                     <td class="text-right positive">+${s.explosion_change_rate != null ? s.explosion_change_rate.toFixed(1) : '-'}%</td>
                     <td class="text-right">${s.explosion_volume_ratio != null ? s.explosion_volume_ratio.toFixed(1) + '배' : '-'}</td>
                     <td class="text-right">${s.days_since_detected != null ? s.days_since_detected + '일' : '-'}</td>
-                    <td class="text-right" style="color: var(--color-success)">-${s.volume_decrease_rate}%</td>
-                </tr>
-            `).join('');
+                    ${lastCol}
+                </tr>`;
+            }).join('');
             renderTable('volume-dry-up-table', headers, rows, renderVolumeDryUp);
             renderMobileCards('volume-dry-up-mobile', paginatedData, {
                 extraFields: [

@@ -2635,22 +2635,23 @@ DRYUP_RECENT_DAYS = 3          # 최근 거래량 평균 기간
 DRYUP_VOLUME_DECREASE = 60     # 거래량 감소율 임계값 (%)
 DRYUP_CANDLE_MAX_UP = 2.0      # 급등 후 이후 캔들 최대 상승폭 (%) — 이 이상 튀면 이미 재급등
 DRYUP_CANDLE_MAX_DOWN = 4.0    # 급등 후 이후 캔들 최대 하락폭 (%) — 이 이상 빠지면 하락 추세
+DRYUP_MA_MAX_DAYS = 20         # OR 조건: 급등 후 최대 경과일 (9~20거래일)
+DRYUP_MA_PROXIMITY = 0.015     # OR 조건: MA20 근접 허용범위 (1.5%, 종가 기준)
 
 def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
     """
     눌림목매매 스크리너 (오늘 기준 실시간 체크)
 
-    [장대양봉 조건] - 3~10거래일 전
-        1. 변화율 >= 10%
-        2. 종가 > 시가 (양봉)
-        3. 거래량 >= 20일 평균 × 3배
+    [조건 A] 단기눌림 — 3~10거래일
+        장대양봉: 변화율 >= 10% + 양봉 + 거래량 >= 20일 평균 × 3배
+        이후 캔들 종가: 장대양봉 종가 대비 -4% ~ +2% 구간 유지
+        거래량 급감: 최근 3거래일 평균 <= 장대양봉 거래량 × 40%
 
-    [급등 후 구간 조건] (급등봉 다음날 ~ 오늘 전체)
-        - 각 캔들 종가가 장대양봉 종가 대비 -4% ~ +2% 구간 이내
-        - 구간 이탈 = 하락 추세 전환 or 이미 재급등 → 탈락
-
-    [오늘 거래량 조건]
-        - 최근 3거래일 평균 거래량 <= 장대양봉 거래량 × 40% (60% 감소)
+    [조건 B] MA20 접근 (OR) — 9~20거래일
+        장대양봉: 동일 (10% + 양봉 + 3배)
+        거래량 급감: 동일 (최근 3거래일 평균 <= 40%)
+        현재 종가: MA20 이상 ~ MA20 × 1.015 이하 (1.5% 이내 위 접근)
+        MA20 하향 돌파 없음: 급등봉 이후 모든 종가 >= MA20
     """
     print("\n[눌림목매매 스크리너 시작]")
     results = []
@@ -2728,7 +2729,7 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
             if volume_decrease_rate < DRYUP_VOLUME_DECREASE:
                 continue
 
-            # 모든 조건 통과
+            # 모든 조건 통과 (조건 A: 단기눌림)
             found_result = {
                 'explosion_day': df.index[explosion_idx],
                 'explosion_change': change,
@@ -2736,8 +2737,79 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
                 'explosion_volume': explosion_volume,
                 'days_from_explosion': days_ago,
                 'volume_decrease_rate': volume_decrease_rate,
+                'pattern_type': 'candle_range',
+                'ma20_distance': None,
             }
             break  # 가장 최근 급등봉 기준으로만 체크
+
+        # 조건 B (OR): MA20 접근 — 9~20거래일
+        if not found_result and today_idx >= 20:
+            ma20_series = df['Close'].rolling(20).mean()
+            today_ma20 = float(ma20_series.iloc[today_idx])
+
+            if not pd.isna(today_ma20) and today_ma20 > 0:
+                # 현재 종가가 MA20 ~ MA20 × 1.015 이내 (종가 기준)
+                if today_ma20 <= today_close <= today_ma20 * (1 + DRYUP_MA_PROXIMITY):
+                    for days_ago in range(9, DRYUP_MA_MAX_DAYS + 1):
+                        explosion_idx = today_idx - days_ago
+
+                        if explosion_idx < DRYUP_LOOKBACK:
+                            continue
+
+                        prev_close = df['Close'].iloc[explosion_idx - 1]
+                        curr_close = df['Close'].iloc[explosion_idx]
+                        curr_open = df['Open'].iloc[explosion_idx]
+                        curr_volume = df['Volume'].iloc[explosion_idx]
+
+                        if prev_close <= 0:
+                            continue
+
+                        change = (curr_close - prev_close) / prev_close * 100
+
+                        if change < DRYUP_MIN_CHANGE:
+                            continue
+                        if curr_close <= curr_open:
+                            continue
+
+                        avg_volume_20d = df['Volume'].iloc[explosion_idx - DRYUP_LOOKBACK:explosion_idx].mean()
+                        if avg_volume_20d <= 0:
+                            continue
+                        volume_ratio = curr_volume / avg_volume_20d
+                        if volume_ratio < DRYUP_VOLUME_MULTIPLE:
+                            continue
+
+                        explosion_volume = curr_volume
+
+                        # 거래량 급감
+                        vol_start = max(explosion_idx + 1, today_idx - DRYUP_RECENT_DAYS + 1)
+                        post_volumes = df['Volume'].iloc[vol_start:today_idx + 1]
+                        if len(post_volumes) < 1:
+                            continue
+                        recent_avg_volume = post_volumes.mean()
+                        if pd.isna(recent_avg_volume) or explosion_volume <= 0:
+                            continue
+                        volume_decrease_rate = (1 - recent_avg_volume / explosion_volume) * 100
+                        if volume_decrease_rate < DRYUP_VOLUME_DECREASE:
+                            continue
+
+                        # MA20 하향 돌파 없음: 급등봉 다음날~오늘 종가 >= MA20
+                        post_closes = df['Close'].iloc[explosion_idx + 1:today_idx + 1]
+                        post_ma20 = ma20_series.iloc[explosion_idx + 1:today_idx + 1]
+                        if (post_closes < post_ma20).any():
+                            continue
+
+                        ma20_distance = round((today_close / today_ma20 - 1) * 100, 2)
+                        found_result = {
+                            'explosion_day': df.index[explosion_idx],
+                            'explosion_change': change,
+                            'explosion_volume_ratio': volume_ratio,
+                            'explosion_volume': explosion_volume,
+                            'days_from_explosion': days_ago,
+                            'volume_decrease_rate': volume_decrease_rate,
+                            'pattern_type': 'ma20_approach',
+                            'ma20_distance': ma20_distance,
+                        }
+                        break
 
         if not found_result:
             continue
@@ -2763,6 +2835,8 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
             'explosion_volume_ratio': round(found_result['explosion_volume_ratio'], 1),
             'days_since_detected': found_result['days_from_explosion'],
             'volume_decrease_rate': int(found_result['volume_decrease_rate']),
+            'pattern_type': found_result['pattern_type'],
+            'ma20_distance': found_result['ma20_distance'],
             'volume_rank': 0,
             'ma150': ma150,
             'above_ma150': above_ma150,
