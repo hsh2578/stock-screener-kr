@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-27T12:14:53.409131",
+    "lastUpdated": "2026-02-27T13:27:41.077205",
     "totalCount": 2,
     "screened_from": 1563
   },
@@ -8,34 +8,34 @@
     {
       "ticker": "363280",
       "name": "티와이홀딩스",
-      "price": 3010,
-      "change_rate": -0.5,
+      "price": 3055,
+      "change_rate": 0.99,
       "explosion_date": "2026-02-23",
       "explosion_change_rate": 16.4,
       "explosion_volume_ratio": 8.0,
       "days_since_detected": 4,
-      "volume_decrease_rate": 83,
+      "volume_decrease_rate": 82,
       "volume_rank": 1,
       "ma150": 2888,
       "above_ma150": true,
-      "market_cap": 1522,
-      "updated_at": "2026-02-27T12:14:47.501542"
+      "market_cap": 1525,
+      "updated_at": "2026-02-27T13:27:35.654701"
     },
     {
       "ticker": "065450",
       "name": "빅텍",
-      "price": 4365,
-      "change_rate": 0.34,
+      "price": 4355,
+      "change_rate": 0.11,
       "explosion_date": "2026-02-20",
       "explosion_change_rate": 11.2,
       "explosion_volume_ratio": 32.7,
       "days_since_detected": 5,
-      "volume_decrease_rate": 84,
+      "volume_decrease_rate": 83,
       "volume_rank": 2,
       "ma150": 3839,
       "above_ma150": true,
-      "market_cap": 1247,
-      "updated_at": "2026-02-27T12:14:52.998547"
+      "market_cap": 1244,
+      "updated_at": "2026-02-27T13:27:40.420004"
     }
   ]
 }
