@@ -57,31 +57,29 @@ def _download_csv(otp: str) -> pd.DataFrame:
     return pd.read_csv(io.BytesIO(resp.content), encoding='euc-kr')
 
 
-_KRX_JSON_URL = 'https://www.krx.co.kr/comm/bldAttendant/getJsonData.cmd'
+_KRX_JSON_URL = 'http://data.krx.co.kr/comm/bldAttendant/getJsonData.cmd'
 _KRX_JSON_HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-    'Referer': 'https://www.krx.co.kr/',
+    'Referer': 'http://data.krx.co.kr/',
     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
 }
 
 
-def _fetch_krx_listing(mkt_id: str, trd_dd: str) -> list:
+def _fetch_krx_listing(trd_dd: str) -> list:
     """
-    KRX JSON API(MDCSTAT01501)에서 종목 리스트를 수집합니다.
+    KRX finder_stkisu 엔드포인트에서 전 종목 리스트를 수집합니다.
     pykrx가 내부적으로 사용하는 동일 엔드포인트입니다.
+    반환: block1 리스트, 각 항목: short_code(6자리), codeName(종목명), marketCode(STK/KSQ)
     """
     params = {
-        'bld': 'dbms/MDC/STAT/standard/MDCSTAT01501',
-        'mktId': mkt_id,
-        'trdDd': trd_dd,
-        'share': '1',
-        'money': '1',
-        'csvxls_isNo': 'false',
+        'bld': 'dbms/comm/finder/finder_stkisu',
+        'mktsel': 'ALL',
+        'searchText': '',
     }
     resp = requests.post(_KRX_JSON_URL, data=params, headers=_KRX_JSON_HEADERS, timeout=30)
     resp.raise_for_status()
     data = resp.json()
-    return data.get('OutBlock_1', [])
+    return data.get('block1', [])
 
 
 def _parse_krx_number(val: str) -> float:
@@ -111,28 +109,46 @@ def get_stock_master(market: str = 'ALL') -> pd.DataFrame:
     today = datetime.datetime.now().strftime('%Y%m%d')
     df = None
 
-    # ── 1차: KRX JSON API 직접 호출 ──────────────────────────────────
-    print("종목 마스터 수집 중... (KRX JSON API)")
+    # ── 1차: KRX finder_stkisu (pykrx 동일 엔드포인트) ─────────────
+    print("종목 마스터 수집 중... (KRX finder_stkisu)")
     try:
+        items = _fetch_krx_listing(today)
+        if not items:
+            raise ValueError("finder_stkisu 빈 응답")
+
         rows = []
-        for mkt_id, market_name in [('STK', 'KOSPI'), ('KSQ', 'KOSDAQ')]:
-            items = _fetch_krx_listing(mkt_id, today)
-            if not items:
-                raise ValueError(f"{market_name} 빈 응답")
-            for item in items:
-                code = str(item.get('ISU_SRT_CD', '')).strip().zfill(6)
-                if not code or len(code) != 6:
-                    continue
-                rows.append({
-                    '종목코드': code,
-                    '종목명': str(item.get('ISU_ABBRV', '')).strip(),
-                    '시장구분': market_name,
-                    '시가총액': _parse_krx_number(item.get('MKTCAP', '0')),
-                    '종가': _parse_krx_number(item.get('TDD_CLSPRC', '0')),
-                })
+        for item in items:
+            code = str(item.get('short_code', '')).strip().zfill(6)
+            if not code or len(code) != 6:
+                continue
+            mkt_code = str(item.get('marketCode', '')).strip()
+            market_name = 'KOSPI' if mkt_code == 'STK' else 'KOSDAQ' if mkt_code == 'KSQ' else mkt_code
+            rows.append({
+                '종목코드': code,
+                '종목명': str(item.get('codeName', '')).strip(),
+                '시장구분': market_name,
+                '시가총액': 0.0,
+                '종가': 0.0,
+            })
+
         if rows:
             df = pd.DataFrame(rows)
-            print(f"  KRX API 성공: {len(df)}개 종목")
+            print(f"  finder_stkisu 성공: {len(df)}개 종목")
+
+            # 시가총액/종가 보충: pykrx get_market_cap_by_ticker
+            try:
+                from pykrx import stock as pykrx_stock
+                df_cap = pykrx_stock.get_market_cap_by_ticker(date=today, market='ALL')
+                if df_cap is not None and len(df_cap) > 0:
+                    df_cap.index = df_cap.index.astype(str).str.zfill(6)
+                    # 시가총액: 첫 번째 컬럼 (인코딩 무관)
+                    cap_col = df_cap.columns[0]
+                    cap_map = df_cap[cap_col].to_dict()
+                    df['시가총액'] = df['종목코드'].map(cap_map).fillna(0) / 100_000_000
+                    print(f"  pykrx 시가총액 보충 완료 ({len(df_cap)}개)")
+            except Exception as e:
+                print(f"  pykrx 시가총액 보충 실패 (무시): {e}")
+
     except Exception as e:
         print(f"  KRX API 실패: {e}")
 
