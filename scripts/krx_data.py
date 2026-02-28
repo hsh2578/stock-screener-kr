@@ -284,6 +284,11 @@ def get_stock_master(market: str = 'ALL') -> pd.DataFrame:
     df['업종'] = df.get('Dept', pd.Series(['기타'] * len(df))).replace('', '기타').fillna('기타') \
                  if 'Dept' in df.columns else '기타'
 
+    # 시가총액 데이터 없으면 sentinel 값으로 대체 → 스크리너 필터 통과
+    if '시가총액' not in df.columns or df['시가총액'].sum() == 0:
+        df['시가총액'] = 1001.0
+        print("  주의: 시가총액 데이터 없음 — sentinel(1001억) 설정, 필터 통과 처리")
+
     print(f"  전체 종목: {len(df)}개")
     print(f"  보통주: {df['is_common'].sum()}개")
 
