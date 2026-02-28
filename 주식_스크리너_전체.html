@@ -5479,26 +5479,26 @@
             },
             'volume-dry-up': {
                 items: [
-                    { label: '[급등봉] 양봉', value: '전일 대비 +8% 이상' },
-                    { label: '[급등봉] 거래량', value: '20일 평균×4배', key: true },
-                    { label: '[급등봉] 윗꼬리', value: '(고가-종가)/(고가-저가) < 30%' },
-                    { label: '[급등봉] 이평선', value: '종가 > 20일선' },
-                    { label: '[눌림목] 가격', value: '급등봉 시가×0.98 이상' },
-                    { label: '[눌림목] 조정폭', value: '고점 대비 -10% 이내' },
-                    { label: '[눌림목] 거래량 고갈', value: '최근 3일 < 급등일×40%', key: true },
+                    { label: '[급등봉] 상승률', value: '+10% 이상 (양봉)', key: true },
+                    { label: '[급등봉] 거래량', value: '20일 평균×3배 이상', key: true },
+                    { label: '[눌림목A] 가격 유지', value: '급등봉 종가 대비 -4%~+2% 이내' },
+                    { label: '[눌림목A] 기간', value: '급등 후 3~10거래일' },
+                    { label: '[눌림목B] MA20 근접', value: '종가가 MA20 ~ MA20×1.015 이내' },
+                    { label: '[눌림목B] 기간', value: '급등 후 9~20거래일' },
+                    { label: '[공통] 거래량 고갈', value: '최근 3일 평균 ≤ 급등일×40%', key: true },
                 ],
-                note: '급등 후 3~8거래일 내 거래량 소화 구간 | 포착 후 8거래일간 표시 유지'
+                note: '조건A(단기 눌림) OR 조건B(MA20 접근) 둘 중 하나 충족 | MA20 하향 돌파 없음 | 포착 후 8거래일 표시 유지'
             },
             'new-high-52w': {
                 items: [
                     { label: '52주 신고가 돌파', value: '종가 > 250거래일 최고가', key: true },
-                    { label: '거래량', value: '돌파일 20일 평균×1.5배' },
+                    { label: '저항선 확립', value: '52주 고가 기록 후 20거래일 이상 경과' },
                     { label: '이평선', value: '종가 > 150일선' },
-                    { label: '추세', value: '150일선 우상향 (20일 전 대비 상승)' },
+                    { label: '추세', value: '150일선 우상향 (현재 > 20일 전)' },
                     { label: '시가총액', value: '1,000억 이상' },
                     { label: '경과 기간', value: '8거래일 이내' },
                 ],
-                note: 'AI 예측: LightGBM | 14개 피처 | 20일 내 15%+ 상승 확률'
+                note: '거래량은 표시용 (필수 조건 아님) | AI 예측: LightGBM | 14개 피처 | 20일 내 15%+ 상승 확률'
             },
             'near-high-52w': {
                 items: [
@@ -5531,7 +5531,7 @@
                     { label: '저점 상승', value: '2점 (Higher Low)' },
                     { label: 'MACD 골든크로스', value: '1점 (5일 이내)' },
                 ],
-                note: 'A급(9점+): 강력 신호 | B급(6~8점): 유력 신호 | 10거래일 내 달성 종목 표시'
+                note: 'A급(9점+): 강력 신호 | B급(5~8점): 유력 신호 | 10거래일 내 달성 종목 표시'
             },
             'fallen-rebound': {
                 items: [
@@ -5542,32 +5542,31 @@
             },
             'sector-stage': {
                 items: [
-                    { label: '1단계 (바닥)', value: '종가 < 150일선 & 기울기 상승 전환' },
-                    { label: '2단계 (상승)', value: '종가 > 150일선 & 기울기 > 0', key: true },
-                    { label: '3단계 (천장)', value: '종가 > 150일선 & 기울기 하락 전환' },
-                    { label: '4단계 (하락)', value: '종가 < 150일선 & 기울기 < 0' },
+                    { label: '2단계 (상승)', value: '기울기 > +1.0% & 종가 > 150일선', key: true },
+                    { label: '3단계 (최정상)', value: '이전 기울기 > +1.0% & 현재 |기울기| ≤ 1.0% & 종가 > 150일선' },
+                    { label: '4단계 (쇠퇴)', value: '기울기 < -1.0%' },
+                    { label: '1단계 (기초)', value: '그 외 모든 경우 (바닥 형성·횡보 포함)' },
                 ],
-                note: '네이버 증권 45개 업종 | 와인스테인 4단계 이론 | 기울기 임계값 ±1.0% | 2단계(상승) = 매수 구간'
+                note: '네이버 증권 업종 | 기울기 = 150일선 20일 변화율 | 임계값 ±1.0% | 2단계(상승) = 매수 구간'
             },
             'value-stocks': {
                 items: [
-                    { label: 'PER', value: '업종 평균 이하' },
-                    { label: 'PBR', value: '업종 평균 이하' },
-                    { label: '매출 성장률', value: '기준 이상 (3년)' },
-                    { label: '영업이익률', value: '기준 이상 (평균)', key: true },
-                    { label: '영업이익 성장률', value: '기준 이상 (가용 기간)' },
-                    { label: 'EPS 성장률', value: '기준 이상 (가용 기간)', key: true },
+                    { label: 'PER', value: '3 ~ 30', key: true },
+                    { label: '매출 성장률', value: '3년 평균 > 10%' },
+                    { label: '영업이익률', value: '가용 기간 평균 > 10%', key: true },
+                    { label: '영업이익 성장률', value: '가용 기간 평균 > 10%' },
+                    { label: 'EPS(순이익) 성장률', value: '가용 기간 평균 > 10%' },
+                    { label: '순이익 증가율', value: '20% < 평균 < 50%' },
                 ],
-                note: 'TTM(최근 4분기 합산) 기반 | FnGuide 재무 데이터 | 평일 20시 1회 업데이트'
+                note: '6개 조건 모두 충족 필수 | PBR 조건 없음 | TTM(최근 4분기 합산) 기반 | 정렬: 시가총액 내림차순'
             },
             'ma60w-quality': {
                 items: [
-                    { label: '이격도', value: '0% ~ 10% (60주선 바로 위)', key: true },
-                    { label: '이평선', value: '종가 ≥ 60주 EMA' },
-                    { label: '영업이익률', value: '≥ 10% (최근 결산)', key: true },
+                    { label: '60주선 이격도', value: '0% ~ 10% (60주선 바로 위)', key: true },
+                    { label: '영업이익률', value: '≥ 10% (가용 기간 평균)', key: true },
                     { label: '영업이익 성장', value: '≥ 10% (3년 평균)' },
                 ],
-                note: '대상: 코스피 시총 상위 200종목 | 60주선 = 300일 지수이동평균(EMA) | 평일 18시 1회 업데이트'
+                note: '대상: 코스피 시총 상위 200종목 | 60주선 = 300일 지수이동평균(EMA) | 정배열·거래량 조건 없음'
             },
             'magic-formula': {
                 items: [
@@ -5605,18 +5604,19 @@
             },
             'ackman': {
                 items: [
-                    { label: 'ROIC', value: '> 13%', key: true },
-                    { label: 'PER', value: '0 ~ 20' },
+                    { label: 'ROIC', value: '> 15%', key: true },
+                    { label: 'ROE', value: '> 12%' },
+                    { label: 'PER', value: '0 ~ 15' },
                     { label: 'PBR', value: '0 ~ 2' },
                     { label: '부채비율', value: '< 150%' },
                     { label: 'FCF', value: '> 0', key: true },
-                    { label: '배당수익률', value: '> 2%' },
+                    { label: '배당수익률', value: '> 3%' },
                 ],
                 note: 'ROIC = EBIT / Invested Capital | 금융주 제외 | 정렬: ROIC 내림차순'
             },
             'lynch': {
                 items: [
-                    { label: 'PER', value: '0 ~ 30' },
+                    { label: 'PER', value: '0 ~ 25' },
                     { label: 'PEG', value: '0 ~ 1.8', key: true },
                     { label: 'ROE', value: '> 5%' },
                     { label: 'ROA', value: '> 1%' },
