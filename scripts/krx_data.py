@@ -135,6 +135,61 @@ def _fetch_market_cap_krx(trd_dd: str) -> dict:
     return {}
 
 
+def _fetch_market_cap_naver() -> dict:
+    """
+    네이버 증권 모바일 API에서 전종목 시가총액+종가 수집.
+    인증 불필요. KOSPI+KOSDAQ 합산 ~44회 요청, ~20초 완료.
+    반환: {종목코드: {'cap': float(억원), 'close': float}}
+    """
+    import time as _time
+
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+    result = {}
+
+    for market in ['KOSPI', 'KOSDAQ']:
+        page = 1
+        while True:
+            url = (f'https://m.stock.naver.com/api/stocks/marketValue/{market}'
+                   f'?page={page}&pageSize=100')
+            try:
+                resp = requests.get(url, headers=headers, timeout=15)
+                resp.raise_for_status()
+                data = resp.json()
+            except Exception as e:
+                print(f"  네이버 API 오류 ({market} p{page}): {e}")
+                break
+
+            stocks = data.get('stocks', [])
+            if not stocks:
+                break
+
+            for s in stocks:
+                code = str(s.get('itemCode', '')).strip().zfill(6)
+                if not code or len(code) != 6:
+                    continue
+                cap_raw = str(s.get('marketValue', '0')).replace(',', '')
+                close_raw = str(s.get('closePrice', '0')).replace(',', '')
+                try:
+                    cap = float(cap_raw)   # 이미 억원 단위
+                except ValueError:
+                    cap = 0.0
+                try:
+                    close = float(close_raw)
+                except ValueError:
+                    close = 0.0
+                result[code] = {'cap': cap, 'close': close}
+
+            total = data.get('totalCount', 0)
+            if page * 100 >= total:
+                break
+            page += 1
+            _time.sleep(0.3)
+
+    if result:
+        print(f"  네이버 모바일 API 성공: {len(result)}개 종목")
+    return result
+
+
 def _parse_krx_number(val: str) -> float:
     """KRX 숫자 문자열(콤마 포함) → float"""
     try:
@@ -228,17 +283,20 @@ def get_stock_master(market: str = 'ALL') -> pd.DataFrame:
                 df = pd.DataFrame(rows)
                 print(f"  finder_stkisu 성공: {len(df)}개 종목")
 
-                # 시가총액/종가 보충: MDCSTAT01501 via getJsonData (pykrx 사용 안 함)
+                # 시가총액/종가 보충: MDCSTAT01501 → 실패 시 네이버 모바일 API
                 try:
                     cap_data = _fetch_market_cap_krx(today)
+                    if not cap_data:
+                        print("  MDCSTAT01501 실패 → 네이버 모바일 API 시도...")
+                        cap_data = _fetch_market_cap_naver()
                     if cap_data:
                         df['시가총액'] = df['종목코드'].map(
                             lambda c: cap_data.get(c, {}).get('cap', 0.0))
                         df['종가'] = df['종목코드'].map(
                             lambda c: cap_data.get(c, {}).get('close', 0.0))
-                        print(f"  MDCSTAT01501 시가총액 보충 완료 ({len(cap_data)}개)")
+                        print(f"  시가총액 보충 완료 ({len(cap_data)}개)")
                     else:
-                        raise ValueError("MDCSTAT01501 빈 응답")
+                        print("  시가총액 보충 실패 (무시) — sentinel 적용 예정")
                 except Exception as e:
                     print(f"  시가총액 보충 실패 (무시): {e}")
 
@@ -275,6 +333,19 @@ def get_stock_master(market: str = 'ALL') -> pd.DataFrame:
         else:
             fdr_df['시가총액'] = 0
         df = fdr_df
+
+        # FDR도 시가총액 0이면 네이버 모바일 API로 보충
+        if df['시가총액'].sum() == 0:
+            print("  FDR 시가총액 없음 → 네이버 모바일 API 시도...")
+            try:
+                cap_data = _fetch_market_cap_naver()
+                if cap_data:
+                    df['시가총액'] = df['종목코드'].map(
+                        lambda c: cap_data.get(c, {}).get('cap', 0.0))
+                    df['종가'] = df['종목코드'].map(
+                        lambda c: cap_data.get(c, {}).get('close', 0.0))
+            except Exception as e:
+                print(f"  네이버 API 실패 (무시): {e}")
 
     # ── 공통 후처리 ──────────────────────────────────────────────────
     df['종목코드'] = df['종목코드'].astype(str).str.zfill(6)
