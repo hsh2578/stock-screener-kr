@@ -39,10 +39,14 @@ REIT_PATTERN = re.compile(r'리츠|REIT|부동산투자', re.IGNORECASE)
 # ============================================================================
 
 def _get_otp(params: dict) -> str:
-    """KRX OTP 발급"""
-    resp = requests.get(KRX_GENERATE_URL, params=params, headers=HEADERS, timeout=15)
+    """KRX OTP 발급 (POST + User-Agent + Referer 필수, 2025-01 이후)"""
+    headers = {**HEADERS, 'Referer': KRX_REFERER}
+    resp = requests.post(KRX_GENERATE_URL, data=params, headers=headers, timeout=15)
     resp.raise_for_status()
-    return resp.text
+    otp = resp.text.strip()
+    if not otp or otp == 'LOGOUT':
+        raise ValueError(f"OTP 발급 실패: {otp!r}")
+    return otp
 
 
 def _download_csv(otp: str) -> pd.DataFrame:
@@ -93,8 +97,7 @@ def _parse_krx_number(val: str) -> float:
 def get_stock_master(market: str = 'ALL') -> pd.DataFrame:
     """
     전 종목 마스터 데이터를 수집합니다.
-    KRX JSON API(MDCSTAT01501) 직접 호출 방식 (pykrx 동일 엔드포인트).
-    실패 시 FDR StockListing으로 폴백합니다.
+    수집 순서: OTP CSV → finder_stkisu+pykrx → FDR
 
     Returns:
         DataFrame with columns:
@@ -109,50 +112,90 @@ def get_stock_master(market: str = 'ALL') -> pd.DataFrame:
     today = datetime.datetime.now().strftime('%Y%m%d')
     df = None
 
-    # ── 1차: KRX finder_stkisu (pykrx 동일 엔드포인트) ─────────────
-    print("종목 마스터 수집 중... (KRX finder_stkisu)")
+    # ── 1차: KRX OTP CSV 다운로드 (POST + User-Agent) ────────────────
+    print("종목 마스터 수집 중... (KRX OTP)")
     try:
-        items = _fetch_krx_listing(today)
-        if not items:
-            raise ValueError("finder_stkisu 빈 응답")
-
         rows = []
-        for item in items:
-            code = str(item.get('short_code', '')).strip().zfill(6)
-            if not code or len(code) != 6:
-                continue
-            mkt_code = str(item.get('marketCode', '')).strip()
-            market_name = 'KOSPI' if mkt_code == 'STK' else 'KOSDAQ' if mkt_code == 'KSQ' else mkt_code
-            rows.append({
-                '종목코드': code,
-                '종목명': str(item.get('codeName', '')).strip(),
-                '시장구분': market_name,
-                '시가총액': 0.0,
-                '종가': 0.0,
+        for mkt_id, market_name in [('STK', 'KOSPI'), ('KSQ', 'KOSDAQ')]:
+            otp = _get_otp({
+                'mktId': mkt_id,
+                'trdDd': today,
+                'money': '1',
+                'csvxls_isNo': 'false',
+                'name': 'fileDown',
+                'url': 'dbms/MDC/STAT/standard/MDCSTAT01501',
             })
+            mkt_df = _download_csv(otp)
+
+            # 컬럼명 유연 탐지 (KRX CSV는 한글 컬럼명, euc-kr 디코딩 후)
+            cols = mkt_df.columns.tolist()
+            code_col  = next((c for c in cols if '코드' in str(c)), cols[0])
+            name_col  = next((c for c in cols if '종목명' in str(c)), None)
+            cap_col   = next((c for c in cols if '시가총액' in str(c)), None)
+            close_col = next((c for c in cols if '현재가' in str(c) or '종가' in str(c)), None)
+
+            for _, row in mkt_df.iterrows():
+                code = str(row[code_col]).strip().zfill(6)
+                if not code or len(code) != 6:
+                    continue
+                rows.append({
+                    '종목코드': code,
+                    '종목명': str(row[name_col]).strip() if name_col else '',
+                    '시장구분': market_name,
+                    '시가총액': _parse_krx_number(row[cap_col]) / 100_000_000 if cap_col else 0.0,
+                    '종가': _parse_krx_number(row[close_col]) if close_col else 0.0,
+                })
 
         if rows:
             df = pd.DataFrame(rows)
-            print(f"  finder_stkisu 성공: {len(df)}개 종목")
-
-            # 시가총액/종가 보충: pykrx get_market_cap_by_ticker
-            try:
-                from pykrx import stock as pykrx_stock
-                df_cap = pykrx_stock.get_market_cap_by_ticker(date=today, market='ALL')
-                if df_cap is not None and len(df_cap) > 0:
-                    df_cap.index = df_cap.index.astype(str).str.zfill(6)
-                    # 시가총액: 첫 번째 컬럼 (인코딩 무관)
-                    cap_col = df_cap.columns[0]
-                    cap_map = df_cap[cap_col].to_dict()
-                    df['시가총액'] = df['종목코드'].map(cap_map).fillna(0) / 100_000_000
-                    print(f"  pykrx 시가총액 보충 완료 ({len(df_cap)}개)")
-            except Exception as e:
-                print(f"  pykrx 시가총액 보충 실패 (무시): {e}")
-
+            print(f"  KRX OTP 성공: {len(df)}개 종목")
     except Exception as e:
-        print(f"  KRX API 실패: {e}")
+        print(f"  KRX OTP 실패: {e}")
 
-    # ── 2차 폴백: FDR StockListing ────────────────────────────────────
+    # ── 2차: KRX finder_stkisu + pykrx 시가총액 ──────────────────────
+    if df is None or len(df) == 0:
+        print("  finder_stkisu 방식으로 재시도...")
+        try:
+            items = _fetch_krx_listing(today)
+            if not items:
+                raise ValueError("finder_stkisu 빈 응답")
+
+            rows = []
+            for item in items:
+                code = str(item.get('short_code', '')).strip().zfill(6)
+                if not code or len(code) != 6:
+                    continue
+                mkt_code = str(item.get('marketCode', '')).strip()
+                market_name = 'KOSPI' if mkt_code == 'STK' else 'KOSDAQ' if mkt_code == 'KSQ' else mkt_code
+                rows.append({
+                    '종목코드': code,
+                    '종목명': str(item.get('codeName', '')).strip(),
+                    '시장구분': market_name,
+                    '시가총액': 0.0,
+                    '종가': 0.0,
+                })
+
+            if rows:
+                df = pd.DataFrame(rows)
+                print(f"  finder_stkisu 성공: {len(df)}개 종목")
+
+                # 시가총액/종가 보충: pykrx
+                try:
+                    from pykrx import stock as pykrx_stock
+                    df_cap = pykrx_stock.get_market_cap_by_ticker(date=today, market='ALL')
+                    if df_cap is not None and len(df_cap) > 0:
+                        df_cap.index = df_cap.index.astype(str).str.zfill(6)
+                        cap_col = df_cap.columns[0]  # 시가총액 (첫 번째 컬럼, 인코딩 무관)
+                        cap_map = df_cap[cap_col].to_dict()
+                        df['시가총액'] = df['종목코드'].map(cap_map).fillna(0) / 100_000_000
+                        print(f"  pykrx 시가총액 보충 완료 ({len(df_cap)}개)")
+                except Exception as e:
+                    print(f"  pykrx 시가총액 보충 실패 (무시): {e}")
+
+        except Exception as e:
+            print(f"  finder_stkisu 실패: {e}")
+
+    # ── 3차 폴백: FDR StockListing ────────────────────────────────────
     if df is None or len(df) == 0:
         import FinanceDataReader as fdr
         print("  FDR 폴백으로 재시도...")
