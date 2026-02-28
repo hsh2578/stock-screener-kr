@@ -57,10 +57,46 @@ def _download_csv(otp: str) -> pd.DataFrame:
     return pd.read_csv(io.BytesIO(resp.content), encoding='euc-kr')
 
 
+_KRX_JSON_URL = 'https://www.krx.co.kr/comm/bldAttendant/getJsonData.cmd'
+_KRX_JSON_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+    'Referer': 'https://www.krx.co.kr/',
+    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+}
+
+
+def _fetch_krx_listing(mkt_id: str, trd_dd: str) -> list:
+    """
+    KRX JSON API(MDCSTAT01501)에서 종목 리스트를 수집합니다.
+    pykrx가 내부적으로 사용하는 동일 엔드포인트입니다.
+    """
+    params = {
+        'bld': 'dbms/MDC/STAT/standard/MDCSTAT01501',
+        'mktId': mkt_id,
+        'trdDd': trd_dd,
+        'share': '1',
+        'money': '1',
+        'csvxls_isNo': 'false',
+    }
+    resp = requests.post(_KRX_JSON_URL, data=params, headers=_KRX_JSON_HEADERS, timeout=30)
+    resp.raise_for_status()
+    data = resp.json()
+    return data.get('OutBlock_1', [])
+
+
+def _parse_krx_number(val: str) -> float:
+    """KRX 숫자 문자열(콤마 포함) → float"""
+    try:
+        return float(str(val).replace(',', ''))
+    except (ValueError, TypeError):
+        return 0.0
+
+
 def get_stock_master(market: str = 'ALL') -> pd.DataFrame:
     """
     전 종목 마스터 데이터를 수집합니다.
-    FDR(FinanceDataReader) 기반으로 KOSPI+KOSDAQ 종목을 수집합니다.
+    KRX JSON API(MDCSTAT01501) 직접 호출 방식 (pykrx 동일 엔드포인트).
+    실패 시 FDR StockListing으로 폴백합니다.
 
     Returns:
         DataFrame with columns:
@@ -69,62 +105,75 @@ def get_stock_master(market: str = 'ALL') -> pd.DataFrame:
         - is_common (보통주 여부)
         - is_spac, is_reit (스팩/리츠 여부)
     """
-    import FinanceDataReader as fdr
-
-    print("종목 마스터 수집 중... (FDR)")
-
-    # KOSPI + KOSDAQ (빈 응답 시 최대 3회 재시도)
+    import datetime
     import time
 
-    def _fetch_listing(market, retries=3, delay=10):
-        for attempt in range(retries):
-            try:
-                df = fdr.StockListing(market)
-                if df is not None and len(df) > 0:
-                    return df
-                print(f"  [{market}] 빈 응답, {delay}초 후 재시도 ({attempt+1}/{retries})")
-            except Exception as e:
-                print(f"  [{market}] 오류: {e}, {delay}초 후 재시도 ({attempt+1}/{retries})")
-            time.sleep(delay)
-        raise RuntimeError(f"fdr.StockListing('{market}') 실패 ({retries}회 시도)")
+    today = datetime.datetime.now().strftime('%Y%m%d')
+    df = None
 
-    kospi = _fetch_listing('KOSPI')
-    kospi['시장구분'] = 'KOSPI'
+    # ── 1차: KRX JSON API 직접 호출 ──────────────────────────────────
+    print("종목 마스터 수집 중... (KRX JSON API)")
+    try:
+        rows = []
+        for mkt_id, market_name in [('STK', 'KOSPI'), ('KSQ', 'KOSDAQ')]:
+            items = _fetch_krx_listing(mkt_id, today)
+            if not items:
+                raise ValueError(f"{market_name} 빈 응답")
+            for item in items:
+                code = str(item.get('ISU_SRT_CD', '')).strip().zfill(6)
+                if not code or len(code) != 6:
+                    continue
+                rows.append({
+                    '종목코드': code,
+                    '종목명': str(item.get('ISU_ABBRV', '')).strip(),
+                    '시장구분': market_name,
+                    '시가총액': _parse_krx_number(item.get('MKTCAP', '0')),
+                    '종가': _parse_krx_number(item.get('TDD_CLSPRC', '0')),
+                })
+        if rows:
+            df = pd.DataFrame(rows)
+            print(f"  KRX API 성공: {len(df)}개 종목")
+    except Exception as e:
+        print(f"  KRX API 실패: {e}")
 
-    kosdaq = _fetch_listing('KOSDAQ')
-    kosdaq['시장구분'] = 'KOSDAQ'
+    # ── 2차 폴백: FDR StockListing ────────────────────────────────────
+    if df is None or len(df) == 0:
+        import FinanceDataReader as fdr
+        print("  FDR 폴백으로 재시도...")
 
-    df = pd.concat([kospi, kosdaq], ignore_index=True)
+        def _fetch_fdr(mkt, retries=3, delay=10):
+            for attempt in range(retries):
+                try:
+                    result = fdr.StockListing(mkt)
+                    if result is not None and len(result) > 0:
+                        return result
+                    print(f"    [{mkt}] 빈 응답 ({attempt+1}/{retries})")
+                except Exception as ex:
+                    print(f"    [{mkt}] 오류: {ex} ({attempt+1}/{retries})")
+                time.sleep(delay)
+            raise RuntimeError(f"fdr.StockListing('{mkt}') 실패")
 
-    # 컬럼 매핑
-    df = df.rename(columns={
-        'Code': '종목코드',
-        'Name': '종목명',
-        'Close': '종가',
-        'Market': '_market_orig',
-    })
+        kospi = _fetch_fdr('KOSPI')
+        kospi['시장구분'] = 'KOSPI'
+        kosdaq = _fetch_fdr('KOSDAQ')
+        kosdaq['시장구분'] = 'KOSDAQ'
+        fdr_df = pd.concat([kospi, kosdaq], ignore_index=True)
+        fdr_df = fdr_df.rename(columns={'Code': '종목코드', 'Name': '종목명', 'Close': '종가'})
+        if 'Marcap' in fdr_df.columns:
+            fdr_df['시가총액'] = fdr_df['Marcap'] / 100000000
+        elif 'MarketCap' in fdr_df.columns:
+            fdr_df['시가총액'] = fdr_df['MarketCap'] / 100000000
+        else:
+            fdr_df['시가총액'] = 0
+        df = fdr_df
 
-    # 시가총액 억원 단위 변환
-    if 'Marcap' in df.columns:
-        df['시가총액'] = df['Marcap'] / 100000000
-    elif 'MarketCap' in df.columns:
-        df['시가총액'] = df['MarketCap'] / 100000000
-    else:
-        df['시가총액'] = 0
-
-    # 종목코드 문자열 처리
+    # ── 공통 후처리 ──────────────────────────────────────────────────
     df['종목코드'] = df['종목코드'].astype(str).str.zfill(6)
-
-    # 종목 분류
     df['is_common'] = df['종목코드'].apply(_is_common_stock)
     df['is_spac'] = df['종목명'].apply(lambda x: bool(SPAC_PATTERN.search(str(x))))
     df['is_reit'] = df['종목명'].apply(lambda x: bool(REIT_PATTERN.search(str(x))))
-
-    # 업종 정보
-    if 'Dept' in df.columns:
-        df['업종'] = df['Dept'].replace('', '기타').fillna('기타')
-    else:
-        df['업종'] = '기타'
+    df['업종'] = df.get('Dept', pd.Series(['기타'] * len(df))).replace('', '기타').fillna('기타') \
+                 if 'Dept' in df.columns else '기타'
 
     print(f"  전체 종목: {len(df)}개")
     print(f"  보통주: {df['is_common'].sum()}개")
