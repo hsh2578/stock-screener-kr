@@ -89,33 +89,50 @@ def _fetch_krx_listing(trd_dd: str) -> list:
 def _fetch_market_cap_krx(trd_dd: str) -> dict:
     """
     KRX MDCSTAT01501(getJsonData)에서 시가총액+종가 수집.
+    오늘 데이터가 없으면 최근 3거래일 소급.
     반환: {종목코드: {'cap': float(억원), 'close': float}}
     """
-    result = {}
-    for mkt_id in ['STK', 'KSQ']:
-        params = {
-            'bld': 'dbms/MDC/STAT/standard/MDCSTAT01501',
-            'mktId': mkt_id,
-            'trdDd': trd_dd,
-            'share': '1',
-            'money': '1',
-            'csvxls_isNo': 'false',
-        }
-        try:
-            resp = requests.post(_KRX_JSON_URL, data=params, headers=_KRX_JSON_HEADERS, timeout=30)
-            if resp.status_code != 200:
+    import datetime
+
+    # 시도할 날짜 목록: 오늘 + 최근 3거래일
+    dates_to_try = [trd_dd]
+    dt = datetime.datetime.strptime(trd_dd, '%Y%m%d')
+    for _ in range(3):
+        dt -= datetime.timedelta(days=1)
+        while dt.weekday() >= 5:  # 토/일 건너뜀
+            dt -= datetime.timedelta(days=1)
+        dates_to_try.append(dt.strftime('%Y%m%d'))
+
+    for date in dates_to_try:
+        result = {}
+        for mkt_id in ['STK', 'KSQ']:
+            params = {
+                'bld': 'dbms/MDC/STAT/standard/MDCSTAT01501',
+                'mktId': mkt_id,
+                'trdDd': date,
+                'share': '1',
+                'money': '1',
+                'csvxls_isNo': 'false',
+            }
+            try:
+                resp = requests.post(_KRX_JSON_URL, data=params, headers=_KRX_JSON_HEADERS, timeout=30)
+                if resp.status_code != 200:
+                    continue
+                data = resp.json()
+                for item in data.get('OutBlock_1', []):
+                    code = str(item.get('ISU_SRT_CD', '')).strip().zfill(6)
+                    if code and len(code) == 6:
+                        result[code] = {
+                            'cap': _parse_krx_number(item.get('MKTCAP', '0')) / 100_000_000,
+                            'close': _parse_krx_number(item.get('TDD_CLSPRC', '0')),
+                        }
+            except Exception:
                 continue
-            data = resp.json()
-            for item in data.get('OutBlock_1', []):
-                code = str(item.get('ISU_SRT_CD', '')).strip().zfill(6)
-                if code and len(code) == 6:
-                    result[code] = {
-                        'cap': _parse_krx_number(item.get('MKTCAP', '0')) / 100_000_000,
-                        'close': _parse_krx_number(item.get('TDD_CLSPRC', '0')),
-                    }
-        except Exception:
-            continue
-    return result
+        if result:
+            print(f"  MDCSTAT01501 성공 ({date}, {len(result)}개)")
+            return result
+
+    return {}
 
 
 def _parse_krx_number(val: str) -> float:
