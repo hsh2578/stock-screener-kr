@@ -31,7 +31,7 @@ from scripts.fnguide_data import get_financial_data, save_fnguide_cache
 
 CACHE_DIR = os.path.join(SCRIPT_DIR, '.cache')
 MIN_MARKET_CAP = 1000  # 시가총액 1,000억 이상
-MAX_WORKERS = 5  # FnGuide 병렬 요청 수
+MAX_WORKERS = 3  # FnGuide 병렬 요청 수 (각 종목당 2페이지 동시 요청 → 실제 최대 6 concurrent)
 MAX_CACHE_DAYS = 2  # 최근 N일 캐시만 유지
 
 
