@@ -2689,9 +2689,11 @@
         // financial_data.json 레이지 로딩 (상세 페이지 방문 시 1회만)
         let financialDataLoaded = false;
         let financialDataLoading = null;
+        let financialDataLoadFailed = false;
 
         async function loadFinancialData() {
             if (financialDataLoaded) return;
+            if (financialDataLoadFailed) return;   // 실패 확정 시 재시도 중단
             if (financialDataLoading) return financialDataLoading;
             financialDataLoading = (async () => {
                 try {
@@ -2708,6 +2710,7 @@
                         } catch (e) { /* try next */ }
                     }
                     console.warn('⚠ financial_data.json 로드 실패');
+                    financialDataLoadFailed = true;
                 } finally {
                     financialDataLoading = null;
                 }
@@ -2950,7 +2953,8 @@
             var container = document.getElementById(containerId);
             if (!container) return;
 
-            if (!isMobileView()) {
+            const isCardViewActive = container.closest('.table-card')?.classList.contains('card-view');
+            if (!isMobileView() && !isCardViewActive) {
                 container.innerHTML = '';
                 return;
             }
@@ -3783,66 +3787,9 @@
          * @param {string} cacheKey - 캐시 키 (테이블 ID)
          * @returns {boolean} - 인크리멘탈 업데이트 수행 여부
          */
-        function updateTableRowsIncremental(tbody, newRows, cacheKey) {
-            const existingRows = tbody.querySelectorAll('tr');
-            const cachedRows = rowDataCache.get(cacheKey) || [];
-
-            // 행 수 차이가 크면 전체 재렌더링 (10개 이상 차이)
-            if (Math.abs(existingRows.length - newRows.length) > 10) {
-                rowDataCache.set(cacheKey, [...newRows]);
-                return false; // 전체 재렌더링 필요
-            }
-
-            let updatedCount = 0;
-
-            // 기존 행 업데이트 (변경된 행만)
-            newRows.forEach((newRowHtml, i) => {
-                // 행 내용에서 tr 태그 제거하여 내부 내용만 추출
-                const innerContent = newRowHtml.replace(/<tr[^>]*>|<\/tr>/gi, '').trim();
-
-                if (existingRows[i]) {
-                    // 캐시된 내용과 비교하여 변경 시에만 업데이트
-                    if (cachedRows[i] !== newRowHtml) {
-                        existingRows[i].innerHTML = innerContent;
-                        // tr 속성 업데이트 (onclick 등)
-                        // <tr>은 <table><tbody> 안에서만 올바르게 파싱됨
-                        const tempTable = document.createElement('table');
-                        const tempTbody = document.createElement('tbody');
-                        tempTable.appendChild(tempTbody);
-                        tempTbody.innerHTML = newRowHtml;
-                        const tempRow = tempTbody.firstElementChild;
-                        if (tempRow) {
-                            // onclick 속성 복사
-                            if (tempRow.hasAttribute('onclick')) {
-                                existingRows[i].setAttribute('onclick', tempRow.getAttribute('onclick'));
-                            }
-                            // class 속성 복사
-                            existingRows[i].className = tempRow.className || '';
-                            // style 속성 복사
-                            if (tempRow.hasAttribute('style')) {
-                                existingRows[i].setAttribute('style', tempRow.getAttribute('style'));
-                            }
-                        }
-                        updatedCount++;
-                    }
-                } else {
-                    // 새로운 행 추가
-                    tbody.insertAdjacentHTML('beforeend', newRowHtml);
-                    updatedCount++;
-                }
-            });
-
-            // 초과 행 제거
-            while (tbody.children.length > newRows.length) {
-                tbody.removeChild(tbody.lastChild);
-                updatedCount++;
-            }
-
-            // 캐시 업데이트
-            rowDataCache.set(cacheKey, [...newRows]);
-
-            // 업데이트된 행이 전체의 30% 이하면 인크리멘탈로 처리됨
-            return updatedCount <= Math.max(newRows.length * 0.3, 3);
+        function updateTableRowsIncremental(tbody, newRowHtml, tableId) {
+            // 단순 innerHTML 교체 (인크리멘탈 DOM 파싱 오버헤드 제거)
+            tbody.innerHTML = newRowHtml;
         }
 
         // ============================================================
@@ -3893,35 +3840,11 @@
             // tbody 렌더링 - 인크리멘탈 업데이트 시도
             const tbody = table.querySelector('tbody');
 
-            // rows가 문자열인 경우 배열로 분리
-            let rowsArray;
-            if (typeof rows === 'string') {
-                // tr 태그를 기준으로 분리
-                rowsArray = rows.match(/<tr[^>]*>[\s\S]*?<\/tr>/gi) || [];
-            } else {
-                rowsArray = rows;
-            }
+            // rows가 배열이면 문자열로 합쳐서 전달
+            const rowsHtml = typeof rows === 'string' ? rows : rows.join('');
 
-            // 인크리멘탈 업데이트 시도
-            const wasIncremental = updateTableRowsIncremental(tbody, rowsArray, tableId);
-
-            // 인크리멘탈 업데이트 실패 시 전체 재렌더링
-            if (!wasIncremental) {
-                // 성능 최적화: 대량 DOM 업데이트 시 tbody를 임시로 분리
-                const tbodyParent = tbody.parentNode;
-                const tbodyNextSibling = tbody.nextSibling;
-                tbodyParent.removeChild(tbody);
-
-                // tbody 내용 업데이트 (분리된 상태에서 - reflow 없음)
-                tbody.innerHTML = typeof rows === 'string' ? rows : rowsArray.join('');
-
-                // tbody 다시 연결 (단일 reflow만 발생)
-                if (tbodyNextSibling) {
-                    tbodyParent.insertBefore(tbody, tbodyNextSibling);
-                } else {
-                    tbodyParent.appendChild(tbody);
-                }
-            }
+            // tbody 업데이트 (단순 innerHTML 교체)
+            updateTableRowsIncremental(tbody, rowsHtml, tableId);
 
             // 접근성: 클릭 가능한 행에 role/tabindex 자동 부여
             var clickableRows = tbody.querySelectorAll('tr[onclick]');
@@ -4062,7 +3985,11 @@
 
             // 카운트 표시
             const countEl = document.getElementById('box-range-count');
-            countEl.textContent = filteredData.length;
+            if (filterMA150State.boxRange) {
+                countEl.textContent = filteredData.length + '개 / 전체 ' + DATA.boxRange.meta.totalCount;
+            } else {
+                countEl.textContent = DATA.boxRange.meta.totalCount;
+            }
 
             const headers = [
                 { label: '종목명', key: 'name' },
@@ -5684,8 +5611,10 @@
 
         // Navigation - Lazy Rendering 적용 + Hash Routing
         function showPage(pageId, pushState = true) {
+            const targetPage = document.getElementById(`page-${pageId}`);
+            if (!targetPage) { showPage('home', pushState); return; }
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById(`page-${pageId}`).classList.add('active');
+            targetPage.classList.add('active');
             window.scrollTo(0, 0);
             if (pushState && pageId !== 'home') {
                 history.pushState({ page: pageId }, '', '#' + pageId);
