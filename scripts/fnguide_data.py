@@ -19,6 +19,7 @@ import io
 import os
 import re
 import time
+from concurrent.futures import ThreadPoolExecutor
 from typing import Dict, List, Optional, Any
 
 import numpy as np
@@ -36,6 +37,7 @@ HEADERS = {
 }
 
 FNGUIDE_FINANCE_URL = 'https://comp.fnguide.com/SVO2/ASP/SVD_Finance.asp'
+FNGUIDE_MAIN_URL = 'https://comp.fnguide.com/SVO2/ASP/SVD_Main.asp'
 
 # 재무제표 테이블 인덱스 (SVD_Finance.asp)
 TABLE_IDX = {
@@ -74,6 +76,15 @@ BALANCE_SEARCH = {
     'long_term_debt': ['장기차입금'],
     'bonds': ['사채'],
     'inventory': ['재고자산'],
+}
+
+# SVD_Main.asp table[11] 행 이름 → annual dict key 매핑
+MAIN_ANNUAL_ITEMS = {
+    '매출액':         'revenue',
+    '영업이익':       'operating_income',
+    '당기순이익':     'net_income',
+    '지배주주순이익': 'net_income_controlling',
+    'EPS':            'eps',  # 주당순이익 (5년 EPS 성장률 계산용)
 }
 
 # 현금흐름표 항목 매핑
@@ -141,6 +152,63 @@ def _fetch_tables(code: str, report_type: str = 'D') -> Optional[tuple]:
             # 개별 재무제표로 재시도
             return _fetch_tables(code, 'I')
         return None
+
+
+def _fetch_tables_main(code: str) -> Optional[list]:
+    """SVD_Main.asp에서 테이블 추출. 실패 시 None."""
+    params = {
+        'pGB': '1', 'gicode': f'A{code}', 'cID': '',
+        'MenuYn': 'Y', 'ReportGB': '', 'NewMenuID': '101', 'stkGb': '701',
+    }
+    try:
+        resp = requests.get(FNGUIDE_MAIN_URL, params=params, headers=HEADERS, timeout=20)
+        resp.raise_for_status()
+        tables = pd.read_html(io.StringIO(resp.text), encoding='utf-8', displayed_only=False)
+        if len(tables) >= 12:
+            return tables
+    except Exception:
+        pass
+    return None
+
+
+def _parse_main_annual(table: pd.DataFrame) -> Dict[str, Dict[str, float]]:
+    """
+    SVD_Main.asp table[11] (Financial Highlight 연간) 파싱.
+    반환: {'revenue': {'2021/12': 값, ...}, 'operating_income': {...}, ...}
+    """
+    result = {}
+    # MultiIndex 컬럼 → 두 번째 레벨(날짜)만 사용
+    cols = []
+    for c in table.columns:
+        if isinstance(c, tuple):
+            cols.append(c[1])
+        else:
+            cols.append(str(c))
+    table = table.copy()
+    table.columns = cols
+
+    # 첫 번째 열을 인덱스로
+    item_col = table.columns[0]
+    table = table.set_index(item_col)
+    table.index = table.index.astype(str).str.strip()
+
+    # 날짜 컬럼만 필터 (YYYY/MM 형식)
+    date_cols = [c for c in table.columns if re.match(r'\d{4}/\d{2}', str(c))]
+
+    for kr_name, en_key in MAIN_ANNUAL_ITEMS.items():
+        matched = None
+        for idx in table.index:
+            if kr_name == idx or kr_name in idx:
+                matched = idx
+                break
+        if matched is None:
+            continue
+        row = table.loc[matched, date_cols]
+        row = pd.to_numeric(row, errors='coerce').dropna()
+        if not row.empty:
+            result[en_key] = row.to_dict()
+
+    return result
 
 
 def _parse_header_metrics(html: str) -> Dict[str, float]:
@@ -279,7 +347,13 @@ def get_financial_data(code: str, retry: int = 2) -> Optional[Dict[str, Any]]:
     """
     for attempt in range(retry):
         try:
-            fetch_result = _fetch_tables(code)
+            # 두 페이지 동시 요청 (벽시계 시간 동일 유지)
+            with ThreadPoolExecutor(max_workers=2) as executor:
+                future_finance = executor.submit(_fetch_tables, code)
+                future_main    = executor.submit(_fetch_tables_main, code)
+                fetch_result = future_finance.result(timeout=30)
+                main_tables  = future_main.result(timeout=30)
+
             if not fetch_result:
                 if attempt < retry - 1:
                     time.sleep(0.5)
@@ -302,16 +376,26 @@ def get_financial_data(code: str, retry: int = 2) -> Optional[Dict[str, Any]]:
             # 0. 페이지 헤더 지표 (PER, PBR, 배당수익률 등)
             result['header'] = _parse_header_metrics(html_text)
 
-            # 1. 연간 손익계산서
+            # 1. 연간/분기 손익계산서 (먼저 둘 다 파싱)
             annual_income = _clean_table(tables[TABLE_IDX['annual_income']])
+            quarter_income = _clean_table(tables[TABLE_IDX['quarter_income']])
+
+            # 미완성 연간 컬럼 제거: 최신 연간 컬럼 결산월이 /12가 아니면 분기 누적값
+            # (한국 상장사 95%+는 12월 결산 → /12 외 패턴은 미완성 연간으로 처리)
+            if not annual_income.empty:
+                date_annual_cols = sorted(
+                    [c for c in annual_income.columns if re.match(r'\d{4}/\d{2}', str(c))],
+                    reverse=True,
+                )
+                if date_annual_cols and not date_annual_cols[0].endswith('/12'):
+                    annual_income = annual_income.drop(columns=[date_annual_cols[0]], errors='ignore')
+
             if not annual_income.empty:
                 for kr_name, en_key in INCOME_ITEMS.items():
                     series = _extract_item(annual_income, [kr_name])
                     if not series.empty:
                         result['annual'][en_key] = series.dropna().to_dict()
 
-            # 2. 분기 손익계산서
-            quarter_income = _clean_table(tables[TABLE_IDX['quarter_income']])
             if not quarter_income.empty:
                 for kr_name, en_key in INCOME_ITEMS.items():
                     series = _extract_item(quarter_income, [kr_name])
@@ -377,6 +461,31 @@ def get_financial_data(code: str, retry: int = 2) -> Optional[Dict[str, Any]]:
                 invest_q_series = _extract_item(quarter_cf, CASHFLOW_INVEST_ITEMS)
                 if not invest_q_series.empty:
                     result['cashflow']['invest_cf_quarter'] = invest_q_series.dropna().to_dict()
+
+            # SVD_Main.asp 5년 데이터로 연간 보충
+            # - 기존 키(revenue 등): 이전 연도만 추가 (덮어쓰기 방지, 미발표 누적값 방지)
+            # - 새 키(eps 등): SVD_Finance에 없으므로 전체 기간 추가
+            if main_tables is not None:
+                try:
+                    main_annual = _parse_main_annual(main_tables[11])
+                    existing_years = set()
+                    for v in result.get('annual', {}).values():
+                        existing_years.update(v.keys())
+                    min_existing = min(existing_years) if existing_years else '9999/99'
+                    for en_key, year_dict in main_annual.items():
+                        if en_key not in result['annual']:
+                            # 새 지표: 전체 기간 추가 (단, /12 결산월만)
+                            result['annual'][en_key] = {
+                                p: v for p, v in year_dict.items()
+                                if p.endswith('/12')
+                            }
+                        else:
+                            # 기존 지표: min_existing보다 이전 연도만 보충
+                            for period, value in year_dict.items():
+                                if period < min_existing:
+                                    result['annual'][en_key][period] = value
+                except Exception:
+                    pass  # Main 파싱 실패해도 기존 4년 데이터로 계속
 
             # TTM 계산
             _calculate_ttm(result)

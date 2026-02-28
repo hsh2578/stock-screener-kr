@@ -22,6 +22,7 @@ from scripts.fnguide_data import (
     load_fnguide_cache,
     get_financial_data,
     get_growth_rates_with_ttm,
+    get_annual_growth_rates,
     get_operating_margins,
     get_per_from_data,
     get_pbr_from_data,
@@ -131,10 +132,10 @@ def pass_first_filter_ttm(fin_data: Dict, market_cap: float) -> Tuple[bool, Dict
             results['revenue_growth']['value'] = round(avg, 2)
             results['revenue_growth']['pass'] = avg > 10
 
-    # 3. 영업이익률: 가용 기간 평균 > 10%
+    # 3. 영업이익률: 5년 평균 > 10% (TTM + 연간 최대 5개)
     margins = get_operating_margins(fin_data, years=5)
     if margins:
-        valid_margins = [m for m in margins[:5] if m is not None]
+        valid_margins = [m for m in margins if m is not None]
         if valid_margins:
             avg = sum(valid_margins) / len(valid_margins)
             results['operating_margin_avg']['value'] = round(avg, 2)
@@ -149,16 +150,17 @@ def pass_first_filter_ttm(fin_data: Dict, market_cap: float) -> Tuple[bool, Dict
             results['operating_profit_growth']['value'] = round(avg, 2)
             results['operating_profit_growth']['pass'] = avg > 10
 
-    # 5. EPS(순이익) 성장률: 가용 기간 평균 > 10% (순이익 성장률로 대체)
-    ni_growth = get_growth_rates_with_ttm(fin_data, 'net_income', years=5)
-    if ni_growth:
-        valid_rates = [r for r in ni_growth[:5] if r is not None]
+    # 5. EPS 성장률: 5년 평균 > 10% (SVD_Main.asp EPS 연간 데이터 사용)
+    eps_growth = get_annual_growth_rates(fin_data, 'eps', years=5)
+    if eps_growth:
+        valid_rates = [r for r in eps_growth if r is not None]
         if valid_rates:
             avg = sum(valid_rates) / len(valid_rates)
             results['eps_growth']['value'] = round(avg, 2)
             results['eps_growth']['pass'] = avg > 10
 
-    # 6. 순이익 증가율: 20% < 가용 기간 평균 < 50%
+    # 6. 순이익 증가율: 20% < 5년 평균 < 50%
+    ni_growth = get_growth_rates_with_ttm(fin_data, 'net_income', years=5)
     if ni_growth:
         valid_rates = [r for r in ni_growth[:5] if r is not None]
         if valid_rates:
