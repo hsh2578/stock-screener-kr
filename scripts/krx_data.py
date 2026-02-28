@@ -86,6 +86,38 @@ def _fetch_krx_listing(trd_dd: str) -> list:
     return data.get('block1', [])
 
 
+def _fetch_market_cap_krx(trd_dd: str) -> dict:
+    """
+    KRX MDCSTAT01501(getJsonData)에서 시가총액+종가 수집.
+    반환: {종목코드: {'cap': float(억원), 'close': float}}
+    """
+    result = {}
+    for mkt_id in ['STK', 'KSQ']:
+        params = {
+            'bld': 'dbms/MDC/STAT/standard/MDCSTAT01501',
+            'mktId': mkt_id,
+            'trdDd': trd_dd,
+            'share': '1',
+            'money': '1',
+            'csvxls_isNo': 'false',
+        }
+        try:
+            resp = requests.post(_KRX_JSON_URL, data=params, headers=_KRX_JSON_HEADERS, timeout=30)
+            if resp.status_code != 200:
+                continue
+            data = resp.json()
+            for item in data.get('OutBlock_1', []):
+                code = str(item.get('ISU_SRT_CD', '')).strip().zfill(6)
+                if code and len(code) == 6:
+                    result[code] = {
+                        'cap': _parse_krx_number(item.get('MKTCAP', '0')) / 100_000_000,
+                        'close': _parse_krx_number(item.get('TDD_CLSPRC', '0')),
+                    }
+        except Exception:
+            continue
+    return result
+
+
 def _parse_krx_number(val: str) -> float:
     """KRX 숫자 문자열(콤마 포함) → float"""
     try:
@@ -179,18 +211,19 @@ def get_stock_master(market: str = 'ALL') -> pd.DataFrame:
                 df = pd.DataFrame(rows)
                 print(f"  finder_stkisu 성공: {len(df)}개 종목")
 
-                # 시가총액/종가 보충: pykrx
+                # 시가총액/종가 보충: MDCSTAT01501 via getJsonData (pykrx 사용 안 함)
                 try:
-                    from pykrx import stock as pykrx_stock
-                    df_cap = pykrx_stock.get_market_cap_by_ticker(date=today, market='ALL')
-                    if df_cap is not None and len(df_cap) > 0:
-                        df_cap.index = df_cap.index.astype(str).str.zfill(6)
-                        cap_col = df_cap.columns[0]  # 시가총액 (첫 번째 컬럼, 인코딩 무관)
-                        cap_map = df_cap[cap_col].to_dict()
-                        df['시가총액'] = df['종목코드'].map(cap_map).fillna(0) / 100_000_000
-                        print(f"  pykrx 시가총액 보충 완료 ({len(df_cap)}개)")
+                    cap_data = _fetch_market_cap_krx(today)
+                    if cap_data:
+                        df['시가총액'] = df['종목코드'].map(
+                            lambda c: cap_data.get(c, {}).get('cap', 0.0))
+                        df['종가'] = df['종목코드'].map(
+                            lambda c: cap_data.get(c, {}).get('close', 0.0))
+                        print(f"  MDCSTAT01501 시가총액 보충 완료 ({len(cap_data)}개)")
+                    else:
+                        raise ValueError("MDCSTAT01501 빈 응답")
                 except Exception as e:
-                    print(f"  pykrx 시가총액 보충 실패 (무시): {e}")
+                    print(f"  시가총액 보충 실패 (무시): {e}")
 
         except Exception as e:
             print(f"  finder_stkisu 실패: {e}")
@@ -263,9 +296,11 @@ def get_filtered_stocks(min_market_cap: int = 1000) -> pd.DataFrame:
     """
     df = get_stock_master()
 
-    # 시가총액 필터
-    if '시가총액' in df.columns:
+    # 시가총액 필터 (시가총액 데이터 없으면 생략)
+    if '시가총액' in df.columns and df['시가총액'].sum() > 0:
         df = df[df['시가총액'] >= min_market_cap].copy()
+    else:
+        print(f"  시가총액 데이터 없음 — 시가총액 필터 생략")
 
     # 컬럼 매핑 (기존 코드 호환)
     result = pd.DataFrame({
