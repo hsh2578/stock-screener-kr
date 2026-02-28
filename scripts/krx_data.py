@@ -73,11 +73,25 @@ def get_stock_master(market: str = 'ALL') -> pd.DataFrame:
 
     print("종목 마스터 수집 중... (FDR)")
 
-    # KOSPI + KOSDAQ
-    kospi = fdr.StockListing('KOSPI')
+    # KOSPI + KOSDAQ (빈 응답 시 최대 3회 재시도)
+    import time
+
+    def _fetch_listing(market, retries=3, delay=10):
+        for attempt in range(retries):
+            try:
+                df = fdr.StockListing(market)
+                if df is not None and len(df) > 0:
+                    return df
+                print(f"  [{market}] 빈 응답, {delay}초 후 재시도 ({attempt+1}/{retries})")
+            except Exception as e:
+                print(f"  [{market}] 오류: {e}, {delay}초 후 재시도 ({attempt+1}/{retries})")
+            time.sleep(delay)
+        raise RuntimeError(f"fdr.StockListing('{market}') 실패 ({retries}회 시도)")
+
+    kospi = _fetch_listing('KOSPI')
     kospi['시장구분'] = 'KOSPI'
 
-    kosdaq = fdr.StockListing('KOSDAQ')
+    kosdaq = _fetch_listing('KOSDAQ')
     kosdaq['시장구분'] = 'KOSDAQ'
 
     df = pd.concat([kospi, kosdaq], ignore_index=True)
