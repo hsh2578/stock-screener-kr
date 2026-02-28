@@ -154,8 +154,14 @@ def _fetch_tables(code: str, report_type: str = 'D') -> Optional[tuple]:
         return None
 
 
-def _fetch_tables_main(code: str) -> Optional[list]:
-    """SVD_Main.asp에서 테이블 추출. 실패 시 None."""
+def _fetch_tables_main(code: str) -> Optional[pd.DataFrame]:
+    """SVD_Main.asp에서 연간 Financial Highlight 테이블만 추출. 실패 시 None.
+
+    div#div15 (Financial Highlight 섹션) 내 6개 테이블 중 인덱스 1번 사용:
+      [0] IFRS(연결) Annual+Quarter 전체  [1] IFRS(연결) Annual ← 사용
+      [2] IFRS(연결) Net Quarter         [3] IFRS(별도) Annual+Quarter
+      [4] IFRS(별도) Annual              [5] IFRS(별도) Net Quarter
+    """
     params = {
         'pGB': '1', 'gicode': f'A{code}', 'cID': '',
         'MenuYn': 'Y', 'ReportGB': '', 'NewMenuID': '101', 'stkGb': '701',
@@ -163,9 +169,13 @@ def _fetch_tables_main(code: str) -> Optional[list]:
     try:
         resp = requests.get(FNGUIDE_MAIN_URL, params=params, headers=HEADERS, timeout=20)
         resp.raise_for_status()
-        tables = pd.read_html(io.StringIO(resp.text), encoding='utf-8', displayed_only=False)
+        html = resp.text
+
+        # 전체 파싱 후 인덱스 11 사용 (17개 테이블 중 div#div15의 Annual 연결 테이블)
+        # 로컬 파싱 시간: ~0.03s, 네트워크가 실질적 병목
+        tables = pd.read_html(io.StringIO(html), encoding='utf-8', displayed_only=False)
         if len(tables) >= 12:
-            return tables
+            return tables[11]
     except Exception:
         pass
     return None
@@ -467,7 +477,7 @@ def get_financial_data(code: str, retry: int = 2) -> Optional[Dict[str, Any]]:
             # - 새 키(eps 등): SVD_Finance에 없으므로 전체 기간 추가
             if main_tables is not None:
                 try:
-                    main_annual = _parse_main_annual(main_tables[11])
+                    main_annual = _parse_main_annual(main_tables)
                     existing_years = set()
                     for v in result.get('annual', {}).values():
                         existing_years.update(v.keys())

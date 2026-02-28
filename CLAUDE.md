@@ -242,7 +242,10 @@ python guru_screeners.py        # 대가 4종
 
 ## 9. 알려진 제약사항
 
-- **FnGuide 연간 데이터 ~4년치** (예: 2022~2025) → "5년" 표기 부정확, "가용 기간"으로 표기
+- **FnGuide 연간 데이터**: SVD_Finance.asp 4년 + SVD_Main.asp table[11] 1년 보충 → 최대 5년치 (2026-03-01)
+  - 미발표 종목(연간 최신 컬럼이 `/12`가 아닌 경우) → 분기 누적값 자동 제거
+  - `_fetch_tables_main()` + `_parse_main_annual()` 함수 추가, ThreadPoolExecutor(max_workers=2) 동시 요청
+  - 기존 4년 값 덮어쓰기 방지 (min_existing 체크), Main 파싱 실패 시 자동 fallback
 - FDR 크롤링 속도: 로컬 ~3.5분 (캐시), CI ~5분 (증분 캐시)
 - `fdr.DataReader()`에 타임아웃 없음 → 간헐적 멈춤 가능
 - chart_data.json이 37MB+로 매우 큼 (3초 후 백그라운드 프리로드로 개선)
@@ -277,26 +280,55 @@ python guru_screeners.py        # 대가 4종
 
 ### 가치투자 (2개)
 
-| ID | 한글명 | JSON 파일 | 핵심 조건 |
-|----|--------|-----------|----------|
-| value-stocks | 저평가 우량주 | value_stocks.json | PER/PBR/성장률/영업이익률 기반 (TTM) |
-| ma60w-quality | 60주선 우량주 | ma60w_quality.json | 60주 EMA 지지 + 영업이익률/성장률 |
+**저평가 우량주** (`value-stocks`, `value_stocks.json`) — TTM 기반 6개 조건 전부 충족
+1. 3 < PER < 30
+2. 매출액 성장률 3년 평균 > 10%
+3. 영업이익률 가용 기간 평균 > 10% (TTM 포함 최대 5년)
+4. 영업이익 성장률 가용 기간 평균 > 10%
+5. EPS 성장률 5년 평균 > 10% (SVD_Main.asp 실제 EPS 데이터)
+6. 20% < 순이익 증가율 5년 평균 < 50%
+
+**60주선 우량주** (`ma60w-quality`, `ma60w_quality.json`) — 코스피 상위 200 대상
+1. 60주 EMA(300일) 이격도 0%~10% (지지 구간)
+2. 종가 >= 60주 EMA (이중 확인)
+3. 영업이익률 최근 결산(TTM) >= 10%
+4. 영업이익 성장률 3년 평균 >= 10%
 
 ### 퀀트 전략 (2개)
 
-| ID | 한글명 | JSON 파일 | 핵심 조건 |
-|----|--------|-----------|----------|
-| magic-formula | 마법공식 | magic_formula.json | EBIT/EV + EBIT/IC 순위 합산 |
-| multi-factor | 멀티팩터 | multi_factor.json | Q+V+M 섹터 중립화 Z-Score |
+**마법공식** (`magic-formula`, `magic_formula.json`) — 조엘 그린블라트
+- EBIT/EV 순위 + EBIT/IC 순위 합산 → 낮을수록 우량저평가
+- EBIT = 영업이익(TTM), EV = 시총+총부채-여유자금, IC = 자본+차입금-현금(4Q평균)
+- 시총 1000억+, 보통주, 스팩/리츠 제외, 금융주 별도 제외
+
+**멀티팩터** (`multi-factor`, `multi_factor.json`) — Q+V+M 글로벌 Z-Score
+- Quality: ROE, ROA, GPA, 영업이익률, ROIC
+- Value: PER역수, PBR역수, EV/EBIT역수, EV/S역수, FCF/EV
+- Momentum: 12M, 6M, 3M 수익률
+- Winsorize 1%-99% (원본은 `_orig` 컬럼 보존), 유효 지표 최소 5/10개, 팩터그룹별 1개 이상 필수
+- 금융주 제외 안 함, 섹터 중립화 아님 (글로벌 Z-Score)
 
 ### 투자 대가 (4개)
 
-| ID | 한글명 | JSON 파일 | 핵심 조건 |
-|----|--------|-----------|----------|
-| buffett | 워렌 버핏 | buffett.json | ROE>15%, FCF>0, PER<17, PBR<1.5, 부채비율<150% |
-| ackman | 빌 애크먼 | ackman.json | ROIC>13%, PER<20, FCF>0, 배당>2% |
-| lynch | 피터 린치 | lynch.json | PEG<1.8, ROE>5%, ROA>1%, 배당>3% |
-| graham | 벤저민 그레이엄 | graham.json | PER<15, PBR×PER<22, 유동비율>200%, 전 기간 흑자 |
+**워렌 버핏** (`buffett`, `buffett.json`) — 내재가치 전략 (ROE 내림차순)
+- ROE > 15%, PER < 17, PBR < 1.5
+- 유동비율 > 1.5, 부채비율 < 150%, 장기부채비율 < 100%
+- FCF > 0, EPS 성장률(순이익 TTM 3년 평균) > 10%
+
+**빌 애크먼** (`ackman`, `ackman.json`) — 주가 재평가 전략 (ROIC 내림차순)
+- ROIC > 15%, ROE > 12%, PER < 15, PBR < 2
+- 부채비율 < 150%, FCF > 0, 배당수익률 > 3%
+
+**피터 린치** (`lynch`, `lynch.json`) — GARP 성장주 전략 (PEG 오름차순)
+- PER < 25, 0 < PEG < 1.8 (PEG = PER / EPS성장률 3년평균)
+- ROE > 5%, ROA > 1%, 부채비율 < 150%
+- 배당수익률 > 3%, 재고/매출 < 5%
+
+**벤저민 그레이엄** (`graham`, `graham.json`) — 안전마진 가치투자 (PER×PBR 오름차순)
+- 매출 > 1000억, 유동비율 > 200%, 순유동자산 > 장기부채
+- 전 기간 흑자 (순이익 + 영업이익 모두 > 0, 가용 연간 최대 5년)
+- EPS 누적 성장률 > 30% (최신/최구 연도 비율)
+- PER < 15, PBR × PER < 22
 
 ---
 
@@ -319,6 +351,7 @@ python guru_screeners.py        # 대가 4종
 | `get_inventory_ratio` | 재고자산(4Q평균) / 매출TTM × 100 | 린치 |
 | `get_peg` | PER / EPS성장률(3년평균) | 린치 |
 | `get_net_current_assets` | 유동자산 - 유동부채 | 그레이엄 |
+| `get_annual_growth_rates` | 연간 YoY 성장률만 (TTM 없이, SVD_Main.asp 데이터 포함) | EPS 성장률 계산 |
 | `get_growth_rates_with_ttm` | TTM + 연간 YoY 성장률 시리즈 | 전체 |
 
 ---
@@ -329,3 +362,31 @@ python guru_screeners.py        # 대가 4종
 - 기술 용어: 영어 허용
 - UI: 라이트 테마, Pretendard 폰트, 네이버 금융 스타일
 - 이모지: 사용자가 요청하지 않으면 사용하지 않음
+
+---
+
+## 13. 주요 변경 이력
+
+### 2026-03-01
+
+**FnGuide 5년 연간 데이터 확장** (`scripts/fnguide_data.py`)
+- `_fetch_tables_main(code)` 추가: SVD_Main.asp GET 요청, table[11] Financial Highlight 연간 파싱
+- `_parse_main_annual(table)` 추가: MultiIndex 컬럼 → YYYY/MM 날짜, MAIN_ANNUAL_ITEMS 매핑
+- `MAIN_ANNUAL_ITEMS` 항목: 매출액, 영업이익, 당기순이익, 지배주주순이익, EPS
+- `get_financial_data()` 수정: ThreadPoolExecutor(max_workers=2)로 SVD_Finance.asp + SVD_Main.asp 동시 요청
+- 미발표 종목 처리: 연간 테이블 최신 컬럼이 `/12`로 끝나지 않으면 제거 (분기 누적값 방지)
+- 보충 로직: 기존 키(revenue 등)는 min_existing 이전 연도만, 신규 키(eps)는 전체 `/12` 연도
+
+**EPS 성장률 교체** (`test_value_screener.py`)
+- 조건 5: 순이익 성장률 대신 `get_annual_growth_rates(fin_data, 'eps', years=5)` 사용
+- SVD_Main.asp의 실제 EPS 데이터로 5년 평균 계산
+
+**FnGuide 동시 요청 부하 감소** (`collect_quant_data.py`)
+- `MAX_WORKERS = 5` → `MAX_WORKERS = 3` (최대 concurrent = 3×2 = 6개)
+
+**HTML 버그/성능/UX 5건 수정** (`주식_스크리너_전체.html`)
+- BUG-3: `showPage()` 잘못된 hash URL → 홈 fallback (null 체크 추가)
+- BUG-5: `renderBoxRange` 필터 적용 시 카운트 표시 일관성 수정
+- PERF-2: `updateTableRowsIncremental` 60줄 복잡한 DOM 업데이트 → `tbody.innerHTML` 3줄로 단순화
+- UX-2: `loadFinancialData` 실패 시 `financialDataLoadFailed` 플래그로 반복 재시도 방지
+- UX-3: 데스크톱 카드 뷰 렌더링 조건 수정 (`isCardViewActive` 체크)
