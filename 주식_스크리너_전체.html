@@ -5291,7 +5291,7 @@
                 { label: 'PER×PBR', align: 'text-right', key: 'per_x_pbr' },
                 { label: '유동비율', align: 'text-right', key: 'current_ratio' },
                 { label: '순유동자산', align: 'text-right', key: 'net_current_assets' },
-                { label: '누적성장%', align: 'text-right', key: 'cumulative_growth' },
+                { label: 'EPS성장%', align: 'text-right', key: 'eps_growth' },
                 { label: '부채비율', align: 'text-right', key: 'debt_ratio' },
                 { label: '배당%', align: 'text-right', key: 'dividend_yield' }
             ];
@@ -5309,7 +5309,7 @@
                     <td class="text-right" style="color:#0066CC;font-weight:600">${s.per_x_pbr != null ? s.per_x_pbr.toFixed(2) : '-'}</td>
                     <td class="text-right">${s.current_ratio != null ? s.current_ratio.toFixed(2) : '-'}</td>
                     <td class="text-right">${s.net_current_assets != null ? formatNumber(Math.round(s.net_current_assets)) : '-'}</td>
-                    <td class="text-right positive">${s.cumulative_growth != null ? '+' + s.cumulative_growth.toFixed(1) + '%' : '-'}</td>
+                    <td class="text-right positive">${s.eps_growth != null ? '+' + s.eps_growth.toFixed(1) + '%' : '-'}</td>
                     <td class="text-right">${s.debt_ratio != null ? s.debt_ratio.toFixed(1) + '%' : '-'}</td>
                     <td class="text-right">${s.dividend_yield != null ? s.dividend_yield.toFixed(2) + '%' : '-'}</td>
                 </tr>`;
@@ -5320,7 +5320,7 @@
                 extraFields: [
                     { label: 'PER×PBR', format: s => s.per_x_pbr != null ? s.per_x_pbr.toFixed(2) : '-' },
                     { label: '유동비율', format: s => s.current_ratio != null ? s.current_ratio.toFixed(2) : '-' },
-                    { label: '5Y성장', format: s => s.cumulative_growth != null ? '+' + s.cumulative_growth.toFixed(1) + '%' : '-' },
+                    { label: 'EPS성장', format: s => s.eps_growth != null ? '+' + s.eps_growth.toFixed(1) + '%' : '-' },
                     { label: '부채비율', format: s => s.debt_ratio != null ? s.debt_ratio.toFixed(1) + '%' : '-' }
                 ]
             });

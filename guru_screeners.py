@@ -523,18 +523,36 @@ def screen_graham(filtered, fnguide_cache):
         if not oi_values or not all(v is not None and not np.isnan(v) and v > 0 for v in oi_values):
             continue
 
-        # EPS 누적 성장률 (가용 연간 데이터 기준, eps 없으면 net_income fallback)
+        # EPS 연평균 성장률 > 30% (21-25년, 25년은 연간 공시 또는 TTM EPS 근사)
         annual_eps = fin.get('annual', {}).get('eps', {})
-        eps_values = [v for _, v in sorted(annual_eps.items(), key=lambda x: x[0], reverse=True)]
-        if len(eps_values) >= 2 and eps_values[-1] > 0:
-            cumulative_growth = ((eps_values[0] / eps_values[-1]) - 1) * 100
-        elif len(annual_values) >= 2 and annual_values[-1] > 0:
-            # eps 데이터 없으면 net_income으로 fallback (구버전 캐시 호환)
-            cumulative_growth = ((annual_values[0] / annual_values[-1]) - 1) * 100
+        sorted_eps = sorted(annual_eps.items(), reverse=True)
+        if not sorted_eps:
+            # eps 전혀 없음 → net_income TTM fallback (구버전 캐시 호환)
+            eps_growth_rates = get_growth_rates_with_ttm(fin, 'net_income', years=4)
         else:
-            cumulative_growth = None
+            latest_eps_key = sorted_eps[0][0]
+            if latest_eps_key >= '2025/12':
+                # 2025/12 연간 공시됨 → 연간 EPS만 사용
+                eps_vals = [v for _, v in sorted_eps]
+            else:
+                # 2025 미공시 → TTM net_income 기반 EPS 근사값 prepend
+                ni_ttm = fin.get('net_income_ttm')
+                latest_ni = fin.get('annual', {}).get('net_income', {}).get(latest_eps_key)
+                if ni_ttm and latest_ni and latest_ni != 0:
+                    eps_vals = [sorted_eps[0][1] * (ni_ttm / latest_ni)] + [v for _, v in sorted_eps]
+                else:
+                    eps_vals = [v for _, v in sorted_eps]
+            eps_growth_rates = []
+            for i in range(min(4, len(eps_vals) - 1)):
+                curr, prev = eps_vals[i], eps_vals[i + 1]
+                if curr is not None and prev is not None and prev != 0:
+                    eps_growth_rates.append(round(((curr / prev) - 1) * 100, 2))
+                else:
+                    eps_growth_rates.append(None)
+        valid_eps_growth = [g for g in eps_growth_rates if g is not None]
+        avg_eps_growth = sum(valid_eps_growth) / len(valid_eps_growth) if valid_eps_growth else None
 
-        if cumulative_growth is None or cumulative_growth < 30:
+        if avg_eps_growth is None or avg_eps_growth < 30:
             continue
 
         # PER < 15
@@ -542,9 +560,9 @@ def screen_graham(filtered, fnguide_cache):
         if per is None or per <= 0 or per > 15:
             continue
 
-        # PBR < 1.5 (Graham 원본 조건) + PBR * PER < 22
+        # PBR * PER < 22
         pbr = get_pbr_from_data(market_cap, fin)
-        if pbr is None or pbr <= 0 or pbr > 1.5:
+        if pbr is None or pbr <= 0:
             continue
         if per * pbr > 22:
             continue
@@ -563,7 +581,7 @@ def screen_graham(filtered, fnguide_cache):
             'per_x_pbr': round(per * pbr, 2),
             'current_ratio': round(cr, 2),
             'net_current_assets': round(nca, 0),
-            'cumulative_growth': round(cumulative_growth, 1),
+            'eps_growth': round(avg_eps_growth, 1),
             'debt_ratio': round(dr, 1) if dr is not None else None,
             'dividend_yield': div_yield,
             'revenue_ttm': round(rev_ttm, 0),
@@ -576,7 +594,7 @@ def screen_graham(filtered, fnguide_cache):
                  '유동비율·PER×PBR·흑자 기반 보수적 가치투자',
                  ['PER < 15', 'PBR×PER < 22', '유동비율 > 200%',
                   '순유동자산 > 장기부채', '전 기간 흑자(순이익+영업이익)',
-                  'EPS 누적 성장 > 30%', '매출 > 1000억'],
+                  'EPS 연평균 성장률 > 30%', '매출 > 1000억'],
                  results)
 
     _print_result('벤저민 그레이엄 전략', results, [
