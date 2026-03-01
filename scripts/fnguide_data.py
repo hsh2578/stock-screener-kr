@@ -269,10 +269,14 @@ def _clean_table(df: pd.DataFrame) -> pd.DataFrame:
     new_cols = []
     for col in df.columns:
         col_str = str(col).strip()
-        # YYYY/MM 패턴 추출
+        # YYYY/MM 패턴 추출 (잠정실적(P), 컨센서스(E) 마커 보존 → /12 체크에서 제외)
         match = re.search(r'(\d{4})[/.](\d{2})', col_str)
         if match:
-            new_cols.append(f"{match.group(1)}/{match.group(2)}")
+            base = f"{match.group(1)}/{match.group(2)}"
+            if re.search(r'\([PE]\)', col_str):
+                new_cols.append(base + '(P)')  # endswith('/12') 체크 불통과
+            else:
+                new_cols.append(base)
         else:
             new_cols.append(col_str)
     df.columns = new_cols
