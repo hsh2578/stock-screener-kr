@@ -208,6 +208,8 @@ def screen_buffett(filtered, fnguide_cache):
 
         # EPS 성장률 (3년 평균 > 10%, 음수 연도 포함 전체 평균)
         growth = get_annual_growth_rates(fin, 'eps', years=3)
+        if not growth:  # eps 데이터 없으면 net_income으로 fallback (구버전 캐시 호환)
+            growth = get_annual_growth_rates(fin, 'net_income', years=3)
         valid_growth = [g for g in growth if g is not None]
         avg_growth = sum(valid_growth) / len(valid_growth) if valid_growth else None
         if avg_growth is None or avg_growth <= 10:

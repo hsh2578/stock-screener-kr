@@ -818,6 +818,8 @@ def get_peg(market_cap: float, data: Dict) -> Optional[float]:
         return None
 
     growth_rates = get_annual_growth_rates(data, 'eps', years=3)
+    if not growth_rates:  # eps 데이터 없으면 net_income으로 fallback (구버전 캐시 호환)
+        growth_rates = get_growth_rates_with_ttm(data, 'net_income', years=3)
     valid_rates = [r for r in growth_rates if r is not None and r > 0]
     if not valid_rates:
         return None
