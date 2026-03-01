@@ -521,11 +521,14 @@ def screen_graham(filtered, fnguide_cache):
         if not oi_values or not all(v is not None and not np.isnan(v) and v > 0 for v in oi_values):
             continue
 
-        # EPS 누적 성장률 (가용 연간 데이터 기준)
+        # EPS 누적 성장률 (가용 연간 데이터 기준, eps 없으면 net_income fallback)
         annual_eps = fin.get('annual', {}).get('eps', {})
         eps_values = [v for _, v in sorted(annual_eps.items(), key=lambda x: x[0], reverse=True)]
         if len(eps_values) >= 2 and eps_values[-1] > 0:
             cumulative_growth = ((eps_values[0] / eps_values[-1]) - 1) * 100
+        elif len(annual_values) >= 2 and annual_values[-1] > 0:
+            # eps 데이터 없으면 net_income으로 fallback (구버전 캐시 호환)
+            cumulative_growth = ((annual_values[0] / annual_values[-1]) - 1) * 100
         else:
             cumulative_growth = None
 
@@ -537,9 +540,9 @@ def screen_graham(filtered, fnguide_cache):
         if per is None or per <= 0 or per > 15:
             continue
 
-        # PBR * PER < 22
+        # PBR < 1.5 (Graham 원본 조건) + PBR * PER < 22
         pbr = get_pbr_from_data(market_cap, fin)
-        if pbr is None or pbr <= 0:
+        if pbr is None or pbr <= 0 or pbr > 1.5:
             continue
         if per * pbr > 22:
             continue
