@@ -207,7 +207,7 @@ def screen_buffett(filtered, fnguide_cache):
             continue
 
         # EPS 성장률 (3년 평균 > 10%, 음수 연도 포함 전체 평균)
-        growth = get_growth_rates_with_ttm(fin, 'net_income', years=3)
+        growth = get_annual_growth_rates(fin, 'eps', years=3)
         valid_growth = [g for g in growth if g is not None]
         avg_growth = sum(valid_growth) / len(valid_growth) if valid_growth else None
         if avg_growth is None or avg_growth <= 10:
@@ -503,7 +503,7 @@ def screen_graham(filtered, fnguide_cache):
         if nca is None or nca <= long_debt:
             continue
 
-        # 전 기간 흑자 (순이익 + 영업이익 모두 > 0) + 누적 성장률 > 30%
+        # 전 기간 흑자 (순이익 + 영업이익 모두 > 0) + EPS 누적 성장률 > 30%
         annual_ni = fin.get('annual', {}).get('net_income', {})
         sorted_annual = sorted(annual_ni.items(), key=lambda x: x[0], reverse=True)
         annual_values = [v for _, v in sorted_annual]
@@ -521,11 +521,11 @@ def screen_graham(filtered, fnguide_cache):
         if not oi_values or not all(v is not None and not np.isnan(v) and v > 0 for v in oi_values):
             continue
 
-        # 누적 성장률 (가용 연간 데이터 기준)
-        oldest = annual_values[-1] if len(annual_values) >= 2 else None
-        newest = annual_values[0]
-        if oldest is not None and oldest > 0:
-            cumulative_growth = ((newest / oldest) - 1) * 100
+        # EPS 누적 성장률 (가용 연간 데이터 기준)
+        annual_eps = fin.get('annual', {}).get('eps', {})
+        eps_values = [v for _, v in sorted(annual_eps.items(), key=lambda x: x[0], reverse=True)]
+        if len(eps_values) >= 2 and eps_values[-1] > 0:
+            cumulative_growth = ((eps_values[0] / eps_values[-1]) - 1) * 100
         else:
             cumulative_growth = None
 

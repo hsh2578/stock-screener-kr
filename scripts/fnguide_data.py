@@ -817,7 +817,7 @@ def get_peg(market_cap: float, data: Dict) -> Optional[float]:
     if per is None or per <= 0:
         return None
 
-    growth_rates = get_growth_rates_with_ttm(data, 'net_income', years=3)
+    growth_rates = get_annual_growth_rates(data, 'eps', years=3)
     valid_rates = [r for r in growth_rates if r is not None and r > 0]
     if not valid_rates:
         return None
