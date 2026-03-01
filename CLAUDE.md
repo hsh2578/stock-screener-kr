@@ -313,11 +313,11 @@ python guru_screeners.py        # 대가 4종
 **워렌 버핏** (`buffett`, `buffett.json`) — 내재가치 전략 (ROE 내림차순)
 - ROE > 15%, PER < 17, PBR < 1.5
 - 유동비율 > 1.5, 부채비율 < 150%, 장기부채비율 < 100%
-- FCF > 0, EPS 성장률(순이익 TTM 3년 평균) > 10%
+- FCF > 0, EPS 성장률 > 10% (전년동기 대비, TTM EPS 근사 = annual_eps × ni_ttm/latest_ni)
 
 **빌 애크먼** (`ackman`, `ackman.json`) — 주가 재평가 전략 (ROIC 내림차순)
 - ROIC > 15%, ROE > 12%, PER < 15, PBR < 2
-- 부채비율 < 150%, FCF > 0, 배당수익률 > 3%
+- 부채비율 < 150%, FCF > 0, 배당수익률 > 3% (FnGuide 헤더)
 
 **피터 린치** (`lynch`, `lynch.json`) — GARP 성장주 전략 (PEG 오름차순)
 - PER < 25, 0 < PEG < 1.8 (PEG = PER / EPS성장률 3년평균)
@@ -327,7 +327,7 @@ python guru_screeners.py        # 대가 4종
 **벤저민 그레이엄** (`graham`, `graham.json`) — 안전마진 가치투자 (PER×PBR 오름차순)
 - 매출 > 1000억, 유동비율 > 200%, 순유동자산 > 장기부채
 - 전 기간 흑자 (순이익 + 영업이익 모두 > 0, 가용 연간 최대 5년)
-- EPS 누적 성장률 > 30% (최신/최구 연도 비율)
+- EPS 연평균 성장률(CAGR) > 30% — `(최신/최구)^(1/n)-1`, 최대 5년, TTM EPS 근사 포함
 - PER < 15, PBR × PER < 22
 
 ---

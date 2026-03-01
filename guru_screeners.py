@@ -161,7 +161,7 @@ def screen_buffett(filtered, fnguide_cache):
     - PER < 17
     - PBR < 1.5
     - 부채비율 < 150%
-    - EPS 성장률 > 10% (3년 평균)
+    - EPS 성장률 > 10% (전년동기 대비)
     - 시총 1000억+
     """
     print("\n" + "=" * 60)
@@ -206,13 +206,32 @@ def screen_buffett(filtered, fnguide_cache):
         if fcf is None or fcf <= 0:
             continue
 
-        # EPS 성장률 (3년 평균 > 10%, 음수 연도 포함 전체 평균)
-        growth = get_annual_growth_rates(fin, 'eps', years=3)
-        if not growth:  # eps 데이터 없으면 net_income으로 fallback (구버전 캐시 호환)
-            growth = get_annual_growth_rates(fin, 'net_income', years=3)
-        valid_growth = [g for g in growth if g is not None]
-        avg_growth = sum(valid_growth) / len(valid_growth) if valid_growth else None
-        if avg_growth is None or avg_growth <= 10:
+        # EPS 성장률 (전년동기 대비 > 10%, TTM EPS 근사값 사용)
+        annual_eps = fin.get('annual', {}).get('eps', {})
+        sorted_eps = sorted(annual_eps.items(), reverse=True)
+        if not sorted_eps:
+            # eps 없음 → net_income YoY fallback
+            growth = get_annual_growth_rates(fin, 'net_income', years=1)
+            yoy_growth = growth[0] if growth else None
+        else:
+            latest_eps_key = sorted_eps[0][0]
+            if latest_eps_key >= '2025/12':
+                # 2025/12 연간 공시됨 → 연간 YoY
+                curr_eps, prev_eps = sorted_eps[0][1], sorted_eps[1][1] if len(sorted_eps) > 1 else None
+            else:
+                # 2025 미공시 → TTM net_income 기반 EPS 근사값
+                ni_ttm = fin.get('net_income_ttm')
+                latest_ni = fin.get('annual', {}).get('net_income', {}).get(latest_eps_key)
+                if ni_ttm and latest_ni and latest_ni != 0:
+                    curr_eps = sorted_eps[0][1] * (ni_ttm / latest_ni)
+                else:
+                    curr_eps = sorted_eps[0][1]
+                prev_eps = sorted_eps[1][1] if len(sorted_eps) > 1 else None
+            if curr_eps is not None and prev_eps is not None and prev_eps != 0:
+                yoy_growth = ((curr_eps / prev_eps) - 1) * 100
+            else:
+                yoy_growth = None
+        if yoy_growth is None or yoy_growth <= 10:
             continue
 
         # 헤더에서 배당수익률 가져오기
@@ -231,7 +250,7 @@ def screen_buffett(filtered, fnguide_cache):
             'debt_ratio': round(dr, 1),
             'long_term_debt_ratio': round(ltdr, 1) if ltdr is not None else None,
             'fcf': round(fcf, 0),
-            'eps_growth': round(avg_growth, 1),
+            'eps_growth': round(yoy_growth, 1),
             'dividend_yield': div_yield,
         })
 
@@ -469,8 +488,8 @@ def screen_graham(filtered, fnguide_cache):
     - 매출 > 1000억
     - 유동비율 > 200% (= 유동자산/유동부채 > 2)
     - 순유동자산 > 장기부채
-    - EPS 누적 성장률 > 30% (가용 연간 데이터 기준, ~3-4년)
-    - 전 기간 흑자 (순이익 + 영업이익 모두 > 0, ~4년)
+    - EPS 연평균 성장률(CAGR) > 30% (가용 연간 최대 5년)
+    - 전 기간 흑자 (순이익 + 영업이익 모두 > 0, 가용 연간 최대 5년)
     - PER < 15
     - PBR × PER < 22
     """
@@ -523,16 +542,17 @@ def screen_graham(filtered, fnguide_cache):
         if not oi_values or not all(v is not None and not np.isnan(v) and v > 0 for v in oi_values):
             continue
 
-        # EPS 연평균 성장률 > 30% (21-25년, 25년은 연간 공시 또는 TTM EPS 근사)
+        # EPS 연평균 성장률(CAGR) > 30% (최신/최구 EPS 비율로 계산)
         annual_eps = fin.get('annual', {}).get('eps', {})
         sorted_eps = sorted(annual_eps.items(), reverse=True)
         if not sorted_eps:
-            # eps 전혀 없음 → net_income TTM fallback (구버전 캐시 호환)
+            # eps 전혀 없음 → net_income YoY 평균으로 fallback (구버전 캐시 호환)
             eps_growth_rates = get_growth_rates_with_ttm(fin, 'net_income', years=4)
+            valid_eps_growth = [g for g in eps_growth_rates if g is not None]
+            avg_eps_growth = sum(valid_eps_growth) / len(valid_eps_growth) if valid_eps_growth else None
         else:
             latest_eps_key = sorted_eps[0][0]
             if latest_eps_key >= '2025/12':
-                # 2025/12 연간 공시됨 → 연간 EPS만 사용
                 eps_vals = [v for _, v in sorted_eps]
             else:
                 # 2025 미공시 → TTM net_income 기반 EPS 근사값 prepend
@@ -542,15 +562,13 @@ def screen_graham(filtered, fnguide_cache):
                     eps_vals = [sorted_eps[0][1] * (ni_ttm / latest_ni)] + [v for _, v in sorted_eps]
                 else:
                     eps_vals = [v for _, v in sorted_eps]
-            eps_growth_rates = []
-            for i in range(min(4, len(eps_vals) - 1)):
-                curr, prev = eps_vals[i], eps_vals[i + 1]
-                if curr is not None and prev is not None and prev != 0:
-                    eps_growth_rates.append(round(((curr / prev) - 1) * 100, 2))
-                else:
-                    eps_growth_rates.append(None)
-        valid_eps_growth = [g for g in eps_growth_rates if g is not None]
-        avg_eps_growth = sum(valid_eps_growth) / len(valid_eps_growth) if valid_eps_growth else None
+            # CAGR = (최신 / 최구)^(1/n) - 1
+            valid_eps_vals = [v for v in eps_vals if v is not None and not np.isnan(v)]
+            if len(valid_eps_vals) >= 2 and valid_eps_vals[0] > 0 and valid_eps_vals[-1] > 0:
+                n_years = len(valid_eps_vals) - 1
+                avg_eps_growth = ((valid_eps_vals[0] / valid_eps_vals[-1]) ** (1 / n_years) - 1) * 100
+            else:
+                avg_eps_growth = None
 
         if avg_eps_growth is None or avg_eps_growth < 30:
             continue
