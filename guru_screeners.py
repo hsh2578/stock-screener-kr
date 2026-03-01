@@ -260,7 +260,7 @@ def screen_buffett(filtered, fnguide_cache):
     _save_result('buffett.json', 'buffett', '워렌 버핏 전략',
                  'ROE·FCF·부채비율 기반 내재가치 전략',
                  ['ROE > 15%', 'PER < 17', 'PBR < 1.5', '유동비율 > 1.5',
-                  '부채비율 < 150%', 'FCF > 0', 'EPS성장률 > 10%'],
+                  '부채비율 < 150%', 'FCF > 0', 'EPS성장률 > 10% (전년동기 대비)'],
                  results)
 
     _print_result('워렌 버핏 전략', results, [
