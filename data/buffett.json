@@ -3,7 +3,7 @@
     "type": "buffett",
     "name": "워렌 버핏 전략",
     "description": "ROE·FCF·부채비율 기반 내재가치 전략",
-    "lastUpdated": "2026-03-01T13:03:05.552005",
+    "lastUpdated": "2026-03-02T21:00:04.978237",
     "totalCount": 4,
     "conditions": [
       "ROE > 15%",
@@ -12,7 +12,7 @@
       "유동비율 > 1.5",
       "부채비율 < 150%",
       "FCF > 0",
-      "EPS성장률 > 10%"
+      "EPS성장률 > 10% (전년동기 대비)"
     ]
   },
   "data": [
