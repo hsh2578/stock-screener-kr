@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-02-27T18:05:17.540533",
+    "lastUpdated": "2026-03-02T12:17:29.923132",
     "totalCount": 9,
     "screened_from": 1528
   },
@@ -17,11 +17,11 @@
       "gain_since_breakout": 19.25,
       "ma150": 6146,
       "above_ma150": true,
-      "market_cap": 4750,
-      "success_prob": 91.6,
-      "predicted_gain": 36.7,
-      "ai_score": 94.1,
-      "updated_at": "2026-02-27T18:05:01.574296"
+      "market_cap": 4751,
+      "success_prob": 95.7,
+      "predicted_gain": 41.1,
+      "ai_score": 97.0,
+      "updated_at": "2026-03-02T12:17:16.306625"
     },
     {
       "ticker": "078000",
@@ -35,11 +35,29 @@
       "gain_since_breakout": -5.24,
       "ma150": 15502,
       "above_ma150": true,
-      "market_cap": 1755,
-      "success_prob": 84.3,
-      "predicted_gain": 35.5,
-      "ai_score": 89.0,
-      "updated_at": "2026-02-27T18:05:05.465557"
+      "market_cap": 1756,
+      "success_prob": 81.6,
+      "predicted_gain": 37.7,
+      "ai_score": 87.1,
+      "updated_at": "2026-03-02T12:17:27.531616"
+    },
+    {
+      "ticker": "004490",
+      "name": "세방전지",
+      "price": 68900,
+      "change_rate": -3.77,
+      "breakout_date": "2026-02-20",
+      "resistance": 67900,
+      "days_since_breakout": 5,
+      "breakout_pct": 1.47,
+      "gain_since_breakout": -0.43,
+      "ma150": 64651,
+      "above_ma150": true,
+      "market_cap": 9550,
+      "success_prob": 54.2,
+      "predicted_gain": 9.5,
+      "ai_score": 46.4,
+      "updated_at": "2026-03-02T12:17:21.879168"
     },
     {
       "ticker": "007700",
@@ -54,10 +72,10 @@
       "ma150": 19401,
       "above_ma150": true,
       "market_cap": 8390,
-      "success_prob": 66.8,
-      "predicted_gain": 18.8,
-      "ai_score": 63.7,
-      "updated_at": "2026-02-27T18:05:00.009242"
+      "success_prob": 40.1,
+      "predicted_gain": 20.0,
+      "ai_score": 46.1,
+      "updated_at": "2026-03-02T12:17:13.976152"
     },
     {
       "ticker": "002620",
@@ -72,10 +90,10 @@
       "ma150": 8363,
       "above_ma150": true,
       "market_cap": 1434,
-      "success_prob": 67.9,
-      "predicted_gain": 16.3,
-      "ai_score": 62.2,
-      "updated_at": "2026-02-27T18:05:06.328659"
+      "success_prob": 40.4,
+      "predicted_gain": 17.0,
+      "ai_score": 43.6,
+      "updated_at": "2026-03-02T12:17:25.760909"
     },
     {
       "ticker": "043150",
@@ -89,29 +107,11 @@
       "gain_since_breakout": 24.04,
       "ma150": 21359,
       "above_ma150": true,
-      "market_cap": 4062,
-      "success_prob": 38.3,
-      "predicted_gain": 11.9,
-      "ai_score": 37.5,
-      "updated_at": "2026-02-27T18:05:09.889527"
-    },
-    {
-      "ticker": "004490",
-      "name": "세방전지",
-      "price": 68900,
-      "change_rate": -3.77,
-      "breakout_date": "2026-02-20",
-      "resistance": 67900,
-      "days_since_breakout": 5,
-      "breakout_pct": 1.47,
-      "gain_since_breakout": -0.43,
-      "ma150": 64651,
-      "above_ma150": true,
-      "market_cap": 9549,
-      "success_prob": 21.4,
-      "predicted_gain": 9.3,
-      "ai_score": 23.3,
-      "updated_at": "2026-02-27T18:04:59.789249"
+      "market_cap": 4063,
+      "success_prob": 19.8,
+      "predicted_gain": 13.2,
+      "ai_score": 25.7,
+      "updated_at": "2026-03-02T12:17:20.384055"
     },
     {
       "ticker": "039340",
@@ -125,29 +125,11 @@
       "gain_since_breakout": 3.41,
       "ma150": 5570,
       "above_ma150": true,
-      "market_cap": 1363,
-      "success_prob": 19.6,
-      "predicted_gain": 10.3,
-      "ai_score": 23.0,
-      "updated_at": "2026-02-27T18:05:14.923206"
-    },
-    {
-      "ticker": "034950",
-      "name": "한국기업평가",
-      "price": 102500,
-      "change_rate": -1.44,
-      "breakout_date": "2026-02-11",
-      "resistance": 100700,
-      "days_since_breakout": 9,
-      "breakout_pct": 1.79,
-      "gain_since_breakout": -2.1,
-      "ma150": 99140,
-      "above_ma150": true,
-      "market_cap": 4654,
-      "success_prob": 16.6,
+      "market_cap": 1364,
+      "success_prob": 13.4,
       "predicted_gain": 10.1,
-      "ai_score": 20.7,
-      "updated_at": "2026-02-27T18:05:09.621212"
+      "ai_score": 18.5,
+      "updated_at": "2026-03-02T12:17:28.426068"
     },
     {
       "ticker": "092230",
@@ -162,10 +144,28 @@
       "ma150": 71329,
       "above_ma150": true,
       "market_cap": 3498,
-      "success_prob": 15.9,
-      "predicted_gain": 10.1,
-      "ai_score": 20.2,
-      "updated_at": "2026-02-27T18:05:02.377173"
+      "success_prob": 10.3,
+      "predicted_gain": 11.1,
+      "ai_score": 17.1,
+      "updated_at": "2026-03-02T12:17:14.651744"
+    },
+    {
+      "ticker": "034950",
+      "name": "한국기업평가",
+      "price": 102500,
+      "change_rate": -1.44,
+      "breakout_date": "2026-02-11",
+      "resistance": 100700,
+      "days_since_breakout": 9,
+      "breakout_pct": 1.79,
+      "gain_since_breakout": -2.1,
+      "ma150": 99140,
+      "above_ma150": true,
+      "market_cap": 4654,
+      "success_prob": 6.5,
+      "predicted_gain": 10.5,
+      "ai_score": 14.0,
+      "updated_at": "2026-03-02T12:17:28.445722"
     }
   ]
 }
