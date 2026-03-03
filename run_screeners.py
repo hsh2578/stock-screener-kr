@@ -3613,6 +3613,87 @@ def generate_chart_data(all_results: List[List[Dict]]) -> None:
 
 
 # ============================================================================
+# 상승률 스크리너
+# ============================================================================
+
+def screen_price_rise(stocks: pd.DataFrame) -> List[Dict]:
+    """
+    상승률 상위 스크리너
+    당일 상승률 상위 20개 종목을 선별합니다.
+    """
+    results = []
+
+    # 재무 데이터 로드 (PER/PBR용)
+    financial_data = {}
+    financial_path = os.path.join(DATA_PATH, 'financial_data.json')
+    if os.path.exists(financial_path):
+        try:
+            with open(financial_path, 'r', encoding='utf-8') as f:
+                financial_data = json.load(f)
+        except Exception:
+            pass
+
+    for _, row in stocks.iterrows():
+        ticker = row['Code']
+        name = row['Name']
+        market_cap = int(row.get('Marcap', 0))
+
+        df = get_ohlcv(ticker, days=155)
+        if df is None or len(df) < 2:
+            continue
+
+        current_price = int(df['Close'].iloc[-1])
+        prev_price = float(df['Close'].iloc[-2])
+        if prev_price <= 0:
+            continue
+
+        change_rate = (current_price - prev_price) / prev_price * 100
+
+        # 상승 종목만
+        if change_rate <= 0:
+            continue
+
+        today_volume = int(df['Volume'].iloc[-1])
+        avg_volume = df['Volume'].iloc[-21:-1].mean() if len(df) >= 21 else df['Volume'].iloc[:-1].mean()
+        volume_ratio = round(today_volume / avg_volume, 1) if avg_volume > 0 else 0
+
+        # PER/PBR
+        per = None
+        pbr = None
+        fd = financial_data.get(ticker, {})
+        if fd:
+            per_val = fd.get('per')
+            pbr_val = fd.get('pbr')
+            per = round(per_val, 1) if per_val and not pd.isna(per_val) else None
+            pbr = round(pbr_val, 2) if pbr_val and not pd.isna(pbr_val) else None
+
+        # 150일선
+        ma150 = None
+        above_ma150 = False
+        if len(df) >= 150:
+            ma150 = int(df['Close'].rolling(150).mean().iloc[-1])
+            above_ma150 = bool(current_price > ma150)
+
+        results.append({
+            'ticker': ticker,
+            'name': name,
+            'price': current_price,
+            'change_rate': round(change_rate, 2),
+            'volume': today_volume,
+            'volume_ratio': volume_ratio,
+            'market_cap': market_cap,
+            'per': per,
+            'pbr': pbr,
+            'ma150': ma150,
+            'above_ma150': above_ma150,
+        })
+
+    # 상승률 내림차순 정렬, 상위 20개 반환
+    results.sort(key=lambda x: x['change_rate'], reverse=True)
+    return results[:20]
+
+
+# ============================================================================
 # 메인 실행
 # ============================================================================
 
@@ -3690,6 +3771,7 @@ def main():
             ('박스권 돌파 (단순)', screen_box_breakout_simple, stocks, 'box_breakout_simple.json', len(stocks)),
             ('풀백', screen_pullback, stocks, 'pullback.json', len(stocks)),
             ('거래량 폭발', screen_volume_explosion, stocks, 'volume_explosion.json', len(stocks)),
+            ('상승률', screen_price_rise, stocks, 'price_rise.json', len(stocks)),
             ('거래량 급감', screen_volume_dry_up, stocks, 'volume_dry_up.json', len(stocks)),
             ('낙폭과대 반등', screen_fallen_rebound, stocks, 'fallen_rebound.json', len(stocks)),
             ('52주 신고가', screen_new_high_52w, stocks, 'new_high_52w.json', len(stocks)),
@@ -3717,6 +3799,7 @@ def main():
         box_breakout_simple_results = screener_results.get('박스권 돌파 (단순)', [])
         pullback_results = screener_results.get('풀백', [])
         vol_explosion_results = screener_results.get('거래량 폭발', [])
+        price_rise_results = screener_results.get('상승률', [])
         vol_dry_up_results = screener_results.get('거래량 급감', [])
         fallen_rebound_results = screener_results.get('낙폭과대 반등', [])
         new_high_results = screener_results.get('52주 신고가', [])
@@ -3752,6 +3835,7 @@ def main():
             box_breakout_simple_results,
             pullback_results,
             vol_explosion_results,
+            price_rise_results,
             vol_dry_up_results,
             fallen_rebound_results,
             new_high_results,
@@ -3772,6 +3856,7 @@ def main():
         print(f"  박스권 돌파 (무관): {len(box_breakout_simple_results)}개")
         print(f"  풀백: {len(pullback_results)}개")
         print(f"  거래량 폭발: {len(vol_explosion_results)}개")
+        print(f"  상승률: {len(price_rise_results)}개")
         print(f"  거래량 급감: {len(vol_dry_up_results)}개")
         print(f"  낙폭과대 반등: {len(fallen_rebound_results)}개")
         print(f"  52주 신고가: {len(new_high_results)}개")
