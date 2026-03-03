@@ -2591,8 +2591,8 @@ def screen_volume_explosion(stocks: pd.DataFrame) -> List[Dict]:
 
         volume_ratio = today_volume / avg_volume
 
-        # 2.5배 이상
-        if volume_ratio < 2.5:
+        # 2배 이상
+        if volume_ratio < 2:
             continue
 
         current_price = int(df['Close'].iloc[-1])

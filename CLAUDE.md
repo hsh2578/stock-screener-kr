@@ -269,7 +269,7 @@ python guru_screeners.py        # 대가 4종
 | box-breakout | 박스권 돌파 (거래량) | box_breakout.json | 저항선 돌파 + 거래량 2배 + 150MA 위 | O |
 | box-breakout-simple | 박스권 돌파 (단순) | box_breakout_simple.json | 저항선 돌파, 10일 이내 | O |
 | pullback | 풀백 | pullback.json | 돌파 후 되돌림 ±5%, 거래량 -50% | - |
-| volume-explosion | 거래량 폭발 | volume_explosion.json | 40일 평균 2.5배 + 12% 양봉 | - |
+| volume-explosion | 거래량 폭발 | volume_explosion.json | 40일 평균 2배 + 12% 양봉 | - |
 | volume-dry-up | 거래량 급감 | volume_dry_up.json | 8%+4배 급등 후 거래량 60% 감소 | - |
 | new-high-52w | 52주 신고가 | new_high_52w.json | 52주 신고가 + 거래량 1.5배, 8거래일 | O |
 | near-high-52w | 52주 신고가 근접 | near_high_52w.json | 52주 고가 5% 이내 근접 (미돌파) | O |
