@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-03-02T20:58:52.032182",
-    "total_count": 3,
+    "updated_at": "2026-03-03T21:00:57.236807",
+    "total_count": 4,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -10,40 +10,52 @@
   },
   "data": [
     {
-      "ticker": "011200",
-      "name": "HMM",
-      "current_price": 21350,
-      "ma60w": 20663,
-      "ma60w_gap": 3.32,
-      "op_margin": 18.9,
-      "op_growth_3y": 122.5,
-      "market_cap": 201381,
+      "ticker": "207940",
+      "name": "삼성바이오로직스",
+      "current_price": 1681000,
+      "ma60w": 1599787,
+      "ma60w_gap": 5.08,
+      "op_margin": 45.4,
+      "op_growth_3y": 25.1,
+      "market_cap": 778151,
       "sector": "기타",
-      "updated_at": "2026-03-02T20:58:47.546169"
+      "updated_at": "2026-03-03T21:00:49.311371"
+    },
+    {
+      "ticker": "035420",
+      "name": "NAVER",
+      "current_price": 236000,
+      "ma60w": 229854,
+      "ma60w_gap": 2.67,
+      "op_margin": 18.2,
+      "op_growth_3y": 18.4,
+      "market_cap": 370172,
+      "sector": "기타",
+      "updated_at": "2026-03-03T21:00:49.317120"
     },
     {
       "ticker": "003230",
       "name": "삼양식품",
-      "current_price": 1221000,
-      "ma60w": 1142589,
-      "ma60w_gap": 6.86,
+      "current_price": 1172000,
+      "ma60w": 1143340,
+      "ma60w_gap": 2.51,
       "op_margin": 21.6,
       "op_growth_3y": 78.0,
-      "market_cap": 91978,
+      "market_cap": 88287,
       "sector": "기타",
-      "updated_at": "2026-03-02T20:58:48.999685"
+      "updated_at": "2026-03-03T21:00:54.517531"
     },
     {
       "ticker": "443060",
       "name": "HD현대마린솔루션",
-      "current_price": 184300,
-      "ma60w": 181073,
-      "ma60w_gap": 1.78,
+      "current_price": 182000,
+      "ma60w": 181059,
+      "ma60w_gap": 0.52,
       "op_margin": 16.9,
       "op_growth_3y": 32.2,
-      "market_cap": 82624,
+      "market_cap": 81593,
       "sector": "기타",
-      "updated_at": "2026-03-02T20:58:49.002320"
+      "updated_at": "2026-03-03T21:00:54.520605"
     }
   ]
 }
