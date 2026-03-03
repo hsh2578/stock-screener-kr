@@ -1,51 +1,65 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-02T18:07:46.889028",
-    "totalCount": 3,
-    "screened_from": 1528
+    "lastUpdated": "2026-03-03T12:21:13.081727",
+    "totalCount": 4,
+    "screened_from": 1507
   },
   "data": [
     {
+      "ticker": "034950",
+      "name": "한국기업평가",
+      "price": 101900,
+      "change_rate": -0.59,
+      "breakout_date": "2026-02-11",
+      "resistance": 100900,
+      "pullback_ratio": 0.99,
+      "volume_decrease": 52,
+      "ma150": 99144,
+      "above_ma150": true,
+      "market_cap": 4627,
+      "updated_at": "2026-03-03T12:21:11.931804"
+    },
+    {
       "ticker": "015230",
       "name": "대창단조",
-      "price": 6800,
-      "change_rate": -0.58,
+      "price": 6690,
+      "change_rate": -1.62,
       "breakout_date": "2026-02-03",
       "resistance": 6820,
-      "pullback_ratio": 0.29,
-      "volume_decrease": 74,
-      "ma150": 6394,
+      "pullback_ratio": 1.91,
+      "volume_decrease": 77,
+      "ma150": 6399,
       "above_ma150": true,
-      "market_cap": 1943,
-      "updated_at": "2026-03-02T18:07:40.297746"
+      "market_cap": 1917,
+      "updated_at": "2026-03-03T12:21:05.583634"
     },
     {
-      "ticker": "143240",
-      "name": "사람인",
-      "price": 14240,
-      "change_rate": -1.32,
-      "breakout_date": "2026-02-05",
-      "resistance": 13830,
-      "pullback_ratio": 2.96,
-      "volume_decrease": 78,
-      "ma150": 13841,
+      "ticker": "340570",
+      "name": "티앤엘",
+      "price": 51500,
+      "change_rate": -5.85,
+      "breakout_date": "2026-01-29",
+      "resistance": 50200,
+      "pullback_ratio": 2.59,
+      "volume_decrease": 68,
+      "ma150": 50604,
       "above_ma150": true,
-      "market_cap": 1667,
-      "updated_at": "2026-03-02T18:07:41.907650"
+      "market_cap": 4210,
+      "updated_at": "2026-03-03T12:21:11.505454"
     },
     {
-      "ticker": "365330",
-      "name": "에스와이스틸텍",
-      "price": 3800,
-      "change_rate": -0.65,
-      "breakout_date": "2026-02-03",
-      "resistance": 3635,
-      "pullback_ratio": 4.54,
-      "volume_decrease": 95,
-      "ma150": 3703,
+      "ticker": "185750",
+      "name": "종근당",
+      "price": 92300,
+      "change_rate": -1.18,
+      "breakout_date": "2026-02-10",
+      "resistance": 88200,
+      "pullback_ratio": 4.65,
+      "volume_decrease": 72,
+      "ma150": 84672,
       "above_ma150": true,
-      "market_cap": 1906,
-      "updated_at": "2026-03-02T18:07:43.000325"
+      "market_cap": 12726,
+      "updated_at": "2026-03-03T12:21:10.336753"
     }
   ]
 }
