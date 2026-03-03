@@ -58,6 +58,7 @@ concurrency:
 env:
   TZ: Asia/Seoul
   PYTHON_VERSION: '3.11'
+  PYTHONUNBUFFERED: '1'
 
 jobs:
   # =========================================================================

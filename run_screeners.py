@@ -3564,13 +3564,8 @@ def _fetch_chart_data_single(ticker: str) -> tuple:
             end_date = datetime.now()
             start_date = end_date - timedelta(days=1100)
             try:
-                import socket as _socket
-                _old_timeout = _socket.getdefaulttimeout()
-                _socket.setdefaulttimeout(30)
-                try:
-                    df = fdr.DataReader(ticker, start_date.strftime('%Y-%m-%d'))
-                finally:
-                    _socket.setdefaulttimeout(_old_timeout)
+                # 소켓 타임아웃은 generate_chart_data()에서 전역으로 설정됨 (30초)
+                df = fdr.DataReader(ticker, start_date.strftime('%Y-%m-%d'))
             except Exception:
                 df = get_ohlcv(ticker, 200)
         if df is None or len(df) < 10:
@@ -3592,7 +3587,11 @@ def _fetch_chart_data_single(ticker: str) -> tuple:
 
 def generate_chart_data(all_results: List[List[Dict]]) -> None:
     """스크리너 결과에 포함된 모든 종목의 차트 데이터를 생성합니다."""
-    print("\n[차트 데이터 생성] 실행 중...")
+    import socket
+    # fdr.DataReader() hang 방지: 소켓 타임아웃 30초 (멀티스레드 환경에서 1회만 설정)
+    socket.setdefaulttimeout(30)
+
+    print("\n[차트 데이터 생성] 실행 중...", flush=True)
 
     # 모든 결과에서 고유 종목 추출
     tickers = set()
@@ -3601,15 +3600,20 @@ def generate_chart_data(all_results: List[List[Dict]]) -> None:
             tickers.add(r['ticker'])
 
     ticker_list = sorted(tickers)
-    print(f"  총 {len(ticker_list)}개 종목 차트 데이터 생성 (병렬 50스레드)")
+    total = len(ticker_list)
+    print(f"  총 {total}개 종목 차트 데이터 생성 (병렬 50스레드)", flush=True)
 
     chart_data = {}
+    done = 0
     with ThreadPoolExecutor(max_workers=50) as executor:
         futures = {executor.submit(_fetch_chart_data_single, t): t for t in ticker_list}
         for future in as_completed(futures):
             ticker, data = future.result()
             if data:
                 chart_data[ticker] = data
+            done += 1
+            if done % 50 == 0 or done == total:
+                print(f"  진행: {done}/{total} ({len(chart_data)}개 수집)", flush=True)
 
     filepath = os.path.join(DATA_PATH, 'chart_data.json')
     with open(filepath, 'w', encoding='utf-8') as f:
