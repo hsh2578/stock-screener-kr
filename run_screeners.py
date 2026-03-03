@@ -188,13 +188,32 @@ def load_box_breakout_models():
 
 
 def load_kospi_data():
-    """KOSPI 지수 데이터 로드"""
+    """KOSPI 지수 데이터 로드 (pykrx 우선, FDR fallback)"""
     global _kospi_data
+    end_date = datetime.now()
+    start_date = end_date - timedelta(days=400)
+
+    # pykrx: OTP 불필요, 안정적
     try:
-        end_date = datetime.now()
-        start_date = end_date - timedelta(days=400)
+        import pykrx.stock as ks
+        df = ks.get_index_ohlcv_by_date(
+            start_date.strftime('%Y%m%d'),
+            end_date.strftime('%Y%m%d'),
+            '1001'  # KOSPI 지수 코드
+        )
+        if df is not None and len(df) > 0:
+            df.index = pd.to_datetime(df.index)
+            df = df.rename(columns={'종가': 'Close'})
+            _kospi_data = df
+            print(f"[ML] KOSPI 지수 로드 완료: {len(_kospi_data)}일")
+            return _kospi_data
+    except Exception:
+        pass
+
+    # FDR fallback
+    try:
         _kospi_data = fdr.DataReader('KS11', start_date.strftime('%Y-%m-%d'))
-        print(f"[ML] KOSPI 지수 로드 완료: {len(_kospi_data)}일")
+        print(f"[ML] KOSPI 지수 로드 완료 (FDR): {len(_kospi_data)}일")
         return _kospi_data
     except Exception as e:
         print(f"[ML] KOSPI 지수 로드 실패: {e}")
