@@ -1941,7 +1941,7 @@
                     <h1>거래량 폭발</h1>
                     <span class="badge badge-danger">당일</span>
                 </div>
-                <p class="desc">40일 평균 거래량 6배 + 6% 이상 장대양봉</p>
+                <p class="desc">40일 평균 거래량 2.5배 + 12% 이상 장대양봉</p>
                 <div class="filter-row" style="margin: 12px 0; display: flex; gap: 8px; align-items: center;">
                     <button id="filter-ma150-volume-explosion" class="filter-btn" onclick="toggleMA150Filter('volumeExplosion')">
                         150일선 위만
@@ -2841,7 +2841,7 @@
                 icon: ICONS.barChart,
                 desc: '거래량 기반 신호',
                 screeners: [
-                    { id: 'volume-explosion', icon: ICONS.zap, title: '거래량 폭발', desc: '40일 평균 6배+6% 양봉', badge: { text: '당일', type: 'danger' } },
+                    { id: 'volume-explosion', icon: ICONS.zap, title: '거래량 폭발', desc: '40일 평균 2.5배+12% 양봉', badge: { text: '당일', type: 'danger' } },
                     { id: 'volume-dry-up', icon: ICONS.volDown, title: '눌림목매매', desc: '10% 장대양봉 후 3~10일 내 종가 구간 유지+거래량 급감', badge: { text: '눌림목', type: 'warning' } }
                 ]
             },
@@ -5399,8 +5399,8 @@
             },
             'volume-explosion': {
                 items: [
-                    { label: '거래량', value: '40일 평균×6배 이상', key: true },
-                    { label: '등락률', value: '+6% 이상 (장대양봉)', key: true },
+                    { label: '거래량', value: '40일 평균×2.5배 이상', key: true },
+                    { label: '등락률', value: '+12% 이상 (장대양봉)', key: true },
                 ],
                 note: '거래량 비교 기준: 당일 제외 과거 40일 평균 | 정렬: 거래량 배수 높은 순'
             },

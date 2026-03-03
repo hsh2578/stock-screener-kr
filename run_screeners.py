@@ -2591,16 +2591,16 @@ def screen_volume_explosion(stocks: pd.DataFrame) -> List[Dict]:
 
         volume_ratio = today_volume / avg_volume
 
-        # 6배 이상
-        if volume_ratio < 6:
+        # 2.5배 이상
+        if volume_ratio < 2.5:
             continue
 
         current_price = int(df['Close'].iloc[-1])
         prev_price = float(df['Close'].iloc[-2])
         change_rate = (current_price - prev_price) / prev_price * 100 if prev_price > 0 else 0
 
-        # 6% 이상 장대양봉
-        if change_rate < 6:
+        # 12% 이상 장대양봉
+        if change_rate < 12:
             continue
 
         # 150일선 계산
