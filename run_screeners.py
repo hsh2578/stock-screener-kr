@@ -3564,7 +3564,13 @@ def _fetch_chart_data_single(ticker: str) -> tuple:
             end_date = datetime.now()
             start_date = end_date - timedelta(days=1100)
             try:
-                df = fdr.DataReader(ticker, start_date.strftime('%Y-%m-%d'))
+                import socket as _socket
+                _old_timeout = _socket.getdefaulttimeout()
+                _socket.setdefaulttimeout(30)
+                try:
+                    df = fdr.DataReader(ticker, start_date.strftime('%Y-%m-%d'))
+                finally:
+                    _socket.setdefaulttimeout(_old_timeout)
             except Exception:
                 df = get_ohlcv(ticker, 200)
         if df is None or len(df) < 10:
