@@ -1,45 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-04T14:34:57.630075",
+    "lastUpdated": "2026-03-04T16:14:08.561320",
     "totalCount": 5,
-    "screened_from": 1423
+    "screened_from": 1421
   },
   "data": [
     {
       "ticker": "078000",
       "name": "텔코웨어",
-      "price": 16450,
-      "change_rate": -7.89,
+      "price": 16490,
+      "change_rate": -7.67,
       "breakout_date": "2026-02-23",
       "breakout_price": 16300,
-      "breakout_pct": 0.92,
-      "gain_since_breakout": -17.96,
+      "breakout_pct": 1.17,
+      "gain_since_breakout": -17.76,
       "volume_ratio": 48.1,
-      "ma150": 15530,
+      "ma150": 15531,
       "above_ma150": true,
-      "market_cap": 1521,
+      "market_cap": 1524,
       "success_prob": 85.9,
       "predicted_gain": 35.3,
       "ai_score": 90.1,
-      "updated_at": "2026-03-04T14:34:54.704447"
+      "updated_at": "2026-03-04T16:14:06.229815"
     },
     {
       "ticker": "009290",
       "name": "광동제약",
-      "price": 7470,
-      "change_rate": -13.54,
+      "price": 7630,
+      "change_rate": -11.69,
       "breakout_date": "2026-02-19",
       "breakout_price": 6250,
-      "breakout_pct": 19.52,
-      "gain_since_breakout": -6.62,
+      "breakout_pct": 22.08,
+      "gain_since_breakout": -4.62,
       "volume_ratio": 24.8,
-      "ma150": 6168,
+      "ma150": 6169,
       "above_ma150": true,
-      "market_cap": 3710,
+      "market_cap": 3800,
       "success_prob": 83.7,
       "predicted_gain": 36.1,
       "ai_score": 88.6,
-      "updated_at": "2026-03-04T14:34:46.868926"
+      "updated_at": "2026-03-04T16:13:59.874879"
     },
     {
       "ticker": "002620",
@@ -57,43 +57,43 @@
       "success_prob": 67.9,
       "predicted_gain": 16.1,
       "ai_score": 62.0,
-      "updated_at": "2026-03-04T14:34:52.424097"
+      "updated_at": "2026-03-04T16:14:04.704846"
     },
     {
       "ticker": "043150",
       "name": "바텍",
-      "price": 22600,
-      "change_rate": -8.5,
+      "price": 22500,
+      "change_rate": -8.91,
       "breakout_date": "2026-02-19",
       "breakout_price": 20650,
-      "breakout_pct": 9.44,
-      "gain_since_breakout": 2.49,
+      "breakout_pct": 8.96,
+      "gain_since_breakout": 2.04,
       "volume_ratio": 2.4,
-      "ma150": 21381,
+      "ma150": 21380,
       "above_ma150": true,
-      "market_cap": 3364,
+      "market_cap": 3342,
       "success_prob": 38.0,
       "predicted_gain": 11.9,
       "ai_score": 37.3,
-      "updated_at": "2026-03-04T14:34:48.768052"
+      "updated_at": "2026-03-04T16:14:01.466028"
     },
     {
       "ticker": "092230",
       "name": "KPX홀딩스",
-      "price": 76300,
-      "change_rate": -7.06,
+      "price": 76100,
+      "change_rate": -7.31,
       "breakout_date": "2026-02-13",
       "breakout_price": 78100,
-      "breakout_pct": -2.3,
-      "gain_since_breakout": -5.69,
+      "breakout_pct": -2.56,
+      "gain_since_breakout": -5.93,
       "volume_ratio": 4.5,
-      "ma150": 71437,
+      "ma150": 71436,
       "above_ma150": true,
-      "market_cap": 3236,
+      "market_cap": 3215,
       "success_prob": 11.4,
       "predicted_gain": 10.1,
       "ai_score": 17.0,
-      "updated_at": "2026-03-04T14:34:45.650658"
+      "updated_at": "2026-03-04T16:13:59.227512"
     }
   ]
 }

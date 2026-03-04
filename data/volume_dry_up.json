@@ -1,27 +1,27 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-04T14:34:48.884735",
+    "lastUpdated": "2026-03-04T16:14:00.329726",
     "totalCount": 1,
-    "screened_from": 1423
+    "screened_from": 1421
   },
   "data": [
     {
-      "ticker": "054800",
-      "name": "아이디스홀딩스",
-      "price": 14110,
-      "change_rate": -6.43,
-      "explosion_date": "2026-02-13",
-      "explosion_change_rate": 15.0,
-      "explosion_volume_ratio": 28.6,
-      "days_since_detected": 9,
-      "volume_decrease_rate": 93,
+      "ticker": "127120",
+      "name": "제이에스링크",
+      "price": 31950,
+      "change_rate": -14.46,
+      "explosion_date": "2026-02-03",
+      "explosion_change_rate": 28.3,
+      "explosion_volume_ratio": 5.6,
+      "days_since_detected": 17,
+      "volume_decrease_rate": 76,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 1.25,
+      "ma20_distance": 0.5,
       "volume_rank": 1,
-      "ma150": 11995,
+      "ma150": 20547,
       "above_ma150": true,
-      "market_cap": 1460,
-      "updated_at": "2026-03-04T14:34:44.188218"
+      "market_cap": 10901,
+      "updated_at": "2026-03-04T16:13:58.535458"
     }
   ]
 }
