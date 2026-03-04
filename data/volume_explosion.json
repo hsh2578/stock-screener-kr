@@ -1,93 +1,81 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-04T13:23:23.161999",
-    "totalCount": 10,
-    "screened_from": 1442
+    "lastUpdated": "2026-03-04T14:34:36.930588",
+    "totalCount": 9,
+    "screened_from": 1423
   },
   "data": [
     {
       "ticker": "005860",
       "name": "한일사료",
-      "price": 4455,
-      "change_rate": 23.92,
-      "volume_ratio": 47.3,
+      "price": 4380,
+      "change_rate": 21.84,
+      "volume_ratio": 55.8,
       "volume_rank": 1,
-      "ma150": 3285,
+      "ma150": 3284,
       "above_ma150": true,
-      "market_cap": 1736,
-      "updated_at": "2026-03-04T13:23:23.016714"
-    },
-    {
-      "ticker": "014530",
-      "name": "극동유화",
-      "price": 5980,
-      "change_rate": 29.58,
-      "volume_ratio": 38.1,
-      "volume_rank": 2,
-      "ma150": 3419,
-      "above_ma150": true,
-      "market_cap": 2075,
-      "updated_at": "2026-03-04T13:23:21.239436"
+      "market_cap": 1734,
+      "updated_at": "2026-03-04T14:34:36.851007"
     },
     {
       "ticker": "053050",
       "name": "지에스이",
-      "price": 3785,
-      "change_rate": 22.49,
-      "volume_ratio": 36.8,
-      "volume_rank": 3,
-      "ma150": 2598,
+      "price": 3940,
+      "change_rate": 27.51,
+      "volume_ratio": 44.8,
+      "volume_rank": 2,
+      "ma150": 2599,
       "above_ma150": true,
-      "market_cap": 1138,
-      "updated_at": "2026-03-04T13:23:22.551819"
+      "market_cap": 1174,
+      "updated_at": "2026-03-04T14:34:36.277135"
+    },
+    {
+      "ticker": "014530",
+      "name": "극동유화",
+      "price": 5990,
+      "change_rate": 29.79,
+      "volume_ratio": 40.5,
+      "volume_rank": 3,
+      "ma150": 3419,
+      "above_ma150": true,
+      "market_cap": 2089,
+      "updated_at": "2026-03-04T14:34:34.906421"
     },
     {
       "ticker": "117580",
       "name": "대성에너지",
       "price": 13580,
       "change_rate": 29.95,
-      "volume_ratio": 36.6,
+      "volume_ratio": 36.8,
       "volume_rank": 4,
       "ma150": 8219,
       "above_ma150": true,
       "market_cap": 3735,
-      "updated_at": "2026-03-04T13:23:21.332213"
+      "updated_at": "2026-03-04T14:34:35.128409"
     },
     {
       "ticker": "003280",
       "name": "흥아해운",
-      "price": 2710,
-      "change_rate": 16.31,
-      "volume_ratio": 23.3,
+      "price": 2970,
+      "change_rate": 27.47,
+      "volume_ratio": 27.7,
       "volume_rank": 5,
-      "ma150": 1692,
+      "ma150": 1693,
       "above_ma150": true,
-      "market_cap": 6479,
-      "updated_at": "2026-03-04T13:23:23.157702"
+      "market_cap": 7044,
+      "updated_at": "2026-03-04T14:34:36.930431"
     },
     {
       "ticker": "048530",
       "name": "인트론바이오",
-      "price": 6360,
-      "change_rate": 28.74,
-      "volume_ratio": 16.6,
+      "price": 6140,
+      "change_rate": 24.29,
+      "volume_ratio": 17.9,
       "volume_rank": 6,
-      "ma150": 3731,
+      "ma150": 3730,
       "above_ma150": true,
-      "market_cap": 2108,
-      "updated_at": "2026-03-04T13:23:22.365520"
-    },
-    {
-      "ticker": "402490",
-      "name": "그린리소스",
-      "price": 11680,
-      "change_rate": 20.04,
-      "volume_ratio": 14.7,
-      "volume_rank": 7,
-      "ma150": 8571,
-      "above_ma150": true,
-      "market_cap": 1935,
-      "updated_at": "2026-03-04T13:23:21.234124"
+      "market_cap": 2048,
+      "updated_at": "2026-03-04T14:34:35.940669"
     },
     {
       "ticker": "004090",
@@ -95,11 +83,11 @@
       "price": 27450,
       "change_rate": 29.79,
       "volume_ratio": 6.9,
-      "volume_rank": 8,
+      "volume_rank": 7,
       "ma150": 14405,
       "above_ma150": true,
       "market_cap": 3485,
-      "updated_at": "2026-03-04T13:23:22.981532"
+      "updated_at": "2026-03-04T14:34:36.780305"
     },
     {
       "ticker": "000440",
@@ -107,11 +95,11 @@
       "price": 32800,
       "change_rate": 29.9,
       "volume_ratio": 6.8,
-      "volume_rank": 9,
+      "volume_rank": 8,
       "ma150": 15890,
       "above_ma150": true,
       "market_cap": 2042,
-      "updated_at": "2026-03-04T13:23:22.480259"
+      "updated_at": "2026-03-04T14:34:36.233080"
     },
     {
       "ticker": "024060",
@@ -119,11 +107,11 @@
       "price": 29700,
       "change_rate": 29.98,
       "volume_ratio": 2.9,
-      "volume_rank": 10,
+      "volume_rank": 9,
       "ma150": 13022,
       "above_ma150": true,
       "market_cap": 4455,
-      "updated_at": "2026-03-04T13:23:23.156194"
+      "updated_at": "2026-03-04T14:34:36.917835"
     }
   ]
 }

@@ -1,63 +1,27 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-04T13:23:32.340218",
-    "totalCount": 3,
-    "screened_from": 1442
+    "lastUpdated": "2026-03-04T14:34:48.884735",
+    "totalCount": 1,
+    "screened_from": 1423
   },
   "data": [
     {
-      "ticker": "011690",
-      "name": "와이투솔루션",
-      "price": 7140,
-      "change_rate": -4.67,
+      "ticker": "054800",
+      "name": "아이디스홀딩스",
+      "price": 14110,
+      "change_rate": -6.43,
       "explosion_date": "2026-02-13",
-      "explosion_change_rate": 28.5,
-      "explosion_volume_ratio": 4.9,
+      "explosion_change_rate": 15.0,
+      "explosion_volume_ratio": 28.6,
       "days_since_detected": 9,
-      "volume_decrease_rate": 87,
+      "volume_decrease_rate": 93,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.98,
+      "ma20_distance": 1.25,
       "volume_rank": 1,
-      "ma150": 4010,
+      "ma150": 11995,
       "above_ma150": true,
-      "market_cap": 2615,
-      "updated_at": "2026-03-04T13:23:28.490123"
-    },
-    {
-      "ticker": "475960",
-      "name": "토모큐브",
-      "price": 57400,
-      "change_rate": -10.31,
-      "explosion_date": "2026-02-06",
-      "explosion_change_rate": 12.0,
-      "explosion_volume_ratio": 3.8,
-      "days_since_detected": 14,
-      "volume_decrease_rate": 76,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.01,
-      "volume_rank": 2,
-      "ma150": 44603,
-      "above_ma150": true,
-      "market_cap": 7709,
-      "updated_at": "2026-03-04T13:23:30.697107"
-    },
-    {
-      "ticker": "104830",
-      "name": "원익머트리얼즈",
-      "price": 43900,
-      "change_rate": -2.44,
-      "explosion_date": "2026-02-03",
-      "explosion_change_rate": 17.9,
-      "explosion_volume_ratio": 3.3,
-      "days_since_detected": 17,
-      "volume_decrease_rate": 68,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.41,
-      "volume_rank": 3,
-      "ma150": 31644,
-      "above_ma150": true,
-      "market_cap": 5529,
-      "updated_at": "2026-03-04T13:23:28.630501"
+      "market_cap": 1460,
+      "updated_at": "2026-03-04T14:34:44.188218"
     }
   ]
 }
