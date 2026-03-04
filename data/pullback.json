@@ -1,65 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-03T18:32:30.404741",
-    "totalCount": 4,
-    "screened_from": 1496
+    "lastUpdated": "2026-03-04T12:13:32.130155",
+    "totalCount": 0,
+    "screened_from": 1430
   },
-  "data": [
-    {
-      "ticker": "340570",
-      "name": "티앤엘",
-      "price": 50900,
-      "change_rate": -6.95,
-      "breakout_date": "2026-01-29",
-      "resistance": 50200,
-      "pullback_ratio": 1.39,
-      "volume_decrease": 64,
-      "ma150": 50600,
-      "above_ma150": true,
-      "market_cap": 4137,
-      "updated_at": "2026-03-03T18:32:28.907457"
-    },
-    {
-      "ticker": "015230",
-      "name": "대창단조",
-      "price": 6680,
-      "change_rate": -1.76,
-      "breakout_date": "2026-02-03",
-      "resistance": 6820,
-      "pullback_ratio": 2.05,
-      "volume_decrease": 73,
-      "ma150": 6399,
-      "above_ma150": true,
-      "market_cap": 1909,
-      "updated_at": "2026-03-03T18:32:23.444418"
-    },
-    {
-      "ticker": "039340",
-      "name": "한국경제TV",
-      "price": 5780,
-      "change_rate": -4.62,
-      "breakout_date": "2026-02-20",
-      "resistance": 5660,
-      "pullback_ratio": 2.12,
-      "volume_decrease": 65,
-      "ma150": 5568,
-      "above_ma150": true,
-      "market_cap": 1301,
-      "updated_at": "2026-03-03T18:32:29.165876"
-    },
-    {
-      "ticker": "185750",
-      "name": "종근당",
-      "price": 91500,
-      "change_rate": -2.03,
-      "breakout_date": "2026-02-10",
-      "resistance": 88200,
-      "pullback_ratio": 3.74,
-      "volume_decrease": 67,
-      "ma150": 84667,
-      "above_ma150": true,
-      "market_cap": 12630,
-      "updated_at": "2026-03-03T18:32:27.228291"
-    }
-  ]
+  "data": []
 }
