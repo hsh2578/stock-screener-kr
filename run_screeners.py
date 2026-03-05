@@ -3664,7 +3664,7 @@ def screen_price_rise(stocks: pd.DataFrame) -> List[Dict]:
     for _, row in stocks.iterrows():
         ticker = row['Code']
         name = row['Name']
-        market_cap = int(row.get('Marcap', 0))
+        market_cap = row.get('MarketCap', 0)
 
         df = get_ohlcv(ticker, days=155)
         if df is None or len(df) < 2:
