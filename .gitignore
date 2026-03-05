@@ -38,6 +38,12 @@ Thumbs.db
 # 임시 파일
 *.tmp
 *.temp
+*_tmp.json
+runs_tmp.json
+
+# 로컬 개발 전용 (CI 불필요)
+test_dryup.py
+scripts/kiwoom_api.py
 
 # 데이터 캐시
 .cache/
