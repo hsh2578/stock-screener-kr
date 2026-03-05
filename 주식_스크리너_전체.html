@@ -1790,7 +1790,7 @@
                 </div>
                 <div class="meta">
                     <span class="date" id="box-breakout-date">데이터 기준: -</span>
-                    <span><span class="count" id="box-breakout-count">-</span>개 종목 <span class="total">/ 1,521개 중</span></span>
+                    <span><span class="count" id="box-breakout-count">-</span>개 종목 <span class="total" id="box-breakout-total">/ 1,521개 중</span></span>
                 </div>
             </header>
             <div class="card table-card">
@@ -1829,7 +1829,7 @@
                 </div>
                 <div class="meta">
                     <span class="date" id="box-breakout-simple-date">데이터 기준: -</span>
-                    <span><span class="count" id="box-breakout-simple-count">-</span>개 종목 <span class="total">/ 1,521개 중</span></span>
+                    <span><span class="count" id="box-breakout-simple-count">-</span>개 종목 <span class="total" id="box-breakout-simple-total">/ 1,521개 중</span></span>
                 </div>
             </header>
             <div class="card table-card">
@@ -1869,7 +1869,7 @@
                 </div>
                 <div class="meta">
                     <span class="date" id="pullback-date">데이터 기준: -</span>
-                    <span><span class="count" id="pullback-count">-</span>개 종목 <span class="total">/ 1,521개 중</span></span>
+                    <span><span class="count" id="pullback-count">-</span>개 종목 <span class="total" id="pullback-total">/ 1,521개 중</span></span>
                 </div>
             </header>
             <div class="card table-card">
@@ -1909,7 +1909,7 @@
                 </div>
                 <div class="meta">
                     <span class="date" id="volume-dry-up-date">데이터 기준: -</span>
-                    <span><span class="count" id="volume-dry-up-count">-</span>개 종목 <span class="total">/ 1,521개 중</span></span>
+                    <span><span class="count" id="volume-dry-up-count">-</span>개 종목 <span class="total" id="volume-dry-up-total">/ 1,521개 중</span></span>
                 </div>
             </header>
             <div class="card table-card">
@@ -1949,7 +1949,7 @@
                 </div>
                 <div class="meta">
                     <span class="date" id="volume-explosion-date">데이터 기준: -</span>
-                    <span><span class="count" id="volume-explosion-count">-</span>개 종목 <span class="total">/ 1,521개 중</span></span>
+                    <span><span class="count" id="volume-explosion-count">-</span>개 종목 <span class="total" id="volume-explosion-total">/ 1,521개 중</span></span>
                 </div>
             </header>
             <div class="card table-card">
@@ -1984,7 +1984,7 @@
                 <p class="desc">52주 신고가 돌파 후 8거래일 이내 종목</p>
                 <div class="meta">
                     <span class="date" id="new-high-52w-date">데이터 기준: -</span>
-                    <span><span class="count" id="new-high-52w-count">-</span>개 종목 <span class="total">/ 1,521개 중</span></span>
+                    <span><span class="count" id="new-high-52w-count">-</span>개 종목 <span class="total" id="new-high-52w-total">/ 1,521개 중</span></span>
                 </div>
             </header>
             <div class="card table-card">
@@ -2500,6 +2500,8 @@
 
     <!-- Toast Notification Container -->
     <div id="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
+    <!-- 스크린리더 안내용 영구 aria-live 영역 (sort 등 동적 메시지) -->
+    <div id="sr-announce" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 
     <!-- Chart Modal -->
     <div id="chart-modal" class="modal-overlay" onclick="if(event.target===this)closeModal()" role="dialog" aria-modal="true" aria-labelledby="modal-name">
@@ -2589,6 +2591,11 @@
             maConvergence: { meta: { updated_at: null, total_count: 0 }, data: [] },
             magicFormula: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
             multiFactor: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
+            buffett: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
+            ackman: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
+            lynch: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
+            graham: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
+            priceRise: { meta: { lastUpdated: null, totalCount: 0 }, data: [] },
             financialData: { meta: {}, data: {} }  // PER/PBR 조회용 재무데이터
         };
 
@@ -3395,7 +3402,14 @@
             'fallen-rebound-table': 'fallenRebound',
             'bottom-breakout-table': 'bottomBreakout',
             'ma60w-quality-table': 'ma60wQuality',
-            'ma-convergence-table': 'maConvergence'
+            'ma-convergence-table': 'maConvergence',
+            'magic-formula-table': 'magicFormula',
+            'multi-factor-table': 'multiFactor',
+            'buffett-table': 'buffett',
+            'ackman-table': 'ackman',
+            'lynch-table': 'lynch',
+            'graham-table': 'graham',
+            'price-rise-table': 'priceRise'
         };
 
         // 역방향 매핑 - screener ID에서 table ID로
@@ -3430,15 +3444,13 @@
                 renderFn();
             });
 
-            // 스크린리더 안내 (정렬 해제 시에만)
+            // 스크린리더 안내 (정렬 해제 시에만) — 영구 aria-live 요소 재사용
             if (!state.key && oldDirection) {
-                const announcement = document.createElement('div');
-                announcement.setAttribute('role', 'status');
-                announcement.setAttribute('aria-live', 'polite');
-                announcement.className = 'sr-only';
-                announcement.textContent = '정렬이 해제되었습니다';
-                document.body.appendChild(announcement);
-                setTimeout(() => announcement.remove(), 1000);
+                const announceEl = document.getElementById('sr-announce');
+                if (announceEl) {
+                    announceEl.textContent = '';
+                    requestAnimationFrame(() => { announceEl.textContent = '정렬이 해제되었습니다'; });
+                }
             }
         }
 
@@ -3713,6 +3725,23 @@
                     }
                 }
             }
+
+            // screened_from(검색 대상 종목 수) 동적 업데이트 - 하드코딩된 1,521 제거
+            const screenedFromMap = {
+                'box-range-total': getMeta('boxRange', 'screened_from'),
+                'box-breakout-total': getMeta('boxBreakout', 'screened_from'),
+                'box-breakout-simple-total': getMeta('boxBreakoutSimple', 'screened_from'),
+                'pullback-total': getMeta('pullback', 'screened_from'),
+                'volume-dry-up-total': getMeta('volumeDryUp', 'screened_from'),
+                'volume-explosion-total': getMeta('volumeExplosion', 'screened_from'),
+                'new-high-52w-total': getMeta('newHigh52w', 'screened_from')
+            };
+            for (const [elementId, count] of Object.entries(screenedFromMap)) {
+                const el = document.getElementById(elementId);
+                if (el && count) {
+                    el.textContent = `/ ${count.toLocaleString('ko-KR')}개 중`;
+                }
+            }
         }
 
         // Home
@@ -3811,31 +3840,13 @@
             }
         }
 
-        // ============================================================
-        // 성능 최적화: Virtual DOM 경량 구현 - 인크리멘탈 렌더링
-        // 변경된 행만 업데이트하여 DOM 조작 최소화
-        // ============================================================
-
-        // 행 데이터 캐시 (이전 렌더링 데이터 저장)
-        const rowDataCache = new Map();
-
-        /**
-         * 인크리멘탈 테이블 행 업데이트
-         * 변경된 행만 DOM에서 업데이트하여 성능 최적화
-         *
-         * @param {HTMLElement} tbody - tbody 요소
-         * @param {Array<string>} newRows - 새로운 행 HTML 배열
-         * @param {string} cacheKey - 캐시 키 (테이블 ID)
-         * @returns {boolean} - 인크리멘탈 업데이트 수행 여부
-         */
-        function updateTableRowsIncremental(tbody, newRowHtml, tableId) {
-            // 단순 innerHTML 교체 (인크리멘탈 DOM 파싱 오버헤드 제거)
+        // tbody innerHTML 교체 헬퍼
+        function updateTableRowsIncremental(tbody, newRowHtml) {
             tbody.innerHTML = newRowHtml;
         }
 
         // ============================================================
-        // 성능 최적화: DocumentFragment를 사용한 테이블 렌더링
-        // Virtual DOM 경량 구현으로 인크리멘탈 업데이트 지원
+        // DocumentFragment를 사용한 테이블 렌더링
         // ============================================================
         function renderTable(tableId, headers, rows, renderFn) {
             const table = document.getElementById(tableId);
@@ -5138,7 +5149,7 @@
             // 비중 조절 이벤트 바인딩 (한번만)
             var applyBtn = document.getElementById('mf-weight-apply');
             var resetBtn = document.getElementById('mf-weight-reset');
-            if (applyBtn && !applyBtn._bound) {
+            if (applyBtn && resetBtn && !applyBtn._bound) {
                 applyBtn._bound = true;
                 applyBtn.addEventListener('click', function() {
                     var wq = parseFloat(document.getElementById('mf-weight-q').value) || 0;
@@ -5428,6 +5439,8 @@
 
         // 렌더링 상태 추적 - Lazy Rendering용
         const renderedPages = new Set();
+        // 현재 활성 페이지 추적 (querySelectorAll 순회 방지)
+        let _activePage = null;
 
         // 페이지별 렌더 함수 매핑
         const pageRenderMap = {
@@ -5721,9 +5734,14 @@
         function showPage(pageId, pushState = true) {
             const targetPage = document.getElementById(`page-${pageId}`);
             if (!targetPage) { showPage('home', pushState); return; }
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            // 이전 활성 페이지만 비활성화 (querySelectorAll 전체 순회 방지)
+            if (_activePage && _activePage !== targetPage) {
+                _activePage.classList.remove('active');
+            }
+            _activePage = targetPage;
             targetPage.classList.add('active');
-            window.scrollTo(0, 0);
+            // 스크롤은 페이지 전환 애니메이션 후 실행 (충돌 방지)
+            requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'instant' }));
             if (pushState && pageId !== 'home') {
                 history.pushState({ page: pageId }, '', '#' + pageId);
             } else if (pushState && pageId === 'home') {
