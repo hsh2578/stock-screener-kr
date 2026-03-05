@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-05T16:28:55.290035",
+    "lastUpdated": "2026-03-05T18:08:56.427808",
     "totalCount": 27,
     "screened_from": 1479
   },
@@ -17,10 +17,10 @@
       "volume_ratio": 2.4,
       "vs_breakout_close": 0.0,
       "predicted_gain": 25.1,
-      "success_probability": 44.8,
-      "ai_score": 54.0,
+      "success_probability": 44.1,
+      "ai_score": 53.5,
       "market_cap": 2003,
-      "updated_at": "2026-03-05T16:28:53.027030"
+      "updated_at": "2026-03-05T18:08:53.360731"
     },
     {
       "ticker": "058470",
@@ -34,10 +34,10 @@
       "volume_ratio": 1.9,
       "vs_breakout_close": 0.0,
       "predicted_gain": 19.2,
-      "success_probability": 15.2,
-      "ai_score": 27.9,
+      "success_probability": 14.5,
+      "ai_score": 27.4,
       "market_cap": 92521,
-      "updated_at": "2026-03-05T16:28:53.191827"
+      "updated_at": "2026-03-05T18:08:53.526028"
     },
     {
       "ticker": "004090",
@@ -54,7 +54,7 @@
       "success_probability": 58.9,
       "ai_score": 61.7,
       "market_cap": 3573,
-      "updated_at": "2026-03-05T16:28:54.864945"
+      "updated_at": "2026-03-05T18:08:55.710040"
     },
     {
       "ticker": "000440",
@@ -71,7 +71,7 @@
       "success_probability": 54.3,
       "ai_score": 58.5,
       "market_cap": 1921,
-      "updated_at": "2026-03-05T16:28:54.147607"
+      "updated_at": "2026-03-05T18:08:54.962364"
     },
     {
       "ticker": "048530",
@@ -88,7 +88,7 @@
       "success_probability": 50.8,
       "ai_score": 56.7,
       "market_cap": 2207,
-      "updated_at": "2026-03-05T16:28:53.968611"
+      "updated_at": "2026-03-05T18:08:54.756212"
     },
     {
       "ticker": "003280",
@@ -105,7 +105,7 @@
       "success_probability": 50.4,
       "ai_score": 52.8,
       "market_cap": 6768,
-      "updated_at": "2026-03-05T16:28:55.272039"
+      "updated_at": "2026-03-05T18:08:56.104706"
     },
     {
       "ticker": "117580",
@@ -122,7 +122,7 @@
       "success_probability": 28.1,
       "ai_score": 36.5,
       "market_cap": 3493,
-      "updated_at": "2026-03-05T16:28:53.083422"
+      "updated_at": "2026-03-05T18:08:53.436814"
     },
     {
       "ticker": "054620",
@@ -139,7 +139,7 @@
       "success_probability": 80.2,
       "ai_score": 86.2,
       "market_cap": 1334,
-      "updated_at": "2026-03-05T16:28:52.863896"
+      "updated_at": "2026-03-05T18:08:53.123131"
     },
     {
       "ticker": "014530",
@@ -156,7 +156,7 @@
       "success_probability": 67.6,
       "ai_score": 76.6,
       "market_cap": 1712,
-      "updated_at": "2026-03-05T16:28:53.030322"
+      "updated_at": "2026-03-05T18:08:53.364123"
     },
     {
       "ticker": "065450",
@@ -170,10 +170,10 @@
       "volume_ratio": 10.4,
       "vs_breakout_close": -2.1,
       "predicted_gain": 19.2,
-      "success_probability": 58.1,
-      "ai_score": 58.0,
+      "success_probability": 56.9,
+      "ai_score": 57.1,
       "market_cap": 1605,
-      "updated_at": "2026-03-05T16:28:53.264480"
+      "updated_at": "2026-03-05T18:08:53.595780"
     },
     {
       "ticker": "105330",
@@ -190,7 +190,7 @@
       "success_probability": 78.7,
       "ai_score": 85.1,
       "market_cap": 1018,
-      "updated_at": "2026-03-05T16:28:54.291534"
+      "updated_at": "2026-03-05T18:08:55.108735"
     },
     {
       "ticker": "002960",
@@ -207,7 +207,7 @@
       "success_probability": 45.8,
       "ai_score": 56.2,
       "market_cap": 6721,
-      "updated_at": "2026-03-05T16:28:54.870765"
+      "updated_at": "2026-03-05T18:08:55.714891"
     },
     {
       "ticker": "417500",
@@ -224,7 +224,7 @@
       "success_probability": 55.4,
       "ai_score": 63.0,
       "market_cap": 1557,
-      "updated_at": "2026-03-05T16:28:54.066495"
+      "updated_at": "2026-03-05T18:08:54.868681"
     },
     {
       "ticker": "241770",
@@ -241,7 +241,24 @@
       "success_probability": 41.9,
       "ai_score": 54.9,
       "market_cap": 3002,
-      "updated_at": "2026-03-05T16:28:53.216552"
+      "updated_at": "2026-03-05T18:08:53.542361"
+    },
+    {
+      "ticker": "226950",
+      "name": "올릭스",
+      "price": 196300,
+      "change_rate": 20.13,
+      "high_52w": 161000,
+      "breakout_date": "2026-02-25",
+      "days_since": 5,
+      "above_high_percent": 21.93,
+      "volume_ratio": 2.7,
+      "vs_breakout_close": 20.06,
+      "predicted_gain": 21.6,
+      "success_probability": 68.9,
+      "ai_score": 67.7,
+      "market_cap": 39633,
+      "updated_at": "2026-03-05T18:08:54.387250"
     },
     {
       "ticker": "011560",
@@ -258,24 +275,7 @@
       "success_probability": 65.2,
       "ai_score": 75.6,
       "market_cap": 1882,
-      "updated_at": "2026-03-05T16:28:53.327817"
-    },
-    {
-      "ticker": "226950",
-      "name": "올릭스",
-      "price": 196300,
-      "change_rate": 20.13,
-      "high_52w": 161000,
-      "breakout_date": "2026-02-25",
-      "days_since": 5,
-      "above_high_percent": 21.93,
-      "volume_ratio": 2.7,
-      "vs_breakout_close": 20.06,
-      "predicted_gain": 21.6,
-      "success_probability": 64.5,
-      "ai_score": 64.6,
-      "market_cap": 39633,
-      "updated_at": "2026-03-05T16:28:53.649349"
+      "updated_at": "2026-03-05T18:08:53.668717"
     },
     {
       "ticker": "448900",
@@ -292,7 +292,7 @@
       "success_probability": 77.0,
       "ai_score": 73.3,
       "market_cap": 7440,
-      "updated_at": "2026-03-05T16:28:54.927962"
+      "updated_at": "2026-03-05T18:08:55.765838"
     },
     {
       "ticker": "092220",
@@ -309,7 +309,7 @@
       "success_probability": 75.8,
       "ai_score": 77.1,
       "market_cap": 2859,
-      "updated_at": "2026-03-05T16:28:52.928666"
+      "updated_at": "2026-03-05T18:08:53.198838"
     },
     {
       "ticker": "489790",
@@ -326,7 +326,7 @@
       "success_probability": 72.4,
       "ai_score": 69.1,
       "market_cap": 39532,
-      "updated_at": "2026-03-05T16:28:55.064313"
+      "updated_at": "2026-03-05T18:08:55.906344"
     },
     {
       "ticker": "229000",
@@ -343,7 +343,7 @@
       "success_probability": 55.3,
       "ai_score": 56.8,
       "market_cap": 1181,
-      "updated_at": "2026-03-05T16:28:54.111090"
+      "updated_at": "2026-03-05T18:08:54.920265"
     },
     {
       "ticker": "090470",
@@ -360,7 +360,7 @@
       "success_probability": 44.2,
       "ai_score": 56.8,
       "market_cap": 1271,
-      "updated_at": "2026-03-05T16:28:54.062535"
+      "updated_at": "2026-03-05T18:08:54.863082"
     },
     {
       "ticker": "006340",
@@ -377,7 +377,7 @@
       "success_probability": 76.6,
       "ai_score": 74.4,
       "market_cap": 4185,
-      "updated_at": "2026-03-05T16:28:53.092620"
+      "updated_at": "2026-03-05T18:08:53.450795"
     },
     {
       "ticker": "310210",
@@ -394,7 +394,7 @@
       "success_probability": 75.8,
       "ai_score": 72.8,
       "market_cap": 58215,
-      "updated_at": "2026-03-05T16:28:53.248514"
+      "updated_at": "2026-03-05T18:08:53.579550"
     },
     {
       "ticker": "036170",
@@ -411,7 +411,7 @@
       "success_probability": 75.3,
       "ai_score": 77.9,
       "market_cap": 1872,
-      "updated_at": "2026-03-05T16:28:53.467514"
+      "updated_at": "2026-03-05T18:08:54.176505"
     },
     {
       "ticker": "900290",
@@ -428,7 +428,7 @@
       "success_probability": 57.5,
       "ai_score": 70.2,
       "market_cap": 4883,
-      "updated_at": "2026-03-05T16:28:52.890429"
+      "updated_at": "2026-03-05T18:08:53.160371"
     },
     {
       "ticker": "024060",
@@ -445,7 +445,7 @@
       "success_probability": 56.4,
       "ai_score": 57.2,
       "market_cap": 4905,
-      "updated_at": "2026-03-05T16:28:55.262412"
+      "updated_at": "2026-03-05T18:08:56.097340"
     },
     {
       "ticker": "034830",
@@ -462,7 +462,7 @@
       "success_probability": 61.9,
       "ai_score": 67.6,
       "market_cap": 3749,
-      "updated_at": "2026-03-05T16:28:54.917165"
+      "updated_at": "2026-03-05T18:08:55.758677"
     }
   ]
 }
