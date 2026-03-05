@@ -1,28 +1,66 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-04T18:04:40.913889",
-    "totalCount": 1,
-    "screened_from": 1421
+    "lastUpdated": "2026-03-05T12:16:56.352134",
+    "totalCount": 3,
+    "screened_from": 1474
   },
   "data": [
     {
+      "ticker": "329180",
+      "name": "HD현대중공업",
+      "current_price": 557000,
+      "volume": 337806,
+      "ma10w": 578100,
+      "ma20w": 565600,
+      "ma60w": 457116,
+      "ma20d": 566100,
+      "ma60d": 566716,
+      "ma120d": 551841,
+      "gap_20_60": 0.11,
+      "gap_20_120": 2.58,
+      "gap_60_120": 2.7,
+      "gap_price_20": 1.61,
+      "weeks_since_high": 18,
+      "market_cap": 584634,
+      "updated_at": "2026-03-05T12:16:44.912372"
+    },
+    {
       "ticker": "395400",
       "name": "SK리츠",
-      "current_price": 5440,
-      "volume": 552347,
-      "ma10w": 5643,
-      "ma20w": 5542,
-      "ma60w": 5129,
-      "ma20d": 5608,
-      "ma60d": 5656,
-      "ma120d": 5423,
-      "gap_20_60": 0.86,
-      "gap_20_120": 3.4,
-      "gap_60_120": 4.3,
-      "gap_price_20": 3.0,
+      "current_price": 5710,
+      "volume": 546793,
+      "ma10w": 5670,
+      "ma20w": 5556,
+      "ma60w": 5134,
+      "ma20d": 5615,
+      "ma60d": 5663,
+      "ma120d": 5428,
+      "gap_20_60": 0.85,
+      "gap_20_120": 3.44,
+      "gap_60_120": 4.33,
+      "gap_price_20": 1.68,
       "weeks_since_high": 10,
-      "market_cap": 16375,
-      "updated_at": "2026-03-04T18:04:33.864382"
+      "market_cap": 17188,
+      "updated_at": "2026-03-05T12:16:46.646354"
+    },
+    {
+      "ticker": "002200",
+      "name": "한국수출포장",
+      "current_price": 3070,
+      "volume": 179485,
+      "ma10w": 3164,
+      "ma20w": 3123,
+      "ma60w": 2947,
+      "ma20d": 3178,
+      "ma60d": 3164,
+      "ma120d": 3062,
+      "gap_20_60": 0.45,
+      "gap_20_120": 3.78,
+      "gap_60_120": 3.32,
+      "gap_price_20": 3.41,
+      "weeks_since_high": 12,
+      "market_cap": 1226,
+      "updated_at": "2026-03-05T12:16:55.971238"
     }
   ]
 }

@@ -1,8 +1,37 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-04T18:04:04.545871",
-    "totalCount": 0,
-    "screened_from": 1421
+    "lastUpdated": "2026-03-05T12:16:26.287506",
+    "totalCount": 2,
+    "screened_from": 1474
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "002620",
+      "name": "제일파마홀딩스",
+      "price": 8620,
+      "change_rate": 0.23,
+      "breakout_date": "2026-02-24",
+      "resistance": 8430,
+      "pullback_ratio": 2.25,
+      "volume_decrease": 94,
+      "ma150": 8354,
+      "above_ma150": true,
+      "market_cap": 1377,
+      "updated_at": "2026-03-05T12:16:23.789739"
+    },
+    {
+      "ticker": "185750",
+      "name": "종근당",
+      "price": 85400,
+      "change_rate": 4.79,
+      "breakout_date": "2026-02-10",
+      "resistance": 88200,
+      "pullback_ratio": 3.17,
+      "volume_decrease": 60,
+      "ma150": 84628,
+      "above_ma150": true,
+      "market_cap": 11788,
+      "updated_at": "2026-03-05T12:16:23.872332"
+    }
+  ]
 }
