@@ -5149,7 +5149,7 @@
             // 비중 조절 이벤트 바인딩 (한번만)
             var applyBtn = document.getElementById('mf-weight-apply');
             var resetBtn = document.getElementById('mf-weight-reset');
-            if (applyBtn && resetBtn && !applyBtn._bound) {
+            if (applyBtn && !applyBtn._bound) {
                 applyBtn._bound = true;
                 applyBtn.addEventListener('click', function() {
                     var wq = parseFloat(document.getElementById('mf-weight-q').value) || 0;
@@ -5159,14 +5159,16 @@
                     renderCache.delete('multi-factor-table');
                     renderMultiFactor();
                 });
-                resetBtn.addEventListener('click', function() {
-                    mfWeights = { q: 0.33, v: 0.33, m: 0.33 };
-                    document.getElementById('mf-weight-q').value = '0.33';
-                    document.getElementById('mf-weight-v').value = '0.33';
-                    document.getElementById('mf-weight-m').value = '0.33';
-                    renderCache.delete('multi-factor-table');
-                    renderMultiFactor();
-                });
+                if (resetBtn) {
+                    resetBtn.addEventListener('click', function() {
+                        mfWeights = { q: 0.33, v: 0.33, m: 0.33 };
+                        document.getElementById('mf-weight-q').value = '0.33';
+                        document.getElementById('mf-weight-v').value = '0.33';
+                        document.getElementById('mf-weight-m').value = '0.33';
+                        renderCache.delete('multi-factor-table');
+                        renderMultiFactor();
+                    });
+                }
             }
         }
 
