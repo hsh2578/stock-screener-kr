@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-06T16:16:15.138855",
+    "lastUpdated": "2026-03-06T18:04:05.584510",
     "totalCount": 20,
     "screened_from": 1482
   },
@@ -188,6 +188,19 @@
       "above_ma150": true
     },
     {
+      "ticker": "083650",
+      "name": "비에이치아이",
+      "price": 94800,
+      "change_rate": 17.33,
+      "volume": 961342,
+      "volume_ratio": 1.5,
+      "market_cap": 29335.0,
+      "per": null,
+      "pbr": null,
+      "ma150": 54881,
+      "above_ma150": true
+    },
+    {
       "ticker": "110990",
       "name": "디아이티",
       "price": 24550,
@@ -250,19 +263,6 @@
       "per": null,
       "pbr": null,
       "ma150": 5079,
-      "above_ma150": true
-    },
-    {
-      "ticker": "009830",
-      "name": "한화솔루션",
-      "price": 51800,
-      "change_rate": 16.67,
-      "volume": 17980003,
-      "volume_ratio": 1.4,
-      "market_cap": 89040.0,
-      "per": null,
-      "pbr": null,
-      "ma150": 31401,
       "above_ma150": true
     }
   ]
