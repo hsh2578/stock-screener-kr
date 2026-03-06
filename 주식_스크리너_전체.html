@@ -5441,9 +5441,6 @@
 
         // 렌더링 상태 추적 - Lazy Rendering용
         const renderedPages = new Set();
-        // 현재 활성 페이지 추적 (querySelectorAll 순회 방지)
-        // HTML에서 page-home이 기본 active이므로 초기값 설정
-        let _activePage = document.getElementById('page-home');
 
         // 페이지별 렌더 함수 매핑
         const pageRenderMap = {
@@ -5737,11 +5734,7 @@
         function showPage(pageId, pushState = true) {
             const targetPage = document.getElementById(`page-${pageId}`);
             if (!targetPage) { showPage('home', pushState); return; }
-            // 이전 활성 페이지만 비활성화 (querySelectorAll 전체 순회 방지)
-            if (_activePage !== targetPage) {
-                if (_activePage) _activePage.classList.remove('active');
-            }
-            _activePage = targetPage;
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             targetPage.classList.add('active');
             // 스크롤은 페이지 전환 애니메이션 후 실행 (충돌 방지)
             requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'instant' }));
