@@ -1,63 +1,63 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-06T13:23:59.556917",
+    "lastUpdated": "2026-03-06T14:36:17.005345",
     "totalCount": 3,
-    "screened_from": 1475
+    "screened_from": 1474
   },
   "data": [
     {
       "ticker": "078000",
       "name": "텔코웨어",
-      "price": 17680,
-      "change_rate": 0.51,
+      "price": 17850,
+      "change_rate": 1.48,
       "breakout_date": "2026-02-23",
       "breakout_price": 16300,
-      "breakout_pct": 8.47,
-      "gain_since_breakout": -11.82,
+      "breakout_pct": 9.51,
+      "gain_since_breakout": -10.97,
       "volume_ratio": 48.1,
-      "ma150": 15563,
+      "ma150": 15564,
       "above_ma150": true,
-      "market_cap": 1638,
+      "market_cap": 1649,
       "success_prob": 84.5,
       "predicted_gain": 35.2,
       "ai_score": 89.2,
-      "updated_at": "2026-03-06T13:23:58.415507"
+      "updated_at": "2026-03-06T14:36:13.410875"
     },
     {
       "ticker": "009290",
       "name": "광동제약",
-      "price": 8680,
-      "change_rate": 5.08,
+      "price": 8700,
+      "change_rate": 5.33,
       "breakout_date": "2026-02-19",
       "breakout_price": 6250,
-      "breakout_pct": 38.88,
-      "gain_since_breakout": 8.5,
+      "breakout_pct": 39.2,
+      "gain_since_breakout": 8.75,
       "volume_ratio": 24.8,
       "ma150": 6198,
       "above_ma150": true,
-      "market_cap": 4323,
+      "market_cap": 4333,
       "success_prob": 83.7,
       "predicted_gain": 36.1,
       "ai_score": 88.6,
-      "updated_at": "2026-03-06T13:23:51.680584"
+      "updated_at": "2026-03-06T14:36:07.653119"
     },
     {
       "ticker": "002620",
       "name": "제일파마홀딩스",
-      "price": 8640,
-      "change_rate": -2.04,
+      "price": 8780,
+      "change_rate": -0.45,
       "breakout_date": "2026-02-24",
       "breakout_price": 8430,
-      "breakout_pct": 2.49,
-      "gain_since_breakout": -3.46,
+      "breakout_pct": 4.15,
+      "gain_since_breakout": -1.9,
       "volume_ratio": 140.5,
-      "ma150": 8352,
+      "ma150": 8353,
       "above_ma150": true,
-      "market_cap": 1380,
+      "market_cap": 1391,
       "success_prob": 67.9,
       "predicted_gain": 16.1,
       "ai_score": 62.0,
-      "updated_at": "2026-03-06T13:23:57.626225"
+      "updated_at": "2026-03-06T14:36:12.322763"
     }
   ]
 }

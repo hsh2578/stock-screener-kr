@@ -1,37 +1,65 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-06T13:23:47.632366",
-    "totalCount": 2,
-    "screened_from": 1475
+    "lastUpdated": "2026-03-06T14:35:58.348641",
+    "totalCount": 4,
+    "screened_from": 1474
   },
   "data": [
     {
       "ticker": "034950",
       "name": "한국기업평가",
-      "price": 100500,
-      "change_rate": -1.18,
+      "price": 100800,
+      "change_rate": -0.88,
       "breakout_date": "2026-02-11",
       "resistance": 100900,
-      "pullback_ratio": 0.4,
-      "volume_decrease": 56,
-      "ma150": 99096,
+      "pullback_ratio": 0.1,
+      "volume_decrease": 55,
+      "ma150": 99098,
       "above_ma150": true,
-      "market_cap": 4572,
-      "updated_at": "2026-03-06T13:23:46.714507"
+      "market_cap": 4577,
+      "updated_at": "2026-03-06T14:35:57.822977"
+    },
+    {
+      "ticker": "185750",
+      "name": "종근당",
+      "price": 85100,
+      "change_rate": 0.12,
+      "breakout_date": "2026-02-10",
+      "resistance": 88200,
+      "pullback_ratio": 3.51,
+      "volume_decrease": 61,
+      "ma150": 84627,
+      "above_ma150": true,
+      "market_cap": 11746,
+      "updated_at": "2026-03-06T14:35:57.013274"
     },
     {
       "ticker": "002620",
       "name": "제일파마홀딩스",
-      "price": 8640,
-      "change_rate": -2.04,
+      "price": 8780,
+      "change_rate": -0.45,
       "breakout_date": "2026-02-24",
       "resistance": 8430,
-      "pullback_ratio": 2.49,
+      "pullback_ratio": 4.15,
       "volume_decrease": 95,
-      "ma150": 8352,
+      "ma150": 8353,
       "above_ma150": true,
-      "market_cap": 1380,
-      "updated_at": "2026-03-06T13:23:44.853863"
+      "market_cap": 1391,
+      "updated_at": "2026-03-06T14:35:56.928878"
+    },
+    {
+      "ticker": "062040",
+      "name": "산일전기",
+      "price": 146300,
+      "change_rate": 1.95,
+      "breakout_date": "2026-02-04",
+      "resistance": 153000,
+      "pullback_ratio": 4.38,
+      "volume_decrease": 58,
+      "ma150": 133550,
+      "above_ma150": true,
+      "market_cap": 44413,
+      "updated_at": "2026-03-06T14:35:54.974233"
     }
   ]
 }
