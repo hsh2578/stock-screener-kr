@@ -1,37 +1,37 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-05T18:08:20.479847",
+    "lastUpdated": "2026-03-06T11:22:09.641537",
     "totalCount": 2,
-    "screened_from": 1479
+    "screened_from": 1478
   },
   "data": [
     {
-      "ticker": "185750",
-      "name": "종근당",
-      "price": 85000,
-      "change_rate": 4.29,
-      "breakout_date": "2026-02-10",
-      "resistance": 88200,
-      "pullback_ratio": 3.63,
-      "volume_decrease": 57,
-      "ma150": 84626,
+      "ticker": "034950",
+      "name": "한국기업평가",
+      "price": 100900,
+      "change_rate": -0.79,
+      "breakout_date": "2026-02-11",
+      "resistance": 100900,
+      "pullback_ratio": 0.0,
+      "volume_decrease": 56,
+      "ma150": 99098,
       "above_ma150": true,
-      "market_cap": 11732,
-      "updated_at": "2026-03-05T18:08:19.539025"
+      "market_cap": 4581,
+      "updated_at": "2026-03-06T11:22:09.065524"
     },
     {
       "ticker": "002620",
       "name": "제일파마홀딩스",
-      "price": 8820,
-      "change_rate": 2.56,
+      "price": 8670,
+      "change_rate": -1.7,
       "breakout_date": "2026-02-24",
       "resistance": 8430,
-      "pullback_ratio": 4.63,
-      "volume_decrease": 94,
-      "ma150": 8355,
+      "pullback_ratio": 2.85,
+      "volume_decrease": 95,
+      "ma150": 8353,
       "above_ma150": true,
-      "market_cap": 1409,
-      "updated_at": "2026-03-05T18:08:19.489313"
+      "market_cap": 1385,
+      "updated_at": "2026-03-06T11:22:08.242186"
     }
   ]
 }
