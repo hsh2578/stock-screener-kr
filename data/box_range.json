@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-06T12:14:06.197178",
+    "lastUpdated": "2026-03-06T13:23:43.177689",
     "totalCount": 7,
-    "screened_from": 1480
+    "screened_from": 1475
   },
   "data": [
     {
@@ -19,11 +19,11 @@
       "support_touches": 6,
       "resistance_touches": 2,
       "slope_daily": 0.0251,
-      "volume_decrease_rate": 25.01,
+      "volume_decrease_rate": 24.83,
       "days": 89,
       "ma150": 9461,
       "above_ma150": true,
-      "updated_at": "2026-03-06T12:14:02.825399"
+      "updated_at": "2026-03-06T13:23:38.729222"
     },
     {
       "ticker": "395400",
@@ -39,31 +39,31 @@
       "support_touches": 5,
       "resistance_touches": 2,
       "slope_daily": -0.0391,
-      "volume_decrease_rate": 11.2,
+      "volume_decrease_rate": 11.1,
       "days": 77,
       "ma150": 5329,
       "above_ma150": true,
-      "updated_at": "2026-03-06T12:14:02.921671"
+      "updated_at": "2026-03-06T13:23:38.878729"
     },
     {
       "ticker": "334890",
       "name": "이지스밸류플러스리츠",
-      "price": 4060,
-      "change_rate": -0.98,
+      "price": 4055,
+      "change_rate": -1.1,
       "market_cap": 2820,
       "box_high": 4300,
       "box_low": 3945,
       "range_percent": 9.0,
       "atr": 1.56,
-      "atr_multiple": 5.77,
+      "atr_multiple": 5.76,
       "support_touches": 1,
       "resistance_touches": 4,
-      "slope_daily": -0.022,
-      "volume_decrease_rate": 17.64,
+      "slope_daily": -0.0222,
+      "volume_decrease_rate": 17.6,
       "days": 60,
       "ma150": 4255,
       "above_ma150": false,
-      "updated_at": "2026-03-06T12:14:04.866348"
+      "updated_at": "2026-03-06T13:23:41.482011"
     },
     {
       "ticker": "365550",
@@ -79,71 +79,71 @@
       "support_touches": 1,
       "resistance_touches": 4,
       "slope_daily": 0.0341,
-      "volume_decrease_rate": 30.65,
+      "volume_decrease_rate": 30.59,
       "days": 112,
       "ma150": 4397,
       "above_ma150": false,
-      "updated_at": "2026-03-06T12:14:02.759925"
+      "updated_at": "2026-03-06T13:23:38.654904"
     },
     {
       "ticker": "100250",
       "name": "진양홀딩스",
-      "price": 2985,
-      "change_rate": -1.49,
-      "market_cap": 1668,
+      "price": 3020,
+      "change_rate": -0.33,
+      "market_cap": 1688,
       "box_high": 3253,
       "box_low": 2920,
       "range_percent": 11.4,
-      "atr": 2.46,
-      "atr_multiple": 4.63,
-      "support_touches": 3,
+      "atr": 2.44,
+      "atr_multiple": 4.67,
+      "support_touches": 4,
       "resistance_touches": 2,
-      "slope_daily": -0.0308,
-      "volume_decrease_rate": 10.35,
+      "slope_daily": -0.0289,
+      "volume_decrease_rate": 8.99,
       "days": 153,
       "ma150": 3116,
       "above_ma150": false,
-      "updated_at": "2026-03-06T12:14:05.099139"
+      "updated_at": "2026-03-06T13:23:41.762405"
     },
     {
       "ticker": "122900",
       "name": "아이마켓코리아",
-      "price": 7550,
-      "change_rate": -0.92,
+      "price": 7560,
+      "change_rate": -0.79,
       "market_cap": 2527,
       "box_high": 8190,
       "box_low": 7270,
       "range_percent": 12.65,
       "atr": 2.26,
-      "atr_multiple": 5.59,
+      "atr_multiple": 5.6,
       "support_touches": 1,
       "resistance_touches": 3,
-      "slope_daily": -0.0198,
-      "volume_decrease_rate": 20.9,
+      "slope_daily": -0.0196,
+      "volume_decrease_rate": 20.71,
       "days": 138,
       "ma150": 8014,
       "above_ma150": false,
-      "updated_at": "2026-03-06T12:14:04.313923"
+      "updated_at": "2026-03-06T13:23:40.882067"
     },
     {
       "ticker": "034810",
       "name": "해성산업",
-      "price": 7560,
-      "change_rate": -0.13,
-      "market_cap": 2461,
+      "price": 7530,
+      "change_rate": -0.53,
+      "market_cap": 2455,
       "box_high": 8930,
       "box_low": 7210,
       "range_percent": 23.86,
-      "atr": 4.54,
-      "atr_multiple": 5.26,
+      "atr": 4.56,
+      "atr_multiple": 5.23,
       "support_touches": 1,
       "resistance_touches": 2,
-      "slope_daily": 0.0236,
-      "volume_decrease_rate": 23.81,
+      "slope_daily": 0.023,
+      "volume_decrease_rate": 23.47,
       "days": 192,
-      "ma150": 8009,
+      "ma150": 8008,
       "above_ma150": false,
-      "updated_at": "2026-03-06T12:14:06.077012"
+      "updated_at": "2026-03-06T13:23:42.871632"
     }
   ]
 }

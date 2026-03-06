@@ -1,63 +1,63 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-06T12:14:28.746362",
+    "lastUpdated": "2026-03-06T13:23:59.556917",
     "totalCount": 3,
-    "screened_from": 1480
+    "screened_from": 1475
   },
   "data": [
     {
       "ticker": "078000",
       "name": "텔코웨어",
-      "price": 17710,
-      "change_rate": 0.68,
+      "price": 17680,
+      "change_rate": 0.51,
       "breakout_date": "2026-02-23",
       "breakout_price": 16300,
-      "breakout_pct": 8.65,
-      "gain_since_breakout": -11.67,
+      "breakout_pct": 8.47,
+      "gain_since_breakout": -11.82,
       "volume_ratio": 48.1,
       "ma150": 15563,
       "above_ma150": true,
-      "market_cap": 1644,
+      "market_cap": 1638,
       "success_prob": 84.5,
       "predicted_gain": 35.2,
       "ai_score": 89.2,
-      "updated_at": "2026-03-06T12:14:27.567666"
+      "updated_at": "2026-03-06T13:23:58.415507"
     },
     {
       "ticker": "009290",
       "name": "광동제약",
-      "price": 8560,
-      "change_rate": 3.63,
+      "price": 8680,
+      "change_rate": 5.08,
       "breakout_date": "2026-02-19",
       "breakout_price": 6250,
-      "breakout_pct": 36.96,
-      "gain_since_breakout": 7.0,
+      "breakout_pct": 38.88,
+      "gain_since_breakout": 8.5,
       "volume_ratio": 24.8,
-      "ma150": 6197,
+      "ma150": 6198,
       "above_ma150": true,
-      "market_cap": 4263,
+      "market_cap": 4323,
       "success_prob": 83.7,
       "predicted_gain": 36.1,
       "ai_score": 88.6,
-      "updated_at": "2026-03-06T12:14:21.528331"
+      "updated_at": "2026-03-06T13:23:51.680584"
     },
     {
       "ticker": "002620",
       "name": "제일파마홀딩스",
-      "price": 8630,
-      "change_rate": -2.15,
+      "price": 8640,
+      "change_rate": -2.04,
       "breakout_date": "2026-02-24",
       "breakout_price": 8430,
-      "breakout_pct": 2.37,
-      "gain_since_breakout": -3.58,
+      "breakout_pct": 2.49,
+      "gain_since_breakout": -3.46,
       "volume_ratio": 140.5,
       "ma150": 8352,
       "above_ma150": true,
-      "market_cap": 1377,
+      "market_cap": 1380,
       "success_prob": 67.9,
       "predicted_gain": 16.1,
       "ai_score": 62.0,
-      "updated_at": "2026-03-06T12:14:26.786147"
+      "updated_at": "2026-03-06T13:23:57.626225"
     }
   ]
 }
