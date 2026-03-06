@@ -1,37 +1,37 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-06T11:22:09.641537",
+    "lastUpdated": "2026-03-06T12:14:09.522622",
     "totalCount": 2,
-    "screened_from": 1478
+    "screened_from": 1480
   },
   "data": [
     {
       "ticker": "034950",
       "name": "한국기업평가",
-      "price": 100900,
-      "change_rate": -0.79,
+      "price": 100600,
+      "change_rate": -1.08,
       "breakout_date": "2026-02-11",
       "resistance": 100900,
-      "pullback_ratio": 0.0,
+      "pullback_ratio": 0.3,
       "volume_decrease": 56,
-      "ma150": 99098,
+      "ma150": 99096,
       "above_ma150": true,
-      "market_cap": 4581,
-      "updated_at": "2026-03-06T11:22:09.065524"
+      "market_cap": 4568,
+      "updated_at": "2026-03-06T12:14:09.035169"
     },
     {
       "ticker": "002620",
       "name": "제일파마홀딩스",
-      "price": 8670,
-      "change_rate": -1.7,
+      "price": 8630,
+      "change_rate": -2.15,
       "breakout_date": "2026-02-24",
       "resistance": 8430,
-      "pullback_ratio": 2.85,
+      "pullback_ratio": 2.37,
       "volume_decrease": 95,
-      "ma150": 8353,
+      "ma150": 8352,
       "above_ma150": true,
-      "market_cap": 1385,
-      "updated_at": "2026-03-06T11:22:08.242186"
+      "market_cap": 1377,
+      "updated_at": "2026-03-06T12:14:07.953976"
     }
   ]
 }
