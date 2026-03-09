@@ -1,27 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-09T13:33:29.559670",
+    "lastUpdated": "2026-03-09T16:36:24.734912",
     "totalCount": 4,
-    "screened_from": 1452
+    "screened_from": 1457
   },
   "data": [
     {
       "ticker": "078000",
       "name": "텔코웨어",
-      "price": 17420,
-      "change_rate": -2.13,
+      "price": 17240,
+      "change_rate": -3.15,
       "breakout_date": "2026-02-23",
       "resistance": 16300,
       "days_since_breakout": 9,
-      "breakout_pct": 6.87,
-      "gain_since_breakout": -13.12,
-      "ma150": 15576,
+      "breakout_pct": 5.77,
+      "gain_since_breakout": -14.01,
+      "ma150": 15574,
       "above_ma150": true,
-      "market_cap": 1610,
-      "success_prob": 83.6,
-      "predicted_gain": 35.0,
-      "ai_score": 88.5,
-      "updated_at": "2026-03-09T13:33:26.745972"
+      "market_cap": 1593,
+      "success_prob": 81.1,
+      "predicted_gain": 37.3,
+      "ai_score": 86.7,
+      "updated_at": "2026-03-09T16:36:23.301160"
+    },
+    {
+      "ticker": "007700",
+      "name": "F&F홀딩스",
+      "price": 17950,
+      "change_rate": -5.13,
+      "breakout_date": "2026-02-23",
+      "resistance": 21550,
+      "days_since_breakout": 9,
+      "breakout_pct": -16.71,
+      "gain_since_breakout": -20.4,
+      "ma150": 19347,
+      "above_ma150": false,
+      "market_cap": 7021,
+      "success_prob": 40.1,
+      "predicted_gain": 20.0,
+      "ai_score": 46.1,
+      "updated_at": "2026-03-09T16:36:10.675167"
     },
     {
       "ticker": "002620",
@@ -36,46 +54,28 @@
       "ma150": 8350,
       "above_ma150": true,
       "market_cap": 1359,
-      "success_prob": 67.9,
-      "predicted_gain": 16.1,
-      "ai_score": 62.0,
-      "updated_at": "2026-03-09T13:33:25.006070"
-    },
-    {
-      "ticker": "007700",
-      "name": "F&F홀딩스",
-      "price": 17740,
-      "change_rate": -6.24,
-      "breakout_date": "2026-02-23",
-      "resistance": 21550,
-      "days_since_breakout": 9,
-      "breakout_pct": -17.68,
-      "gain_since_breakout": -21.33,
-      "ma150": 19346,
-      "above_ma150": false,
-      "market_cap": 6939,
-      "success_prob": 40.1,
-      "predicted_gain": 20.0,
-      "ai_score": 46.1,
-      "updated_at": "2026-03-09T13:33:13.354294"
+      "success_prob": 40.4,
+      "predicted_gain": 17.0,
+      "ai_score": 43.6,
+      "updated_at": "2026-03-09T16:36:22.348635"
     },
     {
       "ticker": "039340",
       "name": "한국경제TV",
-      "price": 4465,
-      "change_rate": -3.35,
+      "price": 4570,
+      "change_rate": -1.08,
       "breakout_date": "2026-02-20",
       "resistance": 5660,
       "days_since_breakout": 10,
-      "breakout_pct": -21.11,
-      "gain_since_breakout": -23.81,
-      "ma150": 5531,
+      "breakout_pct": -19.26,
+      "gain_since_breakout": -22.01,
+      "ma150": 5532,
       "above_ma150": false,
-      "market_cap": 1006,
-      "success_prob": 19.6,
+      "market_cap": 1028,
+      "success_prob": 13.4,
       "predicted_gain": 10.1,
-      "ai_score": 22.8,
-      "updated_at": "2026-03-09T13:33:27.809238"
+      "ai_score": 18.5,
+      "updated_at": "2026-03-09T16:36:23.848964"
     }
   ]
 }
