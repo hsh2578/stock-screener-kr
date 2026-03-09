@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-09T12:21:50.005173",
-    "totalCount": 10,
-    "screened_from": 1451
+    "lastUpdated": "2026-03-09T13:33:21.274033",
+    "totalCount": 13,
+    "screened_from": 1452
   },
   "data": [
     {
@@ -10,120 +10,156 @@
       "name": "제이씨케미칼",
       "price": 4575,
       "change_rate": 29.97,
-      "volume_ratio": 46.3,
+      "volume_ratio": 46.5,
       "volume_rank": 1,
       "ma150": 3436,
       "above_ma150": true,
       "market_cap": 1019,
-      "updated_at": "2026-03-09T12:21:47.390625"
+      "updated_at": "2026-03-09T13:33:20.004976"
     },
     {
       "ticker": "002100",
       "name": "경농",
-      "price": 10860,
-      "change_rate": 14.92,
-      "volume_ratio": 19.6,
+      "price": 10600,
+      "change_rate": 12.17,
+      "volume_ratio": 21.8,
       "volume_rank": 2,
-      "ma150": 9477,
+      "ma150": 9475,
       "above_ma150": true,
-      "market_cap": 2120,
-      "updated_at": "2026-03-09T12:21:44.344948"
+      "market_cap": 2065,
+      "updated_at": "2026-03-09T13:33:17.737222"
     },
     {
       "ticker": "025860",
       "name": "남해화학",
       "price": 9860,
       "change_rate": 29.91,
-      "volume_ratio": 15.5,
+      "volume_ratio": 15.6,
       "volume_rank": 3,
       "ma150": 6897,
       "above_ma150": true,
       "market_cap": 4898,
-      "updated_at": "2026-03-09T12:21:44.555159"
+      "updated_at": "2026-03-09T13:33:17.894605"
+    },
+    {
+      "ticker": "053050",
+      "name": "지에스이",
+      "price": 4000,
+      "change_rate": 22.7,
+      "volume_ratio": 11.9,
+      "volume_rank": 4,
+      "ma150": 2613,
+      "above_ma150": true,
+      "market_cap": 1189,
+      "updated_at": "2026-03-09T13:33:20.173262"
     },
     {
       "ticker": "117580",
       "name": "대성에너지",
       "price": 15090,
       "change_rate": 27.13,
-      "volume_ratio": 9.6,
-      "volume_rank": 4,
+      "volume_ratio": 11.3,
+      "volume_rank": 5,
       "ma150": 8313,
       "above_ma150": true,
-      "market_cap": 4180,
-      "updated_at": "2026-03-09T12:21:44.785324"
-    },
-    {
-      "ticker": "053050",
-      "name": "지에스이",
-      "price": 3945,
-      "change_rate": 21.01,
-      "volume_ratio": 9.6,
-      "volume_rank": 5,
-      "ma150": 2612,
-      "above_ma150": true,
-      "market_cap": 1192,
-      "updated_at": "2026-03-09T12:21:47.589367"
-    },
-    {
-      "ticker": "024740",
-      "name": "한일단조",
-      "price": 4170,
-      "change_rate": 12.1,
-      "volume_ratio": 7.5,
-      "volume_rank": 6,
-      "ma150": 2245,
-      "above_ma150": true,
-      "market_cap": 1367,
-      "updated_at": "2026-03-09T12:21:49.592307"
+      "market_cap": 4150,
+      "updated_at": "2026-03-09T13:33:17.919120"
     },
     {
       "ticker": "005860",
       "name": "한일사료",
       "price": 5110,
       "change_rate": 24.33,
-      "volume_ratio": 6.9,
-      "volume_rank": 7,
+      "volume_ratio": 7.7,
+      "volume_rank": 6,
       "ma150": 3296,
       "above_ma150": true,
-      "market_cap": 2010,
-      "updated_at": "2026-03-09T12:21:49.595784"
+      "market_cap": 2017,
+      "updated_at": "2026-03-09T13:33:20.965779"
     },
     {
       "ticker": "000440",
       "name": "중앙에너비스",
-      "price": 35700,
-      "change_rate": 22.47,
-      "volume_ratio": 5.1,
-      "volume_rank": 8,
-      "ma150": 16206,
+      "price": 34850,
+      "change_rate": 19.55,
+      "volume_ratio": 5.6,
+      "volume_rank": 7,
+      "ma150": 16200,
       "above_ma150": true,
-      "market_cap": 2245,
-      "updated_at": "2026-03-09T12:21:47.523654"
-    },
-    {
-      "ticker": "014530",
-      "name": "극동유화",
-      "price": 5160,
-      "change_rate": 20.42,
-      "volume_ratio": 4.2,
-      "volume_rank": 9,
-      "ma150": 3443,
-      "above_ma150": true,
-      "market_cap": 1799,
-      "updated_at": "2026-03-09T12:21:44.528753"
+      "market_cap": 2164,
+      "updated_at": "2026-03-09T13:33:20.104648"
     },
     {
       "ticker": "093640",
       "name": "케이알엠",
-      "price": 5320,
-      "change_rate": 16.79,
-      "volume_ratio": 4.0,
-      "volume_rank": 10,
+      "price": 5290,
+      "change_rate": 16.14,
+      "volume_ratio": 4.9,
+      "volume_rank": 8,
       "ma150": 4034,
       "above_ma150": true,
-      "market_cap": 1723,
-      "updated_at": "2026-03-09T12:21:47.708861"
+      "market_cap": 1727,
+      "updated_at": "2026-03-09T13:33:20.238192"
+    },
+    {
+      "ticker": "014530",
+      "name": "극동유화",
+      "price": 4995,
+      "change_rate": 16.57,
+      "volume_ratio": 4.7,
+      "volume_rank": 9,
+      "ma150": 3442,
+      "above_ma150": true,
+      "market_cap": 1733,
+      "updated_at": "2026-03-09T13:33:17.789641"
+    },
+    {
+      "ticker": "017860",
+      "name": "DS단석",
+      "price": 19820,
+      "change_rate": 14.1,
+      "volume_ratio": 4.0,
+      "volume_rank": 10,
+      "ma150": 20359,
+      "above_ma150": false,
+      "market_cap": 3485,
+      "updated_at": "2026-03-09T13:33:17.347995"
+    },
+    {
+      "ticker": "389030",
+      "name": "지니너스",
+      "price": 4870,
+      "change_rate": 15.27,
+      "volume_ratio": 3.5,
+      "volume_rank": 11,
+      "ma150": 2483,
+      "above_ma150": true,
+      "market_cap": 1616,
+      "updated_at": "2026-03-09T13:33:20.125722"
+    },
+    {
+      "ticker": "217730",
+      "name": "강스템바이오텍",
+      "price": 2280,
+      "change_rate": 13.43,
+      "volume_ratio": 2.9,
+      "volume_rank": 12,
+      "ma150": 1667,
+      "above_ma150": true,
+      "market_cap": 2144,
+      "updated_at": "2026-03-09T13:33:17.695057"
+    },
+    {
+      "ticker": "309710",
+      "name": "아이티켐",
+      "price": 36450,
+      "change_rate": 16.08,
+      "volume_ratio": 2.3,
+      "volume_rank": 13,
+      "ma150": null,
+      "above_ma150": false,
+      "market_cap": 4679,
+      "updated_at": "2026-03-09T13:33:19.166207"
     }
   ]
 }
