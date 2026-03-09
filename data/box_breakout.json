@@ -1,63 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-06T18:04:07.699024",
-    "totalCount": 3,
-    "screened_from": 1482
+    "lastUpdated": "2026-03-09T12:21:58.761073",
+    "totalCount": 2,
+    "screened_from": 1451
   },
   "data": [
     {
       "ticker": "078000",
       "name": "텔코웨어",
-      "price": 17800,
-      "change_rate": 1.19,
+      "price": 17000,
+      "change_rate": -4.49,
       "breakout_date": "2026-02-23",
       "breakout_price": 16300,
-      "breakout_pct": 9.2,
-      "gain_since_breakout": -11.22,
+      "breakout_pct": 4.29,
+      "gain_since_breakout": -15.21,
       "volume_ratio": 48.1,
-      "ma150": 15564,
+      "ma150": 15573,
       "above_ma150": true,
-      "market_cap": 1645,
-      "success_prob": 84.5,
-      "predicted_gain": 35.2,
-      "ai_score": 89.2,
-      "updated_at": "2026-03-06T18:04:06.619607"
-    },
-    {
-      "ticker": "009290",
-      "name": "광동제약",
-      "price": 8820,
-      "change_rate": 6.78,
-      "breakout_date": "2026-02-19",
-      "breakout_price": 6250,
-      "breakout_pct": 41.12,
-      "gain_since_breakout": 10.25,
-      "volume_ratio": 24.8,
-      "ma150": 6199,
-      "above_ma150": true,
-      "market_cap": 4392,
-      "success_prob": 83.7,
-      "predicted_gain": 36.1,
-      "ai_score": 88.6,
-      "updated_at": "2026-03-06T18:03:59.969531"
+      "market_cap": 1566,
+      "success_prob": 83.6,
+      "predicted_gain": 35.0,
+      "ai_score": 88.5,
+      "updated_at": "2026-03-09T12:21:57.542167"
     },
     {
       "ticker": "002620",
       "name": "제일파마홀딩스",
-      "price": 8790,
-      "change_rate": -0.34,
+      "price": 8470,
+      "change_rate": -3.64,
       "breakout_date": "2026-02-24",
       "breakout_price": 8430,
-      "breakout_pct": 4.27,
-      "gain_since_breakout": -1.79,
+      "breakout_pct": 0.47,
+      "gain_since_breakout": -5.36,
       "volume_ratio": 140.5,
-      "ma150": 8353,
+      "ma150": 8350,
       "above_ma150": true,
-      "market_cap": 1404,
+      "market_cap": 1353,
       "success_prob": 67.9,
       "predicted_gain": 16.1,
       "ai_score": 62.0,
-      "updated_at": "2026-03-06T18:04:05.870945"
+      "updated_at": "2026-03-09T12:21:56.768878"
     }
   ]
 }
