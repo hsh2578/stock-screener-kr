@@ -3279,6 +3279,16 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         if days_since_high < 1:
             continue
 
+        # 8거래일 이내 종가 기준 돌파 종목 제외 → 52주 신고가 스크리너 담당
+        # (저항선은 8일 이전 데이터 기준으로 산출해 종가와 비교)
+        base_idx = total_len - 1 - NEAR_HIGH_MAX_DAYS - 1
+        if base_idx >= HIGH_52W_PERIOD:
+            old_resistance = high.iloc[base_idx - HIGH_52W_PERIOD:base_idx].max()
+            if not pd.isna(old_resistance) and old_resistance > 0:
+                lookback_closes = close.iloc[total_len - 1 - NEAR_HIGH_MAX_DAYS:]
+                if (lookback_closes >= old_resistance).any():
+                    continue
+
         # 9일 전(룩백 직전)에도 이미 근접 구간이면 제외
         # → 진입일이 불명확한 장기 체류 종목 (매일 days_since=8로 쌓이는 문제 방지)
         pre_idx = total_len - 1 - (NEAR_HIGH_MAX_DAYS + 1)
