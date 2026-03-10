@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-03-09T21:00:57.979151",
-    "total_count": 7,
+    "updated_at": "2026-03-10T20:57:37.012190",
+    "total_count": 4,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -12,86 +12,50 @@
     {
       "ticker": "011200",
       "name": "HMM",
-      "current_price": 20650,
-      "ma60w": 20571,
-      "ma60w_gap": 0.38,
+      "current_price": 20900,
+      "ma60w": 20544,
+      "ma60w_gap": 1.73,
       "op_margin": 18.9,
       "op_growth_3y": 122.5,
-      "market_cap": 194779,
+      "market_cap": 197137,
       "sector": "기타",
-      "updated_at": "2026-03-09T21:00:49.567690"
-    },
-    {
-      "ticker": "051600",
-      "name": "한전KPS",
-      "current_price": 54400,
-      "ma60w": 49987,
-      "ma60w_gap": 8.83,
-      "op_margin": 10.3,
-      "op_growth_3y": 11.6,
-      "market_cap": 24480,
-      "sector": "기타",
-      "updated_at": "2026-03-09T21:00:53.911506"
-    },
-    {
-      "ticker": "000240",
-      "name": "한국앤컴퍼니",
-      "current_price": 24900,
-      "ma60w": 22785,
-      "ma60w_gap": 9.28,
-      "op_margin": 26.1,
-      "op_growth_3y": 18.6,
-      "market_cap": 23639,
-      "sector": "기타",
-      "updated_at": "2026-03-09T21:00:53.912360"
+      "updated_at": "2026-03-10T20:57:30.161571"
     },
     {
       "ticker": "069620",
       "name": "대웅제약",
-      "current_price": 162100,
-      "ma60w": 151837,
-      "ma60w_gap": 6.76,
+      "current_price": 164400,
+      "ma60w": 151997,
+      "ma60w_gap": 8.16,
       "op_margin": 12.5,
       "op_growth_3y": 26.2,
-      "market_cap": 18782,
+      "market_cap": 19048,
       "sector": "기타",
-      "updated_at": "2026-03-09T21:00:53.920016"
+      "updated_at": "2026-03-10T20:57:33.750197"
     },
     {
       "ticker": "395400",
       "name": "SK리츠",
-      "current_price": 5690,
-      "ma60w": 5205,
-      "ma60w_gap": 9.32,
+      "current_price": 5650,
+      "ma60w": 5209,
+      "ma60w_gap": 8.46,
       "op_margin": 85.7,
       "op_growth_3y": 109.2,
-      "market_cap": 17128,
+      "market_cap": 17007,
       "sector": "기타",
-      "updated_at": "2026-03-09T21:00:57.955454"
-    },
-    {
-      "ticker": "073240",
-      "name": "금호타이어",
-      "current_price": 5820,
-      "ma60w": 5399,
-      "ma60w_gap": 7.79,
-      "op_margin": 12.2,
-      "op_growth_3y": 573.7,
-      "market_cap": 16719,
-      "sector": "기타",
-      "updated_at": "2026-03-09T21:00:57.956939"
+      "updated_at": "2026-03-10T20:57:36.991819"
     },
     {
       "ticker": "003570",
       "name": "SNT다이내믹스",
-      "current_price": 47800,
-      "ma60w": 45642,
-      "ma60w_gap": 4.73,
+      "current_price": 47950,
+      "ma60w": 45658,
+      "ma60w_gap": 5.02,
       "op_margin": 12.0,
       "op_growth_3y": 47.7,
-      "market_cap": 15895,
+      "market_cap": 15945,
       "sector": "기타",
-      "updated_at": "2026-03-09T21:00:57.958900"
+      "updated_at": "2026-03-10T20:57:36.994968"
     }
   ]
 }
