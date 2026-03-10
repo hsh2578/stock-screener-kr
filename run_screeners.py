@@ -3256,13 +3256,12 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         total_len = len(df)
         current_close = close.iloc[-1]
 
-        # --- 52주 신고가 계산 (돌파 스크리너와 동일: 룩백 구간 전 데이터) ---
-        # 룩백 8일 전까지의 데이터로 52주 고가 계산 → 돌파 감지 가능
-        base_idx = total_len - 1 - NEAR_HIGH_MAX_DAYS - 1
-        if base_idx < HIGH_52W_PERIOD:
+        # --- 52주 신고가 계산: 최근 250거래일 전체 기준 (8거래일 포함) ---
+        # 8거래일 이내에 신고가가 갱신된 경우도 올바르게 반영
+        if total_len < HIGH_52W_PERIOD:
             continue
 
-        high_window = high.iloc[base_idx - HIGH_52W_PERIOD:base_idx]
+        high_window = high.iloc[max(0, total_len - HIGH_52W_PERIOD):]
         if high_window.empty:
             continue
 
@@ -3274,21 +3273,15 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         high_52w_idx = high_window.idxmax()
         high_52w_date = high_52w_idx.strftime('%Y-%m-%d') if high_52w_idx is not None else None
 
-        # 확립된 저항선: 고가 기록 후 20거래일 이상 경과 (룩백 시작 시점 기준)
+        # 오늘 신고가 제외 (당일 갱신 중인 종목은 아직 확정 안 됨)
         high_pos = high_window.index.get_loc(high_52w_idx)
         days_since_high = len(high_window) - 1 - high_pos
-        if days_since_high < 20:
-            continue
-
-        # 룩백 구간 내 이미 돌파한 종목 제외
-        # (돌파 후 조정 종목이 근접으로 잘못 분류되는 것 방지)
-        lookback_closes = close.iloc[total_len - 1 - NEAR_HIGH_MAX_DAYS:]
-        if (lookback_closes >= high_52w).any():
+        if days_since_high < 1:
             continue
 
         # 9일 전(룩백 직전)에도 이미 근접 구간이면 제외
         # → 진입일이 불명확한 장기 체류 종목 (매일 days_since=8로 쌓이는 문제 방지)
-        pre_idx = total_len - 1 - (NEAR_HIGH_MAX_DAYS + 1)  # = base_idx (9일 전)
+        pre_idx = total_len - 1 - (NEAR_HIGH_MAX_DAYS + 1)
         if pre_idx >= 0:
             pre_close = close.iloc[pre_idx]
             pre_gap = (high_52w - pre_close) / high_52w * 100
@@ -3305,7 +3298,7 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
                 continue
             past_close = close.iloc[idx]
             past_gap = (high_52w - past_close) / high_52w * 100
-            if past_gap <= NEAR_HIGH_52W_THRESHOLD and past_close < high_52w:
+            if 0 < past_gap <= NEAR_HIGH_52W_THRESHOLD:
                 days_since = days_ago
                 entry_idx = idx
                 break
