@@ -1,45 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-10T13:25:55.956264",
+    "lastUpdated": "2026-03-10T14:36:37.791659",
     "totalCount": 2,
-    "screened_from": 1468
+    "screened_from": 1472
   },
   "data": [
     {
       "ticker": "078000",
       "name": "텔코웨어",
-      "price": 17320,
-      "change_rate": 0.46,
+      "price": 17270,
+      "change_rate": 0.17,
       "breakout_date": "2026-02-23",
       "resistance": 16300,
       "days_since_breakout": 10,
-      "breakout_pct": 6.26,
-      "gain_since_breakout": -13.62,
+      "breakout_pct": 5.95,
+      "gain_since_breakout": -13.87,
       "ma150": 15587,
       "above_ma150": true,
-      "market_cap": 1600,
+      "market_cap": 1599,
       "success_prob": 83.6,
       "predicted_gain": 35.0,
       "ai_score": 88.5,
-      "updated_at": "2026-03-10T13:25:53.167553"
+      "updated_at": "2026-03-10T14:36:35.276389"
     },
     {
       "ticker": "002620",
       "name": "제일파마홀딩스",
-      "price": 8520,
-      "change_rate": 0.12,
+      "price": 8540,
+      "change_rate": 0.35,
       "breakout_date": "2026-02-24",
       "resistance": 8430,
       "days_since_breakout": 9,
-      "breakout_pct": 1.07,
-      "gain_since_breakout": -4.8,
+      "breakout_pct": 1.3,
+      "gain_since_breakout": -4.58,
       "ma150": 8348,
       "above_ma150": true,
-      "market_cap": 1361,
-      "success_prob": 67.9,
-      "predicted_gain": 16.1,
-      "ai_score": 62.0,
-      "updated_at": "2026-03-10T13:25:51.439152"
+      "market_cap": 1364,
+      "success_prob": 40.4,
+      "predicted_gain": 17.0,
+      "ai_score": 43.6,
+      "updated_at": "2026-03-10T14:36:33.544843"
     }
   ]
 }
