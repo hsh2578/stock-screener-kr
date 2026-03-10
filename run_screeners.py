@@ -3286,6 +3286,15 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         if (lookback_closes >= high_52w).any():
             continue
 
+        # 9일 전(룩백 직전)에도 이미 근접 구간이면 제외
+        # → 진입일이 불명확한 장기 체류 종목 (매일 days_since=8로 쌓이는 문제 방지)
+        pre_idx = total_len - 1 - (NEAR_HIGH_MAX_DAYS + 1)  # = base_idx (9일 전)
+        if pre_idx >= 0:
+            pre_close = close.iloc[pre_idx]
+            pre_gap = (high_52w - pre_close) / high_52w * 100
+            if 0 < pre_gap <= NEAR_HIGH_52W_THRESHOLD:
+                continue
+
         # --- 8거래일 룩백: 근접 구간 최초 진입일 찾기 ---
         # 52주 신고가 돌파 스크리너와 동일 패턴: 과거→현재 순회
         days_since = None
