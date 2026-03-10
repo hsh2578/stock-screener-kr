@@ -1,27 +1,63 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-10T14:36:34.101190",
-    "totalCount": 1,
-    "screened_from": 1472
+    "lastUpdated": "2026-03-10T16:17:22.994269",
+    "totalCount": 3,
+    "screened_from": 1477
   },
   "data": [
     {
       "ticker": "228850",
       "name": "레이언스",
-      "price": 6040,
-      "change_rate": 0.67,
+      "price": 6300,
+      "change_rate": 5.0,
       "explosion_date": "2026-03-05",
       "explosion_change_rate": 10.0,
       "explosion_volume_ratio": 4.1,
       "days_since_detected": 3,
-      "volume_decrease_rate": 78,
+      "volume_decrease_rate": 76,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
-      "ma150": 5576,
+      "ma150": 5578,
       "above_ma150": true,
-      "market_cap": 1002,
-      "updated_at": "2026-03-10T14:36:27.962541"
+      "market_cap": 1045,
+      "updated_at": "2026-03-10T16:17:18.585492"
+    },
+    {
+      "ticker": "005440",
+      "name": "현대지에프홀딩스",
+      "price": 14090,
+      "change_rate": 0.93,
+      "explosion_date": "2026-02-24",
+      "explosion_change_rate": 20.2,
+      "explosion_volume_ratio": 8.4,
+      "days_since_detected": 9,
+      "volume_decrease_rate": 96,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 0.05,
+      "volume_rank": 2,
+      "ma150": 9006,
+      "above_ma150": true,
+      "market_cap": 21967,
+      "updated_at": "2026-03-10T16:17:22.892027"
+    },
+    {
+      "ticker": "363280",
+      "name": "티와이홀딩스",
+      "price": 2750,
+      "change_rate": 0.18,
+      "explosion_date": "2026-02-23",
+      "explosion_change_rate": 16.4,
+      "explosion_volume_ratio": 8.0,
+      "days_since_detected": 10,
+      "volume_decrease_rate": 89,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 0.26,
+      "volume_rank": 3,
+      "ma150": 2850,
+      "above_ma150": false,
+      "market_cap": 1387,
+      "updated_at": "2026-03-10T16:17:22.267892"
     }
   ]
 }
