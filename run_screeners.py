@@ -3280,6 +3280,12 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         if days_since_high < 20:
             continue
 
+        # 룩백 구간 내 이미 돌파한 종목 제외
+        # (돌파 후 조정 종목이 근접으로 잘못 분류되는 것 방지)
+        lookback_closes = close.iloc[total_len - 1 - NEAR_HIGH_MAX_DAYS:]
+        if (lookback_closes >= high_52w).any():
+            continue
+
         # --- 8거래일 룩백: 근접 구간 최초 진입일 찾기 ---
         # 52주 신고가 돌파 스크리너와 동일 패턴: 과거→현재 순회
         days_since = None
