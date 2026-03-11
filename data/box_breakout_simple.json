@@ -1,45 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-11T13:41:33.398024",
+    "lastUpdated": "2026-03-11T14:37:39.122340",
     "totalCount": 2,
-    "screened_from": 1496
+    "screened_from": 1491
   },
   "data": [
     {
       "ticker": "002620",
       "name": "제일파마홀딩스",
-      "price": 8800,
-      "change_rate": 2.68,
+      "price": 8750,
+      "change_rate": 2.1,
       "breakout_date": "2026-02-24",
       "resistance": 8430,
       "days_since_breakout": 10,
-      "breakout_pct": 4.39,
-      "gain_since_breakout": -1.68,
+      "breakout_pct": 3.8,
+      "gain_since_breakout": -2.23,
       "ma150": 8349,
       "above_ma150": true,
-      "market_cap": 1406,
+      "market_cap": 1398,
       "success_prob": 40.4,
       "predicted_gain": 17.0,
       "ai_score": 43.6,
-      "updated_at": "2026-03-11T13:41:26.395336"
+      "updated_at": "2026-03-11T14:37:32.200736"
     },
     {
       "ticker": "145720",
       "name": "덴티움",
-      "price": 55100,
-      "change_rate": 3.57,
+      "price": 54700,
+      "change_rate": 2.82,
       "breakout_date": "2026-03-11",
       "resistance": 52500,
       "days_since_breakout": 0,
-      "breakout_pct": 4.95,
+      "breakout_pct": 4.19,
       "gain_since_breakout": 0.0,
-      "ma150": 53431,
+      "ma150": 53428,
       "above_ma150": true,
-      "market_cap": 5650,
-      "success_prob": 27.7,
-      "predicted_gain": 15.1,
-      "ai_score": 33.0,
-      "updated_at": "2026-03-11T13:41:18.399672"
+      "market_cap": 5609,
+      "success_prob": 11.2,
+      "predicted_gain": 15.0,
+      "ai_score": 21.3,
+      "updated_at": "2026-03-11T14:37:24.217305"
     }
   ]
 }
