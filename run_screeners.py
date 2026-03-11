@@ -3654,10 +3654,12 @@ def generate_chart_data(all_results: List[List[Dict]]) -> None:
 
 def screen_price_rise(stocks: pd.DataFrame) -> List[Dict]:
     """
-    상승률 상위 스크리너
-    당일 상승률 상위 20개 종목을 선별합니다.
+    상승률 상위 스크리너 — 최근 5거래일 각 상위 20종목
+    days_ago=0이 오늘, 1이 1거래일 전, ..., 4가 4거래일 전.
+    since_return: 진입일 종가 대비 현재가 등락률 (이후 움직임 추적용).
     """
-    results = []
+    LOOKBACK_DAYS = 5
+    TOP_N = 20
 
     # 재무 데이터 로드 (PER/PBR용)
     financial_data = {}
@@ -3669,33 +3671,29 @@ def screen_price_rise(stocks: pd.DataFrame) -> List[Dict]:
         except Exception:
             pass
 
+    # days_ago별 후보 리스트
+    day_buckets: dict[int, list] = {d: [] for d in range(LOOKBACK_DAYS)}
+
     for _, row in stocks.iterrows():
         ticker = row['Code']
         name = row['Name']
         market_cap = row.get('MarketCap', 0)
 
-        df = get_ohlcv(ticker, days=155)
-        if df is None or len(df) < 2:
+        df = get_ohlcv(ticker, days=165)
+        if df is None or len(df) < LOOKBACK_DAYS + 2:
             continue
 
         current_price = int(df['Close'].iloc[-1])
-        prev_price = float(df['Close'].iloc[-2])
-        if prev_price <= 0:
-            continue
 
-        change_rate = (current_price - prev_price) / prev_price * 100
-
-        # 상승 종목만
-        if change_rate <= 0:
-            continue
-
-        today_volume = int(df['Volume'].iloc[-1])
-        avg_volume = df['Volume'].iloc[-21:-1].mean() if len(df) >= 21 else df['Volume'].iloc[:-1].mean()
-        volume_ratio = round(today_volume / avg_volume, 1) if avg_volume > 0 else 0
+        # MA150 (현재 기준)
+        ma150 = None
+        above_ma150 = False
+        if len(df) >= 150:
+            ma150 = int(df['Close'].rolling(150).mean().iloc[-1])
+            above_ma150 = bool(current_price > ma150)
 
         # PER/PBR
-        per = None
-        pbr = None
+        per = pbr = None
         fd = financial_data.get(ticker, {})
         if fd:
             per_val = fd.get('per')
@@ -3703,30 +3701,51 @@ def screen_price_rise(stocks: pd.DataFrame) -> List[Dict]:
             per = round(per_val, 1) if per_val and not pd.isna(per_val) else None
             pbr = round(pbr_val, 2) if pbr_val and not pd.isna(pbr_val) else None
 
-        # 150일선
-        ma150 = None
-        above_ma150 = False
-        if len(df) >= 150:
-            ma150 = int(df['Close'].rolling(150).mean().iloc[-1])
-            above_ma150 = bool(current_price > ma150)
+        for days_ago in range(LOOKBACK_DAYS):
+            if len(df) < days_ago + 2:
+                continue
 
-        results.append({
-            'ticker': ticker,
-            'name': name,
-            'price': current_price,
-            'change_rate': round(change_rate, 2),
-            'volume': today_volume,
-            'volume_ratio': volume_ratio,
-            'market_cap': market_cap,
-            'per': per,
-            'pbr': pbr,
-            'ma150': ma150,
-            'above_ma150': above_ma150,
-        })
+            entry_price = float(df['Close'].iloc[-(1 + days_ago)])
+            prev_price  = float(df['Close'].iloc[-(2 + days_ago)])
+            if prev_price <= 0 or entry_price <= 0:
+                continue
 
-    # 상승률 내림차순 정렬, 상위 20개 반환
-    results.sort(key=lambda x: x['change_rate'], reverse=True)
-    return results[:20]
+            change_rate = (entry_price - prev_price) / prev_price * 100
+            if change_rate <= 0:
+                continue
+
+            since_return = (current_price / entry_price - 1) * 100
+
+            # 거래량비 (진입일 기준 20일 평균)
+            entry_abs = len(df) - 1 - days_ago
+            vol_entry = int(df['Volume'].iloc[entry_abs])
+            avg_vol = df['Volume'].iloc[max(0, entry_abs - 21):entry_abs].mean()
+            volume_ratio = round(vol_entry / avg_vol, 1) if avg_vol > 0 else 0
+
+            day_buckets[days_ago].append({
+                'ticker': ticker,
+                'name': name,
+                'price': current_price,
+                'entry_price': int(entry_price),
+                'change_rate': round(change_rate, 2),
+                'since_return': round(since_return, 2),
+                'days_ago': days_ago,
+                'volume': vol_entry,
+                'volume_ratio': volume_ratio,
+                'market_cap': market_cap,
+                'per': per,
+                'pbr': pbr,
+                'ma150': ma150,
+                'above_ma150': above_ma150,
+            })
+
+    # 각 날짜별 상위 TOP_N 추출 후 합산 (오늘→4일전 순)
+    results = []
+    for days_ago in range(LOOKBACK_DAYS):
+        day_buckets[days_ago].sort(key=lambda x: x['change_rate'], reverse=True)
+        results.extend(day_buckets[days_ago][:TOP_N])
+
+    return results
 
 
 # ============================================================================

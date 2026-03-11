@@ -5407,28 +5407,37 @@
             }
 
             const headers = [
+                { label: '경과일', key: 'days_ago' },
                 { label: '종목명', key: 'name' },
                 { label: '현재가', align: 'text-right', key: 'price' },
                 { label: '시가총액', align: 'text-right', key: 'market_cap' },
                 { label: 'PER', align: 'text-right', key: 'per' },
                 { label: 'PBR', align: 'text-right', key: 'pbr' },
-                { label: '등락률', align: 'text-right', key: 'change_rate' },
+                { label: '진입등락률', align: 'text-right', key: 'change_rate' },
+                { label: '이후등락률', align: 'text-right', key: 'since_return' },
                 { label: '거래량비', align: 'text-right', key: 'volume_ratio' }
             ];
             const state = sortState[cacheKey] || {};
             const sortedData = sortData(filteredData, state.key, state.direction);
             const paginatedData = paginate(sortedData, paginationState.priceRise);
-            const rows = paginatedData.map(s => `
+            const rows = paginatedData.map(s => {
+                const daysAgoLabel = s.days_ago === 0
+                    ? '<span class="badge badge-danger">오늘</span>'
+                    : s.days_ago + '일전';
+                const sinceReturn = s.days_ago === 0 ? '-' : `<span class="${getColor(s.since_return)}" style="font-weight:700">${formatPercent(s.since_return)}</span>`;
+                return `
                 <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
+                    <td class="text-center">${daysAgoLabel}</td>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
                     <td class="text-right ${getPERColor(s.per)}">${formatPER(s.per)}</td>
                     <td class="text-right ${getPBRColor(s.pbr)}">${formatPBR(s.pbr)}</td>
                     <td class="text-right ${getColor(s.change_rate)}" style="font-weight:700">${formatPercent(s.change_rate)}</td>
+                    <td class="text-right">${sinceReturn}</td>
                     <td class="text-right">${s.volume_ratio != null ? s.volume_ratio.toFixed(1) + 'x' : '-'}</td>
-                </tr>
-            `).join('');
+                </tr>`;
+            }).join('');
             renderTable(cacheKey, headers, rows, renderPriceRise);
             renderMobileCards('price-rise-mobile', paginatedData, {
                 extraFields: [
