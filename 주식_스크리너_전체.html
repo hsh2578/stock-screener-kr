@@ -3591,6 +3591,20 @@
                        d.close >= stockData[i-1].close ? 'rgba(227, 27, 27, 0.4)' : 'rgba(18, 97, 196, 0.4)'
             })));
 
+            // 52주 고가선 (최근 250거래일 최고가 수평선)
+            if (stockData.length >= 2) {
+                const lookback = Math.min(250, stockData.length);
+                const high52w = Math.max(...stockData.slice(-lookback).map(d => d.high));
+                candleSeries.createPriceLine({
+                    price: high52w,
+                    color: '#FF6B35',
+                    lineWidth: 1,
+                    lineStyle: 2, // dashed
+                    axisLabelVisible: true,
+                    title: '52주 고가'
+                });
+            }
+
             // 초기 표시: 최근 8개월(~170거래일), 축소하면 3년치 전체 확인 가능
             const barsToShow = Math.min(170, stockData.length);
             chartInstance.timeScale().setVisibleLogicalRange({
