@@ -3591,17 +3591,15 @@
                        d.close >= stockData[i-1].close ? 'rgba(227, 27, 27, 0.4)' : 'rgba(18, 97, 196, 0.4)'
             })));
 
-            // 52주 고가선 (최근 250거래일 최고가 수평선)
-            if (stockData.length >= 2) {
-                const lookback = Math.min(250, stockData.length);
-                const high52w = Math.max(...stockData.slice(-lookback).map(d => d.high));
+            // 돌파 전 저항선 (52주 신고가 스크리너에서만 표시)
+            if (stock.resistance) {
                 candleSeries.createPriceLine({
-                    price: high52w,
+                    price: stock.resistance,
                     color: '#FF6B35',
                     lineWidth: 1,
                     lineStyle: 2, // dashed
                     axisLabelVisible: true,
-                    title: '52주 고가'
+                    title: '돌파 전 고가'
                 });
             }
 
@@ -4560,7 +4558,7 @@
             };
 
             const rows = paginatedData.map(s => `
-                <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate})})'>
+                <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate,resistance:s.high_52w})})'>
                     <td><div class="stock-name">${s.name}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
