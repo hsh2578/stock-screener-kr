@@ -1,23 +1,37 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-11T18:07:17.916533",
-    "totalCount": 1,
-    "screened_from": 1489
+    "lastUpdated": "2026-03-12T12:18:21.957881",
+    "totalCount": 2,
+    "screened_from": 1488
   },
   "data": [
     {
-      "ticker": "002620",
-      "name": "제일파마홀딩스",
-      "price": 8750,
-      "change_rate": 2.1,
-      "breakout_date": "2026-02-24",
-      "resistance": 8430,
-      "pullback_ratio": 3.8,
-      "volume_decrease": 97,
-      "ma150": 8349,
+      "ticker": "267980",
+      "name": "매일유업",
+      "price": 37100,
+      "change_rate": -1.2,
+      "breakout_date": "2026-02-10",
+      "resistance": 37050,
+      "pullback_ratio": 0.13,
+      "volume_decrease": 81,
+      "ma150": 35972,
       "above_ma150": true,
-      "market_cap": 1398,
-      "updated_at": "2026-03-11T18:07:15.374006"
+      "market_cap": 2843,
+      "updated_at": "2026-03-12T12:18:15.864018"
+    },
+    {
+      "ticker": "017890",
+      "name": "한국알콜",
+      "price": 11500,
+      "change_rate": -1.29,
+      "breakout_date": "2026-02-10",
+      "resistance": 11430,
+      "pullback_ratio": 0.61,
+      "volume_decrease": 89,
+      "ma150": 10298,
+      "above_ma150": true,
+      "market_cap": 2446,
+      "updated_at": "2026-03-12T12:18:21.141399"
     }
   ]
 }

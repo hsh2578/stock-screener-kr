@@ -1,45 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-11T18:07:31.575533",
+    "lastUpdated": "2026-03-12T12:18:32.257983",
     "totalCount": 2,
-    "screened_from": 1489
+    "screened_from": 1488
   },
   "data": [
     {
-      "ticker": "086820",
-      "name": "바이오솔루션",
-      "price": 11570,
-      "change_rate": -0.77,
-      "explosion_date": "2026-03-06",
-      "explosion_change_rate": 15.3,
-      "explosion_volume_ratio": 3.7,
-      "days_since_detected": 3,
-      "volume_decrease_rate": 67,
-      "pattern_type": "candle_range",
-      "ma20_distance": null,
+      "ticker": "241520",
+      "name": "DSC인베스트먼트",
+      "price": 15050,
+      "change_rate": -5.88,
+      "explosion_date": "2026-02-19",
+      "explosion_change_rate": 15.7,
+      "explosion_volume_ratio": 3.5,
+      "days_since_detected": 14,
+      "volume_decrease_rate": 93,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 0.15,
       "volume_rank": 1,
-      "ma150": 8438,
+      "ma150": 8207,
       "above_ma150": true,
-      "market_cap": 2811,
-      "updated_at": "2026-03-11T18:07:27.530002"
+      "market_cap": 4061,
+      "updated_at": "2026-03-12T12:18:22.123390"
     },
     {
-      "ticker": "363280",
-      "name": "티와이홀딩스",
-      "price": 2780,
-      "change_rate": 1.09,
-      "explosion_date": "2026-02-23",
-      "explosion_change_rate": 16.4,
-      "explosion_volume_ratio": 8.0,
-      "days_since_detected": 11,
-      "volume_decrease_rate": 87,
+      "ticker": "010690",
+      "name": "화신",
+      "price": 12410,
+      "change_rate": -0.8,
+      "explosion_date": "2026-02-12",
+      "explosion_change_rate": 12.5,
+      "explosion_volume_ratio": 6.2,
+      "days_since_detected": 16,
+      "volume_decrease_rate": 91,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.83,
+      "ma20_distance": 1.34,
       "volume_rank": 2,
-      "ma150": 2845,
-      "above_ma150": false,
-      "market_cap": 1402,
-      "updated_at": "2026-03-11T18:07:30.863118"
+      "ma150": 9020,
+      "above_ma150": true,
+      "market_cap": 4330,
+      "updated_at": "2026-03-12T12:18:32.161360"
     }
   ]
 }
