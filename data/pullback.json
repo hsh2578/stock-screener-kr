@@ -1,37 +1,37 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-12T14:39:09.248244",
+    "lastUpdated": "2026-03-12T16:32:20.088944",
     "totalCount": 2,
-    "screened_from": 1495
+    "screened_from": 1493
   },
   "data": [
     {
       "ticker": "267980",
       "name": "매일유업",
-      "price": 37200,
-      "change_rate": -0.93,
+      "price": 37600,
+      "change_rate": 0.13,
       "breakout_date": "2026-02-10",
       "resistance": 37050,
-      "pullback_ratio": 0.4,
+      "pullback_ratio": 1.48,
       "volume_decrease": 81,
-      "ma150": 35972,
+      "ma150": 35975,
       "above_ma150": true,
-      "market_cap": 2851,
-      "updated_at": "2026-03-12T14:39:05.165529"
+      "market_cap": 2882,
+      "updated_at": "2026-03-12T16:32:15.559698"
     },
     {
       "ticker": "017890",
       "name": "한국알콜",
-      "price": 11580,
-      "change_rate": -0.6,
+      "price": 11650,
+      "change_rate": 0.0,
       "breakout_date": "2026-02-10",
       "resistance": 11430,
-      "pullback_ratio": 1.31,
+      "pullback_ratio": 1.92,
       "volume_decrease": 88,
-      "ma150": 10298,
+      "ma150": 10299,
       "above_ma150": true,
-      "market_cap": 2459,
-      "updated_at": "2026-03-12T14:39:08.688763"
+      "market_cap": 2478,
+      "updated_at": "2026-03-12T16:32:19.771390"
     }
   ]
 }
