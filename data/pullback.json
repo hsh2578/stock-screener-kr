@@ -1,23 +1,23 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-12T12:18:21.957881",
+    "lastUpdated": "2026-03-12T13:28:44.970562",
     "totalCount": 2,
-    "screened_from": 1488
+    "screened_from": 1491
   },
   "data": [
     {
       "ticker": "267980",
       "name": "매일유업",
-      "price": 37100,
-      "change_rate": -1.2,
+      "price": 37200,
+      "change_rate": -0.93,
       "breakout_date": "2026-02-10",
       "resistance": 37050,
-      "pullback_ratio": 0.13,
+      "pullback_ratio": 0.4,
       "volume_decrease": 81,
       "ma150": 35972,
       "above_ma150": true,
       "market_cap": 2843,
-      "updated_at": "2026-03-12T12:18:15.864018"
+      "updated_at": "2026-03-12T13:28:39.653208"
     },
     {
       "ticker": "017890",
@@ -27,11 +27,11 @@
       "breakout_date": "2026-02-10",
       "resistance": 11430,
       "pullback_ratio": 0.61,
-      "volume_decrease": 89,
+      "volume_decrease": 88,
       "ma150": 10298,
       "above_ma150": true,
-      "market_cap": 2446,
-      "updated_at": "2026-03-12T12:18:21.141399"
+      "market_cap": 2449,
+      "updated_at": "2026-03-12T13:28:44.584635"
     }
   ]
 }

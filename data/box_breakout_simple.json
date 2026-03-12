@@ -1,27 +1,27 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-12T12:18:30.478424",
+    "lastUpdated": "2026-03-12T13:28:56.448952",
     "totalCount": 1,
-    "screened_from": 1488
+    "screened_from": 1491
   },
   "data": [
     {
       "ticker": "145720",
       "name": "덴티움",
-      "price": 54100,
-      "change_rate": -1.1,
+      "price": 54300,
+      "change_rate": -0.73,
       "breakout_date": "2026-03-11",
       "resistance": 52500,
       "days_since_breakout": 1,
-      "breakout_pct": 3.05,
-      "gain_since_breakout": -1.1,
-      "ma150": 53350,
+      "breakout_pct": 3.43,
+      "gain_since_breakout": -0.73,
+      "ma150": 53351,
       "above_ma150": true,
-      "market_cap": 5547,
+      "market_cap": 5578,
       "success_prob": 10.0,
       "predicted_gain": 15.0,
       "ai_score": 20.5,
-      "updated_at": "2026-03-12T12:18:18.119507"
+      "updated_at": "2026-03-12T13:28:43.169136"
     }
   ]
 }
