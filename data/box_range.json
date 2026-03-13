@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-13T12:15:51.192270",
+    "lastUpdated": "2026-03-13T13:27:34.094894",
     "totalCount": 5,
-    "screened_from": 1495
+    "screened_from": 1492
   },
   "data": [
     {
@@ -19,38 +19,38 @@
       "support_touches": 5,
       "resistance_touches": 3,
       "slope_daily": 0.0168,
-      "volume_decrease_rate": 19.72,
+      "volume_decrease_rate": 19.21,
       "days": 94,
       "ma150": 9516,
       "above_ma150": true,
-      "updated_at": "2026-03-13T12:15:48.036655"
+      "updated_at": "2026-03-13T13:27:31.083228"
     },
     {
       "ticker": "395400",
       "name": "SK리츠",
-      "price": 5900,
-      "change_rate": 0.0,
-      "market_cap": 17760,
+      "price": 5910,
+      "change_rate": 0.17,
+      "market_cap": 17820,
       "box_high": 5920,
       "box_low": 5440,
       "range_percent": 8.82,
-      "atr": 2.9,
+      "atr": 2.89,
       "atr_multiple": 3.05,
       "support_touches": 5,
       "resistance_touches": 2,
-      "slope_daily": -0.0258,
-      "volume_decrease_rate": 13.25,
+      "slope_daily": -0.0255,
+      "volume_decrease_rate": 12.68,
       "days": 95,
       "ma150": 5362,
       "above_ma150": true,
-      "updated_at": "2026-03-13T12:15:48.217488"
+      "updated_at": "2026-03-13T13:27:31.205106"
     },
     {
       "ticker": "334890",
       "name": "이지스밸류플러스리츠",
       "price": 4175,
       "change_rate": 1.09,
-      "market_cap": 2899,
+      "market_cap": 2896,
       "box_high": 4300,
       "box_low": 3945,
       "range_percent": 9.0,
@@ -59,31 +59,31 @@
       "support_touches": 1,
       "resistance_touches": 3,
       "slope_daily": -0.028,
-      "volume_decrease_rate": 24.38,
+      "volume_decrease_rate": 24.31,
       "days": 65,
       "ma150": 4242,
       "above_ma150": false,
-      "updated_at": "2026-03-13T12:15:50.293448"
+      "updated_at": "2026-03-13T13:27:33.159172"
     },
     {
       "ticker": "365550",
       "name": "ESR켄달스퀘어리츠",
-      "price": 4320,
-      "change_rate": 0.93,
-      "market_cap": 10631,
+      "price": 4315,
+      "change_rate": 0.82,
+      "market_cap": 10606,
       "box_high": 4485,
       "box_low": 4105,
       "range_percent": 9.26,
-      "atr": 2.38,
-      "atr_multiple": 3.89,
+      "atr": 2.39,
+      "atr_multiple": 3.88,
       "support_touches": 1,
       "resistance_touches": 3,
-      "slope_daily": 0.0207,
-      "volume_decrease_rate": 29.86,
+      "slope_daily": 0.0205,
+      "volume_decrease_rate": 29.52,
       "days": 117,
       "ma150": 4399,
       "above_ma150": false,
-      "updated_at": "2026-03-13T12:15:47.977166"
+      "updated_at": "2026-03-13T13:27:31.000927"
     },
     {
       "ticker": "122900",
@@ -99,11 +99,11 @@
       "support_touches": 1,
       "resistance_touches": 3,
       "slope_daily": -0.0354,
-      "volume_decrease_rate": 20.69,
+      "volume_decrease_rate": 20.52,
       "days": 143,
       "ma150": 7987,
       "above_ma150": false,
-      "updated_at": "2026-03-13T12:15:49.578463"
+      "updated_at": "2026-03-13T13:27:32.353165"
     }
   ]
 }

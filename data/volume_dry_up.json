@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-13T12:16:04.905323",
+    "lastUpdated": "2026-03-13T13:27:45.962867",
     "totalCount": 5,
-    "screened_from": 1495
+    "screened_from": 1492
   },
   "data": [
     {
       "ticker": "033290",
       "name": "로젠",
-      "price": 2080,
-      "change_rate": 0.73,
+      "price": 2070,
+      "change_rate": 0.24,
       "explosion_date": "2026-03-10",
       "explosion_change_rate": 14.7,
       "explosion_volume_ratio": 3.8,
@@ -20,14 +20,14 @@
       "volume_rank": 1,
       "ma150": 2121,
       "above_ma150": false,
-      "market_cap": 1168,
-      "updated_at": "2026-03-13T12:15:57.624576"
+      "market_cap": 1162,
+      "updated_at": "2026-03-13T13:27:40.137178"
     },
     {
       "ticker": "080420",
       "name": "모다이노칩",
-      "price": 2135,
-      "change_rate": -1.39,
+      "price": 2125,
+      "change_rate": -1.85,
       "explosion_date": "2026-03-10",
       "explosion_change_rate": 16.7,
       "explosion_volume_ratio": 4.8,
@@ -38,62 +38,62 @@
       "volume_rank": 2,
       "ma150": 2018,
       "above_ma150": true,
-      "market_cap": 1702,
-      "updated_at": "2026-03-13T12:15:57.928929"
+      "market_cap": 1694,
+      "updated_at": "2026-03-13T13:27:40.342296"
     },
     {
       "ticker": "068790",
       "name": "DMS",
-      "price": 7820,
-      "change_rate": 0.0,
+      "price": 7780,
+      "change_rate": -0.51,
       "explosion_date": "2026-03-10",
       "explosion_change_rate": 16.5,
       "explosion_volume_ratio": 4.4,
       "days_since_detected": 3,
-      "volume_decrease_rate": 63,
+      "volume_decrease_rate": 62,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 3,
       "ma150": 9081,
       "above_ma150": false,
-      "market_cap": 1765,
-      "updated_at": "2026-03-13T12:15:55.210485"
+      "market_cap": 1756,
+      "updated_at": "2026-03-13T13:27:37.885113"
     },
     {
       "ticker": "363280",
       "name": "티와이홀딩스",
-      "price": 2790,
-      "change_rate": 0.0,
+      "price": 2795,
+      "change_rate": 0.18,
       "explosion_date": "2026-02-23",
       "explosion_change_rate": 16.4,
       "explosion_volume_ratio": 8.0,
       "days_since_detected": 13,
       "volume_decrease_rate": 93,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.0,
+      "ma20_distance": 0.17,
       "volume_rank": 4,
       "ma150": 2838,
       "above_ma150": false,
-      "market_cap": 1407,
-      "updated_at": "2026-03-13T12:16:03.366289"
+      "market_cap": 1409,
+      "updated_at": "2026-03-13T13:27:44.294959"
     },
     {
       "ticker": "003460",
       "name": "유화증권",
-      "price": 3670,
-      "change_rate": -1.74,
+      "price": 3650,
+      "change_rate": -2.28,
       "explosion_date": "2026-02-19",
       "explosion_change_rate": 13.6,
       "explosion_volume_ratio": 10.2,
       "days_since_detected": 15,
-      "volume_decrease_rate": 88,
+      "volume_decrease_rate": 87,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.78,
+      "ma20_distance": 0.25,
       "volume_rank": 5,
       "ma150": 2894,
       "above_ma150": true,
-      "market_cap": 2081,
-      "updated_at": "2026-03-13T12:16:00.905098"
+      "market_cap": 2070,
+      "updated_at": "2026-03-13T13:27:42.785818"
     }
   ]
 }
