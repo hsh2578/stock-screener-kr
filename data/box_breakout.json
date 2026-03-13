@@ -1,8 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-13T13:27:51.722162",
-    "totalCount": 0,
-    "screened_from": 1492
+    "lastUpdated": "2026-03-13T14:36:15.022674",
+    "totalCount": 2,
+    "screened_from": 1494
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "041910",
+      "name": "폴라리스AI파마",
+      "price": 8190,
+      "change_rate": 30.0,
+      "breakout_date": "2026-03-13",
+      "breakout_price": 7010,
+      "breakout_pct": 16.83,
+      "gain_since_breakout": 0.0,
+      "volume_ratio": 99.9,
+      "ma150": 6519,
+      "above_ma150": true,
+      "market_cap": 1106,
+      "success_prob": 69.5,
+      "predicted_gain": 24.6,
+      "ai_score": 70.8,
+      "updated_at": "2026-03-13T14:36:14.080153"
+    },
+    {
+      "ticker": "214270",
+      "name": "FSN",
+      "price": 2295,
+      "change_rate": 1.1,
+      "breakout_date": "2026-02-26",
+      "breakout_price": 2065,
+      "breakout_pct": 11.14,
+      "gain_since_breakout": 4.08,
+      "volume_ratio": 3.5,
+      "ma150": 2184,
+      "above_ma150": true,
+      "market_cap": 1003,
+      "success_prob": 31.7,
+      "predicted_gain": 16.9,
+      "ai_score": 37.4,
+      "updated_at": "2026-03-13T14:36:05.988146"
+    }
+  ]
 }

@@ -1,27 +1,63 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-13T13:27:51.723323",
-    "totalCount": 1,
-    "screened_from": 1492
+    "lastUpdated": "2026-03-13T14:36:11.100191",
+    "totalCount": 3,
+    "screened_from": 1494
   },
   "data": [
     {
+      "ticker": "041910",
+      "name": "폴라리스AI파마",
+      "price": 8190,
+      "change_rate": 30.0,
+      "breakout_date": "2026-03-13",
+      "resistance": 7010,
+      "days_since_breakout": 0,
+      "breakout_pct": 16.83,
+      "gain_since_breakout": 0.0,
+      "ma150": 6519,
+      "above_ma150": true,
+      "market_cap": 1106,
+      "success_prob": 69.5,
+      "predicted_gain": 24.6,
+      "ai_score": 70.8,
+      "updated_at": "2026-03-13T14:36:08.796636"
+    },
+    {
+      "ticker": "214270",
+      "name": "FSN",
+      "price": 2295,
+      "change_rate": 1.1,
+      "breakout_date": "2026-02-26",
+      "resistance": 2065,
+      "days_since_breakout": 10,
+      "breakout_pct": 11.14,
+      "gain_since_breakout": 4.08,
+      "ma150": 2184,
+      "above_ma150": true,
+      "market_cap": 1003,
+      "success_prob": 43.6,
+      "predicted_gain": 18.4,
+      "ai_score": 47.0,
+      "updated_at": "2026-03-13T14:35:55.414879"
+    },
+    {
       "ticker": "145720",
       "name": "덴티움",
-      "price": 52750,
-      "change_rate": -3.21,
+      "price": 53100,
+      "change_rate": -2.57,
       "breakout_date": "2026-03-11",
       "resistance": 52500,
       "days_since_breakout": 2,
-      "breakout_pct": 0.48,
-      "gain_since_breakout": -3.56,
-      "ma150": 53271,
+      "breakout_pct": 1.14,
+      "gain_since_breakout": -2.93,
+      "ma150": 53273,
       "above_ma150": false,
-      "market_cap": 5404,
+      "market_cap": 5435,
       "success_prob": 10.0,
       "predicted_gain": 15.0,
       "ai_score": 20.5,
-      "updated_at": "2026-03-13T13:27:37.134391"
+      "updated_at": "2026-03-13T14:35:59.096352"
     }
   ]
 }
