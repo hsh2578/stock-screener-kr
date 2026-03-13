@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-13T14:36:11.100191",
-    "totalCount": 3,
-    "screened_from": 1494
+    "lastUpdated": "2026-03-13T16:29:08.636074",
+    "totalCount": 2,
+    "screened_from": 1493
   },
   "data": [
     {
@@ -17,47 +17,29 @@
       "gain_since_breakout": 0.0,
       "ma150": 6519,
       "above_ma150": true,
-      "market_cap": 1106,
-      "success_prob": 69.5,
+      "market_cap": 1105,
+      "success_prob": 71.6,
       "predicted_gain": 24.6,
-      "ai_score": 70.8,
-      "updated_at": "2026-03-13T14:36:08.796636"
-    },
-    {
-      "ticker": "214270",
-      "name": "FSN",
-      "price": 2295,
-      "change_rate": 1.1,
-      "breakout_date": "2026-02-26",
-      "resistance": 2065,
-      "days_since_breakout": 10,
-      "breakout_pct": 11.14,
-      "gain_since_breakout": 4.08,
-      "ma150": 2184,
-      "above_ma150": true,
-      "market_cap": 1003,
-      "success_prob": 43.6,
-      "predicted_gain": 18.4,
-      "ai_score": 47.0,
-      "updated_at": "2026-03-13T14:35:55.414879"
+      "ai_score": 72.2,
+      "updated_at": "2026-03-13T16:29:07.982156"
     },
     {
       "ticker": "145720",
       "name": "덴티움",
-      "price": 53100,
-      "change_rate": -2.57,
+      "price": 53000,
+      "change_rate": -2.75,
       "breakout_date": "2026-03-11",
       "resistance": 52500,
       "days_since_breakout": 2,
-      "breakout_pct": 1.14,
-      "gain_since_breakout": -2.93,
-      "ma150": 53273,
+      "breakout_pct": 0.95,
+      "gain_since_breakout": -3.11,
+      "ma150": 53272,
       "above_ma150": false,
-      "market_cap": 5435,
+      "market_cap": 5434,
       "success_prob": 10.0,
       "predicted_gain": 15.0,
       "ai_score": 20.5,
-      "updated_at": "2026-03-13T14:35:59.096352"
+      "updated_at": "2026-03-13T16:28:54.738898"
     }
   ]
 }
