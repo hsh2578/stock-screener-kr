@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated_at": "2026-03-12T21:04:31.281759",
+    "updated_at": "2026-03-13T21:00:29.290190",
     "total_count": 4,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
@@ -10,52 +10,52 @@
   },
   "data": [
     {
-      "ticker": "207940",
-      "name": "삼성바이오로직스",
-      "current_price": 1625000,
-      "ma60w": 1602325,
-      "ma60w_gap": 1.42,
-      "op_margin": 45.4,
-      "op_growth_3y": 25.1,
-      "market_cap": 752228,
-      "sector": "기타",
-      "updated_at": "2026-03-12T21:04:21.138846"
-    },
-    {
       "ticker": "011200",
       "name": "HMM",
-      "current_price": 21650,
-      "ma60w": 20592,
-      "ma60w_gap": 5.14,
+      "current_price": 21050,
+      "ma60w": 20585,
+      "ma60w_gap": 2.26,
       "op_margin": 18.9,
       "op_growth_3y": 122.5,
-      "market_cap": 204211,
+      "market_cap": 198552,
       "sector": "기타",
-      "updated_at": "2026-03-12T21:04:21.152392"
+      "updated_at": "2026-03-13T21:00:19.384120"
     },
     {
       "ticker": "069620",
       "name": "대웅제약",
-      "current_price": 166700,
-      "ma60w": 152124,
-      "ma60w_gap": 9.58,
+      "current_price": 167200,
+      "ma60w": 152238,
+      "ma60w_gap": 9.83,
       "op_margin": 12.5,
       "op_growth_3y": 26.2,
-      "market_cap": 19315,
+      "market_cap": 19373,
       "sector": "기타",
-      "updated_at": "2026-03-12T21:04:30.303599"
+      "updated_at": "2026-03-13T21:00:28.321802"
     },
     {
       "ticker": "073240",
       "name": "금호타이어",
-      "current_price": 5890,
-      "ma60w": 5408,
-      "ma60w_gap": 8.91,
+      "current_price": 5730,
+      "ma60w": 5411,
+      "ma60w_gap": 5.88,
       "op_margin": 12.2,
       "op_growth_3y": 573.7,
-      "market_cap": 16920,
+      "market_cap": 16460,
       "sector": "기타",
-      "updated_at": "2026-03-12T21:04:31.263694"
+      "updated_at": "2026-03-13T21:00:29.271800"
+    },
+    {
+      "ticker": "034230",
+      "name": "파라다이스",
+      "current_price": 16750,
+      "ma60w": 16293,
+      "ma60w_gap": 2.8,
+      "op_margin": 14.2,
+      "op_growth_3y": 437.4,
+      "market_cap": 15496,
+      "sector": "기타",
+      "updated_at": "2026-03-13T21:00:29.273748"
     }
   ]
 }
