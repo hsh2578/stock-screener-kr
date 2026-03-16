@@ -3284,51 +3284,52 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         total_len = len(df)
         current_close = close.iloc[-1]
 
-        # --- 52주 신고가 계산 (룩백 구간 전 데이터) ---
-        base_idx = total_len - 1 - NEAR_HIGH_MAX_DAYS - 1
-        if base_idx < HIGH_52W_PERIOD:
-            continue
-
-        high_window = high.iloc[base_idx - HIGH_52W_PERIOD:base_idx]
-        if high_window.empty:
-            continue
-
-        high_52w = high_window.max()
-        if pd.isna(high_52w) or high_52w <= 0:
-            continue
-
-        # 52주 신고가 기록일
-        high_52w_idx = high_window.idxmax()
-        high_52w_date = high_52w_idx.strftime('%Y-%m-%d') if high_52w_idx is not None else None
-
-        # 확립된 저항선: 고가 기록 후 20거래일 이상 경과
-        high_pos = high_window.index.get_loc(high_52w_idx)
-        days_since_high = len(high_window) - 1 - high_pos
-        if days_since_high < 20:
-            continue
-
-        # 9일 전(룩백 직전)에도 이미 근접 구간이면 제외
-        # → 진입일이 불명확한 장기 체류 종목 (매일 days_since=8로 쌓이는 문제 방지)
-        pre_idx = total_len - 1 - (NEAR_HIGH_MAX_DAYS + 1)  # = base_idx
-        if pre_idx >= 0:
-            pre_close = close.iloc[pre_idx]
-            pre_gap = (high_52w - pre_close) / high_52w * 100
-            if 0 < pre_gap <= NEAR_HIGH_52W_THRESHOLD:
-                continue
-
-        # --- 8거래일 룩백: 근접 구간 최초 진입일 찾기 ---
-        # 52주 신고가 돌파 스크리너와 동일 패턴: 과거→현재 순회
+        # --- 8거래일 룩백: 근접 구간 최초 진입일 찾기 (각 날짜별 high_52w 개별 계산) ---
         days_since = None
         entry_idx = None
+        high_52w = None
+        high_52w_date = None
+
         for days_ago in range(NEAR_HIGH_MAX_DAYS, -1, -1):
             idx = total_len - 1 - days_ago
             if idx < 0:
                 continue
+
+            # 이 날 기준 52주 고가: idx 이전 (NEAR_HIGH_MAX_DAYS+1)일을 제외한 250거래일 윈도우
+            day_base = idx - NEAR_HIGH_MAX_DAYS - 1
+            if day_base < HIGH_52W_PERIOD:
+                continue
+
+            day_high_window = high.iloc[day_base - HIGH_52W_PERIOD:day_base]
+            if day_high_window.empty:
+                continue
+
+            day_high_52w = day_high_window.max()
+            if pd.isna(day_high_52w) or day_high_52w <= 0:
+                continue
+
+            # 확립된 저항선: 고가 기록 후 20거래일 이상 경과
+            day_high_pos = day_high_window.index.get_loc(day_high_window.idxmax())
+            day_days_since_high = len(day_high_window) - 1 - day_high_pos
+            if day_days_since_high < 20:
+                continue
+
+            # 장기 체류 제외: 이 날의 전일(룩백 직전)에도 이미 근접이면 스킵
+            pre_idx = idx - NEAR_HIGH_MAX_DAYS - 1
+            if pre_idx >= 0:
+                pre_close = close.iloc[pre_idx]
+                pre_gap = (day_high_52w - pre_close) / day_high_52w * 100
+                if 0 < pre_gap <= NEAR_HIGH_52W_THRESHOLD:
+                    continue
+
             past_close = close.iloc[idx]
-            past_gap = (high_52w - past_close) / high_52w * 100
-            if past_gap <= NEAR_HIGH_52W_THRESHOLD and past_close < high_52w:
+            past_gap = (day_high_52w - past_close) / day_high_52w * 100
+            if past_gap <= NEAR_HIGH_52W_THRESHOLD and past_close < day_high_52w:
                 days_since = days_ago
                 entry_idx = idx
+                high_52w = day_high_52w
+                day_high_idx = day_high_window.idxmax()
+                high_52w_date = day_high_idx.strftime('%Y-%m-%d') if day_high_idx is not None else None
                 break
 
         if days_since is None:
