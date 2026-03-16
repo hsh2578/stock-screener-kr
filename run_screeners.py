@@ -3107,38 +3107,51 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         if ma150_now <= ma150_20ago:
             continue
 
-        # --- 52주 신고가 계산 (오늘 기준 [오늘-265 ~ 오늘-15] 윈도우) ---
-        end_idx = total_len - 1 - HIGH_52W_GAP_DAYS
-        start_idx = end_idx - HIGH_52W_PERIOD
-        if end_idx < 0 or start_idx < 0:
-            continue
+        # --- 돌파일 찾기 (각 날짜 기준 윈도우 + 갭 체크) ---
+        breakout_date = None
+        days_since = None
+        breakout_idx = None
+        breakout_close = None
+        high_52w = None
 
-        high_52w_prices = high.iloc[start_idx:end_idx]
-        if high_52w_prices.empty:
-            continue
+        for days_ago in range(MAX_DAYS_SINCE_BREAKOUT, -1, -1):
+            idx = total_len - 1 - days_ago
+            if idx < 0:
+                continue
 
-        high_52w = high_52w_prices.max()
-        if pd.isna(high_52w) or high_52w <= 0:
-            continue
+            # 이 날 기준 윈도우: [그날-265 ~ 그날-15]
+            day_end = idx - HIGH_52W_GAP_DAYS
+            day_start = day_end - HIGH_52W_PERIOD
+            if day_end < 0 or day_start < 0:
+                continue
 
-        # --- 갭 구간에 이미 돌파 상태면 제외 (오래된 돌파) ---
-        already_broken = False
-        for gap_day in range(1, HIGH_52W_GAP_DAYS + 1):
-            gap_idx = total_len - 1 - gap_day
-            if gap_idx >= 0 and close.iloc[gap_idx] > high_52w:
-                already_broken = True
+            day_high_prices = high.iloc[day_start:day_end]
+            if day_high_prices.empty:
+                continue
+            day_high_52w = day_high_prices.max()
+            if pd.isna(day_high_52w) or day_high_52w <= 0:
+                continue
+
+            # 이 날 기준 15일 이내에 고가가 돌파한 적 있으면 제외 (오래된 돌파)
+            already_broken = False
+            for gap_offset in range(1, HIGH_52W_GAP_DAYS + 1):
+                gap_idx = idx - gap_offset
+                if gap_idx >= 0 and high.iloc[gap_idx] > day_high_52w:
+                    already_broken = True
+                    break
+            if already_broken:
+                continue
+
+            if close.iloc[idx] > day_high_52w:
+                breakout_date = df.index[idx]
+                days_since = days_ago
+                breakout_idx = idx
+                breakout_close = close.iloc[idx]
+                high_52w = day_high_52w
                 break
-        if already_broken:
-            continue
 
-        # --- 오늘만 돌파 체크 (이전 돌파는 보존 로직이 유지) ---
-        if current_close <= high_52w:
+        if breakout_date is None:
             continue
-
-        breakout_date = df.index[-1]
-        days_since = 0
-        breakout_idx = total_len - 1
-        breakout_close = current_close
 
         # --- 거래량 계산 (표시용, 임계값 조건 없음) ---
         if breakout_idx < 20:
