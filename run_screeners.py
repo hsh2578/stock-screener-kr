@@ -2428,6 +2428,12 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
     for r in results:
         r.pop('_features', None)
 
+    # --- 기존 등록 종목 유지 (10거래일 이내) ---
+    results = _preserve_prev_results(
+        'box_breakout_simple.json', results, BREAKOUT_WINDOW - 1,
+        ref_date_key='breakout_date', days_since_key='days_since_breakout', stocks=stocks
+    )
+
     # ML 모델 있으면 AI점수 내림차순, 없으면 최근 돌파 순 정렬
     if _box_models_loaded:
         results.sort(key=lambda x: x['ai_score'], reverse=True)
@@ -2876,8 +2882,14 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
             'updated_at': datetime.now().isoformat()
         })
 
+    # --- 기존 등록 종목 유지 (10거래일 이내) ---
+    results = _preserve_prev_results(
+        'volume_dry_up.json', results, DRYUP_MAX_DAYS,
+        ref_date_key='explosion_date', days_since_key='days_since_detected', stocks=stocks
+    )
+
     # 급등 후 경과일 오름차순, 같으면 거래량 감소율 높은 순
-    results.sort(key=lambda x: (x['days_since_detected'], -x['volume_decrease_rate']))
+    results.sort(key=lambda x: (x['days_since_detected'], -x.get('volume_decrease_rate', 0)))
 
     for i, r in enumerate(results):
         r['volume_rank'] = i + 1
@@ -3045,19 +3057,6 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
     if _kospi_data is None:
         load_kospi_data()
 
-    # --- 기존 JSON 로드 (등록된 종목 8거래일 유지용) ---
-    prev_data = {}
-    prev_json_path = os.path.join(DATA_PATH, 'new_high_52w.json')
-    try:
-        if os.path.exists(prev_json_path):
-            with open(prev_json_path, 'r', encoding='utf-8') as f:
-                prev_json = json.load(f)
-            for item in prev_json.get('data', []):
-                prev_data[item['ticker']] = item
-            print(f"  기존 데이터: {len(prev_data)}개 종목")
-    except Exception as e:
-        print(f"  기존 데이터 로드 실패: {e}")
-
     results = []
     required_days = HIGH_52W_PERIOD + MAX_DAYS_SINCE_BREAKOUT + 2
     MA150_PERIOD = 150
@@ -3202,57 +3201,10 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         r.pop('_features', None)
 
     # --- 기존 등록 종목 유지 (8거래일 이내) ---
-    new_tickers = {r['ticker'] for r in results}
-    preserved_count = 0
-    for ticker, prev_item in prev_data.items():
-        if ticker in new_tickers:
-            continue  # 새로 스크리닝된 종목은 새 결과 우선
-        # breakout_date 기준으로 경과 거래일 재계산
-        try:
-            df = get_ohlcv(ticker, 30)
-            if df is None or len(df) < 2:
-                continue
-            breakout_dt = pd.Timestamp(prev_item['breakout_date'])
-            # breakout_date 이후 거래일 수 계산
-            trading_days_after = df.index[df.index > breakout_dt]
-            days_since_now = len(trading_days_after)
-            if days_since_now > MAX_DAYS_SINCE_BREAKOUT:
-                continue  # 8거래일 초과 → 탈락
-
-            # 현재가 업데이트
-            close = df['Close']
-            current_close = float(close.iloc[-1])
-            prev_close = float(close.iloc[-2])
-            change_rate = (current_close - prev_close) / prev_close * 100 if prev_close > 0 else 0
-            high_52w = prev_item['high_52w']
-            above_high_pct = (current_close - high_52w) / high_52w * 100 if high_52w > 0 else 0
-            breakout_close_price = prev_item.get('_breakout_close') or current_close
-            # breakout_date 당일 종가 찾기
-            if breakout_dt in df.index:
-                breakout_close_price = float(df.loc[breakout_dt, 'Close'])
-            vs_breakout = (current_close / breakout_close_price - 1) * 100 if breakout_close_price > 0 else 0
-
-            preserved = dict(prev_item)
-            preserved['price'] = int(current_close)
-            preserved['change_rate'] = round(change_rate, 2)
-            preserved['days_since'] = days_since_now
-            preserved['above_high_percent'] = round(above_high_pct, 2)
-            preserved['vs_breakout_close'] = round(vs_breakout, 2)
-            preserved['updated_at'] = datetime.now().isoformat()
-            # market_cap 업데이트 (stocks DataFrame에서)
-            stock_row = stocks[stocks['Code'] == ticker] if 'Code' in stocks.columns else stocks[stocks['Symbol'] == ticker]
-            if not stock_row.empty:
-                mc = stock_row.iloc[0].get('MarketCap', preserved.get('market_cap', 0))
-                preserved['market_cap'] = int(mc) if isinstance(mc, (int, float)) else preserved.get('market_cap', 0)
-
-            results.append(preserved)
-            preserved_count += 1
-        except Exception as e:
-            print(f"  기존 종목 유지 실패 ({ticker}): {e}")
-            continue
-
-    if preserved_count > 0:
-        print(f"  기존 종목 유지: {preserved_count}개")
+    results = _preserve_prev_results(
+        'new_high_52w.json', results, MAX_DAYS_SINCE_BREAKOUT,
+        ref_date_key='breakout_date', days_since_key='days_since', stocks=stocks
+    )
 
     # 돌파일 기준 정렬 (최신순), 같은 날이면 성공확률 높은 순
     results.sort(key=lambda x: (x['days_since'], -(x['success_probability'] or 0)))
@@ -3400,6 +3352,9 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         if _near_high_models_loaded and entry_idx is not None:
             features = calculate_near_high_features(df, entry_idx, high_52w)
 
+        # entry_date: 근접 구간 최초 진입일 (보존 로직용)
+        entry_date = df.index[entry_idx].strftime('%Y-%m-%d') if entry_idx is not None else None
+
         results.append({
             'ticker': ticker,
             'name': name,
@@ -3408,6 +3363,7 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
             'high_52w': int(high_52w),
             'percent_from_high': round(percent_from_high, 2),
             'high_52w_date': high_52w_date,
+            'entry_date': entry_date,
             'status': status,
             'days_since': days_since,
             'volume_ratio': vol_ratio,
@@ -3438,6 +3394,12 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
     # 임시 피처 필드 제거
     for r in results:
         r.pop('_features', None)
+
+    # --- 기존 등록 종목 유지 (8거래일 이내) ---
+    results = _preserve_prev_results(
+        'near_high_52w.json', results, NEAR_HIGH_MAX_DAYS,
+        ref_date_key='entry_date', days_since_key='days_since', stocks=stocks
+    )
 
     # 정렬: active → breakout → dropped, 각 그룹 내에서 신고가에 가까운 순
     status_order = {'active': 0, 'breakout': 1, 'dropped': 2}
@@ -3624,6 +3586,92 @@ def screen_sector_stage() -> List[Dict]:
 # ============================================================================
 # 결과 저장 및 차트 데이터 생성
 # ============================================================================
+
+def _preserve_prev_results(
+    json_filename: str,
+    new_results: List[Dict],
+    max_days: int,
+    ref_date_key: str,
+    days_since_key: str,
+    stocks: pd.DataFrame = None,
+) -> List[Dict]:
+    """
+    기존 JSON에 등록된 종목을 max_days 이내이면 유지합니다.
+    슬라이딩 윈도우 재계산으로 탈락하는 문제를 방지합니다.
+
+    Args:
+        json_filename: 기존 JSON 파일명 (e.g., 'new_high_52w.json')
+        new_results: 새로 스크리닝된 결과 리스트
+        max_days: 최대 유지 거래일 수
+        ref_date_key: 기준 날짜 필드명 (e.g., 'breakout_date')
+        days_since_key: 경과일 필드명 (e.g., 'days_since')
+        stocks: 종목 DataFrame (시가총액 업데이트용, optional)
+    """
+    prev_json_path = os.path.join(DATA_PATH, json_filename)
+    prev_data = {}
+    try:
+        if os.path.exists(prev_json_path):
+            with open(prev_json_path, 'r', encoding='utf-8') as f:
+                prev_json = json.load(f)
+            for item in prev_json.get('data', []):
+                prev_data[item['ticker']] = item
+    except Exception:
+        return new_results
+
+    if not prev_data:
+        return new_results
+
+    new_tickers = {r['ticker'] for r in new_results}
+    preserved_count = 0
+
+    for ticker, prev_item in prev_data.items():
+        if ticker in new_tickers:
+            continue
+        try:
+            ref_date_str = prev_item.get(ref_date_key)
+            if not ref_date_str:
+                continue
+            df = get_ohlcv(ticker, 30)
+            if df is None or len(df) < 2:
+                continue
+
+            ref_dt = pd.Timestamp(ref_date_str)
+            trading_days_after = df.index[df.index > ref_dt]
+            days_since_now = len(trading_days_after)
+            if days_since_now > max_days:
+                continue
+
+            # 현재가 업데이트
+            close = df['Close']
+            current_close = float(close.iloc[-1])
+            prev_close = float(close.iloc[-2])
+            change_rate = (current_close - prev_close) / prev_close * 100 if prev_close > 0 else 0
+
+            preserved = dict(prev_item)
+            preserved['price'] = int(current_close)
+            preserved['change_rate'] = round(change_rate, 2)
+            preserved[days_since_key] = days_since_now
+            preserved['updated_at'] = datetime.now().isoformat()
+
+            # 시가총액 업데이트
+            if stocks is not None:
+                col = 'Code' if 'Code' in stocks.columns else 'Symbol'
+                stock_row = stocks[stocks[col] == ticker]
+                if not stock_row.empty:
+                    mc = stock_row.iloc[0].get('MarketCap', preserved.get('market_cap', 0))
+                    if isinstance(mc, (int, float)):
+                        preserved['market_cap'] = int(mc)
+
+            new_results.append(preserved)
+            preserved_count += 1
+        except Exception:
+            continue
+
+    if preserved_count > 0:
+        print(f"  기존 종목 유지: {preserved_count}개")
+
+    return new_results
+
 
 def save_results(results: List[Dict], filename: str, screened_from: int) -> None:
     """결과를 JSON 파일로 저장합니다."""
@@ -3869,6 +3917,15 @@ def main():
             """이평선 수렴 스크리너 (캐시 사용)"""
             return screen_ma_convergence(stocks=stocks, get_data_func=get_ohlcv, get_weekly_func=get_weekly_from_cache)
 
+        # 외부 모듈 스크리너의 보존 설정 (내부 스크리너는 함수 안에서 자체 처리)
+        _ext_preserve_config = {
+            'bottom_breakout.json': {
+                'max_days': 10,  # SIGNAL_LOOKBACK
+                'ref_date_key': 'signal_date',
+                'days_since_key': 'days_since_signal',
+            },
+        }
+
         def run_screener(args):
             """스크리너 실행 래퍼 함수"""
             name, func, func_args, filename, total_count = args
@@ -3878,6 +3935,15 @@ def main():
                     results = func()
                 else:
                     results = func(func_args)
+                # 외부 모듈 스크리너: 보존 로직 적용
+                if filename in _ext_preserve_config:
+                    cfg = _ext_preserve_config[filename]
+                    results = _preserve_prev_results(
+                        filename, results, cfg['max_days'],
+                        ref_date_key=cfg['ref_date_key'],
+                        days_since_key=cfg['days_since_key'],
+                        stocks=stocks
+                    )
                 save_results(results, filename, total_count)
                 elapsed = time.time() - start
                 return (name, results, elapsed)
