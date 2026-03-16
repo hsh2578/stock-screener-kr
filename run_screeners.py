@@ -3308,14 +3308,18 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         high_52w_idx = high_window.idxmax()
         high_52w_date = high_52w_idx.strftime('%Y-%m-%d') if high_52w_idx is not None else None
 
-        # 오늘 포함 10일 이내에 돌파한 적 있으면 제외 (돌파 후 하락 종목 방지)
+        # 오늘 포함 10일 이내에 1.5%+ 돌파한 적 있으면 제외 (돌파 스크리너와 기준 일치)
         ever_broken = False
         for gap_day in range(0, HIGH_52W_GAP_DAYS + 1):
             gap_idx = total_len - 1 - gap_day
-            if gap_idx >= 0 and close.iloc[gap_idx] > high_52w:
+            if gap_idx >= 0 and close.iloc[gap_idx] > high_52w * BREAKOUT_THRESHOLD:
                 ever_broken = True
                 break
         if ever_broken:
+            continue
+
+        # 현재가가 high_52w 대비 -10% 이상 이탈하면 제외
+        if current_close < high_52w * 0.9:
             continue
 
         # 9일 전(룩백 직전)에도 이미 근접 구간이면 제외

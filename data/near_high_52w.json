@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-16T19:05:58.043649",
-    "totalCount": 44,
+    "lastUpdated": "2026-03-16T19:10:25.499343",
+    "totalCount": 47,
     "screened_from": 1493
   },
   "data": [
@@ -21,7 +21,7 @@
       "breakout_probability": 93.4,
       "ai_score": 87.0,
       "market_cap": 1428,
-      "updated_at": "2026-03-16T19:05:57.913508"
+      "updated_at": "2026-03-16T19:10:25.436422"
     },
     {
       "ticker": "034020",
@@ -39,7 +39,25 @@
       "breakout_probability": 76.0,
       "ai_score": 73.1,
       "market_cap": 677073,
-      "updated_at": "2026-03-16T19:05:57.709915"
+      "updated_at": "2026-03-16T19:10:25.271086"
+    },
+    {
+      "ticker": "122640",
+      "name": "예스티",
+      "price": 25150,
+      "change_rate": -2.33,
+      "high_52w": 25450,
+      "percent_from_high": -1.18,
+      "high_52w_date": "2026-02-25",
+      "entry_date": "2026-03-05",
+      "status": "active",
+      "days_since": 7,
+      "volume_ratio": 1.0,
+      "predicted_gain": 20.0,
+      "breakout_probability": 75.5,
+      "ai_score": 70.9,
+      "market_cap": 5369,
+      "updated_at": "2026-03-16T19:10:25.393126"
     },
     {
       "ticker": "272110",
@@ -57,7 +75,25 @@
       "breakout_probability": 90.1,
       "ai_score": 83.4,
       "market_cap": 3070,
-      "updated_at": "2026-03-16T19:05:57.938356"
+      "updated_at": "2026-03-16T19:10:25.444384"
+    },
+    {
+      "ticker": "322310",
+      "name": "오로스테크놀로지",
+      "price": 32000,
+      "change_rate": -3.03,
+      "high_52w": 32550,
+      "percent_from_high": -1.69,
+      "high_52w_date": "2025-10-13",
+      "entry_date": "2026-03-16",
+      "status": "active",
+      "days_since": 0,
+      "volume_ratio": 1.0,
+      "predicted_gain": 28.5,
+      "breakout_probability": 93.3,
+      "ai_score": 91.0,
+      "market_cap": 2997,
+      "updated_at": "2026-03-16T19:10:25.394928"
     },
     {
       "ticker": "005680",
@@ -75,7 +111,7 @@
       "breakout_probability": 72.5,
       "ai_score": 63.7,
       "market_cap": 2550,
-      "updated_at": "2026-03-16T19:05:57.762013"
+      "updated_at": "2026-03-16T19:10:25.313601"
     },
     {
       "ticker": "200710",
@@ -93,7 +129,7 @@
       "breakout_probability": 97.5,
       "ai_score": 98.2,
       "market_cap": 6485,
-      "updated_at": "2026-03-16T19:05:57.822947"
+      "updated_at": "2026-03-16T19:10:25.381832"
     },
     {
       "ticker": "347700",
@@ -111,7 +147,7 @@
       "breakout_probability": 97.2,
       "ai_score": 98.0,
       "market_cap": 24914,
-      "updated_at": "2026-03-16T19:05:57.787407"
+      "updated_at": "2026-03-16T19:10:25.333267"
     },
     {
       "ticker": "112610",
@@ -129,7 +165,25 @@
       "breakout_probability": 90.9,
       "ai_score": 88.5,
       "market_cap": 23616,
-      "updated_at": "2026-03-16T19:05:57.800081"
+      "updated_at": "2026-03-16T19:10:25.346100"
+    },
+    {
+      "ticker": "000720",
+      "name": "현대건설",
+      "price": 159600,
+      "change_rate": -2.92,
+      "high_52w": 163400,
+      "percent_from_high": -2.33,
+      "high_52w_date": "2026-02-26",
+      "entry_date": "2026-03-06",
+      "status": "active",
+      "days_since": 6,
+      "volume_ratio": 0.5,
+      "predicted_gain": 31.8,
+      "breakout_probability": 90.0,
+      "ai_score": 91.6,
+      "market_cap": 177724,
+      "updated_at": "2026-03-16T19:10:25.489977"
     },
     {
       "ticker": "064850",
@@ -147,7 +201,7 @@
       "breakout_probability": 97.1,
       "ai_score": 98.0,
       "market_cap": 2482,
-      "updated_at": "2026-03-16T19:05:57.829743"
+      "updated_at": "2026-03-16T19:10:25.386845"
     },
     {
       "ticker": "210980",
@@ -165,7 +219,25 @@
       "breakout_probability": 66.2,
       "ai_score": 58.4,
       "market_cap": 2504,
-      "updated_at": "2026-03-16T19:05:57.641393"
+      "updated_at": "2026-03-16T19:10:25.227966"
+    },
+    {
+      "ticker": "004000",
+      "name": "롯데정밀화학",
+      "price": 51100,
+      "change_rate": -0.58,
+      "high_52w": 52500,
+      "percent_from_high": -2.67,
+      "high_52w_date": "2026-02-26",
+      "entry_date": "2026-03-11",
+      "status": "active",
+      "days_since": 3,
+      "volume_ratio": 1.8,
+      "predicted_gain": 20.9,
+      "breakout_probability": 86.6,
+      "ai_score": 79.4,
+      "market_cap": 13184,
+      "updated_at": "2026-03-16T19:10:25.280736"
     },
     {
       "ticker": "353200",
@@ -183,7 +255,7 @@
       "breakout_probability": 83.9,
       "ai_score": 79.2,
       "market_cap": 33109,
-      "updated_at": "2026-03-16T19:05:57.682659"
+      "updated_at": "2026-03-16T19:10:25.254817"
     },
     {
       "ticker": "006110",
@@ -201,7 +273,7 @@
       "breakout_probability": 86.5,
       "ai_score": 85.6,
       "market_cap": 5512,
-      "updated_at": "2026-03-16T19:05:57.758403"
+      "updated_at": "2026-03-16T19:10:25.310178"
     },
     {
       "ticker": "096760",
@@ -219,7 +291,25 @@
       "breakout_probability": 61.3,
       "ai_score": 57.9,
       "market_cap": 3190,
-      "updated_at": "2026-03-16T19:05:57.591063"
+      "updated_at": "2026-03-16T19:10:25.205494"
+    },
+    {
+      "ticker": "010780",
+      "name": "아이에스동서",
+      "price": 31750,
+      "change_rate": -5.08,
+      "high_52w": 33200,
+      "percent_from_high": -4.37,
+      "high_52w_date": "2026-02-25",
+      "entry_date": "2026-03-16",
+      "status": "active",
+      "days_since": 0,
+      "volume_ratio": 0.9,
+      "predicted_gain": 22.9,
+      "breakout_probability": 74.1,
+      "ai_score": 72.5,
+      "market_cap": 9584,
+      "updated_at": "2026-03-16T19:10:25.359941"
     },
     {
       "ticker": "002720",
@@ -237,7 +327,7 @@
       "breakout_probability": 63.5,
       "ai_score": 60.6,
       "market_cap": 1051,
-      "updated_at": "2026-03-16T19:05:57.658680"
+      "updated_at": "2026-03-16T19:10:25.242323"
     },
     {
       "ticker": "086820",
@@ -255,7 +345,7 @@
       "breakout_probability": 91.0,
       "ai_score": 90.7,
       "market_cap": 3061,
-      "updated_at": "2026-03-16T19:05:57.740140"
+      "updated_at": "2026-03-16T19:10:25.297255"
     },
     {
       "ticker": "001560",
@@ -273,7 +363,7 @@
       "breakout_probability": 73.8,
       "ai_score": 74.0,
       "market_cap": 1161,
-      "updated_at": "2026-03-16T19:05:57.894018"
+      "updated_at": "2026-03-16T19:10:25.430821"
     },
     {
       "ticker": "458870",
@@ -291,7 +381,7 @@
       "breakout_probability": 93.4,
       "ai_score": 95.4,
       "market_cap": 21491,
-      "updated_at": "2026-03-16T19:05:57.798468"
+      "updated_at": "2026-03-16T19:10:25.344660"
     },
     {
       "ticker": "003000",
@@ -309,7 +399,25 @@
       "breakout_probability": 92.4,
       "ai_score": 91.9,
       "market_cap": 5861,
-      "updated_at": "2026-03-16T19:05:57.744811"
+      "updated_at": "2026-03-16T19:10:25.300924"
+    },
+    {
+      "ticker": "008060",
+      "name": "대덕",
+      "price": 12960,
+      "change_rate": 0.78,
+      "high_52w": 12900,
+      "percent_from_high": 0.47,
+      "high_52w_date": "2026-02-26",
+      "entry_date": "2026-03-10",
+      "status": "breakout",
+      "days_since": 4,
+      "volume_ratio": 0.5,
+      "predicted_gain": 20.2,
+      "breakout_probability": 86.7,
+      "ai_score": 78.9,
+      "market_cap": 4392,
+      "updated_at": "2026-03-16T19:10:25.253640"
     },
     {
       "ticker": "017900",
@@ -327,7 +435,7 @@
       "breakout_probability": 55.4,
       "ai_score": 54.5,
       "market_cap": 1188,
-      "updated_at": "2026-03-16T19:05:57.655079"
+      "updated_at": "2026-03-16T19:10:25.239716"
     },
     {
       "ticker": "000700",
@@ -345,7 +453,25 @@
       "breakout_probability": 41.8,
       "ai_score": 41.2,
       "market_cap": 1680,
-      "updated_at": "2026-03-16T19:05:57.859820"
+      "updated_at": "2026-03-16T19:10:25.408781"
+    },
+    {
+      "ticker": "000070",
+      "name": "삼양홀딩스",
+      "price": 69800,
+      "change_rate": -1.55,
+      "high_52w": 73900,
+      "percent_from_high": -5.55,
+      "high_52w_date": "2026-02-23",
+      "entry_date": "2026-03-05",
+      "status": "dropped",
+      "days_since": 7,
+      "volume_ratio": 0.3,
+      "predicted_gain": 15.1,
+      "breakout_probability": 68.7,
+      "ai_score": 61.7,
+      "market_cap": 5419,
+      "updated_at": "2026-03-16T19:10:25.312121"
     },
     {
       "ticker": "112290",
@@ -363,7 +489,7 @@
       "breakout_probability": 90.1,
       "ai_score": 83.0,
       "market_cap": 2715,
-      "updated_at": "2026-03-16T19:05:57.844593"
+      "updated_at": "2026-03-16T19:10:25.398676"
     },
     {
       "ticker": "322510",
@@ -381,7 +507,25 @@
       "breakout_probability": 86.9,
       "ai_score": 85.5,
       "market_cap": 2254,
-      "updated_at": "2026-03-16T19:05:57.888446"
+      "updated_at": "2026-03-16T19:10:25.429247"
+    },
+    {
+      "ticker": "047050",
+      "name": "포스코인터내셔널",
+      "price": 73800,
+      "change_rate": 0.14,
+      "high_52w": 78600,
+      "percent_from_high": -6.11,
+      "high_52w_date": "2026-02-20",
+      "entry_date": "2026-03-09",
+      "status": "dropped",
+      "days_since": 5,
+      "volume_ratio": 0.6,
+      "predicted_gain": 22.0,
+      "breakout_probability": 83.6,
+      "ai_score": 78.3,
+      "market_cap": 129831,
+      "updated_at": "2026-03-16T19:10:25.464838"
     },
     {
       "ticker": "415640",
@@ -399,7 +543,7 @@
       "breakout_probability": 34.6,
       "ai_score": 32.3,
       "market_cap": 12193,
-      "updated_at": "2026-03-16T19:05:57.593267"
+      "updated_at": "2026-03-16T19:10:25.207146"
     },
     {
       "ticker": "117670",
@@ -417,7 +561,7 @@
       "breakout_probability": 86.1,
       "ai_score": 81.1,
       "market_cap": 1319,
-      "updated_at": "2026-03-16T19:05:57.811950"
+      "updated_at": "2026-03-16T19:10:25.368699"
     },
     {
       "ticker": "009680",
@@ -435,7 +579,43 @@
       "breakout_probability": 49.3,
       "ai_score": 48.9,
       "market_cap": 3091,
-      "updated_at": "2026-03-16T19:05:57.733789"
+      "updated_at": "2026-03-16T19:10:25.292531"
+    },
+    {
+      "ticker": "189300",
+      "name": "인텔리안테크",
+      "price": 133500,
+      "change_rate": -6.9,
+      "high_52w": 143000,
+      "percent_from_high": -6.64,
+      "high_52w_date": "2026-02-11",
+      "entry_date": "2026-03-10",
+      "status": "dropped",
+      "days_since": 4,
+      "volume_ratio": 0.6,
+      "predicted_gain": 32.6,
+      "breakout_probability": 87.3,
+      "ai_score": 90.4,
+      "market_cap": 14335,
+      "updated_at": "2026-03-16T19:10:25.420114"
+    },
+    {
+      "ticker": "051370",
+      "name": "인터플렉스",
+      "price": 12620,
+      "change_rate": -4.83,
+      "high_52w": 13520,
+      "percent_from_high": -6.66,
+      "high_52w_date": "2026-02-20",
+      "entry_date": "2026-03-11",
+      "status": "dropped",
+      "days_since": 3,
+      "volume_ratio": 0.8,
+      "predicted_gain": 21.9,
+      "breakout_probability": 85.5,
+      "ai_score": 79.5,
+      "market_cap": 2944,
+      "updated_at": "2026-03-16T19:10:25.418937"
     },
     {
       "ticker": "237690",
@@ -453,7 +633,7 @@
       "breakout_probability": 74.1,
       "ai_score": 70.0,
       "market_cap": 32225,
-      "updated_at": "2026-03-16T19:05:57.820646"
+      "updated_at": "2026-03-16T19:10:25.380063"
     },
     {
       "ticker": "021820",
@@ -471,7 +651,7 @@
       "breakout_probability": 83.7,
       "ai_score": 80.1,
       "market_cap": 1626,
-      "updated_at": "2026-03-16T19:05:57.778603"
+      "updated_at": "2026-03-16T19:10:25.324978"
     },
     {
       "ticker": "336260",
@@ -489,7 +669,7 @@
       "breakout_probability": 97.1,
       "ai_score": 95.0,
       "market_cap": 28064,
-      "updated_at": "2026-03-16T19:05:57.711555"
+      "updated_at": "2026-03-16T19:10:25.272477"
     },
     {
       "ticker": "456040",
@@ -507,7 +687,7 @@
       "breakout_probability": 77.1,
       "ai_score": 72.8,
       "market_cap": 7583,
-      "updated_at": "2026-03-16T19:05:57.633705"
+      "updated_at": "2026-03-16T19:10:25.220275"
     },
     {
       "ticker": "078600",
@@ -525,7 +705,43 @@
       "breakout_probability": 95.5,
       "ai_score": 93.3,
       "market_cap": 17137,
-      "updated_at": "2026-03-16T19:05:57.693139"
+      "updated_at": "2026-03-16T19:10:25.259589"
+    },
+    {
+      "ticker": "160980",
+      "name": "싸이맥스",
+      "price": 21250,
+      "change_rate": 2.91,
+      "high_52w": 23000,
+      "percent_from_high": -7.61,
+      "high_52w_date": "2026-02-26",
+      "entry_date": "2026-03-05",
+      "status": "dropped",
+      "days_since": 7,
+      "volume_ratio": 0.6,
+      "predicted_gain": 24.4,
+      "breakout_probability": 93.6,
+      "ai_score": 87.5,
+      "market_cap": 2321,
+      "updated_at": "2026-03-16T19:10:25.340050"
+    },
+    {
+      "ticker": "389470",
+      "name": "인벤티지랩",
+      "price": 90800,
+      "change_rate": -8.28,
+      "high_52w": 99000,
+      "percent_from_high": -8.28,
+      "high_52w_date": "2025-12-04",
+      "entry_date": "2026-03-06",
+      "status": "dropped",
+      "days_since": 6,
+      "volume_ratio": 1.0,
+      "predicted_gain": 26.8,
+      "breakout_probability": 84.4,
+      "ai_score": 83.2,
+      "market_cap": 12056,
+      "updated_at": "2026-03-16T19:10:25.416943"
     },
     {
       "ticker": "255440",
@@ -543,7 +759,25 @@
       "breakout_probability": 77.8,
       "ai_score": 73.2,
       "market_cap": 1512,
-      "updated_at": "2026-03-16T19:05:57.814835"
+      "updated_at": "2026-03-16T19:10:25.373173"
+    },
+    {
+      "ticker": "093190",
+      "name": "빅솔론",
+      "price": 7650,
+      "change_rate": -5.56,
+      "high_52w": 8380,
+      "percent_from_high": -8.71,
+      "high_52w_date": "2026-02-26",
+      "entry_date": "2026-03-13",
+      "status": "dropped",
+      "days_since": 1,
+      "volume_ratio": 0.5,
+      "predicted_gain": 20.2,
+      "breakout_probability": 77.6,
+      "ai_score": 72.5,
+      "market_cap": 1472,
+      "updated_at": "2026-03-16T19:10:25.304947"
     },
     {
       "ticker": "229640",
@@ -561,7 +795,7 @@
       "breakout_probability": 79.7,
       "ai_score": 74.3,
       "market_cap": 13659,
-      "updated_at": "2026-03-16T19:05:57.618890"
+      "updated_at": "2026-03-16T19:10:25.215733"
     },
     {
       "ticker": "002200",
@@ -579,7 +813,7 @@
       "breakout_probability": 25.6,
       "ai_score": 26.2,
       "market_cap": 1212,
-      "updated_at": "2026-03-16T19:05:58.015255"
+      "updated_at": "2026-03-16T19:10:25.476127"
     },
     {
       "ticker": "030190",
@@ -597,7 +831,7 @@
       "breakout_probability": 56.7,
       "ai_score": 54.0,
       "market_cap": 9862,
-      "updated_at": "2026-03-16T19:05:57.630496"
+      "updated_at": "2026-03-16T19:10:25.219037"
     },
     {
       "ticker": "126720",
@@ -615,187 +849,7 @@
       "breakout_probability": 58.0,
       "ai_score": 57.3,
       "market_cap": 3914,
-      "updated_at": "2026-03-16T19:05:57.783849"
-    },
-    {
-      "ticker": "033240",
-      "name": "자화전자",
-      "price": 40400,
-      "change_rate": 1.13,
-      "high_52w": 44950,
-      "percent_from_high": -10.12,
-      "high_52w_date": "2026-02-10",
-      "entry_date": "2026-03-10",
-      "status": "dropped",
-      "days_since": 4,
-      "volume_ratio": 0.6,
-      "predicted_gain": 26.0,
-      "breakout_probability": 89.6,
-      "ai_score": 86.1,
-      "market_cap": 8790,
-      "updated_at": "2026-03-16T19:05:57.879784"
-    },
-    {
-      "ticker": "403870",
-      "name": "HPSP",
-      "price": 43850,
-      "change_rate": 2.81,
-      "high_52w": 48800,
-      "percent_from_high": -10.14,
-      "high_52w_date": "2026-01-30",
-      "entry_date": "2026-03-06",
-      "status": "dropped",
-      "days_since": 6,
-      "volume_ratio": 0.4,
-      "predicted_gain": 22.3,
-      "breakout_probability": 88.1,
-      "ai_score": 81.7,
-      "market_cap": 36089,
-      "updated_at": "2026-03-16T19:05:57.585972"
-    },
-    {
-      "ticker": "086670",
-      "name": "비엠티",
-      "price": 13230,
-      "change_rate": -3.43,
-      "high_52w": 14790,
-      "percent_from_high": -10.55,
-      "high_52w_date": "2026-02-12",
-      "entry_date": "2026-03-12",
-      "status": "dropped",
-      "days_since": 2,
-      "volume_ratio": 0.3,
-      "predicted_gain": 22.3,
-      "breakout_probability": 72.8,
-      "ai_score": 71.0,
-      "market_cap": 1313,
-      "updated_at": "2026-03-16T19:05:57.750479"
-    },
-    {
-      "ticker": "089970",
-      "name": "브이엠",
-      "price": 40000,
-      "change_rate": 3.36,
-      "high_52w": 44750,
-      "percent_from_high": -10.61,
-      "high_52w_date": "2026-02-26",
-      "entry_date": "2026-03-06",
-      "status": "dropped",
-      "days_since": 6,
-      "volume_ratio": 0.5,
-      "predicted_gain": 31.6,
-      "breakout_probability": 93.0,
-      "ai_score": 93.5,
-      "market_cap": 9765,
-      "updated_at": "2026-03-16T19:05:57.746939"
-    },
-    {
-      "ticker": "077360",
-      "name": "덕산하이메탈",
-      "price": 13110,
-      "change_rate": -6.69,
-      "high_52w": 14690,
-      "percent_from_high": -10.76,
-      "high_52w_date": "2026-02-25",
-      "entry_date": "2026-03-12",
-      "status": "dropped",
-      "days_since": 2,
-      "volume_ratio": 0.5,
-      "predicted_gain": 34.6,
-      "breakout_probability": 93.0,
-      "ai_score": 95.1,
-      "market_cap": 5957,
-      "updated_at": "2026-03-16T19:05:57.699944"
-    },
-    {
-      "ticker": "023160",
-      "name": "태광",
-      "price": 28650,
-      "change_rate": -6.53,
-      "high_52w": 32300,
-      "percent_from_high": -11.3,
-      "high_52w_date": "2025-09-11",
-      "entry_date": "2026-03-12",
-      "status": "dropped",
-      "days_since": 2,
-      "volume_ratio": 1.2,
-      "predicted_gain": 26.2,
-      "breakout_probability": 94.9,
-      "ai_score": 90.0,
-      "market_cap": 7411,
-      "updated_at": "2026-03-16T19:05:57.970501"
-    },
-    {
-      "ticker": "104830",
-      "name": "원익머트리얼즈",
-      "price": 44050,
-      "change_rate": 1.97,
-      "high_52w": 49750,
-      "percent_from_high": -11.46,
-      "high_52w_date": "2026-02-25",
-      "entry_date": "2026-03-06",
-      "status": "dropped",
-      "days_since": 6,
-      "volume_ratio": 0.6,
-      "predicted_gain": 23.0,
-      "breakout_probability": 91.0,
-      "ai_score": 84.4,
-      "market_cap": 5554,
-      "updated_at": "2026-03-16T19:05:57.851684"
-    },
-    {
-      "ticker": "166090",
-      "name": "하나머티리얼즈",
-      "price": 62100,
-      "change_rate": 6.34,
-      "high_52w": 70700,
-      "percent_from_high": -12.16,
-      "high_52w_date": "2026-01-30",
-      "entry_date": "2026-03-06",
-      "status": "dropped",
-      "days_since": 6,
-      "volume_ratio": 1.0,
-      "predicted_gain": 22.6,
-      "breakout_probability": 80.5,
-      "ai_score": 76.7,
-      "market_cap": 12282,
-      "updated_at": "2026-03-16T19:05:58.009000"
-    },
-    {
-      "ticker": "371950",
-      "name": "풍원정밀",
-      "price": 17200,
-      "change_rate": -10.37,
-      "high_52w": 19800,
-      "percent_from_high": -13.13,
-      "high_52w_date": "2026-02-24",
-      "entry_date": "2026-03-13",
-      "status": "dropped",
-      "days_since": 1,
-      "volume_ratio": 1.1,
-      "predicted_gain": 34.1,
-      "breakout_probability": 93.5,
-      "ai_score": 95.4,
-      "market_cap": 3898,
-      "updated_at": "2026-03-16T19:05:58.001709"
-    },
-    {
-      "ticker": "222080",
-      "name": "씨아이에스",
-      "price": 13170,
-      "change_rate": -2.59,
-      "high_52w": 15770,
-      "percent_from_high": -16.49,
-      "high_52w_date": "2026-02-24",
-      "entry_date": "2026-03-06",
-      "status": "dropped",
-      "days_since": 6,
-      "volume_ratio": 0.5,
-      "predicted_gain": 29.9,
-      "breakout_probability": 87.3,
-      "ai_score": 88.0,
-      "market_cap": 10211,
-      "updated_at": "2026-03-16T19:05:57.796511"
+      "updated_at": "2026-03-16T19:10:25.328999"
     }
   ]
 }
