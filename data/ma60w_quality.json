@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-03-13T21:00:29.290190",
-    "total_count": 4,
+    "updated_at": "2026-03-16T21:12:30.977021",
+    "total_count": 5,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -10,52 +10,64 @@
   },
   "data": [
     {
+      "ticker": "068270",
+      "name": "셀트리온",
+      "current_price": 200000,
+      "ma60w": 185942,
+      "ma60w_gap": 7.56,
+      "op_margin": 22.8,
+      "op_growth_3y": 19.0,
+      "market_cap": 462097,
+      "sector": "기타",
+      "updated_at": "2026-03-16T21:12:27.023489"
+    },
+    {
       "ticker": "011200",
       "name": "HMM",
-      "current_price": 21050,
-      "ma60w": 20585,
-      "ma60w_gap": 2.26,
-      "op_margin": 18.9,
-      "op_growth_3y": 122.5,
-      "market_cap": 198552,
+      "current_price": 20950,
+      "ma60w": 20590,
+      "ma60w_gap": 1.74,
+      "op_margin": 13.4,
+      "op_growth_3y": 147.4,
+      "market_cap": 197608,
       "sector": "기타",
-      "updated_at": "2026-03-13T21:00:19.384120"
+      "updated_at": "2026-03-16T21:12:27.032136"
+    },
+    {
+      "ticker": "000240",
+      "name": "한국앤컴퍼니",
+      "current_price": 24850,
+      "ma60w": 22882,
+      "ma60w_gap": 8.6,
+      "op_margin": 26.1,
+      "op_growth_3y": 18.6,
+      "market_cap": 23591,
+      "sector": "기타",
+      "updated_at": "2026-03-16T21:12:30.385445"
     },
     {
       "ticker": "069620",
       "name": "대웅제약",
-      "current_price": 167200,
-      "ma60w": 152238,
-      "ma60w_gap": 9.83,
+      "current_price": 160600,
+      "ma60w": 152057,
+      "ma60w_gap": 5.62,
       "op_margin": 12.5,
       "op_growth_3y": 26.2,
-      "market_cap": 19373,
+      "market_cap": 18608,
       "sector": "기타",
-      "updated_at": "2026-03-13T21:00:28.321802"
+      "updated_at": "2026-03-16T21:12:30.390878"
     },
     {
       "ticker": "073240",
       "name": "금호타이어",
-      "current_price": 5730,
-      "ma60w": 5411,
-      "ma60w_gap": 5.88,
+      "current_price": 5530,
+      "ma60w": 5364,
+      "ma60w_gap": 3.08,
       "op_margin": 12.2,
       "op_growth_3y": 573.7,
-      "market_cap": 16460,
+      "market_cap": 15885,
       "sector": "기타",
-      "updated_at": "2026-03-13T21:00:29.271800"
-    },
-    {
-      "ticker": "034230",
-      "name": "파라다이스",
-      "current_price": 16750,
-      "ma60w": 16293,
-      "ma60w_gap": 2.8,
-      "op_margin": 14.2,
-      "op_growth_3y": 437.4,
-      "market_cap": 15496,
-      "sector": "기타",
-      "updated_at": "2026-03-13T21:00:29.273748"
+      "updated_at": "2026-03-16T21:12:30.964891"
     }
   ]
 }
