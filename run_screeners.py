@@ -3039,7 +3039,7 @@ def screen_fallen_rebound(stocks: pd.DataFrame) -> List[Dict]:
 
 HIGH_52W_PERIOD = 250  # 52주 ≈ 250거래일
 MAX_DAYS_SINCE_BREAKOUT = 8  # 돌파 후 최대 거래일
-HIGH_52W_GAP_DAYS = 15  # 52주 고가 최소 경과일 (오늘 기준 15거래일 이전~1년 사이)
+HIGH_52W_GAP_DAYS = 10  # 52주 고가 최소 경과일 (오늘 기준 10거래일 이전~1년 사이)
 
 def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
     """
