@@ -2234,12 +2234,15 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
         if _box_models_loaded:
             features = calculate_box_features(df, breakout_idx, box_high, box_low)
 
+        days_since_breakout = len(df) - 1 - breakout_idx
+
         results.append({
             'ticker': ticker,
             'name': name,
             'price': int(current_price),
             'change_rate': round(change_rate, 2),
             'breakout_date': breakout_day.strftime('%Y-%m-%d'),
+            'days_since_breakout': days_since_breakout,
             'breakout_price': int(box_high),
             'breakout_pct': round(breakout_pct, 2),
             'gain_since_breakout': round(gain_since_breakout, 2),
@@ -2270,11 +2273,17 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
     for r in results:
         r.pop('_features', None)
 
+    # --- 기존 등록 종목 유지 (10거래일 이내) ---
+    results = _preserve_prev_results(
+        'box_breakout.json', results, BREAKOUT_WINDOW - 1,
+        ref_date_key='breakout_date', days_since_key='days_since_breakout', stocks=stocks
+    )
+
     # AI 점수 높은 순 정렬 (모델 있으면), 없으면 거래량
     if _box_models_loaded:
         results.sort(key=lambda x: x['ai_score'], reverse=True)
     else:
-        results.sort(key=lambda x: x['volume_ratio'], reverse=True)
+        results.sort(key=lambda x: x.get('volume_ratio', 0), reverse=True)
 
     print(f"├─ 박스권 이력: {stats['total']} → {stats['box_history']}개")
     print(f"├─ 돌파 확인: {stats['box_history']} → {stats['breakout']}개")
