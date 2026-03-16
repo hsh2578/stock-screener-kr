@@ -3600,7 +3600,7 @@
                     lineWidth: 1,
                     lineStyle: 2,
                     axisLabelVisible: true,
-                    title: '돌파전고가'
+                    title: '52주고가'
                 });
             }
 
@@ -4664,7 +4664,7 @@
             };
 
             const rows = paginatedData.map(s => `
-                <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate||0})})'>
+                <tr class="clickable" onclick='openChartModal(${safeJsonStringify({ticker:s.ticker,name:s.name,price:s.price,change_rate:s.change_rate||0,resistance:s.high_52w})})'>
                     <td><div class="stock-name">${s.name} ${statusBadge(s.status)}</div><div class="stock-ticker">${s.ticker}</div></td>
                     <td class="text-right">${formatNumber(s.price)}원</td>
                     <td class="text-right">${formatMarketCap(s.market_cap)}</td>
