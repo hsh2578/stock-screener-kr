@@ -3039,6 +3039,7 @@ def screen_fallen_rebound(stocks: pd.DataFrame) -> List[Dict]:
 
 HIGH_52W_PERIOD = 250  # 52주 ≈ 250거래일
 MAX_DAYS_SINCE_BREAKOUT = 8  # 돌파 후 최대 거래일
+HIGH_52W_GAP_DAYS = 15  # 52주 고가 최소 경과일 (오늘 기준 15거래일 이전~1년 사이)
 
 def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
     """
@@ -3106,22 +3107,19 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         if ma150_now <= ma150_20ago:
             continue
 
-        # --- 52주 신고가 계산 (High 기준, 오늘 기준 단일 윈도우) ---
-        base_idx = total_len - 1 - MAX_DAYS_SINCE_BREAKOUT
-        if base_idx < HIGH_52W_PERIOD:
+        # --- 52주 신고가 계산 (오늘 기준 15거래일 이전 ~ 1년 사이의 고가) ---
+        end_idx = total_len - 1 - HIGH_52W_GAP_DAYS
+        start_idx = end_idx - HIGH_52W_PERIOD
+        if end_idx < 0 or start_idx < 0:
             continue
 
-        high_52w_prices = high.iloc[base_idx - HIGH_52W_PERIOD:base_idx]
+        high_52w_prices = high.iloc[start_idx:end_idx]
         if high_52w_prices.empty:
             continue
 
         high_52w = high_52w_prices.max()
         if pd.isna(high_52w) or high_52w <= 0:
             continue
-
-        # 52주 고가 기록일 절대 인덱스 계산
-        high_52w_pos = int(np.nanargmax(high_52w_prices.values))
-        high_52w_abs_idx = (base_idx - HIGH_52W_PERIOD) + high_52w_pos
 
         # --- 돌파일 찾기 (8일 전부터 오늘까지) ---
         breakout_date = None
@@ -3140,10 +3138,6 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
                 break
 
         if breakout_date is None:
-            continue
-
-        # --- 52주 고가 기록 후 20거래일+ 경과 확인 ---
-        if breakout_idx - high_52w_abs_idx < 15:
             continue
 
         # --- 거래량 계산 (표시용, 임계값 조건 없음) ---
@@ -3283,12 +3277,13 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         total_len = len(df)
         current_close = close.iloc[-1]
 
-        # --- 52주 신고가 계산 (룩백 구간 전 데이터, 단일 윈도우) ---
-        base_idx = total_len - 1 - NEAR_HIGH_MAX_DAYS - 1
-        if base_idx < HIGH_52W_PERIOD:
+        # --- 52주 신고가 계산 (오늘 기준 15거래일 이전 ~ 1년 사이의 고가) ---
+        end_idx = total_len - 1 - HIGH_52W_GAP_DAYS
+        start_idx = end_idx - HIGH_52W_PERIOD
+        if end_idx < 0 or start_idx < 0:
             continue
 
-        high_window = high.iloc[base_idx - HIGH_52W_PERIOD:base_idx]
+        high_window = high.iloc[start_idx:end_idx]
         if high_window.empty:
             continue
 
@@ -3299,12 +3294,6 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         # 52주 신고가 기록일
         high_52w_idx = high_window.idxmax()
         high_52w_date = high_52w_idx.strftime('%Y-%m-%d') if high_52w_idx is not None else None
-
-        # 확립된 저항선: 고가 기록 후 20거래일 이상 경과
-        high_pos = high_window.index.get_loc(high_52w_idx)
-        days_since_high = len(high_window) - 1 - high_pos
-        if days_since_high < 15:
-            continue
 
         # 9일 전(룩백 직전)에도 이미 근접 구간이면 제외
         pre_idx = total_len - 1 - (NEAR_HIGH_MAX_DAYS + 1)
