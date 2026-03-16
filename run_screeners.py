@@ -3040,6 +3040,7 @@ def screen_fallen_rebound(stocks: pd.DataFrame) -> List[Dict]:
 HIGH_52W_PERIOD = 250  # 52주 ≈ 250거래일
 MAX_DAYS_SINCE_BREAKOUT = 8  # 돌파 후 최대 거래일
 HIGH_52W_GAP_DAYS = 15  # 52주 고가 최소 경과일 (오늘 기준 15거래일 이전~1년 사이)
+BREAKOUT_THRESHOLD = 1.015  # 돌파 기준: 52주 고가 대비 1.5% 이상 종가 상승
 
 def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
     """
@@ -3132,17 +3133,18 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
             if pd.isna(day_high_52w) or day_high_52w <= 0:
                 continue
 
-            # 이 날 기준 15일 이내에 고가가 돌파한 적 있으면 제외 (오래된 돌파)
+            # 이 날 기준 15일 이내에 종가가 1.5%+ 돌파한 적 있으면 제외 (오래된 돌파)
+            breakout_level = day_high_52w * BREAKOUT_THRESHOLD
             already_broken = False
             for gap_offset in range(1, HIGH_52W_GAP_DAYS + 1):
                 gap_idx = idx - gap_offset
-                if gap_idx >= 0 and high.iloc[gap_idx] > day_high_52w:
+                if gap_idx >= 0 and close.iloc[gap_idx] > breakout_level:
                     already_broken = True
                     break
             if already_broken:
                 continue
 
-            if close.iloc[idx] > day_high_52w:
+            if close.iloc[idx] > breakout_level:
                 breakout_date = df.index[idx]
                 days_since = days_ago
                 breakout_idx = idx
