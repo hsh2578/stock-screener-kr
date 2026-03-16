@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-16T16:21:49.130322",
+    "lastUpdated": "2026-03-16T18:41:13.680536",
     "totalCount": 100,
     "screened_from": 1493
   },
@@ -502,6 +502,22 @@
       "above_ma150": false
     },
     {
+      "ticker": "019210",
+      "name": "와이지-원",
+      "price": 12860,
+      "entry_price": 13790,
+      "change_rate": 16.86,
+      "since_return": -6.74,
+      "days_ago": 1,
+      "volume": 4403319,
+      "volume_ratio": 2.8,
+      "market_cap": 4783.0,
+      "per": null,
+      "pbr": null,
+      "ma150": 6239,
+      "above_ma150": true
+    },
+    {
       "ticker": "039200",
       "name": "오스코텍",
       "price": 59300,
@@ -630,22 +646,6 @@
       "above_ma150": true
     },
     {
-      "ticker": "307750",
-      "name": "국전약품",
-      "price": 4655,
-      "entry_price": 4830,
-      "change_rate": 14.18,
-      "since_return": -3.62,
-      "days_ago": 1,
-      "volume": 12483057,
-      "volume_ratio": 4.8,
-      "market_cap": 2336.0,
-      "per": null,
-      "pbr": null,
-      "ma150": 3657,
-      "above_ma150": true
-    },
-    {
       "ticker": "039980",
       "name": "폴라리스AI",
       "price": 1936,
@@ -755,22 +755,6 @@
       "per": null,
       "pbr": null,
       "ma150": 59116,
-      "above_ma150": true
-    },
-    {
-      "ticker": "380540",
-      "name": "옵티코어",
-      "price": 4890,
-      "entry_price": 5020,
-      "change_rate": 24.1,
-      "since_return": -2.59,
-      "days_ago": 2,
-      "volume": 34570542,
-      "volume_ratio": 10.9,
-      "market_cap": 2386.0,
-      "per": null,
-      "pbr": null,
-      "ma150": 2334,
       "above_ma150": true
     },
     {
@@ -964,6 +948,22 @@
       "pbr": null,
       "ma150": 13156,
       "above_ma150": true
+    },
+    {
+      "ticker": "095720",
+      "name": "웅진씽크빅",
+      "price": 1177,
+      "entry_price": 1187,
+      "change_rate": 14.46,
+      "since_return": -0.84,
+      "days_ago": 2,
+      "volume": 2256278,
+      "volume_ratio": 10.4,
+      "market_cap": 1360.0,
+      "per": null,
+      "pbr": null,
+      "ma150": 1438,
+      "above_ma150": false
     },
     {
       "ticker": "050890",
@@ -1286,6 +1286,22 @@
       "above_ma150": true
     },
     {
+      "ticker": "019210",
+      "name": "와이지-원",
+      "price": 12860,
+      "entry_price": 11840,
+      "change_rate": 29.97,
+      "since_return": 8.61,
+      "days_ago": 4,
+      "volume": 4160330,
+      "volume_ratio": 3.6,
+      "market_cap": 4783.0,
+      "per": null,
+      "pbr": null,
+      "ma150": 6239,
+      "above_ma150": true
+    },
+    {
       "ticker": "327260",
       "name": "RF머트리얼즈",
       "price": 65000,
@@ -1587,22 +1603,6 @@
       "per": null,
       "pbr": null,
       "ma150": 6825,
-      "above_ma150": true
-    },
-    {
-      "ticker": "402490",
-      "name": "그린리소스",
-      "price": 13950,
-      "entry_price": 12620,
-      "change_rate": 22.05,
-      "since_return": 10.54,
-      "days_ago": 4,
-      "volume": 5669587,
-      "volume_ratio": 2.9,
-      "market_cap": 2311.0,
-      "per": null,
-      "pbr": null,
-      "ma150": 8867,
       "above_ma150": true
     }
   ]
