@@ -3106,44 +3106,45 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         if ma150_now <= ma150_20ago:
             continue
 
-        # --- 52주 신고가 계산 (High 기준) ---
-        base_idx = total_len - 1 - MAX_DAYS_SINCE_BREAKOUT
-        if base_idx < HIGH_52W_PERIOD:
-            continue
-
-        high_52w_prices = high.iloc[base_idx - HIGH_52W_PERIOD:base_idx]
-        if high_52w_prices.empty:
-            continue
-
-        high_52w = high_52w_prices.max()
-        if pd.isna(high_52w) or high_52w <= 0:
-            continue
-
-        # 52주 고가 기록일 절대 인덱스 계산 (NaN 안전 처리)
-        high_52w_pos = int(np.nanargmax(high_52w_prices.values))
-        high_52w_abs_idx = (base_idx - HIGH_52W_PERIOD) + high_52w_pos
-
-        # --- 돌파일 찾기 (8일 전부터 오늘까지) ---
+        # --- 돌파일 찾기 (8일 전부터 오늘까지, 각 날짜별 high_52w 계산) ---
         breakout_date = None
         days_since = None
         breakout_idx = None
         breakout_close = None
+        high_52w = None
+        high_52w_abs_idx = None
+
         for days_ago in range(MAX_DAYS_SINCE_BREAKOUT, -1, -1):
             idx = total_len - 1 - days_ago
             if idx < 0:
                 continue
-            if close.iloc[idx] > high_52w:
+            # 이 날 기준 52주 고가: idx 이전 8거래일을 제외한 250거래일 윈도우
+            day_base = idx - MAX_DAYS_SINCE_BREAKOUT
+            if day_base < HIGH_52W_PERIOD:
+                continue
+            day_high_prices = high.iloc[day_base - HIGH_52W_PERIOD:day_base]
+            if day_high_prices.empty:
+                continue
+            day_high_52w = day_high_prices.max()
+            if pd.isna(day_high_52w) or day_high_52w <= 0:
+                continue
+
+            if close.iloc[idx] > day_high_52w:
+                # 52주 고가 기록일 확인 (20거래일+ 경과)
+                day_high_pos = int(np.nanargmax(day_high_prices.values))
+                day_high_abs_idx = (day_base - HIGH_52W_PERIOD) + day_high_pos
+                if idx - day_high_abs_idx < 20:
+                    continue  # 저항선 미확립
+
                 breakout_date = df.index[idx]
                 days_since = days_ago
                 breakout_idx = idx
                 breakout_close = close.iloc[idx]
+                high_52w = day_high_52w
+                high_52w_abs_idx = day_high_abs_idx
                 break
 
         if breakout_date is None:
-            continue
-
-        # --- 52주 고가 기록 후 20거래일+ 경과 확인 ---
-        if breakout_idx - high_52w_abs_idx < 20:
             continue
 
         # --- 거래량 계산 (표시용, 임계값 조건 없음) ---
