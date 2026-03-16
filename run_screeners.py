@@ -3045,6 +3045,19 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
     if _kospi_data is None:
         load_kospi_data()
 
+    # --- 기존 JSON 로드 (등록된 종목 8거래일 유지용) ---
+    prev_data = {}
+    prev_json_path = os.path.join(DATA_PATH, 'new_high_52w.json')
+    try:
+        if os.path.exists(prev_json_path):
+            with open(prev_json_path, 'r', encoding='utf-8') as f:
+                prev_json = json.load(f)
+            for item in prev_json.get('data', []):
+                prev_data[item['ticker']] = item
+            print(f"  기존 데이터: {len(prev_data)}개 종목")
+    except Exception as e:
+        print(f"  기존 데이터 로드 실패: {e}")
+
     results = []
     required_days = HIGH_52W_PERIOD + MAX_DAYS_SINCE_BREAKOUT + 2
     MA150_PERIOD = 150
@@ -3187,6 +3200,59 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
     # 임시 피처 필드 제거
     for r in results:
         r.pop('_features', None)
+
+    # --- 기존 등록 종목 유지 (8거래일 이내) ---
+    new_tickers = {r['ticker'] for r in results}
+    preserved_count = 0
+    for ticker, prev_item in prev_data.items():
+        if ticker in new_tickers:
+            continue  # 새로 스크리닝된 종목은 새 결과 우선
+        # breakout_date 기준으로 경과 거래일 재계산
+        try:
+            df = get_ohlcv(ticker, 30)
+            if df is None or len(df) < 2:
+                continue
+            breakout_dt = pd.Timestamp(prev_item['breakout_date'])
+            # breakout_date 이후 거래일 수 계산
+            trading_days_after = df.index[df.index > breakout_dt]
+            days_since_now = len(trading_days_after)
+            if days_since_now > MAX_DAYS_SINCE_BREAKOUT:
+                continue  # 8거래일 초과 → 탈락
+
+            # 현재가 업데이트
+            close = df['Close']
+            current_close = float(close.iloc[-1])
+            prev_close = float(close.iloc[-2])
+            change_rate = (current_close - prev_close) / prev_close * 100 if prev_close > 0 else 0
+            high_52w = prev_item['high_52w']
+            above_high_pct = (current_close - high_52w) / high_52w * 100 if high_52w > 0 else 0
+            breakout_close_price = prev_item.get('_breakout_close') or current_close
+            # breakout_date 당일 종가 찾기
+            if breakout_dt in df.index:
+                breakout_close_price = float(df.loc[breakout_dt, 'Close'])
+            vs_breakout = (current_close / breakout_close_price - 1) * 100 if breakout_close_price > 0 else 0
+
+            preserved = dict(prev_item)
+            preserved['price'] = int(current_close)
+            preserved['change_rate'] = round(change_rate, 2)
+            preserved['days_since'] = days_since_now
+            preserved['above_high_percent'] = round(above_high_pct, 2)
+            preserved['vs_breakout_close'] = round(vs_breakout, 2)
+            preserved['updated_at'] = datetime.now().isoformat()
+            # market_cap 업데이트 (stocks DataFrame에서)
+            stock_row = stocks[stocks['Code'] == ticker] if 'Code' in stocks.columns else stocks[stocks['Symbol'] == ticker]
+            if not stock_row.empty:
+                mc = stock_row.iloc[0].get('MarketCap', preserved.get('market_cap', 0))
+                preserved['market_cap'] = int(mc) if isinstance(mc, (int, float)) else preserved.get('market_cap', 0)
+
+            results.append(preserved)
+            preserved_count += 1
+        except Exception as e:
+            print(f"  기존 종목 유지 실패 ({ticker}): {e}")
+            continue
+
+    if preserved_count > 0:
+        print(f"  기존 종목 유지: {preserved_count}개")
 
     # 돌파일 기준 정렬 (최신순), 같은 날이면 성공확률 높은 순
     results.sort(key=lambda x: (x['days_since'], -(x['success_probability'] or 0)))
