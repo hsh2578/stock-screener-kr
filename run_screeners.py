@@ -3161,9 +3161,7 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         avg_vol_20 = volume.iloc[breakout_idx - 20:breakout_idx].mean()
         breakout_vol = volume.iloc[breakout_idx]
 
-        # --- 현재가가 52주 신고가 위에 있어야 함 ---
-        if current_close <= high_52w:
-            continue
+        # (돌파 후 하락해도 8거래일 이내면 표시)
 
         prev_close = close.iloc[-2] if len(close) >= 2 else current_close
         change_rate = (current_close - prev_close) / prev_close * 100 if prev_close > 0 else 0
