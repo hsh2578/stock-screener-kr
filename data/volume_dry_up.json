@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-16T15:10:07.203109",
-    "totalCount": 5,
-    "screened_from": 1491
+    "lastUpdated": "2026-03-16T15:33:24.820770",
+    "totalCount": 3,
+    "screened_from": 1489
   },
   "data": [
     {
       "ticker": "080420",
       "name": "모다이노칩",
-      "price": 2120,
-      "change_rate": -0.47,
+      "price": 2115,
+      "change_rate": -0.7,
       "explosion_date": "2026-03-10",
       "explosion_change_rate": 16.7,
       "explosion_volume_ratio": 4.8,
@@ -21,43 +21,25 @@
       "ma150": 2017,
       "above_ma150": true,
       "market_cap": 1686,
-      "updated_at": "2026-03-16T15:10:02.218562"
+      "updated_at": "2026-03-16T15:33:18.686656"
     },
     {
       "ticker": "085910",
       "name": "네오티스",
-      "price": 17170,
-      "change_rate": -2.55,
+      "price": 17150,
+      "change_rate": -2.67,
       "explosion_date": "2026-02-27",
       "explosion_change_rate": 21.3,
       "explosion_volume_ratio": 4.1,
       "days_since_detected": 10,
       "volume_decrease_rate": 87,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.75,
+      "ma20_distance": 0.64,
       "volume_rank": 2,
       "ma150": 7516,
       "above_ma150": true,
-      "market_cap": 2393,
-      "updated_at": "2026-03-16T15:10:00.622853"
-    },
-    {
-      "ticker": "001290",
-      "name": "상상인증권",
-      "price": 1194,
-      "change_rate": -2.61,
-      "explosion_date": "2026-02-26",
-      "explosion_change_rate": 29.9,
-      "explosion_volume_ratio": 3.5,
-      "days_since_detected": 11,
-      "volume_decrease_rate": 94,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.4,
-      "volume_rank": 3,
-      "ma150": 759,
-      "above_ma150": true,
-      "market_cap": 1291,
-      "updated_at": "2026-03-16T15:10:02.867122"
+      "market_cap": 2390,
+      "updated_at": "2026-03-16T15:33:17.535606"
     },
     {
       "ticker": "005850",
@@ -71,29 +53,11 @@
       "volume_decrease_rate": 85,
       "pattern_type": "ma20_approach",
       "ma20_distance": 0.25,
-      "volume_rank": 4,
+      "volume_rank": 3,
       "ma150": 42887,
       "above_ma150": true,
-      "market_cap": 29355,
-      "updated_at": "2026-03-16T15:10:03.866248"
-    },
-    {
-      "ticker": "009290",
-      "name": "광동제약",
-      "price": 8820,
-      "change_rate": -2.22,
-      "explosion_date": "2026-02-20",
-      "explosion_change_rate": 30.0,
-      "explosion_volume_ratio": 55.6,
-      "days_since_detected": 15,
-      "volume_decrease_rate": 97,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.36,
-      "volume_rank": 5,
-      "ma150": 6312,
-      "above_ma150": true,
-      "market_cap": 4387,
-      "updated_at": "2026-03-16T15:10:00.274677"
+      "market_cap": 29402,
+      "updated_at": "2026-03-16T15:33:20.593021"
     }
   ]
 }

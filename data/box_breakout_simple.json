@@ -1,27 +1,27 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-16T15:10:01.393177",
+    "lastUpdated": "2026-03-16T15:33:26.197179",
     "totalCount": 3,
-    "screened_from": 1491
+    "screened_from": 1489
   },
   "data": [
     {
       "ticker": "041910",
       "name": "폴라리스AI파마",
-      "price": 9040,
-      "change_rate": 10.38,
+      "price": 8920,
+      "change_rate": 8.91,
       "breakout_date": "2026-03-13",
       "resistance": 7010,
       "days_since_breakout": 1,
-      "breakout_pct": 28.96,
-      "gain_since_breakout": 10.38,
-      "ma150": 6532,
+      "breakout_pct": 27.25,
+      "gain_since_breakout": 8.91,
+      "ma150": 6531,
       "above_ma150": true,
-      "market_cap": 1218,
-      "success_prob": 71.4,
+      "market_cap": 1204,
+      "success_prob": 73.3,
       "predicted_gain": 24.6,
-      "ai_score": 72.1,
-      "updated_at": "2026-03-16T15:09:58.974496"
+      "ai_score": 73.4,
+      "updated_at": "2026-03-16T15:33:24.306295"
     },
     {
       "ticker": "395400",
@@ -35,29 +35,29 @@
       "gain_since_breakout": 0.0,
       "ma150": 5370,
       "above_ma150": true,
-      "market_cap": 18242,
+      "market_cap": 18212,
       "success_prob": 20.0,
       "predicted_gain": 10.5,
       "ai_score": 23.4,
-      "updated_at": "2026-03-16T15:09:48.743755"
+      "updated_at": "2026-03-16T15:33:12.578920"
     },
     {
       "ticker": "145720",
       "name": "덴티움",
-      "price": 52700,
-      "change_rate": -0.57,
+      "price": 52500,
+      "change_rate": -0.94,
       "breakout_date": "2026-03-11",
       "resistance": 52500,
       "days_since_breakout": 3,
-      "breakout_pct": 0.38,
-      "gain_since_breakout": -3.66,
-      "ma150": 53190,
+      "breakout_pct": 0.0,
+      "gain_since_breakout": -4.02,
+      "ma150": 53189,
       "above_ma150": false,
-      "market_cap": 5404,
+      "market_cap": 5383,
       "success_prob": 10.0,
       "predicted_gain": 15.0,
       "ai_score": 20.5,
-      "updated_at": "2026-03-16T15:09:50.500268"
+      "updated_at": "2026-03-16T15:33:14.355835"
     }
   ]
 }
