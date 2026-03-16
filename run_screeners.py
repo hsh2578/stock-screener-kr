@@ -3107,7 +3107,7 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         if ma150_now <= ma150_20ago:
             continue
 
-        # --- 52주 신고가 계산 (오늘 기준 15거래일 이전 ~ 1년 사이의 고가) ---
+        # --- 52주 신고가 계산 (오늘 기준 [오늘-260 ~ 오늘-10] 윈도우) ---
         end_idx = total_len - 1 - HIGH_52W_GAP_DAYS
         start_idx = end_idx - HIGH_52W_PERIOD
         if end_idx < 0 or start_idx < 0:
@@ -3277,7 +3277,7 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         total_len = len(df)
         current_close = close.iloc[-1]
 
-        # --- 52주 신고가 계산 (오늘 기준 15거래일 이전 ~ 1년 사이의 고가) ---
+        # --- 52주 신고가 계산 (오늘 기준 [오늘-260 ~ 오늘-10] 윈도우) ---
         end_idx = total_len - 1 - HIGH_52W_GAP_DAYS
         start_idx = end_idx - HIGH_52W_PERIOD
         if end_idx < 0 or start_idx < 0:
