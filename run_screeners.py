@@ -3143,7 +3143,7 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
             continue
 
         # --- 52주 고가 기록 후 20거래일+ 경과 확인 ---
-        if breakout_idx - high_52w_abs_idx < 20:
+        if breakout_idx - high_52w_abs_idx < 10:
             continue
 
         # --- 거래량 계산 (표시용, 임계값 조건 없음) ---
@@ -3303,7 +3303,7 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         # 확립된 저항선: 고가 기록 후 20거래일 이상 경과
         high_pos = high_window.index.get_loc(high_52w_idx)
         days_since_high = len(high_window) - 1 - high_pos
-        if days_since_high < 20:
+        if days_since_high < 10:
             continue
 
         # 9일 전(룩백 직전)에도 이미 근접 구간이면 제외
