@@ -1,37 +1,37 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-16T14:08:41.968038",
+    "lastUpdated": "2026-03-16T15:02:46.915655",
     "totalCount": 2,
-    "screened_from": 1492
+    "screened_from": 1490
   },
   "data": [
     {
       "ticker": "092230",
       "name": "KPX홀딩스",
-      "price": 78200,
-      "change_rate": -1.01,
+      "price": 78000,
+      "change_rate": -1.27,
       "breakout_date": "2026-02-13",
       "resistance": 78100,
       "pullback_ratio": 0.13,
       "volume_decrease": 85,
-      "ma150": 71923,
+      "ma150": 71922,
       "above_ma150": true,
-      "market_cap": 3304,
-      "updated_at": "2026-03-16T14:08:35.426405"
+      "market_cap": 3295,
+      "updated_at": "2026-03-16T15:02:40.237530"
     },
     {
       "ticker": "034950",
       "name": "한국기업평가",
-      "price": 100200,
-      "change_rate": -0.5,
+      "price": 100100,
+      "change_rate": -0.6,
       "breakout_date": "2026-02-11",
       "resistance": 100700,
-      "pullback_ratio": 0.5,
+      "pullback_ratio": 0.6,
       "volume_decrease": 88,
-      "ma150": 99136,
+      "ma150": 99135,
       "above_ma150": true,
-      "market_cap": 4550,
-      "updated_at": "2026-03-16T14:08:41.570027"
+      "market_cap": 4545,
+      "updated_at": "2026-03-16T15:02:46.363660"
     }
   ]
 }

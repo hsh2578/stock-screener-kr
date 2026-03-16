@@ -1,45 +1,63 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-16T14:08:52.645140",
-    "totalCount": 2,
-    "screened_from": 1492
+    "lastUpdated": "2026-03-16T15:02:55.583939",
+    "totalCount": 3,
+    "screened_from": 1490
   },
   "data": [
     {
+      "ticker": "041910",
+      "name": "폴라리스AI파마",
+      "price": 8870,
+      "change_rate": 8.3,
+      "breakout_date": "2026-03-13",
+      "resistance": 7010,
+      "days_since_breakout": 1,
+      "breakout_pct": 26.53,
+      "gain_since_breakout": 8.3,
+      "ma150": 6530,
+      "above_ma150": true,
+      "market_cap": 1187,
+      "success_prob": 71.4,
+      "predicted_gain": 24.6,
+      "ai_score": 72.1,
+      "updated_at": "2026-03-16T15:02:53.650036"
+    },
+    {
       "ticker": "395400",
       "name": "SK리츠",
-      "price": 6100,
-      "change_rate": 2.01,
+      "price": 6080,
+      "change_rate": 1.67,
       "breakout_date": "2026-03-16",
       "resistance": 5920,
       "days_since_breakout": 0,
-      "breakout_pct": 3.04,
+      "breakout_pct": 2.7,
       "gain_since_breakout": 0.0,
       "ma150": 5371,
       "above_ma150": true,
       "market_cap": 18362,
-      "success_prob": 32.2,
+      "success_prob": 22.9,
       "predicted_gain": 10.6,
-      "ai_score": 32.1,
-      "updated_at": "2026-03-16T14:08:38.189968"
+      "ai_score": 25.5,
+      "updated_at": "2026-03-16T15:02:42.930092"
     },
     {
       "ticker": "145720",
       "name": "덴티움",
-      "price": 52900,
-      "change_rate": -0.19,
+      "price": 52700,
+      "change_rate": -0.57,
       "breakout_date": "2026-03-11",
       "resistance": 52500,
       "days_since_breakout": 3,
-      "breakout_pct": 0.76,
-      "gain_since_breakout": -3.29,
-      "ma150": 53192,
+      "breakout_pct": 0.38,
+      "gain_since_breakout": -3.66,
+      "ma150": 53190,
       "above_ma150": false,
-      "market_cap": 5424,
+      "market_cap": 5414,
       "success_prob": 10.0,
       "predicted_gain": 15.0,
       "ai_score": 20.5,
-      "updated_at": "2026-03-16T14:08:41.182803"
+      "updated_at": "2026-03-16T15:02:44.669426"
     }
   ]
 }
