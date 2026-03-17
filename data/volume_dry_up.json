@@ -1,27 +1,27 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-17T11:22:32.711060",
-    "totalCount": 7,
-    "screened_from": 1495
+    "lastUpdated": "2026-03-17T12:20:10.416779",
+    "totalCount": 6,
+    "screened_from": 1499
   },
   "data": [
     {
       "ticker": "095720",
       "name": "웅진씽크빅",
-      "price": 1207,
-      "change_rate": 2.55,
+      "price": 1206,
+      "change_rate": 2.46,
       "explosion_date": "2026-03-12",
       "explosion_change_rate": 14.5,
       "explosion_volume_ratio": 10.2,
       "days_since_detected": 3,
-      "volume_decrease_rate": 90,
+      "volume_decrease_rate": 89,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
       "ma150": 1432,
       "above_ma150": false,
-      "market_cap": 1393,
-      "updated_at": "2026-03-17T11:22:29.954732"
+      "market_cap": 1396,
+      "updated_at": "2026-03-17T12:20:06.312189"
     },
     {
       "ticker": "080420",
@@ -39,61 +39,43 @@
       "ma150": 2015,
       "above_ma150": true,
       "market_cap": 1702,
-      "updated_at": "2026-03-17T11:22:27.615816"
-    },
-    {
-      "ticker": "131030",
-      "name": "옵투스제약",
-      "price": 10420,
-      "change_rate": 0.1,
-      "explosion_date": "2026-02-26",
-      "explosion_change_rate": 17.5,
-      "explosion_volume_ratio": 10.9,
-      "days_since_detected": 12,
-      "volume_decrease_rate": 98,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.56,
-      "volume_rank": 3,
-      "ma150": 7670,
-      "above_ma150": true,
-      "market_cap": 1839,
-      "updated_at": "2026-03-17T11:22:29.823480"
+      "updated_at": "2026-03-17T12:20:03.765971"
     },
     {
       "ticker": "013520",
       "name": "화승코퍼레이션",
-      "price": 2955,
-      "change_rate": -1.17,
+      "price": 2975,
+      "change_rate": -0.5,
       "explosion_date": "2026-02-26",
       "explosion_change_rate": 14.2,
       "explosion_volume_ratio": 14.4,
       "days_since_detected": 12,
       "volume_decrease_rate": 97,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.54,
-      "volume_rank": 4,
+      "ma20_distance": 1.19,
+      "volume_rank": 3,
       "ma150": 2241,
       "above_ma150": true,
-      "market_cap": 1479,
-      "updated_at": "2026-03-17T11:22:32.625416"
+      "market_cap": 1489,
+      "updated_at": "2026-03-17T12:20:10.251527"
     },
     {
       "ticker": "001290",
       "name": "상상인증권",
-      "price": 1204,
-      "change_rate": 0.67,
+      "price": 1210,
+      "change_rate": 1.17,
       "explosion_date": "2026-02-26",
       "explosion_change_rate": 29.9,
       "explosion_volume_ratio": 3.5,
       "days_since_detected": 12,
       "volume_decrease_rate": 95,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.24,
-      "volume_rank": 5,
+      "ma20_distance": 0.71,
+      "volume_rank": 4,
       "ma150": 763,
       "above_ma150": true,
-      "market_cap": 1304,
-      "updated_at": "2026-03-17T11:22:28.244221"
+      "market_cap": 1311,
+      "updated_at": "2026-03-17T12:20:04.400219"
     },
     {
       "ticker": "001510",
@@ -107,29 +89,29 @@
       "volume_decrease_rate": 94,
       "pattern_type": "ma20_approach",
       "ma20_distance": 1.17,
-      "volume_rank": 6,
+      "volume_rank": 5,
       "ma150": 825,
       "above_ma150": true,
-      "market_cap": 8261,
-      "updated_at": "2026-03-17T11:22:25.274692"
+      "market_cap": 8251,
+      "updated_at": "2026-03-17T12:20:02.134333"
     },
     {
       "ticker": "125020",
       "name": "티씨머티리얼즈",
-      "price": 6040,
-      "change_rate": 0.0,
+      "price": 6030,
+      "change_rate": -0.17,
       "explosion_date": "2026-02-19",
       "explosion_change_rate": 25.5,
       "explosion_volume_ratio": 24.6,
       "days_since_detected": 17,
       "volume_decrease_rate": 90,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 1.09,
-      "volume_rank": 7,
+      "ma20_distance": 0.93,
+      "volume_rank": 6,
       "ma150": 4431,
       "above_ma150": true,
-      "market_cap": 2116,
-      "updated_at": "2026-03-17T11:22:31.816722"
+      "market_cap": 2113,
+      "updated_at": "2026-03-17T12:20:08.414796"
     }
   ]
 }
