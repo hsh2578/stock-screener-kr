@@ -1,27 +1,27 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-18T12:26:13.415811",
+    "lastUpdated": "2026-03-18T14:46:40.862710",
     "totalCount": 3,
-    "screened_from": 1499
+    "screened_from": 1504
   },
   "data": [
     {
       "ticker": "041910",
       "name": "폴라리스AI파마",
-      "price": 8590,
-      "change_rate": 0.23,
+      "price": 8470,
+      "change_rate": -1.17,
       "breakout_date": "2026-03-13",
       "resistance": 7010,
       "days_since_breakout": 3,
-      "breakout_pct": 22.54,
-      "gain_since_breakout": 4.88,
-      "ma150": 6553,
+      "breakout_pct": 20.83,
+      "gain_since_breakout": 3.42,
+      "ma150": 6552,
       "above_ma150": true,
       "market_cap": 1144,
-      "success_prob": 61.9,
+      "success_prob": 64.2,
       "predicted_gain": 24.4,
-      "ai_score": 65.4,
-      "updated_at": "2026-03-18T12:26:12.521801"
+      "ai_score": 66.9,
+      "updated_at": "2026-03-18T14:46:38.785832"
     },
     {
       "ticker": "395400",
@@ -35,29 +35,29 @@
       "gain_since_breakout": 1.16,
       "ma150": 5388,
       "above_ma150": true,
-      "market_cap": 18241,
+      "market_cap": 18422,
       "success_prob": 20.0,
       "predicted_gain": 10.5,
       "ai_score": 23.4,
-      "updated_at": "2026-03-18T12:25:57.691886"
+      "updated_at": "2026-03-18T14:46:28.052041"
     },
     {
       "ticker": "145720",
       "name": "덴티움",
-      "price": 53300,
-      "change_rate": 0.57,
+      "price": 53100,
+      "change_rate": 0.19,
       "breakout_date": "2026-03-11",
       "resistance": 52500,
       "days_since_breakout": 5,
-      "breakout_pct": 1.52,
-      "gain_since_breakout": -2.56,
-      "ma150": 53054,
+      "breakout_pct": 1.14,
+      "gain_since_breakout": -2.93,
+      "ma150": 53053,
       "above_ma150": true,
-      "market_cap": 5485,
+      "market_cap": 5445,
       "success_prob": 10.0,
       "predicted_gain": 15.0,
       "ai_score": 20.5,
-      "updated_at": "2026-03-18T12:25:59.955107"
+      "updated_at": "2026-03-18T14:46:29.792914"
     }
   ]
 }
