@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated_at": "2026-03-17T21:13:59.247006",
+    "updated_at": "2026-03-18T21:14:32.337382",
     "total_count": 4,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
@@ -10,52 +10,52 @@
   },
   "data": [
     {
+      "ticker": "207940",
+      "name": "삼성바이오로직스",
+      "current_price": 1626000,
+      "ma60w": 1604500,
+      "ma60w_gap": 1.34,
+      "op_margin": 45.4,
+      "op_growth_3y": 25.1,
+      "market_cap": 752691,
+      "sector": "기타",
+      "updated_at": "2026-03-18T21:14:23.341259"
+    },
+    {
       "ticker": "011200",
       "name": "HMM",
-      "current_price": 20850,
-      "ma60w": 20540,
-      "ma60w_gap": 1.51,
+      "current_price": 21100,
+      "ma60w": 20528,
+      "ma60w_gap": 2.78,
       "op_margin": 13.4,
       "op_growth_3y": 147.4,
-      "market_cap": 196665,
+      "market_cap": 199023,
       "sector": "기타",
-      "updated_at": "2026-03-17T21:13:55.096381"
+      "updated_at": "2026-03-18T21:14:23.353826"
+    },
+    {
+      "ticker": "443060",
+      "name": "HD현대마린솔루션",
+      "current_price": 183400,
+      "ma60w": 180782,
+      "ma60w_gap": 1.45,
+      "op_margin": 17.7,
+      "op_growth_3y": 21.2,
+      "market_cap": 82221,
+      "sector": "기타",
+      "updated_at": "2026-03-18T21:14:28.728422"
     },
     {
       "ticker": "069620",
       "name": "대웅제약",
-      "current_price": 165000,
-      "ma60w": 152074,
-      "ma60w_gap": 8.5,
+      "current_price": 162200,
+      "ma60w": 152064,
+      "ma60w_gap": 6.67,
       "op_margin": 12.5,
       "op_growth_3y": 17.9,
-      "market_cap": 19118,
+      "market_cap": 18793,
       "sector": "기타",
-      "updated_at": "2026-03-17T21:13:58.542400"
-    },
-    {
-      "ticker": "073240",
-      "name": "금호타이어",
-      "current_price": 5790,
-      "ma60w": 5364,
-      "ma60w_gap": 7.93,
-      "op_margin": 12.2,
-      "op_growth_3y": 573.7,
-      "market_cap": 16632,
-      "sector": "기타",
-      "updated_at": "2026-03-17T21:13:59.229568"
-    },
-    {
-      "ticker": "003570",
-      "name": "SNT다이내믹스",
-      "current_price": 49950,
-      "ma60w": 45943,
-      "ma60w_gap": 8.72,
-      "op_margin": 12.0,
-      "op_growth_3y": 47.7,
-      "market_cap": 16610,
-      "sector": "기타",
-      "updated_at": "2026-03-17T21:13:59.230052"
+      "updated_at": "2026-03-18T21:14:32.316877"
     }
   ]
 }
