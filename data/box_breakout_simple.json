@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-19T12:26:57.294156",
+    "lastUpdated": "2026-03-19T13:37:17.645376",
     "totalCount": 3,
     "screened_from": 1493
   },
@@ -8,20 +8,20 @@
     {
       "ticker": "041910",
       "name": "폴라리스AI파마",
-      "price": 7870,
-      "change_rate": -8.59,
+      "price": 7850,
+      "change_rate": -8.83,
       "breakout_date": "2026-03-13",
       "resistance": 7010,
       "days_since_breakout": 4,
-      "breakout_pct": 12.27,
-      "gain_since_breakout": -3.91,
+      "breakout_pct": 11.98,
+      "gain_since_breakout": -4.15,
       "ma150": 6559,
       "above_ma150": true,
-      "market_cap": 1065,
+      "market_cap": 1061,
       "success_prob": 61.9,
       "predicted_gain": 24.4,
       "ai_score": 65.4,
-      "updated_at": "2026-03-19T12:26:55.149219"
+      "updated_at": "2026-03-19T13:37:15.247782"
     },
     {
       "ticker": "395400",
@@ -39,25 +39,25 @@
       "success_prob": 19.2,
       "predicted_gain": 10.5,
       "ai_score": 22.8,
-      "updated_at": "2026-03-19T12:26:44.339297"
+      "updated_at": "2026-03-19T13:37:03.966230"
     },
     {
       "ticker": "145720",
       "name": "덴티움",
-      "price": 52300,
-      "change_rate": -2.06,
+      "price": 51950,
+      "change_rate": -2.72,
       "breakout_date": "2026-03-11",
       "resistance": 52500,
       "days_since_breakout": 6,
-      "breakout_pct": -0.38,
-      "gain_since_breakout": -4.39,
-      "ma150": 52990,
+      "breakout_pct": -1.05,
+      "gain_since_breakout": -5.03,
+      "ma150": 52987,
       "above_ma150": false,
-      "market_cap": 5363,
+      "market_cap": 5327,
       "success_prob": 10.0,
       "predicted_gain": 15.0,
       "ai_score": 20.5,
-      "updated_at": "2026-03-19T12:26:46.537291"
+      "updated_at": "2026-03-19T13:37:06.264829"
     }
   ]
 }
