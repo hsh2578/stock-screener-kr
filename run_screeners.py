@@ -3326,21 +3326,13 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
                 continue
 
         # --- 8거래일 룩백: 근접 구간 최초 진입일 찾기 ---
-        days_since = None
-        entry_idx = None
-        for days_ago in range(NEAR_HIGH_MAX_DAYS, -1, -1):
-            idx = total_len - 1 - days_ago
-            if idx < 0:
-                continue
-            past_close = close.iloc[idx]
-            past_gap = (high_52w - past_close) / high_52w * 100
-            if past_gap <= NEAR_HIGH_52W_THRESHOLD and past_close < high_52w:
-                days_since = days_ago
-                entry_idx = idx
-                break
+        # 오늘만 근접 체크 (1~8일은 보존 로직이 유지)
+        current_gap_pct = (high_52w - current_close) / high_52w * 100
+        if current_gap_pct > NEAR_HIGH_52W_THRESHOLD or current_close >= high_52w:
+            continue  # 오늘 근접 구간 아님
 
-        if days_since is None:
-            continue  # 8거래일 내 근접 구간 진입 없음
+        days_since = 0
+        entry_idx = total_len - 1
 
         # --- 현재 상태 판정 ---
         current_gap = (high_52w - current_close) / high_52w * 100
