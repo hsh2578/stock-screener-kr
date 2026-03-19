@@ -1,28 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-18T18:14:34.795455",
+    "lastUpdated": "2026-03-19T12:27:03.465210",
     "totalCount": 1,
-    "screened_from": 1503
+    "screened_from": 1493
   },
   "data": [
     {
       "ticker": "041910",
       "name": "폴라리스AI파마",
-      "price": 8610,
-      "change_rate": 0.47,
+      "price": 7870,
+      "change_rate": -8.59,
       "breakout_date": "2026-03-13",
-      "days_since_breakout": 3,
+      "days_since_breakout": 4,
       "breakout_price": 7010,
-      "breakout_pct": 22.82,
-      "gain_since_breakout": 5.13,
+      "breakout_pct": 12.27,
+      "gain_since_breakout": -3.91,
       "volume_ratio": 100.3,
-      "ma150": 6553,
+      "ma150": 6559,
       "above_ma150": true,
-      "market_cap": 1162,
-      "success_prob": 62.2,
+      "market_cap": 1065,
+      "success_prob": 61.9,
       "predicted_gain": 24.4,
-      "ai_score": 65.5,
-      "updated_at": "2026-03-18T18:14:33.699832"
+      "ai_score": 65.4,
+      "updated_at": "2026-03-19T12:27:02.366768"
     }
   ]
 }
