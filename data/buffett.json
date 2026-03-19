@@ -3,8 +3,8 @@
     "type": "buffett",
     "name": "워렌 버핏 전략",
     "description": "ROE·FCF·부채비율 기반 내재가치 전략",
-    "lastUpdated": "2026-03-18T21:15:44.720511",
-    "totalCount": 5,
+    "lastUpdated": "2026-03-19T21:06:19.174894",
+    "totalCount": 4,
     "conditions": [
       "ROE > 15%",
       "PER < 17",
@@ -19,11 +19,11 @@
     {
       "ticker": "950170",
       "name": "JTC",
-      "current_price": 5150,
-      "market_cap": 2665.0,
+      "current_price": 5110,
+      "market_cap": 2644.0,
       "roe": 35.4,
       "per": 3.5,
-      "pbr": 1.47,
+      "pbr": 1.45,
       "current_ratio": 3.12,
       "debt_ratio": 95.6,
       "long_term_debt_ratio": 5.5,
@@ -34,23 +34,23 @@
     {
       "ticker": "123410",
       "name": "코리아에프티",
-      "current_price": 7450,
-      "market_cap": 2074.0,
+      "current_price": 7330,
+      "market_cap": 2041.0,
       "roe": 20.2,
-      "per": 5.8,
-      "pbr": 0.96,
+      "per": 5.9,
+      "pbr": 0.97,
       "current_ratio": 1.54,
       "debt_ratio": 111.6,
       "long_term_debt_ratio": 12.3,
       "fcf": 183.0,
       "eps_growth": 52.3,
-      "dividend_yield": 2.03
+      "dividend_yield": 2.01
     },
     {
       "ticker": "097520",
       "name": "엠씨넥스",
-      "current_price": 24050,
-      "market_cap": 4185.0,
+      "current_price": 23400,
+      "market_cap": 4072.0,
       "roe": 18.8,
       "per": 6.8,
       "pbr": 1.09,
@@ -64,32 +64,17 @@
     {
       "ticker": "035150",
       "name": "백산",
-      "current_price": 13830,
-      "market_cap": 2809.0,
+      "current_price": 13450,
+      "market_cap": 2732.0,
       "roe": 17.9,
       "per": 5.0,
-      "pbr": 1.17,
+      "pbr": 1.19,
       "current_ratio": 1.56,
       "debt_ratio": 82.9,
       "long_term_debt_ratio": 12.9,
       "fcf": 277.0,
       "eps_growth": 14.9,
-      "dividend_yield": 2.56
-    },
-    {
-      "ticker": "187870",
-      "name": "디바이스",
-      "current_price": 19570,
-      "market_cap": 1377.0,
-      "roe": 15.1,
-      "per": 16.6,
-      "pbr": 0.87,
-      "current_ratio": 2.54,
-      "debt_ratio": 41.8,
-      "long_term_debt_ratio": 11.5,
-      "fcf": 141.0,
-      "eps_growth": 205.5,
-      "dividend_yield": 1.08
+      "dividend_yield": 2.53
     }
   ]
 }
