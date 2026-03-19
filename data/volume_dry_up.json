@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-19T14:48:00.544296",
+    "lastUpdated": "2026-03-19T16:33:51.140895",
     "totalCount": 9,
-    "screened_from": 1495
+    "screened_from": 1496
   },
   "data": [
     {
       "ticker": "388870",
       "name": "파로스아이바이오",
-      "price": 10400,
-      "change_rate": -7.47,
+      "price": 10390,
+      "change_rate": -7.56,
       "explosion_date": "2026-03-16",
       "explosion_change_rate": 17.6,
       "explosion_volume_ratio": 9.6,
@@ -20,14 +20,14 @@
       "volume_rank": 1,
       "ma150": 7735,
       "above_ma150": true,
-      "market_cap": 1352,
-      "updated_at": "2026-03-19T14:48:00.518985"
+      "market_cap": 1345,
+      "updated_at": "2026-03-19T16:33:51.089281"
     },
     {
       "ticker": "452280",
       "name": "한선엔지니어링",
-      "price": 15300,
-      "change_rate": -4.38,
+      "price": 15410,
+      "change_rate": -3.69,
       "explosion_date": "2026-03-13",
       "explosion_change_rate": 16.5,
       "explosion_volume_ratio": 26.5,
@@ -38,14 +38,14 @@
       "volume_rank": 2,
       "ma150": 9775,
       "above_ma150": true,
-      "market_cap": 2734,
-      "updated_at": "2026-03-19T14:48:00.524187"
+      "market_cap": 2753,
+      "updated_at": "2026-03-19T16:33:51.095259"
     },
     {
       "ticker": "089890",
       "name": "코세스",
-      "price": 26650,
-      "change_rate": -4.99,
+      "price": 26800,
+      "change_rate": -4.46,
       "explosion_date": "2026-03-13",
       "explosion_change_rate": 13.1,
       "explosion_volume_ratio": 3.0,
@@ -56,14 +56,14 @@
       "volume_rank": 3,
       "ma150": 21943,
       "above_ma150": true,
-      "market_cap": 4428,
-      "updated_at": "2026-03-19T14:48:00.527430"
+      "market_cap": 4445,
+      "updated_at": "2026-03-19T16:33:51.104483"
     },
     {
       "ticker": "095720",
       "name": "웅진씽크빅",
-      "price": 1236,
-      "change_rate": -1.28,
+      "price": 1243,
+      "change_rate": -0.72,
       "explosion_date": "2026-03-12",
       "explosion_change_rate": 14.5,
       "explosion_volume_ratio": 10.2,
@@ -74,14 +74,14 @@
       "volume_rank": 4,
       "ma150": 1432,
       "above_ma150": false,
-      "market_cap": 1429,
-      "updated_at": "2026-03-19T14:48:00.531331"
+      "market_cap": 1436,
+      "updated_at": "2026-03-19T16:33:51.111864"
     },
     {
       "ticker": "080420",
       "name": "모다이노칩",
-      "price": 2110,
-      "change_rate": -0.24,
+      "price": 2080,
+      "change_rate": -1.65,
       "explosion_date": "2026-03-10",
       "explosion_change_rate": 16.7,
       "explosion_volume_ratio": 4.8,
@@ -92,14 +92,32 @@
       "volume_rank": 5,
       "ma150": 2013,
       "above_ma150": true,
-      "market_cap": 1682,
-      "updated_at": "2026-03-19T14:48:00.539551"
+      "market_cap": 1658,
+      "updated_at": "2026-03-19T16:33:51.126442"
+    },
+    {
+      "ticker": "010820",
+      "name": "퍼스텍",
+      "price": 7470,
+      "change_rate": -1.06,
+      "explosion_date": "2026-03-06",
+      "explosion_change_rate": 16.8,
+      "explosion_volume_ratio": 5.7,
+      "days_since_detected": 9,
+      "volume_decrease_rate": 92,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 0.54,
+      "volume_rank": 6,
+      "ma150": 4735,
+      "above_ma150": true,
+      "market_cap": 3643,
+      "updated_at": "2026-03-19T16:33:49.381914"
     },
     {
       "ticker": "348080",
       "name": "큐라티스",
-      "price": 1079,
-      "change_rate": -6.9,
+      "price": 1086,
+      "change_rate": -6.3,
       "explosion_date": "2026-03-05",
       "explosion_change_rate": 23.9,
       "explosion_volume_ratio": 4.2,
@@ -107,65 +125,47 @@
       "volume_decrease_rate": 66,
       "pattern_type": "ma20_approach",
       "ma20_distance": 1.13,
-      "volume_rank": 6,
+      "volume_rank": 7,
       "ma150": 1054,
       "above_ma150": true,
-      "market_cap": 1137,
-      "updated_at": "2026-03-19T14:48:00.542455"
+      "market_cap": 1146,
+      "updated_at": "2026-03-19T16:33:51.132326"
     },
     {
       "ticker": "065450",
       "name": "빅텍",
-      "price": 4955,
-      "change_rate": -1.69,
+      "price": 4920,
+      "change_rate": -2.38,
       "explosion_date": "2026-03-03",
       "explosion_change_rate": 30.0,
       "explosion_volume_ratio": 10.4,
       "days_since_detected": 12,
       "volume_decrease_rate": 90,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.78,
-      "volume_rank": 7,
+      "ma20_distance": 0.1,
+      "volume_rank": 8,
       "ma150": 3934,
       "above_ma150": true,
-      "market_cap": 1421,
-      "updated_at": "2026-03-19T14:47:56.152267"
-    },
-    {
-      "ticker": "012450",
-      "name": "한화에어로스페이스",
-      "price": 1366000,
-      "change_rate": -1.73,
-      "explosion_date": "2026-03-03",
-      "explosion_change_rate": 19.8,
-      "explosion_volume_ratio": 5.1,
-      "days_since_detected": 12,
-      "volume_decrease_rate": 87,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.31,
-      "volume_rank": 8,
-      "ma150": 1051106,
-      "above_ma150": true,
-      "market_cap": 703840,
-      "updated_at": "2026-03-19T14:48:00.281291"
+      "market_cap": 1410,
+      "updated_at": "2026-03-19T16:33:45.512306"
     },
     {
       "ticker": "043150",
       "name": "바텍",
-      "price": 23050,
-      "change_rate": -2.33,
+      "price": 23000,
+      "change_rate": -2.54,
       "explosion_date": "2026-02-27",
       "explosion_change_rate": 29.9,
       "explosion_volume_ratio": 3.9,
       "days_since_detected": 13,
       "volume_decrease_rate": 71,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.28,
+      "ma20_distance": 0.08,
       "volume_rank": 9,
-      "ma150": 21397,
+      "ma150": 21396,
       "above_ma150": true,
-      "market_cap": 3409,
-      "updated_at": "2026-03-19T14:47:56.001309"
+      "market_cap": 3416,
+      "updated_at": "2026-03-19T16:33:45.394489"
     }
   ]
 }
