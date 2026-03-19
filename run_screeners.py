@@ -3115,42 +3115,37 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         breakout_close = None
         high_52w = None
 
-        for days_ago in range(MAX_DAYS_SINCE_BREAKOUT, -1, -1):
-            idx = total_len - 1 - days_ago
-            if idx < 0:
-                continue
+        # 오늘만 스크리닝 (1~8일은 보존 로직이 유지)
+        idx = total_len - 1
+        day_end = idx - HIGH_52W_GAP_DAYS
+        day_start = day_end - HIGH_52W_PERIOD
+        if day_end < 0 or day_start < 0:
+            continue
 
-            # 이 날 기준 윈도우: [그날-265 ~ 그날-15]
-            day_end = idx - HIGH_52W_GAP_DAYS
-            day_start = day_end - HIGH_52W_PERIOD
-            if day_end < 0 or day_start < 0:
-                continue
+        day_high_prices = high.iloc[day_start:day_end]
+        if day_high_prices.empty:
+            continue
+        day_high_52w = day_high_prices.max()
+        if pd.isna(day_high_52w) or day_high_52w <= 0:
+            continue
 
-            day_high_prices = high.iloc[day_start:day_end]
-            if day_high_prices.empty:
-                continue
-            day_high_52w = day_high_prices.max()
-            if pd.isna(day_high_52w) or day_high_52w <= 0:
-                continue
-
-            # 이 날 기준 15일 이내에 종가가 1.5%+ 돌파한 적 있으면 제외 (오래된 돌파)
-            breakout_level = day_high_52w * BREAKOUT_THRESHOLD
-            already_broken = False
-            for gap_offset in range(1, HIGH_52W_GAP_DAYS + 1):
-                gap_idx = idx - gap_offset
-                if gap_idx >= 0 and close.iloc[gap_idx] > breakout_level:
-                    already_broken = True
-                    break
-            if already_broken:
-                continue
-
-            if close.iloc[idx] > breakout_level:
-                breakout_date = df.index[idx]
-                days_since = days_ago
-                breakout_idx = idx
-                breakout_close = close.iloc[idx]
-                high_52w = day_high_52w
+        # 15일 이내에 종가가 1.5%+ 돌파한 적 있으면 제외 (오래된 돌파)
+        breakout_level = day_high_52w * BREAKOUT_THRESHOLD
+        already_broken = False
+        for gap_offset in range(1, HIGH_52W_GAP_DAYS + 1):
+            gap_idx = idx - gap_offset
+            if gap_idx >= 0 and close.iloc[gap_idx] > breakout_level:
+                already_broken = True
                 break
+        if already_broken:
+            continue
+
+        if current_close > breakout_level:
+            breakout_date = df.index[-1]
+            days_since = 0
+            breakout_idx = idx
+            breakout_close = current_close
+            high_52w = day_high_52w
 
         if breakout_date is None:
             continue
