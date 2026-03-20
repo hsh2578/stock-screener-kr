@@ -1,33 +1,33 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-20T14:38:16.668822",
-    "totalCount": 5,
-    "screened_from": 1512
+    "lastUpdated": "2026-03-20T16:32:05.238603",
+    "totalCount": 6,
+    "screened_from": 1511
   },
   "data": [
     {
       "ticker": "089980",
       "name": "상아프론테크",
-      "price": 25250,
-      "change_rate": -1.75,
+      "price": 25750,
+      "change_rate": 0.19,
       "explosion_date": "2026-03-17",
       "explosion_change_rate": 18.4,
       "explosion_volume_ratio": 7.5,
       "days_since_detected": 3,
-      "volume_decrease_rate": 82,
+      "volume_decrease_rate": 81,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
-      "ma150": 17937,
+      "ma150": 17940,
       "above_ma150": true,
-      "market_cap": 4029,
-      "updated_at": "2026-03-20T14:38:11.988149"
+      "market_cap": 4117,
+      "updated_at": "2026-03-20T16:32:01.541631"
     },
     {
       "ticker": "080420",
       "name": "모다이노칩",
-      "price": 2090,
-      "change_rate": 0.48,
+      "price": 2165,
+      "change_rate": 4.09,
       "explosion_date": "2026-03-10",
       "explosion_change_rate": 16.7,
       "explosion_volume_ratio": 4.8,
@@ -38,14 +38,14 @@
       "volume_rank": 2,
       "ma150": 2017,
       "above_ma150": true,
-      "market_cap": 1666,
-      "updated_at": "2026-03-20T14:38:16.661296"
+      "market_cap": 1726,
+      "updated_at": "2026-03-20T16:32:05.235099"
     },
     {
       "ticker": "010820",
       "name": "퍼스텍",
-      "price": 7080,
-      "change_rate": -5.22,
+      "price": 7060,
+      "change_rate": -5.49,
       "explosion_date": "2026-03-06",
       "explosion_change_rate": 16.8,
       "explosion_volume_ratio": 5.7,
@@ -56,44 +56,62 @@
       "volume_rank": 3,
       "ma150": 4735,
       "above_ma150": true,
-      "market_cap": 3448,
-      "updated_at": "2026-03-20T14:38:16.666291"
+      "market_cap": 3443,
+      "updated_at": "2026-03-20T16:32:05.237898"
     },
     {
       "ticker": "079550",
       "name": "LIG넥스원",
-      "price": 663000,
-      "change_rate": -5.56,
+      "price": 661000,
+      "change_rate": -5.84,
       "explosion_date": "2026-03-05",
       "explosion_change_rate": 23.3,
       "explosion_volume_ratio": 6.0,
       "days_since_detected": 11,
-      "volume_decrease_rate": 86,
+      "volume_decrease_rate": 85,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.77,
+      "ma20_distance": 0.48,
       "volume_rank": 4,
-      "ma150": 494300,
+      "ma150": 494286,
       "above_ma150": true,
-      "market_cap": 146080,
-      "updated_at": "2026-03-20T14:38:09.007479"
+      "market_cap": 145420,
+      "updated_at": "2026-03-20T16:31:58.827569"
+    },
+    {
+      "ticker": "089030",
+      "name": "테크윙",
+      "price": 58000,
+      "change_rate": -0.85,
+      "explosion_date": "2026-03-05",
+      "explosion_change_rate": 30.0,
+      "explosion_volume_ratio": 4.8,
+      "days_since_detected": 11,
+      "volume_decrease_rate": 83,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 1.47,
+      "volume_rank": 5,
+      "ma150": 48932,
+      "above_ma150": true,
+      "market_cap": 21491,
+      "updated_at": "2026-03-20T16:32:04.441185"
     },
     {
       "ticker": "272210",
       "name": "한화시스템",
-      "price": 136700,
-      "change_rate": -3.05,
+      "price": 136000,
+      "change_rate": -3.55,
       "explosion_date": "2026-03-03",
       "explosion_change_rate": 29.1,
       "explosion_volume_ratio": 3.5,
       "days_since_detected": 13,
-      "volume_decrease_rate": 88,
+      "volume_decrease_rate": 87,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 1.02,
-      "volume_rank": 5,
-      "ma150": 72153,
+      "ma20_distance": 0.53,
+      "volume_rank": 6,
+      "ma150": 72149,
       "above_ma150": true,
-      "market_cap": 258253,
-      "updated_at": "2026-03-20T14:38:16.378767"
+      "market_cap": 256930,
+      "updated_at": "2026-03-20T16:32:05.015812"
     }
   ]
 }
