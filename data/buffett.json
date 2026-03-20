@@ -3,7 +3,7 @@
     "type": "buffett",
     "name": "워렌 버핏 전략",
     "description": "ROE·FCF·부채비율 기반 내재가치 전략",
-    "lastUpdated": "2026-03-19T21:06:19.174894",
+    "lastUpdated": "2026-03-20T21:23:19.626755",
     "totalCount": 4,
     "conditions": [
       "ROE > 15%",
@@ -19,11 +19,11 @@
     {
       "ticker": "950170",
       "name": "JTC",
-      "current_price": 5110,
-      "market_cap": 2644.0,
+      "current_price": 5310,
+      "market_cap": 2748.0,
       "roe": 35.4,
-      "per": 3.5,
-      "pbr": 1.45,
+      "per": 3.4,
+      "pbr": 1.44,
       "current_ratio": 3.12,
       "debt_ratio": 95.6,
       "long_term_debt_ratio": 5.5,
@@ -34,47 +34,47 @@
     {
       "ticker": "123410",
       "name": "코리아에프티",
-      "current_price": 7330,
-      "market_cap": 2041.0,
+      "current_price": 7250,
+      "market_cap": 2018.0,
       "roe": 20.2,
-      "per": 5.9,
-      "pbr": 0.97,
+      "per": 5.8,
+      "pbr": 0.95,
       "current_ratio": 1.54,
       "debt_ratio": 111.6,
       "long_term_debt_ratio": 12.3,
       "fcf": 183.0,
       "eps_growth": 52.3,
-      "dividend_yield": 2.01
+      "dividend_yield": 2.05
     },
     {
       "ticker": "097520",
       "name": "엠씨넥스",
-      "current_price": 23400,
-      "market_cap": 4072.0,
+      "current_price": 23600,
+      "market_cap": 4107.0,
       "roe": 18.8,
-      "per": 6.8,
-      "pbr": 1.09,
+      "per": 6.6,
+      "pbr": 1.06,
       "current_ratio": 1.59,
       "debt_ratio": 54.2,
       "long_term_debt_ratio": 0.3,
       "fcf": 719.0,
       "eps_growth": 148.6,
-      "dividend_yield": 3.33
+      "dividend_yield": 3.42
     },
     {
       "ticker": "035150",
       "name": "백산",
-      "current_price": 13450,
-      "market_cap": 2732.0,
+      "current_price": 13530,
+      "market_cap": 2748.0,
       "roe": 17.9,
-      "per": 5.0,
-      "pbr": 1.19,
+      "per": 4.9,
+      "pbr": 1.15,
       "current_ratio": 1.56,
       "debt_ratio": 82.9,
       "long_term_debt_ratio": 12.9,
       "fcf": 277.0,
-      "eps_growth": 14.9,
-      "dividend_yield": 2.53
+      "eps_growth": 47.9,
+      "dividend_yield": 2.6
     }
   ]
 }
