@@ -1,29 +1,29 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-20T13:29:56.112252",
+    "lastUpdated": "2026-03-20T14:38:05.437714",
     "totalCount": 5,
-    "screened_from": 1506
+    "screened_from": 1512
   },
   "data": [
     {
       "ticker": "334890",
       "name": "이지스밸류플러스리츠",
-      "price": 4220,
-      "change_rate": 0.24,
-      "market_cap": 2931,
+      "price": 4215,
+      "change_rate": 0.12,
+      "market_cap": 2927,
       "box_high": 4290,
       "box_low": 3945,
       "range_percent": 8.75,
       "atr": 1.47,
-      "atr_multiple": 5.94,
+      "atr_multiple": 5.93,
       "support_touches": 1,
       "resistance_touches": 4,
-      "slope_daily": -0.0107,
-      "volume_decrease_rate": 16.43,
+      "slope_daily": -0.0109,
+      "volume_decrease_rate": 16.16,
       "days": 70,
       "ma150": 4238,
       "above_ma150": false,
-      "updated_at": "2026-03-20T13:29:54.004951"
+      "updated_at": "2026-03-20T14:38:03.971928"
     },
     {
       "ticker": "365550",
@@ -39,38 +39,38 @@
       "support_touches": 1,
       "resistance_touches": 3,
       "slope_daily": 0.007,
-      "volume_decrease_rate": 9.32,
+      "volume_decrease_rate": 8.47,
       "days": 122,
       "ma150": 4398,
       "above_ma150": false,
-      "updated_at": "2026-03-20T13:29:49.433276"
+      "updated_at": "2026-03-20T14:38:01.137610"
     },
     {
       "ticker": "122900",
       "name": "아이마켓코리아",
-      "price": 7560,
-      "change_rate": 0.13,
-      "market_cap": 2527,
+      "price": 7570,
+      "change_rate": 0.26,
+      "market_cap": 2534,
       "box_high": 8190,
       "box_low": 7270,
       "range_percent": 12.65,
-      "atr": 2.37,
-      "atr_multiple": 5.34,
+      "atr": 2.36,
+      "atr_multiple": 5.35,
       "support_touches": 1,
       "resistance_touches": 3,
-      "slope_daily": -0.0444,
-      "volume_decrease_rate": 24.51,
+      "slope_daily": -0.0442,
+      "volume_decrease_rate": 24.02,
       "days": 148,
       "ma150": 7962,
       "above_ma150": false,
-      "updated_at": "2026-03-20T13:29:52.960403"
+      "updated_at": "2026-03-20T14:38:03.241538"
     },
     {
       "ticker": "000430",
       "name": "대원강업",
-      "price": 3990,
-      "change_rate": 2.57,
-      "market_cap": 2474,
+      "price": 3985,
+      "change_rate": 2.44,
+      "market_cap": 2471,
       "box_high": 4500,
       "box_low": 3760,
       "range_percent": 19.68,
@@ -78,32 +78,32 @@
       "atr_multiple": 4.5,
       "support_touches": 4,
       "resistance_touches": 2,
-      "slope_daily": -0.012,
-      "volume_decrease_rate": 31.69,
+      "slope_daily": -0.0122,
+      "volume_decrease_rate": 31.6,
       "days": 200,
       "ma150": 3979,
       "above_ma150": true,
-      "updated_at": "2026-03-20T13:29:50.981281"
+      "updated_at": "2026-03-20T14:38:01.714774"
     },
     {
       "ticker": "092730",
       "name": "네오팜",
-      "price": 17660,
-      "change_rate": 0.06,
-      "market_cap": 2831,
+      "price": 17670,
+      "change_rate": 0.11,
+      "market_cap": 2832,
       "box_high": 20900,
       "box_low": 16950,
       "range_percent": 23.3,
-      "atr": 4.28,
+      "atr": 4.27,
       "atr_multiple": 5.45,
       "support_touches": 2,
       "resistance_touches": 2,
-      "slope_daily": -0.0249,
-      "volume_decrease_rate": 16.29,
+      "slope_daily": -0.0248,
+      "volume_decrease_rate": 15.99,
       "days": 165,
       "ma150": 18500,
       "above_ma150": false,
-      "updated_at": "2026-03-20T13:29:50.630590"
+      "updated_at": "2026-03-20T14:38:01.490693"
     }
   ]
 }
