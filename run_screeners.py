@@ -3663,6 +3663,21 @@ def _preserve_prev_results(
             preserved[days_since_key] = days_since_now
             preserved['updated_at'] = datetime.now().isoformat()
 
+            # 돌파 강도 / 돌파종가대비 업데이트 (52주 신고가용)
+            high_52w_val = prev_item.get('high_52w')
+            if high_52w_val and high_52w_val > 0:
+                preserved['above_high_percent'] = round((current_close - high_52w_val) / high_52w_val * 100, 2)
+            breakout_date_str = prev_item.get('breakout_date')
+            if breakout_date_str:
+                try:
+                    bd = pd.Timestamp(breakout_date_str)
+                    if bd in df.index:
+                        bc = float(df.loc[bd, 'Close'])
+                        if bc > 0:
+                            preserved['vs_breakout_close'] = round((current_close / bc - 1) * 100, 2)
+                except Exception:
+                    pass
+
             # 시가총액 업데이트
             if stocks is not None:
                 col = 'Code' if 'Code' in stocks.columns else 'Symbol'
