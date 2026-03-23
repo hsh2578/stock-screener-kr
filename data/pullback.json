@@ -1,8 +1,37 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-20T18:06:17.697205",
-    "totalCount": 0,
-    "screened_from": 1511
+    "lastUpdated": "2026-03-23T12:30:39.630495",
+    "totalCount": 2,
+    "screened_from": 1497
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "002620",
+      "name": "제일파마홀딩스",
+      "price": 8520,
+      "change_rate": -4.27,
+      "breakout_date": "2026-02-24",
+      "resistance": 8430,
+      "pullback_ratio": 1.07,
+      "volume_decrease": 98,
+      "ma150": 8368,
+      "above_ma150": true,
+      "market_cap": 1361,
+      "updated_at": "2026-03-23T12:30:37.344607"
+    },
+    {
+      "ticker": "078000",
+      "name": "텔코웨어",
+      "price": 17090,
+      "change_rate": -4.2,
+      "breakout_date": "2026-02-23",
+      "resistance": 16300,
+      "pullback_ratio": 4.85,
+      "volume_decrease": 98,
+      "ma150": 15775,
+      "above_ma150": true,
+      "market_cap": 1579,
+      "updated_at": "2026-03-23T12:30:38.342407"
+    }
+  ]
 }
