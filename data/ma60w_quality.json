@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-03-20T21:21:29.280458",
-    "total_count": 6,
+    "updated_at": "2026-03-23T21:09:19.737927",
+    "total_count": 5,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -10,76 +10,64 @@
   },
   "data": [
     {
-      "ticker": "068270",
-      "name": "셀트리온",
-      "current_price": 202000,
-      "ma60w": 186788,
-      "ma60w_gap": 8.14,
-      "op_margin": 28.1,
-      "op_growth_3y": 37.7,
-      "market_cap": 466717,
+      "ticker": "329180",
+      "name": "HD현대중공업",
+      "current_price": 502000,
+      "ma60w": 462977,
+      "ma60w_gap": 8.43,
+      "op_margin": 10.6,
+      "op_growth_3y": 93.5,
+      "market_cap": 526905,
       "sector": "기타",
-      "updated_at": "2026-03-20T21:21:23.555817"
+      "updated_at": "2026-03-23T21:09:15.936504"
     },
     {
-      "ticker": "011200",
-      "name": "HMM",
-      "current_price": 21250,
-      "ma60w": 20531,
-      "ma60w_gap": 3.5,
-      "op_margin": 13.4,
-      "op_growth_3y": 147.4,
-      "market_cap": 200438,
+      "ticker": "068270",
+      "name": "셀트리온",
+      "current_price": 188300,
+      "ma60w": 187169,
+      "ma60w_gap": 0.6,
+      "op_margin": 28.1,
+      "op_growth_3y": 37.7,
+      "market_cap": 435064,
       "sector": "기타",
-      "updated_at": "2026-03-20T21:21:23.565341"
+      "updated_at": "2026-03-23T21:09:15.937439"
+    },
+    {
+      "ticker": "009540",
+      "name": "HD한국조선해양",
+      "current_price": 366000,
+      "ma60w": 356827,
+      "ma60w_gap": 2.57,
+      "op_margin": 11.6,
+      "op_growth_3y": 121.1,
+      "market_cap": 259030,
+      "sector": "기타",
+      "updated_at": "2026-03-23T21:09:15.942947"
     },
     {
       "ticker": "064350",
       "name": "현대로템",
-      "current_price": 180100,
-      "ma60w": 167767,
-      "ma60w_gap": 7.35,
+      "current_price": 168900,
+      "ma60w": 167486,
+      "ma60w_gap": 0.84,
       "op_margin": 17.2,
       "op_growth_3y": 79.2,
-      "market_cap": 196565,
+      "market_cap": 184341,
       "sector": "기타",
-      "updated_at": "2026-03-20T21:21:23.565773"
+      "updated_at": "2026-03-23T21:09:15.947352"
     },
     {
-      "ticker": "003230",
-      "name": "삼양식품",
-      "current_price": 1151000,
-      "ma60w": 1143298,
-      "ma60w_gap": 0.67,
-      "op_margin": 21.6,
-      "op_growth_3y": 78.0,
-      "market_cap": 86705,
+      "ticker": "073240",
+      "name": "금호타이어",
+      "current_price": 5870,
+      "ma60w": 5365,
+      "ma60w_gap": 9.4,
+      "op_margin": 12.2,
+      "op_growth_3y": 13.7,
+      "market_cap": 16862,
       "sector": "기타",
-      "updated_at": "2026-03-20T21:21:24.965056"
-    },
-    {
-      "ticker": "443060",
-      "name": "HD현대마린솔루션",
-      "current_price": 182700,
-      "ma60w": 181447,
-      "ma60w_gap": 0.69,
-      "op_margin": 17.7,
-      "op_growth_3y": 21.2,
-      "market_cap": 81907,
-      "sector": "기타",
-      "updated_at": "2026-03-20T21:21:24.965929"
-    },
-    {
-      "ticker": "069620",
-      "name": "대웅제약",
-      "current_price": 160000,
-      "ma60w": 152982,
-      "ma60w_gap": 4.59,
-      "op_margin": 12.5,
-      "op_growth_3y": 17.9,
-      "market_cap": 18539,
-      "sector": "기타",
-      "updated_at": "2026-03-20T21:21:29.260414"
+      "updated_at": "2026-03-23T21:09:19.719998"
     }
   ]
 }
