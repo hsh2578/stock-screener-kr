@@ -46,7 +46,7 @@ HIGH_52W_PERIOD = 252  # 52주 거래일
 SLOPE_PERIOD = 20  # 기울기 계산 기간 (20일)
 MA150_PERIOD = 150  # 150일 이동평균
 SIGNAL_LOOKBACK = 10  # 신호 탐색 기간 (10거래일)
-MIN_SCORE = 6  # 최소 점수
+MIN_SCORE = 7  # 최소 점수
 MAX_RETRIES = 3  # API 재시도 횟수
 
 # 스팩/리츠/ETF 필터 키워드
