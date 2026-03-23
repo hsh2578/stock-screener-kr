@@ -3663,10 +3663,22 @@ def _preserve_prev_results(
             preserved[days_since_key] = days_since_now
             preserved['updated_at'] = datetime.now().isoformat()
 
-            # 돌파 강도 / 돌파종가대비 업데이트 (52주 신고가용)
+            # 52주 고가 기반 필드 업데이트 (돌파 + 근접 공통)
             high_52w_val = prev_item.get('high_52w')
             if high_52w_val and high_52w_val > 0:
+                # 돌파 강도 (돌파용)
                 preserved['above_high_percent'] = round((current_close - high_52w_val) / high_52w_val * 100, 2)
+                # 괴리율 + 상태 (근접용)
+                if 'percent_from_high' in prev_item:
+                    current_gap = (high_52w_val - current_close) / high_52w_val * 100
+                    preserved['percent_from_high'] = round(-current_gap, 2)
+                    if current_close >= high_52w_val:
+                        preserved['status'] = 'breakout'
+                    elif current_gap <= 5.0:
+                        preserved['status'] = 'active'
+                    else:
+                        preserved['status'] = 'dropped'
+            # 돌파종가대비 (돌파용)
             breakout_date_str = prev_item.get('breakout_date')
             if breakout_date_str:
                 try:
