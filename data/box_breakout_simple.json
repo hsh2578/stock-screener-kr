@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-23T12:30:45.342221",
+    "lastUpdated": "2026-03-23T13:44:07.016491",
     "totalCount": 3,
     "screened_from": 1497
   },
@@ -8,44 +8,44 @@
     {
       "ticker": "041910",
       "name": "폴라리스AI파마",
-      "price": 7550,
-      "change_rate": -2.58,
+      "price": 7510,
+      "change_rate": -3.1,
       "breakout_date": "2026-03-13",
       "resistance": 7010,
       "days_since_breakout": 6,
-      "breakout_pct": 7.7,
-      "gain_since_breakout": -7.81,
-      "ma150": 6570,
+      "breakout_pct": 7.13,
+      "gain_since_breakout": -8.3,
+      "ma150": 6569,
       "above_ma150": true,
-      "market_cap": 1017,
+      "market_cap": 1014,
       "success_prob": 61.9,
       "predicted_gain": 24.4,
       "ai_score": 65.4,
-      "updated_at": "2026-03-23T12:30:43.578578"
+      "updated_at": "2026-03-23T13:44:04.953439"
     },
     {
       "ticker": "395400",
       "name": "SK리츠",
-      "price": 6310,
-      "change_rate": 0.0,
+      "price": 6290,
+      "change_rate": -0.32,
       "breakout_date": "2026-03-16",
       "resistance": 5920,
       "days_since_breakout": 5,
-      "breakout_pct": 6.59,
-      "gain_since_breakout": 4.3,
+      "breakout_pct": 6.25,
+      "gain_since_breakout": 3.97,
       "ma150": 5415,
       "above_ma150": true,
       "market_cap": 18964,
       "success_prob": 18.1,
       "predicted_gain": 10.5,
       "ai_score": 22.1,
-      "updated_at": "2026-03-23T12:30:33.568976"
+      "updated_at": "2026-03-23T13:43:53.493065"
     },
     {
       "ticker": "145720",
       "name": "덴티움",
-      "price": 49800,
-      "change_rate": -5.68,
+      "price": 49850,
+      "change_rate": -5.59,
       "breakout_date": "2026-03-11",
       "resistance": 52500,
       "days_since_breakout": 8,
@@ -53,11 +53,11 @@
       "gain_since_breakout": -5.12,
       "ma150": 52987,
       "above_ma150": false,
-      "market_cap": 5106,
+      "market_cap": 5101,
       "success_prob": 10.0,
       "predicted_gain": 15.0,
       "ai_score": 20.5,
-      "updated_at": "2026-03-23T12:30:45.341291"
+      "updated_at": "2026-03-23T13:44:07.014252"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-23T12:30:52.121618",
+    "lastUpdated": "2026-03-23T13:44:12.953331",
     "totalCount": 5,
     "screened_from": 1497
   },
@@ -8,26 +8,26 @@
     {
       "ticker": "226590",
       "name": "엠디바이스",
-      "price": 35400,
-      "change_rate": -2.21,
+      "price": 35000,
+      "change_rate": -3.31,
       "explosion_date": "2026-03-18",
       "explosion_change_rate": 30.0,
       "explosion_volume_ratio": 3.5,
       "days_since_detected": 3,
-      "volume_decrease_rate": 63,
+      "volume_decrease_rate": 62,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
-      "ma150": 17118,
+      "ma150": 17115,
       "above_ma150": true,
-      "market_cap": 3758,
-      "updated_at": "2026-03-23T12:30:49.883156"
+      "market_cap": 3721,
+      "updated_at": "2026-03-23T13:44:10.464407"
     },
     {
       "ticker": "028100",
       "name": "동아지질",
-      "price": 17980,
-      "change_rate": -2.02,
+      "price": 17930,
+      "change_rate": -2.29,
       "explosion_date": "2026-03-18",
       "explosion_change_rate": 10.7,
       "explosion_volume_ratio": 3.2,
@@ -38,14 +38,14 @@
       "volume_rank": 2,
       "ma150": 16273,
       "above_ma150": true,
-      "market_cap": 2407,
-      "updated_at": "2026-03-23T12:30:47.142436"
+      "market_cap": 2401,
+      "updated_at": "2026-03-23T13:44:07.584684"
     },
     {
       "ticker": "089980",
       "name": "상아프론테크",
-      "price": 24250,
-      "change_rate": -5.83,
+      "price": 24150,
+      "change_rate": -6.21,
       "explosion_date": "2026-03-17",
       "explosion_change_rate": 18.4,
       "explosion_volume_ratio": 7.5,
@@ -56,44 +56,44 @@
       "volume_rank": 3,
       "ma150": 17940,
       "above_ma150": true,
-      "market_cap": 3877,
-      "updated_at": "2026-03-23T12:30:52.112449"
+      "market_cap": 3869,
+      "updated_at": "2026-03-23T13:44:12.948506"
     },
     {
       "ticker": "080420",
       "name": "모다이노칩",
-      "price": 2075,
-      "change_rate": -4.16,
+      "price": 2065,
+      "change_rate": -4.62,
       "explosion_date": "2026-03-10",
       "explosion_change_rate": 16.7,
       "explosion_volume_ratio": 4.8,
       "days_since_detected": 9,
       "volume_decrease_rate": 94,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.48,
+      "ma20_distance": 0.02,
       "volume_rank": 4,
       "ma150": 2010,
       "above_ma150": true,
-      "market_cap": 1654,
-      "updated_at": "2026-03-23T12:30:47.685558"
+      "market_cap": 1646,
+      "updated_at": "2026-03-23T13:44:08.170040"
     },
     {
-      "ticker": "006340",
-      "name": "대원전선",
-      "price": 5940,
-      "change_rate": -7.33,
-      "explosion_date": "2026-02-24",
-      "explosion_change_rate": 19.7,
-      "explosion_volume_ratio": 19.1,
-      "days_since_detected": 18,
-      "volume_decrease_rate": 92,
+      "ticker": "074600",
+      "name": "원익QnC",
+      "price": 32650,
+      "change_rate": -3.69,
+      "explosion_date": "2026-03-06",
+      "explosion_change_rate": 20.0,
+      "explosion_volume_ratio": 5.2,
+      "days_since_detected": 11,
+      "volume_decrease_rate": 87,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.76,
+      "ma20_distance": 0.09,
       "volume_rank": 5,
-      "ma150": 3780,
+      "ma150": 23770,
       "above_ma150": true,
-      "market_cap": 4658,
-      "updated_at": "2026-03-23T12:30:46.860989"
+      "market_cap": 8583,
+      "updated_at": "2026-03-23T13:44:10.780539"
     }
   ]
 }
