@@ -1,141 +1,129 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-23T13:44:04.467114",
-    "totalCount": 12,
-    "screened_from": 1497
+    "lastUpdated": "2026-03-23T14:57:23.146276",
+    "totalCount": 11,
+    "screened_from": 1493
   },
   "data": [
     {
-      "ticker": "038110",
-      "name": "에코플라스틱",
-      "price": 3910,
-      "change_rate": 29.9,
-      "volume_ratio": 41.6,
-      "volume_rank": 1,
-      "ma150": 3237,
-      "above_ma150": true,
-      "market_cap": 1610,
-      "updated_at": "2026-03-23T13:44:00.962055"
-    },
-    {
       "ticker": "014970",
       "name": "삼륭물산",
-      "price": 7430,
-      "change_rate": 13.44,
-      "volume_ratio": 25.3,
-      "volume_rank": 2,
-      "ma150": 7242,
+      "price": 8510,
+      "change_rate": 29.92,
+      "volume_ratio": 43.4,
+      "volume_rank": 1,
+      "ma150": 7249,
       "above_ma150": true,
-      "market_cap": 1124,
-      "updated_at": "2026-03-23T13:43:59.928107"
-    },
-    {
-      "ticker": "143240",
-      "name": "사람인",
-      "price": 16790,
-      "change_rate": 17.0,
-      "volume_ratio": 17.1,
-      "volume_rank": 3,
-      "ma150": 13804,
-      "above_ma150": true,
-      "market_cap": 1966,
-      "updated_at": "2026-03-23T13:43:59.922315"
+      "market_cap": 1287,
+      "updated_at": "2026-03-23T14:57:21.513177"
     },
     {
       "ticker": "214390",
       "name": "경보제약",
-      "price": 8460,
-      "change_rate": 18.32,
-      "volume_ratio": 15.8,
-      "volume_rank": 4,
-      "ma150": 5794,
+      "price": 9280,
+      "change_rate": 29.79,
+      "volume_ratio": 29.5,
+      "volume_rank": 2,
+      "ma150": 5800,
       "above_ma150": true,
-      "market_cap": 1970,
-      "updated_at": "2026-03-23T13:43:58.479499"
+      "market_cap": 2219,
+      "updated_at": "2026-03-23T14:57:21.083262"
+    },
+    {
+      "ticker": "143240",
+      "name": "사람인",
+      "price": 16920,
+      "change_rate": 17.91,
+      "volume_ratio": 18.6,
+      "volume_rank": 3,
+      "ma150": 13805,
+      "above_ma150": true,
+      "market_cap": 1982,
+      "updated_at": "2026-03-23T14:57:21.510252"
     },
     {
       "ticker": "261780",
       "name": "차백신연구소",
-      "price": 4925,
-      "change_rate": 20.71,
-      "volume_ratio": 12.4,
-      "volume_rank": 5,
-      "ma150": 2806,
+      "price": 5300,
+      "change_rate": 29.9,
+      "volume_ratio": 15.4,
+      "volume_rank": 4,
+      "ma150": 2808,
       "above_ma150": true,
-      "market_cap": 1316,
-      "updated_at": "2026-03-23T13:44:02.085981"
+      "market_cap": 1424,
+      "updated_at": "2026-03-23T14:57:22.232572"
     },
     {
       "ticker": "098070",
       "name": "한텍",
-      "price": 60400,
-      "change_rate": 26.1,
-      "volume_ratio": 11.9,
-      "volume_rank": 6,
-      "ma150": 39127,
+      "price": 58400,
+      "change_rate": 21.92,
+      "volume_ratio": 14.9,
+      "volume_rank": 5,
+      "ma150": 39114,
       "above_ma150": true,
-      "market_cap": 6717,
-      "updated_at": "2026-03-23T13:44:03.988284"
+      "market_cap": 6539,
+      "updated_at": "2026-03-23T14:57:22.832736"
     },
     {
-      "ticker": "106190",
-      "name": "하이텍팜",
-      "price": 22250,
-      "change_rate": 15.05,
-      "volume_ratio": 9.0,
-      "volume_rank": 7,
-      "ma150": 12996,
+      "ticker": "290690",
+      "name": "소룩스",
+      "price": 4470,
+      "change_rate": 20.81,
+      "volume_ratio": 12.6,
+      "volume_rank": 6,
+      "ma150": 4423,
       "above_ma150": true,
-      "market_cap": 2355,
-      "updated_at": "2026-03-23T13:44:03.515367"
+      "market_cap": 2162,
+      "updated_at": "2026-03-23T14:57:21.572467"
     },
     {
       "ticker": "092220",
       "name": "KEC",
-      "price": 1720,
-      "change_rate": 22.25,
-      "volume_ratio": 6.7,
-      "volume_rank": 8,
+      "price": 1714,
+      "change_rate": 21.82,
+      "volume_ratio": 7.3,
+      "volume_rank": 7,
       "ma150": 826,
       "above_ma150": true,
-      "market_cap": 3433,
-      "updated_at": "2026-03-23T13:43:57.894875"
+      "market_cap": 3441,
+      "updated_at": "2026-03-23T14:57:21.036218"
     },
     {
       "ticker": "217590",
       "name": "티엠씨",
-      "price": 28200,
-      "change_rate": 19.49,
-      "volume_ratio": 5.9,
-      "volume_rank": 9,
+      "price": 27600,
+      "change_rate": 16.95,
+      "volume_ratio": 6.3,
+      "volume_rank": 8,
       "ma150": null,
       "above_ma150": false,
-      "market_cap": 6758,
-      "updated_at": "2026-03-23T13:44:02.762494"
-    },
-    {
-      "ticker": "131030",
-      "name": "옵투스제약",
-      "price": 14760,
-      "change_rate": 23.93,
-      "volume_ratio": 4.1,
-      "volume_rank": 10,
-      "ma150": 7800,
-      "above_ma150": true,
-      "market_cap": 2605,
-      "updated_at": "2026-03-23T13:44:01.066583"
+      "market_cap": 6662,
+      "updated_at": "2026-03-23T14:57:22.466705"
     },
     {
       "ticker": "003280",
       "name": "흥아해운",
-      "price": 3705,
-      "change_rate": 22.28,
-      "volume_ratio": 4.1,
-      "volume_rank": 11,
-      "ma150": 1780,
+      "price": 3600,
+      "change_rate": 18.81,
+      "volume_ratio": 4.6,
+      "volume_rank": 9,
+      "ma150": 1779,
       "above_ma150": true,
-      "market_cap": 8932,
-      "updated_at": "2026-03-23T13:44:04.465744"
+      "market_cap": 8715,
+      "updated_at": "2026-03-23T14:57:23.146139"
+    },
+    {
+      "ticker": "131030",
+      "name": "옵투스제약",
+      "price": 14470,
+      "change_rate": 21.49,
+      "volume_ratio": 4.4,
+      "volume_rank": 10,
+      "ma150": 7799,
+      "above_ma150": true,
+      "market_cap": 2571,
+      "updated_at": "2026-03-23T14:57:21.773486"
     },
     {
       "ticker": "046970",
@@ -143,11 +131,11 @@
       "price": 3520,
       "change_rate": 29.89,
       "volume_ratio": 3.5,
-      "volume_rank": 12,
+      "volume_rank": 11,
       "ma150": 1370,
       "above_ma150": true,
       "market_cap": 1543,
-      "updated_at": "2026-03-23T13:44:01.159540"
+      "updated_at": "2026-03-23T14:57:21.789902"
     }
   ]
 }
