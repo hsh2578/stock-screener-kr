@@ -187,9 +187,14 @@ def load_box_breakout_models():
         return False
 
 
+_KOSPI_LOCK = threading.Lock()
+
 def load_kospi_data():
     """시장 대리 지수 생성 (_DATA_CACHE 종목 기반, KRX API 불필요)"""
     global _kospi_data, _DATA_CACHE
+    with _KOSPI_LOCK:
+        if _kospi_data is not None:
+            return _kospi_data
 
     # _DATA_CACHE의 대형주 종목들로 등가중 시장 지수 계산
     try:
@@ -3069,7 +3074,7 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         load_kospi_data()
 
     results = []
-    required_days = HIGH_52W_PERIOD + MAX_DAYS_SINCE_BREAKOUT + 2
+    required_days = HIGH_52W_PERIOD + HIGH_52W_GAP_DAYS + 2
     MA150_PERIOD = 150
     MA150_SLOPE_DAYS = 20  # 150MA 우상향 판단 기간
 
@@ -3334,15 +3339,9 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         days_since = 0
         entry_idx = total_len - 1
 
-        # --- 현재 상태 판정 ---
+        # 오늘만 스크리닝 → 항상 active (breakout/dropped은 보존 로직에서 갱신)
         current_gap = (high_52w - current_close) / high_52w * 100
-        if current_close >= high_52w:
-            status = 'breakout'
-        elif current_gap <= NEAR_HIGH_52W_THRESHOLD:
-            status = 'active'
-        else:
-            status = 'dropped'
-
+        status = 'active'
         percent_from_high = -current_gap
 
         # 등락률
@@ -3641,7 +3640,7 @@ def _preserve_prev_results(
             ref_date_str = prev_item.get(ref_date_key)
             if not ref_date_str:
                 continue
-            df = get_ohlcv(ticker, 30)
+            df = get_ohlcv(ticker, max_days + 15)
             if df is None or len(df) < 2:
                 continue
 
@@ -3818,7 +3817,8 @@ def screen_price_rise(stocks: pd.DataFrame) -> List[Dict]:
     if os.path.exists(financial_path):
         try:
             with open(financial_path, 'r', encoding='utf-8') as f:
-                financial_data = json.load(f)
+                fin_json = json.load(f)
+                financial_data = fin_json.get('data', fin_json)
         except Exception:
             pass
 
@@ -3847,8 +3847,9 @@ def screen_price_rise(stocks: pd.DataFrame) -> List[Dict]:
         per = pbr = None
         fd = financial_data.get(ticker, {})
         if fd:
-            per_val = fd.get('per')
-            pbr_val = fd.get('pbr')
+            metrics = fd.get('metrics', fd)
+            per_val = metrics.get('per')
+            pbr_val = metrics.get('pbr')
             per = round(per_val, 1) if per_val and not pd.isna(per_val) else None
             pbr = round(pbr_val, 2) if pbr_val and not pd.isna(pbr_val) else None
 
