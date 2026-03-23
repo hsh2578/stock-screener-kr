@@ -2747,6 +2747,8 @@
                             if (res.ok) {
                                 DATA.financialData = await res.json();
                                 financialDataLoaded = true;
+                                _enrichCache = new WeakMap();
+                                renderedPages.clear();
                                 console.log('✓ 재무 데이터 레이지 로드 완료');
                                 return;
                             }
@@ -2814,8 +2816,8 @@
             toast.innerHTML = `
                 <div class="toast-icon" aria-hidden="true">✓</div>
                 <div class="toast-content">
-                    <div class="toast-title">${title}</div>
-                    <div class="toast-message">${message}</div>
+                    <div class="toast-title">${title.replace(/</g,'&lt;')}</div>
+                    <div class="toast-message">${message.replace(/</g,'&lt;')}</div>
                 </div>
                 <button class="toast-close" onclick="this.parentElement.remove()" aria-label="알림 닫기">&times;</button>
             `;
@@ -2953,10 +2955,10 @@
         // Utils
         const _krFmt = new Intl.NumberFormat('ko-KR');
         const formatNumber = n => _krFmt.format(n);
-        const formatPercent = n => (n >= 0 ? '+' : '') + n.toFixed(2) + '%';
+        const formatPercent = n => n == null ? '-' : (n >= 0 ? '+' : '') + n.toFixed(2) + '%';
         const getColor = n => n > 0 ? 'positive' : n < 0 ? 'negative' : 'neutral';
         const getAIScoreClass = score => { if (!score) return ''; if (score >= 50) return 'ai-high'; if (score >= 30) return 'ai-medium'; return 'ai-low'; };
-        const formatShortDate = d => { const date = new Date(d); return (date.getMonth()+1) + '월 ' + date.getDate() + '일'; };
+        const formatShortDate = d => { if (!d) return '-'; const date = new Date(d); if (isNaN(date.getTime())) return '-'; return (date.getMonth()+1) + '월 ' + date.getDate() + '일'; };
         const formatMarketCap = cap => { if (!cap) return '-'; if (cap >= 10000) return (cap / 10000).toFixed(1) + '조'; return formatNumber(cap) + '억'; };
 
         // PER/PBR 조회 헬퍼 함수 (financial_data.json에서 조회)
@@ -2976,7 +2978,7 @@
         const getPBRColor = pbr => '';
 
         // PER/PBR 값을 데이터에 추가하여 정렬 가능하게 만드는 헬퍼 함수 (캐싱 적용)
-        const _enrichCache = new WeakMap();
+        let _enrichCache = new WeakMap();
         const enrichWithFinancials = data => {
             if (_enrichCache.has(data)) return _enrichCache.get(data);
             var result = data.map(s => {
@@ -5820,14 +5822,12 @@
             const pageTitle = pageTitles[pageId] || '국내 주식 종목 발굴';
             document.title = `${pageTitle} - Stock Screener`;
 
-            // Announce page change to screen readers
-            const announcement = document.createElement('div');
-            announcement.setAttribute('role', 'status');
-            announcement.setAttribute('aria-live', 'polite');
-            announcement.className = 'sr-only';
-            announcement.textContent = `${pageTitle} 페이지로 이동했습니다`;
-            document.body.appendChild(announcement);
-            setTimeout(() => announcement.remove(), 1000);
+            // Announce page change to screen readers (기존 sr-announce 재사용)
+            const announceEl = document.getElementById('sr-announce');
+            if (announceEl) {
+                announceEl.textContent = '';
+                requestAnimationFrame(() => { announceEl.textContent = `${pageTitle} 페이지로 이동했습니다`; });
+            }
         }
 
         // 앱 초기화 함수 - Lazy Rendering 적용으로 초기 로딩 성능 개선
