@@ -6,7 +6,7 @@
 - Value: PER, PBR, PSR, PCR, 배당수익률
 - Momentum: 12개월 수익률, K-Ratio
 
-전처리: Winsorizing + 글로벌 Z-Score
+전처리: Winsorizing + 섹터 중립화 Z-Score (WICS 중분류)
 
 사용법:
     python multi_factor.py
@@ -174,10 +174,12 @@ def winsorize(series: pd.Series, lower_pct: float = 0.01, upper_pct: float = 0.9
 def preprocess_factor(df: pd.DataFrame, factor_col: str,
                       ascending: bool = True) -> pd.DataFrame:
     """
-    팩터 전처리: Winsorize → Rank → 글로벌 Z-Score
+    팩터 전처리: Winsorize → Rank → 섹터 중립화 Z-Score
+
+    섹터 정보가 있으면 섹터별 Z-Score, 없으면 글로벌 Z-Score로 fallback.
 
     Args:
-        df: 데이터프레임
+        df: 데이터프레임 (sector 컬럼 포함 가능)
         factor_col: 팩터 컬럼명
         ascending: True면 값이 높을수록 좋음
     """
@@ -198,13 +200,31 @@ def preprocess_factor(df: pd.DataFrame, factor_col: str,
     # 2. Rank 변환
     df[f'{col}_rank'] = df[col].rank(ascending=ascending, na_option='keep')
 
-    # 3. 글로벌 Z-Score
+    # 3. 섹터 중립화 Z-Score (섹터 있으면 섹터별, 없으면 글로벌)
     rank_vals = df[f'{col}_rank']
     valid = rank_vals.notna()
-    if valid.sum() >= 3:
-        df.loc[valid, f'{col}_zscore'] = zscore(rank_vals[valid].values, nan_policy='omit')
+
+    if 'sector' in df.columns and df['sector'].notna().sum() > 0:
+        # 섹터별 Z-Score
+        df[f'{col}_zscore'] = np.nan
+        for sector, group in df[valid].groupby('sector'):
+            if len(group) >= 3:
+                idx = group.index
+                df.loc[idx, f'{col}_zscore'] = zscore(
+                    rank_vals.loc[idx].values, nan_policy='omit'
+                )
+        # 섹터 내 종목 수 부족한 경우 글로벌 fallback
+        still_nan = df[f'{col}_zscore'].isna() & valid
+        if still_nan.sum() > 0 and valid.sum() >= 3:
+            df.loc[still_nan, f'{col}_zscore'] = zscore(
+                rank_vals[still_nan].values, nan_policy='omit'
+            )
     else:
-        df[f'{col}_zscore'] = 0
+        # 글로벌 Z-Score (섹터 없을 때)
+        if valid.sum() >= 3:
+            df.loc[valid, f'{col}_zscore'] = zscore(rank_vals[valid].values, nan_policy='omit')
+        else:
+            df[f'{col}_zscore'] = 0
 
     # NaN을 0으로
     df[f'{col}_zscore'] = df[f'{col}_zscore'].fillna(0)
@@ -238,6 +258,17 @@ def run_multi_factor():
     ].copy()
 
     print(f"  필터링 후: {len(filtered)}개 종목")
+
+    # WICS 섹터 매핑
+    try:
+        from scripts.wics_data import get_sector_map
+        sector_map = get_sector_map(max_cache_days=7)
+        filtered['sector'] = filtered['종목코드'].map(sector_map).fillna('')
+        sector_count = (filtered['sector'] != '').sum()
+        print(f"  WICS 섹터 매핑: {sector_count}/{len(filtered)}개 종목")
+    except Exception as e:
+        print(f"  WICS 섹터 로드 실패 (글로벌 Z-Score fallback): {e}")
+        filtered['sector'] = ''
 
     # 2. OHLCV 캐시 로드 + Momentum 계산
     print("\n[2/5] Momentum 계산 (OHLCV 캐시)...")
@@ -276,6 +307,7 @@ def run_multi_factor():
         name = row['종목명']
         market_cap = row.get('시가총액', 0)
         current_price = row.get('종가', 0) or 0
+        sector = row.get('sector', '')
 
         fin_data = fnguide_cache.get(code)
         if not fin_data:
@@ -284,6 +316,7 @@ def run_multi_factor():
         record = {
             'ticker': code,
             'name': name,
+            'sector': sector,
             'current_price': int(current_price),
             'market_cap': round(market_cap, 0),
             'per': row.get('PER'),
