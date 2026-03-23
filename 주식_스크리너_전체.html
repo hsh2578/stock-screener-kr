@@ -4569,7 +4569,7 @@
                     <td class="text-right"><span class="ai-score ${getAIScoreClass(s.ai_score)}">${s.ai_score ? s.ai_score.toFixed(0) : '-'}</span></td>
                     <td class="text-right">${s.success_probability != null ? '<span style="color:' + (s.success_probability >= 60 ? '#16a34a' : s.success_probability >= 50 ? '#ca8a04' : '#dc2626') + '">' + s.success_probability.toFixed(1) + '%</span>' : '-'}</td>
                     <td class="text-right ${getColor(s.predicted_gain)}">${s.predicted_gain != null ? s.predicted_gain.toFixed(1) + '%' : '-'}</td>
-                    <td class="text-right positive">+${s.above_high_percent.toFixed(1)}%</td>
+                    <td class="text-right ${getColor(s.above_high_percent)}">${s.above_high_percent >= 0 ? '+' : ''}${s.above_high_percent.toFixed(1)}%</td>
                     <td class="text-right ${getColor(s.vs_breakout_close || 0)}">${s.vs_breakout_close != null ? (s.vs_breakout_close >= 0 ? '+' : '') + s.vs_breakout_close.toFixed(1) + '%' : '-'}</td>
                     <td class="text-right">${s.volume_ratio ? s.volume_ratio.toFixed(1) + 'x' : '-'}</td>
                     <td class="text-right">${formatBreakoutDate(s.breakout_date, s.days_since)}</td>
@@ -4582,7 +4582,7 @@
                     { label: 'AI점수', key: 'ai_score', format: function(s) { return s.ai_score ? s.ai_score.toFixed(0) + '점' : '-'; } },
                     { label: '성공확률', key: 'success_probability', format: function(s) { return s.success_probability != null ? s.success_probability.toFixed(1) + '%' : '-'; } },
                     { label: '예상수익', key: 'predicted_gain', format: function(s) { return s.predicted_gain != null ? s.predicted_gain.toFixed(1) + '%' : '-'; } },
-                    { label: '돌파강도', key: 'above_high_percent', format: function(s) { return '+' + s.above_high_percent.toFixed(1) + '%'; } },
+                    { label: '돌파강도', key: 'above_high_percent', format: function(s) { return (s.above_high_percent >= 0 ? '+' : '') + s.above_high_percent.toFixed(1) + '%'; } },
                     { label: '돌파종가대비', key: 'vs_breakout_close', format: function(s) { return s.vs_breakout_close != null ? (s.vs_breakout_close >= 0 ? '+' : '') + s.vs_breakout_close.toFixed(1) + '%' : '-'; } },
                     { label: '경과일', key: 'days_since', format: function(s) { return s.days_since != null ? s.days_since + '일' : '-'; } }
                 ]
