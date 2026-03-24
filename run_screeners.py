@@ -3966,15 +3966,6 @@ def main():
             """이평선 수렴 스크리너 (캐시 사용)"""
             return screen_ma_convergence(stocks=stocks, get_data_func=get_ohlcv, get_weekly_func=get_weekly_from_cache)
 
-        # 외부 모듈 스크리너의 보존 설정 (내부 스크리너는 함수 안에서 자체 처리)
-        _ext_preserve_config = {
-            'bottom_breakout.json': {
-                'max_days': 10,  # SIGNAL_LOOKBACK
-                'ref_date_key': 'signal_date',
-                'days_since_key': 'days_since_signal',
-            },
-        }
-
         def run_screener(args):
             """스크리너 실행 래퍼 함수"""
             name, func, func_args, filename, total_count = args
@@ -3984,15 +3975,6 @@ def main():
                     results = func()
                 else:
                     results = func(func_args)
-                # 외부 모듈 스크리너: 보존 로직 적용
-                if filename in _ext_preserve_config:
-                    cfg = _ext_preserve_config[filename]
-                    results = _preserve_prev_results(
-                        filename, results, cfg['max_days'],
-                        ref_date_key=cfg['ref_date_key'],
-                        days_since_key=cfg['days_since_key'],
-                        stocks=stocks
-                    )
                 save_results(results, filename, total_count)
                 elapsed = time.time() - start
                 return (name, results, elapsed)
