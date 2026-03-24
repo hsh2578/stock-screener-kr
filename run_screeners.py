@@ -3850,8 +3850,19 @@ def screen_price_rise(stocks: pd.DataFrame) -> List[Dict]:
             metrics = fd.get('metrics', fd)
             per_val = metrics.get('per')
             pbr_val = metrics.get('pbr')
-            per = round(per_val, 1) if per_val and not pd.isna(per_val) else None
-            pbr = round(pbr_val, 2) if pbr_val and not pd.isna(pbr_val) else None
+            # 리스트인 경우 첫 번째 값 추출 (financial_data.json 구조)
+            if isinstance(per_val, list):
+                per_val = per_val[0] if per_val else None
+            if isinstance(pbr_val, list):
+                pbr_val = pbr_val[0] if pbr_val else None
+            try:
+                per = round(float(per_val), 1) if per_val is not None and not pd.isna(per_val) else None
+            except (TypeError, ValueError):
+                per = None
+            try:
+                pbr = round(float(pbr_val), 2) if pbr_val is not None and not pd.isna(pbr_val) else None
+            except (TypeError, ValueError):
+                pbr = None
 
         for days_ago in range(LOOKBACK_DAYS):
             if len(df) < days_ago + 2:
