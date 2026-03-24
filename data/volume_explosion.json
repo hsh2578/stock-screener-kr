@@ -1,165 +1,201 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-24T12:21:29.078470",
-    "totalCount": 13,
-    "screened_from": 1496
+    "lastUpdated": "2026-03-24T13:34:40.820950",
+    "totalCount": 16,
+    "screened_from": 1501
   },
   "data": [
     {
       "ticker": "014970",
       "name": "삼륭물산",
-      "price": 10070,
-      "change_rate": 18.33,
-      "volume_ratio": 60.4,
+      "price": 9560,
+      "change_rate": 12.34,
+      "volume_ratio": 64.5,
       "volume_rank": 1,
-      "ma150": 7258,
+      "ma150": 7254,
       "above_ma150": true,
-      "market_cap": 1523,
-      "updated_at": "2026-03-24T12:21:24.070015"
+      "market_cap": 1446,
+      "updated_at": "2026-03-24T13:34:36.751755"
     },
     {
       "ticker": "017900",
       "name": "광전자",
       "price": 2615,
       "change_rate": 29.78,
-      "volume_ratio": 45.8,
+      "volume_ratio": 48.2,
       "volume_rank": 2,
       "ma150": 1900,
       "above_ma150": true,
       "market_cap": 1515,
-      "updated_at": "2026-03-24T12:21:23.213362"
+      "updated_at": "2026-03-24T13:34:35.824131"
     },
     {
       "ticker": "115440",
       "name": "우리넷",
-      "price": 9740,
-      "change_rate": 18.78,
-      "volume_ratio": 22.8,
+      "price": 10030,
+      "change_rate": 22.32,
+      "volume_ratio": 30.3,
       "volume_rank": 3,
-      "ma150": 7174,
+      "ma150": 7175,
       "above_ma150": true,
-      "market_cap": 1054,
-      "updated_at": "2026-03-24T12:21:25.719423"
+      "market_cap": 1090,
+      "updated_at": "2026-03-24T13:34:38.071674"
+    },
+    {
+      "ticker": "261780",
+      "name": "차백신연구소",
+      "price": 6670,
+      "change_rate": 25.85,
+      "volume_ratio": 14.3,
+      "volume_rank": 4,
+      "ma150": 2834,
+      "above_ma150": true,
+      "market_cap": 1787,
+      "updated_at": "2026-03-24T13:34:38.597053"
     },
     {
       "ticker": "066310",
       "name": "큐에스아이",
       "price": 13180,
       "change_rate": 29.98,
-      "volume_ratio": 12.0,
-      "volume_rank": 4,
+      "volume_ratio": 13.5,
+      "volume_rank": 5,
       "ma150": 7993,
       "above_ma150": true,
       "market_cap": 1222,
-      "updated_at": "2026-03-24T12:21:27.264174"
-    },
-    {
-      "ticker": "261780",
-      "name": "차백신연구소",
-      "price": 6010,
-      "change_rate": 13.4,
-      "volume_ratio": 10.9,
-      "volume_rank": 5,
-      "ma150": 2829,
-      "above_ma150": true,
-      "market_cap": 1598,
-      "updated_at": "2026-03-24T12:21:26.843572"
+      "updated_at": "2026-03-24T13:34:39.046716"
     },
     {
       "ticker": "046970",
       "name": "우리로",
       "price": 4575,
       "change_rate": 29.97,
-      "volume_ratio": 7.2,
+      "volume_ratio": 7.3,
       "volume_rank": 6,
       "ma150": 1392,
       "above_ma150": true,
       "market_cap": 2005,
-      "updated_at": "2026-03-24T12:21:25.730491"
+      "updated_at": "2026-03-24T13:34:38.077069"
     },
     {
-      "ticker": "069540",
-      "name": "빛과전자",
-      "price": 3212,
-      "change_rate": 12.9,
-      "volume_ratio": 6.2,
+      "ticker": "082920",
+      "name": "비츠로셀",
+      "price": 32650,
+      "change_rate": 12.01,
+      "volume_ratio": 6.6,
       "volume_rank": 7,
-      "ma150": 1015,
+      "ma150": 17648,
       "above_ma150": true,
-      "market_cap": 3122,
-      "updated_at": "2026-03-24T12:21:24.026022"
+      "market_cap": 14803,
+      "updated_at": "2026-03-24T13:34:36.744996"
     },
     {
       "ticker": "368770",
       "name": "파이버프로",
-      "price": 19390,
-      "change_rate": 17.87,
-      "volume_ratio": 5.3,
+      "price": 19330,
+      "change_rate": 17.51,
+      "volume_ratio": 6.0,
       "volume_rank": 8,
-      "ma150": 9820,
+      "ma150": 9819,
       "above_ma150": true,
-      "market_cap": 6282,
-      "updated_at": "2026-03-24T12:21:27.670869"
+      "market_cap": 6361,
+      "updated_at": "2026-03-24T13:34:39.679405"
     },
     {
       "ticker": "003000",
       "name": "부광약품",
-      "price": 6970,
-      "change_rate": 15.4,
-      "volume_ratio": 4.6,
+      "price": 7060,
+      "change_rate": 16.89,
+      "volume_ratio": 5.1,
       "volume_rank": 9,
-      "ma150": 4025,
+      "ma150": 4026,
       "above_ma150": true,
-      "market_cap": 6897,
-      "updated_at": "2026-03-24T12:21:23.925332"
+      "market_cap": 6956,
+      "updated_at": "2026-03-24T13:34:36.738109"
     },
     {
       "ticker": "088800",
       "name": "에이스테크",
       "price": 4195,
       "change_rate": 29.88,
-      "volume_ratio": 4.6,
+      "volume_ratio": 4.7,
       "volume_rank": 10,
       "ma150": 2836,
       "above_ma150": true,
       "market_cap": 3167,
-      "updated_at": "2026-03-24T12:21:25.039904"
+      "updated_at": "2026-03-24T13:34:37.672980"
+    },
+    {
+      "ticker": "108860",
+      "name": "셀바스AI",
+      "price": 12620,
+      "change_rate": 17.83,
+      "volume_ratio": 4.4,
+      "volume_rank": 11,
+      "ma150": 12670,
+      "above_ma150": false,
+      "market_cap": 3397,
+      "updated_at": "2026-03-24T13:34:36.873432"
     },
     {
       "ticker": "200710",
       "name": "에이디테크놀로지",
-      "price": 58500,
-      "change_rate": 19.39,
-      "volume_ratio": 3.3,
-      "volume_rank": 11,
-      "ma150": 30568,
+      "price": 57600,
+      "change_rate": 17.55,
+      "volume_ratio": 3.7,
+      "volume_rank": 12,
+      "ma150": 30562,
       "above_ma150": true,
-      "market_cap": 7863,
-      "updated_at": "2026-03-24T12:21:25.003819"
+      "market_cap": 7755,
+      "updated_at": "2026-03-24T13:34:37.646342"
     },
     {
       "ticker": "076610",
       "name": "해성옵틱스",
-      "price": 1905,
-      "change_rate": 28.28,
-      "volume_ratio": 2.4,
-      "volume_rank": 12,
+      "price": 1899,
+      "change_rate": 27.88,
+      "volume_ratio": 2.9,
+      "volume_rank": 13,
       "ma150": 777,
       "above_ma150": true,
-      "market_cap": 1012,
-      "updated_at": "2026-03-24T12:21:28.707435"
+      "market_cap": 1010,
+      "updated_at": "2026-03-24T13:34:40.403933"
+    },
+    {
+      "ticker": "129920",
+      "name": "대성하이텍",
+      "price": 11360,
+      "change_rate": 21.76,
+      "volume_ratio": 2.2,
+      "volume_rank": 14,
+      "ma150": 4859,
+      "above_ma150": true,
+      "market_cap": 1558,
+      "updated_at": "2026-03-24T13:34:36.191841"
     },
     {
       "ticker": "295310",
       "name": "에이치브이엠",
-      "price": 103700,
-      "change_rate": 18.65,
-      "volume_ratio": 2.1,
-      "volume_rank": 13,
-      "ma150": 48349,
+      "price": 104300,
+      "change_rate": 19.34,
+      "volume_ratio": 2.2,
+      "volume_rank": 15,
+      "ma150": 48353,
       "above_ma150": true,
-      "market_cap": 12448,
-      "updated_at": "2026-03-24T12:21:25.067593"
+      "market_cap": 12544,
+      "updated_at": "2026-03-24T13:34:37.698258"
+    },
+    {
+      "ticker": "290660",
+      "name": "네오펙트",
+      "price": 1516,
+      "change_rate": 19.28,
+      "volume_ratio": 2.0,
+      "volume_rank": 16,
+      "ma150": 942,
+      "above_ma150": true,
+      "market_cap": 1180,
+      "updated_at": "2026-03-24T13:34:36.056412"
     }
   ]
 }
