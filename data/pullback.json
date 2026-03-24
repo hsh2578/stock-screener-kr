@@ -1,8 +1,23 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-24T13:34:36.688987",
-    "totalCount": 0,
-    "screened_from": 1501
+    "lastUpdated": "2026-03-24T14:46:42.823823",
+    "totalCount": 1,
+    "screened_from": 1497
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "002620",
+      "name": "제일파마홀딩스",
+      "price": 8380,
+      "change_rate": -1.18,
+      "breakout_date": "2026-02-24",
+      "resistance": 8430,
+      "pullback_ratio": 0.59,
+      "volume_decrease": 98,
+      "ma150": 8367,
+      "above_ma150": true,
+      "market_cap": 1345,
+      "updated_at": "2026-03-24T14:46:40.194710"
+    }
+  ]
 }

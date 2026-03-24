@@ -1,33 +1,33 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-24T13:34:46.677298",
-    "totalCount": 9,
-    "screened_from": 1501
+    "lastUpdated": "2026-03-24T14:46:49.867444",
+    "totalCount": 8,
+    "screened_from": 1497
   },
   "data": [
     {
       "ticker": "028100",
       "name": "동아지질",
-      "price": 17660,
-      "change_rate": -0.73,
+      "price": 17630,
+      "change_rate": -0.9,
       "explosion_date": "2026-03-18",
       "explosion_change_rate": 10.7,
       "explosion_volume_ratio": 3.2,
       "days_since_detected": 4,
-      "volume_decrease_rate": 71,
+      "volume_decrease_rate": 70,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
       "ma150": 16283,
       "above_ma150": true,
-      "market_cap": 2365,
-      "updated_at": "2026-03-24T13:34:40.027007"
+      "market_cap": 2361,
+      "updated_at": "2026-03-24T14:46:45.696518"
     },
     {
       "ticker": "226590",
       "name": "엠디바이스",
-      "price": 32850,
-      "change_rate": -6.41,
+      "price": 33050,
+      "change_rate": -5.84,
       "explosion_date": "2026-03-18",
       "explosion_change_rate": 30.0,
       "explosion_volume_ratio": 3.5,
@@ -38,14 +38,14 @@
       "volume_rank": 2,
       "ma150": 17116,
       "above_ma150": true,
-      "market_cap": 3492,
-      "updated_at": "2026-03-24T13:34:46.653875"
+      "market_cap": 3519,
+      "updated_at": "2026-03-24T14:46:49.831204"
     },
     {
       "ticker": "089980",
       "name": "상아프론테크",
-      "price": 24000,
-      "change_rate": 1.27,
+      "price": 23550,
+      "change_rate": -0.63,
       "explosion_date": "2026-03-17",
       "explosion_change_rate": 18.4,
       "explosion_volume_ratio": 7.5,
@@ -56,8 +56,8 @@
       "volume_rank": 3,
       "ma150": 17940,
       "above_ma150": true,
-      "market_cap": 3837,
-      "updated_at": "2026-03-24T13:34:46.658571"
+      "market_cap": 3789,
+      "updated_at": "2026-03-24T14:46:49.833231"
     },
     {
       "ticker": "080420",
@@ -75,13 +75,13 @@
       "ma150": 2010,
       "above_ma150": true,
       "market_cap": 1626,
-      "updated_at": "2026-03-24T13:34:46.663909"
+      "updated_at": "2026-03-24T14:46:49.859208"
     },
     {
       "ticker": "015750",
       "name": "성우하이텍",
-      "price": 9010,
-      "change_rate": -0.66,
+      "price": 9000,
+      "change_rate": -0.77,
       "explosion_date": "2026-03-10",
       "explosion_change_rate": 22.1,
       "explosion_volume_ratio": 7.9,
@@ -92,14 +92,14 @@
       "volume_rank": 5,
       "ma150": 6967,
       "above_ma150": true,
-      "market_cap": 7208,
-      "updated_at": "2026-03-24T13:34:46.668492"
+      "market_cap": 7224,
+      "updated_at": "2026-03-24T14:46:49.862191"
     },
     {
       "ticker": "105330",
       "name": "케이엔더블유",
-      "price": 7260,
-      "change_rate": -0.55,
+      "price": 7270,
+      "change_rate": -0.41,
       "explosion_date": "2026-03-10",
       "explosion_change_rate": 28.2,
       "explosion_volume_ratio": 5.3,
@@ -110,62 +110,44 @@
       "volume_rank": 6,
       "ma150": 5489,
       "above_ma150": true,
-      "market_cap": 1166,
-      "updated_at": "2026-03-24T13:34:46.673389"
-    },
-    {
-      "ticker": "228850",
-      "name": "레이언스",
-      "price": 6080,
-      "change_rate": -2.25,
-      "explosion_date": "2026-03-05",
-      "explosion_change_rate": 10.0,
-      "explosion_volume_ratio": 4.1,
-      "days_since_detected": 13,
-      "volume_decrease_rate": 92,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.16,
-      "volume_rank": 7,
-      "ma150": 5555,
-      "above_ma150": true,
-      "market_cap": 1009,
-      "updated_at": "2026-03-24T13:34:40.384493"
+      "market_cap": 1168,
+      "updated_at": "2026-03-24T14:46:49.863720"
     },
     {
       "ticker": "417500",
       "name": "제이아이테크",
-      "price": 4805,
-      "change_rate": -9.85,
+      "price": 4820,
+      "change_rate": -9.57,
       "explosion_date": "2026-03-05",
       "explosion_change_rate": 18.8,
       "explosion_volume_ratio": 4.7,
       "days_since_detected": 13,
-      "volume_decrease_rate": 63,
+      "volume_decrease_rate": 62,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.67,
-      "volume_rank": 8,
+      "ma20_distance": 0.97,
+      "volume_rank": 7,
       "ma150": 3436,
       "above_ma150": true,
-      "market_cap": 1577,
-      "updated_at": "2026-03-24T13:34:44.672413"
+      "market_cap": 1584,
+      "updated_at": "2026-03-24T14:46:48.443255"
     },
     {
       "ticker": "037350",
       "name": "성도이엔지",
-      "price": 10810,
-      "change_rate": -4.76,
+      "price": 10820,
+      "change_rate": -4.67,
       "explosion_date": "2026-03-03",
       "explosion_change_rate": 12.5,
       "explosion_volume_ratio": 4.9,
       "days_since_detected": 15,
       "volume_decrease_rate": 82,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.04,
-      "volume_rank": 9,
+      "ma20_distance": 0.13,
+      "volume_rank": 8,
       "ma150": 6376,
       "above_ma150": true,
-      "market_cap": 1644,
-      "updated_at": "2026-03-24T13:34:41.853822"
+      "market_cap": 1646,
+      "updated_at": "2026-03-24T14:46:46.778945"
     }
   ]
 }
