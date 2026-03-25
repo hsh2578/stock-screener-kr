@@ -1,27 +1,27 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-25T14:46:56.074355",
+    "lastUpdated": "2026-03-25T16:39:00.682208",
     "totalCount": 5,
-    "screened_from": 1515
+    "screened_from": 1516
   },
   "data": [
     {
       "ticker": "028100",
       "name": "동아지질",
-      "price": 17910,
-      "change_rate": 1.7,
+      "price": 18040,
+      "change_rate": 2.44,
       "explosion_date": "2026-03-18",
       "explosion_change_rate": 10.7,
       "explosion_volume_ratio": 3.2,
       "days_since_detected": 5,
-      "volume_decrease_rate": 75,
+      "volume_decrease_rate": 74,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
-      "ma150": 16295,
+      "ma150": 16296,
       "above_ma150": true,
-      "market_cap": 2398,
-      "updated_at": "2026-03-25T14:46:49.230640"
+      "market_cap": 2415,
+      "updated_at": "2026-03-25T16:38:53.191599"
     },
     {
       "ticker": "226590",
@@ -38,14 +38,14 @@
       "volume_rank": 2,
       "ma150": 17116,
       "above_ma150": true,
-      "market_cap": 3391,
-      "updated_at": "2026-03-25T14:46:56.053750"
+      "market_cap": 3402,
+      "updated_at": "2026-03-25T16:39:00.659141"
     },
     {
       "ticker": "089980",
       "name": "상아프론테크",
-      "price": 24750,
-      "change_rate": 3.56,
+      "price": 25300,
+      "change_rate": 5.86,
       "explosion_date": "2026-03-17",
       "explosion_change_rate": 18.4,
       "explosion_volume_ratio": 7.5,
@@ -56,44 +56,44 @@
       "volume_rank": 3,
       "ma150": 17940,
       "above_ma150": true,
-      "market_cap": 3949,
-      "updated_at": "2026-03-25T14:46:56.062131"
+      "market_cap": 4045,
+      "updated_at": "2026-03-25T16:39:00.675777"
     },
     {
       "ticker": "229640",
       "name": "LS에코에너지",
-      "price": 44150,
-      "change_rate": -1.78,
+      "price": 44550,
+      "change_rate": -0.89,
       "explosion_date": "2026-03-12",
       "explosion_change_rate": 12.3,
       "explosion_volume_ratio": 3.1,
       "days_since_detected": 9,
-      "volume_decrease_rate": 68,
+      "volume_decrease_rate": 67,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.6,
+      "ma20_distance": 1.47,
       "volume_rank": 4,
-      "ma150": 40075,
+      "ma150": 40078,
       "above_ma150": true,
-      "market_cap": 13536,
-      "updated_at": "2026-03-25T14:46:47.439471"
+      "market_cap": 13643,
+      "updated_at": "2026-03-25T16:38:51.731641"
     },
     {
-      "ticker": "015750",
-      "name": "성우하이텍",
-      "price": 9200,
-      "change_rate": 1.21,
-      "explosion_date": "2026-03-10",
-      "explosion_change_rate": 22.1,
-      "explosion_volume_ratio": 7.9,
-      "days_since_detected": 11,
-      "volume_decrease_rate": 89,
+      "ticker": "042700",
+      "name": "한미반도체",
+      "price": 300000,
+      "change_rate": 1.18,
+      "explosion_date": "2026-02-26",
+      "explosion_change_rate": 28.4,
+      "explosion_volume_ratio": 3.0,
+      "days_since_detected": 18,
+      "volume_decrease_rate": 87,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 1.16,
+      "ma20_distance": 0.18,
       "volume_rank": 5,
-      "ma150": 6989,
+      "ma150": 155360,
       "above_ma150": true,
-      "market_cap": 7360,
-      "updated_at": "2026-03-25T14:46:50.678759"
+      "market_cap": 285937,
+      "updated_at": "2026-03-25T16:38:59.803168"
     }
   ]
 }
