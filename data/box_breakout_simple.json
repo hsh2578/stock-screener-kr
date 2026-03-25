@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-25T13:37:01.318100",
+    "lastUpdated": "2026-03-25T14:46:57.895189",
     "totalCount": 3,
     "screened_from": 1515
   },
@@ -8,44 +8,44 @@
     {
       "ticker": "041910",
       "name": "폴라리스AI파마",
-      "price": 7510,
-      "change_rate": 1.76,
+      "price": 7580,
+      "change_rate": 2.71,
       "breakout_date": "2026-03-13",
       "resistance": 7010,
       "days_since_breakout": 8,
-      "breakout_pct": 7.13,
-      "gain_since_breakout": -8.3,
-      "ma150": 6577,
+      "breakout_pct": 8.13,
+      "gain_since_breakout": -7.45,
+      "ma150": 6578,
       "above_ma150": true,
-      "market_cap": 1015,
-      "success_prob": 64.2,
+      "market_cap": 1021,
+      "success_prob": 61.9,
       "predicted_gain": 24.4,
-      "ai_score": 66.9,
-      "updated_at": "2026-03-25T13:36:59.390071"
+      "ai_score": 65.4,
+      "updated_at": "2026-03-25T14:46:56.153443"
     },
     {
       "ticker": "395400",
       "name": "SK리츠",
-      "price": 6410,
-      "change_rate": 1.1,
+      "price": 6430,
+      "change_rate": 1.42,
       "breakout_date": "2026-03-16",
       "resistance": 5920,
       "days_since_breakout": 7,
-      "breakout_pct": 8.28,
-      "gain_since_breakout": 5.95,
+      "breakout_pct": 8.61,
+      "gain_since_breakout": 6.28,
       "ma150": 5434,
       "above_ma150": true,
-      "market_cap": 19295,
+      "market_cap": 19355,
       "success_prob": 18.1,
       "predicted_gain": 10.5,
       "ai_score": 22.1,
-      "updated_at": "2026-03-25T13:36:49.234726"
+      "updated_at": "2026-03-25T14:46:44.916683"
     },
     {
       "ticker": "145720",
       "name": "덴티움",
-      "price": 51000,
-      "change_rate": 2.51,
+      "price": 50700,
+      "change_rate": 1.91,
       "breakout_date": "2026-03-11",
       "resistance": 52500,
       "days_since_breakout": 10,
@@ -53,12 +53,12 @@
       "gain_since_breakout": -5.12,
       "ma150": 52987,
       "above_ma150": false,
-      "market_cap": 4398,
+      "market_cap": 4372,
       "success_prob": 10.0,
       "predicted_gain": 15.0,
       "ai_score": 20.5,
-      "updated_at": "2026-03-25T13:37:01.315044",
-      "vs_breakout_close": -6.76
+      "updated_at": "2026-03-25T14:46:57.893335",
+      "vs_breakout_close": -7.31
     }
   ]
 }
