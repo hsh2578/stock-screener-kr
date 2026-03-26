@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-26T13:58:58.011942",
-    "totalCount": 6,
-    "screened_from": 1505
+    "lastUpdated": "2026-03-26T14:59:44.398931",
+    "totalCount": 7,
+    "screened_from": 1506
   },
   "data": [
     {
       "ticker": "143240",
       "name": "사람인",
-      "price": 16900,
-      "change_rate": -0.47,
+      "price": 16840,
+      "change_rate": -0.82,
       "explosion_date": "2026-03-23",
       "explosion_change_rate": 18.3,
       "explosion_volume_ratio": 36.0,
@@ -18,16 +18,16 @@
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
-      "ma150": 13856,
+      "ma150": 13855,
       "above_ma150": true,
-      "market_cap": 1979,
-      "updated_at": "2026-03-26T13:58:53.865218"
+      "market_cap": 1972,
+      "updated_at": "2026-03-26T14:59:38.609070"
     },
     {
       "ticker": "028100",
       "name": "동아지질",
-      "price": 17400,
-      "change_rate": -3.55,
+      "price": 17160,
+      "change_rate": -4.88,
       "explosion_date": "2026-03-18",
       "explosion_change_rate": 10.7,
       "explosion_volume_ratio": 3.2,
@@ -38,14 +38,14 @@
       "volume_rank": 2,
       "ma150": 16296,
       "above_ma150": true,
-      "market_cap": 2328,
-      "updated_at": "2026-03-26T13:58:57.996229"
+      "market_cap": 2298,
+      "updated_at": "2026-03-26T14:59:44.377378"
     },
     {
       "ticker": "226590",
       "name": "엠디바이스",
-      "price": 30200,
-      "change_rate": -5.62,
+      "price": 29600,
+      "change_rate": -7.5,
       "explosion_date": "2026-03-18",
       "explosion_change_rate": 30.0,
       "explosion_volume_ratio": 3.5,
@@ -56,14 +56,14 @@
       "volume_rank": 3,
       "ma150": 17116,
       "above_ma150": true,
-      "market_cap": 3210,
-      "updated_at": "2026-03-26T13:58:58.001410"
+      "market_cap": 3141,
+      "updated_at": "2026-03-26T14:59:44.382089"
     },
     {
       "ticker": "089980",
       "name": "상아프론테크",
-      "price": 25300,
-      "change_rate": 0.0,
+      "price": 24800,
+      "change_rate": -1.98,
       "explosion_date": "2026-03-17",
       "explosion_change_rate": 18.4,
       "explosion_volume_ratio": 7.5,
@@ -74,44 +74,62 @@
       "volume_rank": 4,
       "ma150": 17940,
       "above_ma150": true,
-      "market_cap": 4045,
-      "updated_at": "2026-03-26T13:58:58.005881"
+      "market_cap": 3957,
+      "updated_at": "2026-03-26T14:59:44.389193"
+    },
+    {
+      "ticker": "039980",
+      "name": "폴라리스AI",
+      "price": 1675,
+      "change_rate": -4.56,
+      "explosion_date": "2026-03-13",
+      "explosion_change_rate": 16.5,
+      "explosion_volume_ratio": 44.6,
+      "days_since_detected": 9,
+      "volume_decrease_rate": 98,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 0.96,
+      "volume_rank": 5,
+      "ma150": 2046,
+      "above_ma150": false,
+      "market_cap": 1221,
+      "updated_at": "2026-03-26T14:59:42.755282"
+    },
+    {
+      "ticker": "389260",
+      "name": "대명에너지",
+      "price": 19600,
+      "change_rate": -4.16,
+      "explosion_date": "2026-03-12",
+      "explosion_change_rate": 22.1,
+      "explosion_volume_ratio": 7.7,
+      "days_since_detected": 10,
+      "volume_decrease_rate": 86,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 0.48,
+      "volume_rank": 6,
+      "ma150": 20489,
+      "above_ma150": false,
+      "market_cap": 3512,
+      "updated_at": "2026-03-26T14:59:36.845639"
     },
     {
       "ticker": "229640",
       "name": "LS에코에너지",
-      "price": 44700,
-      "change_rate": 0.34,
+      "price": 44500,
+      "change_rate": -0.11,
       "explosion_date": "2026-03-12",
       "explosion_change_rate": 12.3,
       "explosion_volume_ratio": 3.1,
       "days_since_detected": 10,
-      "volume_decrease_rate": 63,
+      "volume_decrease_rate": 60,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.6,
-      "volume_rank": 5,
-      "ma150": 40079,
+      "ma20_distance": 1.47,
+      "volume_rank": 7,
+      "ma150": 40081,
       "above_ma150": true,
-      "market_cap": 13689,
-      "updated_at": "2026-03-26T13:58:58.009469"
-    },
-    {
-      "ticker": "402490",
-      "name": "그린리소스",
-      "price": 12880,
-      "change_rate": -8.33,
-      "explosion_date": "2026-03-04",
-      "explosion_change_rate": 11.1,
-      "explosion_volume_ratio": 11.1,
-      "days_since_detected": 16,
-      "volume_decrease_rate": 91,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.42,
-      "volume_rank": 6,
-      "ma150": 9205,
-      "above_ma150": true,
-      "market_cap": 2134,
-      "updated_at": "2026-03-26T13:58:51.512349"
+      "market_cap": 13628,
+      "updated_at": "2026-03-26T14:59:35.881643"
     }
   ]
 }
