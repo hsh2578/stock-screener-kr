@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-26T14:59:44.398931",
-    "totalCount": 7,
-    "screened_from": 1506
+    "lastUpdated": "2026-03-26T16:44:40.513900",
+    "totalCount": 9,
+    "screened_from": 1503
   },
   "data": [
     {
       "ticker": "143240",
       "name": "사람인",
-      "price": 16840,
-      "change_rate": -0.82,
+      "price": 16860,
+      "change_rate": -0.71,
       "explosion_date": "2026-03-23",
       "explosion_change_rate": 18.3,
       "explosion_volume_ratio": 36.0,
@@ -20,14 +20,14 @@
       "volume_rank": 1,
       "ma150": 13855,
       "above_ma150": true,
-      "market_cap": 1972,
-      "updated_at": "2026-03-26T14:59:38.609070"
+      "market_cap": 1974,
+      "updated_at": "2026-03-26T16:44:34.552927"
     },
     {
       "ticker": "028100",
       "name": "동아지질",
-      "price": 17160,
-      "change_rate": -4.88,
+      "price": 17200,
+      "change_rate": -4.66,
       "explosion_date": "2026-03-18",
       "explosion_change_rate": 10.7,
       "explosion_volume_ratio": 3.2,
@@ -38,14 +38,14 @@
       "volume_rank": 2,
       "ma150": 16296,
       "above_ma150": true,
-      "market_cap": 2298,
-      "updated_at": "2026-03-26T14:59:44.377378"
+      "market_cap": 2303,
+      "updated_at": "2026-03-26T16:44:40.483040"
     },
     {
       "ticker": "226590",
       "name": "엠디바이스",
-      "price": 29600,
-      "change_rate": -7.5,
+      "price": 29550,
+      "change_rate": -7.66,
       "explosion_date": "2026-03-18",
       "explosion_change_rate": 30.0,
       "explosion_volume_ratio": 3.5,
@@ -57,7 +57,7 @@
       "ma150": 17116,
       "above_ma150": true,
       "market_cap": 3141,
-      "updated_at": "2026-03-26T14:59:44.382089"
+      "updated_at": "2026-03-26T16:44:40.496217"
     },
     {
       "ticker": "089980",
@@ -74,50 +74,68 @@
       "volume_rank": 4,
       "ma150": 17940,
       "above_ma150": true,
-      "market_cap": 3957,
-      "updated_at": "2026-03-26T14:59:44.389193"
+      "market_cap": 3965,
+      "updated_at": "2026-03-26T16:44:40.504932"
     },
     {
       "ticker": "039980",
       "name": "폴라리스AI",
-      "price": 1675,
-      "change_rate": -4.56,
+      "price": 1676,
+      "change_rate": -4.5,
       "explosion_date": "2026-03-13",
       "explosion_change_rate": 16.5,
       "explosion_volume_ratio": 44.6,
       "days_since_detected": 9,
       "volume_decrease_rate": 98,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.96,
+      "ma20_distance": 1.02,
       "volume_rank": 5,
       "ma150": 2046,
       "above_ma150": false,
-      "market_cap": 1221,
-      "updated_at": "2026-03-26T14:59:42.755282"
+      "market_cap": 1220,
+      "updated_at": "2026-03-26T16:44:39.107408"
+    },
+    {
+      "ticker": "095720",
+      "name": "웅진씽크빅",
+      "price": 1150,
+      "change_rate": -1.03,
+      "explosion_date": "2026-03-12",
+      "explosion_change_rate": 14.5,
+      "explosion_volume_ratio": 10.2,
+      "days_since_detected": 10,
+      "volume_decrease_rate": 95,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 1.22,
+      "volume_rank": 6,
+      "ma150": 1398,
+      "above_ma150": false,
+      "market_cap": 1328,
+      "updated_at": "2026-03-26T16:44:36.937845"
     },
     {
       "ticker": "389260",
       "name": "대명에너지",
-      "price": 19600,
-      "change_rate": -4.16,
+      "price": 19510,
+      "change_rate": -4.6,
       "explosion_date": "2026-03-12",
       "explosion_change_rate": 22.1,
       "explosion_volume_ratio": 7.7,
       "days_since_detected": 10,
       "volume_decrease_rate": 86,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.48,
-      "volume_rank": 6,
-      "ma150": 20489,
+      "ma20_distance": 0.05,
+      "volume_rank": 7,
+      "ma150": 20488,
       "above_ma150": false,
-      "market_cap": 3512,
-      "updated_at": "2026-03-26T14:59:36.845639"
+      "market_cap": 3495,
+      "updated_at": "2026-03-26T16:44:33.232021"
     },
     {
       "ticker": "229640",
       "name": "LS에코에너지",
-      "price": 44500,
-      "change_rate": -0.11,
+      "price": 44600,
+      "change_rate": 0.11,
       "explosion_date": "2026-03-12",
       "explosion_change_rate": 12.3,
       "explosion_volume_ratio": 3.1,
@@ -125,11 +143,29 @@
       "volume_decrease_rate": 60,
       "pattern_type": "ma20_approach",
       "ma20_distance": 1.47,
-      "volume_rank": 7,
+      "volume_rank": 8,
       "ma150": 40081,
       "above_ma150": true,
-      "market_cap": 13628,
-      "updated_at": "2026-03-26T14:59:35.881643"
+      "market_cap": 13659,
+      "updated_at": "2026-03-26T16:44:40.510953"
+    },
+    {
+      "ticker": "036890",
+      "name": "진성티이씨",
+      "price": 15850,
+      "change_rate": -5.03,
+      "explosion_date": "2026-03-10",
+      "explosion_change_rate": 20.2,
+      "explosion_volume_ratio": 3.1,
+      "days_since_detected": 12,
+      "volume_decrease_rate": 79,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 1.08,
+      "volume_rank": 9,
+      "ma150": 13574,
+      "above_ma150": true,
+      "market_cap": 3492,
+      "updated_at": "2026-03-26T16:44:37.969749"
     }
   ]
 }
