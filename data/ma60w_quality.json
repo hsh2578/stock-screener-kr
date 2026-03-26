@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-03-25T20:55:19.172352",
-    "total_count": 4,
+    "updated_at": "2026-03-26T21:01:31.755445",
+    "total_count": 5,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -10,52 +10,64 @@
   },
   "data": [
     {
+      "ticker": "329180",
+      "name": "HD현대중공업",
+      "current_price": 511000,
+      "ma60w": 465888,
+      "ma60w_gap": 9.68,
+      "op_margin": 10.6,
+      "op_growth_3y": 93.5,
+      "market_cap": 536352,
+      "sector": "기타",
+      "updated_at": "2026-03-26T21:01:22.245690"
+    },
+    {
       "ticker": "068270",
       "name": "셀트리온",
-      "current_price": 203500,
-      "ma60w": 187986,
-      "ma60w_gap": 8.25,
+      "current_price": 203000,
+      "ma60w": 188085,
+      "ma60w_gap": 7.93,
       "op_margin": 28.1,
       "op_growth_3y": 37.7,
-      "market_cap": 470183,
+      "market_cap": 469028,
       "sector": "기타",
-      "updated_at": "2026-03-25T20:55:15.065634"
+      "updated_at": "2026-03-26T21:01:22.246552"
     },
     {
       "ticker": "009540",
       "name": "HD한국조선해양",
-      "current_price": 385000,
-      "ma60w": 358491,
-      "ma60w_gap": 7.39,
+      "current_price": 375000,
+      "ma60w": 358462,
+      "ma60w_gap": 4.61,
       "op_margin": 11.6,
       "op_growth_3y": 121.1,
-      "market_cap": 272476,
+      "market_cap": 265399,
       "sector": "기타",
-      "updated_at": "2026-03-25T20:55:15.071608"
+      "updated_at": "2026-03-26T21:01:22.252016"
     },
     {
       "ticker": "003230",
       "name": "삼양식품",
-      "current_price": 1216000,
-      "ma60w": 1141341,
-      "ma60w_gap": 6.54,
+      "current_price": 1188000,
+      "ma60w": 1140609,
+      "ma60w_gap": 4.15,
       "op_margin": 21.6,
       "op_growth_3y": 78.0,
-      "market_cap": 91601,
+      "market_cap": 89492,
       "sector": "기타",
-      "updated_at": "2026-03-25T20:55:16.475890"
+      "updated_at": "2026-03-26T21:01:28.322071"
     },
     {
       "ticker": "069620",
       "name": "대웅제약",
-      "current_price": 159400,
-      "ma60w": 153061,
-      "ma60w_gap": 4.14,
+      "current_price": 161400,
+      "ma60w": 153034,
+      "ma60w_gap": 5.47,
       "op_margin": 12.5,
       "op_growth_3y": 17.9,
-      "market_cap": 18469,
+      "market_cap": 18701,
       "sector": "기타",
-      "updated_at": "2026-03-25T20:55:19.152809"
+      "updated_at": "2026-03-26T21:01:30.991997"
     }
   ]
 }
