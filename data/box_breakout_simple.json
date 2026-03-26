@@ -1,45 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-26T12:34:20.200600",
+    "lastUpdated": "2026-03-26T13:58:53.933584",
     "totalCount": 2,
-    "screened_from": 1503
+    "screened_from": 1505
   },
   "data": [
     {
       "ticker": "041910",
       "name": "폴라리스AI파마",
-      "price": 7440,
-      "change_rate": -1.33,
+      "price": 7500,
+      "change_rate": -0.53,
       "breakout_date": "2026-03-13",
       "resistance": 7010,
       "days_since_breakout": 9,
-      "breakout_pct": 6.13,
-      "gain_since_breakout": -9.16,
-      "ma150": 6582,
+      "breakout_pct": 6.99,
+      "gain_since_breakout": -8.42,
+      "ma150": 6583,
       "above_ma150": true,
-      "market_cap": 1003,
-      "success_prob": 61.9,
-      "predicted_gain": 24.4,
-      "ai_score": 65.4,
-      "updated_at": "2026-03-26T12:34:18.390748"
+      "market_cap": 1013,
+      "success_prob": 89.8,
+      "predicted_gain": 27.8,
+      "ai_score": 87.8,
+      "updated_at": "2026-03-26T13:58:52.447536"
     },
     {
       "ticker": "395400",
       "name": "SK리츠",
-      "price": 6310,
-      "change_rate": -3.52,
+      "price": 6300,
+      "change_rate": -3.67,
       "breakout_date": "2026-03-16",
       "resistance": 5920,
       "days_since_breakout": 8,
-      "breakout_pct": 6.59,
-      "gain_since_breakout": 4.3,
+      "breakout_pct": 6.42,
+      "gain_since_breakout": 4.13,
       "ma150": 5444,
       "above_ma150": true,
-      "market_cap": 18994,
+      "market_cap": 18964,
       "success_prob": 18.1,
       "predicted_gain": 10.5,
       "ai_score": 22.1,
-      "updated_at": "2026-03-26T12:34:08.003872"
+      "updated_at": "2026-03-26T13:58:43.552464"
     }
   ]
 }
