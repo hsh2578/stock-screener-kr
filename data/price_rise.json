@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-30T17:12:10.397162",
+    "lastUpdated": "2026-03-30T18:55:33.223106",
     "totalCount": 100,
     "screened_from": 1496
   },
@@ -83,6 +83,22 @@
       "per": 16.1,
       "pbr": 0.55,
       "ma150": 3404,
+      "above_ma150": true
+    },
+    {
+      "ticker": "221800",
+      "name": "유투바이오",
+      "price": 24250,
+      "entry_price": 24250,
+      "change_rate": 29.82,
+      "since_return": 0.0,
+      "days_ago": 0,
+      "volume": 937598,
+      "volume_ratio": 0.7,
+      "market_cap": 3864.0,
+      "per": null,
+      "pbr": 6.08,
+      "ma150": 7673,
       "above_ma150": true
     },
     {
@@ -307,22 +323,6 @@
       "per": null,
       "pbr": 6.12,
       "ma150": 2747,
-      "above_ma150": true
-    },
-    {
-      "ticker": "018250",
-      "name": "애경산업",
-      "price": 16920,
-      "entry_price": 16920,
-      "change_rate": 10.59,
-      "since_return": 0.0,
-      "days_ago": 0,
-      "volume": 2108821,
-      "volume_ratio": 24.5,
-      "market_cap": 4469.0,
-      "per": 9.1,
-      "pbr": 0.91,
-      "ma150": 14370,
       "above_ma150": true
     },
     {
@@ -1158,6 +1158,22 @@
       "above_ma150": true
     },
     {
+      "ticker": "078070",
+      "name": "유비쿼스홀딩스",
+      "price": 16170,
+      "entry_price": 16960,
+      "change_rate": 23.98,
+      "since_return": -4.66,
+      "days_ago": 3,
+      "volume": 2500125,
+      "volume_ratio": 6.9,
+      "market_cap": 2847.0,
+      "per": 12.9,
+      "pbr": 0.96,
+      "ma150": 11131,
+      "above_ma150": true
+    },
+    {
       "ticker": "179900",
       "name": "유티아이",
       "price": 16450,
@@ -1267,22 +1283,6 @@
       "per": null,
       "pbr": 2.78,
       "ma150": 5644,
-      "above_ma150": true
-    },
-    {
-      "ticker": "050890",
-      "name": "쏠리드",
-      "price": 13440,
-      "entry_price": 15910,
-      "change_rate": 19.44,
-      "since_return": -15.52,
-      "days_ago": 3,
-      "volume": 51868025,
-      "volume_ratio": 5.9,
-      "market_cap": 8166.0,
-      "per": 17.4,
-      "pbr": 2.46,
-      "ma150": 8041,
       "above_ma150": true
     },
     {
