@@ -1,27 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-30T18:55:32.166229",
+    "lastUpdated": "2026-03-31T12:39:50.814764",
     "totalCount": 1,
-    "screened_from": 1496
+    "screened_from": 1486
   },
   "data": [
     {
       "ticker": "395400",
       "name": "SK리츠",
-      "price": 6280,
-      "change_rate": -3.24,
+      "price": 6250,
+      "change_rate": -0.48,
       "breakout_date": "2026-03-17",
       "resistance": 5980,
-      "days_since_breakout": 9,
+      "days_since_breakout": 10,
       "breakout_pct": 5.02,
       "gain_since_breakout": 2.78,
       "ma150": 5464,
       "above_ma150": true,
-      "market_cap": 18904,
+      "market_cap": 18783,
       "success_prob": 26.7,
       "predicted_gain": 9.5,
       "ai_score": 27.3,
-      "updated_at": "2026-03-30T18:55:21.745533"
+      "updated_at": "2026-03-31T12:39:50.811093",
+      "vs_breakout_close": 2.29
     }
   ]
 }
