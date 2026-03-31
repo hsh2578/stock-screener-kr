@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-31T15:05:28.712980",
-    "totalCount": 10,
-    "screened_from": 1478
+    "lastUpdated": "2026-03-31T16:54:29.212233",
+    "totalCount": 9,
+    "screened_from": 1481
   },
   "data": [
     {
       "ticker": "004440",
       "name": "삼일씨엔에스",
-      "price": 9890,
-      "change_rate": -1.79,
+      "price": 9810,
+      "change_rate": -2.58,
       "explosion_date": "2026-03-26",
       "explosion_change_rate": 10.8,
       "explosion_volume_ratio": 12.1,
@@ -18,34 +18,34 @@
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
-      "ma150": 5307,
+      "ma150": 5306,
       "above_ma150": true,
-      "market_cap": 1259,
-      "updated_at": "2026-03-31T15:05:23.486580"
+      "market_cap": 1249,
+      "updated_at": "2026-03-31T16:54:23.470149"
     },
     {
       "ticker": "215600",
       "name": "신라젠",
-      "price": 3785,
-      "change_rate": -5.26,
+      "price": 3800,
+      "change_rate": -4.88,
       "explosion_date": "2026-03-25",
       "explosion_change_rate": 13.4,
       "explosion_volume_ratio": 12.5,
       "days_since_detected": 4,
-      "volume_decrease_rate": 86,
+      "volume_decrease_rate": 85,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 2,
       "ma150": 3297,
       "above_ma150": true,
-      "market_cap": 5221,
-      "updated_at": "2026-03-31T15:05:28.676234"
+      "market_cap": 5249,
+      "updated_at": "2026-03-31T16:54:24.196297"
     },
     {
       "ticker": "200710",
       "name": "에이디테크놀로지",
-      "price": 47950,
-      "change_rate": -9.7,
+      "price": 48000,
+      "change_rate": -9.6,
       "explosion_date": "2026-03-24",
       "explosion_change_rate": 18.4,
       "explosion_volume_ratio": 4.5,
@@ -56,14 +56,14 @@
       "volume_rank": 3,
       "ma150": 31216,
       "above_ma150": true,
-      "market_cap": 6458,
-      "updated_at": "2026-03-31T15:05:28.681081"
+      "market_cap": 6452,
+      "updated_at": "2026-03-31T16:54:29.191919"
     },
     {
       "ticker": "143240",
       "name": "사람인",
-      "price": 16940,
-      "change_rate": -0.24,
+      "price": 16950,
+      "change_rate": -0.18,
       "explosion_date": "2026-03-23",
       "explosion_change_rate": 18.3,
       "explosion_volume_ratio": 36.0,
@@ -74,32 +74,32 @@
       "volume_rank": 4,
       "ma150": 13897,
       "above_ma150": true,
-      "market_cap": 1984,
-      "updated_at": "2026-03-31T15:05:22.865115"
+      "market_cap": 1985,
+      "updated_at": "2026-03-31T16:54:23.188101"
     },
     {
       "ticker": "028100",
       "name": "동아지질",
-      "price": 17400,
-      "change_rate": -1.58,
+      "price": 17290,
+      "change_rate": -2.21,
       "explosion_date": "2026-03-18",
       "explosion_change_rate": 10.7,
       "explosion_volume_ratio": 3.2,
       "days_since_detected": 9,
-      "volume_decrease_rate": 74,
-      "pattern_type": "candle_range",
-      "ma20_distance": null,
+      "volume_decrease_rate": 62,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 1.11,
       "volume_rank": 5,
-      "ma150": 16296,
+      "ma150": 16334,
       "above_ma150": true,
-      "market_cap": 2330,
-      "updated_at": "2026-03-31T15:05:28.687003"
+      "market_cap": 2315,
+      "updated_at": "2026-03-31T16:54:22.264371"
     },
     {
       "ticker": "226590",
       "name": "엠디바이스",
-      "price": 23400,
-      "change_rate": -6.21,
+      "price": 23300,
+      "change_rate": -6.61,
       "explosion_date": "2026-03-18",
       "explosion_change_rate": 30.0,
       "explosion_volume_ratio": 3.5,
@@ -110,14 +110,14 @@
       "volume_rank": 6,
       "ma150": 17116,
       "above_ma150": true,
-      "market_cap": 2493,
-      "updated_at": "2026-03-31T15:05:28.691471"
+      "market_cap": 2477,
+      "updated_at": "2026-03-31T16:54:29.196514"
     },
     {
       "ticker": "209640",
       "name": "와이제이링크",
-      "price": 4255,
-      "change_rate": -5.13,
+      "price": 4275,
+      "change_rate": -4.68,
       "explosion_date": "2026-03-17",
       "explosion_change_rate": 30.0,
       "explosion_volume_ratio": 10.4,
@@ -128,14 +128,14 @@
       "volume_rank": 7,
       "ma150": 3769,
       "above_ma150": true,
-      "market_cap": 1209,
-      "updated_at": "2026-03-31T15:05:28.698034"
+      "market_cap": 1216,
+      "updated_at": "2026-03-31T16:54:29.201321"
     },
     {
       "ticker": "089980",
       "name": "상아프론테크",
-      "price": 21650,
-      "change_rate": -8.26,
+      "price": 21550,
+      "change_rate": -8.69,
       "explosion_date": "2026-03-17",
       "explosion_change_rate": 18.4,
       "explosion_volume_ratio": 7.5,
@@ -146,44 +146,26 @@
       "volume_rank": 8,
       "ma150": 18206,
       "above_ma150": true,
-      "market_cap": 3470,
-      "updated_at": "2026-03-31T15:05:28.704802"
-    },
-    {
-      "ticker": "264450",
-      "name": "유비쿼스",
-      "price": 14300,
-      "change_rate": -7.98,
-      "explosion_date": "2026-03-11",
-      "explosion_change_rate": 18.9,
-      "explosion_volume_ratio": 16.9,
-      "days_since_detected": 14,
-      "volume_decrease_rate": 67,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.12,
-      "volume_rank": 9,
-      "ma150": 10455,
-      "above_ma150": true,
-      "market_cap": 2087,
-      "updated_at": "2026-03-31T15:05:25.834695"
+      "market_cap": 3446,
+      "updated_at": "2026-03-31T16:54:29.205488"
     },
     {
       "ticker": "327260",
       "name": "RF머트리얼즈",
-      "price": 61400,
-      "change_rate": -12.29,
+      "price": 61900,
+      "change_rate": -11.57,
       "explosion_date": "2026-03-10",
       "explosion_change_rate": 29.9,
       "explosion_volume_ratio": 3.1,
       "days_since_detected": 15,
-      "volume_decrease_rate": 79,
+      "volume_decrease_rate": 78,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.22,
-      "volume_rank": 10,
-      "ma150": 26444,
+      "ma20_distance": 1.0,
+      "volume_rank": 9,
+      "ma150": 26447,
       "above_ma150": true,
-      "market_cap": 5216,
-      "updated_at": "2026-03-31T15:05:20.265187"
+      "market_cap": 5258,
+      "updated_at": "2026-03-31T16:54:20.901953"
     }
   ]
 }
