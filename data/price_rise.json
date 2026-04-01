@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-01T17:04:21.575753",
+    "lastUpdated": "2026-04-01T18:45:38.040285",
     "totalCount": 100,
     "screened_from": 1505
   },
@@ -51,6 +51,22 @@
       "per": 65.6,
       "pbr": 11.96,
       "ma150": 503206,
+      "above_ma150": true
+    },
+    {
+      "ticker": "192410",
+      "name": "오늘이엔엠",
+      "price": 6140,
+      "entry_price": 6140,
+      "change_rate": 29.81,
+      "since_return": 0.0,
+      "days_ago": 0,
+      "volume": 1770792,
+      "volume_ratio": 3.8,
+      "market_cap": 1433.0,
+      "per": null,
+      "pbr": 0.8,
+      "ma150": 2449,
       "above_ma150": true
     },
     {
@@ -163,6 +179,22 @@
       "per": null,
       "pbr": 4.51,
       "ma150": 15001,
+      "above_ma150": true
+    },
+    {
+      "ticker": "295310",
+      "name": "에이치브이엠",
+      "price": 91500,
+      "entry_price": 91500,
+      "change_rate": 24.49,
+      "since_return": 0.0,
+      "days_ago": 0,
+      "volume": 412282,
+      "volume_ratio": 0.9,
+      "market_cap": 11005.0,
+      "per": null,
+      "pbr": 16.62,
+      "ma150": 50896,
       "above_ma150": true
     },
     {
@@ -291,38 +323,6 @@
       "per": null,
       "pbr": 6.12,
       "ma150": 2788,
-      "above_ma150": true
-    },
-    {
-      "ticker": "368770",
-      "name": "파이버프로",
-      "price": 22150,
-      "entry_price": 22150,
-      "change_rate": 19.41,
-      "since_return": 0.0,
-      "days_ago": 0,
-      "volume": 2778835,
-      "volume_ratio": 1.1,
-      "market_cap": 7277.0,
-      "per": 74.6,
-      "pbr": 13.82,
-      "ma150": 10432,
-      "above_ma150": true
-    },
-    {
-      "ticker": "420770",
-      "name": "기가비스",
-      "price": 86800,
-      "entry_price": 86800,
-      "change_rate": 19.39,
-      "since_return": 0.0,
-      "days_ago": 0,
-      "volume": 278592,
-      "volume_ratio": 2.1,
-      "market_cap": 11003.0,
-      "per": 64.6,
-      "pbr": 4.73,
-      "ma150": 43584,
       "above_ma150": true
     },
     {
@@ -1174,6 +1174,22 @@
       "above_ma150": true
     },
     {
+      "ticker": "192410",
+      "name": "오늘이엔엠",
+      "price": 6140,
+      "entry_price": 4585,
+      "change_rate": 14.34,
+      "since_return": 33.91,
+      "days_ago": 3,
+      "volume": 2094524,
+      "volume_ratio": 4.9,
+      "market_cap": 1433.0,
+      "per": null,
+      "pbr": 0.8,
+      "ma150": 2449,
+      "above_ma150": true
+    },
+    {
       "ticker": "046210",
       "name": "HLB파나진",
       "price": 2465,
@@ -1267,22 +1283,6 @@
       "per": null,
       "pbr": 0.6,
       "ma150": 2552,
-      "above_ma150": false
-    },
-    {
-      "ticker": "008770",
-      "name": "호텔신라",
-      "price": 44200,
-      "entry_price": 47450,
-      "change_rate": 13.11,
-      "since_return": -6.85,
-      "days_ago": 3,
-      "volume": 1313665,
-      "volume_ratio": 6.1,
-      "market_cap": 17348.0,
-      "per": null,
-      "pbr": 1.47,
-      "ma150": 47144,
       "above_ma150": false
     },
     {
