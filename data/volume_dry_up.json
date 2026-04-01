@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-01T15:15:26.041372",
-    "totalCount": 8,
-    "screened_from": 1503
+    "lastUpdated": "2026-04-01T17:04:25.381641",
+    "totalCount": 7,
+    "screened_from": 1505
   },
   "data": [
     {
@@ -21,13 +21,13 @@
       "ma150": 5306,
       "above_ma150": true,
       "market_cap": 1328,
-      "updated_at": "2026-04-01T15:15:26.023526"
+      "updated_at": "2026-04-01T17:04:25.369307"
     },
     {
       "ticker": "215600",
       "name": "신라젠",
-      "price": 3955,
-      "change_rate": 4.08,
+      "price": 3940,
+      "change_rate": 3.68,
       "explosion_date": "2026-03-25",
       "explosion_change_rate": 13.4,
       "explosion_volume_ratio": 12.5,
@@ -36,16 +36,16 @@
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 2,
-      "ma150": 3305,
+      "ma150": 3304,
       "above_ma150": true,
-      "market_cap": 5463,
-      "updated_at": "2026-04-01T15:15:22.189165"
+      "market_cap": 5442,
+      "updated_at": "2026-04-01T17:04:22.065125"
     },
     {
       "ticker": "200710",
       "name": "에이디테크놀로지",
-      "price": 51550,
-      "change_rate": 7.4,
+      "price": 51700,
+      "change_rate": 7.71,
       "explosion_date": "2026-03-24",
       "explosion_change_rate": 18.4,
       "explosion_volume_ratio": 4.5,
@@ -56,14 +56,14 @@
       "volume_rank": 3,
       "ma150": 31216,
       "above_ma150": true,
-      "market_cap": 6895,
-      "updated_at": "2026-04-01T15:15:26.029042"
+      "market_cap": 6949,
+      "updated_at": "2026-04-01T17:04:25.373589"
     },
     {
       "ticker": "143240",
       "name": "사람인",
-      "price": 16830,
-      "change_rate": -0.71,
+      "price": 16840,
+      "change_rate": -0.65,
       "explosion_date": "2026-03-23",
       "explosion_change_rate": 18.3,
       "explosion_volume_ratio": 36.0,
@@ -74,14 +74,14 @@
       "volume_rank": 4,
       "ma150": 13909,
       "above_ma150": true,
-      "market_cap": 1971,
-      "updated_at": "2026-04-01T15:15:21.446806"
+      "market_cap": 1972,
+      "updated_at": "2026-04-01T17:04:21.392140"
     },
     {
       "ticker": "028100",
       "name": "동아지질",
-      "price": 18220,
-      "change_rate": 5.38,
+      "price": 18210,
+      "change_rate": 5.32,
       "explosion_date": "2026-03-18",
       "explosion_change_rate": 10.7,
       "explosion_volume_ratio": 3.2,
@@ -92,14 +92,14 @@
       "volume_rank": 5,
       "ma150": 16334,
       "above_ma150": true,
-      "market_cap": 2437,
-      "updated_at": "2026-04-01T15:15:26.033385"
+      "market_cap": 2438,
+      "updated_at": "2026-04-01T17:04:25.375926"
     },
     {
       "ticker": "226590",
       "name": "엠디바이스",
-      "price": 25250,
-      "change_rate": 8.37,
+      "price": 25200,
+      "change_rate": 8.15,
       "explosion_date": "2026-03-18",
       "explosion_change_rate": 30.0,
       "explosion_volume_ratio": 3.5,
@@ -111,7 +111,7 @@
       "ma150": 17116,
       "above_ma150": true,
       "market_cap": 2679,
-      "updated_at": "2026-04-01T15:15:26.040695"
+      "updated_at": "2026-04-01T17:04:25.378676"
     },
     {
       "ticker": "380540",
@@ -129,25 +129,7 @@
       "ma150": 2538,
       "above_ma150": true,
       "market_cap": 2067,
-      "updated_at": "2026-04-01T15:15:23.325379"
-    },
-    {
-      "ticker": "389030",
-      "name": "지니너스",
-      "price": 5455,
-      "change_rate": -0.27,
-      "explosion_date": "2026-03-09",
-      "explosion_change_rate": 14.6,
-      "explosion_volume_ratio": 6.2,
-      "days_since_detected": 17,
-      "volume_decrease_rate": 86,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.2,
-      "volume_rank": 8,
-      "ma150": 2920,
-      "above_ma150": true,
-      "market_cap": 1819,
-      "updated_at": "2026-04-01T15:15:24.211814"
+      "updated_at": "2026-04-01T17:04:23.105998"
     }
   ]
 }
