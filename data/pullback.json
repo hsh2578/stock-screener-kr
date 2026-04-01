@@ -1,8 +1,23 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-01T12:52:48.404181",
-    "totalCount": 0,
-    "screened_from": 1503
+    "lastUpdated": "2026-04-01T14:15:40.845031",
+    "totalCount": 1,
+    "screened_from": 1502
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "145720",
+      "name": "덴티움",
+      "price": 52400,
+      "change_rate": 2.34,
+      "breakout_date": "2026-03-26",
+      "resistance": 52500,
+      "pullback_ratio": 0.19,
+      "volume_decrease": 58,
+      "ma150": 52328,
+      "above_ma150": true,
+      "market_cap": 4519,
+      "updated_at": "2026-04-01T14:15:34.310585"
+    }
+  ]
 }
