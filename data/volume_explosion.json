@@ -1,45 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-02T14:59:16.489774",
-    "totalCount": 8,
-    "screened_from": 1475
+    "lastUpdated": "2026-04-02T18:36:45.993529",
+    "totalCount": 10,
+    "screened_from": 1478
   },
   "data": [
     {
       "ticker": "036630",
       "name": "세종텔레콤",
-      "price": 10540,
-      "change_rate": 13.21,
-      "volume_ratio": 43.6,
+      "price": 10800,
+      "change_rate": 16.0,
+      "volume_ratio": 45.2,
       "volume_rank": 1,
-      "ma150": 8157,
+      "ma150": 8159,
       "above_ma150": true,
-      "market_cap": 1054,
-      "updated_at": "2026-04-02T14:59:12.008942"
+      "market_cap": 1080,
+      "updated_at": "2026-04-02T18:36:44.612502"
     },
     {
       "ticker": "079980",
       "name": "휴비스",
       "price": 3625,
       "change_rate": 29.93,
-      "volume_ratio": 14.5,
+      "volume_ratio": 14.7,
       "volume_rank": 2,
       "ma150": 2771,
       "above_ma150": true,
       "market_cap": 1251,
-      "updated_at": "2026-04-02T14:59:16.454270"
+      "updated_at": "2026-04-02T18:36:45.955560"
     },
     {
       "ticker": "459510",
       "name": "나우로보틱스",
-      "price": 21950,
-      "change_rate": 12.33,
-      "volume_ratio": 10.9,
+      "price": 22550,
+      "change_rate": 15.4,
+      "volume_ratio": 11.2,
       "volume_rank": 3,
-      "ma150": 23387,
+      "ma150": 23391,
       "above_ma150": false,
-      "market_cap": 2860,
-      "updated_at": "2026-04-02T14:59:10.000115"
+      "market_cap": 2925,
+      "updated_at": "2026-04-02T18:36:43.696696"
     },
     {
       "ticker": "049080",
@@ -51,55 +51,79 @@
       "ma150": 557,
       "above_ma150": true,
       "market_cap": 1736,
-      "updated_at": "2026-04-02T14:59:09.994370"
+      "updated_at": "2026-04-02T18:36:43.661316"
     },
     {
       "ticker": "033790",
       "name": "피노",
-      "price": 9110,
-      "change_rate": 16.2,
-      "volume_ratio": 8.3,
+      "price": 9350,
+      "change_rate": 19.26,
+      "volume_ratio": 9.0,
       "volume_rank": 5,
-      "ma150": 4966,
+      "ma150": 4968,
       "above_ma150": true,
-      "market_cap": 6191,
-      "updated_at": "2026-04-02T14:59:15.589943"
+      "market_cap": 6361,
+      "updated_at": "2026-04-02T18:36:45.736913"
     },
     {
       "ticker": "065450",
       "name": "빅텍",
-      "price": 6260,
-      "change_rate": 29.88,
-      "volume_ratio": 7.0,
+      "price": 6130,
+      "change_rate": 27.18,
+      "volume_ratio": 7.3,
       "volume_rank": 6,
-      "ma150": 4000,
+      "ma150": 3999,
       "above_ma150": true,
-      "market_cap": 1801,
-      "updated_at": "2026-04-02T14:59:11.509044"
+      "market_cap": 1763,
+      "updated_at": "2026-04-02T18:36:44.452857"
+    },
+    {
+      "ticker": "138360",
+      "name": "앤로보틱스",
+      "price": 2110,
+      "change_rate": 15.62,
+      "volume_ratio": 7.2,
+      "volume_rank": 7,
+      "ma150": 1409,
+      "above_ma150": true,
+      "market_cap": 1625,
+      "updated_at": "2026-04-02T18:36:45.122598"
     },
     {
       "ticker": "137950",
       "name": "제이씨케미칼",
-      "price": 5420,
-      "change_rate": 15.2,
-      "volume_ratio": 5.0,
-      "volume_rank": 7,
-      "ma150": 3493,
+      "price": 5720,
+      "change_rate": 21.57,
+      "volume_ratio": 5.7,
+      "volume_rank": 8,
+      "ma150": 3495,
       "above_ma150": true,
-      "market_cap": 1207,
-      "updated_at": "2026-04-02T14:59:14.235143"
+      "market_cap": 1274,
+      "updated_at": "2026-04-02T18:36:45.427367"
     },
     {
       "ticker": "003280",
       "name": "흥아해운",
-      "price": 4725,
-      "change_rate": 27.36,
-      "volume_ratio": 4.1,
-      "volume_rank": 8,
-      "ma150": 1876,
+      "price": 4470,
+      "change_rate": 20.49,
+      "volume_ratio": 4.4,
+      "volume_rank": 9,
+      "ma150": 1875,
       "above_ma150": true,
-      "market_cap": 11408,
-      "updated_at": "2026-04-02T14:59:16.489633"
+      "market_cap": 10747,
+      "updated_at": "2026-04-02T18:36:45.993395"
+    },
+    {
+      "ticker": "389260",
+      "name": "대명에너지",
+      "price": 24650,
+      "change_rate": 14.39,
+      "volume_ratio": 3.1,
+      "volume_rank": 10,
+      "ma150": 20432,
+      "above_ma150": true,
+      "market_cap": 4416,
+      "updated_at": "2026-04-02T18:36:44.000784"
     }
   ]
 }
