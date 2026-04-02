@@ -1,105 +1,117 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-02T12:33:28.650901",
-    "totalCount": 8,
-    "screened_from": 1481
+    "lastUpdated": "2026-04-02T13:44:47.159732",
+    "totalCount": 9,
+    "screened_from": 1477
   },
   "data": [
     {
       "ticker": "036630",
       "name": "세종텔레콤",
-      "price": 10790,
-      "change_rate": 15.9,
-      "volume_ratio": 28.3,
+      "price": 10800,
+      "change_rate": 16.0,
+      "volume_ratio": 29.7,
       "volume_rank": 1,
       "ma150": 8159,
       "above_ma150": true,
-      "market_cap": 1090,
-      "updated_at": "2026-04-02T12:33:23.633278"
+      "market_cap": 1082,
+      "updated_at": "2026-04-02T13:44:43.204501"
     },
     {
       "ticker": "079980",
       "name": "휴비스",
       "price": 3625,
       "change_rate": 29.93,
-      "volume_ratio": 13.2,
+      "volume_ratio": 13.5,
       "volume_rank": 2,
       "ma150": 2771,
       "above_ma150": true,
       "market_cap": 1251,
-      "updated_at": "2026-04-02T12:33:28.612488"
+      "updated_at": "2026-04-02T13:44:47.150061"
     },
     {
       "ticker": "459510",
       "name": "나우로보틱스",
-      "price": 22900,
-      "change_rate": 17.2,
-      "volume_ratio": 10.1,
+      "price": 22450,
+      "change_rate": 14.89,
+      "volume_ratio": 10.5,
       "volume_rank": 3,
-      "ma150": 23393,
+      "ma150": 23390,
       "above_ma150": false,
-      "market_cap": 2970,
-      "updated_at": "2026-04-02T12:33:21.515034"
+      "market_cap": 2912,
+      "updated_at": "2026-04-02T13:44:43.028505"
     },
     {
       "ticker": "049080",
       "name": "기가레인",
-      "price": 1784,
-      "change_rate": 13.34,
-      "volume_ratio": 7.4,
+      "price": 1781,
+      "change_rate": 13.15,
+      "volume_ratio": 8.3,
       "volume_rank": 4,
       "ma150": 555,
       "above_ma150": true,
-      "market_cap": 1517,
-      "updated_at": "2026-04-02T12:33:21.464782"
+      "market_cap": 1512,
+      "updated_at": "2026-04-02T13:44:43.023335"
     },
     {
       "ticker": "138360",
       "name": "앤로보틱스",
-      "price": 2140,
-      "change_rate": 17.26,
-      "volume_ratio": 5.9,
+      "price": 2045,
+      "change_rate": 12.05,
+      "volume_ratio": 6.6,
       "volume_rank": 5,
       "ma150": 1409,
       "above_ma150": true,
-      "market_cap": 1644,
-      "updated_at": "2026-04-02T12:33:24.391123"
+      "market_cap": 1555,
+      "updated_at": "2026-04-02T13:44:43.466052"
     },
     {
       "ticker": "065450",
       "name": "빅텍",
-      "price": 6180,
-      "change_rate": 28.22,
-      "volume_ratio": 5.5,
+      "price": 6080,
+      "change_rate": 26.14,
+      "volume_ratio": 5.9,
       "volume_rank": 6,
-      "ma150": 4000,
+      "ma150": 3999,
       "above_ma150": true,
-      "market_cap": 1784,
-      "updated_at": "2026-04-02T12:33:22.941226"
+      "market_cap": 1739,
+      "updated_at": "2026-04-02T13:44:43.157635"
     },
     {
-      "ticker": "038110",
-      "name": "에코플라스틱",
-      "price": 4220,
-      "change_rate": 14.21,
-      "volume_ratio": 4.4,
+      "ticker": "137950",
+      "name": "제이씨케미칼",
+      "price": 5730,
+      "change_rate": 21.79,
+      "volume_ratio": 3.9,
       "volume_rank": 7,
-      "ma150": 3252,
+      "ma150": 3495,
       "above_ma150": true,
-      "market_cap": 1733,
-      "updated_at": "2026-04-02T12:33:24.722801"
+      "market_cap": 1278,
+      "updated_at": "2026-04-02T13:44:44.810043"
     },
     {
       "ticker": "003280",
       "name": "흥아해운",
-      "price": 4495,
-      "change_rate": 21.16,
-      "volume_ratio": 3.3,
+      "price": 4450,
+      "change_rate": 19.95,
+      "volume_ratio": 3.5,
       "volume_rank": 8,
       "ma150": 1875,
       "above_ma150": true,
-      "market_cap": 10771,
-      "updated_at": "2026-04-02T12:33:28.650766"
+      "market_cap": 10807,
+      "updated_at": "2026-04-02T13:44:47.159591"
+    },
+    {
+      "ticker": "006890",
+      "name": "태경케미컬",
+      "price": 10300,
+      "change_rate": 12.08,
+      "volume_ratio": 2.3,
+      "volume_rank": 9,
+      "ma150": 8513,
+      "above_ma150": true,
+      "market_cap": 1203,
+      "updated_at": "2026-04-02T13:44:45.298063"
     }
   ]
 }
