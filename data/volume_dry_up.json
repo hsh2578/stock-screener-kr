@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-03T12:33:50.222022",
+    "lastUpdated": "2026-04-03T13:46:16.064612",
     "totalCount": 8,
-    "screened_from": 1490
+    "screened_from": 1491
   },
   "data": [
     {
       "ticker": "123860",
       "name": "아나패스",
-      "price": 17040,
-      "change_rate": 2.47,
+      "price": 17100,
+      "change_rate": 2.83,
       "explosion_date": "2026-03-27",
       "explosion_change_rate": 12.9,
       "explosion_volume_ratio": 3.2,
@@ -20,14 +20,14 @@
       "volume_rank": 1,
       "ma150": 17427,
       "above_ma150": false,
-      "market_cap": 2066,
-      "updated_at": "2026-04-03T12:33:50.185690"
+      "market_cap": 2073,
+      "updated_at": "2026-04-03T13:46:16.036915"
     },
     {
       "ticker": "004440",
       "name": "삼일씨엔에스",
-      "price": 9170,
-      "change_rate": 0.11,
+      "price": 9140,
+      "change_rate": -0.22,
       "explosion_date": "2026-03-26",
       "explosion_change_rate": 10.8,
       "explosion_volume_ratio": 12.1,
@@ -38,14 +38,14 @@
       "volume_rank": 2,
       "ma150": 5306,
       "above_ma150": true,
-      "market_cap": 1168,
-      "updated_at": "2026-04-03T12:33:50.189302"
+      "market_cap": 1162,
+      "updated_at": "2026-04-03T13:46:16.041620"
     },
     {
       "ticker": "215600",
       "name": "신라젠",
-      "price": 3925,
-      "change_rate": 5.23,
+      "price": 3845,
+      "change_rate": 3.08,
       "explosion_date": "2026-03-25",
       "explosion_change_rate": 13.4,
       "explosion_volume_ratio": 12.5,
@@ -56,14 +56,14 @@
       "volume_rank": 3,
       "ma150": 3311,
       "above_ma150": true,
-      "market_cap": 5422,
-      "updated_at": "2026-04-03T12:33:50.192829"
+      "market_cap": 5318,
+      "updated_at": "2026-04-03T13:46:16.045651"
     },
     {
       "ticker": "200710",
       "name": "에이디테크놀로지",
-      "price": 48700,
-      "change_rate": 1.04,
+      "price": 52000,
+      "change_rate": 7.88,
       "explosion_date": "2026-03-24",
       "explosion_change_rate": 18.4,
       "explosion_volume_ratio": 4.5,
@@ -74,14 +74,14 @@
       "volume_rank": 4,
       "ma150": 31216,
       "above_ma150": true,
-      "market_cap": 6566,
-      "updated_at": "2026-04-03T12:33:50.196098"
+      "market_cap": 7016,
+      "updated_at": "2026-04-03T13:46:16.050781"
     },
     {
       "ticker": "143240",
       "name": "사람인",
-      "price": 16800,
-      "change_rate": 1.08,
+      "price": 16930,
+      "change_rate": 1.87,
       "explosion_date": "2026-03-23",
       "explosion_change_rate": 18.3,
       "explosion_volume_ratio": 36.0,
@@ -90,16 +90,16 @@
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 5,
-      "ma150": 13937,
+      "ma150": 13938,
       "above_ma150": true,
-      "market_cap": 1967,
-      "updated_at": "2026-04-03T12:33:46.137940"
+      "market_cap": 1982,
+      "updated_at": "2026-04-03T13:46:10.386051"
     },
     {
       "ticker": "003070",
       "name": "코오롱글로벌",
-      "price": 11400,
-      "change_rate": 7.75,
+      "price": 11470,
+      "change_rate": 8.41,
       "explosion_date": "2026-03-20",
       "explosion_change_rate": 14.1,
       "explosion_volume_ratio": 10.6,
@@ -110,32 +110,32 @@
       "volume_rank": 6,
       "ma150": 9365,
       "above_ma150": true,
-      "market_cap": 2898,
-      "updated_at": "2026-04-03T12:33:50.203220"
+      "market_cap": 2909,
+      "updated_at": "2026-04-03T13:46:16.057283"
     },
     {
       "ticker": "013360",
       "name": "일성건설",
-      "price": 1869,
-      "change_rate": 1.63,
+      "price": 1866,
+      "change_rate": 1.47,
       "explosion_date": "2026-03-20",
       "explosion_change_rate": 10.6,
       "explosion_volume_ratio": 4.4,
       "days_since_detected": 10,
-      "volume_decrease_rate": 79,
+      "volume_decrease_rate": 80,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 1.02,
+      "ma20_distance": 1.4,
       "volume_rank": 7,
-      "ma150": 1696,
+      "ma150": 1699,
       "above_ma150": true,
-      "market_cap": 1010,
-      "updated_at": "2026-04-03T12:33:50.200865"
+      "market_cap": 1008,
+      "updated_at": "2026-04-03T13:46:13.855736"
     },
     {
       "ticker": "100840",
       "name": "SNT에너지",
-      "price": 52300,
-      "change_rate": 11.51,
+      "price": 52200,
+      "change_rate": 11.3,
       "explosion_date": "2026-03-20",
       "explosion_change_rate": 28.3,
       "explosion_volume_ratio": 9.0,
@@ -146,8 +146,8 @@
       "volume_rank": 8,
       "ma150": 46361,
       "above_ma150": true,
-      "market_cap": 10816,
-      "updated_at": "2026-04-03T12:33:50.207778"
+      "market_cap": 10795,
+      "updated_at": "2026-04-03T13:46:16.063303"
     }
   ]
 }
