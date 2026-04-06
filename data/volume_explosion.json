@@ -1,105 +1,117 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-06T12:48:49.994713",
-    "totalCount": 11,
-    "screened_from": 1489
+    "lastUpdated": "2026-04-06T14:14:37.206047",
+    "totalCount": 13,
+    "screened_from": 1491
   },
   "data": [
     {
-      "ticker": "001250",
-      "name": "GS글로벌",
-      "price": 3580,
-      "change_rate": 12.93,
-      "volume_ratio": 18.1,
+      "ticker": "100700",
+      "name": "세운메디칼",
+      "price": 3365,
+      "change_rate": 22.36,
+      "volume_ratio": 21.7,
       "volume_rank": 1,
-      "ma150": 2471,
+      "ma150": 2481,
       "above_ma150": true,
-      "market_cap": 2959,
-      "updated_at": "2026-04-06T12:48:42.614343"
-    },
-    {
-      "ticker": "201490",
-      "name": "미투온",
-      "price": 3295,
-      "change_rate": 18.1,
-      "volume_ratio": 15.8,
-      "volume_rank": 2,
-      "ma150": 4324,
-      "above_ma150": false,
-      "market_cap": 1074,
-      "updated_at": "2026-04-06T12:48:45.007956"
+      "market_cap": 1474,
+      "updated_at": "2026-04-06T14:14:34.743871"
     },
     {
       "ticker": "005810",
       "name": "풍산홀딩스",
-      "price": 46850,
-      "change_rate": 28.89,
-      "volume_ratio": 14.4,
+      "price": 47250,
+      "change_rate": 29.99,
+      "volume_ratio": 20.6,
+      "volume_rank": 2,
+      "ma150": 39039,
+      "above_ma150": true,
+      "market_cap": 6812,
+      "updated_at": "2026-04-06T14:14:36.893293"
+    },
+    {
+      "ticker": "001250",
+      "name": "GS글로벌",
+      "price": 3600,
+      "change_rate": 13.56,
+      "volume_ratio": 19.7,
       "volume_rank": 3,
-      "ma150": 39036,
+      "ma150": 2471,
       "above_ma150": true,
-      "market_cap": 6747,
-      "updated_at": "2026-04-06T12:48:49.103812"
+      "market_cap": 2971,
+      "updated_at": "2026-04-06T14:14:33.180790"
     },
     {
-      "ticker": "018470",
-      "name": "조일알미늄",
-      "price": 1663,
-      "change_rate": 16.78,
-      "volume_ratio": 10.3,
+      "ticker": "201490",
+      "name": "미투온",
+      "price": 3175,
+      "change_rate": 13.8,
+      "volume_ratio": 17.7,
       "volume_rank": 4,
-      "ma150": 1320,
-      "above_ma150": true,
-      "market_cap": 2116,
-      "updated_at": "2026-04-06T12:48:47.581090"
+      "ma150": 4323,
+      "above_ma150": false,
+      "market_cap": 1035,
+      "updated_at": "2026-04-06T14:14:34.379910"
     },
     {
-      "ticker": "001780",
-      "name": "알루코",
-      "price": 2750,
-      "change_rate": 12.7,
-      "volume_ratio": 10.0,
+      "ticker": "062970",
+      "name": "한국첨단소재",
+      "price": 4105,
+      "change_rate": 14.83,
+      "volume_ratio": 16.7,
       "volume_rank": 5,
-      "ma150": 2130,
+      "ma150": 1873,
       "above_ma150": true,
-      "market_cap": 2658,
-      "updated_at": "2026-04-06T12:48:46.220436"
+      "market_cap": 1549,
+      "updated_at": "2026-04-06T14:14:36.988277"
     },
     {
       "ticker": "079810",
       "name": "디이엔티",
-      "price": 4905,
-      "change_rate": 14.47,
-      "volume_ratio": 6.3,
+      "price": 4925,
+      "change_rate": 14.94,
+      "volume_ratio": 8.4,
       "volume_rank": 6,
       "ma150": 5463,
       "above_ma150": false,
-      "market_cap": 1056,
-      "updated_at": "2026-04-06T12:48:44.599577"
+      "market_cap": 1060,
+      "updated_at": "2026-04-06T14:14:34.101686"
     },
     {
       "ticker": "049080",
       "name": "기가레인",
-      "price": 2545,
-      "change_rate": 24.45,
-      "volume_ratio": 6.0,
+      "price": 2595,
+      "change_rate": 26.89,
+      "volume_ratio": 6.6,
       "volume_rank": 7,
       "ma150": 581,
       "above_ma150": true,
-      "market_cap": 2160,
-      "updated_at": "2026-04-06T12:48:43.721878"
+      "market_cap": 2203,
+      "updated_at": "2026-04-06T14:14:33.694905"
     },
     {
       "ticker": "008350",
       "name": "남선알미늄",
-      "price": 2225,
-      "change_rate": 23.27,
-      "volume_ratio": 5.8,
+      "price": 2110,
+      "change_rate": 16.9,
+      "volume_ratio": 6.6,
       "volume_rank": 8,
       "ma150": 1201,
       "above_ma150": true,
-      "market_cap": 2878,
-      "updated_at": "2026-04-06T12:48:43.812207"
+      "market_cap": 2743,
+      "updated_at": "2026-04-06T14:14:33.756579"
+    },
+    {
+      "ticker": "028050",
+      "name": "삼성E&A",
+      "price": 45900,
+      "change_rate": 13.19,
+      "volume_ratio": 5.2,
+      "volume_rank": 9,
+      "ma150": 28851,
+      "above_ma150": true,
+      "market_cap": 89866,
+      "updated_at": "2026-04-06T14:14:34.486799"
     },
     {
       "ticker": "017900",
@@ -107,35 +119,47 @@
       "price": 5790,
       "change_rate": 29.97,
       "volume_ratio": 4.9,
-      "volume_rank": 9,
+      "volume_rank": 10,
       "ma150": 2003,
       "above_ma150": true,
       "market_cap": 3355,
-      "updated_at": "2026-04-06T12:48:43.592474"
+      "updated_at": "2026-04-06T14:14:33.677575"
     },
     {
       "ticker": "103140",
       "name": "풍산",
-      "price": 108700,
-      "change_rate": 12.29,
-      "volume_ratio": 4.2,
-      "volume_rank": 10,
-      "ma150": 112640,
+      "price": 110100,
+      "change_rate": 13.74,
+      "volume_ratio": 4.9,
+      "volume_rank": 11,
+      "ma150": 112650,
       "above_ma150": false,
-      "market_cap": 30603,
-      "updated_at": "2026-04-06T12:48:49.094314"
+      "market_cap": 30855,
+      "updated_at": "2026-04-06T14:14:36.890937"
+    },
+    {
+      "ticker": "402490",
+      "name": "그린리소스",
+      "price": 15020,
+      "change_rate": 14.13,
+      "volume_ratio": 2.1,
+      "volume_rank": 12,
+      "ma150": 9494,
+      "above_ma150": true,
+      "market_cap": 2470,
+      "updated_at": "2026-04-06T14:14:33.682384"
     },
     {
       "ticker": "064260",
       "name": "다날",
       "price": 7800,
       "change_rate": 30.0,
-      "volume_ratio": 2.0,
-      "volume_rank": 11,
+      "volume_ratio": 2.1,
+      "volume_rank": 13,
       "ma150": 7936,
       "above_ma150": false,
       "market_cap": 5900,
-      "updated_at": "2026-04-06T12:48:43.987156"
+      "updated_at": "2026-04-06T14:14:33.919181"
     }
   ]
 }
