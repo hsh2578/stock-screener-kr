@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-08T15:10:46.161867",
-    "totalCount": 11,
-    "screened_from": 1504
+    "lastUpdated": "2026-04-08T17:02:35.224071",
+    "totalCount": 12,
+    "screened_from": 1507
   },
   "data": [
     {
       "ticker": "408920",
       "name": "메쎄이상",
-      "price": 3465,
-      "change_rate": -0.43,
+      "price": 3480,
+      "change_rate": 0.0,
       "explosion_date": "2026-04-03",
       "explosion_change_rate": 10.1,
       "explosion_volume_ratio": 4.5,
@@ -20,14 +20,14 @@
       "volume_rank": 1,
       "ma150": 3251,
       "above_ma150": true,
-      "market_cap": 1498,
-      "updated_at": "2026-04-08T15:10:41.393624"
+      "market_cap": 1504,
+      "updated_at": "2026-04-08T17:02:30.672415"
     },
     {
       "ticker": "036630",
       "name": "세종텔레콤",
-      "price": 11200,
-      "change_rate": 0.45,
+      "price": 11130,
+      "change_rate": -0.18,
       "explosion_date": "2026-04-02",
       "explosion_change_rate": 16.0,
       "explosion_volume_ratio": 38.2,
@@ -38,14 +38,14 @@
       "volume_rank": 2,
       "ma150": 8254,
       "above_ma150": true,
-      "market_cap": 1120,
-      "updated_at": "2026-04-08T15:10:46.124460"
+      "market_cap": 1113,
+      "updated_at": "2026-04-08T17:02:35.197493"
     },
     {
       "ticker": "123860",
       "name": "아나패스",
-      "price": 18010,
-      "change_rate": 1.18,
+      "price": 18000,
+      "change_rate": 1.12,
       "explosion_date": "2026-03-27",
       "explosion_change_rate": 12.9,
       "explosion_volume_ratio": 3.2,
@@ -56,50 +56,32 @@
       "volume_rank": 3,
       "ma150": 17427,
       "above_ma150": false,
-      "market_cap": 2183,
-      "updated_at": "2026-04-08T15:10:46.128896"
-    },
-    {
-      "ticker": "137950",
-      "name": "제이씨케미칼",
-      "price": 5090,
-      "change_rate": -8.78,
-      "explosion_date": "2026-03-26",
-      "explosion_change_rate": 14.9,
-      "explosion_volume_ratio": 5.3,
-      "days_since_detected": 8,
-      "volume_decrease_rate": 66,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.3,
-      "volume_rank": 4,
-      "ma150": 3534,
-      "above_ma150": true,
-      "market_cap": 1030,
-      "updated_at": "2026-04-08T15:10:46.132222"
+      "market_cap": 2182,
+      "updated_at": "2026-04-08T17:02:35.200414"
     },
     {
       "ticker": "009580",
       "name": "무림P&P",
-      "price": 2640,
-      "change_rate": -2.58,
+      "price": 2630,
+      "change_rate": -2.95,
       "explosion_date": "2026-03-26",
       "explosion_change_rate": 10.3,
       "explosion_volume_ratio": 15.1,
       "days_since_detected": 9,
       "volume_decrease_rate": 96,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.78,
-      "volume_rank": 5,
+      "ma20_distance": 0.42,
+      "volume_rank": 4,
       "ma150": 2538,
       "above_ma150": true,
-      "market_cap": 1647,
-      "updated_at": "2026-04-08T15:10:41.477334"
+      "market_cap": 1640,
+      "updated_at": "2026-04-08T17:02:30.760925"
     },
     {
       "ticker": "004440",
       "name": "삼일씨엔에스",
-      "price": 8280,
-      "change_rate": -1.31,
+      "price": 8350,
+      "change_rate": -0.48,
       "explosion_date": "2026-03-26",
       "explosion_change_rate": 10.8,
       "explosion_volume_ratio": 12.1,
@@ -107,17 +89,17 @@
       "volume_decrease_rate": 88,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 6,
+      "volume_rank": 5,
       "ma150": 5306,
       "above_ma150": true,
-      "market_cap": 1054,
-      "updated_at": "2026-04-08T15:10:46.138538"
+      "market_cap": 1063,
+      "updated_at": "2026-04-08T17:02:35.206524"
     },
     {
       "ticker": "038110",
       "name": "에코플라스틱",
-      "price": 3505,
-      "change_rate": -12.38,
+      "price": 3510,
+      "change_rate": -12.25,
       "explosion_date": "2026-03-26",
       "explosion_change_rate": 21.0,
       "explosion_volume_ratio": 11.0,
@@ -125,17 +107,35 @@
       "volume_decrease_rate": 71,
       "pattern_type": "ma20_approach",
       "ma20_distance": 0.84,
-      "volume_rank": 7,
+      "volume_rank": 6,
       "ma150": 3261,
       "above_ma150": true,
-      "market_cap": 1443,
-      "updated_at": "2026-04-08T15:10:46.142662"
+      "market_cap": 1445,
+      "updated_at": "2026-04-08T17:02:35.209148"
+    },
+    {
+      "ticker": "137950",
+      "name": "제이씨케미칼",
+      "price": 4510,
+      "change_rate": -11.39,
+      "explosion_date": "2026-03-26",
+      "explosion_change_rate": 14.9,
+      "explosion_volume_ratio": 5.3,
+      "days_since_detected": 9,
+      "volume_decrease_rate": 66,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 1.3,
+      "volume_rank": 7,
+      "ma150": 3534,
+      "above_ma150": true,
+      "market_cap": 1004,
+      "updated_at": "2026-04-08T17:02:35.203295"
     },
     {
       "ticker": "214390",
       "name": "경보제약",
-      "price": 7010,
-      "change_rate": 0.29,
+      "price": 7000,
+      "change_rate": 0.14,
       "explosion_date": "2026-03-25",
       "explosion_change_rate": 16.6,
       "explosion_volume_ratio": 7.3,
@@ -147,13 +147,13 @@
       "ma150": 5984,
       "above_ma150": true,
       "market_cap": 1673,
-      "updated_at": "2026-04-08T15:10:46.146247"
+      "updated_at": "2026-04-08T17:02:35.212178"
     },
     {
       "ticker": "078070",
       "name": "유비쿼스홀딩스",
-      "price": 17250,
-      "change_rate": 14.09,
+      "price": 17300,
+      "change_rate": 14.42,
       "explosion_date": "2026-03-25",
       "explosion_change_rate": 24.0,
       "explosion_volume_ratio": 6.6,
@@ -164,14 +164,14 @@
       "volume_rank": 9,
       "ma150": 11347,
       "above_ma150": true,
-      "market_cap": 3037,
-      "updated_at": "2026-04-08T15:10:46.149718"
+      "market_cap": 3046,
+      "updated_at": "2026-04-08T17:02:35.216274"
     },
     {
       "ticker": "215600",
       "name": "신라젠",
-      "price": 3830,
-      "change_rate": 3.1,
+      "price": 3840,
+      "change_rate": 3.36,
       "explosion_date": "2026-03-25",
       "explosion_change_rate": 13.4,
       "explosion_volume_ratio": 12.5,
@@ -182,14 +182,14 @@
       "volume_rank": 10,
       "ma150": 3331,
       "above_ma150": true,
-      "market_cap": 5290,
-      "updated_at": "2026-04-08T15:10:46.154324"
+      "market_cap": 5304,
+      "updated_at": "2026-04-08T17:02:35.218607"
     },
     {
       "ticker": "251370",
       "name": "와이엠티",
-      "price": 17770,
-      "change_rate": 24.09,
+      "price": 17820,
+      "change_rate": 24.44,
       "explosion_date": "2026-03-25",
       "explosion_change_rate": 12.4,
       "explosion_volume_ratio": 3.3,
@@ -200,8 +200,26 @@
       "volume_rank": 11,
       "ma150": 12660,
       "above_ma150": true,
-      "market_cap": 3132,
-      "updated_at": "2026-04-08T15:10:46.159140"
+      "market_cap": 3141,
+      "updated_at": "2026-04-08T17:02:35.221504"
+    },
+    {
+      "ticker": "321550",
+      "name": "티움바이오",
+      "price": 10400,
+      "change_rate": -4.24,
+      "explosion_date": "2026-03-24",
+      "explosion_change_rate": 10.1,
+      "explosion_volume_ratio": 3.1,
+      "days_since_detected": 11,
+      "volume_decrease_rate": 65,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 0.52,
+      "volume_rank": 12,
+      "ma150": 6750,
+      "above_ma150": true,
+      "market_cap": 3024,
+      "updated_at": "2026-04-08T17:02:34.475080"
     }
   ]
 }
