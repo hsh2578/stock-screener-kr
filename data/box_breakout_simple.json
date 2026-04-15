@@ -1,27 +1,27 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-15T14:15:04.472108",
+    "lastUpdated": "2026-04-15T15:20:42.064022",
     "totalCount": 2,
-    "screened_from": 1546
+    "screened_from": 1548
   },
   "data": [
     {
       "ticker": "483650",
       "name": "달바글로벌",
-      "price": 191400,
-      "change_rate": 3.91,
+      "price": 189800,
+      "change_rate": 3.04,
       "breakout_date": "2026-04-09",
       "resistance": 173700,
       "days_since_breakout": 4,
-      "breakout_pct": 10.19,
-      "gain_since_breakout": 8.14,
-      "ma150": 152540,
+      "breakout_pct": 9.27,
+      "gain_since_breakout": 7.23,
+      "ma150": 152529,
       "above_ma150": true,
-      "market_cap": 23709,
+      "market_cap": 23573,
       "success_prob": 68.2,
       "predicted_gain": 19.3,
       "ai_score": 65.1,
-      "updated_at": "2026-04-15T14:14:54.082280"
+      "updated_at": "2026-04-15T15:20:31.361469"
     },
     {
       "ticker": "163560",
@@ -39,7 +39,7 @@
       "success_prob": 30.0,
       "predicted_gain": 13.4,
       "ai_score": 33.1,
-      "updated_at": "2026-04-15T14:14:55.222797"
+      "updated_at": "2026-04-15T15:20:32.449578"
     }
   ]
 }
