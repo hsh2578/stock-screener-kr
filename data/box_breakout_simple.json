@@ -1,45 +1,63 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-15T18:57:16.362995",
-    "totalCount": 2,
-    "screened_from": 1550
+    "lastUpdated": "2026-04-16T12:54:00.883623",
+    "totalCount": 3,
+    "screened_from": 1556
   },
   "data": [
     {
       "ticker": "483650",
       "name": "달바글로벌",
-      "price": 190000,
-      "change_rate": 3.15,
+      "price": 190800,
+      "change_rate": 0.42,
       "breakout_date": "2026-04-09",
       "resistance": 173700,
-      "days_since_breakout": 4,
-      "breakout_pct": 9.38,
-      "gain_since_breakout": 7.34,
-      "ma150": 152530,
+      "days_since_breakout": 5,
+      "breakout_pct": 9.84,
+      "gain_since_breakout": 7.8,
+      "ma150": 152661,
       "above_ma150": true,
-      "market_cap": 23548,
+      "market_cap": 23647,
       "success_prob": 68.2,
       "predicted_gain": 19.3,
       "ai_score": 65.1,
-      "updated_at": "2026-04-15T18:57:05.044571"
+      "updated_at": "2026-04-16T12:53:51.185176"
+    },
+    {
+      "ticker": "099430",
+      "name": "바이오플러스",
+      "price": 5870,
+      "change_rate": 4.26,
+      "breakout_date": "2026-04-16",
+      "resistance": 5640,
+      "days_since_breakout": 0,
+      "breakout_pct": 4.08,
+      "gain_since_breakout": 0.0,
+      "ma150": 5647,
+      "above_ma150": true,
+      "market_cap": 3618,
+      "success_prob": 49.4,
+      "predicted_gain": 15.6,
+      "ai_score": 48.6,
+      "updated_at": "2026-04-16T12:53:53.078787"
     },
     {
       "ticker": "163560",
       "name": "동일고무벨트",
-      "price": 7700,
-      "change_rate": 2.53,
+      "price": 7570,
+      "change_rate": -1.69,
       "breakout_date": "2026-04-08",
       "resistance": 7440,
-      "days_since_breakout": 5,
-      "breakout_pct": 3.49,
-      "gain_since_breakout": 1.72,
-      "ma150": 6877,
+      "days_since_breakout": 6,
+      "breakout_pct": 1.75,
+      "gain_since_breakout": 0.0,
+      "ma150": 6881,
       "above_ma150": true,
-      "market_cap": 1070,
+      "market_cap": 1052,
       "success_prob": 30.0,
       "predicted_gain": 13.4,
       "ai_score": 33.1,
-      "updated_at": "2026-04-15T18:57:06.274921"
+      "updated_at": "2026-04-16T12:53:52.036046"
     }
   ]
 }

@@ -1,47 +1,47 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-15T18:57:22.399912",
+    "lastUpdated": "2026-04-16T12:54:05.992642",
     "totalCount": 2,
-    "screened_from": 1550
+    "screened_from": 1556
   },
   "data": [
     {
       "ticker": "483650",
       "name": "달바글로벌",
-      "price": 190000,
-      "change_rate": 3.15,
+      "price": 190800,
+      "change_rate": 0.42,
       "breakout_date": "2026-04-09",
-      "days_since_breakout": 4,
+      "days_since_breakout": 5,
       "breakout_price": 173700,
-      "breakout_pct": 9.38,
-      "gain_since_breakout": 7.34,
+      "breakout_pct": 9.84,
+      "gain_since_breakout": 7.8,
       "volume_ratio": 6.7,
-      "ma150": 152530,
+      "ma150": 152661,
       "above_ma150": true,
-      "market_cap": 23548,
+      "market_cap": 23647,
       "success_prob": 45.0,
       "predicted_gain": 16.3,
       "ai_score": 46.2,
-      "updated_at": "2026-04-15T18:57:16.459725"
+      "updated_at": "2026-04-16T12:54:00.899733"
     },
     {
       "ticker": "163560",
       "name": "동일고무벨트",
-      "price": 7700,
-      "change_rate": 2.53,
+      "price": 7570,
+      "change_rate": -1.69,
       "breakout_date": "2026-04-08",
-      "days_since_breakout": 5,
+      "days_since_breakout": 6,
       "breakout_price": 7440,
-      "breakout_pct": 3.49,
-      "gain_since_breakout": 1.72,
+      "breakout_pct": 1.75,
+      "gain_since_breakout": 0.0,
       "volume_ratio": 47.4,
-      "ma150": 6877,
+      "ma150": 6881,
       "above_ma150": true,
-      "market_cap": 1070,
+      "market_cap": 1052,
       "success_prob": 23.9,
       "predicted_gain": 11.7,
       "ai_score": 27.3,
-      "updated_at": "2026-04-15T18:57:17.184647"
+      "updated_at": "2026-04-16T12:54:01.526205"
     }
   ]
 }
