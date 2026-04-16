@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-16T17:16:16.606949",
+    "lastUpdated": "2026-04-16T18:56:31.771190",
     "totalCount": 100,
     "screened_from": 1548
   },
@@ -115,6 +115,22 @@
       "per": 39.0,
       "pbr": 3.11,
       "ma150": 4757,
+      "above_ma150": true
+    },
+    {
+      "ticker": "203650",
+      "name": "드림시큐리티",
+      "price": 3545,
+      "entry_price": 3545,
+      "change_rate": 29.85,
+      "since_return": 0.0,
+      "days_ago": 0,
+      "volume": 23981006,
+      "volume_ratio": 6.0,
+      "market_cap": 3390.0,
+      "per": 12.5,
+      "pbr": 1.33,
+      "ma150": 1688,
       "above_ma150": true
     },
     {
@@ -310,19 +326,19 @@
       "above_ma150": true
     },
     {
-      "ticker": "052400",
-      "name": "코나아이",
-      "price": 71100,
-      "entry_price": 71100,
-      "change_rate": 17.13,
-      "since_return": 0.0,
-      "days_ago": 0,
-      "volume": 480758,
-      "volume_ratio": 4.9,
-      "market_cap": 10354.0,
-      "per": 11.3,
-      "pbr": 3.18,
-      "ma150": 52597,
+      "ticker": "203650",
+      "name": "드림시큐리티",
+      "price": 3545,
+      "entry_price": 2730,
+      "change_rate": 30.0,
+      "since_return": 29.85,
+      "days_ago": 1,
+      "volume": 17781397,
+      "volume_ratio": 5.6,
+      "market_cap": 3390.0,
+      "per": 12.5,
+      "pbr": 1.33,
+      "ma150": 1688,
       "above_ma150": true
     },
     {
@@ -627,22 +643,6 @@
       "per": null,
       "pbr": 2.3,
       "ma150": 6928,
-      "above_ma150": true
-    },
-    {
-      "ticker": "228670",
-      "name": "레이",
-      "price": 10660,
-      "entry_price": 10720,
-      "change_rate": 21.27,
-      "since_return": -0.56,
-      "days_ago": 1,
-      "volume": 1972414,
-      "volume_ratio": 3.8,
-      "market_cap": 1663.0,
-      "per": 24.8,
-      "pbr": 1.02,
-      "ma150": 5660,
       "above_ma150": true
     },
     {
