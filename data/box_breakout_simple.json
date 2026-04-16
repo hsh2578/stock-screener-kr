@@ -1,63 +1,63 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-16T14:20:33.196508",
+    "lastUpdated": "2026-04-16T15:23:43.013568",
     "totalCount": 3,
-    "screened_from": 1553
+    "screened_from": 1550
   },
   "data": [
     {
       "ticker": "483650",
       "name": "달바글로벌",
-      "price": 190400,
-      "change_rate": 0.21,
+      "price": 189000,
+      "change_rate": -0.53,
       "breakout_date": "2026-04-09",
       "resistance": 173700,
       "days_since_breakout": 5,
-      "breakout_pct": 9.61,
-      "gain_since_breakout": 7.57,
-      "ma150": 152658,
+      "breakout_pct": 8.81,
+      "gain_since_breakout": 6.78,
+      "ma150": 152649,
       "above_ma150": true,
-      "market_cap": 23573,
+      "market_cap": 23424,
       "success_prob": 68.2,
       "predicted_gain": 19.3,
       "ai_score": 65.1,
-      "updated_at": "2026-04-16T14:20:22.450164"
+      "updated_at": "2026-04-16T15:23:32.141643"
     },
     {
       "ticker": "099430",
       "name": "바이오플러스",
-      "price": 5850,
-      "change_rate": 3.91,
+      "price": 5790,
+      "change_rate": 2.84,
       "breakout_date": "2026-04-16",
       "resistance": 5640,
       "days_since_breakout": 0,
-      "breakout_pct": 3.72,
+      "breakout_pct": 2.66,
       "gain_since_breakout": 0.0,
-      "ma150": 5647,
+      "ma150": 5646,
       "above_ma150": true,
-      "market_cap": 3612,
-      "success_prob": 35.2,
-      "predicted_gain": 15.5,
-      "ai_score": 38.6,
-      "updated_at": "2026-04-16T14:20:24.895852"
+      "market_cap": 3569,
+      "success_prob": 31.2,
+      "predicted_gain": 15.2,
+      "ai_score": 35.5,
+      "updated_at": "2026-04-16T15:23:34.838635"
     },
     {
       "ticker": "163560",
       "name": "동일고무벨트",
-      "price": 7590,
-      "change_rate": -1.43,
+      "price": 7580,
+      "change_rate": -1.56,
       "breakout_date": "2026-04-08",
       "resistance": 7440,
       "days_since_breakout": 6,
-      "breakout_pct": 2.02,
-      "gain_since_breakout": 0.26,
+      "breakout_pct": 1.88,
+      "gain_since_breakout": 0.13,
       "ma150": 6881,
       "above_ma150": true,
       "market_cap": 1054,
       "success_prob": 30.0,
       "predicted_gain": 13.4,
       "ai_score": 33.1,
-      "updated_at": "2026-04-16T14:20:23.832149"
+      "updated_at": "2026-04-16T15:23:33.480139"
     }
   ]
 }
