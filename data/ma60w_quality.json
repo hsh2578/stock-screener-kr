@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-04-16T21:36:56.345898",
-    "total_count": 6,
+    "updated_at": "2026-04-17T21:04:00.833101",
+    "total_count": 4,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -10,76 +10,52 @@
   },
   "data": [
     {
-      "ticker": "207940",
-      "name": "삼성바이오로직스",
-      "current_price": 1616000,
-      "ma60w": 1610176,
-      "ma60w_gap": 0.36,
-      "op_margin": 45.4,
-      "op_growth_3y": 25.1,
-      "market_cap": 748062,
+      "ticker": "068270",
+      "name": "셀트리온",
+      "current_price": 207500,
+      "ma60w": 189014,
+      "ma60w_gap": 9.78,
+      "op_margin": 28.1,
+      "op_growth_3y": 37.7,
+      "market_cap": 460522,
       "sector": "기타",
-      "updated_at": "2026-04-16T21:33:42.618330"
-    },
-    {
-      "ticker": "329180",
-      "name": "HD현대중공업",
-      "current_price": 493500,
-      "ma60w": 467514,
-      "ma60w_gap": 5.56,
-      "op_margin": 10.6,
-      "op_growth_3y": 93.5,
-      "market_cap": 517984,
-      "sector": "기타",
-      "updated_at": "2026-04-16T21:33:46.768474"
+      "updated_at": "2026-04-17T21:03:49.643605"
     },
     {
       "ticker": "011200",
       "name": "HMM",
-      "current_price": 21200,
-      "ma60w": 20562,
-      "ma60w_gap": 3.1,
+      "current_price": 21100,
+      "ma60w": 20581,
+      "ma60w_gap": 2.52,
       "op_margin": 13.4,
       "op_growth_3y": 147.4,
-      "market_cap": 199966,
+      "market_cap": 199023,
       "sector": "기타",
-      "updated_at": "2026-04-16T21:34:26.699306"
+      "updated_at": "2026-04-17T21:03:49.650263"
     },
     {
       "ticker": "443060",
       "name": "HD현대마린솔루션",
-      "current_price": 181800,
-      "ma60w": 181435,
-      "ma60w_gap": 0.2,
+      "current_price": 189000,
+      "ma60w": 179736,
+      "ma60w_gap": 5.15,
       "op_margin": 17.7,
       "op_growth_3y": 21.2,
-      "market_cap": 81503,
+      "market_cap": 84731,
       "sector": "기타",
-      "updated_at": "2026-04-16T21:34:59.938427"
+      "updated_at": "2026-04-17T21:03:54.706118"
     },
     {
       "ticker": "000240",
       "name": "한국앤컴퍼니",
-      "current_price": 25400,
-      "ma60w": 23326,
-      "ma60w_gap": 8.89,
+      "current_price": 25000,
+      "ma60w": 23304,
+      "ma60w_gap": 7.28,
       "op_margin": 26.1,
       "op_growth_3y": 18.6,
-      "market_cap": 24114,
+      "market_cap": 23734,
       "sector": "기타",
-      "updated_at": "2026-04-16T21:36:24.799591"
-    },
-    {
-      "ticker": "069620",
-      "name": "대웅제약",
-      "current_price": 156500,
-      "ma60w": 152272,
-      "ma60w_gap": 2.78,
-      "op_margin": 12.5,
-      "op_growth_3y": 17.9,
-      "market_cap": 18133,
-      "sector": "기타",
-      "updated_at": "2026-04-16T21:36:56.341769"
+      "updated_at": "2026-04-17T21:03:59.828329"
     }
   ]
 }
