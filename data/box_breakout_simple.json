@@ -1,63 +1,63 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-17T14:19:52.441240",
+    "lastUpdated": "2026-04-17T15:24:03.295241",
     "totalCount": 4,
-    "screened_from": 1553
+    "screened_from": 1557
   },
   "data": [
     {
       "ticker": "483650",
       "name": "달바글로벌",
-      "price": 198800,
-      "change_rate": 5.35,
+      "price": 198000,
+      "change_rate": 4.93,
       "breakout_date": "2026-04-09",
       "resistance": 173700,
       "days_since_breakout": 6,
-      "breakout_pct": 14.45,
-      "gain_since_breakout": 12.32,
-      "ma150": 152877,
+      "breakout_pct": 13.99,
+      "gain_since_breakout": 11.86,
+      "ma150": 152872,
       "above_ma150": true,
-      "market_cap": 24564,
+      "market_cap": 24539,
       "success_prob": 47.1,
       "predicted_gain": 16.2,
       "ai_score": 47.6,
-      "updated_at": "2026-04-17T14:19:43.868839"
+      "updated_at": "2026-04-17T15:23:51.349675"
     },
     {
       "ticker": "099430",
       "name": "바이오플러스",
-      "price": 5860,
-      "change_rate": 1.56,
+      "price": 5840,
+      "change_rate": 1.21,
       "breakout_date": "2026-04-16",
       "resistance": 5640,
       "days_since_breakout": 1,
-      "breakout_pct": 3.9,
-      "gain_since_breakout": 1.56,
+      "breakout_pct": 3.55,
+      "gain_since_breakout": 1.21,
       "ma150": 5646,
       "above_ma150": true,
-      "market_cap": 3624,
+      "market_cap": 3600,
       "success_prob": 28.6,
       "predicted_gain": 13.1,
       "ai_score": 31.8,
-      "updated_at": "2026-04-17T14:19:46.684261"
+      "updated_at": "2026-04-17T15:23:54.750076"
     },
     {
       "ticker": "163560",
       "name": "동일고무벨트",
-      "price": 7550,
-      "change_rate": -0.66,
+      "price": 7590,
+      "change_rate": -0.13,
       "breakout_date": "2026-04-08",
       "resistance": 7440,
       "days_since_breakout": 7,
-      "breakout_pct": 1.48,
-      "gain_since_breakout": -0.26,
+      "breakout_pct": 2.02,
+      "gain_since_breakout": 0.26,
       "ma150": 6885,
       "above_ma150": true,
-      "market_cap": 1049,
+      "market_cap": 1055,
       "success_prob": 23.4,
       "predicted_gain": 11.7,
       "ai_score": 26.9,
-      "updated_at": "2026-04-17T14:19:44.729251"
+      "updated_at": "2026-04-17T15:23:53.711892"
     },
     {
       "ticker": "001940",
@@ -71,11 +71,11 @@
       "gain_since_breakout": 0.0,
       "ma150": 25640,
       "above_ma150": true,
-      "market_cap": 3863,
+      "market_cap": 3870,
       "success_prob": 17.5,
       "predicted_gain": 9.8,
       "ai_score": 21.1,
-      "updated_at": "2026-04-17T14:19:42.385698"
+      "updated_at": "2026-04-17T15:23:49.874064"
     }
   ]
 }
