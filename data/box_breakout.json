@@ -1,66 +1,66 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-17T12:53:26.491749",
+    "lastUpdated": "2026-04-17T14:19:52.441792",
     "totalCount": 3,
-    "screened_from": 1547
+    "screened_from": 1553
   },
   "data": [
     {
       "ticker": "483650",
       "name": "달바글로벌",
-      "price": 197100,
-      "change_rate": 4.45,
+      "price": 198800,
+      "change_rate": 5.35,
       "breakout_date": "2026-04-09",
       "days_since_breakout": 6,
       "breakout_price": 173700,
-      "breakout_pct": 13.47,
-      "gain_since_breakout": 11.36,
+      "breakout_pct": 14.45,
+      "gain_since_breakout": 12.32,
       "volume_ratio": 6.7,
-      "ma150": 152866,
+      "ma150": 152877,
       "above_ma150": true,
-      "market_cap": 24477,
+      "market_cap": 24564,
       "success_prob": 47.1,
       "predicted_gain": 16.2,
       "ai_score": 47.6,
-      "updated_at": "2026-04-17T12:53:19.131870"
+      "updated_at": "2026-04-17T14:19:44.185054"
     },
     {
       "ticker": "099430",
       "name": "바이오플러스",
-      "price": 5940,
-      "change_rate": 2.95,
+      "price": 5860,
+      "change_rate": 1.56,
       "breakout_date": "2026-04-16",
       "days_since_breakout": 1,
       "breakout_price": 5640,
-      "breakout_pct": 5.32,
-      "gain_since_breakout": 2.95,
+      "breakout_pct": 3.9,
+      "gain_since_breakout": 1.56,
       "volume_ratio": 2.1,
-      "ma150": 5647,
+      "ma150": 5646,
       "above_ma150": true,
-      "market_cap": 3661,
+      "market_cap": 3624,
       "success_prob": 28.6,
       "predicted_gain": 13.1,
       "ai_score": 31.8,
-      "updated_at": "2026-04-17T12:53:20.540946"
+      "updated_at": "2026-04-17T14:19:46.686387"
     },
     {
       "ticker": "163560",
       "name": "동일고무벨트",
-      "price": 7540,
-      "change_rate": -0.79,
+      "price": 7550,
+      "change_rate": -0.66,
       "breakout_date": "2026-04-08",
       "days_since_breakout": 7,
       "breakout_price": 7440,
-      "breakout_pct": 1.34,
-      "gain_since_breakout": -0.4,
+      "breakout_pct": 1.48,
+      "gain_since_breakout": -0.26,
       "volume_ratio": 47.4,
       "ma150": 6885,
       "above_ma150": true,
-      "market_cap": 1048,
+      "market_cap": 1049,
       "success_prob": 23.4,
       "predicted_gain": 11.7,
       "ai_score": 26.9,
-      "updated_at": "2026-04-17T12:53:19.472335"
+      "updated_at": "2026-04-17T14:19:44.723653"
     }
   ]
 }
