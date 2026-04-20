@@ -1,63 +1,81 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-20T12:58:41.540318",
-    "totalCount": 4,
-    "screened_from": 1560
+    "lastUpdated": "2026-04-20T14:28:50.807234",
+    "totalCount": 5,
+    "screened_from": 1561
   },
   "data": [
     {
       "ticker": "483650",
       "name": "달바글로벌",
-      "price": 201500,
-      "change_rate": 1.87,
+      "price": 199900,
+      "change_rate": 1.06,
       "breakout_date": "2026-04-09",
       "resistance": 173700,
       "days_since_breakout": 7,
-      "breakout_pct": 16.0,
-      "gain_since_breakout": 13.84,
-      "ma150": 153103,
+      "breakout_pct": 15.08,
+      "gain_since_breakout": 12.94,
+      "ma150": 153092,
       "above_ma150": true,
-      "market_cap": 25035,
+      "market_cap": 24763,
       "success_prob": 68.2,
       "predicted_gain": 19.3,
       "ai_score": 65.1,
-      "updated_at": "2026-04-20T12:58:30.666052"
+      "updated_at": "2026-04-20T14:28:39.594606"
+    },
+    {
+      "ticker": "443060",
+      "name": "HD현대마린솔루션",
+      "price": 195400,
+      "change_rate": 3.39,
+      "breakout_date": "2026-04-20",
+      "resistance": 191000,
+      "days_since_breakout": 0,
+      "breakout_pct": 2.3,
+      "gain_since_breakout": 0.0,
+      "ma150": 197372,
+      "above_ma150": false,
+      "market_cap": 87600,
+      "success_prob": 36.7,
+      "predicted_gain": 12.4,
+      "ai_score": 36.9,
+      "updated_at": "2026-04-20T14:28:37.122592"
     },
     {
       "ticker": "099430",
       "name": "바이오플러스",
-      "price": 5730,
-      "change_rate": -2.22,
+      "price": 5700,
+      "change_rate": -2.73,
       "breakout_date": "2026-04-16",
       "resistance": 5640,
       "days_since_breakout": 2,
-      "breakout_pct": 1.6,
-      "gain_since_breakout": -0.69,
+      "breakout_pct": 1.06,
+      "gain_since_breakout": -1.21,
       "ma150": 5645,
       "above_ma150": true,
-      "market_cap": 3532,
+      "market_cap": 3514,
       "success_prob": 33.1,
       "predicted_gain": 15.1,
       "ai_score": 36.8,
-      "updated_at": "2026-04-20T12:58:34.548255"
+      "updated_at": "2026-04-20T14:28:43.321053"
     },
     {
       "ticker": "163560",
       "name": "동일고무벨트",
-      "price": 7940,
-      "change_rate": 4.34,
+      "price": 8040,
+      "change_rate": 5.65,
       "breakout_date": "2026-04-08",
       "resistance": 7440,
       "days_since_breakout": 8,
-      "breakout_pct": 6.72,
-      "gain_since_breakout": 4.89,
+      "breakout_pct": 8.06,
+      "gain_since_breakout": 6.21,
       "ma150": 6892,
       "above_ma150": true,
-      "market_cap": 1105,
+      "market_cap": 1118,
       "success_prob": 30.0,
       "predicted_gain": 13.4,
       "ai_score": 33.1,
-      "updated_at": "2026-04-20T12:58:31.618609"
+      "updated_at": "2026-04-20T14:28:42.765151"
     },
     {
       "ticker": "001940",
@@ -75,7 +93,7 @@
       "success_prob": 13.1,
       "predicted_gain": 9.9,
       "ai_score": 18.1,
-      "updated_at": "2026-04-20T12:58:29.185474"
+      "updated_at": "2026-04-20T14:28:37.423663"
     }
   ]
 }
