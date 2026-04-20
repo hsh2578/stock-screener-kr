@@ -3,7 +3,7 @@
     "type": "buffett",
     "name": "워렌 버핏 전략",
     "description": "ROE·FCF·부채비율 기반 내재가치 전략",
-    "lastUpdated": "2026-04-17T21:05:07.033071",
+    "lastUpdated": "2026-04-20T21:19:44.918806",
     "totalCount": 6,
     "conditions": [
       "ROE > 15%",
@@ -34,8 +34,8 @@
     {
       "ticker": "265560",
       "name": "영화테크",
-      "current_price": 10040,
-      "market_cap": 1073.0,
+      "current_price": 9950,
+      "market_cap": 1064.0,
       "roe": 23.0,
       "per": 5.0,
       "pbr": 1.01,
@@ -49,8 +49,8 @@
     {
       "ticker": "173130",
       "name": "오파스넷",
-      "current_price": 8080,
-      "market_cap": 1054.0,
+      "current_price": 8160,
+      "market_cap": 1065.0,
       "roe": 21.5,
       "per": 7.6,
       "pbr": 1.49,
@@ -64,8 +64,8 @@
     {
       "ticker": "123410",
       "name": "코리아에프티",
-      "current_price": 7160,
-      "market_cap": 1993.0,
+      "current_price": 7050,
+      "market_cap": 1963.0,
       "roe": 20.2,
       "per": 5.8,
       "pbr": 0.94,
@@ -79,8 +79,8 @@
     {
       "ticker": "097520",
       "name": "엠씨넥스",
-      "current_price": 23700,
-      "market_cap": 4124.0,
+      "current_price": 23550,
+      "market_cap": 4098.0,
       "roe": 18.8,
       "per": 6.7,
       "pbr": 1.07,
@@ -94,8 +94,8 @@
     {
       "ticker": "035150",
       "name": "백산",
-      "current_price": 12980,
-      "market_cap": 2636.0,
+      "current_price": 12830,
+      "market_cap": 2606.0,
       "roe": 17.9,
       "per": 4.9,
       "pbr": 1.16,
