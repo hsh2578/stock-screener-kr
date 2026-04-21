@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-21T15:23:28.085285",
+    "lastUpdated": "2026-04-21T17:19:00.580089",
     "totalCount": 5,
-    "screened_from": 1559
+    "screened_from": 1563
   },
   "data": [
     {
@@ -19,16 +19,16 @@
       "ma150": 153342,
       "above_ma150": true,
       "market_cap": 24626,
-      "success_prob": 47.1,
+      "success_prob": 41.6,
       "predicted_gain": 16.2,
-      "ai_score": 47.6,
-      "updated_at": "2026-04-21T15:23:23.197224"
+      "ai_score": 43.7,
+      "updated_at": "2026-04-21T17:18:53.380158"
     },
     {
       "ticker": "099430",
       "name": "바이오플러스",
-      "price": 5600,
-      "change_rate": -1.06,
+      "price": 5630,
+      "change_rate": -0.53,
       "breakout_date": "2026-04-16",
       "days_since_breakout": 3,
       "breakout_price": 5640,
@@ -37,12 +37,12 @@
       "volume_ratio": 2.1,
       "ma150": 5645,
       "above_ma150": true,
-      "market_cap": 3452,
+      "market_cap": 3470,
       "success_prob": 29.6,
       "predicted_gain": 13.1,
       "ai_score": 32.5,
-      "updated_at": "2026-04-21T15:23:28.078596",
-      "vs_breakout_close": -2.95
+      "updated_at": "2026-04-21T17:19:00.579140",
+      "vs_breakout_close": -2.43
     },
     {
       "ticker": "004430",
@@ -58,48 +58,48 @@
       "ma150": 9345,
       "above_ma150": true,
       "market_cap": 2498,
-      "success_prob": 22.5,
+      "success_prob": 26.0,
       "predicted_gain": 15.4,
-      "ai_score": 29.7,
-      "updated_at": "2026-04-21T15:23:24.244580"
+      "ai_score": 32.1,
+      "updated_at": "2026-04-21T17:18:55.238935"
     },
     {
       "ticker": "163560",
       "name": "동일고무벨트",
-      "price": 7830,
-      "change_rate": -1.39,
+      "price": 7790,
+      "change_rate": -1.89,
       "breakout_date": "2026-04-08",
       "days_since_breakout": 9,
       "breakout_price": 7440,
-      "breakout_pct": 5.24,
-      "gain_since_breakout": 3.43,
+      "breakout_pct": 4.7,
+      "gain_since_breakout": 2.91,
       "volume_ratio": 47.4,
       "ma150": 6897,
       "above_ma150": true,
-      "market_cap": 1088,
+      "market_cap": 1083,
       "success_prob": 23.4,
       "predicted_gain": 11.7,
       "ai_score": 26.9,
-      "updated_at": "2026-04-21T15:23:23.384978"
+      "updated_at": "2026-04-21T17:18:53.727753"
     },
     {
       "ticker": "357230",
       "name": "에이치피오",
-      "price": 2600,
-      "change_rate": -0.19,
+      "price": 2570,
+      "change_rate": -1.34,
       "breakout_date": "2026-04-20",
       "days_since_breakout": 1,
       "breakout_price": 2555,
-      "breakout_pct": 1.76,
-      "gain_since_breakout": -0.19,
+      "breakout_pct": 0.59,
+      "gain_since_breakout": -1.34,
       "volume_ratio": 4.0,
-      "ma150": 2484,
+      "ma150": 2483,
       "above_ma150": true,
-      "market_cap": 1074,
+      "market_cap": 1061,
       "success_prob": 16.5,
       "predicted_gain": 9.9,
       "ai_score": 20.5,
-      "updated_at": "2026-04-21T15:23:25.636456"
+      "updated_at": "2026-04-21T17:18:56.619673"
     }
   ]
 }
