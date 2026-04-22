@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-22T15:47:05.087848",
-    "totalCount": 8,
+    "lastUpdated": "2026-04-22T17:17:12.532006",
+    "totalCount": 9,
     "screened_from": 1563
   },
   "data": [
@@ -21,7 +21,7 @@
       "success_prob": 68.2,
       "predicted_gain": 19.3,
       "ai_score": 65.1,
-      "updated_at": "2026-04-22T15:46:55.075397"
+      "updated_at": "2026-04-22T17:17:07.673372"
     },
     {
       "ticker": "099430",
@@ -39,7 +39,7 @@
       "success_prob": 33.1,
       "predicted_gain": 15.1,
       "ai_score": 36.8,
-      "updated_at": "2026-04-22T15:46:57.743501"
+      "updated_at": "2026-04-22T17:17:08.775263"
     },
     {
       "ticker": "163560",
@@ -57,7 +57,43 @@
       "success_prob": 30.0,
       "predicted_gain": 13.4,
       "ai_score": 33.1,
-      "updated_at": "2026-04-22T15:46:56.900306"
+      "updated_at": "2026-04-22T17:17:08.231354"
+    },
+    {
+      "ticker": "293940",
+      "name": "신한알파리츠",
+      "price": 6210,
+      "change_rate": -0.32,
+      "breakout_date": "2026-04-20",
+      "resistance": 6030,
+      "days_since_breakout": 2,
+      "breakout_pct": 2.99,
+      "gain_since_breakout": 1.14,
+      "ma150": 5692,
+      "above_ma150": true,
+      "market_cap": 7510,
+      "success_prob": 37.8,
+      "predicted_gain": 7.4,
+      "ai_score": 33.1,
+      "updated_at": "2026-04-22T17:17:09.611684"
+    },
+    {
+      "ticker": "357230",
+      "name": "에이치피오",
+      "price": 2595,
+      "change_rate": 0.97,
+      "breakout_date": "2026-04-20",
+      "resistance": 2555,
+      "days_since_breakout": 2,
+      "breakout_pct": 1.57,
+      "gain_since_breakout": -0.38,
+      "ma150": 2483,
+      "above_ma150": true,
+      "market_cap": 1072,
+      "success_prob": 32.9,
+      "predicted_gain": 10.8,
+      "ai_score": 32.7,
+      "updated_at": "2026-04-22T17:17:10.066401"
     },
     {
       "ticker": "004430",
@@ -75,7 +111,7 @@
       "success_prob": 23.5,
       "predicted_gain": 17.0,
       "ai_score": 31.7,
-      "updated_at": "2026-04-22T15:46:58.382005"
+      "updated_at": "2026-04-22T17:17:09.296362"
     },
     {
       "ticker": "443060",
@@ -93,25 +129,7 @@
       "success_prob": 25.5,
       "predicted_gain": 12.4,
       "ai_score": 29.0,
-      "updated_at": "2026-04-22T15:46:51.179354"
-    },
-    {
-      "ticker": "357230",
-      "name": "에이치피오",
-      "price": 2595,
-      "change_rate": 0.97,
-      "breakout_date": "2026-04-20",
-      "resistance": 2555,
-      "days_since_breakout": 2,
-      "breakout_pct": 1.57,
-      "gain_since_breakout": -0.38,
-      "ma150": 2483,
-      "above_ma150": true,
-      "market_cap": 1072,
-      "success_prob": 16.5,
-      "predicted_gain": 9.9,
-      "ai_score": 20.5,
-      "updated_at": "2026-04-22T15:46:59.305437"
+      "updated_at": "2026-04-22T17:17:03.784029"
     },
     {
       "ticker": "001940",
@@ -129,7 +147,7 @@
       "success_prob": 13.1,
       "predicted_gain": 9.9,
       "ai_score": 18.1,
-      "updated_at": "2026-04-22T15:46:52.113599"
+      "updated_at": "2026-04-22T17:17:04.153878"
     },
     {
       "ticker": "357120",
@@ -144,10 +162,10 @@
       "ma150": 4480,
       "above_ma150": true,
       "market_cap": 4672,
-      "success_prob": 6.3,
-      "predicted_gain": 6.2,
-      "ai_score": 10.0,
-      "updated_at": "2026-04-22T15:47:02.729127"
+      "success_prob": 9.1,
+      "predicted_gain": 6.4,
+      "ai_score": 12.1,
+      "updated_at": "2026-04-22T17:17:11.348815"
     }
   ]
 }
