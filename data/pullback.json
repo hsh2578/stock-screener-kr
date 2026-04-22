@@ -1,8 +1,23 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-21T17:18:41.820258",
-    "totalCount": 0,
-    "screened_from": 1563
+    "lastUpdated": "2026-04-22T12:48:55.567654",
+    "totalCount": 1,
+    "screened_from": 1559
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "163560",
+      "name": "동일고무벨트",
+      "price": 7740,
+      "change_rate": -0.64,
+      "breakout_date": "2026-04-08",
+      "resistance": 7440,
+      "pullback_ratio": 4.03,
+      "volume_decrease": 67,
+      "ma150": 6902,
+      "above_ma150": true,
+      "market_cap": 1076,
+      "updated_at": "2026-04-22T12:48:54.470806"
+    }
+  ]
 }
