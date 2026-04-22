@@ -82,7 +82,7 @@ def cache_manager():
 
 def clear_cache() -> None:
     """전역 캐시를 명시적으로 정리합니다."""
-    global _DATA_CACHE, _BOX_RANGE_CACHE, _ATR_CACHE
+    global _DATA_CACHE, _BOX_RANGE_CACHE, _ATR_CACHE, _market_latest_date_cache
     with _CACHE_LOCK:
         _DATA_CACHE.clear()
     # 박스권 분석 결과 캐시 정리
@@ -91,6 +91,8 @@ def clear_cache() -> None:
     # ATR 캐시 정리
     with _ATR_CACHE_LOCK:
         _ATR_CACHE.clear()
+    # 시장 최신 거래일 캐시 정리 (_DATA_CACHE에 종속)
+    _market_latest_date_cache = None
     import gc
     gc.collect()
 
@@ -1448,6 +1450,40 @@ def get_stock_list() -> pd.DataFrame:
     print(f"  시가총액 {MIN_MARKET_CAP}억 이상: {len(stocks)}개 종목")
 
     return stocks
+
+
+_market_latest_date_cache: Optional[pd.Timestamp] = None
+
+
+def get_market_latest_date() -> Optional[pd.Timestamp]:
+    """
+    시장 최신 거래일(_DATA_CACHE 내 마지막 인덱스 중 오늘 이전의 최대값).
+
+    캐시 증분 업데이트 실패로 일부 종목의 데이터가 뒤처진 경우를 감지하기 위함.
+    FDR에서 최신 데이터를 받은 종목의 날짜를 '시장 기준'으로 삼고, 이보다 오래된
+    종목은 스크리너에서 제외한다. (미래 날짜 이상치는 방어)
+    """
+    global _market_latest_date_cache
+    if _market_latest_date_cache is not None:
+        return _market_latest_date_cache
+
+    today = pd.Timestamp(datetime.now().date())
+    latest = None
+    with _CACHE_LOCK:
+        for df in _DATA_CACHE.values():
+            if df is not None and len(df) > 0:
+                d = df.index[-1]
+                if d <= today and (latest is None or d > latest):
+                    latest = d
+
+    _market_latest_date_cache = latest
+    return latest
+
+
+def reset_market_latest_date_cache() -> None:
+    """캐시 재계산이 필요한 시점에 호출 (e.g. _DATA_CACHE 재로드 후)."""
+    global _market_latest_date_cache
+    _market_latest_date_cache = None
 
 
 def get_ohlcv(ticker: str, days: int = 200) -> Optional[pd.DataFrame]:
@@ -3073,6 +3109,8 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
     if _kospi_data is None:
         load_kospi_data()
 
+    market_latest = get_market_latest_date()
+
     results = []
     required_days = HIGH_52W_PERIOD + HIGH_52W_GAP_DAYS + 2
     MA150_PERIOD = 150
@@ -3090,6 +3128,11 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
 
         df = get_ohlcv(ticker, required_days + 50)
         if df is None or len(df) < required_days:
+            continue
+
+        # 종목 데이터가 시장 최신 거래일보다 뒤처지면 제외
+        # (증분 업데이트 실패로 캐시가 오래된 종목 방어)
+        if market_latest is not None and df.index[-1] < market_latest:
             continue
 
         close = df['Close']
@@ -3263,6 +3306,8 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
     if _kospi_data is None:
         load_kospi_data()
 
+    market_latest = get_market_latest_date()
+
     results = []
     required_days = HIGH_52W_PERIOD + NEAR_HIGH_MAX_DAYS + 30
 
@@ -3278,6 +3323,10 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
 
         df = get_ohlcv(ticker, required_days + 50)
         if df is None or len(df) < HIGH_52W_PERIOD + NEAR_HIGH_MAX_DAYS + 20:
+            continue
+
+        # 종목 데이터가 시장 최신 거래일보다 뒤처지면 제외
+        if market_latest is not None and df.index[-1] < market_latest:
             continue
 
         close = df['Close']
@@ -3644,10 +3693,21 @@ def _preserve_prev_results(
             if df is None or len(df) < 2:
                 continue
 
+            # 종목 데이터가 시장 최신 거래일보다 뒤처지면 보존 제외
+            # (오래된 캐시로 저장된 과거 JSON을 계속 유지하는 것 방지)
+            market_latest = get_market_latest_date()
+            if market_latest is not None and df.index[-1] < market_latest:
+                continue
+
             ref_dt = pd.Timestamp(ref_date_str)
             trading_days_after = df.index[df.index > ref_dt]
             days_since_now = len(trading_days_after)
             if days_since_now > max_days:
+                continue
+
+            # 0일차(오늘)는 매 CI마다 신규 스크리너가 재판정하므로 보존 불필요
+            # 장중 현재가만 돌파했다가 하락한 가짜 돌파도 이 로직으로 자동 제거됨
+            if days_since_now == 0:
                 continue
 
             # 현재가 업데이트
