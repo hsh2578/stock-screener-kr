@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-23T17:22:30.402615",
+    "lastUpdated": "2026-04-23T19:05:35.459571",
     "totalCount": 8,
     "screened_from": 1559
   },
@@ -21,7 +21,7 @@
       "success_prob": 68.2,
       "predicted_gain": 19.3,
       "ai_score": 65.1,
-      "updated_at": "2026-04-23T17:22:19.394885"
+      "updated_at": "2026-04-23T19:05:25.760146"
     },
     {
       "ticker": "099430",
@@ -36,10 +36,28 @@
       "ma150": 5635,
       "above_ma150": true,
       "market_cap": 3477,
-      "success_prob": 29.6,
-      "predicted_gain": 13.1,
-      "ai_score": 32.5,
-      "updated_at": "2026-04-23T17:22:22.678523"
+      "success_prob": 33.1,
+      "predicted_gain": 15.1,
+      "ai_score": 36.8,
+      "updated_at": "2026-04-23T19:05:27.734792"
+    },
+    {
+      "ticker": "293940",
+      "name": "신한알파리츠",
+      "price": 6240,
+      "change_rate": 0.48,
+      "breakout_date": "2026-04-20",
+      "resistance": 6030,
+      "days_since_breakout": 3,
+      "breakout_pct": 3.48,
+      "gain_since_breakout": 1.63,
+      "ma150": 5696,
+      "above_ma150": true,
+      "market_cap": 7547,
+      "success_prob": 37.8,
+      "predicted_gain": 7.4,
+      "ai_score": 33.1,
+      "updated_at": "2026-04-23T19:05:28.571240"
     },
     {
       "ticker": "004430",
@@ -54,10 +72,10 @@
       "ma150": 9348,
       "above_ma150": true,
       "market_cap": 2554,
-      "success_prob": 26.0,
-      "predicted_gain": 15.4,
-      "ai_score": 32.1,
-      "updated_at": "2026-04-23T17:22:23.897923"
+      "success_prob": 23.5,
+      "predicted_gain": 17.0,
+      "ai_score": 31.7,
+      "updated_at": "2026-04-23T19:05:28.363390"
     },
     {
       "ticker": "443060",
@@ -75,7 +93,7 @@
       "success_prob": 25.5,
       "predicted_gain": 12.4,
       "ai_score": 29.0,
-      "updated_at": "2026-04-23T17:22:17.559263"
+      "updated_at": "2026-04-23T19:05:21.620207"
     },
     {
       "ticker": "357230",
@@ -93,25 +111,7 @@
       "success_prob": 16.5,
       "predicted_gain": 9.9,
       "ai_score": 20.5,
-      "updated_at": "2026-04-23T17:22:25.413210"
-    },
-    {
-      "ticker": "293940",
-      "name": "신한알파리츠",
-      "price": 6240,
-      "change_rate": 0.48,
-      "breakout_date": "2026-04-20",
-      "resistance": 6030,
-      "days_since_breakout": 3,
-      "breakout_pct": 3.48,
-      "gain_since_breakout": 1.63,
-      "ma150": 5696,
-      "above_ma150": true,
-      "market_cap": 7547,
-      "success_prob": 19.6,
-      "predicted_gain": 7.0,
-      "ai_score": 20.0,
-      "updated_at": "2026-04-23T17:22:24.258372"
+      "updated_at": "2026-04-23T19:05:29.533278"
     },
     {
       "ticker": "001940",
@@ -129,7 +129,7 @@
       "success_prob": 13.1,
       "predicted_gain": 9.9,
       "ai_score": 18.1,
-      "updated_at": "2026-04-23T17:22:17.914098"
+      "updated_at": "2026-04-23T19:05:21.904351"
     },
     {
       "ticker": "357120",
@@ -147,7 +147,7 @@
       "success_prob": 6.3,
       "predicted_gain": 6.2,
       "ai_score": 10.0,
-      "updated_at": "2026-04-23T17:22:27.673490"
+      "updated_at": "2026-04-23T19:05:32.924508"
     }
   ]
 }
