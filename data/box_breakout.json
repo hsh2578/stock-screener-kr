@@ -1,28 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-24T15:30:09.393252",
+    "lastUpdated": "2026-04-24T17:33:23.609375",
     "totalCount": 4,
-    "screened_from": 1565
+    "screened_from": 1564
   },
   "data": [
     {
       "ticker": "009160",
       "name": "SIMPAC",
-      "price": 5830,
-      "change_rate": 8.97,
+      "price": 5820,
+      "change_rate": 8.79,
       "breakout_date": "2026-04-24",
       "days_since_breakout": 0,
       "breakout_price": 5450,
-      "breakout_pct": 6.97,
+      "breakout_pct": 6.79,
       "gain_since_breakout": 0.0,
       "volume_ratio": 5.5,
       "ma150": 4972,
       "above_ma150": true,
-      "market_cap": 3811,
-      "success_prob": 58.8,
-      "predicted_gain": 13.6,
-      "ai_score": 53.4,
-      "updated_at": "2026-04-24T15:30:06.736299"
+      "market_cap": 3805,
+      "success_prob": 57.3,
+      "predicted_gain": 13.5,
+      "ai_score": 52.2,
+      "updated_at": "2026-04-24T17:33:18.326794"
     },
     {
       "ticker": "099430",
@@ -41,45 +41,45 @@
       "success_prob": 29.6,
       "predicted_gain": 13.1,
       "ai_score": 32.5,
-      "updated_at": "2026-04-24T15:30:07.203701"
+      "updated_at": "2026-04-24T17:33:20.295724"
     },
     {
       "ticker": "004430",
       "name": "송원산업",
-      "price": 10640,
-      "change_rate": 0.0,
+      "price": 10590,
+      "change_rate": -0.47,
       "breakout_date": "2026-04-21",
       "days_since_breakout": 3,
       "breakout_price": 9800,
-      "breakout_pct": 8.57,
-      "gain_since_breakout": 2.21,
+      "breakout_pct": 8.06,
+      "gain_since_breakout": 1.73,
       "volume_ratio": 10.1,
-      "ma150": 9351,
+      "ma150": 9350,
       "above_ma150": true,
-      "market_cap": 2554,
+      "market_cap": 2542,
       "success_prob": 26.0,
       "predicted_gain": 15.4,
       "ai_score": 32.1,
-      "updated_at": "2026-04-24T15:30:07.374868"
+      "updated_at": "2026-04-24T17:33:20.726721"
     },
     {
       "ticker": "357230",
       "name": "에이치피오",
-      "price": 2580,
-      "change_rate": 0.78,
+      "price": 2555,
+      "change_rate": -0.2,
       "breakout_date": "2026-04-20",
       "days_since_breakout": 4,
       "breakout_price": 2555,
-      "breakout_pct": 0.98,
-      "gain_since_breakout": -0.96,
+      "breakout_pct": 0.0,
+      "gain_since_breakout": -1.92,
       "volume_ratio": 4.0,
       "ma150": 2481,
       "above_ma150": true,
-      "market_cap": 1065,
+      "market_cap": 1055,
       "success_prob": 16.5,
       "predicted_gain": 9.9,
       "ai_score": 20.5,
-      "updated_at": "2026-04-24T15:30:07.833523"
+      "updated_at": "2026-04-24T17:33:21.318922"
     }
   ]
 }
