@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-27T14:43:32.667892",
+    "lastUpdated": "2026-04-27T16:18:04.170458",
     "totalCount": 4,
-    "screened_from": 1570
+    "screened_from": 1574
   },
   "data": [
     {
@@ -22,64 +22,64 @@
       "success_prob": 57.3,
       "predicted_gain": 13.5,
       "ai_score": 52.2,
-      "updated_at": "2026-04-27T14:43:28.687359"
+      "updated_at": "2026-04-27T16:17:58.905639"
     },
     {
       "ticker": "099430",
       "name": "바이오플러스",
-      "price": 5780,
-      "change_rate": -1.03,
+      "price": 5800,
+      "change_rate": -0.68,
       "breakout_date": "2026-04-16",
       "days_since_breakout": 7,
       "breakout_price": 5640,
-      "breakout_pct": 2.48,
-      "gain_since_breakout": 0.17,
+      "breakout_pct": 2.84,
+      "gain_since_breakout": 0.52,
       "volume_ratio": 2.1,
       "ma150": 5630,
       "above_ma150": true,
-      "market_cap": 3563,
+      "market_cap": 3575,
       "success_prob": 29.6,
       "predicted_gain": 13.1,
       "ai_score": 32.5,
-      "updated_at": "2026-04-27T14:43:29.699243"
+      "updated_at": "2026-04-27T16:18:00.938485"
     },
     {
       "ticker": "004430",
       "name": "송원산업",
-      "price": 11250,
-      "change_rate": 6.23,
+      "price": 11200,
+      "change_rate": 5.76,
       "breakout_date": "2026-04-21",
       "days_since_breakout": 4,
       "breakout_price": 9800,
-      "breakout_pct": 14.8,
-      "gain_since_breakout": 8.07,
+      "breakout_pct": 14.29,
+      "gain_since_breakout": 7.59,
       "volume_ratio": 10.1,
-      "ma150": 9357,
+      "ma150": 9356,
       "above_ma150": true,
-      "market_cap": 2702,
+      "market_cap": 2688,
       "success_prob": 26.0,
       "predicted_gain": 15.4,
       "ai_score": 32.1,
-      "updated_at": "2026-04-27T14:43:30.192063"
+      "updated_at": "2026-04-27T16:18:01.531700"
     },
     {
       "ticker": "357230",
       "name": "에이치피오",
-      "price": 2580,
-      "change_rate": 0.98,
+      "price": 2565,
+      "change_rate": 0.39,
       "breakout_date": "2026-04-20",
       "days_since_breakout": 5,
       "breakout_price": 2555,
-      "breakout_pct": 0.98,
-      "gain_since_breakout": -0.96,
+      "breakout_pct": 0.39,
+      "gain_since_breakout": -1.54,
       "volume_ratio": 4.0,
       "ma150": 2480,
       "above_ma150": true,
-      "market_cap": 1065,
+      "market_cap": 1059,
       "success_prob": 16.5,
       "predicted_gain": 9.9,
       "ai_score": 20.5,
-      "updated_at": "2026-04-27T14:43:30.643897"
+      "updated_at": "2026-04-27T16:18:02.105754"
     }
   ]
 }
