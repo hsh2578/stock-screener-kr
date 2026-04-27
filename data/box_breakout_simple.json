@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-27T16:17:57.884167",
+    "lastUpdated": "2026-04-27T18:08:01.730163",
     "totalCount": 10,
     "screened_from": 1574
   },
@@ -21,7 +21,7 @@
       "success_prob": 68.4,
       "predicted_gain": 15.4,
       "ai_score": 61.7,
-      "updated_at": "2026-04-27T16:17:49.971706"
+      "updated_at": "2026-04-27T18:07:51.844820"
     },
     {
       "ticker": "099430",
@@ -39,7 +39,7 @@
       "success_prob": 33.1,
       "predicted_gain": 15.1,
       "ai_score": 36.8,
-      "updated_at": "2026-04-27T16:17:54.223330"
+      "updated_at": "2026-04-27T18:07:56.002863"
     },
     {
       "ticker": "293940",
@@ -57,7 +57,7 @@
       "success_prob": 37.8,
       "predicted_gain": 7.4,
       "ai_score": 33.1,
-      "updated_at": "2026-04-27T16:17:54.996726"
+      "updated_at": "2026-04-27T18:07:56.793322"
     },
     {
       "ticker": "357230",
@@ -75,7 +75,7 @@
       "success_prob": 32.9,
       "predicted_gain": 10.8,
       "ai_score": 32.7,
-      "updated_at": "2026-04-27T16:17:55.557545"
+      "updated_at": "2026-04-27T18:07:57.440575"
     },
     {
       "ticker": "004430",
@@ -93,7 +93,25 @@
       "success_prob": 23.5,
       "predicted_gain": 17.0,
       "ai_score": 31.7,
-      "updated_at": "2026-04-27T16:17:54.813687"
+      "updated_at": "2026-04-27T18:07:56.579538"
+    },
+    {
+      "ticker": "000970",
+      "name": "한국주철관",
+      "price": 7320,
+      "change_rate": 0.27,
+      "breakout_date": "2026-04-27",
+      "resistance": 7200,
+      "days_since_breakout": 0,
+      "breakout_pct": 1.67,
+      "gain_since_breakout": 0.0,
+      "ma150": 6939,
+      "above_ma150": true,
+      "market_cap": 1669,
+      "success_prob": 30.5,
+      "predicted_gain": 10.0,
+      "ai_score": 30.3,
+      "updated_at": "2026-04-27T18:07:59.676709"
     },
     {
       "ticker": "443060",
@@ -111,25 +129,7 @@
       "success_prob": 25.5,
       "predicted_gain": 12.4,
       "ai_score": 29.0,
-      "updated_at": "2026-04-27T16:17:49.097453"
-    },
-    {
-      "ticker": "000970",
-      "name": "한국주철관",
-      "price": 7320,
-      "change_rate": 0.27,
-      "breakout_date": "2026-04-27",
-      "resistance": 7200,
-      "days_since_breakout": 0,
-      "breakout_pct": 1.67,
-      "gain_since_breakout": 0.0,
-      "ma150": 6939,
-      "above_ma150": true,
-      "market_cap": 1669,
-      "success_prob": 18.7,
-      "predicted_gain": 10.4,
-      "ai_score": 22.5,
-      "updated_at": "2026-04-27T16:17:57.358840"
+      "updated_at": "2026-04-27T18:07:51.007369"
     },
     {
       "ticker": "001940",
@@ -147,7 +147,7 @@
       "success_prob": 13.1,
       "predicted_gain": 9.9,
       "ai_score": 18.1,
-      "updated_at": "2026-04-27T16:17:49.388199"
+      "updated_at": "2026-04-27T18:07:51.511927"
     },
     {
       "ticker": "357120",
@@ -165,7 +165,7 @@
       "success_prob": 9.1,
       "predicted_gain": 6.4,
       "ai_score": 12.1,
-      "updated_at": "2026-04-27T16:17:56.660778"
+      "updated_at": "2026-04-27T18:07:58.495511"
     },
     {
       "ticker": "334890",
@@ -183,7 +183,7 @@
       "success_prob": 6.1,
       "predicted_gain": 8.3,
       "ai_score": 11.8,
-      "updated_at": "2026-04-27T16:17:56.077948"
+      "updated_at": "2026-04-27T18:07:57.970950"
     }
   ]
 }
