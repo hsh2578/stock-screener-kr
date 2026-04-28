@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-28T16:18:06.877551",
+    "lastUpdated": "2026-04-28T19:31:46.943695",
     "totalCount": 5,
     "screened_from": 1567
   },
@@ -22,26 +22,7 @@
       "success_prob": 57.3,
       "predicted_gain": 13.5,
       "ai_score": 52.2,
-      "updated_at": "2026-04-28T16:18:03.588260"
-    },
-    {
-      "ticker": "004430",
-      "name": "송원산업",
-      "price": 14560,
-      "change_rate": 30.0,
-      "breakout_date": "2026-04-21",
-      "days_since_breakout": 5,
-      "breakout_price": 9800,
-      "breakout_pct": 48.57,
-      "gain_since_breakout": 39.87,
-      "volume_ratio": 10.1,
-      "ma150": 9385,
-      "above_ma150": true,
-      "market_cap": 3494,
-      "success_prob": 31.0,
-      "predicted_gain": 15.4,
-      "ai_score": 35.5,
-      "updated_at": "2026-04-28T16:18:04.415583"
+      "updated_at": "2026-04-28T19:31:41.164531"
     },
     {
       "ticker": "099430",
@@ -60,7 +41,26 @@
       "success_prob": 29.6,
       "predicted_gain": 13.1,
       "ai_score": 32.5,
-      "updated_at": "2026-04-28T16:18:04.187966"
+      "updated_at": "2026-04-28T19:31:42.640432"
+    },
+    {
+      "ticker": "004430",
+      "name": "송원산업",
+      "price": 14560,
+      "change_rate": 30.0,
+      "breakout_date": "2026-04-21",
+      "days_since_breakout": 5,
+      "breakout_price": 9800,
+      "breakout_pct": 48.57,
+      "gain_since_breakout": 39.87,
+      "volume_ratio": 10.1,
+      "ma150": 9385,
+      "above_ma150": true,
+      "market_cap": 3494,
+      "success_prob": 23.7,
+      "predicted_gain": 15.4,
+      "ai_score": 30.4,
+      "updated_at": "2026-04-28T19:31:43.833328"
     },
     {
       "ticker": "108670",
@@ -79,7 +79,7 @@
       "success_prob": 17.3,
       "predicted_gain": 11.1,
       "ai_score": 22.1,
-      "updated_at": "2026-04-28T16:18:03.543130"
+      "updated_at": "2026-04-28T19:31:41.085014"
     },
     {
       "ticker": "357230",
@@ -98,7 +98,7 @@
       "success_prob": 16.5,
       "predicted_gain": 9.9,
       "ai_score": 20.5,
-      "updated_at": "2026-04-28T16:18:04.677030"
+      "updated_at": "2026-04-28T19:31:44.343987"
     }
   ]
 }
