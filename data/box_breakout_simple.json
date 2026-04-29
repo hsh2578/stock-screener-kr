@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-29T17:40:10.983339",
+    "lastUpdated": "2026-04-29T19:24:59.560317",
     "totalCount": 12,
     "screened_from": 1576
   },
@@ -21,7 +21,7 @@
       "success_prob": 68.4,
       "predicted_gain": 15.4,
       "ai_score": 61.7,
-      "updated_at": "2026-04-29T17:40:05.086046"
+      "updated_at": "2026-04-29T19:24:51.067265"
     },
     {
       "ticker": "099430",
@@ -39,7 +39,7 @@
       "success_prob": 33.1,
       "predicted_gain": 15.1,
       "ai_score": 36.8,
-      "updated_at": "2026-04-29T17:40:07.357974"
+      "updated_at": "2026-04-29T19:24:55.106301"
     },
     {
       "ticker": "004430",
@@ -57,7 +57,7 @@
       "success_prob": 28.1,
       "predicted_gain": 16.9,
       "ai_score": 34.8,
-      "updated_at": "2026-04-29T17:40:07.975425"
+      "updated_at": "2026-04-29T19:24:55.654804"
     },
     {
       "ticker": "293940",
@@ -75,7 +75,7 @@
       "success_prob": 37.8,
       "predicted_gain": 7.4,
       "ai_score": 33.1,
-      "updated_at": "2026-04-29T17:40:10.981626",
+      "updated_at": "2026-04-29T19:24:59.558818",
       "vs_breakout_close": -3.91
     },
     {
@@ -94,7 +94,7 @@
       "success_prob": 32.9,
       "predicted_gain": 10.8,
       "ai_score": 32.7,
-      "updated_at": "2026-04-29T17:40:08.700422"
+      "updated_at": "2026-04-29T19:24:56.420936"
     },
     {
       "ticker": "443060",
@@ -112,7 +112,7 @@
       "success_prob": 25.5,
       "predicted_gain": 12.4,
       "ai_score": 29.0,
-      "updated_at": "2026-04-29T17:40:02.438096"
+      "updated_at": "2026-04-29T19:24:50.279005"
     },
     {
       "ticker": "000970",
@@ -130,7 +130,25 @@
       "success_prob": 18.7,
       "predicted_gain": 10.4,
       "ai_score": 22.5,
-      "updated_at": "2026-04-29T17:40:10.468656"
+      "updated_at": "2026-04-29T19:24:58.160513"
+    },
+    {
+      "ticker": "094280",
+      "name": "효성ITX",
+      "price": 13200,
+      "change_rate": 1.23,
+      "breakout_date": "2026-04-29",
+      "resistance": 12960,
+      "days_since_breakout": 0,
+      "breakout_pct": 1.85,
+      "gain_since_breakout": 0.0,
+      "ma150": 12683,
+      "above_ma150": true,
+      "market_cap": 1526,
+      "success_prob": 20.3,
+      "predicted_gain": 8.8,
+      "ai_score": 22.1,
+      "updated_at": "2026-04-29T19:24:59.332637"
     },
     {
       "ticker": "001940",
@@ -148,7 +166,7 @@
       "success_prob": 13.1,
       "predicted_gain": 9.9,
       "ai_score": 18.1,
-      "updated_at": "2026-04-29T17:40:10.982460",
+      "updated_at": "2026-04-29T19:24:59.559640",
       "vs_breakout_close": -0.91
     },
     {
@@ -167,25 +185,7 @@
       "success_prob": 6.1,
       "predicted_gain": 13.0,
       "ai_score": 16.0,
-      "updated_at": "2026-04-29T17:40:04.043582"
-    },
-    {
-      "ticker": "094280",
-      "name": "효성ITX",
-      "price": 13200,
-      "change_rate": 1.23,
-      "breakout_date": "2026-04-29",
-      "resistance": 12960,
-      "days_since_breakout": 0,
-      "breakout_pct": 1.85,
-      "gain_since_breakout": 0.0,
-      "ma150": 12683,
-      "above_ma150": true,
-      "market_cap": 1526,
-      "success_prob": 9.1,
-      "predicted_gain": 9.2,
-      "ai_score": 14.6,
-      "updated_at": "2026-04-29T17:40:10.918716"
+      "updated_at": "2026-04-29T19:24:50.928191"
     },
     {
       "ticker": "357120",
@@ -203,7 +203,7 @@
       "success_prob": 9.1,
       "predicted_gain": 6.4,
       "ai_score": 12.1,
-      "updated_at": "2026-04-29T17:40:09.779326"
+      "updated_at": "2026-04-29T19:24:57.569543"
     },
     {
       "ticker": "334890",
@@ -221,7 +221,7 @@
       "success_prob": 5.7,
       "predicted_gain": 8.0,
       "ai_score": 11.2,
-      "updated_at": "2026-04-29T17:40:09.203696"
+      "updated_at": "2026-04-29T19:24:56.923514"
     }
   ]
 }
