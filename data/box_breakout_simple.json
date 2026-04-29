@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-04-29T16:08:17.313508",
+    "lastUpdated": "2026-04-29T17:40:10.983339",
     "totalCount": 12,
     "screened_from": 1576
   },
@@ -21,7 +21,7 @@
       "success_prob": 68.4,
       "predicted_gain": 15.4,
       "ai_score": 61.7,
-      "updated_at": "2026-04-29T16:08:05.772976"
+      "updated_at": "2026-04-29T17:40:05.086046"
     },
     {
       "ticker": "099430",
@@ -39,7 +39,7 @@
       "success_prob": 33.1,
       "predicted_gain": 15.1,
       "ai_score": 36.8,
-      "updated_at": "2026-04-29T16:08:09.383691"
+      "updated_at": "2026-04-29T17:40:07.357974"
     },
     {
       "ticker": "004430",
@@ -57,7 +57,7 @@
       "success_prob": 28.1,
       "predicted_gain": 16.9,
       "ai_score": 34.8,
-      "updated_at": "2026-04-29T16:08:10.711426"
+      "updated_at": "2026-04-29T17:40:07.975425"
     },
     {
       "ticker": "293940",
@@ -75,26 +75,26 @@
       "success_prob": 37.8,
       "predicted_gain": 7.4,
       "ai_score": 33.1,
-      "updated_at": "2026-04-29T16:08:17.308381",
+      "updated_at": "2026-04-29T17:40:10.981626",
       "vs_breakout_close": -3.91
     },
     {
-      "ticker": "000970",
-      "name": "한국주철관",
-      "price": 7360,
-      "change_rate": -0.54,
-      "breakout_date": "2026-04-27",
-      "resistance": 7200,
-      "days_since_breakout": 2,
-      "breakout_pct": 2.22,
-      "gain_since_breakout": 0.55,
-      "ma150": 6943,
+      "ticker": "357230",
+      "name": "에이치피오",
+      "price": 2535,
+      "change_rate": -0.2,
+      "breakout_date": "2026-04-20",
+      "resistance": 2555,
+      "days_since_breakout": 7,
+      "breakout_pct": -0.78,
+      "gain_since_breakout": -2.69,
+      "ma150": 2478,
       "above_ma150": true,
-      "market_cap": 1678,
-      "success_prob": 30.5,
-      "predicted_gain": 10.0,
-      "ai_score": 30.3,
-      "updated_at": "2026-04-29T16:08:16.305053"
+      "market_cap": 1047,
+      "success_prob": 32.9,
+      "predicted_gain": 10.8,
+      "ai_score": 32.7,
+      "updated_at": "2026-04-29T17:40:08.700422"
     },
     {
       "ticker": "443060",
@@ -112,43 +112,25 @@
       "success_prob": 25.5,
       "predicted_gain": 12.4,
       "ai_score": 29.0,
-      "updated_at": "2026-04-29T16:08:04.165079"
+      "updated_at": "2026-04-29T17:40:02.438096"
     },
     {
-      "ticker": "094280",
-      "name": "효성ITX",
-      "price": 13200,
-      "change_rate": 1.23,
-      "breakout_date": "2026-04-29",
-      "resistance": 12960,
-      "days_since_breakout": 0,
-      "breakout_pct": 1.85,
-      "gain_since_breakout": 0.0,
-      "ma150": 12683,
+      "ticker": "000970",
+      "name": "한국주철관",
+      "price": 7360,
+      "change_rate": -0.54,
+      "breakout_date": "2026-04-27",
+      "resistance": 7200,
+      "days_since_breakout": 2,
+      "breakout_pct": 2.22,
+      "gain_since_breakout": 0.55,
+      "ma150": 6943,
       "above_ma150": true,
-      "market_cap": 1526,
-      "success_prob": 20.3,
-      "predicted_gain": 8.8,
-      "ai_score": 22.1,
-      "updated_at": "2026-04-29T16:08:17.187466"
-    },
-    {
-      "ticker": "357230",
-      "name": "에이치피오",
-      "price": 2535,
-      "change_rate": -0.2,
-      "breakout_date": "2026-04-20",
-      "resistance": 2555,
-      "days_since_breakout": 7,
-      "breakout_pct": -0.78,
-      "gain_since_breakout": -2.69,
-      "ma150": 2478,
-      "above_ma150": true,
-      "market_cap": 1047,
-      "success_prob": 16.5,
-      "predicted_gain": 9.9,
-      "ai_score": 20.5,
-      "updated_at": "2026-04-29T16:08:12.170468"
+      "market_cap": 1678,
+      "success_prob": 18.7,
+      "predicted_gain": 10.4,
+      "ai_score": 22.5,
+      "updated_at": "2026-04-29T17:40:10.468656"
     },
     {
       "ticker": "001940",
@@ -166,7 +148,7 @@
       "success_prob": 13.1,
       "predicted_gain": 9.9,
       "ai_score": 18.1,
-      "updated_at": "2026-04-29T16:08:17.312195",
+      "updated_at": "2026-04-29T17:40:10.982460",
       "vs_breakout_close": -0.91
     },
     {
@@ -185,25 +167,25 @@
       "success_prob": 6.1,
       "predicted_gain": 13.0,
       "ai_score": 16.0,
-      "updated_at": "2026-04-29T16:08:05.231824"
+      "updated_at": "2026-04-29T17:40:04.043582"
     },
     {
-      "ticker": "334890",
-      "name": "이지스밸류플러스리츠",
-      "price": 4170,
-      "change_rate": -4.36,
-      "breakout_date": "2026-04-24",
-      "resistance": 4315,
-      "days_since_breakout": 3,
-      "breakout_pct": -3.36,
-      "gain_since_breakout": -5.23,
-      "ma150": 4234,
-      "above_ma150": false,
-      "market_cap": 2896,
-      "success_prob": 9.4,
-      "predicted_gain": 7.6,
-      "ai_score": 13.4,
-      "updated_at": "2026-04-29T16:08:13.509686"
+      "ticker": "094280",
+      "name": "효성ITX",
+      "price": 13200,
+      "change_rate": 1.23,
+      "breakout_date": "2026-04-29",
+      "resistance": 12960,
+      "days_since_breakout": 0,
+      "breakout_pct": 1.85,
+      "gain_since_breakout": 0.0,
+      "ma150": 12683,
+      "above_ma150": true,
+      "market_cap": 1526,
+      "success_prob": 9.1,
+      "predicted_gain": 9.2,
+      "ai_score": 14.6,
+      "updated_at": "2026-04-29T17:40:10.918716"
     },
     {
       "ticker": "357120",
@@ -218,10 +200,28 @@
       "ma150": 4494,
       "above_ma150": true,
       "market_cap": 4526,
-      "success_prob": 6.3,
-      "predicted_gain": 6.2,
-      "ai_score": 10.0,
-      "updated_at": "2026-04-29T16:08:14.697174"
+      "success_prob": 9.1,
+      "predicted_gain": 6.4,
+      "ai_score": 12.1,
+      "updated_at": "2026-04-29T17:40:09.779326"
+    },
+    {
+      "ticker": "334890",
+      "name": "이지스밸류플러스리츠",
+      "price": 4170,
+      "change_rate": -4.36,
+      "breakout_date": "2026-04-24",
+      "resistance": 4315,
+      "days_since_breakout": 3,
+      "breakout_pct": -3.36,
+      "gain_since_breakout": -5.23,
+      "ma150": 4234,
+      "above_ma150": false,
+      "market_cap": 2896,
+      "success_prob": 5.7,
+      "predicted_gain": 8.0,
+      "ai_score": 11.2,
+      "updated_at": "2026-04-29T17:40:09.203696"
     }
   ]
 }
