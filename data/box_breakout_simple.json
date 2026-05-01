@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-01T16:17:14.348706",
+    "lastUpdated": "2026-05-01T17:31:44.956772",
     "totalCount": 13,
     "screened_from": 1565
   },
@@ -21,7 +21,7 @@
       "success_prob": 68.4,
       "predicted_gain": 15.4,
       "ai_score": 61.7,
-      "updated_at": "2026-05-01T16:17:14.340659",
+      "updated_at": "2026-05-01T17:31:44.954548",
       "vs_breakout_close": 0.86
     },
     {
@@ -40,7 +40,7 @@
       "success_prob": 33.1,
       "predicted_gain": 15.1,
       "ai_score": 36.8,
-      "updated_at": "2026-05-01T16:17:06.684179"
+      "updated_at": "2026-05-01T17:31:41.397679"
     },
     {
       "ticker": "004430",
@@ -58,7 +58,7 @@
       "success_prob": 28.1,
       "predicted_gain": 16.9,
       "ai_score": 34.8,
-      "updated_at": "2026-05-01T16:17:07.583834"
+      "updated_at": "2026-05-01T17:31:41.960186"
     },
     {
       "ticker": "293940",
@@ -76,7 +76,7 @@
       "success_prob": 37.8,
       "predicted_gain": 7.4,
       "ai_score": 33.1,
-      "updated_at": "2026-05-01T16:17:14.344364",
+      "updated_at": "2026-05-01T17:31:44.955368",
       "vs_breakout_close": -1.47
     },
     {
@@ -95,25 +95,7 @@
       "success_prob": 32.9,
       "predicted_gain": 10.8,
       "ai_score": 32.7,
-      "updated_at": "2026-05-01T16:17:09.485984"
-    },
-    {
-      "ticker": "000970",
-      "name": "한국주철관",
-      "price": 7350,
-      "change_rate": -0.14,
-      "breakout_date": "2026-04-27",
-      "resistance": 7200,
-      "days_since_breakout": 3,
-      "breakout_pct": 2.08,
-      "gain_since_breakout": 0.41,
-      "ma150": 6945,
-      "above_ma150": true,
-      "market_cap": 1676,
-      "success_prob": 30.5,
-      "predicted_gain": 10.0,
-      "ai_score": 30.3,
-      "updated_at": "2026-05-01T16:17:13.280779"
+      "updated_at": "2026-05-01T17:31:42.556941"
     },
     {
       "ticker": "443060",
@@ -131,25 +113,25 @@
       "success_prob": 25.5,
       "predicted_gain": 12.4,
       "ai_score": 29.0,
-      "updated_at": "2026-05-01T16:17:02.357289"
+      "updated_at": "2026-05-01T17:31:36.234720"
     },
     {
-      "ticker": "094280",
-      "name": "효성ITX",
-      "price": 13180,
-      "change_rate": -0.15,
-      "breakout_date": "2026-04-29",
-      "resistance": 12960,
-      "days_since_breakout": 1,
-      "breakout_pct": 1.7,
-      "gain_since_breakout": -0.15,
-      "ma150": 12684,
+      "ticker": "000970",
+      "name": "한국주철관",
+      "price": 7350,
+      "change_rate": -0.14,
+      "breakout_date": "2026-04-27",
+      "resistance": 7200,
+      "days_since_breakout": 3,
+      "breakout_pct": 2.08,
+      "gain_since_breakout": 0.41,
+      "ma150": 6945,
       "above_ma150": true,
-      "market_cap": 1523,
-      "success_prob": 20.3,
-      "predicted_gain": 8.8,
-      "ai_score": 22.1,
-      "updated_at": "2026-05-01T16:17:14.220437"
+      "market_cap": 1676,
+      "success_prob": 18.7,
+      "predicted_gain": 10.4,
+      "ai_score": 22.5,
+      "updated_at": "2026-05-01T17:31:44.471670"
     },
     {
       "ticker": "035000",
@@ -167,7 +149,7 @@
       "success_prob": 13.6,
       "predicted_gain": 10.4,
       "ai_score": 18.9,
-      "updated_at": "2026-05-01T16:17:02.438271"
+      "updated_at": "2026-05-01T17:31:36.299067"
     },
     {
       "ticker": "001940",
@@ -185,7 +167,7 @@
       "success_prob": 13.1,
       "predicted_gain": 9.9,
       "ai_score": 18.1,
-      "updated_at": "2026-05-01T16:17:14.347975",
+      "updated_at": "2026-05-01T17:31:44.956127",
       "vs_breakout_close": -1.46
     },
     {
@@ -204,25 +186,25 @@
       "success_prob": 6.1,
       "predicted_gain": 13.0,
       "ai_score": 16.0,
-      "updated_at": "2026-05-01T16:17:03.159128"
+      "updated_at": "2026-05-01T17:31:37.232691"
     },
     {
-      "ticker": "334890",
-      "name": "이지스밸류플러스리츠",
-      "price": 4185,
-      "change_rate": 0.36,
-      "breakout_date": "2026-04-24",
-      "resistance": 4315,
-      "days_since_breakout": 4,
-      "breakout_pct": -3.01,
-      "gain_since_breakout": -4.89,
-      "ma150": 4234,
-      "above_ma150": false,
-      "market_cap": 2906,
-      "success_prob": 9.4,
-      "predicted_gain": 7.6,
-      "ai_score": 13.4,
-      "updated_at": "2026-05-01T16:17:10.751987"
+      "ticker": "094280",
+      "name": "효성ITX",
+      "price": 13180,
+      "change_rate": -0.15,
+      "breakout_date": "2026-04-29",
+      "resistance": 12960,
+      "days_since_breakout": 1,
+      "breakout_pct": 1.7,
+      "gain_since_breakout": -0.15,
+      "ma150": 12684,
+      "above_ma150": true,
+      "market_cap": 1523,
+      "success_prob": 9.1,
+      "predicted_gain": 9.2,
+      "ai_score": 14.6,
+      "updated_at": "2026-05-01T17:31:44.896565"
     },
     {
       "ticker": "357120",
@@ -237,10 +219,28 @@
       "ma150": 4496,
       "above_ma150": true,
       "market_cap": 4560,
-      "success_prob": 6.3,
-      "predicted_gain": 6.2,
-      "ai_score": 10.0,
-      "updated_at": "2026-05-01T16:17:11.909347"
+      "success_prob": 9.1,
+      "predicted_gain": 6.4,
+      "ai_score": 12.1,
+      "updated_at": "2026-05-01T17:31:43.765719"
+    },
+    {
+      "ticker": "334890",
+      "name": "이지스밸류플러스리츠",
+      "price": 4185,
+      "change_rate": 0.36,
+      "breakout_date": "2026-04-24",
+      "resistance": 4315,
+      "days_since_breakout": 4,
+      "breakout_pct": -3.01,
+      "gain_since_breakout": -4.89,
+      "ma150": 4234,
+      "above_ma150": false,
+      "market_cap": 2906,
+      "success_prob": 5.7,
+      "predicted_gain": 8.0,
+      "ai_score": 11.2,
+      "updated_at": "2026-05-01T17:31:43.182524"
     }
   ]
 }
