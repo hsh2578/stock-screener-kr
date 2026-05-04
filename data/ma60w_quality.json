@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-05-01T21:10:01.954160",
-    "total_count": 3,
+    "updated_at": "2026-05-04T21:31:51.283514",
+    "total_count": 5,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -12,38 +12,62 @@
     {
       "ticker": "068270",
       "name": "셀트리온",
-      "current_price": 200500,
-      "ma60w": 189151,
-      "ma60w_gap": 6.0,
+      "current_price": 197800,
+      "ma60w": 189068,
+      "ma60w_gap": 4.62,
       "op_margin": 28.1,
       "op_growth_3y": 37.7,
-      "market_cap": 444986,
+      "market_cap": 438994,
       "sector": "기타",
-      "updated_at": "2026-05-01T21:09:54.915575"
+      "updated_at": "2026-05-04T21:31:35.246467"
     },
     {
       "ticker": "011200",
       "name": "HMM",
-      "current_price": 20500,
-      "ma60w": 20488,
-      "ma60w_gap": 0.05,
+      "current_price": 21150,
+      "ma60w": 20523,
+      "ma60w_gap": 3.05,
       "op_margin": 13.4,
       "op_growth_3y": 147.4,
-      "market_cap": 193364,
+      "market_cap": 199495,
       "sector": "기타",
-      "updated_at": "2026-05-01T21:09:54.919610"
+      "updated_at": "2026-05-04T21:31:35.252928"
+    },
+    {
+      "ticker": "259960",
+      "name": "크래프톤",
+      "current_price": 288500,
+      "ma60w": 285690,
+      "ma60w_gap": 0.98,
+      "op_margin": 31.7,
+      "op_growth_3y": 14.4,
+      "market_cap": 136773,
+      "sector": "기타",
+      "updated_at": "2026-05-04T21:31:40.665435"
+    },
+    {
+      "ticker": "128940",
+      "name": "한미약품",
+      "current_price": 445000,
+      "ma60w": 407872,
+      "ma60w_gap": 9.1,
+      "op_margin": 14.0,
+      "op_growth_3y": 10.8,
+      "market_cap": 57009,
+      "sector": "기타",
+      "updated_at": "2026-05-04T21:31:44.991353"
     },
     {
       "ticker": "000240",
       "name": "한국앤컴퍼니",
-      "current_price": 24950,
-      "ma60w": 23367,
-      "ma60w_gap": 6.77,
+      "current_price": 25300,
+      "ma60w": 23384,
+      "ma60w_gap": 8.19,
       "op_margin": 26.1,
       "op_growth_3y": 18.6,
-      "market_cap": 23686,
+      "market_cap": 24019,
       "sector": "기타",
-      "updated_at": "2026-05-01T21:10:01.940026"
+      "updated_at": "2026-05-04T21:31:51.267297"
     }
   ]
 }
