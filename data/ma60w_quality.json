@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-05-05T21:15:48.113068",
-    "total_count": 5,
+    "updated_at": "2026-05-06T22:09:55.466337",
+    "total_count": 4,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -12,62 +12,50 @@
     {
       "ticker": "068270",
       "name": "셀트리온",
-      "current_price": 197800,
-      "ma60w": 189068,
-      "ma60w_gap": 4.62,
+      "current_price": 194700,
+      "ma60w": 189310,
+      "ma60w_gap": 2.85,
       "op_margin": 28.1,
       "op_growth_3y": 37.7,
-      "market_cap": 438994,
+      "market_cap": 432114,
       "sector": "기타",
-      "updated_at": "2026-05-05T21:15:34.816969"
+      "updated_at": "2026-05-06T22:09:46.749396"
     },
     {
       "ticker": "011200",
       "name": "HMM",
-      "current_price": 21150,
-      "ma60w": 20523,
-      "ma60w_gap": 3.05,
+      "current_price": 20550,
+      "ma60w": 20486,
+      "ma60w_gap": 0.31,
       "op_margin": 13.4,
       "op_growth_3y": 147.4,
-      "market_cap": 199495,
+      "market_cap": 193835,
       "sector": "기타",
-      "updated_at": "2026-05-05T21:15:34.823373"
-    },
-    {
-      "ticker": "259960",
-      "name": "크래프톤",
-      "current_price": 288500,
-      "ma60w": 285690,
-      "ma60w_gap": 0.98,
-      "op_margin": 31.7,
-      "op_growth_3y": 14.4,
-      "market_cap": 136773,
-      "sector": "기타",
-      "updated_at": "2026-05-05T21:15:39.468696"
+      "updated_at": "2026-05-06T22:09:46.754116"
     },
     {
       "ticker": "128940",
       "name": "한미약품",
-      "current_price": 445000,
-      "ma60w": 407872,
-      "ma60w_gap": 9.1,
+      "current_price": 434500,
+      "ma60w": 409820,
+      "ma60w_gap": 6.02,
       "op_margin": 14.0,
       "op_growth_3y": 10.8,
-      "market_cap": 57009,
+      "market_cap": 55664,
       "sector": "기타",
-      "updated_at": "2026-05-05T21:15:42.833847"
+      "updated_at": "2026-05-06T22:09:50.145508"
     },
     {
       "ticker": "000240",
       "name": "한국앤컴퍼니",
-      "current_price": 25300,
-      "ma60w": 23384,
-      "ma60w_gap": 8.19,
+      "current_price": 24300,
+      "ma60w": 23405,
+      "ma60w_gap": 3.82,
       "op_margin": 26.1,
       "op_growth_3y": 18.6,
-      "market_cap": 24019,
+      "market_cap": 23069,
       "sector": "기타",
-      "updated_at": "2026-05-05T21:15:48.097091"
+      "updated_at": "2026-05-06T22:09:55.450733"
     }
   ]
 }
