@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-06T16:20:29.694855",
+    "lastUpdated": "2026-05-06T17:46:56.971451",
     "totalCount": 14,
     "screened_from": 1552
   },
@@ -21,7 +21,7 @@
       "success_prob": 72.4,
       "predicted_gain": 23.1,
       "ai_score": 71.5,
-      "updated_at": "2026-05-06T16:20:20.453290"
+      "updated_at": "2026-05-06T17:46:44.988801"
     },
     {
       "ticker": "009160",
@@ -39,7 +39,7 @@
       "success_prob": 68.4,
       "predicted_gain": 15.4,
       "ai_score": 61.7,
-      "updated_at": "2026-05-06T16:20:29.692399",
+      "updated_at": "2026-05-06T17:46:56.969048",
       "vs_breakout_close": 9.28
     },
     {
@@ -58,7 +58,7 @@
       "success_prob": 28.1,
       "predicted_gain": 16.9,
       "ai_score": 34.8,
-      "updated_at": "2026-05-06T16:20:26.059367"
+      "updated_at": "2026-05-06T17:46:49.954017"
     },
     {
       "ticker": "293940",
@@ -76,7 +76,7 @@
       "success_prob": 37.8,
       "predicted_gain": 7.4,
       "ai_score": 33.1,
-      "updated_at": "2026-05-06T16:20:29.693322",
+      "updated_at": "2026-05-06T17:46:56.969896",
       "vs_breakout_close": -6.84
     },
     {
@@ -95,7 +95,25 @@
       "success_prob": 32.9,
       "predicted_gain": 10.8,
       "ai_score": 32.7,
-      "updated_at": "2026-05-06T16:20:26.763033"
+      "updated_at": "2026-05-06T17:46:51.241297"
+    },
+    {
+      "ticker": "000970",
+      "name": "한국주철관",
+      "price": 7090,
+      "change_rate": -2.88,
+      "breakout_date": "2026-04-27",
+      "resistance": 7200,
+      "days_since_breakout": 5,
+      "breakout_pct": -1.53,
+      "gain_since_breakout": -3.14,
+      "ma150": 6948,
+      "above_ma150": true,
+      "market_cap": 1617,
+      "success_prob": 30.5,
+      "predicted_gain": 10.0,
+      "ai_score": 30.3,
+      "updated_at": "2026-05-06T17:46:56.167418"
     },
     {
       "ticker": "443060",
@@ -113,26 +131,26 @@
       "success_prob": 25.5,
       "predicted_gain": 12.4,
       "ai_score": 29.0,
-      "updated_at": "2026-05-06T16:20:29.694087",
+      "updated_at": "2026-05-06T17:46:56.970659",
       "vs_breakout_close": 33.11
     },
     {
-      "ticker": "000970",
-      "name": "한국주철관",
-      "price": 7090,
-      "change_rate": -2.88,
-      "breakout_date": "2026-04-27",
-      "resistance": 7200,
-      "days_since_breakout": 5,
-      "breakout_pct": -1.53,
-      "gain_since_breakout": -3.14,
-      "ma150": 6948,
+      "ticker": "094280",
+      "name": "효성ITX",
+      "price": 12760,
+      "change_rate": -1.85,
+      "breakout_date": "2026-04-29",
+      "resistance": 12960,
+      "days_since_breakout": 3,
+      "breakout_pct": -1.54,
+      "gain_since_breakout": -3.33,
+      "ma150": 12682,
       "above_ma150": true,
-      "market_cap": 1617,
-      "success_prob": 18.7,
-      "predicted_gain": 10.4,
-      "ai_score": 22.5,
-      "updated_at": "2026-05-06T16:20:29.176795"
+      "market_cap": 1475,
+      "success_prob": 20.3,
+      "predicted_gain": 8.8,
+      "ai_score": 22.1,
+      "updated_at": "2026-05-06T17:46:56.882357"
     },
     {
       "ticker": "015230",
@@ -150,7 +168,7 @@
       "success_prob": 18.1,
       "predicted_gain": 9.5,
       "ai_score": 21.2,
-      "updated_at": "2026-05-06T16:20:22.571868"
+      "updated_at": "2026-05-06T17:46:46.144066"
     },
     {
       "ticker": "035000",
@@ -168,25 +186,7 @@
       "success_prob": 12.2,
       "predicted_gain": 10.4,
       "ai_score": 17.9,
-      "updated_at": "2026-05-06T16:20:19.736619"
-    },
-    {
-      "ticker": "453340",
-      "name": "현대그린푸드",
-      "price": 16900,
-      "change_rate": 3.36,
-      "breakout_date": "2026-05-06",
-      "resistance": 16540,
-      "days_since_breakout": 0,
-      "breakout_pct": 2.18,
-      "gain_since_breakout": 0.0,
-      "ma150": 15740,
-      "above_ma150": true,
-      "market_cap": 5493,
-      "success_prob": 10.0,
-      "predicted_gain": 11.3,
-      "ai_score": 17.2,
-      "updated_at": "2026-05-06T16:20:29.445694"
+      "updated_at": "2026-05-06T17:46:43.856976"
     },
     {
       "ticker": "108670",
@@ -204,43 +204,25 @@
       "success_prob": 6.1,
       "predicted_gain": 13.0,
       "ai_score": 16.0,
-      "updated_at": "2026-05-06T16:20:20.237053"
+      "updated_at": "2026-05-06T17:46:44.707759"
     },
     {
-      "ticker": "094280",
-      "name": "효성ITX",
-      "price": 12760,
-      "change_rate": -1.85,
-      "breakout_date": "2026-04-29",
-      "resistance": 12960,
-      "days_since_breakout": 3,
-      "breakout_pct": -1.54,
-      "gain_since_breakout": -3.33,
-      "ma150": 12682,
+      "ticker": "453340",
+      "name": "현대그린푸드",
+      "price": 16900,
+      "change_rate": 3.36,
+      "breakout_date": "2026-05-06",
+      "resistance": 16540,
+      "days_since_breakout": 0,
+      "breakout_pct": 2.18,
+      "gain_since_breakout": 0.0,
+      "ma150": 15740,
       "above_ma150": true,
-      "market_cap": 1475,
-      "success_prob": 9.1,
-      "predicted_gain": 9.2,
-      "ai_score": 14.6,
-      "updated_at": "2026-05-06T16:20:29.628903"
-    },
-    {
-      "ticker": "357120",
-      "name": "코람코라이프인프라리츠",
-      "price": 4395,
-      "change_rate": -4.14,
-      "breakout_date": "2026-04-22",
-      "resistance": 4715,
-      "days_since_breakout": 8,
-      "breakout_pct": -6.79,
-      "gain_since_breakout": -8.44,
-      "ma150": 4497,
-      "above_ma150": false,
-      "market_cap": 4278,
-      "success_prob": 9.1,
-      "predicted_gain": 6.4,
-      "ai_score": 12.1,
-      "updated_at": "2026-05-06T16:20:28.384103"
+      "market_cap": 5493,
+      "success_prob": 8.0,
+      "predicted_gain": 10.8,
+      "ai_score": 15.3,
+      "updated_at": "2026-05-06T17:46:56.598452"
     },
     {
       "ticker": "334890",
@@ -255,10 +237,28 @@
       "ma150": 4233,
       "above_ma150": false,
       "market_cap": 2788,
-      "success_prob": 6.1,
-      "predicted_gain": 8.0,
-      "ai_score": 11.5,
-      "updated_at": "2026-05-06T16:20:27.543984"
+      "success_prob": 11.7,
+      "predicted_gain": 7.5,
+      "ai_score": 15.0,
+      "updated_at": "2026-05-06T17:46:52.406968"
+    },
+    {
+      "ticker": "357120",
+      "name": "코람코라이프인프라리츠",
+      "price": 4395,
+      "change_rate": -4.14,
+      "breakout_date": "2026-04-22",
+      "resistance": 4715,
+      "days_since_breakout": 8,
+      "breakout_pct": -6.79,
+      "gain_since_breakout": -8.44,
+      "ma150": 4497,
+      "above_ma150": false,
+      "market_cap": 4278,
+      "success_prob": 6.3,
+      "predicted_gain": 6.2,
+      "ai_score": 10.0,
+      "updated_at": "2026-05-06T17:46:54.315820"
     }
   ]
 }
