@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-11T19:09:24.596650",
+    "lastUpdated": "2026-05-11T20:45:00.180119",
     "totalCount": 100,
     "screened_from": 1542
   },
@@ -19,22 +19,6 @@
       "per": null,
       "pbr": null,
       "ma150": 2592,
-      "above_ma150": true
-    },
-    {
-      "ticker": "007610",
-      "name": "선도전기",
-      "price": 12870,
-      "entry_price": 12870,
-      "change_rate": 30.0,
-      "since_return": 0.0,
-      "days_ago": 0,
-      "volume": 16902664,
-      "volume_ratio": 7.5,
-      "market_cap": 2317.0,
-      "per": 10.2,
-      "pbr": 1.43,
-      "ma150": 3339,
       "above_ma150": true
     },
     {
@@ -323,6 +307,22 @@
       "per": null,
       "pbr": 11.13,
       "ma150": 3477,
+      "above_ma150": true
+    },
+    {
+      "ticker": "096530",
+      "name": "씨젠",
+      "price": 28250,
+      "entry_price": 28250,
+      "change_rate": 15.78,
+      "since_return": 0.0,
+      "days_ago": 0,
+      "volume": 1761225,
+      "volume_ratio": 5.4,
+      "market_cap": 14754.0,
+      "per": null,
+      "pbr": 1.02,
+      "ma150": 24835,
       "above_ma150": true
     },
     {
@@ -1318,22 +1318,6 @@
       "above_ma150": true
     },
     {
-      "ticker": "092190",
-      "name": "서울바이오시스",
-      "price": 13610,
-      "entry_price": 11230,
-      "change_rate": 29.98,
-      "since_return": 21.19,
-      "days_ago": 4,
-      "volume": 1875104,
-      "volume_ratio": 2.1,
-      "market_cap": 6243.0,
-      "per": 23.4,
-      "pbr": 3.45,
-      "ma150": 3391,
-      "above_ma150": true
-    },
-    {
       "ticker": "321260",
       "name": "프로이천",
       "price": 4330,
@@ -1379,22 +1363,6 @@
       "per": 13.6,
       "pbr": 3.34,
       "ma150": 44410,
-      "above_ma150": true
-    },
-    {
-      "ticker": "007610",
-      "name": "선도전기",
-      "price": 12870,
-      "entry_price": 10980,
-      "change_rate": 29.94,
-      "since_return": 17.21,
-      "days_ago": 4,
-      "volume": 552967,
-      "volume_ratio": 1.0,
-      "market_cap": 2317.0,
-      "per": 10.2,
-      "pbr": 1.43,
-      "ma150": 3339,
       "above_ma150": true
     },
     {
@@ -1603,6 +1571,38 @@
       "per": 25.5,
       "pbr": 1.73,
       "ma150": 10518,
+      "above_ma150": true
+    },
+    {
+      "ticker": "100590",
+      "name": "머큐리",
+      "price": 10850,
+      "entry_price": 7410,
+      "change_rate": 19.52,
+      "since_return": 46.42,
+      "days_ago": 4,
+      "volume": 8637005,
+      "volume_ratio": 1.9,
+      "market_cap": 1860.0,
+      "per": null,
+      "pbr": 0.64,
+      "ma150": 4275,
+      "above_ma150": true
+    },
+    {
+      "ticker": "000500",
+      "name": "가온전선",
+      "price": 477000,
+      "entry_price": 288500,
+      "change_rate": 19.46,
+      "since_return": 65.34,
+      "days_ago": 4,
+      "volume": 225504,
+      "volume_ratio": 2.1,
+      "market_cap": 78911.0,
+      "per": 35.6,
+      "pbr": 3.92,
+      "ma150": 102939,
       "above_ma150": true
     }
   ]
