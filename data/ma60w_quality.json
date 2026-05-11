@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-05-08T21:20:56.293954",
-    "total_count": 4,
+    "updated_at": "2026-05-11T22:57:16.930823",
+    "total_count": 3,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -12,50 +12,38 @@
     {
       "ticker": "068270",
       "name": "셀트리온",
-      "current_price": 198400,
-      "ma60w": 189751,
-      "ma60w_gap": 4.56,
+      "current_price": 191300,
+      "ma60w": 189435,
+      "ma60w_gap": 0.98,
       "op_margin": 28.1,
       "op_growth_3y": 37.7,
-      "market_cap": 440326,
+      "market_cap": 424568,
       "sector": "기타",
-      "updated_at": "2026-05-08T21:20:48.989273"
-    },
-    {
-      "ticker": "011200",
-      "name": "HMM",
-      "current_price": 20600,
-      "ma60w": 20508,
-      "ma60w_gap": 0.45,
-      "op_margin": 13.4,
-      "op_growth_3y": 147.4,
-      "market_cap": 194307,
-      "sector": "기타",
-      "updated_at": "2026-05-08T21:20:48.995154"
+      "updated_at": "2026-05-11T22:57:09.774652"
     },
     {
       "ticker": "128940",
       "name": "한미약품",
-      "current_price": 436000,
-      "ma60w": 410756,
-      "ma60w_gap": 6.15,
+      "current_price": 423500,
+      "ma60w": 410181,
+      "ma60w_gap": 3.25,
       "op_margin": 14.0,
       "op_growth_3y": 10.8,
-      "market_cap": 55856,
+      "market_cap": 54255,
       "sector": "기타",
-      "updated_at": "2026-05-08T21:20:51.787153"
+      "updated_at": "2026-05-11T22:57:12.638269"
     },
     {
       "ticker": "000240",
       "name": "한국앤컴퍼니",
-      "current_price": 25100,
-      "ma60w": 23522,
-      "ma60w_gap": 6.71,
+      "current_price": 24650,
+      "ma60w": 23525,
+      "ma60w_gap": 4.78,
       "op_margin": 26.1,
       "op_growth_3y": 18.6,
-      "market_cap": 23829,
+      "market_cap": 23402,
       "sector": "기타",
-      "updated_at": "2026-05-08T21:20:56.278173"
+      "updated_at": "2026-05-11T22:57:16.914933"
     }
   ]
 }
