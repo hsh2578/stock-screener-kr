@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-13T13:31:21.228694",
+    "lastUpdated": "2026-05-13T15:07:36.902240",
     "totalCount": 5,
-    "screened_from": 1529
+    "screened_from": 1524
   },
   "data": [
     {
@@ -18,87 +18,87 @@
       "volume_ratio": 9.5,
       "ma150": 5003,
       "above_ma150": true,
-      "market_cap": 12196,
+      "market_cap": 12216,
       "success_prob": 76.5,
       "predicted_gain": 20.1,
       "ai_score": 71.6,
-      "updated_at": "2026-05-13T13:31:14.094454"
+      "updated_at": "2026-05-13T15:07:33.996341"
     },
     {
       "ticker": "357230",
       "name": "에이치피오",
-      "price": 2800,
-      "change_rate": 3.32,
+      "price": 2775,
+      "change_rate": 2.4,
       "breakout_date": "2026-04-30",
       "days_since_breakout": 7,
       "breakout_price": 2605,
-      "breakout_pct": 7.49,
-      "gain_since_breakout": 0.36,
+      "breakout_pct": 6.53,
+      "gain_since_breakout": -0.54,
       "volume_ratio": 207.2,
       "ma150": 2480,
       "above_ma150": true,
-      "market_cap": 1156,
+      "market_cap": 1146,
       "success_prob": 53.6,
       "predicted_gain": 16.2,
       "ai_score": 52.1,
-      "updated_at": "2026-05-13T13:31:18.373735"
+      "updated_at": "2026-05-13T15:07:35.477647"
     },
     {
       "ticker": "408920",
       "name": "메쎄이상",
-      "price": 3510,
-      "change_rate": 2.18,
+      "price": 3490,
+      "change_rate": 1.6,
       "breakout_date": "2026-05-08",
       "days_since_breakout": 3,
       "breakout_price": 3630,
-      "breakout_pct": -3.31,
-      "gain_since_breakout": -4.75,
+      "breakout_pct": -3.86,
+      "gain_since_breakout": -5.29,
       "volume_ratio": 2.2,
       "ma150": 3254,
       "above_ma150": true,
-      "market_cap": 1517,
+      "market_cap": 1509,
       "success_prob": 40.8,
       "predicted_gain": 10.3,
       "ai_score": 37.8,
-      "updated_at": "2026-05-13T13:31:16.061923"
+      "updated_at": "2026-05-13T15:07:34.383849"
     },
     {
       "ticker": "108670",
       "name": "LX하우시스",
-      "price": 38750,
-      "change_rate": -0.13,
+      "price": 38550,
+      "change_rate": -0.64,
       "breakout_date": "2026-04-28",
       "days_since_breakout": 9,
       "breakout_price": 32450,
-      "breakout_pct": 19.41,
-      "gain_since_breakout": 16.19,
+      "breakout_pct": 18.8,
+      "gain_since_breakout": 15.59,
       "volume_ratio": 3.4,
-      "ma150": 30089,
+      "ma150": 30087,
       "above_ma150": true,
-      "market_cap": 3475,
+      "market_cap": 3457,
       "success_prob": 15.4,
       "predicted_gain": 11.0,
       "ai_score": 20.6,
-      "updated_at": "2026-05-13T13:31:14.008948"
+      "updated_at": "2026-05-13T15:07:33.953272"
     },
     {
       "ticker": "453340",
       "name": "현대그린푸드",
-      "price": 17870,
-      "change_rate": -2.56,
+      "price": 18120,
+      "change_rate": -1.2,
       "breakout_date": "2026-05-06",
       "days_since_breakout": 5,
       "breakout_price": 16540,
-      "breakout_pct": 8.04,
-      "gain_since_breakout": 5.74,
+      "breakout_pct": 9.55,
+      "gain_since_breakout": 7.22,
       "volume_ratio": 18.6,
-      "ma150": 15851,
+      "ma150": 15853,
       "above_ma150": true,
-      "market_cap": 5815,
+      "market_cap": 5893,
       "success_prob": 8.0,
       "predicted_gain": 10.8,
       "ai_score": 15.3,
-      "updated_at": "2026-05-13T13:31:20.944721"
+      "updated_at": "2026-05-13T15:07:36.831471"
     }
   ]
 }
