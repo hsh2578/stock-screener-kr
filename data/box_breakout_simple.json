@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-14T18:19:15.763402",
+    "lastUpdated": "2026-05-14T19:43:19.146598",
     "totalCount": 8,
     "screened_from": 1523
   },
@@ -21,7 +21,7 @@
       "success_prob": 72.4,
       "predicted_gain": 23.1,
       "ai_score": 71.5,
-      "updated_at": "2026-05-14T18:19:11.796280"
+      "updated_at": "2026-05-14T19:43:09.301521"
     },
     {
       "ticker": "408920",
@@ -39,7 +39,7 @@
       "success_prob": 59.3,
       "predicted_gain": 10.4,
       "ai_score": 50.9,
-      "updated_at": "2026-05-14T18:19:15.762156",
+      "updated_at": "2026-05-14T19:43:19.141881",
       "vs_breakout_close": -5.56
     },
     {
@@ -58,8 +58,26 @@
       "success_prob": 42.2,
       "predicted_gain": 17.7,
       "ai_score": 45.5,
-      "updated_at": "2026-05-14T18:19:15.762852",
+      "updated_at": "2026-05-14T19:43:19.145594",
       "vs_breakout_close": 6.09
+    },
+    {
+      "ticker": "094280",
+      "name": "효성ITX",
+      "price": 12760,
+      "change_rate": 1.75,
+      "breakout_date": "2026-04-29",
+      "resistance": 12990,
+      "days_since_breakout": 9,
+      "breakout_pct": -1.77,
+      "gain_since_breakout": -3.33,
+      "ma150": 12673,
+      "above_ma150": true,
+      "market_cap": 1475,
+      "success_prob": 33.1,
+      "predicted_gain": 8.5,
+      "ai_score": 30.8,
+      "updated_at": "2026-05-14T19:43:19.011579"
     },
     {
       "ticker": "015230",
@@ -77,25 +95,7 @@
       "success_prob": 18.1,
       "predicted_gain": 9.5,
       "ai_score": 21.2,
-      "updated_at": "2026-05-14T18:19:12.594239"
-    },
-    {
-      "ticker": "094280",
-      "name": "효성ITX",
-      "price": 12760,
-      "change_rate": 1.75,
-      "breakout_date": "2026-04-29",
-      "resistance": 12990,
-      "days_since_breakout": 9,
-      "breakout_pct": -1.77,
-      "gain_since_breakout": -3.33,
-      "ma150": 12673,
-      "above_ma150": true,
-      "market_cap": 1475,
-      "success_prob": 14.5,
-      "predicted_gain": 8.9,
-      "ai_score": 18.1,
-      "updated_at": "2026-05-14T18:19:15.721109"
+      "updated_at": "2026-05-14T19:43:10.415619"
     },
     {
       "ticker": "035000",
@@ -113,25 +113,7 @@
       "success_prob": 12.2,
       "predicted_gain": 10.4,
       "ai_score": 17.9,
-      "updated_at": "2026-05-14T18:19:10.174850"
-    },
-    {
-      "ticker": "453340",
-      "name": "현대그린푸드",
-      "price": 18510,
-      "change_rate": 2.27,
-      "breakout_date": "2026-05-06",
-      "resistance": 16540,
-      "days_since_breakout": 6,
-      "breakout_pct": 11.91,
-      "gain_since_breakout": 9.53,
-      "ma150": 15875,
-      "above_ma150": true,
-      "market_cap": 6016,
-      "success_prob": 10.0,
-      "predicted_gain": 11.3,
-      "ai_score": 17.2,
-      "updated_at": "2026-05-14T18:19:15.594449"
+      "updated_at": "2026-05-14T19:43:07.564509"
     },
     {
       "ticker": "108670",
@@ -149,7 +131,25 @@
       "success_prob": 6.7,
       "predicted_gain": 13.0,
       "ai_score": 16.4,
-      "updated_at": "2026-05-14T18:19:11.580447"
+      "updated_at": "2026-05-14T19:43:09.062169"
+    },
+    {
+      "ticker": "453340",
+      "name": "현대그린푸드",
+      "price": 18510,
+      "change_rate": 2.27,
+      "breakout_date": "2026-05-06",
+      "resistance": 16540,
+      "days_since_breakout": 6,
+      "breakout_pct": 11.91,
+      "gain_since_breakout": 9.53,
+      "ma150": 15875,
+      "above_ma150": true,
+      "market_cap": 6016,
+      "success_prob": 8.0,
+      "predicted_gain": 10.8,
+      "ai_score": 15.3,
+      "updated_at": "2026-05-14T19:43:18.717418"
     }
   ]
 }
