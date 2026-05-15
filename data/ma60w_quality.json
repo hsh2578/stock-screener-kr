@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-05-14T22:04:52.202502",
-    "total_count": 6,
+    "updated_at": "2026-05-15T22:06:25.262353",
+    "total_count": 3,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -10,76 +10,40 @@
   },
   "data": [
     {
-      "ticker": "068270",
-      "name": "셀트리온",
-      "current_price": 195100,
-      "ma60w": 190191,
-      "ma60w_gap": 2.58,
-      "op_margin": 28.1,
-      "op_growth_3y": 37.7,
-      "market_cap": 433002,
+      "ticker": "000240",
+      "name": "한국앤컴퍼니",
+      "current_price": 25450,
+      "ma60w": 23503,
+      "ma60w_gap": 8.28,
+      "op_margin": 26.1,
+      "op_growth_3y": 18.6,
+      "market_cap": 24161,
       "sector": "기타",
-      "updated_at": "2026-05-14T22:04:41.592225"
-    },
-    {
-      "ticker": "259960",
-      "name": "크래프톤",
-      "current_price": 293500,
-      "ma60w": 287118,
-      "ma60w_gap": 2.22,
-      "op_margin": 31.7,
-      "op_growth_3y": 14.4,
-      "market_cap": 139143,
-      "sector": "기타",
-      "updated_at": "2026-05-14T22:04:41.601743"
-    },
-    {
-      "ticker": "128940",
-      "name": "한미약품",
-      "current_price": 449500,
-      "ma60w": 412067,
-      "ma60w_gap": 9.08,
-      "op_margin": 14.0,
-      "op_growth_3y": 10.8,
-      "market_cap": 57585,
-      "sector": "기타",
-      "updated_at": "2026-05-14T22:04:44.272339"
+      "updated_at": "2026-05-15T22:06:21.581626"
     },
     {
       "ticker": "112610",
       "name": "씨에스윈드",
-      "current_price": 55300,
-      "ma60w": 50988,
-      "ma60w_gap": 8.46,
+      "current_price": 52800,
+      "ma60w": 50986,
+      "ma60w_gap": 3.56,
       "op_margin": 10.1,
       "op_growth_3y": 101.5,
-      "market_cap": 23321,
+      "market_cap": 22267,
       "sector": "기타",
-      "updated_at": "2026-05-14T22:04:48.643947"
-    },
-    {
-      "ticker": "000240",
-      "name": "한국앤컴퍼니",
-      "current_price": 24400,
-      "ma60w": 23538,
-      "ma60w_gap": 3.66,
-      "op_margin": 26.1,
-      "op_growth_3y": 18.6,
-      "market_cap": 23164,
-      "sector": "기타",
-      "updated_at": "2026-05-14T22:04:48.644262"
+      "updated_at": "2026-05-15T22:06:21.583300"
     },
     {
       "ticker": "395400",
       "name": "SK리츠",
-      "current_price": 5780,
-      "ma60w": 5547,
-      "ma60w_gap": 4.19,
+      "current_price": 5790,
+      "ma60w": 5553,
+      "ma60w_gap": 4.26,
       "op_margin": 90.7,
       "op_growth_3y": 96.3,
-      "market_cap": 17399,
+      "market_cap": 17429,
       "sector": "기타",
-      "updated_at": "2026-05-14T22:04:52.191627"
+      "updated_at": "2026-05-15T22:06:25.250130"
     }
   ]
 }
