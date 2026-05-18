@@ -1,28 +1,47 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-18T13:53:15.391816",
-    "totalCount": 1,
+    "lastUpdated": "2026-05-18T15:42:28.332003",
+    "totalCount": 2,
     "screened_from": 1495
   },
   "data": [
     {
       "ticker": "032640",
       "name": "LG유플러스",
-      "current_price": 15720,
-      "volume": 1373348,
-      "ma10w": 16168,
-      "ma20w": 15953,
-      "ma60w": 14756,
-      "ma20d": 16208,
-      "ma60d": 16079,
-      "ma120d": 15725,
-      "gap_20_60": 0.8,
-      "gap_20_120": 3.07,
-      "gap_60_120": 2.25,
-      "gap_price_20": 3.01,
+      "current_price": 15600,
+      "volume": 1437856,
+      "ma10w": 16156,
+      "ma20w": 15947,
+      "ma60w": 14754,
+      "ma20d": 16202,
+      "ma60d": 16077,
+      "ma120d": 15724,
+      "gap_20_60": 0.78,
+      "gap_20_120": 3.04,
+      "gap_60_120": 2.24,
+      "gap_price_20": 3.72,
       "weeks_since_high": 13,
-      "market_cap": 67397,
-      "updated_at": "2026-05-18T13:53:06.679361"
+      "market_cap": 67053,
+      "updated_at": "2026-05-18T15:42:19.567300"
+    },
+    {
+      "ticker": "095570",
+      "name": "AJ네트웍스",
+      "current_price": 4790,
+      "volume": 342371,
+      "ma10w": 5063,
+      "ma20w": 5042,
+      "ma60w": 4478,
+      "ma20d": 4993,
+      "ma60d": 5062,
+      "ma120d": 4919,
+      "gap_20_60": 1.38,
+      "gap_20_120": 1.5,
+      "gap_60_120": 2.92,
+      "gap_price_20": 4.07,
+      "weeks_since_high": 16,
+      "market_cap": 2168,
+      "updated_at": "2026-05-18T15:42:17.950106"
     }
   ]
 }
