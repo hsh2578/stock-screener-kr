@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-18T17:35:13.602652",
+    "lastUpdated": "2026-05-18T19:49:27.809875",
     "totalCount": 7,
     "screened_from": 1495
   },
@@ -21,7 +21,7 @@
       "success_prob": 72.4,
       "predicted_gain": 23.1,
       "ai_score": 71.5,
-      "updated_at": "2026-05-18T17:35:04.738547"
+      "updated_at": "2026-05-18T19:49:16.220477"
     },
     {
       "ticker": "001800",
@@ -39,7 +39,7 @@
       "success_prob": 65.3,
       "predicted_gain": 18.8,
       "ai_score": 62.6,
-      "updated_at": "2026-05-18T17:35:10.943759"
+      "updated_at": "2026-05-18T19:49:22.576071"
     },
     {
       "ticker": "408920",
@@ -57,7 +57,7 @@
       "success_prob": 59.3,
       "predicted_gain": 10.4,
       "ai_score": 50.9,
-      "updated_at": "2026-05-18T17:35:13.599383",
+      "updated_at": "2026-05-18T19:49:27.806658",
       "vs_breakout_close": 0.54
     },
     {
@@ -76,7 +76,7 @@
       "success_prob": 42.2,
       "predicted_gain": 17.7,
       "ai_score": 45.5,
-      "updated_at": "2026-05-18T17:35:13.600244",
+      "updated_at": "2026-05-18T19:49:27.807634",
       "vs_breakout_close": -0.18
     },
     {
@@ -95,26 +95,8 @@
       "success_prob": 18.1,
       "predicted_gain": 9.5,
       "ai_score": 21.2,
-      "updated_at": "2026-05-18T17:35:13.601070",
+      "updated_at": "2026-05-18T19:49:27.808373",
       "vs_breakout_close": -9.04
-    },
-    {
-      "ticker": "453340",
-      "name": "현대그린푸드",
-      "price": 18510,
-      "change_rate": 0.71,
-      "breakout_date": "2026-05-06",
-      "resistance": 16540,
-      "days_since_breakout": 8,
-      "breakout_pct": 11.91,
-      "gain_since_breakout": 9.53,
-      "ma150": 15919,
-      "above_ma150": true,
-      "market_cap": 6010,
-      "success_prob": 11.6,
-      "predicted_gain": 11.3,
-      "ai_score": 18.3,
-      "updated_at": "2026-05-18T17:35:13.274494"
     },
     {
       "ticker": "035000",
@@ -132,8 +114,26 @@
       "success_prob": 12.2,
       "predicted_gain": 10.4,
       "ai_score": 17.9,
-      "updated_at": "2026-05-18T17:35:13.601819",
+      "updated_at": "2026-05-18T19:49:27.809104",
       "vs_breakout_close": -16.57
+    },
+    {
+      "ticker": "453340",
+      "name": "현대그린푸드",
+      "price": 18510,
+      "change_rate": 0.71,
+      "breakout_date": "2026-05-06",
+      "resistance": 16540,
+      "days_since_breakout": 8,
+      "breakout_pct": 11.91,
+      "gain_since_breakout": 9.53,
+      "ma150": 15919,
+      "above_ma150": true,
+      "market_cap": 6010,
+      "success_prob": 9.9,
+      "predicted_gain": 10.7,
+      "ai_score": 16.6,
+      "updated_at": "2026-05-18T19:49:26.631738"
     }
   ]
 }
