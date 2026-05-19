@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-19T13:43:37.084870",
+    "lastUpdated": "2026-05-19T15:37:21.617135",
     "totalCount": 5,
-    "screened_from": 1478
+    "screened_from": 1483
   },
   "data": [
     {
       "ticker": "001740",
       "name": "SK네트웍스",
-      "price": 8050,
-      "change_rate": -2.42,
+      "price": 8200,
+      "change_rate": -0.61,
       "breakout_date": "2026-05-04",
       "resistance": 5970,
       "days_since_breakout": 10,
@@ -17,36 +17,36 @@
       "gain_since_breakout": 25.19,
       "ma150": 5080,
       "above_ma150": true,
-      "market_cap": 16108,
+      "market_cap": 16449,
       "success_prob": 72.4,
       "predicted_gain": 23.1,
       "ai_score": 71.5,
-      "updated_at": "2026-05-19T13:43:37.082282",
-      "vs_breakout_close": 22.15
+      "updated_at": "2026-05-19T15:37:21.614787",
+      "vs_breakout_close": 24.43
     },
     {
       "ticker": "001800",
       "name": "오리온홀딩스",
-      "price": 25200,
-      "change_rate": -2.7,
+      "price": 25000,
+      "change_rate": -3.47,
       "breakout_date": "2026-05-15",
       "resistance": 25850,
       "days_since_breakout": 2,
-      "breakout_pct": -2.51,
-      "gain_since_breakout": -10.95,
-      "ma150": 21982,
+      "breakout_pct": -3.29,
+      "gain_since_breakout": -11.66,
+      "ma150": 21981,
       "above_ma150": true,
-      "market_cap": 15755,
+      "market_cap": 15661,
       "success_prob": 65.3,
       "predicted_gain": 18.8,
       "ai_score": 62.6,
-      "updated_at": "2026-05-19T13:43:34.981857"
+      "updated_at": "2026-05-19T15:37:19.463411"
     },
     {
       "ticker": "408920",
       "name": "메쎄이상",
-      "price": 3555,
-      "change_rate": -4.05,
+      "price": 3565,
+      "change_rate": -3.78,
       "breakout_date": "2026-05-08",
       "resistance": 3630,
       "days_since_breakout": 7,
@@ -54,12 +54,12 @@
       "gain_since_breakout": -5.83,
       "ma150": 3254,
       "above_ma150": true,
-      "market_cap": 1533,
+      "market_cap": 1541,
       "success_prob": 59.3,
       "predicted_gain": 10.4,
       "ai_score": 50.9,
-      "updated_at": "2026-05-19T13:43:37.083160",
-      "vs_breakout_close": -3.53
+      "updated_at": "2026-05-19T15:37:21.615683",
+      "vs_breakout_close": -3.26
     },
     {
       "ticker": "015230",
@@ -77,26 +77,26 @@
       "success_prob": 18.1,
       "predicted_gain": 9.5,
       "ai_score": 21.2,
-      "updated_at": "2026-05-19T13:43:37.083932",
+      "updated_at": "2026-05-19T15:37:21.616321",
       "vs_breakout_close": -10.41
     },
     {
       "ticker": "453340",
       "name": "현대그린푸드",
-      "price": 18440,
-      "change_rate": -0.38,
+      "price": 18130,
+      "change_rate": -2.05,
       "breakout_date": "2026-05-06",
       "resistance": 16540,
       "days_since_breakout": 9,
-      "breakout_pct": 11.49,
-      "gain_since_breakout": 9.11,
-      "ma150": 15942,
+      "breakout_pct": 9.61,
+      "gain_since_breakout": 7.28,
+      "ma150": 15940,
       "above_ma150": true,
-      "market_cap": 5985,
+      "market_cap": 5887,
       "success_prob": 9.2,
       "predicted_gain": 11.3,
       "ai_score": 16.6,
-      "updated_at": "2026-05-19T13:43:36.791960"
+      "updated_at": "2026-05-19T15:37:21.390097"
     }
   ]
 }
