@@ -1,34 +1,34 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-20T13:46:09.288410",
+    "lastUpdated": "2026-05-20T15:35:52.503328",
     "totalCount": 3,
-    "screened_from": 1458
+    "screened_from": 1461
   },
   "data": [
     {
       "ticker": "001800",
       "name": "오리온홀딩스",
-      "price": 24350,
-      "change_rate": -2.6,
+      "price": 24500,
+      "change_rate": -2.0,
       "breakout_date": "2026-05-15",
       "days_since_breakout": 3,
       "breakout_price": 25850,
-      "breakout_pct": -5.8,
-      "gain_since_breakout": -13.96,
+      "breakout_pct": -5.22,
+      "gain_since_breakout": -13.43,
       "volume_ratio": 13.8,
-      "ma150": 22009,
+      "ma150": 22010,
       "above_ma150": true,
-      "market_cap": 15285,
+      "market_cap": 15348,
       "success_prob": 54.5,
       "predicted_gain": 16.9,
       "ai_score": 53.4,
-      "updated_at": "2026-05-20T13:46:07.337299"
+      "updated_at": "2026-05-20T15:35:50.961860"
     },
     {
       "ticker": "408920",
       "name": "메쎄이상",
-      "price": 3475,
-      "change_rate": -2.52,
+      "price": 3490,
+      "change_rate": -2.1,
       "breakout_date": "2026-05-08",
       "days_since_breakout": 8,
       "breakout_price": 3630,
@@ -37,31 +37,31 @@
       "volume_ratio": 2.2,
       "ma150": 3254,
       "above_ma150": true,
-      "market_cap": 1502,
+      "market_cap": 1509,
       "success_prob": 40.8,
       "predicted_gain": 10.3,
       "ai_score": 37.8,
-      "updated_at": "2026-05-20T13:46:09.251964",
-      "vs_breakout_close": -5.7
+      "updated_at": "2026-05-20T15:35:52.501924",
+      "vs_breakout_close": -5.29
     },
     {
       "ticker": "453340",
       "name": "현대그린푸드",
-      "price": 17840,
-      "change_rate": -1.6,
+      "price": 18060,
+      "change_rate": -0.39,
       "breakout_date": "2026-05-06",
       "days_since_breakout": 10,
       "breakout_price": 16540,
-      "breakout_pct": 7.86,
-      "gain_since_breakout": 5.56,
+      "breakout_pct": 9.19,
+      "gain_since_breakout": 6.86,
       "volume_ratio": 18.6,
-      "ma150": 15957,
+      "ma150": 15959,
       "above_ma150": true,
-      "market_cap": 5793,
+      "market_cap": 5864,
       "success_prob": 7.9,
       "predicted_gain": 10.7,
       "ai_score": 15.2,
-      "updated_at": "2026-05-20T13:46:08.993025"
+      "updated_at": "2026-05-20T15:35:52.420417"
     }
   ]
 }

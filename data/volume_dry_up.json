@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-20T13:46:01.652692",
-    "totalCount": 5,
-    "screened_from": 1458
+    "lastUpdated": "2026-05-20T15:35:44.222870",
+    "totalCount": 3,
+    "screened_from": 1461
   },
   "data": [
     {
       "ticker": "041830",
       "name": "인바디",
-      "price": 43700,
-      "change_rate": -1.35,
+      "price": 43350,
+      "change_rate": -2.14,
       "explosion_date": "2026-05-11",
       "explosion_change_rate": 17.9,
       "explosion_volume_ratio": 16.1,
@@ -20,14 +20,14 @@
       "volume_rank": 1,
       "ma150": 31180,
       "above_ma150": true,
-      "market_cap": 5864,
-      "updated_at": "2026-05-20T13:46:00.644907"
+      "market_cap": 5844,
+      "updated_at": "2026-05-20T15:35:44.220219"
     },
     {
       "ticker": "145020",
       "name": "휴젤",
-      "price": 251000,
-      "change_rate": -5.46,
+      "price": 254000,
+      "change_rate": -4.33,
       "explosion_date": "2026-05-08",
       "explosion_change_rate": 12.3,
       "explosion_volume_ratio": 5.3,
@@ -38,62 +38,26 @@
       "volume_rank": 2,
       "ma150": 250763,
       "above_ma150": true,
-      "market_cap": 30945,
-      "updated_at": "2026-05-20T13:46:01.648474"
+      "market_cap": 31252,
+      "updated_at": "2026-05-20T15:35:44.221103"
     },
     {
-      "ticker": "383220",
-      "name": "F&F",
-      "price": 76500,
-      "change_rate": -3.16,
-      "explosion_date": "2026-05-04",
-      "explosion_change_rate": 14.5,
-      "explosion_volume_ratio": 6.0,
-      "days_since_detected": 11,
-      "volume_decrease_rate": 80,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.22,
-      "volume_rank": 3,
-      "ma150": 68802,
-      "above_ma150": true,
-      "market_cap": 29305,
-      "updated_at": "2026-05-20T13:45:59.202567"
-    },
-    {
-      "ticker": "357230",
-      "name": "에이치피오",
-      "price": 2730,
-      "change_rate": -0.36,
+      "ticker": "006340",
+      "name": "대원전선",
+      "price": 13540,
+      "change_rate": -3.84,
       "explosion_date": "2026-04-30",
-      "explosion_change_rate": 10.1,
-      "explosion_volume_ratio": 207.2,
+      "explosion_change_rate": 15.0,
+      "explosion_volume_ratio": 3.0,
       "days_since_detected": 12,
-      "volume_decrease_rate": 97,
+      "volume_decrease_rate": 91,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.65,
-      "volume_rank": 4,
-      "ma150": 2482,
+      "ma20_distance": 0.45,
+      "volume_rank": 3,
+      "ma150": 5532,
       "above_ma150": true,
-      "market_cap": 1127,
-      "updated_at": "2026-05-20T13:46:00.524546"
-    },
-    {
-      "ticker": "439090",
-      "name": "마녀공장",
-      "price": 15990,
-      "change_rate": -8.05,
-      "explosion_date": "2026-04-24",
-      "explosion_change_rate": 23.0,
-      "explosion_volume_ratio": 68.3,
-      "days_since_detected": 16,
-      "volume_decrease_rate": 84,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.66,
-      "volume_rank": 5,
-      "ma150": 14288,
-      "above_ma150": true,
-      "market_cap": 2623,
-      "updated_at": "2026-05-20T13:45:59.792508"
+      "market_cap": 10617,
+      "updated_at": "2026-05-20T15:35:42.635702"
     }
   ]
 }
