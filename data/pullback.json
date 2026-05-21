@@ -1,8 +1,23 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-20T20:27:18.101383",
-    "totalCount": 0,
-    "screened_from": 1461
+    "lastUpdated": "2026-05-21T13:53:34.897503",
+    "totalCount": 1,
+    "screened_from": 1476
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "000430",
+      "name": "대원강업",
+      "price": 4290,
+      "change_rate": 3.75,
+      "breakout_date": "2026-05-15",
+      "resistance": 4445,
+      "pullback_ratio": 3.49,
+      "volume_decrease": 67,
+      "ma150": 4073,
+      "above_ma150": true,
+      "market_cap": 2663,
+      "updated_at": "2026-05-21T13:53:33.865305"
+    }
+  ]
 }
