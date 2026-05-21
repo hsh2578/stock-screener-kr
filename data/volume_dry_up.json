@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-21T13:53:39.015325",
-    "totalCount": 4,
-    "screened_from": 1476
+    "lastUpdated": "2026-05-21T15:38:46.607049",
+    "totalCount": 2,
+    "screened_from": 1470
   },
   "data": [
     {
@@ -21,13 +21,13 @@
       "ma150": 31180,
       "above_ma150": true,
       "market_cap": 5709,
-      "updated_at": "2026-05-21T13:53:39.013755"
+      "updated_at": "2026-05-21T15:38:46.601344"
     },
     {
       "ticker": "145020",
       "name": "휴젤",
-      "price": 258000,
-      "change_rate": 1.57,
+      "price": 259000,
+      "change_rate": 1.97,
       "explosion_date": "2026-05-08",
       "explosion_change_rate": 12.3,
       "explosion_volume_ratio": 5.3,
@@ -38,44 +38,8 @@
       "volume_rank": 2,
       "ma150": 250763,
       "above_ma150": true,
-      "market_cap": 31744,
-      "updated_at": "2026-05-21T13:53:39.014518"
-    },
-    {
-      "ticker": "383220",
-      "name": "F&F",
-      "price": 76500,
-      "change_rate": -0.39,
-      "explosion_date": "2026-05-04",
-      "explosion_change_rate": 14.5,
-      "explosion_volume_ratio": 6.0,
-      "days_since_detected": 12,
-      "volume_decrease_rate": 77,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.61,
-      "volume_rank": 3,
-      "ma150": 68891,
-      "above_ma150": true,
-      "market_cap": 29382,
-      "updated_at": "2026-05-21T13:53:36.610254"
-    },
-    {
-      "ticker": "439090",
-      "name": "마녀공장",
-      "price": 16230,
-      "change_rate": 0.06,
-      "explosion_date": "2026-04-24",
-      "explosion_change_rate": 23.0,
-      "explosion_volume_ratio": 68.3,
-      "days_since_detected": 17,
-      "volume_decrease_rate": 83,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.07,
-      "volume_rank": 4,
-      "ma150": 14290,
-      "above_ma150": true,
-      "market_cap": 2661,
-      "updated_at": "2026-05-21T13:53:37.594350"
+      "market_cap": 31867,
+      "updated_at": "2026-05-21T15:38:46.604323"
     }
   ]
 }
