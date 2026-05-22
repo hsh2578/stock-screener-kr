@@ -1,46 +1,46 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-21T20:44:00.700696",
+    "lastUpdated": "2026-05-22T13:45:14.650740",
     "totalCount": 2,
-    "screened_from": 1470
+    "screened_from": 1499
   },
   "data": [
     {
       "ticker": "001800",
       "name": "오리온홀딩스",
-      "price": 24700,
-      "change_rate": 0.82,
+      "price": 25200,
+      "change_rate": 2.02,
       "breakout_date": "2026-05-15",
       "resistance": 25850,
-      "days_since_breakout": 4,
-      "breakout_pct": -4.45,
-      "gain_since_breakout": -12.72,
-      "ma150": 22044,
+      "days_since_breakout": 5,
+      "breakout_pct": -2.51,
+      "gain_since_breakout": -10.95,
+      "ma150": 22082,
       "above_ma150": true,
-      "market_cap": 15473,
+      "market_cap": 15787,
       "success_prob": 65.3,
       "predicted_gain": 18.8,
       "ai_score": 62.6,
-      "updated_at": "2026-05-21T20:43:58.602620"
+      "updated_at": "2026-05-22T13:45:12.044565"
     },
     {
       "ticker": "408920",
       "name": "메쎄이상",
-      "price": 3400,
-      "change_rate": -2.58,
+      "price": 3460,
+      "change_rate": 1.76,
       "breakout_date": "2026-05-08",
       "resistance": 3630,
-      "days_since_breakout": 9,
+      "days_since_breakout": 10,
       "breakout_pct": -4.41,
       "gain_since_breakout": -5.83,
       "ma150": 3254,
       "above_ma150": true,
-      "market_cap": 1470,
+      "market_cap": 1496,
       "success_prob": 59.3,
       "predicted_gain": 10.4,
       "ai_score": 50.9,
-      "updated_at": "2026-05-21T20:44:00.699125",
-      "vs_breakout_close": -7.73
+      "updated_at": "2026-05-22T13:45:14.649859",
+      "vs_breakout_close": -6.11
     }
   ]
 }
