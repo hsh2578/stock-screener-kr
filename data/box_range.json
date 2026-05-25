@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-25T15:57:01.500324",
-    "totalCount": 9,
+    "lastUpdated": "2026-05-25T17:49:35.865316",
+    "totalCount": 11,
     "screened_from": 1500
   },
   "data": [
@@ -23,7 +23,7 @@
       "days": 62,
       "ma150": 102533,
       "above_ma150": true,
-      "updated_at": "2026-05-25T15:56:58.638734"
+      "updated_at": "2026-05-25T17:49:32.690878"
     },
     {
       "ticker": "034590",
@@ -43,7 +43,7 @@
       "days": 74,
       "ma150": 26386,
       "above_ma150": true,
-      "updated_at": "2026-05-25T15:57:00.265908"
+      "updated_at": "2026-05-25T17:49:34.014738"
     },
     {
       "ticker": "267290",
@@ -63,7 +63,7 @@
       "days": 87,
       "ma150": 21712,
       "above_ma150": true,
-      "updated_at": "2026-05-25T15:56:58.240980"
+      "updated_at": "2026-05-25T17:49:32.120106"
     },
     {
       "ticker": "009680",
@@ -83,7 +83,7 @@
       "days": 200,
       "ma150": 10721,
       "above_ma150": false,
-      "updated_at": "2026-05-25T15:56:58.978154"
+      "updated_at": "2026-05-25T17:49:33.002225"
     },
     {
       "ticker": "102260",
@@ -103,7 +103,27 @@
       "days": 200,
       "ma150": 4251,
       "above_ma150": false,
-      "updated_at": "2026-05-25T15:56:58.689383"
+      "updated_at": "2026-05-25T17:49:32.755118"
+    },
+    {
+      "ticker": "002620",
+      "name": "제일파마홀딩스",
+      "price": 8610,
+      "change_rate": 1.89,
+      "market_cap": 1375,
+      "box_high": 9280,
+      "box_low": 8010,
+      "range_percent": 15.86,
+      "atr": 3.76,
+      "atr_multiple": 4.22,
+      "support_touches": 3,
+      "resistance_touches": 2,
+      "slope_daily": -0.029,
+      "volume_decrease_rate": 40.24,
+      "days": 133,
+      "ma150": 8334,
+      "above_ma150": true,
+      "updated_at": "2026-05-25T17:49:34.131908"
     },
     {
       "ticker": "225570",
@@ -123,7 +143,7 @@
       "days": 74,
       "ma150": 12239,
       "above_ma150": false,
-      "updated_at": "2026-05-25T15:56:58.531492"
+      "updated_at": "2026-05-25T17:49:32.325151"
     },
     {
       "ticker": "090350",
@@ -143,7 +163,7 @@
       "days": 167,
       "ma150": 8515,
       "above_ma150": false,
-      "updated_at": "2026-05-25T15:56:58.545573"
+      "updated_at": "2026-05-25T17:49:32.364576"
     },
     {
       "ticker": "096760",
@@ -163,7 +183,7 @@
       "days": 131,
       "ma150": 3835,
       "above_ma150": true,
-      "updated_at": "2026-05-25T15:56:58.025625"
+      "updated_at": "2026-05-25T17:49:31.854798"
     },
     {
       "ticker": "032640",
@@ -183,7 +203,27 @@
       "days": 200,
       "ma150": 15631,
       "above_ma150": true,
-      "updated_at": "2026-05-25T15:56:58.077996"
+      "updated_at": "2026-05-25T17:49:31.923397"
+    },
+    {
+      "ticker": "051160",
+      "name": "지어소프트",
+      "price": 7670,
+      "change_rate": 2.82,
+      "market_cap": 1187,
+      "box_high": 8180,
+      "box_low": 6640,
+      "range_percent": 23.19,
+      "atr": 4.24,
+      "atr_multiple": 5.47,
+      "support_touches": 1,
+      "resistance_touches": 2,
+      "slope_daily": -0.0133,
+      "volume_decrease_rate": 25.61,
+      "days": 183,
+      "ma150": 7482,
+      "above_ma150": true,
+      "updated_at": "2026-05-25T17:49:34.319856"
     }
   ]
 }

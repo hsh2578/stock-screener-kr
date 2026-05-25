@@ -1,26 +1,10 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-25T15:57:02.340953",
+    "lastUpdated": "2026-05-25T17:49:37.387846",
     "totalCount": 100,
     "screened_from": 1500
   },
   "data": [
-    {
-      "ticker": "007390",
-      "name": "네이처셀",
-      "price": 22500,
-      "entry_price": 22500,
-      "change_rate": 29.98,
-      "since_return": 0.0,
-      "days_ago": 0,
-      "volume": 109151,
-      "volume_ratio": 0.3,
-      "market_cap": 14498.0,
-      "per": 942.9,
-      "pbr": 17.93,
-      "ma150": 21543,
-      "above_ma150": true
-    },
     {
       "ticker": "032580",
       "name": "피델릭스",
@@ -326,6 +310,22 @@
       "above_ma150": true
     },
     {
+      "ticker": "147760",
+      "name": "피엠티",
+      "price": 9470,
+      "entry_price": 9470,
+      "change_rate": 17.49,
+      "since_return": 0.0,
+      "days_ago": 0,
+      "volume": 983194,
+      "volume_ratio": 1.2,
+      "market_cap": 1025.0,
+      "per": null,
+      "pbr": 9.84,
+      "ma150": 3192,
+      "above_ma150": true
+    },
+    {
       "ticker": "024840",
       "name": "KBI메탈",
       "price": 7640,
@@ -550,6 +550,22 @@
       "above_ma150": true
     },
     {
+      "ticker": "080220",
+      "name": "제주반도체",
+      "price": 118700,
+      "entry_price": 117800,
+      "change_rate": 24.26,
+      "since_return": 0.76,
+      "days_ago": 1,
+      "volume": 8596695,
+      "volume_ratio": 1.5,
+      "market_cap": 40884.0,
+      "per": 78.1,
+      "pbr": 8.18,
+      "ma150": 36498,
+      "above_ma150": true
+    },
+    {
       "ticker": "058610",
       "name": "에스피지",
       "price": 128500,
@@ -627,22 +643,6 @@
       "per": 39.1,
       "pbr": 4.41,
       "ma150": 19837,
-      "above_ma150": true
-    },
-    {
-      "ticker": "003550",
-      "name": "LG",
-      "price": 118500,
-      "entry_price": 123000,
-      "change_rate": 19.3,
-      "since_return": -3.66,
-      "days_ago": 1,
-      "volume": 2152398,
-      "volume_ratio": 4.1,
-      "market_cap": 182753.0,
-      "per": 26.6,
-      "pbr": 0.55,
-      "ma150": 89415,
       "above_ma150": true
     },
     {
@@ -724,6 +724,22 @@
       "pbr": 2.28,
       "ma150": 43588,
       "above_ma150": true
+    },
+    {
+      "ticker": "011000",
+      "name": "진원생명과학",
+      "price": 1312,
+      "entry_price": 1634,
+      "change_rate": 19.62,
+      "since_return": -19.71,
+      "days_ago": 2,
+      "volume": 50222341,
+      "volume_ratio": 4.0,
+      "market_cap": 1192.0,
+      "per": null,
+      "pbr": 2.05,
+      "ma150": 1589,
+      "above_ma150": false
     },
     {
       "ticker": "439960",
@@ -950,20 +966,20 @@
       "above_ma150": true
     },
     {
-      "ticker": "306620",
-      "name": "지아이에스",
-      "price": 3420,
-      "entry_price": 2680,
-      "change_rate": 7.63,
-      "since_return": 27.61,
-      "days_ago": 2,
-      "volume": 1650625,
-      "volume_ratio": 1.2,
-      "market_cap": 1640.0,
+      "ticker": "011000",
+      "name": "진원생명과학",
+      "price": 1312,
+      "entry_price": 1366,
+      "change_rate": 29.97,
+      "since_return": -3.95,
+      "days_ago": 3,
+      "volume": 40915094,
+      "volume_ratio": 3.9,
+      "market_cap": 1192.0,
       "per": null,
-      "pbr": 3.07,
-      "ma150": 2586,
-      "above_ma150": true
+      "pbr": 2.05,
+      "ma150": 1589,
+      "above_ma150": false
     },
     {
       "ticker": "439960",
@@ -1267,22 +1283,6 @@
       "per": null,
       "pbr": 9.13,
       "ma150": 20756,
-      "above_ma150": true
-    },
-    {
-      "ticker": "032580",
-      "name": "피델릭스",
-      "price": 8460,
-      "entry_price": 4700,
-      "change_rate": 9.94,
-      "since_return": 80.0,
-      "days_ago": 3,
-      "volume": 7364762,
-      "volume_ratio": 2.7,
-      "market_cap": 2803.0,
-      "per": null,
-      "pbr": 1.82,
-      "ma150": 1354,
       "above_ma150": true
     },
     {
