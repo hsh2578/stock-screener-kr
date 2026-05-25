@@ -1,10 +1,26 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-25T17:49:37.387846",
+    "lastUpdated": "2026-05-25T19:58:57.096730",
     "totalCount": 100,
     "screened_from": 1500
   },
   "data": [
+    {
+      "ticker": "007390",
+      "name": "네이처셀",
+      "price": 22500,
+      "entry_price": 22500,
+      "change_rate": 29.98,
+      "since_return": 0.0,
+      "days_ago": 0,
+      "volume": 109151,
+      "volume_ratio": 0.3,
+      "market_cap": 14498.0,
+      "per": 942.9,
+      "pbr": 17.93,
+      "ma150": 21543,
+      "above_ma150": true
+    },
     {
       "ticker": "032580",
       "name": "피델릭스",
@@ -307,22 +323,6 @@
       "per": null,
       "pbr": 9.33,
       "ma150": 41102,
-      "above_ma150": true
-    },
-    {
-      "ticker": "147760",
-      "name": "피엠티",
-      "price": 9470,
-      "entry_price": 9470,
-      "change_rate": 17.49,
-      "since_return": 0.0,
-      "days_ago": 0,
-      "volume": 983194,
-      "volume_ratio": 1.2,
-      "market_cap": 1025.0,
-      "per": null,
-      "pbr": 9.84,
-      "ma150": 3192,
       "above_ma150": true
     },
     {
