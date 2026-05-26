@@ -1,45 +1,63 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-25T21:05:09.395445",
-    "totalCount": 2,
-    "screened_from": 1500
+    "lastUpdated": "2026-05-26T13:43:43.503959",
+    "totalCount": 3,
+    "screened_from": 1491
   },
   "data": [
     {
       "ticker": "041830",
       "name": "인바디",
-      "price": 47350,
-      "change_rate": 11.81,
+      "price": 45700,
+      "change_rate": -3.48,
       "explosion_date": "2026-05-11",
       "explosion_change_rate": 17.9,
       "explosion_volume_ratio": 16.1,
-      "days_since_detected": 9,
+      "days_since_detected": 10,
       "volume_decrease_rate": 88,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
       "ma150": 31180,
       "above_ma150": true,
-      "market_cap": 6383,
-      "updated_at": "2026-05-25T21:05:09.387196"
+      "market_cap": 6147,
+      "updated_at": "2026-05-26T13:43:43.502558"
     },
     {
-      "ticker": "145020",
-      "name": "휴젤",
-      "price": 267500,
-      "change_rate": 3.28,
-      "explosion_date": "2026-05-08",
-      "explosion_change_rate": 12.3,
-      "explosion_volume_ratio": 5.3,
+      "ticker": "240550",
+      "name": "동방메디컬",
+      "price": 7460,
+      "change_rate": -6.28,
+      "explosion_date": "2026-05-11",
+      "explosion_change_rate": 11.8,
+      "explosion_volume_ratio": 6.7,
       "days_since_detected": 10,
-      "volume_decrease_rate": 71,
-      "pattern_type": "candle_range",
-      "ma20_distance": null,
+      "volume_decrease_rate": 67,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 0.87,
       "volume_rank": 2,
-      "ma150": 250763,
+      "ma150": 7797,
+      "above_ma150": false,
+      "market_cap": 1562,
+      "updated_at": "2026-05-26T13:43:41.832194"
+    },
+    {
+      "ticker": "439090",
+      "name": "마녀공장",
+      "price": 16480,
+      "change_rate": -3.06,
+      "explosion_date": "2026-04-24",
+      "explosion_change_rate": 23.0,
+      "explosion_volume_ratio": 68.3,
+      "days_since_detected": 19,
+      "volume_decrease_rate": 93,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 0.35,
+      "volume_rank": 3,
+      "ma150": 14304,
       "above_ma150": true,
-      "market_cap": 32913,
-      "updated_at": "2026-05-25T21:05:09.388002"
+      "market_cap": 2702,
+      "updated_at": "2026-05-26T13:43:41.993108"
     }
   ]
 }
