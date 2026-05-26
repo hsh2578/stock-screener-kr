@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-26T13:43:43.503959",
+    "lastUpdated": "2026-05-26T15:35:55.629233",
     "totalCount": 3,
-    "screened_from": 1491
+    "screened_from": 1493
   },
   "data": [
     {
       "ticker": "041830",
       "name": "인바디",
-      "price": 45700,
-      "change_rate": -3.48,
+      "price": 46000,
+      "change_rate": -2.85,
       "explosion_date": "2026-05-11",
       "explosion_change_rate": 17.9,
       "explosion_volume_ratio": 16.1,
@@ -20,44 +20,44 @@
       "volume_rank": 1,
       "ma150": 31180,
       "above_ma150": true,
-      "market_cap": 6147,
-      "updated_at": "2026-05-26T13:43:43.502558"
+      "market_cap": 6201,
+      "updated_at": "2026-05-26T15:35:55.622179"
     },
     {
       "ticker": "240550",
       "name": "동방메디컬",
-      "price": 7460,
-      "change_rate": -6.28,
+      "price": 7440,
+      "change_rate": -6.53,
       "explosion_date": "2026-05-11",
       "explosion_change_rate": 11.8,
       "explosion_volume_ratio": 6.7,
       "days_since_detected": 10,
-      "volume_decrease_rate": 67,
+      "volume_decrease_rate": 64,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.87,
+      "ma20_distance": 0.61,
       "volume_rank": 2,
       "ma150": 7797,
       "above_ma150": false,
-      "market_cap": 1562,
-      "updated_at": "2026-05-26T13:43:41.832194"
+      "market_cap": 1557,
+      "updated_at": "2026-05-26T15:35:54.202972"
     },
     {
       "ticker": "439090",
       "name": "마녀공장",
-      "price": 16480,
-      "change_rate": -3.06,
+      "price": 16470,
+      "change_rate": -3.12,
       "explosion_date": "2026-04-24",
       "explosion_change_rate": 23.0,
       "explosion_volume_ratio": 68.3,
       "days_since_detected": 19,
       "volume_decrease_rate": 93,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.35,
+      "ma20_distance": 0.29,
       "volume_rank": 3,
       "ma150": 14304,
       "above_ma150": true,
-      "market_cap": 2702,
-      "updated_at": "2026-05-26T13:43:41.993108"
+      "market_cap": 2700,
+      "updated_at": "2026-05-26T15:35:54.470876"
     }
   ]
 }
