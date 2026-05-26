@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-26T15:35:53.182191",
-    "totalCount": 10,
-    "screened_from": 1493
+    "lastUpdated": "2026-05-26T17:10:39.766566",
+    "totalCount": 11,
+    "screened_from": 1494
   },
   "data": [
     {
@@ -23,7 +23,27 @@
       "days": 63,
       "ma150": 102740,
       "above_ma150": true,
-      "updated_at": "2026-05-26T15:35:50.868936"
+      "updated_at": "2026-05-26T17:10:34.745760"
+    },
+    {
+      "ticker": "034590",
+      "name": "인천도시가스",
+      "price": 26600,
+      "change_rate": 0.38,
+      "market_cap": 1164,
+      "box_high": 27300,
+      "box_low": 26250,
+      "range_percent": 4.0,
+      "atr": 1.31,
+      "atr_multiple": 3.06,
+      "support_touches": 3,
+      "resistance_touches": 5,
+      "slope_daily": -0.0266,
+      "volume_decrease_rate": 46.54,
+      "days": 75,
+      "ma150": 26391,
+      "above_ma150": true,
+      "updated_at": "2026-05-26T17:10:37.100052"
     },
     {
       "ticker": "267290",
@@ -43,7 +63,7 @@
       "days": 88,
       "ma150": 21726,
       "above_ma150": true,
-      "updated_at": "2026-05-26T15:35:50.352630"
+      "updated_at": "2026-05-26T17:10:34.158454"
     },
     {
       "ticker": "009680",
@@ -63,7 +83,7 @@
       "days": 200,
       "ma150": 10721,
       "above_ma150": false,
-      "updated_at": "2026-05-26T15:35:51.184274"
+      "updated_at": "2026-05-26T17:10:35.060441"
     },
     {
       "ticker": "267850",
@@ -83,7 +103,7 @@
       "days": 98,
       "ma150": 10928,
       "above_ma150": false,
-      "updated_at": "2026-05-26T15:35:51.675225"
+      "updated_at": "2026-05-26T17:10:36.141922"
     },
     {
       "ticker": "002620",
@@ -99,11 +119,11 @@
       "support_touches": 3,
       "resistance_touches": 2,
       "slope_daily": -0.0287,
-      "volume_decrease_rate": 30.52,
+      "volume_decrease_rate": 30.51,
       "days": 134,
       "ma150": 8333,
       "above_ma150": true,
-      "updated_at": "2026-05-26T15:35:52.424461"
+      "updated_at": "2026-05-26T17:10:37.469241"
     },
     {
       "ticker": "225570",
@@ -119,11 +139,11 @@
       "support_touches": 3,
       "resistance_touches": 2,
       "slope_daily": 0.0256,
-      "volume_decrease_rate": 14.26,
+      "volume_decrease_rate": 14.25,
       "days": 75,
       "ma150": 12225,
       "above_ma150": false,
-      "updated_at": "2026-05-26T15:35:50.502307"
+      "updated_at": "2026-05-26T17:10:34.406245"
     },
     {
       "ticker": "090350",
@@ -143,7 +163,7 @@
       "days": 168,
       "ma150": 8510,
       "above_ma150": false,
-      "updated_at": "2026-05-26T15:35:50.528590"
+      "updated_at": "2026-05-26T17:10:34.409444"
     },
     {
       "ticker": "096760",
@@ -163,7 +183,7 @@
       "days": 132,
       "ma150": 3840,
       "above_ma150": false,
-      "updated_at": "2026-05-26T15:35:50.093140"
+      "updated_at": "2026-05-26T17:10:33.841762"
     },
     {
       "ticker": "067830",
@@ -183,7 +203,7 @@
       "days": 100,
       "ma150": 2930,
       "above_ma150": false,
-      "updated_at": "2026-05-26T15:35:51.544774"
+      "updated_at": "2026-05-26T17:10:35.973718"
     },
     {
       "ticker": "051160",
@@ -203,7 +223,7 @@
       "days": 183,
       "ma150": 7482,
       "above_ma150": true,
-      "updated_at": "2026-05-26T15:35:52.464979"
+      "updated_at": "2026-05-26T17:10:37.705881"
     }
   ]
 }
