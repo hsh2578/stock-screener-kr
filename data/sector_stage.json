@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-27T17:29:52.716984",
-    "totalCount": 47,
+    "lastUpdated": "2026-05-27T19:40:56.638304",
+    "totalCount": 48,
     "screened_from": 49
   },
   "data": [
@@ -15,7 +15,7 @@
       "current_price": 2621.77,
       "ma150": 1540.34,
       "stock_count": 108,
-      "updated_at": "2026-05-27T17:29:51.019441"
+      "updated_at": "2026-05-27T19:40:55.327698"
     },
     {
       "sector_name": "컴퓨터/주변기기",
@@ -27,55 +27,55 @@
       "current_price": 1891.77,
       "ma150": 1252.61,
       "stock_count": 44,
-      "updated_at": "2026-05-27T17:29:52.462092"
+      "updated_at": "2026-05-27T19:40:56.431262"
     },
     {
       "sector_name": "전기장비",
       "stage": 2,
       "stage_name": "상승",
-      "ma150_slope": 16.42,
-      "return_3m": 46.54,
+      "ma150_slope": 16.59,
+      "return_3m": 46.23,
       "is_overheated": false,
-      "current_price": 2319.51,
-      "ma150": 1433.93,
+      "current_price": 2345.1,
+      "ma150": 1461.52,
       "stock_count": 68,
-      "updated_at": "2026-05-27T17:29:52.040295"
+      "updated_at": "2026-05-27T19:40:55.958299"
     },
     {
       "sector_name": "반도체",
       "stage": 2,
       "stage_name": "상승",
-      "ma150_slope": 10.55,
-      "return_3m": 36.73,
+      "ma150_slope": 10.43,
+      "return_3m": 36.29,
       "is_overheated": false,
-      "current_price": 2508.83,
-      "ma150": 1657.17,
+      "current_price": 2491.11,
+      "ma150": 1650.26,
       "stock_count": 334,
-      "updated_at": "2026-05-27T17:29:45.219381"
+      "updated_at": "2026-05-27T19:40:53.156116"
     },
     {
       "sector_name": "전자장비",
       "stage": 2,
       "stage_name": "상승",
-      "ma150_slope": 8.9,
-      "return_3m": 29.05,
+      "ma150_slope": 9.15,
+      "return_3m": 30.26,
       "is_overheated": false,
-      "current_price": 1848.4,
-      "ma150": 1345.38,
+      "current_price": 1886.63,
+      "ma150": 1358.89,
       "stock_count": 222,
-      "updated_at": "2026-05-27T17:29:46.970758"
+      "updated_at": "2026-05-27T19:40:54.187656"
     },
     {
       "sector_name": "디스플레이장비",
       "stage": 2,
       "stage_name": "상승",
-      "ma150_slope": 7.06,
-      "return_3m": 18.84,
+      "ma150_slope": 7.07,
+      "return_3m": 19.42,
       "is_overheated": false,
-      "current_price": 1548.53,
-      "ma150": 1165.04,
+      "current_price": 1556.33,
+      "ma150": 1167.88,
       "stock_count": 148,
-      "updated_at": "2026-05-27T17:29:49.685399"
+      "updated_at": "2026-05-27T19:40:54.962461"
     },
     {
       "sector_name": "전기제품",
@@ -87,7 +87,7 @@
       "current_price": 1757.07,
       "ma150": 1409.18,
       "stock_count": 146,
-      "updated_at": "2026-05-27T17:29:49.613519"
+      "updated_at": "2026-05-27T19:40:54.868601"
     },
     {
       "sector_name": "복합기업",
@@ -99,7 +99,7 @@
       "current_price": 1828.21,
       "ma150": 1360.04,
       "stock_count": 46,
-      "updated_at": "2026-05-27T17:29:52.084957"
+      "updated_at": "2026-05-27T19:40:55.989547"
     },
     {
       "sector_name": "우주항공/국방",
@@ -111,19 +111,7 @@
       "current_price": 2007.84,
       "ma150": 1591.59,
       "stock_count": 70,
-      "updated_at": "2026-05-27T17:29:51.789569"
-    },
-    {
-      "sector_name": "창업투자",
-      "stage": 2,
-      "stage_name": "상승",
-      "ma150_slope": 9.42,
-      "return_3m": 9.49,
-      "is_overheated": false,
-      "current_price": 1876.0,
-      "ma150": 1414.53,
-      "stock_count": 184,
-      "updated_at": "2026-05-27T17:29:52.212543"
+      "updated_at": "2026-05-27T19:40:55.698103"
     },
     {
       "sector_name": "비철금속",
@@ -135,7 +123,19 @@
       "current_price": 1183.36,
       "ma150": 1029.51,
       "stock_count": 82,
-      "updated_at": "2026-05-27T17:29:51.917118"
+      "updated_at": "2026-05-27T19:40:55.845390"
+    },
+    {
+      "sector_name": "창업투자",
+      "stage": 2,
+      "stage_name": "상승",
+      "ma150_slope": 8.83,
+      "return_3m": 7.57,
+      "is_overheated": false,
+      "current_price": 1818.73,
+      "ma150": 1399.39,
+      "stock_count": 184,
+      "updated_at": "2026-05-27T19:40:56.216032"
     },
     {
       "sector_name": "핸드셋",
@@ -147,7 +147,7 @@
       "current_price": 1425.65,
       "ma150": 1212.41,
       "stock_count": 116,
-      "updated_at": "2026-05-27T17:29:51.431643"
+      "updated_at": "2026-05-27T19:40:55.405737"
     },
     {
       "sector_name": "소프트웨어",
@@ -159,7 +159,7 @@
       "current_price": 1046.89,
       "ma150": 972.46,
       "stock_count": 148,
-      "updated_at": "2026-05-27T17:29:45.426536"
+      "updated_at": "2026-05-27T19:40:53.381579"
     },
     {
       "sector_name": "철강",
@@ -171,7 +171,7 @@
       "current_price": 1367.33,
       "ma150": 1250.27,
       "stock_count": 110,
-      "updated_at": "2026-05-27T17:29:49.856938"
+      "updated_at": "2026-05-27T19:40:55.111121"
     },
     {
       "sector_name": "에너지장비",
@@ -183,7 +183,7 @@
       "current_price": 1239.75,
       "ma150": 1139.06,
       "stock_count": 60,
-      "updated_at": "2026-05-27T17:29:52.127123"
+      "updated_at": "2026-05-27T19:40:56.067443"
     },
     {
       "sector_name": "조선",
@@ -195,19 +195,19 @@
       "current_price": 1473.11,
       "ma150": 1414.85,
       "stock_count": 62,
-      "updated_at": "2026-05-27T17:29:51.965049"
+      "updated_at": "2026-05-27T19:40:55.903325"
     },
     {
       "sector_name": "생물공학",
       "stage": 2,
       "stage_name": "상승",
-      "ma150_slope": 3.25,
-      "return_3m": 3.12,
+      "ma150_slope": 3.06,
+      "return_3m": 3.41,
       "is_overheated": false,
-      "current_price": 1420.08,
-      "ma150": 1318.81,
+      "current_price": 1400.35,
+      "ma150": 1290.97,
       "stock_count": 118,
-      "updated_at": "2026-05-27T17:29:49.809974"
+      "updated_at": "2026-05-27T19:40:55.051585"
     },
     {
       "sector_name": "IT서비스",
@@ -219,7 +219,7 @@
       "current_price": 1083.1,
       "ma150": 974.25,
       "stock_count": 228,
-      "updated_at": "2026-05-27T17:29:45.390416"
+      "updated_at": "2026-05-27T19:40:53.305395"
     },
     {
       "sector_name": "석유/가스",
@@ -231,7 +231,7 @@
       "current_price": 1277.99,
       "ma150": 1154.48,
       "stock_count": 36,
-      "updated_at": "2026-05-27T17:29:52.264708"
+      "updated_at": "2026-05-27T19:40:56.277103"
     },
     {
       "sector_name": "가정용기기",
@@ -243,7 +243,7 @@
       "current_price": 980.46,
       "ma150": 941.11,
       "stock_count": 42,
-      "updated_at": "2026-05-27T17:29:52.494371"
+      "updated_at": "2026-05-27T19:40:56.455685"
     },
     {
       "sector_name": "화학",
@@ -255,7 +255,7 @@
       "current_price": 1202.77,
       "ma150": 1090.95,
       "stock_count": 240,
-      "updated_at": "2026-05-27T17:29:45.689974"
+      "updated_at": "2026-05-27T19:40:53.541125"
     },
     {
       "sector_name": "건설",
@@ -267,19 +267,19 @@
       "current_price": 1206.44,
       "ma150": 1099.31,
       "stock_count": 156,
-      "updated_at": "2026-05-27T17:29:47.253719"
+      "updated_at": "2026-05-27T19:40:54.312659"
     },
     {
       "sector_name": "기계",
       "stage": 2,
       "stage_name": "상승",
-      "ma150_slope": 6.47,
-      "return_3m": -2.64,
+      "ma150_slope": 6.59,
+      "return_3m": -2.91,
       "is_overheated": false,
-      "current_price": 1801.12,
-      "ma150": 1594.76,
+      "current_price": 1816.67,
+      "ma150": 1609.0,
       "stock_count": 200,
-      "updated_at": "2026-05-27T17:29:48.330048"
+      "updated_at": "2026-05-27T19:40:54.748446"
     },
     {
       "sector_name": "제약",
@@ -291,7 +291,7 @@
       "current_price": 1256.87,
       "ma150": 1182.93,
       "stock_count": 348,
-      "updated_at": "2026-05-27T17:29:46.625114"
+      "updated_at": "2026-05-27T19:40:54.028935"
     },
     {
       "sector_name": "자동차부품",
@@ -303,7 +303,19 @@
       "current_price": 1440.48,
       "ma150": 1288.24,
       "stock_count": 310,
-      "updated_at": "2026-05-27T17:29:45.862730"
+      "updated_at": "2026-05-27T19:40:53.725192"
+    },
+    {
+      "sector_name": "건강관리서비스",
+      "stage": 2,
+      "stage_name": "상승",
+      "ma150_slope": 4.81,
+      "return_3m": -10.31,
+      "is_overheated": false,
+      "current_price": 1504.45,
+      "ma150": 1399.18,
+      "stock_count": 58,
+      "updated_at": "2026-05-27T19:40:56.323721"
     },
     {
       "sector_name": "자동차",
@@ -315,19 +327,7 @@
       "current_price": 1127.45,
       "ma150": 1109.17,
       "stock_count": 24,
-      "updated_at": "2026-05-27T17:29:52.064031"
-    },
-    {
-      "sector_name": "건강관리서비스",
-      "stage": 2,
-      "stage_name": "상승",
-      "ma150_slope": 5.06,
-      "return_3m": -11.89,
-      "is_overheated": false,
-      "current_price": 1525.76,
-      "ma150": 1428.41,
-      "stock_count": 58,
-      "updated_at": "2026-05-27T17:29:52.319858"
+      "updated_at": "2026-05-27T19:40:55.970937"
     },
     {
       "sector_name": "손해보험",
@@ -339,7 +339,7 @@
       "current_price": 1240.12,
       "ma150": 1182.39,
       "stock_count": 24,
-      "updated_at": "2026-05-27T17:29:52.607808"
+      "updated_at": "2026-05-27T19:40:56.626794"
     },
     {
       "sector_name": "은행",
@@ -351,7 +351,7 @@
       "current_price": 1142.37,
       "ma150": 1130.44,
       "stock_count": 22,
-      "updated_at": "2026-05-27T17:29:52.219692"
+      "updated_at": "2026-05-27T19:40:56.235162"
     },
     {
       "sector_name": "증권",
@@ -363,7 +363,7 @@
       "current_price": 1506.34,
       "ma150": 1353.83,
       "stock_count": 76,
-      "updated_at": "2026-05-27T17:29:52.253891"
+      "updated_at": "2026-05-27T19:40:56.260405"
     },
     {
       "sector_name": "상업서비스",
@@ -375,7 +375,7 @@
       "current_price": 926.62,
       "ma150": 917.19,
       "stock_count": 62,
-      "updated_at": "2026-05-27T17:29:52.201942"
+      "updated_at": "2026-05-27T19:40:56.202947"
     },
     {
       "sector_name": "가스유틸리티",
@@ -387,7 +387,7 @@
       "current_price": 1007.7,
       "ma150": 1024.53,
       "stock_count": 24,
-      "updated_at": "2026-05-27T17:29:52.699553"
+      "updated_at": "2026-05-27T19:40:56.637614"
     },
     {
       "sector_name": "생명과학도구",
@@ -399,7 +399,7 @@
       "current_price": 1095.62,
       "ma150": 1125.68,
       "stock_count": 80,
-      "updated_at": "2026-05-27T17:29:52.549932"
+      "updated_at": "2026-05-27T19:40:56.565355"
     },
     {
       "sector_name": "양방향미디어",
@@ -411,7 +411,7 @@
       "current_price": 1004.68,
       "ma150": 1065.18,
       "stock_count": 34,
-      "updated_at": "2026-05-27T17:29:52.559509"
+      "updated_at": "2026-05-27T19:40:56.586883"
     },
     {
       "sector_name": "교육서비스",
@@ -423,7 +423,7 @@
       "current_price": 788.64,
       "ma150": 865.18,
       "stock_count": 48,
-      "updated_at": "2026-05-27T17:29:52.175579"
+      "updated_at": "2026-05-27T19:40:56.158185"
     },
     {
       "sector_name": "부동산",
@@ -435,7 +435,7 @@
       "current_price": 1000.18,
       "ma150": 1081.33,
       "stock_count": 68,
-      "updated_at": "2026-05-27T17:29:51.807647"
+      "updated_at": "2026-05-27T19:40:55.719041"
     },
     {
       "sector_name": "화장품",
@@ -447,7 +447,7 @@
       "current_price": 807.42,
       "ma150": 851.19,
       "stock_count": 132,
-      "updated_at": "2026-05-27T17:29:51.714873"
+      "updated_at": "2026-05-27T19:40:55.634672"
     },
     {
       "sector_name": "건강관리장비",
@@ -459,19 +459,19 @@
       "current_price": 1246.7,
       "ma150": 1304.71,
       "stock_count": 208,
-      "updated_at": "2026-05-27T17:29:51.658228"
+      "updated_at": "2026-05-27T19:40:55.572221"
     },
     {
       "sector_name": "식품",
       "stage": 1,
       "stage_name": "기초",
-      "ma150_slope": 0.43,
-      "return_3m": -12.17,
+      "ma150_slope": 0.4,
+      "return_3m": -12.23,
       "is_overheated": false,
-      "current_price": 990.46,
-      "ma150": 1033.76,
+      "current_price": 989.91,
+      "ma150": 1033.77,
       "stock_count": 182,
-      "updated_at": "2026-05-27T17:29:47.753686"
+      "updated_at": "2026-05-27T19:40:54.403747"
     },
     {
       "sector_name": "건축자재",
@@ -483,19 +483,19 @@
       "current_price": 1053.82,
       "ma150": 1089.37,
       "stock_count": 104,
-      "updated_at": "2026-05-27T17:29:51.859365"
+      "updated_at": "2026-05-27T19:40:55.789902"
     },
     {
       "sector_name": "섬유/의류",
       "stage": 1,
       "stage_name": "기초",
-      "ma150_slope": 1.84,
-      "return_3m": -16.42,
+      "ma150_slope": 1.88,
+      "return_3m": -15.92,
       "is_overheated": false,
-      "current_price": 984.31,
-      "ma150": 1043.09,
+      "current_price": 997.25,
+      "ma150": 1050.48,
       "stock_count": 166,
-      "updated_at": "2026-05-27T17:29:48.081102"
+      "updated_at": "2026-05-27T19:40:54.516119"
     },
     {
       "sector_name": "포장재",
@@ -507,7 +507,7 @@
       "current_price": 749.95,
       "ma150": 876.07,
       "stock_count": 54,
-      "updated_at": "2026-05-27T17:29:52.161899"
+      "updated_at": "2026-05-27T19:40:56.119558"
     },
     {
       "sector_name": "호텔/레저",
@@ -519,7 +519,7 @@
       "current_price": 920.34,
       "ma150": 1025.2,
       "stock_count": 40,
-      "updated_at": "2026-05-27T17:29:52.353834"
+      "updated_at": "2026-05-27T19:40:56.381183"
     },
     {
       "sector_name": "항공화물/물류",
@@ -531,7 +531,7 @@
       "current_price": 974.11,
       "ma150": 1081.58,
       "stock_count": 26,
-      "updated_at": "2026-05-27T17:29:52.374661"
+      "updated_at": "2026-05-27T19:40:56.404605"
     },
     {
       "sector_name": "인터넷소매",
@@ -543,31 +543,43 @@
       "current_price": 776.18,
       "ma150": 839.53,
       "stock_count": 16,
-      "updated_at": "2026-05-27T17:29:52.590001"
+      "updated_at": "2026-05-27T19:40:56.599550"
+    },
+    {
+      "sector_name": "광고",
+      "stage": 4,
+      "stage_name": "쇠퇴",
+      "ma150_slope": -1.09,
+      "return_3m": -13.21,
+      "is_overheated": false,
+      "current_price": 797.95,
+      "ma150": 887.38,
+      "stock_count": 36,
+      "updated_at": "2026-05-27T19:40:56.576496"
     },
     {
       "sector_name": "게임",
       "stage": 4,
       "stage_name": "쇠퇴",
-      "ma150_slope": -1.93,
-      "return_3m": -15.16,
+      "ma150_slope": -1.96,
+      "return_3m": -15.94,
       "is_overheated": false,
-      "current_price": 783.26,
-      "ma150": 893.64,
+      "current_price": 781.85,
+      "ma150": 898.24,
       "stock_count": 68,
-      "updated_at": "2026-05-27T17:29:50.222274"
+      "updated_at": "2026-05-27T19:40:55.239533"
     },
     {
       "sector_name": "방송/엔터",
       "stage": 4,
       "stage_name": "쇠퇴",
-      "ma150_slope": -3.03,
-      "return_3m": -24.26,
+      "ma150_slope": -3.28,
+      "return_3m": -24.37,
       "is_overheated": false,
-      "current_price": 679.15,
-      "ma150": 841.83,
+      "current_price": 679.07,
+      "ma150": 849.18,
       "stock_count": 114,
-      "updated_at": "2026-05-27T17:29:49.904382"
+      "updated_at": "2026-05-27T19:40:55.182324"
     }
   ]
 }
