@@ -1,66 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-26T19:37:21.084181",
-    "totalCount": 3,
-    "screened_from": 1494
+    "lastUpdated": "2026-05-27T13:57:40.601613",
+    "totalCount": 1,
+    "screened_from": 1462
   },
   "data": [
     {
       "ticker": "032640",
       "name": "LG유플러스",
-      "current_price": 15510,
-      "volume": 1154972,
-      "ma10w": 16141,
-      "ma20w": 16013,
-      "ma60w": 14839,
-      "ma20d": 15794,
-      "ma60d": 15925,
-      "ma120d": 15720,
-      "gap_20_60": 0.83,
-      "gap_20_120": 0.46,
-      "gap_60_120": 1.3,
-      "gap_price_20": 1.8,
+      "current_price": 15030,
+      "volume": 1026199,
+      "ma10w": 16093,
+      "ma20w": 15989,
+      "ma60w": 14831,
+      "ma20d": 15715,
+      "ma60d": 15879,
+      "ma120d": 15718,
+      "gap_20_60": 1.03,
+      "gap_20_120": 0.02,
+      "gap_60_120": 1.02,
+      "gap_price_20": 4.36,
       "weeks_since_high": 14,
-      "market_cap": 66666,
-      "updated_at": "2026-05-26T19:37:14.076488"
-    },
-    {
-      "ticker": "102260",
-      "name": "동성케미컬",
-      "current_price": 4100,
-      "volume": 170346,
-      "ma10w": 4289,
-      "ma20w": 4285,
-      "ma60w": 4208,
-      "ma20d": 4249,
-      "ma60d": 4217,
-      "ma120d": 4296,
-      "gap_20_60": 0.76,
-      "gap_20_120": 1.08,
-      "gap_60_120": 1.83,
-      "gap_price_20": 3.52,
-      "weeks_since_high": 10,
-      "market_cap": 2077,
-      "updated_at": "2026-05-26T19:37:15.468602"
-    },
-    {
-      "ticker": "073560",
-      "name": "우리손에프앤지",
-      "current_price": 1672,
-      "volume": 121747,
-      "ma10w": 1714,
-      "ma20w": 1709,
-      "ma60w": 1570,
-      "ma20d": 1735,
-      "ma60d": 1721,
-      "ma120d": 1660,
-      "gap_20_60": 0.79,
-      "gap_20_120": 4.49,
-      "gap_60_120": 3.67,
-      "gap_price_20": 3.66,
-      "weeks_since_high": 14,
-      "market_cap": 1158,
-      "updated_at": "2026-05-26T19:37:18.565441"
+      "market_cap": 64646,
+      "updated_at": "2026-05-27T13:57:35.737079"
     }
   ]
 }
