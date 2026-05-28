@@ -1,27 +1,63 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-27T19:40:40.418382",
-    "totalCount": 1,
-    "screened_from": 1468
+    "lastUpdated": "2026-05-28T13:51:25.942199",
+    "totalCount": 3,
+    "screened_from": 1442
   },
   "data": [
     {
-      "ticker": "003550",
-      "name": "LG",
-      "price": 118200,
-      "change_rate": -3.67,
-      "explosion_date": "2026-05-21",
-      "explosion_change_rate": 19.3,
-      "explosion_volume_ratio": 4.0,
+      "ticker": "004150",
+      "name": "한솔홀딩스",
+      "price": 4025,
+      "change_rate": -2.66,
+      "explosion_date": "2026-05-22",
+      "explosion_change_rate": 12.4,
+      "explosion_volume_ratio": 9.9,
       "days_since_detected": 3,
-      "volume_decrease_rate": 65,
+      "volume_decrease_rate": 86,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
+      "ma150": 3273,
+      "above_ma150": true,
+      "market_cap": 1651,
+      "updated_at": "2026-05-28T13:51:25.843221"
+    },
+    {
+      "ticker": "003550",
+      "name": "LG",
+      "price": 112600,
+      "change_rate": -4.74,
+      "explosion_date": "2026-05-21",
+      "explosion_change_rate": 19.3,
+      "explosion_volume_ratio": 4.0,
+      "days_since_detected": 4,
+      "volume_decrease_rate": 65,
+      "pattern_type": "candle_range",
+      "ma20_distance": null,
+      "volume_rank": 2,
       "ma150": 90056,
       "above_ma150": true,
-      "market_cap": 182290,
-      "updated_at": "2026-05-27T19:40:37.563765"
+      "market_cap": 173962,
+      "updated_at": "2026-05-28T13:51:25.939266"
+    },
+    {
+      "ticker": "243070",
+      "name": "휴온스",
+      "price": 32400,
+      "change_rate": -0.15,
+      "explosion_date": "2026-05-11",
+      "explosion_change_rate": 13.2,
+      "explosion_volume_ratio": 7.6,
+      "days_since_detected": 12,
+      "volume_decrease_rate": 73,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 0.94,
+      "volume_rank": 3,
+      "ma150": 28122,
+      "above_ma150": true,
+      "market_cap": 3863,
+      "updated_at": "2026-05-28T13:51:25.918544"
     }
   ]
 }
