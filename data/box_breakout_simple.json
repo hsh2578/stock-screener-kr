@@ -1,27 +1,27 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-28T20:57:29.209320",
+    "lastUpdated": "2026-05-29T13:54:04.064060",
     "totalCount": 1,
-    "screened_from": 1456
+    "screened_from": 1428
   },
   "data": [
     {
       "ticker": "001800",
       "name": "오리온홀딩스",
-      "price": 25150,
-      "change_rate": 0.8,
+      "price": 25100,
+      "change_rate": -0.2,
       "breakout_date": "2026-05-15",
       "resistance": 25850,
-      "days_since_breakout": 8,
-      "breakout_pct": -2.71,
-      "gain_since_breakout": -11.13,
-      "ma150": 22193,
+      "days_since_breakout": 9,
+      "breakout_pct": -2.9,
+      "gain_since_breakout": -11.31,
+      "ma150": 22232,
       "above_ma150": true,
-      "market_cap": 15755,
+      "market_cap": 15693,
       "success_prob": 65.3,
       "predicted_gain": 18.8,
       "ai_score": 62.6,
-      "updated_at": "2026-05-28T20:57:26.856366"
+      "updated_at": "2026-05-29T13:54:01.811944"
     }
   ]
 }

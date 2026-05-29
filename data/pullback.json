@@ -1,8 +1,23 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-28T20:57:20.125481",
-    "totalCount": 0,
-    "screened_from": 1456
+    "lastUpdated": "2026-05-29T13:53:54.738148",
+    "totalCount": 1,
+    "screened_from": 1428
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "453340",
+      "name": "현대그린푸드",
+      "price": 16840,
+      "change_rate": -3.11,
+      "breakout_date": "2026-05-06",
+      "resistance": 16540,
+      "pullback_ratio": 1.81,
+      "volume_decrease": 85,
+      "ma150": 16049,
+      "above_ma150": true,
+      "market_cap": 5475,
+      "updated_at": "2026-05-29T13:53:54.670171"
+    }
+  ]
 }
