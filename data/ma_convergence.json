@@ -1,28 +1,47 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-29T13:54:25.618718",
-    "totalCount": 1,
-    "screened_from": 1428
+    "lastUpdated": "2026-05-29T15:43:19.954652",
+    "totalCount": 2,
+    "screened_from": 1432
   },
   "data": [
     {
+      "ticker": "032640",
+      "name": "LG유플러스",
+      "current_price": 16130,
+      "volume": 1575882,
+      "ma10w": 16203,
+      "ma20w": 16044,
+      "ma60w": 14849,
+      "ma20d": 15636,
+      "ma60d": 15857,
+      "ma120d": 15727,
+      "gap_20_60": 1.39,
+      "gap_20_120": 0.58,
+      "gap_60_120": 0.83,
+      "gap_price_20": 3.16,
+      "weeks_since_high": 14,
+      "market_cap": 68460,
+      "updated_at": "2026-05-29T15:43:14.613942"
+    },
+    {
       "ticker": "021080",
       "name": "에이티넘인베스트",
-      "current_price": 3060,
-      "volume": 289669,
+      "current_price": 3055,
+      "volume": 299225,
       "ma10w": 3222,
       "ma20w": 3217,
       "ma60w": 2812,
-      "ma20d": 3215,
+      "ma20d": 3214,
       "ma60d": 3165,
       "ma120d": 3133,
       "gap_20_60": 1.55,
-      "gap_20_120": 2.62,
+      "gap_20_120": 2.61,
       "gap_60_120": 1.05,
-      "gap_price_20": 4.82,
+      "gap_price_20": 4.97,
       "weeks_since_high": 14,
-      "market_cap": 1469,
-      "updated_at": "2026-05-29T13:54:19.622469"
+      "market_cap": 1466,
+      "updated_at": "2026-05-29T15:43:17.300529"
     }
   ]
 }

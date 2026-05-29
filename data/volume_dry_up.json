@@ -1,33 +1,33 @@
 {
   "meta": {
-    "lastUpdated": "2026-05-29T13:53:57.852341",
+    "lastUpdated": "2026-05-29T15:43:02.143666",
     "totalCount": 4,
-    "screened_from": 1428
+    "screened_from": 1432
   },
   "data": [
     {
       "ticker": "004150",
       "name": "한솔홀딩스",
-      "price": 3980,
-      "change_rate": -2.09,
+      "price": 4140,
+      "change_rate": 1.85,
       "explosion_date": "2026-05-22",
       "explosion_change_rate": 12.4,
       "explosion_volume_ratio": 9.9,
       "days_since_detected": 4,
-      "volume_decrease_rate": 90,
+      "volume_decrease_rate": 89,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
-      "ma150": 3279,
+      "ma150": 3280,
       "above_ma150": true,
-      "market_cap": 1633,
-      "updated_at": "2026-05-29T13:53:57.764692"
+      "market_cap": 1699,
+      "updated_at": "2026-05-29T15:43:02.060434"
     },
     {
       "ticker": "003550",
       "name": "LG",
-      "price": 143100,
-      "change_rate": 23.58,
+      "price": 146600,
+      "change_rate": 26.6,
       "explosion_date": "2026-05-21",
       "explosion_change_rate": 19.3,
       "explosion_volume_ratio": 4.0,
@@ -38,14 +38,14 @@
       "volume_rank": 2,
       "ma150": 90056,
       "above_ma150": true,
-      "market_cap": 220228,
-      "updated_at": "2026-05-29T13:53:57.850638"
+      "market_cap": 226089,
+      "updated_at": "2026-05-29T15:43:02.141868"
     },
     {
       "ticker": "418420",
       "name": "라온텍",
-      "price": 7230,
-      "change_rate": -18.21,
+      "price": 7020,
+      "change_rate": -20.59,
       "explosion_date": "2026-05-14",
       "explosion_change_rate": 30.0,
       "explosion_volume_ratio": 4.7,
@@ -56,26 +56,26 @@
       "volume_rank": 3,
       "ma150": 5741,
       "above_ma150": true,
-      "market_cap": 2220,
-      "updated_at": "2026-05-29T13:53:57.851440"
+      "market_cap": 2155,
+      "updated_at": "2026-05-29T15:43:02.142926"
     },
     {
-      "ticker": "010780",
-      "name": "아이에스동서",
-      "price": 28650,
-      "change_rate": -4.98,
-      "explosion_date": "2026-05-13",
-      "explosion_change_rate": 13.7,
-      "explosion_volume_ratio": 6.7,
-      "days_since_detected": 11,
-      "volume_decrease_rate": 85,
+      "ticker": "086960",
+      "name": "MDS테크",
+      "price": 3215,
+      "change_rate": 0.94,
+      "explosion_date": "2026-05-08",
+      "explosion_change_rate": 13.3,
+      "explosion_volume_ratio": 603.5,
+      "days_since_detected": 14,
+      "volume_decrease_rate": 89,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 1.39,
+      "ma20_distance": 1.08,
       "volume_rank": 4,
-      "ma150": 24836,
-      "above_ma150": true,
-      "market_cap": 8633,
-      "updated_at": "2026-05-29T13:53:57.257169"
+      "ma150": 3294,
+      "above_ma150": false,
+      "market_cap": 1321,
+      "updated_at": "2026-05-29T15:43:00.798309"
     }
   ]
 }
