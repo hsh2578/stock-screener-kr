@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-01T14:25:14.493210",
+    "lastUpdated": "2026-06-01T16:33:47.220737",
     "totalCount": 3,
-    "screened_from": 1411
+    "screened_from": 1415
   },
   "data": [
     {
       "ticker": "004150",
       "name": "한솔홀딩스",
-      "price": 4085,
-      "change_rate": -1.33,
+      "price": 4035,
+      "change_rate": -2.54,
       "explosion_date": "2026-05-22",
       "explosion_change_rate": 12.4,
       "explosion_volume_ratio": 9.9,
@@ -20,14 +20,14 @@
       "volume_rank": 1,
       "ma150": 3286,
       "above_ma150": true,
-      "market_cap": 1682,
-      "updated_at": "2026-06-01T14:25:14.372849"
+      "market_cap": 1655,
+      "updated_at": "2026-06-01T16:33:47.121706"
     },
     {
       "ticker": "003550",
       "name": "LG",
-      "price": 171200,
-      "change_rate": 16.78,
+      "price": 165800,
+      "change_rate": 13.1,
       "explosion_date": "2026-05-21",
       "explosion_change_rate": 19.3,
       "explosion_volume_ratio": 4.0,
@@ -38,26 +38,26 @@
       "volume_rank": 2,
       "ma150": 90056,
       "above_ma150": true,
-      "market_cap": 265261,
-      "updated_at": "2026-06-01T14:25:14.491148"
+      "market_cap": 255699,
+      "updated_at": "2026-06-01T16:33:47.218893"
     },
     {
-      "ticker": "052900",
-      "name": "KX하이텍",
-      "price": 1625,
-      "change_rate": -6.5,
-      "explosion_date": "2026-05-13",
-      "explosion_change_rate": 13.1,
-      "explosion_volume_ratio": 4.3,
-      "days_since_detected": 12,
-      "volume_decrease_rate": 72,
+      "ticker": "001450",
+      "name": "현대해상",
+      "price": 34400,
+      "change_rate": -0.43,
+      "explosion_date": "2026-05-18",
+      "explosion_change_rate": 15.0,
+      "explosion_volume_ratio": 7.0,
+      "days_since_detected": 9,
+      "volume_decrease_rate": 84,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.23,
+      "ma20_distance": 1.41,
       "volume_rank": 3,
-      "ma150": 1136,
+      "ma150": 30427,
       "above_ma150": true,
-      "market_cap": 1130,
-      "updated_at": "2026-06-01T14:25:12.908509"
+      "market_cap": 29325,
+      "updated_at": "2026-06-01T16:33:47.184546"
     }
   ]
 }
