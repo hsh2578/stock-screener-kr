@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated_at": "2026-05-29T23:23:47.665640",
+    "updated_at": "2026-06-02T01:53:06.835877",
     "total_count": 4,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
@@ -10,52 +10,52 @@
   },
   "data": [
     {
+      "ticker": "012450",
+      "name": "한화에어로스페이스",
+      "current_price": 1138000,
+      "ma60w": 1036256,
+      "ma60w_gap": 9.82,
+      "op_margin": 11.6,
+      "op_growth_3y": 89.9,
+      "market_cap": 586792,
+      "sector": "기타",
+      "updated_at": "2026-06-02T01:52:57.305511"
+    },
+    {
       "ticker": "068270",
       "name": "셀트리온",
-      "current_price": 192900,
-      "ma60w": 189648,
-      "ma60w_gap": 1.71,
+      "current_price": 191700,
+      "ma60w": 189515,
+      "ma60w_gap": 1.15,
       "op_margin": 28.1,
       "op_growth_3y": 37.7,
-      "market_cap": 428474,
+      "market_cap": 425809,
       "sector": "기타",
-      "updated_at": "2026-05-29T23:23:34.364127"
+      "updated_at": "2026-06-02T01:52:57.307067"
     },
     {
-      "ticker": "035420",
-      "name": "NAVER",
-      "current_price": 234000,
-      "ma60w": 223222,
-      "ma60w_gap": 4.83,
-      "op_margin": 18.4,
-      "op_growth_3y": 14.8,
-      "market_cap": 367085,
+      "ticker": "009540",
+      "name": "HD한국조선해양",
+      "current_price": 404500,
+      "ma60w": 373641,
+      "ma60w_gap": 8.26,
+      "op_margin": 11.6,
+      "op_growth_3y": 121.1,
+      "market_cap": 286277,
       "sector": "기타",
-      "updated_at": "2026-05-29T23:23:34.364829"
-    },
-    {
-      "ticker": "003230",
-      "name": "삼양식품",
-      "current_price": 1205000,
-      "ma60w": 1176133,
-      "ma60w_gap": 2.45,
-      "op_margin": 21.6,
-      "op_growth_3y": 78.0,
-      "market_cap": 90773,
-      "sector": "기타",
-      "updated_at": "2026-05-29T23:23:36.796401"
+      "updated_at": "2026-06-02T01:52:57.309726"
     },
     {
       "ticker": "000240",
       "name": "한국앤컴퍼니",
-      "current_price": 24300,
-      "ma60w": 23535,
-      "ma60w_gap": 3.25,
+      "current_price": 24200,
+      "ma60w": 23543,
+      "ma60w_gap": 2.79,
       "op_margin": 26.1,
       "op_growth_3y": 18.6,
-      "market_cap": 23069,
+      "market_cap": 22974,
       "sector": "기타",
-      "updated_at": "2026-05-29T23:23:43.442886"
+      "updated_at": "2026-06-02T01:53:03.070801"
     }
   ]
 }
