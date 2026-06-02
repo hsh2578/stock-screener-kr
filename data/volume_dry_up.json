@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-02T14:10:32.783448",
-    "totalCount": 6,
-    "screened_from": 1390
+    "lastUpdated": "2026-06-02T16:12:24.676894",
+    "totalCount": 5,
+    "screened_from": 1398
   },
   "data": [
     {
       "ticker": "004150",
       "name": "한솔홀딩스",
-      "price": 3800,
-      "change_rate": -5.82,
+      "price": 3790,
+      "change_rate": -6.07,
       "explosion_date": "2026-05-22",
       "explosion_change_rate": 12.4,
       "explosion_volume_ratio": 9.9,
@@ -20,14 +20,14 @@
       "volume_rank": 1,
       "ma150": 3286,
       "above_ma150": true,
-      "market_cap": 1563,
-      "updated_at": "2026-06-02T14:10:32.778149"
+      "market_cap": 1555,
+      "updated_at": "2026-06-02T16:12:24.674358"
     },
     {
       "ticker": "003550",
       "name": "LG",
-      "price": 141400,
-      "change_rate": -14.72,
+      "price": 140000,
+      "change_rate": -15.56,
       "explosion_date": "2026-05-21",
       "explosion_change_rate": 19.3,
       "explosion_volume_ratio": 4.0,
@@ -38,32 +38,14 @@
       "volume_rank": 2,
       "ma150": 90056,
       "above_ma150": true,
-      "market_cap": 217915,
-      "updated_at": "2026-06-02T14:10:32.782076"
-    },
-    {
-      "ticker": "011000",
-      "name": "진원생명과학",
-      "price": 1153,
-      "change_rate": 0.17,
-      "explosion_date": "2026-05-19",
-      "explosion_change_rate": 30.0,
-      "explosion_volume_ratio": 3.7,
-      "days_since_detected": 9,
-      "volume_decrease_rate": 87,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.48,
-      "volume_rank": 3,
-      "ma150": 1549,
-      "above_ma150": false,
-      "market_cap": 1050,
-      "updated_at": "2026-06-02T14:10:32.437755"
+      "market_cap": 215910,
+      "updated_at": "2026-06-02T16:12:24.675185"
     },
     {
       "ticker": "001450",
       "name": "현대해상",
-      "price": 35050,
-      "change_rate": 1.89,
+      "price": 34800,
+      "change_rate": 1.16,
       "explosion_date": "2026-05-18",
       "explosion_change_rate": 15.0,
       "explosion_volume_ratio": 7.0,
@@ -71,47 +53,47 @@
       "volume_decrease_rate": 84,
       "pattern_type": "ma20_approach",
       "ma20_distance": 1.41,
-      "volume_rank": 4,
+      "volume_rank": 3,
       "ma150": 30427,
       "above_ma150": true,
-      "market_cap": 30007,
-      "updated_at": "2026-06-02T14:10:32.782695"
-    },
-    {
-      "ticker": "037460",
-      "name": "삼지전자",
-      "price": 43400,
-      "change_rate": -1.59,
-      "explosion_date": "2026-05-15",
-      "explosion_change_rate": 30.0,
-      "explosion_volume_ratio": 7.3,
-      "days_since_detected": 11,
-      "volume_decrease_rate": 87,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.35,
-      "volume_rank": 5,
-      "ma150": 22815,
-      "above_ma150": true,
-      "market_cap": 7082,
-      "updated_at": "2026-06-02T14:10:32.082903"
+      "market_cap": 29666,
+      "updated_at": "2026-06-02T16:12:24.675773"
     },
     {
       "ticker": "041830",
       "name": "인바디",
-      "price": 42550,
-      "change_rate": -0.47,
+      "price": 42750,
+      "change_rate": 0.0,
       "explosion_date": "2026-05-11",
       "explosion_change_rate": 17.9,
       "explosion_volume_ratio": 16.1,
       "days_since_detected": 15,
       "volume_decrease_rate": 89,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.66,
-      "volume_rank": 6,
-      "ma150": 32008,
+      "ma20_distance": 1.11,
+      "volume_rank": 4,
+      "ma150": 32009,
       "above_ma150": true,
-      "market_cap": 5736,
-      "updated_at": "2026-06-02T14:10:32.368406"
+      "market_cap": 5763,
+      "updated_at": "2026-06-02T16:12:24.312913"
+    },
+    {
+      "ticker": "008060",
+      "name": "대덕",
+      "price": 20300,
+      "change_rate": -0.49,
+      "explosion_date": "2026-05-07",
+      "explosion_change_rate": 13.0,
+      "explosion_volume_ratio": 4.0,
+      "days_since_detected": 17,
+      "volume_decrease_rate": 64,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 1.41,
+      "volume_rank": 5,
+      "ma150": 12661,
+      "above_ma150": true,
+      "market_cap": 6351,
+      "updated_at": "2026-06-02T16:12:23.756535"
     }
   ]
 }

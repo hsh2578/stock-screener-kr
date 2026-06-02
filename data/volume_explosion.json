@@ -1,57 +1,57 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-02T14:10:29.994215",
+    "lastUpdated": "2026-06-02T16:12:21.888470",
     "totalCount": 9,
-    "screened_from": 1390
+    "screened_from": 1398
   },
   "data": [
-    {
-      "ticker": "021080",
-      "name": "에이티넘인베스트",
-      "price": 3490,
-      "change_rate": 14.99,
-      "volume_ratio": 28.2,
-      "volume_rank": 1,
-      "ma150": 3030,
-      "above_ma150": true,
-      "market_cap": 1675,
-      "updated_at": "2026-06-02T14:10:29.664547"
-    },
     {
       "ticker": "082800",
       "name": "비보존 제약",
       "price": 2830,
       "change_rate": 29.82,
-      "volume_ratio": 6.7,
-      "volume_rank": 2,
+      "volume_ratio": 7.2,
+      "volume_rank": 1,
       "ma150": 3864,
       "above_ma150": false,
       "market_cap": 1718,
-      "updated_at": "2026-06-02T14:10:29.571984"
-    },
-    {
-      "ticker": "017670",
-      "name": "SK텔레콤",
-      "price": 125700,
-      "change_rate": 12.03,
-      "volume_ratio": 6.2,
-      "volume_rank": 3,
-      "ma150": 72503,
-      "above_ma150": true,
-      "market_cap": 270635,
-      "updated_at": "2026-06-02T14:10:29.274212"
+      "updated_at": "2026-06-02T16:12:21.585210"
     },
     {
       "ticker": "454910",
       "name": "두산로보틱스",
-      "price": 159700,
-      "change_rate": 15.39,
-      "volume_ratio": 5.8,
-      "volume_rank": 4,
-      "ma150": 91791,
+      "price": 166700,
+      "change_rate": 20.45,
+      "volume_ratio": 7.1,
+      "volume_rank": 2,
+      "ma150": 91838,
       "above_ma150": true,
-      "market_cap": 103453,
-      "updated_at": "2026-06-02T14:10:29.546196"
+      "market_cap": 108055,
+      "updated_at": "2026-06-02T16:12:21.551316"
+    },
+    {
+      "ticker": "043260",
+      "name": "성호전자",
+      "price": 47500,
+      "change_rate": 20.41,
+      "volume_ratio": 7.0,
+      "volume_rank": 3,
+      "ma150": 23942,
+      "above_ma150": true,
+      "market_cap": 33688,
+      "updated_at": "2026-06-02T16:12:21.603328"
+    },
+    {
+      "ticker": "085620",
+      "name": "미래에셋생명",
+      "price": 17200,
+      "change_rate": 14.29,
+      "volume_ratio": 6.1,
+      "volume_rank": 4,
+      "ma150": 12200,
+      "above_ma150": true,
+      "market_cap": 23251,
+      "updated_at": "2026-06-02T16:12:21.578289"
     },
     {
       "ticker": "090360",
@@ -63,55 +63,55 @@
       "ma150": 74997,
       "above_ma150": true,
       "market_cap": 15483,
-      "updated_at": "2026-06-02T14:10:29.557120"
+      "updated_at": "2026-06-02T16:12:21.568689"
     },
     {
-      "ticker": "043260",
-      "name": "성호전자",
-      "price": 47300,
-      "change_rate": 19.9,
-      "volume_ratio": 5.8,
+      "ticker": "036570",
+      "name": "NC",
+      "price": 338000,
+      "change_rate": 14.38,
+      "volume_ratio": 5.7,
       "volume_rank": 6,
-      "ma150": 23941,
+      "ma150": 228922,
       "above_ma150": true,
-      "market_cap": 33546,
-      "updated_at": "2026-06-02T14:10:29.586250"
+      "market_cap": 72819,
+      "updated_at": "2026-06-02T16:12:21.494239"
     },
     {
-      "ticker": "085620",
-      "name": "미래에셋생명",
-      "price": 17100,
-      "change_rate": 13.62,
-      "volume_ratio": 5.5,
+      "ticker": "007390",
+      "name": "네이처셀",
+      "price": 30750,
+      "change_rate": 12.64,
+      "volume_ratio": 5.7,
       "volume_rank": 7,
-      "ma150": 12199,
+      "ma150": 21830,
       "above_ma150": true,
-      "market_cap": 22913,
-      "updated_at": "2026-06-02T14:10:29.566067"
+      "market_cap": 19814,
+      "updated_at": "2026-06-02T16:12:21.522880"
     },
     {
-      "ticker": "084670",
-      "name": "동양고속",
-      "price": 40700,
-      "change_rate": 15.13,
+      "ticker": "388720",
+      "name": "유일로보틱스",
+      "price": 108800,
+      "change_rate": 12.86,
       "volume_ratio": 4.9,
       "volume_rank": 8,
-      "ma150": 42713,
-      "above_ma150": false,
-      "market_cap": 1199,
-      "updated_at": "2026-06-02T14:10:29.544306"
+      "ma150": 96041,
+      "above_ma150": true,
+      "market_cap": 12818,
+      "updated_at": "2026-06-02T16:12:21.708035"
     },
     {
-      "ticker": "000650",
-      "name": "천일고속",
-      "price": 230000,
-      "change_rate": 15.81,
-      "volume_ratio": 4.6,
+      "ticker": "307930",
+      "name": "컴퍼니케이",
+      "price": 10400,
+      "change_rate": 30.0,
+      "volume_ratio": 2.5,
       "volume_rank": 9,
-      "ma150": 231249,
-      "above_ma150": false,
-      "market_cap": 3337,
-      "updated_at": "2026-06-02T14:10:29.718490"
+      "ma150": 7130,
+      "above_ma150": true,
+      "market_cap": 1623,
+      "updated_at": "2026-06-02T16:12:21.757546"
     }
   ]
 }
