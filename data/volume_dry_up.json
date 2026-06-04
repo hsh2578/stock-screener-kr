@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-04T14:22:10.048643",
-    "totalCount": 2,
-    "screened_from": 1397
+    "lastUpdated": "2026-06-04T16:10:42.557710",
+    "totalCount": 3,
+    "screened_from": 1398
   },
   "data": [
     {
       "ticker": "004150",
       "name": "한솔홀딩스",
-      "price": 3875,
-      "change_rate": 2.24,
+      "price": 3915,
+      "change_rate": 3.3,
       "explosion_date": "2026-05-22",
       "explosion_change_rate": 12.4,
       "explosion_volume_ratio": 9.9,
@@ -20,14 +20,14 @@
       "volume_rank": 1,
       "ma150": 3286,
       "above_ma150": true,
-      "market_cap": 1590,
-      "updated_at": "2026-06-04T14:22:10.030876"
+      "market_cap": 1606,
+      "updated_at": "2026-06-04T16:10:42.550587"
     },
     {
       "ticker": "003550",
       "name": "LG",
-      "price": 132400,
-      "change_rate": -5.43,
+      "price": 129900,
+      "change_rate": -7.21,
       "explosion_date": "2026-05-21",
       "explosion_change_rate": 19.3,
       "explosion_volume_ratio": 4.0,
@@ -38,8 +38,26 @@
       "volume_rank": 2,
       "ma150": 90056,
       "above_ma150": true,
-      "market_cap": 204189,
-      "updated_at": "2026-06-04T14:22:10.035269"
+      "market_cap": 200334,
+      "updated_at": "2026-06-04T16:10:42.551491"
+    },
+    {
+      "ticker": "008060",
+      "name": "대덕",
+      "price": 20350,
+      "change_rate": 0.25,
+      "explosion_date": "2026-05-07",
+      "explosion_change_rate": 13.0,
+      "explosion_volume_ratio": 4.0,
+      "days_since_detected": 18,
+      "volume_decrease_rate": 68,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 0.67,
+      "volume_rank": 3,
+      "ma150": 12736,
+      "above_ma150": true,
+      "market_cap": 6367,
+      "updated_at": "2026-06-04T16:10:41.081944"
     }
   ]
 }
