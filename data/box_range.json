@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-04T19:28:34.861180",
-    "totalCount": 5,
+    "lastUpdated": "2026-06-04T20:31:56.884377",
+    "totalCount": 4,
     "screened_from": 1398
   },
   "data": [
@@ -23,7 +23,7 @@
       "days": 69,
       "ma150": 103934,
       "above_ma150": true,
-      "updated_at": "2026-06-04T19:28:31.342778"
+      "updated_at": "2026-06-04T20:31:54.810802"
     },
     {
       "ticker": "034590",
@@ -43,27 +43,7 @@
       "days": 95,
       "ma150": 26384,
       "above_ma150": false,
-      "updated_at": "2026-06-04T19:28:33.257543"
-    },
-    {
-      "ticker": "051160",
-      "name": "지어소프트",
-      "price": 7950,
-      "change_rate": -0.62,
-      "market_cap": 1230,
-      "box_high": 8180,
-      "box_low": 7200,
-      "range_percent": 13.61,
-      "atr": 4.09,
-      "atr_multiple": 3.32,
-      "support_touches": 2,
-      "resistance_touches": 3,
-      "slope_daily": -0.046,
-      "volume_decrease_rate": 9.58,
-      "days": 62,
-      "ma150": 7488,
-      "above_ma150": true,
-      "updated_at": "2026-06-04T19:28:33.409463"
+      "updated_at": "2026-06-04T20:31:56.161232"
     },
     {
       "ticker": "267850",
@@ -83,7 +63,7 @@
       "days": 104,
       "ma150": 10859,
       "above_ma150": false,
-      "updated_at": "2026-06-04T19:28:32.444349"
+      "updated_at": "2026-06-04T20:31:55.719059"
     },
     {
       "ticker": "102260",
@@ -103,7 +83,7 @@
       "days": 200,
       "ma150": 4244,
       "above_ma150": false,
-      "updated_at": "2026-06-04T19:28:31.386318"
+      "updated_at": "2026-06-04T20:31:54.852387"
     }
   ]
 }
