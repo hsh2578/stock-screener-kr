@@ -3,7 +3,7 @@
     "type": "buffett",
     "name": "워렌 버핏 전략",
     "description": "ROE·FCF·부채비율 기반 내재가치 전략",
-    "lastUpdated": "2026-06-04T00:59:26.032393",
+    "lastUpdated": "2026-06-04T23:22:33.552447",
     "totalCount": 4,
     "conditions": [
       "ROE > 15%",
@@ -19,8 +19,8 @@
     {
       "ticker": "950170",
       "name": "JTC",
-      "current_price": 4805,
-      "market_cap": 2486.0,
+      "current_price": 4890,
+      "market_cap": 2530.0,
       "roe": 35.4,
       "per": 3.6,
       "pbr": 1.5,
@@ -34,8 +34,8 @@
     {
       "ticker": "123410",
       "name": "코리아에프티",
-      "current_price": 6500,
-      "market_cap": 1810.0,
+      "current_price": 6540,
+      "market_cap": 1821.0,
       "roe": 20.2,
       "per": 5.8,
       "pbr": 0.94,
@@ -49,8 +49,8 @@
     {
       "ticker": "097520",
       "name": "엠씨넥스",
-      "current_price": 21500,
-      "market_cap": 3741.0,
+      "current_price": 21200,
+      "market_cap": 3689.0,
       "roe": 18.8,
       "per": 6.7,
       "pbr": 1.07,
@@ -64,8 +64,8 @@
     {
       "ticker": "035150",
       "name": "백산",
-      "current_price": 10400,
-      "market_cap": 2083.0,
+      "current_price": 10310,
+      "market_cap": 2065.0,
       "roe": 17.9,
       "per": 4.9,
       "pbr": 1.16,
