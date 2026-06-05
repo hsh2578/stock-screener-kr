@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-05T13:57:06.404491",
-    "totalCount": 4,
-    "screened_from": 1382
+    "lastUpdated": "2026-06-05T15:53:44.437617",
+    "totalCount": 3,
+    "screened_from": 1380
   },
   "data": [
     {
@@ -19,71 +19,51 @@
       "support_touches": 2,
       "resistance_touches": 5,
       "slope_daily": 0.0184,
-      "volume_decrease_rate": 66.62,
+      "volume_decrease_rate": 66.53,
       "days": 70,
       "ma150": 104150,
       "above_ma150": true,
-      "updated_at": "2026-06-05T13:57:04.635159"
-    },
-    {
-      "ticker": "051160",
-      "name": "지어소프트",
-      "price": 8000,
-      "change_rate": 0.63,
-      "market_cap": 1238,
-      "box_high": 8180,
-      "box_low": 7200,
-      "range_percent": 13.61,
-      "atr": 4.05,
-      "atr_multiple": 3.36,
-      "support_touches": 1,
-      "resistance_touches": 3,
-      "slope_daily": -0.0499,
-      "volume_decrease_rate": 9.18,
-      "days": 63,
-      "ma150": 7491,
-      "above_ma150": true,
-      "updated_at": "2026-06-05T13:57:05.679670"
+      "updated_at": "2026-06-05T15:53:41.712156"
     },
     {
       "ticker": "267850",
       "name": "아시아나IDT",
-      "price": 9580,
-      "change_rate": -1.74,
-      "market_cap": 1063,
+      "price": 9740,
+      "change_rate": -0.1,
+      "market_cap": 1081,
       "box_high": 11030,
-      "box_low": 9580,
-      "range_percent": 15.14,
-      "atr": 3.96,
-      "atr_multiple": 3.82,
-      "support_touches": 1,
+      "box_low": 9700,
+      "range_percent": 13.71,
+      "atr": 3.89,
+      "atr_multiple": 3.52,
+      "support_touches": 3,
       "resistance_touches": 3,
-      "slope_daily": -0.0246,
-      "volume_decrease_rate": 72.41,
+      "slope_daily": -0.0221,
+      "volume_decrease_rate": 72.3,
       "days": 105,
-      "ma150": 10844,
+      "ma150": 10845,
       "above_ma150": false,
-      "updated_at": "2026-06-05T13:57:05.240605"
+      "updated_at": "2026-06-05T15:53:42.519523"
     },
     {
       "ticker": "102260",
       "name": "동성케미컬",
-      "price": 3865,
-      "change_rate": 2.25,
-      "market_cap": 1956,
+      "price": 3855,
+      "change_rate": 1.98,
+      "market_cap": 1953,
       "box_high": 4520,
       "box_low": 3760,
       "range_percent": 20.21,
-      "atr": 4.02,
-      "atr_multiple": 5.02,
+      "atr": 4.03,
+      "atr_multiple": 5.01,
       "support_touches": 2,
       "resistance_touches": 2,
-      "slope_daily": -0.0284,
-      "volume_decrease_rate": 51.66,
+      "slope_daily": -0.0288,
+      "volume_decrease_rate": 51.53,
       "days": 200,
       "ma150": 4243,
       "above_ma150": false,
-      "updated_at": "2026-06-05T13:57:04.672515"
+      "updated_at": "2026-06-05T15:53:41.848753"
     }
   ]
 }

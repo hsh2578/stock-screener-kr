@@ -1,81 +1,81 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-05T13:57:06.233292",
+    "lastUpdated": "2026-06-05T15:53:46.177985",
     "totalCount": 6,
-    "screened_from": 1382
+    "screened_from": 1380
   },
   "data": [
     {
       "ticker": "082800",
       "name": "비보존 제약",
-      "price": 2965,
-      "change_rate": 14.7,
-      "volume_ratio": 14.1,
+      "price": 2980,
+      "change_rate": 15.28,
+      "volume_ratio": 16.5,
       "volume_rank": 1,
       "ma150": 3837,
       "above_ma150": false,
-      "market_cap": 1800,
-      "updated_at": "2026-06-05T13:57:05.849176"
+      "market_cap": 1809,
+      "updated_at": "2026-06-05T15:53:44.218464"
     },
     {
       "ticker": "457370",
       "name": "한켐",
       "price": 14670,
       "change_rate": 29.94,
-      "volume_ratio": 10.2,
+      "volume_ratio": 11.3,
       "volume_rank": 2,
       "ma150": 8768,
       "above_ma150": true,
       "market_cap": 1183,
-      "updated_at": "2026-06-05T13:57:06.222129"
+      "updated_at": "2026-06-05T15:53:45.939120"
     },
     {
       "ticker": "388790",
       "name": "라이콤",
-      "price": 5770,
-      "change_rate": 17.52,
-      "volume_ratio": 8.0,
+      "price": 5910,
+      "change_rate": 20.37,
+      "volume_ratio": 10.6,
       "volume_rank": 3,
-      "ma150": 3711,
+      "ma150": 3712,
       "above_ma150": true,
-      "market_cap": 1779,
-      "updated_at": "2026-06-05T13:57:05.812985"
+      "market_cap": 1809,
+      "updated_at": "2026-06-05T15:53:43.775752"
+    },
+    {
+      "ticker": "388870",
+      "name": "파로스아이바이오",
+      "price": 7820,
+      "change_rate": 24.13,
+      "volume_ratio": 4.9,
+      "volume_rank": 4,
+      "ma150": 8656,
+      "above_ma150": false,
+      "market_cap": 1012,
+      "updated_at": "2026-06-05T15:53:45.447494"
     },
     {
       "ticker": "109740",
       "name": "디에스케이",
-      "price": 6030,
-      "change_rate": 15.52,
-      "volume_ratio": 3.0,
-      "volume_rank": 4,
-      "ma150": 6529,
-      "above_ma150": false,
-      "market_cap": 1550,
-      "updated_at": "2026-06-05T13:57:05.811080"
-    },
-    {
-      "ticker": "149950",
-      "name": "아바텍",
-      "price": 17640,
-      "change_rate": 20.0,
-      "volume_ratio": 2.5,
+      "price": 6090,
+      "change_rate": 16.67,
+      "volume_ratio": 3.3,
       "volume_rank": 5,
-      "ma150": 10728,
-      "above_ma150": true,
-      "market_cap": 2411,
-      "updated_at": "2026-06-05T13:57:05.928865"
+      "ma150": 6530,
+      "above_ma150": false,
+      "market_cap": 1566,
+      "updated_at": "2026-06-05T15:53:43.725791"
     },
     {
       "ticker": "389650",
       "name": "넥스트바이오메디컬",
-      "price": 48800,
-      "change_rate": 16.61,
-      "volume_ratio": 2.3,
+      "price": 47600,
+      "change_rate": 13.74,
+      "volume_ratio": 2.8,
       "volume_rank": 6,
-      "ma150": 70429,
+      "ma150": 70421,
       "above_ma150": false,
-      "market_cap": 4064,
-      "updated_at": "2026-06-05T13:57:05.785304"
+      "market_cap": 3940,
+      "updated_at": "2026-06-05T15:53:43.460193"
     }
   ]
 }
