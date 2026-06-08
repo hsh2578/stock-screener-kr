@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-06-05T23:02:50.614146",
-    "total_count": 4,
+    "updated_at": "2026-06-08T23:58:20.000697",
+    "total_count": 3,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -10,52 +10,40 @@
   },
   "data": [
     {
-      "ticker": "012450",
-      "name": "한화에어로스페이스",
-      "current_price": 1049000,
-      "ma60w": 1036234,
-      "ma60w_gap": 1.23,
-      "op_margin": 11.6,
-      "op_growth_3y": 89.9,
-      "market_cap": 540900,
+      "ticker": "443060",
+      "name": "HD현대마린솔루션",
+      "current_price": 207500,
+      "ma60w": 191293,
+      "ma60w_gap": 8.47,
+      "op_margin": 17.7,
+      "op_growth_3y": 21.2,
+      "market_cap": 93029,
       "sector": "기타",
-      "updated_at": "2026-06-05T23:02:39.112353"
+      "updated_at": "2026-06-08T23:58:06.806681"
     },
     {
-      "ticker": "009540",
-      "name": "HD한국조선해양",
-      "current_price": 379000,
-      "ma60w": 373972,
-      "ma60w_gap": 1.34,
-      "op_margin": 11.6,
-      "op_growth_3y": 121.1,
-      "market_cap": 268230,
+      "ticker": "007660",
+      "name": "이수페타시스",
+      "current_price": 105700,
+      "ma60w": 96337,
+      "ma60w_gap": 9.72,
+      "op_margin": 17.1,
+      "op_growth_3y": 29.2,
+      "market_cap": 77594,
       "sector": "기타",
-      "updated_at": "2026-06-05T23:02:39.116593"
-    },
-    {
-      "ticker": "064350",
-      "name": "현대로템",
-      "current_price": 191400,
-      "ma60w": 181375,
-      "ma60w_gap": 5.53,
-      "op_margin": 17.2,
-      "op_growth_3y": 79.2,
-      "market_cap": 208898,
-      "sector": "기타",
-      "updated_at": "2026-06-05T23:02:39.118713"
+      "updated_at": "2026-06-08T23:58:08.045207"
     },
     {
       "ticker": "000240",
       "name": "한국앤컴퍼니",
-      "current_price": 24800,
-      "ma60w": 23554,
-      "ma60w_gap": 5.29,
+      "current_price": 23900,
+      "ma60w": 23534,
+      "ma60w_gap": 1.55,
       "op_margin": 26.1,
       "op_growth_3y": 18.6,
-      "market_cap": 23544,
+      "market_cap": 22690,
       "sector": "기타",
-      "updated_at": "2026-06-05T23:02:45.857171"
+      "updated_at": "2026-06-08T23:58:10.543286"
     }
   ]
 }
