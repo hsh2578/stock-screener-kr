@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-09T13:47:16.370859",
+    "lastUpdated": "2026-06-09T17:11:07.883614",
     "totalCount": 3,
-    "screened_from": 1365
+    "screened_from": 1363
   },
   "data": [
     {
@@ -19,51 +19,51 @@
       "support_touches": 3,
       "resistance_touches": 3,
       "slope_daily": 0.0185,
-      "volume_decrease_rate": 62.32,
+      "volume_decrease_rate": 62.25,
       "days": 72,
       "ma150": 104515,
       "above_ma150": true,
-      "updated_at": "2026-06-09T13:47:12.593839"
+      "updated_at": "2026-06-09T17:11:06.159778"
     },
     {
       "ticker": "057050",
       "name": "현대홈쇼핑",
-      "price": 77700,
-      "change_rate": 6.88,
-      "market_cap": 9336,
+      "price": 78500,
+      "change_rate": 7.98,
+      "market_cap": 9420,
       "box_high": 88800,
       "box_low": 72700,
       "range_percent": 22.15,
-      "atr": 4.86,
+      "atr": 4.85,
       "atr_multiple": 4.56,
       "support_touches": 2,
       "resistance_touches": 2,
-      "slope_daily": 0.0019,
-      "volume_decrease_rate": 19.87,
+      "slope_daily": 0.0035,
+      "volume_decrease_rate": 18.93,
       "days": 77,
-      "ma150": 68569,
+      "ma150": 68574,
       "above_ma150": true,
-      "updated_at": "2026-06-09T13:47:16.206535"
+      "updated_at": "2026-06-09T17:11:07.812836"
     },
     {
       "ticker": "461300",
       "name": "아이스크림미디어",
-      "price": 16270,
-      "change_rate": 1.88,
-      "market_cap": 2168,
+      "price": 16740,
+      "change_rate": 4.82,
+      "market_cap": 2230,
       "box_high": 19000,
       "box_low": 15260,
       "range_percent": 24.51,
-      "atr": 4.7,
-      "atr_multiple": 5.21,
+      "atr": 4.6,
+      "atr_multiple": 5.33,
       "support_touches": 2,
       "resistance_touches": 2,
-      "slope_daily": 0.0198,
-      "volume_decrease_rate": 13.32,
+      "slope_daily": 0.0243,
+      "volume_decrease_rate": 12.53,
       "days": 163,
-      "ma150": 16788,
+      "ma150": 16792,
       "above_ma150": false,
-      "updated_at": "2026-06-09T13:47:13.956218"
+      "updated_at": "2026-06-09T17:11:06.897317"
     }
   ]
 }
