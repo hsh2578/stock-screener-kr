@@ -1,45 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-08T21:48:01.352562",
+    "lastUpdated": "2026-06-09T13:47:18.631849",
     "totalCount": 2,
-    "screened_from": 1341
+    "screened_from": 1365
   },
   "data": [
     {
       "ticker": "004150",
       "name": "한솔홀딩스",
-      "price": 3450,
-      "change_rate": -5.61,
+      "price": 3600,
+      "change_rate": 4.35,
       "explosion_date": "2026-05-22",
       "explosion_change_rate": 12.4,
       "explosion_volume_ratio": 9.9,
-      "days_since_detected": 9,
+      "days_since_detected": 10,
       "volume_decrease_rate": 91,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
       "ma150": 3286,
       "above_ma150": true,
-      "market_cap": 1415,
-      "updated_at": "2026-06-08T21:48:01.331011"
+      "market_cap": 1475,
+      "updated_at": "2026-06-09T13:47:18.629193"
     },
     {
-      "ticker": "003550",
-      "name": "LG",
-      "price": 113900,
-      "change_rate": -7.32,
-      "explosion_date": "2026-05-21",
-      "explosion_change_rate": 19.3,
-      "explosion_volume_ratio": 4.0,
-      "days_since_detected": 10,
-      "volume_decrease_rate": 65,
-      "pattern_type": "candle_range",
-      "ma20_distance": null,
+      "ticker": "032580",
+      "name": "피델릭스",
+      "price": 5290,
+      "change_rate": 2.72,
+      "explosion_date": "2026-05-18",
+      "explosion_change_rate": 10.6,
+      "explosion_volume_ratio": 3.0,
+      "days_since_detected": 14,
+      "volume_decrease_rate": 87,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 0.54,
       "volume_rank": 2,
-      "ma150": 90056,
+      "ma150": 1676,
       "above_ma150": true,
-      "market_cap": 175658,
-      "updated_at": "2026-06-08T21:48:01.341560"
+      "market_cap": 1743,
+      "updated_at": "2026-06-09T13:47:18.303152"
     }
   ]
 }
