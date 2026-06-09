@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-09T17:11:09.418626",
+    "lastUpdated": "2026-06-09T19:12:16.382152",
     "totalCount": 100,
     "screened_from": 1363
   },
@@ -566,22 +566,6 @@
       "above_ma150": false
     },
     {
-      "ticker": "462350",
-      "name": "이노스페이스",
-      "price": 15290,
-      "entry_price": 15060,
-      "change_rate": 6.28,
-      "since_return": 1.53,
-      "days_ago": 1,
-      "volume": 757121,
-      "volume_ratio": 1.6,
-      "market_cap": 3191.0,
-      "per": null,
-      "pbr": 7.23,
-      "ma150": 14920,
-      "above_ma150": true
-    },
-    {
       "ticker": "308080",
       "name": "바이젠셀",
       "price": 9830,
@@ -643,6 +627,22 @@
       "per": 9.4,
       "pbr": 0.7,
       "ma150": 12649,
+      "above_ma150": true
+    },
+    {
+      "ticker": "025560",
+      "name": "미래산업",
+      "price": 37300,
+      "entry_price": 31300,
+      "change_rate": 2.62,
+      "since_return": 19.17,
+      "days_ago": 1,
+      "volume": 118294,
+      "volume_ratio": 0.3,
+      "market_cap": 1899.0,
+      "per": 11.1,
+      "pbr": 0.89,
+      "ma150": 15611,
       "above_ma150": true
     },
     {
@@ -870,6 +870,22 @@
       "above_ma150": true
     },
     {
+      "ticker": "304360",
+      "name": "에스바이오메딕스",
+      "price": 29000,
+      "entry_price": 30600,
+      "change_rate": 7.56,
+      "since_return": -5.23,
+      "days_ago": 2,
+      "volume": 83463,
+      "volume_ratio": 1.0,
+      "market_cap": 3592.0,
+      "per": null,
+      "pbr": 32.92,
+      "ma150": 31452,
+      "above_ma150": false
+    },
+    {
       "ticker": "055550",
       "name": "신한지주",
       "price": 101200,
@@ -947,22 +963,6 @@
       "per": null,
       "pbr": 1.92,
       "ma150": 3972,
-      "above_ma150": true
-    },
-    {
-      "ticker": "403870",
-      "name": "HPSP",
-      "price": 57000,
-      "entry_price": 50300,
-      "change_rate": 5.89,
-      "since_return": 13.32,
-      "days_ago": 2,
-      "volume": 9723522,
-      "volume_ratio": 3.5,
-      "market_cap": 46911.0,
-      "per": 49.2,
-      "pbr": 11.6,
-      "ma150": 40905,
       "above_ma150": true
     },
     {
