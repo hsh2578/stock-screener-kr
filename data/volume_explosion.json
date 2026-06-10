@@ -1,81 +1,69 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-10T13:58:21.412450",
-    "totalCount": 7,
-    "screened_from": 1353
+    "lastUpdated": "2026-06-10T15:52:33.090510",
+    "totalCount": 6,
+    "screened_from": 1357
   },
   "data": [
+    {
+      "ticker": "006220",
+      "name": "제주은행",
+      "price": 12750,
+      "change_rate": 14.56,
+      "volume_ratio": 29.1,
+      "volume_rank": 1,
+      "ma150": 12740,
+      "above_ma150": true,
+      "market_cap": 4819,
+      "updated_at": "2026-06-10T15:52:32.409879"
+    },
     {
       "ticker": "126640",
       "name": "화신정공",
       "price": 4430,
       "change_rate": 29.91,
       "volume_ratio": 24.4,
-      "volume_rank": 1,
+      "volume_rank": 2,
       "ma150": 1522,
       "above_ma150": true,
       "market_cap": 1553,
-      "updated_at": "2026-06-10T13:58:21.401949"
-    },
-    {
-      "ticker": "006220",
-      "name": "제주은행",
-      "price": 13730,
-      "change_rate": 23.36,
-      "volume_ratio": 20.8,
-      "volume_rank": 2,
-      "ma150": 12746,
-      "above_ma150": true,
-      "market_cap": 5110,
-      "updated_at": "2026-06-10T13:58:21.245352"
+      "updated_at": "2026-06-10T15:52:33.067067"
     },
     {
       "ticker": "100090",
       "name": "SK오션플랜트",
       "price": 16890,
       "change_rate": 16.16,
-      "volume_ratio": 6.2,
+      "volume_ratio": 9.2,
       "volume_rank": 3,
       "ma150": 20395,
       "above_ma150": false,
-      "market_cap": 10571,
-      "updated_at": "2026-06-10T13:58:21.063111"
-    },
-    {
-      "ticker": "093370",
-      "name": "후성",
-      "price": 15960,
-      "change_rate": 18.05,
-      "volume_ratio": 6.2,
-      "volume_rank": 4,
-      "ma150": 9227,
-      "above_ma150": true,
-      "market_cap": 17204,
-      "updated_at": "2026-06-10T13:58:21.410854"
+      "market_cap": 10553,
+      "updated_at": "2026-06-10T15:52:31.655073"
     },
     {
       "ticker": "404990",
       "name": "신한서부티엔디리츠",
-      "price": 4305,
-      "change_rate": 15.26,
-      "volume_ratio": 4.8,
-      "volume_rank": 5,
-      "ma150": 3932,
+      "price": 4455,
+      "change_rate": 19.28,
+      "volume_ratio": 8.2,
+      "volume_rank": 4,
+      "ma150": 3933,
       "above_ma150": true,
-      "market_cap": 2639,
-      "updated_at": "2026-06-10T13:58:21.148072"
+      "market_cap": 2728,
+      "updated_at": "2026-06-10T15:52:31.790960"
     },
     {
-      "ticker": "031980",
-      "name": "피에스케이홀딩스",
-      "price": 140800,
-      "change_rate": 12.64,
-      "volume_ratio": 2.5,
-      "volume_rank": 6,
-      "ma150": 82013,
+      "ticker": "093370",
+      "name": "후성",
+      "price": 16240,
+      "change_rate": 20.12,
+      "volume_ratio": 7.6,
+      "volume_rank": 5,
+      "ma150": 9229,
       "above_ma150": true,
-      "market_cap": 30403,
-      "updated_at": "2026-06-10T13:58:21.332562"
+      "market_cap": 17418,
+      "updated_at": "2026-06-10T15:52:33.075149"
     },
     {
       "ticker": "475150",
@@ -83,11 +71,11 @@
       "price": 44350,
       "change_rate": 29.87,
       "volume_ratio": 2.2,
-      "volume_rank": 7,
+      "volume_rank": 6,
       "ma150": 33128,
       "above_ma150": true,
       "market_cap": 15109,
-      "updated_at": "2026-06-10T13:58:21.063761"
+      "updated_at": "2026-06-10T15:52:31.656213"
     }
   ]
 }
