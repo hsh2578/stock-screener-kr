@@ -1,8 +1,85 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-10T20:53:53.580869",
-    "totalCount": 0,
-    "screened_from": 1357
+    "lastUpdated": "2026-06-11T14:10:47.985549",
+    "totalCount": 4,
+    "screened_from": 1365
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "007660",
+      "name": "이수페타시스",
+      "current_price": 123300,
+      "volume": 1170326,
+      "ma10w": 130750,
+      "ma20w": 121550,
+      "ma60w": 93013,
+      "ma20d": 126915,
+      "ma60d": 126708,
+      "ma120d": 121410,
+      "gap_20_60": 0.16,
+      "gap_20_120": 4.53,
+      "gap_60_120": 4.36,
+      "gap_price_20": 2.85,
+      "weeks_since_high": 27,
+      "market_cap": 90660,
+      "updated_at": "2026-06-11T14:10:46.577715"
+    },
+    {
+      "ticker": "032640",
+      "name": "LG유플러스",
+      "current_price": 14930,
+      "volume": 1653313,
+      "ma10w": 16085,
+      "ma20w": 16043,
+      "ma60w": 14986,
+      "ma20d": 15591,
+      "ma60d": 15931,
+      "ma120d": 15743,
+      "gap_20_60": 2.13,
+      "gap_20_120": 0.97,
+      "gap_60_120": 1.19,
+      "gap_price_20": 4.24,
+      "weeks_since_high": 16,
+      "market_cap": 63367,
+      "updated_at": "2026-06-11T14:10:43.862443"
+    },
+    {
+      "ticker": "139130",
+      "name": "iM금융지주",
+      "current_price": 17460,
+      "volume": 568298,
+      "ma10w": 18365,
+      "ma20w": 18138,
+      "ma60w": 14929,
+      "ma20d": 17909,
+      "ma60d": 17910,
+      "ma120d": 17083,
+      "gap_20_60": 0.0,
+      "gap_20_120": 4.83,
+      "gap_60_120": 4.84,
+      "gap_price_20": 2.51,
+      "weeks_since_high": 16,
+      "market_cap": 28045,
+      "updated_at": "2026-06-11T14:10:44.227569"
+    },
+    {
+      "ticker": "017890",
+      "name": "한국알콜",
+      "current_price": 11590,
+      "volume": 102215,
+      "ma10w": 12569,
+      "ma20w": 12106,
+      "ma60w": 10588,
+      "ma20d": 11945,
+      "ma60d": 12068,
+      "ma120d": 11618,
+      "gap_20_60": 1.02,
+      "gap_20_120": 2.81,
+      "gap_60_120": 3.87,
+      "gap_price_20": 2.97,
+      "weeks_since_high": 16,
+      "market_cap": 2468,
+      "updated_at": "2026-06-11T14:10:47.520860"
+    }
+  ]
 }
