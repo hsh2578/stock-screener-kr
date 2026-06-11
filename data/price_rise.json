@@ -1,26 +1,10 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-11T18:03:45.329763",
+    "lastUpdated": "2026-06-11T20:12:10.151648",
     "totalCount": 100,
     "screened_from": 1369
   },
   "data": [
-    {
-      "ticker": "183300",
-      "name": "코미코",
-      "price": 139200,
-      "entry_price": 139200,
-      "change_rate": 29.97,
-      "since_return": 0.0,
-      "days_ago": 0,
-      "volume": 621382,
-      "volume_ratio": 1.7,
-      "market_cap": 14561.0,
-      "per": 22.5,
-      "pbr": 4.48,
-      "ma150": 60698,
-      "above_ma150": true
-    },
     {
       "ticker": "085620",
       "name": "미래에셋생명",
@@ -310,20 +294,36 @@
       "above_ma150": true
     },
     {
-      "ticker": "281820",
-      "name": "케이씨텍",
-      "price": 76400,
-      "entry_price": 76400,
-      "change_rate": 17.36,
+      "ticker": "358570",
+      "name": "지아이이노베이션",
+      "price": 13820,
+      "entry_price": 13820,
+      "change_rate": 16.92,
       "since_return": 0.0,
       "days_ago": 0,
-      "volume": 436269,
-      "volume_ratio": 2.8,
-      "market_cap": 15126.0,
-      "per": 19.2,
-      "pbr": 1.84,
-      "ma150": 48554,
-      "above_ma150": true
+      "volume": 1717021,
+      "volume_ratio": 1.9,
+      "market_cap": 8881.0,
+      "per": null,
+      "pbr": 26.83,
+      "ma150": 15267,
+      "above_ma150": false
+    },
+    {
+      "ticker": "473980",
+      "name": "노머스",
+      "price": 14500,
+      "entry_price": 14500,
+      "change_rate": 15.81,
+      "since_return": 0.0,
+      "days_ago": 0,
+      "volume": 100242,
+      "volume_ratio": 1.6,
+      "market_cap": 1604.0,
+      "per": 18.7,
+      "pbr": 2.4,
+      "ma150": 20326,
+      "above_ma150": false
     },
     {
       "ticker": "126640",
@@ -1430,22 +1430,6 @@
       "above_ma150": true
     },
     {
-      "ticker": "183300",
-      "name": "코미코",
-      "price": 139200,
-      "entry_price": 108600,
-      "change_rate": 9.92,
-      "since_return": 28.18,
-      "days_ago": 4,
-      "volume": 309221,
-      "volume_ratio": 0.9,
-      "market_cap": 14561.0,
-      "per": 22.5,
-      "pbr": 4.48,
-      "ma150": 60698,
-      "above_ma150": true
-    },
-    {
       "ticker": "149950",
       "name": "아바텍",
       "price": 14000,
@@ -1603,6 +1587,22 @@
       "per": 49.2,
       "pbr": 11.6,
       "ma150": 41151,
+      "above_ma150": true
+    },
+    {
+      "ticker": "163730",
+      "name": "핑거",
+      "price": 14090,
+      "entry_price": 14460,
+      "change_rate": 5.55,
+      "since_return": -2.56,
+      "days_ago": 4,
+      "volume": 187873,
+      "volume_ratio": 0.8,
+      "market_cap": 1325.0,
+      "per": 324.6,
+      "pbr": 2.03,
+      "ma150": 12689,
       "above_ma150": true
     }
   ]
