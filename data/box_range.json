@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-12T14:16:14.165409",
+    "lastUpdated": "2026-06-12T16:08:16.461593",
     "totalCount": 4,
-    "screened_from": 1390
+    "screened_from": 1385
   },
   "data": [
     {
@@ -19,11 +19,11 @@
       "support_touches": 2,
       "resistance_touches": 3,
       "slope_daily": 0.0188,
-      "volume_decrease_rate": 45.87,
+      "volume_decrease_rate": 45.67,
       "days": 75,
       "ma150": 105094,
       "above_ma150": true,
-      "updated_at": "2026-06-12T14:16:10.314806"
+      "updated_at": "2026-06-12T16:08:13.912626"
     },
     {
       "ticker": "072870",
@@ -39,51 +39,51 @@
       "support_touches": 2,
       "resistance_touches": 2,
       "slope_daily": 0.0377,
-      "volume_decrease_rate": 51.14,
+      "volume_decrease_rate": 50.94,
       "days": 63,
       "ma150": 11894,
       "above_ma150": true,
-      "updated_at": "2026-06-12T14:16:10.727834"
+      "updated_at": "2026-06-12T16:08:14.194564"
     },
     {
       "ticker": "057050",
       "name": "현대홈쇼핑",
-      "price": 82400,
-      "change_rate": 4.7,
-      "market_cap": 9852,
+      "price": 81400,
+      "change_rate": 3.43,
+      "market_cap": 9768,
       "box_high": 88800,
       "box_low": 72700,
       "range_percent": 22.15,
-      "atr": 4.63,
-      "atr_multiple": 4.78,
+      "atr": 4.69,
+      "atr_multiple": 4.72,
       "support_touches": 2,
       "resistance_touches": 2,
-      "slope_daily": -0.0164,
-      "volume_decrease_rate": 11.95,
+      "slope_daily": -0.0185,
+      "volume_decrease_rate": 11.42,
       "days": 80,
-      "ma150": 69114,
+      "ma150": 69107,
       "above_ma150": true,
-      "updated_at": "2026-06-12T14:16:13.767348"
+      "updated_at": "2026-06-12T16:08:16.391279"
     },
     {
       "ticker": "461300",
       "name": "아이스크림미디어",
-      "price": 16290,
-      "change_rate": 0.87,
-      "market_cap": 2170,
+      "price": 16400,
+      "change_rate": 1.55,
+      "market_cap": 2185,
       "box_high": 19000,
       "box_low": 15260,
       "range_percent": 24.51,
-      "atr": 4.69,
-      "atr_multiple": 5.23,
+      "atr": 4.65,
+      "atr_multiple": 5.27,
       "support_touches": 2,
       "resistance_touches": 2,
-      "slope_daily": -0.0046,
-      "volume_decrease_rate": 10.59,
+      "slope_daily": -0.0035,
+      "volume_decrease_rate": 9.1,
       "days": 166,
-      "ma150": 16760,
+      "ma150": 16761,
       "above_ma150": false,
-      "updated_at": "2026-06-12T14:16:11.444101"
+      "updated_at": "2026-06-12T16:08:14.917378"
     }
   ]
 }
