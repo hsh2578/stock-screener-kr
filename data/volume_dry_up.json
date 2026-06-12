@@ -1,27 +1,27 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-11T21:29:45.872452",
+    "lastUpdated": "2026-06-12T14:16:16.012331",
     "totalCount": 1,
-    "screened_from": 1369
+    "screened_from": 1390
   },
   "data": [
     {
       "ticker": "036630",
       "name": "세종텔레콤",
-      "price": 12310,
-      "change_rate": 1.9,
+      "price": 11990,
+      "change_rate": -2.6,
       "explosion_date": "2026-06-08",
       "explosion_change_rate": 13.2,
       "explosion_volume_ratio": 4.0,
-      "days_since_detected": 3,
+      "days_since_detected": 4,
       "volume_decrease_rate": 69,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
       "ma150": 9685,
       "above_ma150": true,
-      "market_cap": 1231,
-      "updated_at": "2026-06-11T21:29:44.410398"
+      "market_cap": 1199,
+      "updated_at": "2026-06-12T14:16:15.979749"
     }
   ]
 }
