@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-15T14:37:55.903615",
+    "lastUpdated": "2026-06-15T19:47:22.279604",
     "totalCount": 4,
-    "screened_from": 1388
+    "screened_from": 1391
   },
   "data": [
     {
@@ -19,18 +19,18 @@
       "support_touches": 2,
       "resistance_touches": 3,
       "slope_daily": 0.0182,
-      "volume_decrease_rate": 44.76,
+      "volume_decrease_rate": 44.73,
       "days": 76,
       "ma150": 105297,
       "above_ma150": true,
-      "updated_at": "2026-06-15T14:37:52.871291"
+      "updated_at": "2026-06-15T19:47:18.536950"
     },
     {
       "ticker": "072870",
       "name": "메가스터디",
-      "price": 13210,
-      "change_rate": 0.53,
-      "market_cap": 1575,
+      "price": 13200,
+      "change_rate": 0.46,
+      "market_cap": 1574,
       "box_high": 13610,
       "box_low": 11850,
       "range_percent": 14.85,
@@ -38,52 +38,52 @@
       "atr_multiple": 5.56,
       "support_touches": 2,
       "resistance_touches": 2,
-      "slope_daily": 0.0452,
-      "volume_decrease_rate": 47.39,
+      "slope_daily": 0.045,
+      "volume_decrease_rate": 47.28,
       "days": 64,
       "ma150": 11907,
       "above_ma150": true,
-      "updated_at": "2026-06-15T14:37:53.031333"
+      "updated_at": "2026-06-15T19:47:18.882635"
     },
     {
       "ticker": "057050",
       "name": "현대홈쇼핑",
-      "price": 81600,
-      "change_rate": 0.25,
-      "market_cap": 9792,
+      "price": 81900,
+      "change_rate": 0.61,
+      "market_cap": 9828,
       "box_high": 88800,
       "box_low": 72700,
       "range_percent": 22.15,
-      "atr": 4.63,
-      "atr_multiple": 4.78,
+      "atr": 4.61,
+      "atr_multiple": 4.8,
       "support_touches": 2,
       "resistance_touches": 2,
-      "slope_daily": -0.0139,
-      "volume_decrease_rate": 12.95,
+      "slope_daily": -0.0133,
+      "volume_decrease_rate": 12.59,
       "days": 81,
-      "ma150": 69300,
+      "ma150": 69302,
       "above_ma150": true,
-      "updated_at": "2026-06-15T14:37:55.794126"
+      "updated_at": "2026-06-15T19:47:21.819279"
     },
     {
       "ticker": "461300",
       "name": "아이스크림미디어",
-      "price": 16800,
-      "change_rate": 2.44,
-      "market_cap": 2244,
+      "price": 16780,
+      "change_rate": 2.32,
+      "market_cap": 2236,
       "box_high": 19000,
       "box_low": 15260,
       "range_percent": 24.51,
-      "atr": 4.5,
+      "atr": 4.51,
       "atr_multiple": 5.44,
       "support_touches": 2,
       "resistance_touches": 2,
-      "slope_daily": -0.0011,
-      "volume_decrease_rate": 9.72,
+      "slope_daily": -0.0013,
+      "volume_decrease_rate": 9.58,
       "days": 167,
       "ma150": 16755,
       "above_ma150": true,
-      "updated_at": "2026-06-15T14:37:53.621550"
+      "updated_at": "2026-06-15T19:47:19.572882"
     }
   ]
 }
