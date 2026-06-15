@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-06-12T23:18:53.164624",
-    "total_count": 3,
+    "updated_at": "2026-06-16T01:31:23.761159",
+    "total_count": 6,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -12,38 +12,74 @@
     {
       "ticker": "012450",
       "name": "한화에어로스페이스",
-      "current_price": 1078000,
-      "ma60w": 1037663,
-      "ma60w_gap": 3.89,
+      "current_price": 1084000,
+      "ma60w": 1038245,
+      "ma60w_gap": 4.41,
       "op_margin": 11.6,
       "op_growth_3y": 89.9,
-      "market_cap": 555853,
+      "market_cap": 558947,
       "sector": "기타",
-      "updated_at": "2026-06-12T23:18:45.376556"
+      "updated_at": "2026-06-16T01:30:43.936226"
     },
     {
       "ticker": "035420",
       "name": "NAVER",
-      "current_price": 247000,
-      "ma60w": 225865,
-      "ma60w_gap": 9.36,
+      "current_price": 248000,
+      "ma60w": 225623,
+      "ma60w_gap": 9.92,
       "op_margin": 18.4,
       "op_growth_3y": 14.8,
-      "market_cap": 387478,
+      "market_cap": 389047,
       "sector": "기타",
-      "updated_at": "2026-06-12T23:18:45.378276"
+      "updated_at": "2026-06-16T01:30:43.937734"
     },
     {
-      "ticker": "009540",
-      "name": "HD한국조선해양",
-      "current_price": 398000,
-      "ma60w": 374654,
-      "ma60w_gap": 6.23,
-      "op_margin": 11.6,
-      "op_growth_3y": 121.1,
-      "market_cap": 281677,
+      "ticker": "011200",
+      "name": "HMM",
+      "current_price": 21300,
+      "ma60w": 20427,
+      "ma60w_gap": 4.27,
+      "op_margin": 13.4,
+      "op_growth_3y": 147.4,
+      "market_cap": 200910,
       "sector": "기타",
-      "updated_at": "2026-06-12T23:18:45.381211"
+      "updated_at": "2026-06-16T01:30:43.942787"
+    },
+    {
+      "ticker": "128940",
+      "name": "한미약품",
+      "current_price": 420500,
+      "ma60w": 417621,
+      "ma60w_gap": 0.69,
+      "op_margin": 14.0,
+      "op_growth_3y": 10.8,
+      "market_cap": 53870,
+      "sector": "기타",
+      "updated_at": "2026-06-16T01:30:47.300075"
+    },
+    {
+      "ticker": "395400",
+      "name": "SK리츠",
+      "current_price": 5840,
+      "ma60w": 5505,
+      "ma60w_gap": 6.08,
+      "op_margin": 90.7,
+      "op_growth_3y": 96.3,
+      "market_cap": 17579,
+      "sector": "기타",
+      "updated_at": "2026-06-16T01:31:23.748189"
+    },
+    {
+      "ticker": "017960",
+      "name": "한국카본",
+      "current_price": 32800,
+      "ma60w": 32442,
+      "ma60w_gap": 1.1,
+      "op_margin": 12.6,
+      "op_growth_3y": 94.7,
+      "market_cap": 16950,
+      "sector": "기타",
+      "updated_at": "2026-06-16T01:31:23.749153"
     }
   ]
 }
