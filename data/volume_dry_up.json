@@ -1,27 +1,27 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-16T14:45:06.309532",
+    "lastUpdated": "2026-06-16T17:34:56.683652",
     "totalCount": 1,
-    "screened_from": 1393
+    "screened_from": 1396
   },
   "data": [
     {
       "ticker": "006220",
       "name": "제주은행",
-      "price": 12290,
-      "change_rate": 0.0,
+      "price": 12330,
+      "change_rate": 0.33,
       "explosion_date": "2026-06-10",
       "explosion_change_rate": 14.6,
       "explosion_volume_ratio": 16.9,
       "days_since_detected": 4,
-      "volume_decrease_rate": 83,
+      "volume_decrease_rate": 82,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
       "ma150": 12713,
       "above_ma150": false,
-      "market_cap": 4645,
-      "updated_at": "2026-06-16T14:45:05.638166"
+      "market_cap": 4661,
+      "updated_at": "2026-06-16T17:34:56.412718"
     }
   ]
 }
