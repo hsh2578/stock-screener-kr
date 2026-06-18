@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-18T18:06:44.249507",
+    "lastUpdated": "2026-06-18T21:04:29.017174",
     "totalCount": 100,
     "screened_from": 1381
   },
@@ -470,22 +470,6 @@
       "above_ma150": true
     },
     {
-      "ticker": "463020",
-      "name": "뉴엔AI",
-      "price": 12230,
-      "entry_price": 12210,
-      "change_rate": 16.73,
-      "since_return": 0.16,
-      "days_ago": 1,
-      "volume": 674847,
-      "volume_ratio": 5.5,
-      "market_cap": 1086.0,
-      "per": null,
-      "pbr": 1.74,
-      "ma150": 14657,
-      "above_ma150": false
-    },
-    {
       "ticker": "122640",
       "name": "예스티",
       "price": 39850,
@@ -643,6 +627,22 @@
       "per": null,
       "pbr": 4.51,
       "ma150": 1188,
+      "above_ma150": false
+    },
+    {
+      "ticker": "494120",
+      "name": "큐리오시스",
+      "price": 27600,
+      "entry_price": 33300,
+      "change_rate": 11.19,
+      "since_return": -17.12,
+      "days_ago": 1,
+      "volume": 194991,
+      "volume_ratio": 2.0,
+      "market_cap": 2106.0,
+      "per": null,
+      "pbr": 17.74,
+      "ma150": null,
       "above_ma150": false
     },
     {
@@ -838,22 +838,6 @@
       "above_ma150": false
     },
     {
-      "ticker": "463020",
-      "name": "뉴엔AI",
-      "price": 12230,
-      "entry_price": 10460,
-      "change_rate": 14.69,
-      "since_return": 16.92,
-      "days_ago": 2,
-      "volume": 641105,
-      "volume_ratio": 6.7,
-      "market_cap": 1086.0,
-      "per": null,
-      "pbr": 1.74,
-      "ma150": 14657,
-      "above_ma150": false
-    },
-    {
       "ticker": "126340",
       "name": "비나텍",
       "price": 115800,
@@ -964,6 +948,22 @@
       "pbr": 0.96,
       "ma150": 187529,
       "above_ma150": true
+    },
+    {
+      "ticker": "001520",
+      "name": "동양",
+      "price": 565,
+      "entry_price": 624,
+      "change_rate": 11.83,
+      "since_return": -9.46,
+      "days_ago": 2,
+      "volume": 2533111,
+      "volume_ratio": 2.2,
+      "market_cap": 1349.0,
+      "per": null,
+      "pbr": 0.24,
+      "ma150": 804,
+      "above_ma150": false
     },
     {
       "ticker": "067290",
@@ -1590,19 +1590,19 @@
       "above_ma150": true
     },
     {
-      "ticker": "144960",
-      "name": "뉴파워프라즈마",
-      "price": 8800,
-      "entry_price": 10050,
-      "change_rate": 20.65,
-      "since_return": -12.44,
+      "ticker": "093370",
+      "name": "후성",
+      "price": 18840,
+      "entry_price": 19010,
+      "change_rate": 20.55,
+      "since_return": -0.89,
       "days_ago": 4,
-      "volume": 1722535,
-      "volume_ratio": 0.8,
-      "market_cap": 3845.0,
-      "per": 11.6,
-      "pbr": 0.9,
-      "ma150": 6362,
+      "volume": 17847095,
+      "volume_ratio": 4.2,
+      "market_cap": 20207.0,
+      "per": null,
+      "pbr": 2.3,
+      "ma150": 9612,
       "above_ma150": true
     }
   ]
