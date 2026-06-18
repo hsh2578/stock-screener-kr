@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-17T21:36:01.647440",
+    "lastUpdated": "2026-06-18T16:20:04.885921",
     "totalCount": 3,
-    "screened_from": 1397
+    "screened_from": 1381
   },
   "data": [
     {
@@ -14,16 +14,16 @@
       "box_high": 16040,
       "box_low": 15850,
       "range_percent": 1.2,
-      "atr": 8.61,
-      "atr_multiple": 0.14,
-      "support_touches": 2,
+      "atr": 10.27,
+      "atr_multiple": 0.12,
+      "support_touches": 1,
       "resistance_touches": 4,
-      "slope_daily": 0.0075,
-      "volume_decrease_rate": 9.0,
-      "days": 111,
-      "ma150": 14659,
+      "slope_daily": 0.0067,
+      "volume_decrease_rate": 14.04,
+      "days": 112,
+      "ma150": 14689,
       "above_ma150": true,
-      "updated_at": "2026-06-17T21:36:00.916314"
+      "updated_at": "2026-06-18T16:20:02.886847"
     },
     {
       "ticker": "012510",
@@ -34,36 +34,36 @@
       "box_high": 120300,
       "box_low": 118600,
       "range_percent": 1.43,
-      "atr": 1.12,
+      "atr": 1.11,
       "atr_multiple": 1.29,
       "support_touches": 3,
       "resistance_touches": 3,
-      "slope_daily": 0.0179,
-      "volume_decrease_rate": 54.84,
-      "days": 78,
-      "ma150": 105695,
+      "slope_daily": 0.0181,
+      "volume_decrease_rate": 49.37,
+      "days": 79,
+      "ma150": 105867,
       "above_ma150": true,
-      "updated_at": "2026-06-17T21:36:00.115823"
+      "updated_at": "2026-06-18T16:20:01.822198"
     },
     {
       "ticker": "057050",
       "name": "현대홈쇼핑",
-      "price": 83300,
-      "change_rate": -2.91,
-      "market_cap": 9996,
+      "price": 83700,
+      "change_rate": 0.48,
+      "market_cap": 10044,
       "box_high": 88800,
       "box_low": 72700,
       "range_percent": 22.15,
-      "atr": 4.62,
-      "atr_multiple": 4.8,
+      "atr": 4.57,
+      "atr_multiple": 4.85,
       "support_touches": 2,
       "resistance_touches": 2,
-      "slope_daily": 0.0064,
-      "volume_decrease_rate": 19.2,
-      "days": 83,
-      "ma150": 69743,
+      "slope_daily": 0.0158,
+      "volume_decrease_rate": 18.87,
+      "days": 84,
+      "ma150": 69953,
       "above_ma150": true,
-      "updated_at": "2026-06-17T21:36:01.631086"
+      "updated_at": "2026-06-18T16:20:04.781749"
     }
   ]
 }
