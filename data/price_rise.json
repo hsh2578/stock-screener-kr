@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-19T20:07:47.202011",
+    "lastUpdated": "2026-06-19T21:33:04.926919",
     "totalCount": 100,
     "screened_from": 1362
   },
@@ -99,22 +99,6 @@
       "per": 6.4,
       "pbr": 0.75,
       "ma150": 10521,
-      "above_ma150": true
-    },
-    {
-      "ticker": "306620",
-      "name": "지아이에스",
-      "price": 3355,
-      "entry_price": 3355,
-      "change_rate": 17.51,
-      "since_return": 0.0,
-      "days_ago": 0,
-      "volume": 7917502,
-      "volume_ratio": 4.3,
-      "market_cap": 1608.0,
-      "per": null,
-      "pbr": 3.07,
-      "ma150": 2683,
       "above_ma150": true
     },
     {
@@ -326,6 +310,22 @@
       "above_ma150": true
     },
     {
+      "ticker": "483650",
+      "name": "달바글로벌",
+      "price": 214000,
+      "entry_price": 214000,
+      "change_rate": 6.73,
+      "since_return": 0.0,
+      "days_ago": 0,
+      "volume": 158855,
+      "volume_ratio": 0.8,
+      "market_cap": 26684.0,
+      "per": 111.4,
+      "pbr": 17.85,
+      "ma150": 168343,
+      "above_ma150": true
+    },
+    {
       "ticker": "198440",
       "name": "강동씨앤엘",
       "price": 2415,
@@ -438,22 +438,6 @@
       "above_ma150": true
     },
     {
-      "ticker": "064290",
-      "name": "인텍플러스",
-      "price": 46250,
-      "entry_price": 48100,
-      "change_rate": 14.66,
-      "since_return": -3.85,
-      "days_ago": 1,
-      "volume": 1341192,
-      "volume_ratio": 1.9,
-      "market_cap": 5950.0,
-      "per": null,
-      "pbr": 4.51,
-      "ma150": 21000,
-      "above_ma150": true
-    },
-    {
       "ticker": "126730",
       "name": "코칩",
       "price": 23950,
@@ -483,22 +467,6 @@
       "per": 35.6,
       "pbr": 3.92,
       "ma150": 156124,
-      "above_ma150": true
-    },
-    {
-      "ticker": "306620",
-      "name": "지아이에스",
-      "price": 3355,
-      "entry_price": 2855,
-      "change_rate": 12.85,
-      "since_return": 17.51,
-      "days_ago": 1,
-      "volume": 3926470,
-      "volume_ratio": 2.3,
-      "market_cap": 1608.0,
-      "per": null,
-      "pbr": 3.07,
-      "ma150": 2683,
       "above_ma150": true
     },
     {
@@ -582,22 +550,6 @@
       "above_ma150": false
     },
     {
-      "ticker": "047770",
-      "name": "코데즈컴바인",
-      "price": 3350,
-      "entry_price": 3700,
-      "change_rate": 8.35,
-      "since_return": -9.46,
-      "days_ago": 1,
-      "volume": 2783051,
-      "volume_ratio": 1.9,
-      "market_cap": 1268.0,
-      "per": 22.1,
-      "pbr": 1.39,
-      "ma150": 3679,
-      "above_ma150": false
-    },
-    {
       "ticker": "009150",
       "name": "삼성전기",
       "price": 2270000,
@@ -643,6 +595,54 @@
       "per": 778.6,
       "pbr": 4.04,
       "ma150": 35532,
+      "above_ma150": true
+    },
+    {
+      "ticker": "451220",
+      "name": "아이엠티",
+      "price": 14600,
+      "entry_price": 15300,
+      "change_rate": 7.59,
+      "since_return": -4.58,
+      "days_ago": 1,
+      "volume": 248302,
+      "volume_ratio": 1.9,
+      "market_cap": 1150.0,
+      "per": 100.6,
+      "pbr": 3.17,
+      "ma150": 11720,
+      "above_ma150": true
+    },
+    {
+      "ticker": "092790",
+      "name": "넥스틸",
+      "price": 15630,
+      "entry_price": 17290,
+      "change_rate": 7.52,
+      "since_return": -9.6,
+      "days_ago": 1,
+      "volume": 2387665,
+      "volume_ratio": 4.8,
+      "market_cap": 4064.0,
+      "per": 9.4,
+      "pbr": 0.7,
+      "ma150": 12816,
+      "above_ma150": true
+    },
+    {
+      "ticker": "192410",
+      "name": "오늘이엔엠",
+      "price": 4685,
+      "entry_price": 5010,
+      "change_rate": 7.28,
+      "since_return": -6.49,
+      "days_ago": 1,
+      "volume": 171107,
+      "volume_ratio": 0.6,
+      "market_cap": 1180.0,
+      "per": null,
+      "pbr": 0.8,
+      "ma150": 3530,
       "above_ma150": true
     },
     {
@@ -934,6 +934,22 @@
       "above_ma150": true
     },
     {
+      "ticker": "018000",
+      "name": "유니슨",
+      "price": 999,
+      "entry_price": 1083,
+      "change_rate": 11.31,
+      "since_return": -7.76,
+      "days_ago": 2,
+      "volume": 15574819,
+      "volume_ratio": 4.0,
+      "market_cap": 2592.0,
+      "per": null,
+      "pbr": 4.51,
+      "ma150": 1186,
+      "above_ma150": false
+    },
+    {
       "ticker": "494120",
       "name": "큐리오시스",
       "price": 25550,
@@ -948,22 +964,6 @@
       "pbr": 17.74,
       "ma150": null,
       "above_ma150": false
-    },
-    {
-      "ticker": "006340",
-      "name": "대원전선",
-      "price": 11100,
-      "entry_price": 12330,
-      "change_rate": 10.58,
-      "since_return": -9.98,
-      "days_ago": 2,
-      "volume": 45417583,
-      "volume_ratio": 8.5,
-      "market_cap": 8704.0,
-      "per": 73.2,
-      "pbr": 4.37,
-      "ma150": 6628,
-      "above_ma150": true
     },
     {
       "ticker": "010690",
@@ -1302,22 +1302,6 @@
       "above_ma150": true
     },
     {
-      "ticker": "047770",
-      "name": "코데즈컴바인",
-      "price": 3350,
-      "entry_price": 3585,
-      "change_rate": 29.89,
-      "since_return": -6.56,
-      "days_ago": 4,
-      "volume": 5458138,
-      "volume_ratio": 5.2,
-      "market_cap": 1268.0,
-      "per": 22.1,
-      "pbr": 1.39,
-      "ma150": 3679,
-      "above_ma150": false
-    },
-    {
       "ticker": "439960",
       "name": "코스모로보틱스",
       "price": 22700,
@@ -1572,6 +1556,22 @@
       "pbr": 1.01,
       "ma150": 308960,
       "above_ma150": true
+    },
+    {
+      "ticker": "206650",
+      "name": "유바이오로직스",
+      "price": 9270,
+      "entry_price": 10830,
+      "change_rate": 14.48,
+      "since_return": -14.4,
+      "days_ago": 4,
+      "volume": 1481681,
+      "volume_ratio": 5.6,
+      "market_cap": 3404.0,
+      "per": 27.1,
+      "pbr": 3.91,
+      "ma150": 12478,
+      "above_ma150": false
     },
     {
       "ticker": "330860",
