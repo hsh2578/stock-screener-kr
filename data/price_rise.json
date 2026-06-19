@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-19T18:24:06.734517",
+    "lastUpdated": "2026-06-19T20:07:47.202011",
     "totalCount": 100,
     "screened_from": 1362
   },
@@ -934,22 +934,6 @@
       "above_ma150": true
     },
     {
-      "ticker": "018000",
-      "name": "유니슨",
-      "price": 999,
-      "entry_price": 1083,
-      "change_rate": 11.31,
-      "since_return": -7.76,
-      "days_ago": 2,
-      "volume": 15574819,
-      "volume_ratio": 4.0,
-      "market_cap": 2592.0,
-      "per": null,
-      "pbr": 4.51,
-      "ma150": 1186,
-      "above_ma150": false
-    },
-    {
       "ticker": "494120",
       "name": "큐리오시스",
       "price": 25550,
@@ -964,6 +948,22 @@
       "pbr": 17.74,
       "ma150": null,
       "above_ma150": false
+    },
+    {
+      "ticker": "006340",
+      "name": "대원전선",
+      "price": 11100,
+      "entry_price": 12330,
+      "change_rate": 10.58,
+      "since_return": -9.98,
+      "days_ago": 2,
+      "volume": 45417583,
+      "volume_ratio": 8.5,
+      "market_cap": 8704.0,
+      "per": 73.2,
+      "pbr": 4.37,
+      "ma150": 6628,
+      "above_ma150": true
     },
     {
       "ticker": "010690",
@@ -1574,22 +1574,6 @@
       "above_ma150": true
     },
     {
-      "ticker": "206650",
-      "name": "유바이오로직스",
-      "price": 9270,
-      "entry_price": 10830,
-      "change_rate": 14.48,
-      "since_return": -14.4,
-      "days_ago": 4,
-      "volume": 1481681,
-      "volume_ratio": 5.6,
-      "market_cap": 3404.0,
-      "per": 27.1,
-      "pbr": 3.91,
-      "ma150": 12478,
-      "above_ma150": false
-    },
-    {
       "ticker": "330860",
       "name": "네패스아크",
       "price": 50300,
@@ -1603,6 +1587,22 @@
       "per": null,
       "pbr": 1.84,
       "ma150": 26044,
+      "above_ma150": true
+    },
+    {
+      "ticker": "356680",
+      "name": "엑스게이트",
+      "price": 16230,
+      "entry_price": 18710,
+      "change_rate": 14.02,
+      "since_return": -13.25,
+      "days_ago": 4,
+      "volume": 1389071,
+      "volume_ratio": 0.5,
+      "market_cap": 4633.0,
+      "per": 49.5,
+      "pbr": 4.45,
+      "ma150": 10455,
       "above_ma150": true
     }
   ]
