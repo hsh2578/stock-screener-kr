@@ -1,21 +1,21 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-22T14:43:04.232074",
-    "totalCount": 8,
-    "screened_from": 1341
+    "lastUpdated": "2026-06-22T17:44:13.330277",
+    "totalCount": 12,
+    "screened_from": 1344
   },
   "data": [
     {
       "ticker": "293490",
       "name": "카카오게임즈",
-      "price": 10150,
-      "change_rate": 15.21,
-      "volume_ratio": 25.0,
+      "price": 10040,
+      "change_rate": 13.96,
+      "volume_ratio": 26.0,
       "volume_rank": 1,
       "ma150": 13543,
       "above_ma150": false,
-      "market_cap": 9149,
-      "updated_at": "2026-06-22T14:43:04.059186"
+      "market_cap": 9015,
+      "updated_at": "2026-06-22T17:44:13.203644"
     },
     {
       "ticker": "320000",
@@ -27,43 +27,43 @@
       "ma150": 9917,
       "above_ma150": true,
       "market_cap": 1544,
-      "updated_at": "2026-06-22T14:43:04.204269"
+      "updated_at": "2026-06-22T17:44:13.278334"
     },
     {
       "ticker": "067290",
       "name": "JW신약",
-      "price": 2765,
-      "change_rate": 18.42,
-      "volume_ratio": 9.1,
+      "price": 2730,
+      "change_rate": 16.92,
+      "volume_ratio": 9.6,
       "volume_rank": 3,
-      "ma150": 1845,
+      "ma150": 1844,
       "above_ma150": true,
-      "market_cap": 1549,
-      "updated_at": "2026-06-22T14:43:03.482181"
+      "market_cap": 1530,
+      "updated_at": "2026-06-22T17:44:12.635846"
     },
     {
       "ticker": "004710",
       "name": "한솔테크닉스",
-      "price": 15320,
-      "change_rate": 17.13,
-      "volume_ratio": 4.8,
+      "price": 15460,
+      "change_rate": 18.2,
+      "volume_ratio": 5.0,
       "volume_rank": 4,
-      "ma150": 7055,
+      "ma150": 7056,
       "above_ma150": true,
-      "market_cap": 6204,
-      "updated_at": "2026-06-22T14:43:04.202757"
+      "market_cap": 6281,
+      "updated_at": "2026-06-22T17:44:13.276780"
     },
     {
       "ticker": "475430",
       "name": "키스트론",
       "price": 6110,
       "change_rate": 30.0,
-      "volume_ratio": 4.1,
+      "volume_ratio": 4.3,
       "volume_rank": 5,
       "ma150": 4719,
       "above_ma150": true,
       "market_cap": 1091,
-      "updated_at": "2026-06-22T14:43:04.091068"
+      "updated_at": "2026-06-22T17:44:13.245062"
     },
     {
       "ticker": "079650",
@@ -75,31 +75,79 @@
       "ma150": 1513,
       "above_ma150": true,
       "market_cap": 1250,
-      "updated_at": "2026-06-22T14:43:03.801705"
+      "updated_at": "2026-06-22T17:44:13.002809"
     },
     {
       "ticker": "040350",
       "name": "크레오에스지",
-      "price": 11200,
-      "change_rate": 24.31,
-      "volume_ratio": 2.8,
+      "price": 11350,
+      "change_rate": 25.97,
+      "volume_ratio": 3.2,
       "volume_rank": 7,
-      "ma150": 4367,
+      "ma150": 4368,
       "above_ma150": true,
-      "market_cap": 2196,
-      "updated_at": "2026-06-22T14:43:04.090040"
+      "market_cap": 2216,
+      "updated_at": "2026-06-22T17:44:13.221730"
     },
     {
       "ticker": "067310",
       "name": "하나마이크론",
-      "price": 55200,
-      "change_rate": 12.65,
-      "volume_ratio": 2.4,
+      "price": 56800,
+      "change_rate": 15.92,
+      "volume_ratio": 2.8,
       "volume_rank": 8,
-      "ma150": 33769,
+      "ma150": 33780,
       "above_ma150": true,
-      "market_cap": 36630,
-      "updated_at": "2026-06-22T14:43:04.104383"
+      "market_cap": 37760,
+      "updated_at": "2026-06-22T17:44:13.267310"
+    },
+    {
+      "ticker": "025320",
+      "name": "시노펙스",
+      "price": 4985,
+      "change_rate": 13.42,
+      "volume_ratio": 2.4,
+      "volume_rank": 9,
+      "ma150": 5941,
+      "above_ma150": false,
+      "market_cap": 4594,
+      "updated_at": "2026-06-22T17:44:13.011323"
+    },
+    {
+      "ticker": "053260",
+      "name": "금강철강",
+      "price": 5740,
+      "change_rate": 15.49,
+      "volume_ratio": 2.2,
+      "volume_rank": 10,
+      "ma150": 4639,
+      "above_ma150": true,
+      "market_cap": 1075,
+      "updated_at": "2026-06-22T17:44:12.660904"
+    },
+    {
+      "ticker": "080220",
+      "name": "제주반도체",
+      "price": 134000,
+      "change_rate": 17.24,
+      "volume_ratio": 2.2,
+      "volume_rank": 11,
+      "ma150": 47204,
+      "above_ma150": true,
+      "market_cap": 46153,
+      "updated_at": "2026-06-22T17:44:13.191364"
+    },
+    {
+      "ticker": "119830",
+      "name": "아이텍",
+      "price": 7490,
+      "change_rate": 20.61,
+      "volume_ratio": 2.1,
+      "volume_rank": 12,
+      "ma150": 6760,
+      "above_ma150": true,
+      "market_cap": 1988,
+      "updated_at": "2026-06-22T17:44:13.039676"
     }
   ]
 }
