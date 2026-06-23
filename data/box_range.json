@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-23T13:41:21.600219",
+    "lastUpdated": "2026-06-23T15:36:34.157802",
     "totalCount": 3,
-    "screened_from": 1321
+    "screened_from": 1309
   },
   "data": [
     {
@@ -23,7 +23,7 @@
       "days": 115,
       "ma150": 14779,
       "above_ma150": true,
-      "updated_at": "2026-06-23T13:41:20.348102"
+      "updated_at": "2026-06-23T15:36:32.626543"
     },
     {
       "ticker": "012510",
@@ -39,31 +39,31 @@
       "support_touches": 3,
       "resistance_touches": 3,
       "slope_daily": 0.0145,
-      "volume_decrease_rate": 48.3,
+      "volume_decrease_rate": 48.22,
       "days": 82,
       "ma150": 106522,
       "above_ma150": true,
-      "updated_at": "2026-06-23T13:41:19.566347"
+      "updated_at": "2026-06-23T15:36:31.756538"
     },
     {
       "ticker": "057050",
       "name": "현대홈쇼핑",
-      "price": 79400,
-      "change_rate": -0.13,
-      "market_cap": 9504,
+      "price": 78500,
+      "change_rate": -1.26,
+      "market_cap": 9420,
       "box_high": 88800,
       "box_low": 72700,
       "range_percent": 22.15,
-      "atr": 4.88,
-      "atr_multiple": 4.53,
+      "atr": 4.94,
+      "atr_multiple": 4.48,
       "support_touches": 2,
       "resistance_touches": 2,
-      "slope_daily": 0.0069,
-      "volume_decrease_rate": 36.9,
+      "slope_daily": 0.0051,
+      "volume_decrease_rate": 36.14,
       "days": 87,
-      "ma150": 70472,
+      "ma150": 70466,
       "above_ma150": true,
-      "updated_at": "2026-06-23T13:41:21.477550"
+      "updated_at": "2026-06-23T15:36:34.073262"
     }
   ]
 }
