@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-22T23:12:52.561292",
+    "lastUpdated": "2026-06-23T13:41:21.600219",
     "totalCount": 3,
-    "screened_from": 1344
+    "screened_from": 1321
   },
   "data": [
     {
@@ -14,56 +14,56 @@
       "box_high": 16040,
       "box_low": 15850,
       "range_percent": 1.2,
-      "atr": 13.59,
-      "atr_multiple": 0.09,
+      "atr": 15.26,
+      "atr_multiple": 0.08,
       "support_touches": 1,
       "resistance_touches": 3,
-      "slope_daily": 0.0051,
-      "volume_decrease_rate": 20.72,
-      "days": 114,
-      "ma150": 14750,
+      "slope_daily": 0.0048,
+      "volume_decrease_rate": 26.78,
+      "days": 115,
+      "ma150": 14779,
       "above_ma150": true,
-      "updated_at": "2026-06-22T23:12:50.956315"
+      "updated_at": "2026-06-23T13:41:20.348102"
     },
     {
       "ticker": "012510",
       "name": "더존비즈온",
-      "price": 119500,
-      "change_rate": -0.42,
-      "market_cap": 34803,
+      "price": 120000,
+      "change_rate": 0.42,
+      "market_cap": 34949,
       "box_high": 120300,
-      "box_low": 118600,
-      "range_percent": 1.43,
-      "atr": 1.12,
-      "atr_multiple": 1.28,
-      "support_touches": 2,
+      "box_low": 118700,
+      "range_percent": 1.35,
+      "atr": 1.11,
+      "atr_multiple": 1.22,
+      "support_touches": 3,
       "resistance_touches": 3,
-      "slope_daily": 0.0155,
-      "volume_decrease_rate": 48.64,
-      "days": 81,
-      "ma150": 106289,
+      "slope_daily": 0.0145,
+      "volume_decrease_rate": 48.3,
+      "days": 82,
+      "ma150": 106522,
       "above_ma150": true,
-      "updated_at": "2026-06-22T23:12:49.861929"
+      "updated_at": "2026-06-23T13:41:19.566347"
     },
     {
       "ticker": "057050",
       "name": "현대홈쇼핑",
-      "price": 79500,
-      "change_rate": -0.87,
-      "market_cap": 9540,
+      "price": 79400,
+      "change_rate": -0.13,
+      "market_cap": 9504,
       "box_high": 88800,
       "box_low": 72700,
       "range_percent": 22.15,
-      "atr": 4.84,
-      "atr_multiple": 4.57,
+      "atr": 4.88,
+      "atr_multiple": 4.53,
       "support_touches": 2,
       "resistance_touches": 2,
-      "slope_daily": 0.0085,
-      "volume_decrease_rate": 29.61,
-      "days": 86,
-      "ma150": 70310,
+      "slope_daily": 0.0069,
+      "volume_decrease_rate": 36.9,
+      "days": 87,
+      "ma150": 70472,
       "above_ma150": true,
-      "updated_at": "2026-06-22T23:12:52.477734"
+      "updated_at": "2026-06-23T13:41:21.477550"
     }
   ]
 }
