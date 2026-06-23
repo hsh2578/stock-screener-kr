@@ -1,10 +1,30 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-23T19:13:37.921974",
-    "totalCount": 2,
+    "lastUpdated": "2026-06-23T20:38:19.705486",
+    "totalCount": 3,
     "screened_from": 1309
   },
   "data": [
+    {
+      "ticker": "230360",
+      "name": "에코마케팅",
+      "price": 16000,
+      "change_rate": 0.0,
+      "market_cap": 4960,
+      "box_high": 16040,
+      "box_low": 15850,
+      "range_percent": 1.2,
+      "atr": 15.26,
+      "atr_multiple": 0.08,
+      "support_touches": 1,
+      "resistance_touches": 3,
+      "slope_daily": 0.0048,
+      "volume_decrease_rate": 26.78,
+      "days": 115,
+      "ma150": 14779,
+      "above_ma150": true,
+      "updated_at": "2026-06-23T20:38:18.427255"
+    },
     {
       "ticker": "012510",
       "name": "더존비즈온",
@@ -23,7 +43,7 @@
       "days": 82,
       "ma150": 106522,
       "above_ma150": true,
-      "updated_at": "2026-06-23T19:13:35.821816"
+      "updated_at": "2026-06-23T20:38:17.546999"
     },
     {
       "ticker": "057050",
@@ -43,7 +63,7 @@
       "days": 87,
       "ma150": 70466,
       "above_ma150": true,
-      "updated_at": "2026-06-23T19:13:37.836383"
+      "updated_at": "2026-06-23T20:38:19.611958"
     }
   ]
 }
