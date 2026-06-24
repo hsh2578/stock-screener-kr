@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-24T17:02:53.618606",
+    "lastUpdated": "2026-06-24T19:00:32.398567",
     "totalCount": 100,
     "screened_from": 1308
   },
@@ -758,22 +758,6 @@
       "above_ma150": false
     },
     {
-      "ticker": "080220",
-      "name": "제주반도체",
-      "price": 112900,
-      "entry_price": 134000,
-      "change_rate": 17.24,
-      "since_return": -15.75,
-      "days_ago": 2,
-      "volume": 11052971,
-      "volume_ratio": 2.7,
-      "market_cap": 38886.0,
-      "per": 78.1,
-      "pbr": 8.18,
-      "ma150": 48425,
-      "above_ma150": true
-    },
-    {
       "ticker": "195870",
       "name": "해성디에스",
       "price": 69600,
@@ -963,6 +947,22 @@
       "per": 46.9,
       "pbr": 7.08,
       "ma150": 114159,
+      "above_ma150": true
+    },
+    {
+      "ticker": "048550",
+      "name": "SM C&C",
+      "price": 1538,
+      "entry_price": 1540,
+      "change_rate": 11.59,
+      "since_return": -0.13,
+      "days_ago": 2,
+      "volume": 3420464,
+      "volume_ratio": 3.8,
+      "market_cap": 1487.0,
+      "per": null,
+      "pbr": 1.15,
+      "ma150": 1184,
       "above_ma150": true
     },
     {
@@ -1446,22 +1446,6 @@
       "above_ma150": true
     },
     {
-      "ticker": "126730",
-      "name": "코칩",
-      "price": 17070,
-      "entry_price": 25700,
-      "change_rate": 13.22,
-      "since_return": -33.58,
-      "days_ago": 4,
-      "volume": 5139677,
-      "volume_ratio": 2.9,
-      "market_cap": 1497.0,
-      "per": 49.6,
-      "pbr": 3.12,
-      "ma150": 17913,
-      "above_ma150": false
-    },
-    {
       "ticker": "000500",
       "name": "가온전선",
       "price": 311500,
@@ -1603,6 +1587,22 @@
       "per": 27.8,
       "pbr": 1.18,
       "ma150": 10797,
+      "above_ma150": true
+    },
+    {
+      "ticker": "219130",
+      "name": "타이거일렉",
+      "price": 62800,
+      "entry_price": 74800,
+      "change_rate": 7.63,
+      "since_return": -16.04,
+      "days_ago": 4,
+      "volume": 126598,
+      "volume_ratio": 1.3,
+      "market_cap": 3965.0,
+      "per": 778.6,
+      "pbr": 4.04,
+      "ma150": 36487,
       "above_ma150": true
     }
   ]
