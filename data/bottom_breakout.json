@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-24T19:00:50.890882",
-    "totalCount": 51,
+    "lastUpdated": "2026-06-24T20:25:37.663374",
+    "totalCount": 52,
     "screened_from": 1308
   },
   "data": [
@@ -25,7 +25,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -2.9,
-      "updated_at": "2026-06-24T19:00:44.642427"
+      "updated_at": "2026-06-24T20:25:30.759617"
     },
     {
       "ticker": "306620",
@@ -47,7 +47,29 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": -2.1,
-      "updated_at": "2026-06-24T19:00:48.152545"
+      "updated_at": "2026-06-24T20:25:35.704028"
+    },
+    {
+      "ticker": "044490",
+      "name": "태웅",
+      "grade": "A",
+      "score": 10,
+      "signal_date": "2026-06-19",
+      "days_since_signal": 3,
+      "current_price": 30250,
+      "change_since_signal": -13.57,
+      "drop_from_high": -50.65,
+      "ma150": 36278,
+      "above_ma150": false,
+      "market_cap": 6052,
+      "score_near_ma150": 2,
+      "score_ma_breakout": 3,
+      "score_higher_low": 0,
+      "score_slope": 2,
+      "score_volume": 2,
+      "score_macd": 1,
+      "ma150_gap": -3.3,
+      "updated_at": "2026-06-24T20:25:36.379227"
     },
     {
       "ticker": "357780",
@@ -69,7 +91,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 10.0,
-      "updated_at": "2026-06-24T19:00:46.116442"
+      "updated_at": "2026-06-24T20:25:31.896467"
     },
     {
       "ticker": "047770",
@@ -91,7 +113,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 0.6,
-      "updated_at": "2026-06-24T19:00:49.198516"
+      "updated_at": "2026-06-24T20:25:36.008664"
     },
     {
       "ticker": "001120",
@@ -113,7 +135,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": -2.0,
-      "updated_at": "2026-06-24T19:00:40.829897"
+      "updated_at": "2026-06-24T20:25:22.239829"
     },
     {
       "ticker": "004310",
@@ -135,7 +157,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -1.2,
-      "updated_at": "2026-06-24T19:00:50.637191"
+      "updated_at": "2026-06-24T20:25:37.453945"
     },
     {
       "ticker": "094800",
@@ -157,7 +179,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -2.4,
-      "updated_at": "2026-06-24T19:00:44.446267"
+      "updated_at": "2026-06-24T20:25:30.578669"
     },
     {
       "ticker": "000240",
@@ -179,7 +201,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -2.8,
-      "updated_at": "2026-06-24T19:00:50.034220"
+      "updated_at": "2026-06-24T20:25:36.910121"
     },
     {
       "ticker": "086280",
@@ -201,7 +223,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": 1.8,
-      "updated_at": "2026-06-24T19:00:50.556057"
+      "updated_at": "2026-06-24T20:25:37.389919"
     },
     {
       "ticker": "039440",
@@ -223,7 +245,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": -2.8,
-      "updated_at": "2026-06-24T19:00:47.030298"
+      "updated_at": "2026-06-24T20:25:33.052390"
     },
     {
       "ticker": "272210",
@@ -245,7 +267,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": -0.5,
-      "updated_at": "2026-06-24T19:00:50.444807"
+      "updated_at": "2026-06-24T20:25:37.292208"
     },
     {
       "ticker": "000210",
@@ -267,7 +289,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": 10.6,
-      "updated_at": "2026-06-24T19:00:39.583254"
+      "updated_at": "2026-06-24T20:25:20.366012"
     },
     {
       "ticker": "437730",
@@ -289,7 +311,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": -1.9,
-      "updated_at": "2026-06-24T19:00:45.723452"
+      "updated_at": "2026-06-24T20:25:31.382634"
     },
     {
       "ticker": "200710",
@@ -311,7 +333,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": -2.0,
-      "updated_at": "2026-06-24T19:00:47.052956"
+      "updated_at": "2026-06-24T20:25:33.122310"
     },
     {
       "ticker": "039490",
@@ -333,7 +355,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": -1.9,
-      "updated_at": "2026-06-24T19:00:49.501499"
+      "updated_at": "2026-06-24T20:25:36.318320"
     },
     {
       "ticker": "114810",
@@ -355,7 +377,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": 7.7,
-      "updated_at": "2026-06-24T19:00:50.222118"
+      "updated_at": "2026-06-24T20:25:37.075793"
     },
     {
       "ticker": "090710",
@@ -377,7 +399,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": 2.4,
-      "updated_at": "2026-06-24T19:00:50.849230"
+      "updated_at": "2026-06-24T20:25:37.609257"
     },
     {
       "ticker": "016380",
@@ -399,7 +421,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": 6.8,
-      "updated_at": "2026-06-24T19:00:40.519975"
+      "updated_at": "2026-06-24T20:25:21.617721"
     },
     {
       "ticker": "047050",
@@ -421,7 +443,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": 0.9,
-      "updated_at": "2026-06-24T19:00:49.856443"
+      "updated_at": "2026-06-24T20:25:36.690304"
     },
     {
       "ticker": "083650",
@@ -443,7 +465,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": 10.0,
-      "updated_at": "2026-06-24T19:00:45.474256"
+      "updated_at": "2026-06-24T20:25:31.054803"
     },
     {
       "ticker": "462350",
@@ -465,7 +487,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": 5.1,
-      "updated_at": "2026-06-24T19:00:47.792731"
+      "updated_at": "2026-06-24T20:25:34.089804"
     },
     {
       "ticker": "094170",
@@ -487,7 +509,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 5.4,
-      "updated_at": "2026-06-24T19:00:44.042380"
+      "updated_at": "2026-06-24T20:25:28.230423"
     },
     {
       "ticker": "149950",
@@ -509,7 +531,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": 13.4,
-      "updated_at": "2026-06-24T19:00:46.523159"
+      "updated_at": "2026-06-24T20:25:32.331977"
     },
     {
       "ticker": "092790",
@@ -531,7 +553,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 13.4,
-      "updated_at": "2026-06-24T19:00:43.160416"
+      "updated_at": "2026-06-24T20:25:25.318392"
     },
     {
       "ticker": "058430",
@@ -553,7 +575,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 8.2,
-      "updated_at": "2026-06-24T19:00:49.842538"
+      "updated_at": "2026-06-24T20:25:36.670901"
     },
     {
       "ticker": "001250",
@@ -575,7 +597,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 0.3,
-      "updated_at": "2026-06-24T19:00:39.658817"
+      "updated_at": "2026-06-24T20:25:20.642132"
     },
     {
       "ticker": "000270",
@@ -597,7 +619,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": 1.5,
-      "updated_at": "2026-06-24T19:00:41.800761"
+      "updated_at": "2026-06-24T20:25:24.639133"
     },
     {
       "ticker": "383310",
@@ -619,7 +641,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": 9.1,
-      "updated_at": "2026-06-24T19:00:47.205286"
+      "updated_at": "2026-06-24T20:25:33.348187"
     },
     {
       "ticker": "010820",
@@ -641,7 +663,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": -3.4,
-      "updated_at": "2026-06-24T19:00:49.791318"
+      "updated_at": "2026-06-24T20:25:36.599746"
     },
     {
       "ticker": "018880",
@@ -663,7 +685,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": 8.3,
-      "updated_at": "2026-06-24T19:00:50.284987"
+      "updated_at": "2026-06-24T20:25:37.150112"
     },
     {
       "ticker": "006360",
@@ -685,7 +707,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 10.4,
-      "updated_at": "2026-06-24T19:00:39.654407"
+      "updated_at": "2026-06-24T20:25:20.634849"
     },
     {
       "ticker": "024110",
@@ -707,7 +729,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": -0.1,
-      "updated_at": "2026-06-24T19:00:41.807527"
+      "updated_at": "2026-06-24T20:25:24.663849"
     },
     {
       "ticker": "058470",
@@ -729,7 +751,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 2.8,
-      "updated_at": "2026-06-24T19:00:44.386460"
+      "updated_at": "2026-06-24T20:25:30.517525"
     },
     {
       "ticker": "017550",
@@ -751,7 +773,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 8.1,
-      "updated_at": "2026-06-24T19:00:46.137958"
+      "updated_at": "2026-06-24T20:25:31.932309"
     },
     {
       "ticker": "032820",
@@ -773,7 +795,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 12.9,
-      "updated_at": "2026-06-24T19:00:47.585655"
+      "updated_at": "2026-06-24T20:25:33.746854"
     },
     {
       "ticker": "079900",
@@ -795,7 +817,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": -1.0,
-      "updated_at": "2026-06-24T19:00:47.982686"
+      "updated_at": "2026-06-24T20:25:34.919960"
     },
     {
       "ticker": "011280",
@@ -817,7 +839,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 4.2,
-      "updated_at": "2026-06-24T19:00:49.515899"
+      "updated_at": "2026-06-24T20:25:36.351680"
     },
     {
       "ticker": "052690",
@@ -839,7 +861,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 0.7,
-      "updated_at": "2026-06-24T19:00:50.300282"
+      "updated_at": "2026-06-24T20:25:37.172363"
     },
     {
       "ticker": "005010",
@@ -861,7 +883,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": -0.6,
-      "updated_at": "2026-06-24T19:00:50.860847"
+      "updated_at": "2026-06-24T20:25:37.626610"
     },
     {
       "ticker": "086450",
@@ -883,7 +905,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": -1.6,
-      "updated_at": "2026-06-24T19:00:43.969490"
+      "updated_at": "2026-06-24T20:25:27.894993"
     },
     {
       "ticker": "007660",
@@ -905,7 +927,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 1.0,
-      "updated_at": "2026-06-24T19:00:47.838959"
+      "updated_at": "2026-06-24T20:25:34.248948"
     },
     {
       "ticker": "140860",
@@ -927,7 +949,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": -0.1,
-      "updated_at": "2026-06-24T19:00:49.786130"
+      "updated_at": "2026-06-24T20:25:36.592367"
     },
     {
       "ticker": "499790",
@@ -949,7 +971,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 1.9,
-      "updated_at": "2026-06-24T19:00:39.669062"
+      "updated_at": "2026-06-24T20:25:20.657116"
     },
     {
       "ticker": "200880",
@@ -971,7 +993,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": -1.4,
-      "updated_at": "2026-06-24T19:00:45.912875"
+      "updated_at": "2026-06-24T20:25:31.518523"
     },
     {
       "ticker": "012750",
@@ -993,7 +1015,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 2.2,
-      "updated_at": "2026-06-24T19:00:47.017993"
+      "updated_at": "2026-06-24T20:25:33.001955"
     },
     {
       "ticker": "006220",
@@ -1015,7 +1037,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -3.0,
-      "updated_at": "2026-06-24T19:00:48.119337"
+      "updated_at": "2026-06-24T20:25:35.633556"
     },
     {
       "ticker": "399720",
@@ -1037,7 +1059,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": -0.2,
-      "updated_at": "2026-06-24T19:00:41.450626"
+      "updated_at": "2026-06-24T20:25:23.817547"
     },
     {
       "ticker": "146320",
@@ -1059,7 +1081,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 4.2,
-      "updated_at": "2026-06-24T19:00:45.386903"
+      "updated_at": "2026-06-24T20:25:31.031309"
     },
     {
       "ticker": "030530",
@@ -1081,7 +1103,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": -4.5,
-      "updated_at": "2026-06-24T19:00:47.652269"
+      "updated_at": "2026-06-24T20:25:33.857651"
     },
     {
       "ticker": "109740",
@@ -1103,7 +1125,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -1.9,
-      "updated_at": "2026-06-24T19:00:44.194132"
+      "updated_at": "2026-06-24T20:25:30.011124"
     },
     {
       "ticker": "082800",
@@ -1125,7 +1147,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 3.3,
-      "updated_at": "2026-06-24T19:00:45.364824"
+      "updated_at": "2026-06-24T20:25:31.019843"
     }
   ]
 }
