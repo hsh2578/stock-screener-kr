@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-24T13:47:50.949664",
-    "totalCount": 9,
-    "screened_from": 1304
+    "lastUpdated": "2026-06-24T15:33:31.956315",
+    "totalCount": 8,
+    "screened_from": 1308
   },
   "data": [
     {
       "ticker": "272450",
       "name": "진에어",
-      "price": 5750,
-      "change_rate": 2.5,
+      "price": 5720,
+      "change_rate": 1.96,
       "explosion_date": "2026-06-15",
       "explosion_change_rate": 12.5,
       "explosion_volume_ratio": 9.5,
@@ -20,14 +20,14 @@
       "volume_rank": 1,
       "ma150": 6573,
       "above_ma150": false,
-      "market_cap": 3007,
-      "updated_at": "2026-06-24T13:47:50.942281"
+      "market_cap": 3002,
+      "updated_at": "2026-06-24T15:33:31.950683"
     },
     {
       "ticker": "003490",
       "name": "대한항공",
-      "price": 27100,
-      "change_rate": 4.63,
+      "price": 27350,
+      "change_rate": 5.6,
       "explosion_date": "2026-06-15",
       "explosion_change_rate": 12.8,
       "explosion_volume_ratio": 5.6,
@@ -38,14 +38,14 @@
       "volume_rank": 2,
       "ma150": 24160,
       "above_ma150": true,
-      "market_cap": 99972,
-      "updated_at": "2026-06-24T13:47:50.945747"
+      "market_cap": 101261,
+      "updated_at": "2026-06-24T15:33:31.951556"
     },
     {
       "ticker": "007690",
       "name": "국도화학",
-      "price": 32500,
-      "change_rate": 2.36,
+      "price": 32650,
+      "change_rate": 2.83,
       "explosion_date": "2026-06-15",
       "explosion_change_rate": 16.7,
       "explosion_volume_ratio": 4.6,
@@ -56,14 +56,14 @@
       "volume_rank": 3,
       "ma150": 35530,
       "above_ma150": true,
-      "market_cap": 3014,
-      "updated_at": "2026-06-24T13:47:50.946327"
+      "market_cap": 3024,
+      "updated_at": "2026-06-24T15:33:31.952123"
     },
     {
       "ticker": "381970",
       "name": "케이카",
-      "price": 8510,
-      "change_rate": -0.12,
+      "price": 8530,
+      "change_rate": 0.12,
       "explosion_date": "2026-06-12",
       "explosion_change_rate": 11.7,
       "explosion_volume_ratio": 4.7,
@@ -74,32 +74,32 @@
       "volume_rank": 4,
       "ma150": 13487,
       "above_ma150": false,
-      "market_cap": 4145,
-      "updated_at": "2026-06-24T13:47:50.946855"
+      "market_cap": 4184,
+      "updated_at": "2026-06-24T15:33:31.952645"
     },
     {
       "ticker": "094800",
       "name": "맵스리얼티",
-      "price": 5690,
-      "change_rate": 0.0,
+      "price": 5700,
+      "change_rate": 0.18,
       "explosion_date": "2026-06-11",
       "explosion_change_rate": 14.5,
       "explosion_volume_ratio": 4.8,
       "days_since_detected": 9,
-      "volume_decrease_rate": 82,
+      "volume_decrease_rate": 80,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.51,
+      "ma20_distance": 0.68,
       "volume_rank": 5,
       "ma150": 5985,
       "above_ma150": false,
-      "market_cap": 5273,
-      "updated_at": "2026-06-24T13:47:49.973228"
+      "market_cap": 5245,
+      "updated_at": "2026-06-24T15:33:30.853015"
     },
     {
       "ticker": "219130",
       "name": "타이거일렉",
-      "price": 64100,
-      "change_rate": -4.04,
+      "price": 62800,
+      "change_rate": -5.99,
       "explosion_date": "2026-06-11",
       "explosion_change_rate": 18.1,
       "explosion_volume_ratio": 3.4,
@@ -110,14 +110,14 @@
       "volume_rank": 6,
       "ma150": 36495,
       "above_ma150": true,
-      "market_cap": 4035,
-      "updated_at": "2026-06-24T13:47:50.756128"
+      "market_cap": 3965,
+      "updated_at": "2026-06-24T15:33:31.953178"
     },
     {
       "ticker": "404990",
       "name": "신한서부티엔디리츠",
-      "price": 3910,
-      "change_rate": 2.49,
+      "price": 3935,
+      "change_rate": 3.15,
       "explosion_date": "2026-06-10",
       "explosion_change_rate": 19.3,
       "explosion_volume_ratio": 8.8,
@@ -128,14 +128,14 @@
       "volume_rank": 7,
       "ma150": 3966,
       "above_ma150": false,
-      "market_cap": 2394,
-      "updated_at": "2026-06-24T13:47:50.947381"
+      "market_cap": 2406,
+      "updated_at": "2026-06-24T15:33:31.953680"
     },
     {
       "ticker": "006220",
       "name": "제주은행",
-      "price": 10480,
-      "change_rate": -0.1,
+      "price": 10490,
+      "change_rate": 0.0,
       "explosion_date": "2026-06-10",
       "explosion_change_rate": 14.6,
       "explosion_volume_ratio": 16.9,
@@ -146,26 +146,8 @@
       "volume_rank": 8,
       "ma150": 12713,
       "above_ma150": false,
-      "market_cap": 3958,
-      "updated_at": "2026-06-24T13:47:50.947878"
-    },
-    {
-      "ticker": "347850",
-      "name": "디앤디파마텍",
-      "price": 95700,
-      "change_rate": -0.42,
-      "explosion_date": "2026-05-27",
-      "explosion_change_rate": 30.0,
-      "explosion_volume_ratio": 7.6,
-      "days_since_detected": 19,
-      "volume_decrease_rate": 64,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.14,
-      "volume_rank": 9,
-      "ma150": 85346,
-      "above_ma150": true,
-      "market_cap": 42504,
-      "updated_at": "2026-06-24T13:47:49.939704"
+      "market_cap": 3965,
+      "updated_at": "2026-06-24T15:33:31.954200"
     }
   ]
 }

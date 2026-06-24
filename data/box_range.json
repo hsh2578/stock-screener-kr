@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-24T13:47:48.208749",
+    "lastUpdated": "2026-06-24T15:33:29.052256",
     "totalCount": 5,
-    "screened_from": 1304
+    "screened_from": 1308
   },
   "data": [
     {
@@ -23,7 +23,7 @@
       "days": 116,
       "ma150": 14810,
       "above_ma150": true,
-      "updated_at": "2026-06-24T13:47:47.677026"
+      "updated_at": "2026-06-24T15:33:28.352407"
     },
     {
       "ticker": "012510",
@@ -39,71 +39,71 @@
       "support_touches": 3,
       "resistance_touches": 3,
       "slope_daily": 0.0135,
-      "volume_decrease_rate": 48.66,
+      "volume_decrease_rate": 48.63,
       "days": 83,
       "ma150": 106755,
       "above_ma150": true,
-      "updated_at": "2026-06-24T13:47:47.199271"
+      "updated_at": "2026-06-24T15:33:27.908196"
     },
     {
       "ticker": "139130",
       "name": "iM금융지주",
-      "price": 16000,
-      "change_rate": -1.23,
+      "price": 15930,
+      "change_rate": -1.67,
       "market_cap": 25700,
       "box_high": 19300,
-      "box_low": 16000,
-      "range_percent": 20.62,
-      "atr": 4.88,
-      "atr_multiple": 4.22,
+      "box_low": 15930,
+      "range_percent": 21.16,
+      "atr": 4.91,
+      "atr_multiple": 4.31,
       "support_touches": 2,
       "resistance_touches": 3,
-      "slope_daily": -0.0396,
-      "volume_decrease_rate": 5.95,
+      "slope_daily": -0.0403,
+      "volume_decrease_rate": 5.14,
       "days": 82,
       "ma150": 16712,
       "above_ma150": false,
-      "updated_at": "2026-06-24T13:47:46.895983"
+      "updated_at": "2026-06-24T15:33:27.581719"
     },
     {
       "ticker": "057050",
       "name": "현대홈쇼핑",
-      "price": 79900,
-      "change_rate": 1.78,
-      "market_cap": 9588,
+      "price": 81600,
+      "change_rate": 3.95,
+      "market_cap": 9696,
       "box_high": 88800,
       "box_low": 72700,
       "range_percent": 22.15,
-      "atr": 4.91,
-      "atr_multiple": 4.51,
+      "atr": 4.81,
+      "atr_multiple": 4.61,
       "support_touches": 2,
       "resistance_touches": 2,
-      "slope_daily": 0.0047,
-      "volume_decrease_rate": 36.62,
+      "slope_daily": 0.0081,
+      "volume_decrease_rate": 34.57,
       "days": 88,
-      "ma150": 70630,
+      "ma150": 70641,
       "above_ma150": true,
-      "updated_at": "2026-06-24T13:47:48.190246"
+      "updated_at": "2026-06-24T15:33:28.989998"
     },
     {
       "ticker": "339950",
       "name": "아이비김영",
-      "price": 2395,
-      "change_rate": -0.62,
-      "market_cap": 1076,
+      "price": 2425,
+      "change_rate": 0.62,
+      "market_cap": 1090,
       "box_high": 2850,
       "box_low": 2295,
       "range_percent": 24.18,
-      "atr": 4.5,
-      "atr_multiple": 5.37,
-      "support_touches": 0,
+      "atr": 4.44,
+      "atr_multiple": 5.44,
+      "support_touches": 1,
       "resistance_touches": 2,
-      "slope_daily": 0.0461,
-      "volume_decrease_rate": 21.66,
+      "slope_daily": 0.048,
+      "volume_decrease_rate": 21.05,
       "days": 83,
       "ma150": 2290,
       "above_ma150": true,
-      "updated_at": "2026-06-24T13:47:47.609417"
+      "updated_at": "2026-06-24T15:33:28.296254"
     }
   ]
 }
