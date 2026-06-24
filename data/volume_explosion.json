@@ -1,93 +1,81 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-23T20:38:19.611147",
-    "totalCount": 7,
-    "screened_from": 1309
+    "lastUpdated": "2026-06-24T13:47:48.543167",
+    "totalCount": 6,
+    "screened_from": 1304
   },
   "data": [
     {
-      "ticker": "101530",
-      "name": "해태제과식품",
-      "price": 6220,
-      "change_rate": 13.71,
-      "volume_ratio": 32.6,
+      "ticker": "037710",
+      "name": "광주신세계",
+      "price": 38500,
+      "change_rate": 12.41,
+      "volume_ratio": 13.9,
       "volume_rank": 1,
-      "ma150": 6558,
-      "above_ma150": false,
-      "market_cap": 1811,
-      "updated_at": "2026-06-23T20:38:19.601969"
-    },
-    {
-      "ticker": "067290",
-      "name": "JW신약",
-      "price": 3105,
-      "change_rate": 13.74,
-      "volume_ratio": 10.1,
-      "volume_rank": 2,
-      "ma150": 1856,
+      "ma150": 34842,
       "above_ma150": true,
-      "market_cap": 1740,
-      "updated_at": "2026-06-23T20:38:18.709438"
+      "market_cap": 2936,
+      "updated_at": "2026-06-24T13:47:48.324663"
     },
     {
-      "ticker": "092040",
-      "name": "아미코젠",
-      "price": 1730,
-      "change_rate": 17.37,
-      "volume_ratio": 7.9,
+      "ticker": "413630",
+      "name": "씨피시스템",
+      "price": 3392,
+      "change_rate": 25.17,
+      "volume_ratio": 10.4,
+      "volume_rank": 2,
+      "ma150": 3996,
+      "above_ma150": false,
+      "market_cap": 1236,
+      "updated_at": "2026-06-24T13:47:48.417855"
+    },
+    {
+      "ticker": "002990",
+      "name": "금호건설",
+      "price": 4845,
+      "change_rate": 29.89,
+      "volume_ratio": 5.3,
       "volume_rank": 3,
-      "ma150": 1855,
-      "above_ma150": false,
-      "market_cap": 1222,
-      "updated_at": "2026-06-23T20:38:18.881601"
+      "ma150": 4485,
+      "above_ma150": true,
+      "market_cap": 1805,
+      "updated_at": "2026-06-24T13:47:48.327563"
     },
     {
-      "ticker": "025620",
-      "name": "차AI헬스케어",
-      "price": 7500,
-      "change_rate": 29.98,
-      "volume_ratio": 5.6,
+      "ticker": "256840",
+      "name": "한국비엔씨",
+      "price": 2950,
+      "change_rate": 18.24,
+      "volume_ratio": 3.4,
       "volume_rank": 4,
-      "ma150": 9883,
+      "ma150": 4286,
       "above_ma150": false,
-      "market_cap": 1365,
-      "updated_at": "2026-06-23T20:38:19.278187"
+      "market_cap": 1994,
+      "updated_at": "2026-06-24T13:47:48.521603"
     },
     {
-      "ticker": "084670",
-      "name": "동양고속",
-      "price": 37750,
-      "change_rate": 18.52,
-      "volume_ratio": 2.8,
+      "ticker": "009420",
+      "name": "한올바이오파마",
+      "price": 58200,
+      "change_rate": 18.05,
+      "volume_ratio": 2.2,
       "volume_rank": 5,
-      "ma150": 45397,
-      "above_ma150": false,
-      "market_cap": 1093,
-      "updated_at": "2026-06-23T20:38:18.791015"
-    },
-    {
-      "ticker": "000650",
-      "name": "천일고속",
-      "price": 202000,
-      "change_rate": 12.91,
-      "volume_ratio": 2.8,
-      "volume_rank": 6,
-      "ma150": 246094,
-      "above_ma150": false,
-      "market_cap": 2887,
-      "updated_at": "2026-06-23T20:38:19.289962"
+      "ma150": 50690,
+      "above_ma150": true,
+      "market_cap": 30300,
+      "updated_at": "2026-06-24T13:47:48.529458"
     },
     {
       "ticker": "356680",
       "name": "엑스게이트",
-      "price": 19690,
-      "change_rate": 21.54,
-      "volume_ratio": 2.4,
-      "volume_rank": 7,
-      "ma150": 10579,
+      "price": 22200,
+      "change_rate": 12.75,
+      "volume_ratio": 2.1,
+      "volume_rank": 6,
+      "ma150": 10670,
       "above_ma150": true,
-      "market_cap": 5620,
-      "updated_at": "2026-06-23T20:38:18.913308"
+      "market_cap": 6308,
+      "updated_at": "2026-06-24T13:47:48.449870"
     }
   ]
 }
