@@ -1,33 +1,33 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-26T13:51:38.864483",
-    "totalCount": 6,
-    "screened_from": 1269
+    "lastUpdated": "2026-06-26T15:38:51.895431",
+    "totalCount": 8,
+    "screened_from": 1278
   },
   "data": [
     {
       "ticker": "048550",
       "name": "SM C&C",
-      "price": 1490,
-      "change_rate": -1.46,
+      "price": 1539,
+      "change_rate": 1.79,
       "explosion_date": "2026-06-22",
       "explosion_change_rate": 11.6,
       "explosion_volume_ratio": 4.2,
       "days_since_detected": 4,
-      "volume_decrease_rate": 72,
+      "volume_decrease_rate": 69,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
       "ma150": 1188,
       "above_ma150": true,
-      "market_cap": 1441,
-      "updated_at": "2026-06-26T13:51:37.321363"
+      "market_cap": 1488,
+      "updated_at": "2026-06-26T15:38:49.907363"
     },
     {
       "ticker": "272450",
       "name": "진에어",
-      "price": 5630,
-      "change_rate": -5.38,
+      "price": 5660,
+      "change_rate": -4.87,
       "explosion_date": "2026-06-15",
       "explosion_change_rate": 12.5,
       "explosion_volume_ratio": 9.5,
@@ -38,14 +38,14 @@
       "volume_rank": 2,
       "ma150": 6573,
       "above_ma150": false,
-      "market_cap": 2944,
-      "updated_at": "2026-06-26T13:51:38.859118"
+      "market_cap": 2955,
+      "updated_at": "2026-06-26T15:38:51.875117"
     },
     {
       "ticker": "093370",
       "name": "후성",
-      "price": 15950,
-      "change_rate": -11.49,
+      "price": 16410,
+      "change_rate": -8.93,
       "explosion_date": "2026-06-15",
       "explosion_change_rate": 17.8,
       "explosion_volume_ratio": 3.4,
@@ -56,14 +56,14 @@
       "volume_rank": 3,
       "ma150": 9952,
       "above_ma150": true,
-      "market_cap": 17086,
-      "updated_at": "2026-06-26T13:51:38.831741"
+      "market_cap": 17601,
+      "updated_at": "2026-06-26T15:38:51.883600"
     },
     {
       "ticker": "003490",
       "name": "대한항공",
-      "price": 27550,
-      "change_rate": -5.33,
+      "price": 28050,
+      "change_rate": -3.61,
       "explosion_date": "2026-06-15",
       "explosion_change_rate": 12.8,
       "explosion_volume_ratio": 5.6,
@@ -74,14 +74,14 @@
       "volume_rank": 4,
       "ma150": 24160,
       "above_ma150": true,
-      "market_cap": 101445,
-      "updated_at": "2026-06-26T13:51:38.859979"
+      "market_cap": 103286,
+      "updated_at": "2026-06-26T15:38:51.887461"
     },
     {
       "ticker": "007690",
       "name": "국도화학",
-      "price": 31700,
-      "change_rate": -4.37,
+      "price": 32050,
+      "change_rate": -3.32,
       "explosion_date": "2026-06-15",
       "explosion_change_rate": 16.7,
       "explosion_volume_ratio": 4.6,
@@ -92,14 +92,32 @@
       "volume_rank": 5,
       "ma150": 35530,
       "above_ma150": true,
-      "market_cap": 2936,
-      "updated_at": "2026-06-26T13:51:38.860553"
+      "market_cap": 2968,
+      "updated_at": "2026-06-26T15:38:51.890835"
+    },
+    {
+      "ticker": "241770",
+      "name": "메카로",
+      "price": 42400,
+      "change_rate": -2.53,
+      "explosion_date": "2026-06-12",
+      "explosion_change_rate": 16.5,
+      "explosion_volume_ratio": 4.5,
+      "days_since_detected": 10,
+      "volume_decrease_rate": 91,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 0.74,
+      "volume_rank": 6,
+      "ma150": 31111,
+      "above_ma150": true,
+      "market_cap": 4322,
+      "updated_at": "2026-06-26T15:38:50.340837"
     },
     {
       "ticker": "381970",
       "name": "케이카",
-      "price": 8180,
-      "change_rate": -2.62,
+      "price": 8290,
+      "change_rate": -1.31,
       "explosion_date": "2026-06-12",
       "explosion_change_rate": 11.7,
       "explosion_volume_ratio": 4.7,
@@ -107,11 +125,29 @@
       "volume_decrease_rate": 82,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 6,
+      "volume_rank": 7,
       "ma150": 13487,
       "above_ma150": false,
-      "market_cap": 3998,
-      "updated_at": "2026-06-26T13:51:38.861092"
+      "market_cap": 4047,
+      "updated_at": "2026-06-26T15:38:51.894120"
+    },
+    {
+      "ticker": "404990",
+      "name": "신한서부티엔디리츠",
+      "price": 3850,
+      "change_rate": -3.63,
+      "explosion_date": "2026-06-10",
+      "explosion_change_rate": 19.3,
+      "explosion_volume_ratio": 8.8,
+      "days_since_detected": 12,
+      "volume_decrease_rate": 94,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 0.85,
+      "volume_rank": 8,
+      "ma150": 3975,
+      "above_ma150": false,
+      "market_cap": 2357,
+      "updated_at": "2026-06-26T15:38:50.771461"
     }
   ]
 }

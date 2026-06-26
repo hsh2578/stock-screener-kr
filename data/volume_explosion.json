@@ -1,45 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-26T13:51:36.283266",
-    "totalCount": 5,
-    "screened_from": 1269
+    "lastUpdated": "2026-06-26T15:38:49.679359",
+    "totalCount": 4,
+    "screened_from": 1278
   },
   "data": [
     {
-      "ticker": "010960",
-      "name": "삼호개발",
-      "price": 4110,
-      "change_rate": 21.06,
-      "volume_ratio": 49.3,
-      "volume_rank": 1,
-      "ma150": 3722,
-      "above_ma150": true,
-      "market_cap": 1006,
-      "updated_at": "2026-06-26T13:51:36.068790"
-    },
-    {
       "ticker": "037710",
       "name": "광주신세계",
-      "price": 51600,
-      "change_rate": 26.78,
-      "volume_ratio": 28.8,
-      "volume_rank": 2,
-      "ma150": 35068,
+      "price": 52900,
+      "change_rate": 29.98,
+      "volume_ratio": 38.2,
+      "volume_rank": 1,
+      "ma150": 35077,
       "above_ma150": true,
-      "market_cap": 3920,
-      "updated_at": "2026-06-26T13:51:35.917149"
+      "market_cap": 4035,
+      "updated_at": "2026-06-26T15:38:47.803313"
+    },
+    {
+      "ticker": "003200",
+      "name": "일신방직",
+      "price": 10750,
+      "change_rate": 13.16,
+      "volume_ratio": 33.9,
+      "volume_rank": 2,
+      "ma150": 12291,
+      "above_ma150": false,
+      "market_cap": 2468,
+      "updated_at": "2026-06-26T15:38:48.710066"
     },
     {
       "ticker": "002990",
       "name": "금호건설",
       "price": 6630,
       "change_rate": 30.0,
-      "volume_ratio": 17.2,
+      "volume_ratio": 17.3,
       "volume_rank": 3,
       "ma150": 4514,
       "above_ma150": true,
       "market_cap": 2470,
-      "updated_at": "2026-06-26T13:51:35.919518"
+      "updated_at": "2026-06-26T15:38:47.861802"
     },
     {
       "ticker": "111710",
@@ -51,19 +51,7 @@
       "ma150": 4065,
       "above_ma150": true,
       "market_cap": 1009,
-      "updated_at": "2026-06-26T13:51:35.923687"
-    },
-    {
-      "ticker": "376900",
-      "name": "로킷헬스케어",
-      "price": 46100,
-      "change_rate": 15.25,
-      "volume_ratio": 2.3,
-      "volume_rank": 5,
-      "ma150": 74064,
-      "above_ma150": false,
-      "market_cap": 7318,
-      "updated_at": "2026-06-26T13:51:35.966495"
+      "updated_at": "2026-06-26T15:38:47.942815"
     }
   ]
 }
