@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-29T20:35:00.506886",
+    "lastUpdated": "2026-06-29T21:48:18.652964",
     "totalCount": 100,
     "screened_from": 1321
   },
@@ -214,22 +214,6 @@
       "above_ma150": false
     },
     {
-      "ticker": "394420",
-      "name": "리센스메디컬",
-      "price": 20100,
-      "entry_price": 20100,
-      "change_rate": 26.1,
-      "since_return": 0.0,
-      "days_ago": 0,
-      "volume": 245661,
-      "volume_ratio": 1.0,
-      "market_cap": 2198.0,
-      "per": null,
-      "pbr": null,
-      "ma150": null,
-      "above_ma150": false
-    },
-    {
       "ticker": "293780",
       "name": "압타바이오",
       "price": 4975,
@@ -326,6 +310,22 @@
       "above_ma150": false
     },
     {
+      "ticker": "053080",
+      "name": "케이엔솔",
+      "price": 10150,
+      "entry_price": 10150,
+      "change_rate": 23.33,
+      "since_return": 0.0,
+      "days_ago": 0,
+      "volume": 209958,
+      "volume_ratio": 1.4,
+      "market_cap": 1319.0,
+      "per": null,
+      "pbr": 1.24,
+      "ma150": 12215,
+      "above_ma150": false
+    },
+    {
       "ticker": "002990",
       "name": "금호건설",
       "price": 8610,
@@ -403,22 +403,6 @@
       "per": 11.0,
       "pbr": 0.34,
       "ma150": 12283,
-      "above_ma150": false
-    },
-    {
-      "ticker": "477850",
-      "name": "마키나락스",
-      "price": 18210,
-      "entry_price": 18400,
-      "change_rate": 11.99,
-      "since_return": -1.03,
-      "days_ago": 1,
-      "volume": 3333062,
-      "volume_ratio": 2.2,
-      "market_cap": 3233.0,
-      "per": null,
-      "pbr": 22.69,
-      "ma150": null,
       "above_ma150": false
     },
     {
@@ -563,6 +547,22 @@
       "per": 160.6,
       "pbr": 8.35,
       "ma150": 44808,
+      "above_ma150": true
+    },
+    {
+      "ticker": "281820",
+      "name": "케이씨텍",
+      "price": 90900,
+      "entry_price": 82700,
+      "change_rate": 6.85,
+      "since_return": 9.92,
+      "days_ago": 1,
+      "volume": 426700,
+      "volume_ratio": 1.9,
+      "market_cap": 17997.0,
+      "per": 19.2,
+      "pbr": 1.84,
+      "ma150": 52280,
       "above_ma150": true
     },
     {
@@ -742,20 +742,20 @@
       "above_ma150": false
     },
     {
-      "ticker": "477850",
-      "name": "마키나락스",
-      "price": 18210,
-      "entry_price": 16430,
-      "change_rate": 16.94,
-      "since_return": 10.83,
+      "ticker": "417840",
+      "name": "저스템",
+      "price": 14000,
+      "entry_price": 14310,
+      "change_rate": 16.63,
+      "since_return": -2.17,
       "days_ago": 2,
-      "volume": 1843177,
+      "volume": 1249513,
       "volume_ratio": 1.1,
-      "market_cap": 3233.0,
-      "per": null,
-      "pbr": 22.69,
-      "ma150": null,
-      "above_ma150": false
+      "market_cap": 3202.0,
+      "per": 87.8,
+      "pbr": 3.16,
+      "ma150": 8616,
+      "above_ma150": true
     },
     {
       "ticker": "209640",
