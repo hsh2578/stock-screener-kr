@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-06-26T22:22:22.324635",
-    "total_count": 3,
+    "updated_at": "2026-06-29T23:58:52.133540",
+    "total_count": 4,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -10,40 +10,52 @@
   },
   "data": [
     {
-      "ticker": "329180",
-      "name": "HD현대중공업",
-      "current_price": 564000,
-      "ma60w": 515329,
-      "ma60w_gap": 9.44,
-      "op_margin": 10.6,
-      "op_growth_3y": 93.5,
-      "market_cap": 591981,
+      "ticker": "068270",
+      "name": "셀트리온",
+      "current_price": 179200,
+      "ma60w": 179100,
+      "ma60w_gap": 0.06,
+      "op_margin": 28.1,
+      "op_growth_3y": 37.7,
+      "market_cap": 397167,
       "sector": "기타",
-      "updated_at": "2026-06-26T22:22:02.027066"
+      "updated_at": "2026-06-29T23:58:39.489776"
     },
     {
-      "ticker": "267260",
-      "name": "HD현대일렉트릭",
-      "current_price": 883000,
-      "ma60w": 803562,
-      "ma60w_gap": 9.89,
-      "op_margin": 24.4,
-      "op_growth_3y": 53.7,
-      "market_cap": 318296,
+      "ticker": "064350",
+      "name": "현대로템",
+      "current_price": 184900,
+      "ma60w": 182853,
+      "ma60w_gap": 1.12,
+      "op_margin": 17.2,
+      "op_growth_3y": 79.2,
+      "market_cap": 201804,
       "sector": "기타",
-      "updated_at": "2026-06-26T22:22:02.029870"
+      "updated_at": "2026-06-29T23:58:39.494520"
+    },
+    {
+      "ticker": "128940",
+      "name": "한미약품",
+      "current_price": 428000,
+      "ma60w": 417256,
+      "ma60w_gap": 2.57,
+      "op_margin": 14.0,
+      "op_growth_3y": 10.8,
+      "market_cap": 54831,
+      "sector": "기타",
+      "updated_at": "2026-06-29T23:58:41.737254"
     },
     {
       "ticker": "395400",
       "name": "SK리츠",
-      "current_price": 5680,
-      "ma60w": 5501,
-      "ma60w_gap": 3.24,
+      "current_price": 5540,
+      "ma60w": 5505,
+      "ma60w_gap": 0.63,
       "op_margin": 88.7,
       "op_growth_3y": 89.1,
-      "market_cap": 17098,
+      "market_cap": 16676,
       "sector": "기타",
-      "updated_at": "2026-06-26T22:22:21.232409"
+      "updated_at": "2026-06-29T23:58:52.121328"
     }
   ]
 }
