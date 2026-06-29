@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-29T14:12:11.682633",
-    "totalCount": 8,
-    "screened_from": 1317
+    "lastUpdated": "2026-06-29T16:16:26.718158",
+    "totalCount": 6,
+    "screened_from": 1321
   },
   "data": [
     {
       "ticker": "048550",
       "name": "SM C&C",
-      "price": 1723,
-      "change_rate": 11.96,
+      "price": 1786,
+      "change_rate": 16.05,
       "explosion_date": "2026-06-22",
       "explosion_change_rate": 11.6,
       "explosion_volume_ratio": 4.2,
@@ -20,14 +20,14 @@
       "volume_rank": 1,
       "ma150": 1188,
       "above_ma150": true,
-      "market_cap": 1666,
-      "updated_at": "2026-06-29T14:12:11.678530"
+      "market_cap": 1727,
+      "updated_at": "2026-06-29T16:16:26.687759"
     },
     {
       "ticker": "272450",
       "name": "진에어",
-      "price": 5830,
-      "change_rate": 3.0,
+      "price": 5860,
+      "change_rate": 3.53,
       "explosion_date": "2026-06-15",
       "explosion_change_rate": 12.5,
       "explosion_volume_ratio": 9.5,
@@ -38,14 +38,14 @@
       "volume_rank": 2,
       "ma150": 6573,
       "above_ma150": false,
-      "market_cap": 3043,
-      "updated_at": "2026-06-29T14:12:11.679379"
+      "market_cap": 3059,
+      "updated_at": "2026-06-29T16:16:26.692671"
     },
     {
       "ticker": "093370",
       "name": "후성",
-      "price": 17630,
-      "change_rate": 7.43,
+      "price": 18700,
+      "change_rate": 13.95,
       "explosion_date": "2026-06-15",
       "explosion_change_rate": 17.8,
       "explosion_volume_ratio": 3.4,
@@ -56,14 +56,14 @@
       "volume_rank": 3,
       "ma150": 9952,
       "above_ma150": true,
-      "market_cap": 18931,
-      "updated_at": "2026-06-29T14:12:11.679946"
+      "market_cap": 20057,
+      "updated_at": "2026-06-29T16:16:26.697425"
     },
     {
       "ticker": "003490",
       "name": "대한항공",
-      "price": 28400,
-      "change_rate": 1.25,
+      "price": 28350,
+      "change_rate": 1.07,
       "explosion_date": "2026-06-15",
       "explosion_change_rate": 12.8,
       "explosion_volume_ratio": 5.6,
@@ -75,13 +75,13 @@
       "ma150": 24160,
       "above_ma150": true,
       "market_cap": 104391,
-      "updated_at": "2026-06-29T14:12:11.680506"
+      "updated_at": "2026-06-29T16:16:26.702134"
     },
     {
       "ticker": "007690",
       "name": "국도화학",
-      "price": 33600,
-      "change_rate": 4.84,
+      "price": 33850,
+      "change_rate": 5.62,
       "explosion_date": "2026-06-15",
       "explosion_change_rate": 16.7,
       "explosion_volume_ratio": 4.6,
@@ -92,62 +92,26 @@
       "volume_rank": 5,
       "ma150": 35530,
       "above_ma150": true,
-      "market_cap": 3112,
-      "updated_at": "2026-06-29T14:12:11.681016"
+      "market_cap": 3135,
+      "updated_at": "2026-06-29T16:16:26.706923"
     },
     {
       "ticker": "241770",
       "name": "메카로",
-      "price": 42800,
-      "change_rate": 0.94,
+      "price": 42450,
+      "change_rate": 0.12,
       "explosion_date": "2026-06-12",
       "explosion_change_rate": 16.5,
       "explosion_volume_ratio": 4.5,
       "days_since_detected": 11,
-      "volume_decrease_rate": 92,
+      "volume_decrease_rate": 91,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.91,
+      "ma20_distance": 0.12,
       "volume_rank": 6,
-      "ma150": 31218,
+      "ma150": 31215,
       "above_ma150": true,
-      "market_cap": 4357,
-      "updated_at": "2026-06-29T14:12:10.663795"
-    },
-    {
-      "ticker": "404990",
-      "name": "신한서부티엔디리츠",
-      "price": 3865,
-      "change_rate": 0.39,
-      "explosion_date": "2026-06-10",
-      "explosion_change_rate": 19.3,
-      "explosion_volume_ratio": 8.8,
-      "days_since_detected": 13,
-      "volume_decrease_rate": 94,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.85,
-      "volume_rank": 7,
-      "ma150": 3977,
-      "above_ma150": false,
-      "market_cap": 2367,
-      "updated_at": "2026-06-29T14:12:10.880461"
-    },
-    {
-      "ticker": "950190",
-      "name": "고스트스튜디오",
-      "price": 9010,
-      "change_rate": -1.53,
-      "explosion_date": "2026-05-29",
-      "explosion_change_rate": 12.1,
-      "explosion_volume_ratio": 13.5,
-      "days_since_detected": 20,
-      "volume_decrease_rate": 78,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.78,
-      "volume_rank": 8,
-      "ma150": 8367,
-      "above_ma150": true,
-      "market_cap": 1174,
-      "updated_at": "2026-06-29T14:12:10.206354"
+      "market_cap": 4327,
+      "updated_at": "2026-06-29T16:16:23.404537"
     }
   ]
 }

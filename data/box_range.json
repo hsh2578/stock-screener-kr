@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-29T14:12:08.330113",
+    "lastUpdated": "2026-06-29T16:16:19.742168",
     "totalCount": 5,
-    "screened_from": 1317
+    "screened_from": 1321
   },
   "data": [
     {
@@ -23,7 +23,7 @@
       "days": 120,
       "ma150": 14907,
       "above_ma150": true,
-      "updated_at": "2026-06-29T14:12:07.581369"
+      "updated_at": "2026-06-29T16:16:18.849992"
     },
     {
       "ticker": "012510",
@@ -43,27 +43,27 @@
       "days": 86,
       "ma150": 107305,
       "above_ma150": true,
-      "updated_at": "2026-06-29T14:12:07.067925"
+      "updated_at": "2026-06-29T16:16:18.239481"
     },
     {
       "ticker": "072870",
       "name": "메가스터디",
-      "price": 12690,
-      "change_rate": 1.93,
-      "market_cap": 1513,
+      "price": 12600,
+      "change_rate": 1.2,
+      "market_cap": 1502,
       "box_high": 13610,
       "box_low": 12140,
       "range_percent": 12.11,
-      "atr": 2.62,
-      "atr_multiple": 4.63,
+      "atr": 2.65,
+      "atr_multiple": 4.57,
       "support_touches": 3,
       "resistance_touches": 2,
-      "slope_daily": 0.0236,
-      "volume_decrease_rate": 24.95,
+      "slope_daily": 0.0224,
+      "volume_decrease_rate": 24.54,
       "days": 73,
-      "ma150": 12009,
+      "ma150": 12008,
       "above_ma150": true,
-      "updated_at": "2026-06-29T14:12:07.164653"
+      "updated_at": "2026-06-29T16:16:18.340197"
     },
     {
       "ticker": "057050",
@@ -83,27 +83,27 @@
       "days": 92,
       "ma150": 71256,
       "above_ma150": true,
-      "updated_at": "2026-06-29T14:12:08.303566"
+      "updated_at": "2026-06-29T16:16:19.669764"
     },
     {
       "ticker": "339950",
       "name": "아이비김영",
-      "price": 2425,
-      "change_rate": 2.54,
-      "market_cap": 1090,
+      "price": 2465,
+      "change_rate": 4.23,
+      "market_cap": 1108,
       "box_high": 2850,
       "box_low": 2315,
       "range_percent": 23.11,
-      "atr": 4.42,
-      "atr_multiple": 5.22,
+      "atr": 4.38,
+      "atr_multiple": 5.27,
       "support_touches": 2,
       "resistance_touches": 2,
-      "slope_daily": -0.0439,
-      "volume_decrease_rate": 23.14,
+      "slope_daily": -0.0413,
+      "volume_decrease_rate": 22.55,
       "days": 83,
       "ma150": 2300,
       "above_ma150": true,
-      "updated_at": "2026-06-29T14:12:07.493634"
+      "updated_at": "2026-06-29T16:16:18.781417"
     }
   ]
 }
