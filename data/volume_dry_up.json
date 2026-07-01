@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-01T14:04:01.551543",
+    "lastUpdated": "2026-07-01T15:56:17.070715",
     "totalCount": 3,
-    "screened_from": 1326
+    "screened_from": 1332
   },
   "data": [
     {
@@ -14,20 +14,20 @@
       "explosion_change_rate": 12.6,
       "explosion_volume_ratio": 8.9,
       "days_since_detected": 4,
-      "volume_decrease_rate": 82,
+      "volume_decrease_rate": 79,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
       "ma150": 7596,
       "above_ma150": false,
       "market_cap": 2015,
-      "updated_at": "2026-07-01T14:04:01.313740"
+      "updated_at": "2026-07-01T15:56:16.841705"
     },
     {
       "ticker": "048550",
       "name": "SM C&C",
-      "price": 1684,
-      "change_rate": 5.25,
+      "price": 1680,
+      "change_rate": 5.0,
       "explosion_date": "2026-06-22",
       "explosion_change_rate": 11.6,
       "explosion_volume_ratio": 4.2,
@@ -38,14 +38,14 @@
       "volume_rank": 2,
       "ma150": 1188,
       "above_ma150": true,
-      "market_cap": 1629,
-      "updated_at": "2026-07-01T14:04:01.549289"
+      "market_cap": 1625,
+      "updated_at": "2026-07-01T15:56:17.063613"
     },
     {
       "ticker": "067290",
       "name": "JW신약",
-      "price": 1870,
-      "change_rate": -3.06,
+      "price": 1847,
+      "change_rate": -4.25,
       "explosion_date": "2026-06-17",
       "explosion_change_rate": 29.9,
       "explosion_volume_ratio": 19.9,
@@ -56,8 +56,8 @@
       "volume_rank": 3,
       "ma150": 1887,
       "above_ma150": true,
-      "market_cap": 1048,
-      "updated_at": "2026-07-01T14:04:01.550920"
+      "market_cap": 1035,
+      "updated_at": "2026-07-01T15:56:17.067481"
     }
   ]
 }

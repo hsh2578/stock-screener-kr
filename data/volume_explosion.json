@@ -1,33 +1,33 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-01T14:03:59.442633",
-    "totalCount": 19,
-    "screened_from": 1326
+    "lastUpdated": "2026-07-01T15:56:12.107088",
+    "totalCount": 22,
+    "screened_from": 1332
   },
   "data": [
     {
       "ticker": "010960",
       "name": "삼호개발",
-      "price": 4175,
-      "change_rate": 28.07,
-      "volume_ratio": 14.9,
+      "price": 4235,
+      "change_rate": 29.91,
+      "volume_ratio": 16.7,
       "volume_rank": 1,
-      "ma150": 3723,
+      "ma150": 3724,
       "above_ma150": true,
-      "market_cap": 1009,
-      "updated_at": "2026-07-01T14:03:58.998390"
+      "market_cap": 1021,
+      "updated_at": "2026-07-01T15:56:11.605272"
     },
     {
       "ticker": "023410",
       "name": "유진기업",
       "price": 4515,
       "change_rate": 29.93,
-      "volume_ratio": 14.3,
+      "volume_ratio": 14.4,
       "volume_rank": 2,
       "ma150": 3867,
       "above_ma150": true,
       "market_cap": 3491,
-      "updated_at": "2026-07-01T14:03:59.108377"
+      "updated_at": "2026-07-01T15:56:11.964742"
     },
     {
       "ticker": "001260",
@@ -39,7 +39,7 @@
       "ma150": 8529,
       "above_ma150": true,
       "market_cap": 1017,
-      "updated_at": "2026-07-01T14:03:58.571541"
+      "updated_at": "2026-07-01T15:56:10.707350"
     },
     {
       "ticker": "111710",
@@ -51,103 +51,127 @@
       "ma150": 4103,
       "above_ma150": true,
       "market_cap": 1458,
-      "updated_at": "2026-07-01T14:03:58.590632"
+      "updated_at": "2026-07-01T15:56:10.721707"
     },
     {
       "ticker": "025950",
       "name": "동신건설",
       "price": 13780,
       "change_rate": 30.0,
-      "volume_ratio": 8.1,
+      "volume_ratio": 8.2,
       "volume_rank": 5,
       "ma150": 16070,
       "above_ma150": false,
       "market_cap": 1158,
-      "updated_at": "2026-07-01T14:03:58.925059"
-    },
-    {
-      "ticker": "037350",
-      "name": "성도이엔지",
-      "price": 11120,
-      "change_rate": 12.44,
-      "volume_ratio": 4.9,
-      "volume_rank": 6,
-      "ma150": 8863,
-      "above_ma150": true,
-      "market_cap": 1691,
-      "updated_at": "2026-07-01T14:03:59.003842"
+      "updated_at": "2026-07-01T15:56:11.111272"
     },
     {
       "ticker": "045100",
       "name": "한양이엔지",
-      "price": 37300,
-      "change_rate": 22.9,
-      "volume_ratio": 4.4,
-      "volume_rank": 7,
-      "ma150": 28367,
+      "price": 38400,
+      "change_rate": 26.52,
+      "volume_ratio": 6.0,
+      "volume_rank": 6,
+      "ma150": 28374,
       "above_ma150": true,
-      "market_cap": 6545,
-      "updated_at": "2026-07-01T14:03:59.413908"
+      "market_cap": 6720,
+      "updated_at": "2026-07-01T15:56:12.058426"
+    },
+    {
+      "ticker": "037350",
+      "name": "성도이엔지",
+      "price": 11200,
+      "change_rate": 13.25,
+      "volume_ratio": 5.6,
+      "volume_rank": 7,
+      "ma150": 8863,
+      "above_ma150": true,
+      "market_cap": 1704,
+      "updated_at": "2026-07-01T15:56:11.610267"
     },
     {
       "ticker": "475150",
       "name": "SK이터닉스",
-      "price": 59100,
-      "change_rate": 14.31,
-      "volume_ratio": 3.9,
+      "price": 59400,
+      "change_rate": 14.89,
+      "volume_ratio": 5.4,
       "volume_rank": 8,
-      "ma150": 35829,
+      "ma150": 35831,
       "above_ma150": true,
-      "market_cap": 20168,
-      "updated_at": "2026-07-01T14:03:58.211654"
-    },
-    {
-      "ticker": "006360",
-      "name": "GS건설",
-      "price": 29450,
-      "change_rate": 17.33,
-      "volume_ratio": 3.8,
-      "volume_rank": 9,
-      "ma150": 25518,
-      "above_ma150": true,
-      "market_cap": 25204,
-      "updated_at": "2026-07-01T14:03:57.839730"
+      "market_cap": 20236,
+      "updated_at": "2026-07-01T15:56:10.364382"
     },
     {
       "ticker": "005960",
       "name": "동부건설",
-      "price": 7500,
-      "change_rate": 14.33,
-      "volume_ratio": 3.8,
-      "volume_rank": 10,
-      "ma150": 7127,
+      "price": 7460,
+      "change_rate": 13.72,
+      "volume_ratio": 4.5,
+      "volume_rank": 9,
+      "ma150": 7126,
       "above_ma150": true,
-      "market_cap": 1721,
-      "updated_at": "2026-07-01T14:03:58.923896"
+      "market_cap": 1712,
+      "updated_at": "2026-07-01T15:56:11.094681"
     },
     {
-      "ticker": "079650",
-      "name": "서산",
-      "price": 5020,
-      "change_rate": 17.7,
-      "volume_ratio": 3.2,
-      "volume_rank": 11,
-      "ma150": 1712,
+      "ticker": "006360",
+      "name": "GS건설",
+      "price": 30100,
+      "change_rate": 19.92,
+      "volume_ratio": 4.3,
+      "volume_rank": 10,
+      "ma150": 25522,
       "above_ma150": true,
-      "market_cap": 1004,
-      "updated_at": "2026-07-01T14:03:59.000614"
+      "market_cap": 25760,
+      "updated_at": "2026-07-01T15:56:09.805076"
+    },
+    {
+      "ticker": "119850",
+      "name": "지엔씨에너지",
+      "price": 27850,
+      "change_rate": 22.69,
+      "volume_ratio": 3.9,
+      "volume_rank": 11,
+      "ma150": 31961,
+      "above_ma150": false,
+      "market_cap": 4581,
+      "updated_at": "2026-07-01T15:56:11.993023"
     },
     {
       "ticker": "347700",
       "name": "스피어",
-      "price": 29650,
-      "change_rate": 26.98,
-      "volume_ratio": 3.1,
+      "price": 28050,
+      "change_rate": 20.13,
+      "volume_ratio": 3.8,
       "volume_rank": 12,
-      "ma150": 31437,
+      "ma150": 31426,
       "above_ma150": false,
-      "market_cap": 15281,
-      "updated_at": "2026-07-01T14:03:59.022215"
+      "market_cap": 14457,
+      "updated_at": "2026-07-01T15:56:11.618888"
+    },
+    {
+      "ticker": "198440",
+      "name": "강동씨앤엘",
+      "price": 1982,
+      "change_rate": 25.84,
+      "volume_ratio": 3.2,
+      "volume_rank": 13,
+      "ma150": 1141,
+      "above_ma150": true,
+      "market_cap": 1208,
+      "updated_at": "2026-07-01T15:56:10.468043"
+    },
+    {
+      "ticker": "004980",
+      "name": "성신양회",
+      "price": 9290,
+      "change_rate": 14.98,
+      "volume_ratio": 3.1,
+      "volume_rank": 14,
+      "ma150": 9740,
+      "above_ma150": false,
+      "market_cap": 2278,
+      "updated_at": "2026-07-01T15:56:11.610757"
     },
     {
       "ticker": "002990",
@@ -155,35 +179,35 @@
       "price": 14540,
       "change_rate": 29.94,
       "volume_ratio": 2.9,
-      "volume_rank": 13,
+      "volume_rank": 15,
       "ma150": 4670,
       "above_ma150": true,
       "market_cap": 5418,
-      "updated_at": "2026-07-01T14:03:58.484709"
+      "updated_at": "2026-07-01T15:56:10.627435"
     },
     {
-      "ticker": "119850",
-      "name": "지엔씨에너지",
-      "price": 27100,
-      "change_rate": 19.38,
+      "ticker": "089860",
+      "name": "롯데렌탈",
+      "price": 31950,
+      "change_rate": 13.7,
       "volume_ratio": 2.9,
-      "volume_rank": 14,
-      "ma150": 31956,
-      "above_ma150": false,
-      "market_cap": 4458,
-      "updated_at": "2026-07-01T14:03:59.148586"
+      "volume_rank": 16,
+      "ma150": 31628,
+      "above_ma150": true,
+      "market_cap": 11601,
+      "updated_at": "2026-07-01T15:56:11.443411"
     },
     {
-      "ticker": "198440",
-      "name": "강동씨앤엘",
-      "price": 1951,
-      "change_rate": 23.87,
-      "volume_ratio": 2.6,
-      "volume_rank": 15,
-      "ma150": 1141,
+      "ticker": "007660",
+      "name": "이수페타시스",
+      "price": 132900,
+      "change_rate": 15.16,
+      "volume_ratio": 2.9,
+      "volume_rank": 17,
+      "ma150": 122677,
       "above_ma150": true,
-      "market_cap": 1189,
-      "updated_at": "2026-07-01T14:03:58.309236"
+      "market_cap": 97561,
+      "updated_at": "2026-07-01T15:56:11.969142"
     },
     {
       "ticker": "006340",
@@ -191,47 +215,59 @@
       "price": 13400,
       "change_rate": 29.97,
       "volume_ratio": 2.6,
-      "volume_rank": 16,
+      "volume_rank": 18,
       "ma150": 6990,
       "above_ma150": true,
       "market_cap": 10508,
-      "updated_at": "2026-07-01T14:03:58.909796"
-    },
-    {
-      "ticker": "089860",
-      "name": "롯데렌탈",
-      "price": 31800,
-      "change_rate": 13.17,
-      "volume_ratio": 2.3,
-      "volume_rank": 17,
-      "ma150": 31627,
-      "above_ma150": true,
-      "market_cap": 11583,
-      "updated_at": "2026-07-01T14:03:58.935875"
+      "updated_at": "2026-07-01T15:56:10.947491"
     },
     {
       "ticker": "228340",
       "name": "동양파일",
       "price": 6240,
       "change_rate": 30.0,
-      "volume_ratio": 2.2,
-      "volume_rank": 18,
+      "volume_ratio": 2.3,
+      "volume_rank": 19,
       "ma150": 2010,
       "above_ma150": true,
       "market_cap": 1248,
-      "updated_at": "2026-07-01T14:03:58.926801"
+      "updated_at": "2026-07-01T15:56:11.337405"
     },
     {
-      "ticker": "007660",
-      "name": "이수페타시스",
-      "price": 131800,
-      "change_rate": 14.21,
-      "volume_ratio": 2.1,
-      "volume_rank": 19,
-      "ma150": 122670,
+      "ticker": "122640",
+      "name": "예스티",
+      "price": 39250,
+      "change_rate": 12.79,
+      "volume_ratio": 2.2,
+      "volume_rank": 20,
+      "ma150": 23488,
       "above_ma150": true,
-      "market_cap": 96974,
-      "updated_at": "2026-07-01T14:03:59.112397"
+      "market_cap": 8472,
+      "updated_at": "2026-07-01T15:56:11.887582"
+    },
+    {
+      "ticker": "036930",
+      "name": "주성엔지니어링",
+      "price": 242000,
+      "change_rate": 20.4,
+      "volume_ratio": 2.2,
+      "volume_rank": 21,
+      "ma150": 88744,
+      "above_ma150": true,
+      "market_cap": 112484,
+      "updated_at": "2026-07-01T15:56:11.990371"
+    },
+    {
+      "ticker": "089890",
+      "name": "코세스",
+      "price": 37000,
+      "change_rate": 18.4,
+      "volume_ratio": 2.2,
+      "volume_rank": 22,
+      "ma150": 28934,
+      "above_ma150": true,
+      "market_cap": 6136,
+      "updated_at": "2026-07-01T15:56:12.011846"
     }
   ]
 }
