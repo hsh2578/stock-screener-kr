@@ -1,63 +1,63 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-30T20:28:42.049072",
+    "lastUpdated": "2026-07-01T14:04:01.551543",
     "totalCount": 3,
-    "screened_from": 1317
+    "screened_from": 1326
   },
   "data": [
     {
       "ticker": "034810",
       "name": "해성산업",
-      "price": 6240,
-      "change_rate": 0.16,
+      "price": 6380,
+      "change_rate": 2.24,
       "explosion_date": "2026-06-25",
       "explosion_change_rate": 12.6,
       "explosion_volume_ratio": 8.9,
-      "days_since_detected": 3,
-      "volume_decrease_rate": 79,
+      "days_since_detected": 4,
+      "volume_decrease_rate": 82,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
-      "ma150": 7602,
+      "ma150": 7596,
       "above_ma150": false,
-      "market_cap": 1971,
-      "updated_at": "2026-06-30T20:28:41.949459"
+      "market_cap": 2015,
+      "updated_at": "2026-07-01T14:04:01.313740"
     },
     {
       "ticker": "048550",
       "name": "SM C&C",
-      "price": 1600,
-      "change_rate": -10.41,
+      "price": 1684,
+      "change_rate": 5.25,
       "explosion_date": "2026-06-22",
       "explosion_change_rate": 11.6,
       "explosion_volume_ratio": 4.2,
-      "days_since_detected": 6,
+      "days_since_detected": 7,
       "volume_decrease_rate": 69,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 2,
       "ma150": 1188,
       "above_ma150": true,
-      "market_cap": 1547,
-      "updated_at": "2026-06-30T20:28:42.047614"
+      "market_cap": 1629,
+      "updated_at": "2026-07-01T14:04:01.549289"
     },
     {
       "ticker": "067290",
       "name": "JW신약",
-      "price": 1929,
-      "change_rate": -10.07,
+      "price": 1870,
+      "change_rate": -3.06,
       "explosion_date": "2026-06-17",
       "explosion_change_rate": 29.9,
       "explosion_volume_ratio": 19.9,
-      "days_since_detected": 9,
+      "days_since_detected": 10,
       "volume_decrease_rate": 78,
       "pattern_type": "ma20_approach",
       "ma20_distance": 0.98,
       "volume_rank": 3,
       "ma150": 1887,
       "above_ma150": true,
-      "market_cap": 1081,
-      "updated_at": "2026-06-30T20:28:40.354576"
+      "market_cap": 1048,
+      "updated_at": "2026-07-01T14:04:01.550920"
     }
   ]
 }
