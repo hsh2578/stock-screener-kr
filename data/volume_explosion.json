@@ -1,33 +1,33 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-02T15:26:37.768173",
+    "lastUpdated": "2026-07-02T16:54:12.081015",
     "totalCount": 6,
-    "screened_from": 1314
+    "screened_from": 1320
   },
   "data": [
     {
       "ticker": "025950",
       "name": "동신건설",
-      "price": 16130,
-      "change_rate": 17.05,
-      "volume_ratio": 32.8,
+      "price": 15800,
+      "change_rate": 14.66,
+      "volume_ratio": 33.5,
       "volume_rank": 1,
-      "ma150": 16085,
-      "above_ma150": true,
-      "market_cap": 1355,
-      "updated_at": "2026-07-02T15:26:37.373507"
+      "ma150": 16082,
+      "above_ma150": false,
+      "market_cap": 1327,
+      "updated_at": "2026-07-02T16:54:10.018997"
     },
     {
       "ticker": "094360",
       "name": "칩스앤미디어",
-      "price": 14360,
-      "change_rate": 18.09,
-      "volume_ratio": 14.3,
+      "price": 14460,
+      "change_rate": 18.91,
+      "volume_ratio": 14.5,
       "volume_rank": 2,
-      "ma150": 16772,
+      "ma150": 16773,
       "above_ma150": false,
-      "market_cap": 3067,
-      "updated_at": "2026-07-02T15:26:37.628280"
+      "market_cap": 3088,
+      "updated_at": "2026-07-02T16:54:11.537854"
     },
     {
       "ticker": "419050",
@@ -39,19 +39,19 @@
       "ma150": 1681,
       "above_ma150": true,
       "market_cap": 1112,
-      "updated_at": "2026-07-02T15:26:37.400901"
+      "updated_at": "2026-07-02T16:54:10.403211"
     },
     {
       "ticker": "007610",
       "name": "선도전기",
-      "price": 6130,
-      "change_rate": 19.96,
+      "price": 6300,
+      "change_rate": 23.29,
       "volume_ratio": 3.7,
       "volume_rank": 4,
-      "ma150": 4320,
+      "ma150": 4322,
       "above_ma150": true,
-      "market_cap": 1103,
-      "updated_at": "2026-07-02T15:26:37.421313"
+      "market_cap": 1134,
+      "updated_at": "2026-07-02T16:54:10.641089"
     },
     {
       "ticker": "002780",
@@ -63,7 +63,7 @@
       "ma150": 870,
       "above_ma150": true,
       "market_cap": 1661,
-      "updated_at": "2026-07-02T15:26:37.626833"
+      "updated_at": "2026-07-02T16:54:11.536412"
     },
     {
       "ticker": "013360",
@@ -75,7 +75,7 @@
       "ma150": 1818,
       "above_ma150": true,
       "market_cap": 1105,
-      "updated_at": "2026-07-02T15:26:37.569817"
+      "updated_at": "2026-07-02T16:54:11.521804"
     }
   ]
 }

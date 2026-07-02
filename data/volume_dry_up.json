@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-02T15:26:40.260612",
+    "lastUpdated": "2026-07-02T16:54:14.004665",
     "totalCount": 4,
-    "screened_from": 1314
+    "screened_from": 1320
   },
   "data": [
     {
@@ -21,13 +21,13 @@
       "ma150": 4496,
       "above_ma150": false,
       "market_cap": 1166,
-      "updated_at": "2026-07-02T15:26:40.257932"
+      "updated_at": "2026-07-02T16:54:14.001088"
     },
     {
       "ticker": "034810",
       "name": "해성산업",
-      "price": 6210,
-      "change_rate": -2.66,
+      "price": 6190,
+      "change_rate": -2.98,
       "explosion_date": "2026-06-25",
       "explosion_change_rate": 12.6,
       "explosion_volume_ratio": 8.9,
@@ -38,14 +38,14 @@
       "volume_rank": 2,
       "ma150": 7590,
       "above_ma150": false,
-      "market_cap": 1961,
-      "updated_at": "2026-07-02T15:26:40.182998"
+      "market_cap": 1955,
+      "updated_at": "2026-07-02T16:54:13.933132"
     },
     {
       "ticker": "048550",
       "name": "SM C&C",
-      "price": 1613,
-      "change_rate": -3.99,
+      "price": 1591,
+      "change_rate": -5.3,
       "explosion_date": "2026-06-22",
       "explosion_change_rate": 11.6,
       "explosion_volume_ratio": 4.2,
@@ -56,26 +56,26 @@
       "volume_rank": 3,
       "ma150": 1188,
       "above_ma150": true,
-      "market_cap": 1560,
-      "updated_at": "2026-07-02T15:26:40.258787"
+      "market_cap": 1539,
+      "updated_at": "2026-07-02T16:54:14.004011"
     },
     {
       "ticker": "069960",
       "name": "현대백화점",
-      "price": 186600,
-      "change_rate": -3.81,
+      "price": 186300,
+      "change_rate": -3.97,
       "explosion_date": "2026-06-04",
       "explosion_change_rate": 14.8,
       "explosion_volume_ratio": 3.5,
       "days_since_detected": 20,
       "volume_decrease_rate": 63,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.18,
+      "ma20_distance": 0.03,
       "volume_rank": 4,
-      "ma150": 108012,
+      "ma150": 108010,
       "above_ma150": true,
-      "market_cap": 40240,
-      "updated_at": "2026-07-02T15:26:40.211079"
+      "market_cap": 40175,
+      "updated_at": "2026-07-02T16:54:13.942910"
     }
   ]
 }
