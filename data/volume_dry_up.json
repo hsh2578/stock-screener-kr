@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-02T13:41:23.124936",
+    "lastUpdated": "2026-07-02T15:26:40.260612",
     "totalCount": 4,
-    "screened_from": 1320
+    "screened_from": 1314
   },
   "data": [
     {
       "ticker": "067990",
       "name": "도이치모터스",
-      "price": 4110,
-      "change_rate": -0.96,
+      "price": 3995,
+      "change_rate": -3.73,
       "explosion_date": "2026-06-29",
       "explosion_change_rate": 12.8,
       "explosion_volume_ratio": 3.1,
@@ -20,32 +20,32 @@
       "volume_rank": 1,
       "ma150": 4496,
       "above_ma150": false,
-      "market_cap": 1199,
-      "updated_at": "2026-07-02T13:41:21.640289"
+      "market_cap": 1166,
+      "updated_at": "2026-07-02T15:26:40.257932"
     },
     {
       "ticker": "034810",
       "name": "해성산업",
-      "price": 6300,
-      "change_rate": -1.25,
+      "price": 6210,
+      "change_rate": -2.66,
       "explosion_date": "2026-06-25",
       "explosion_change_rate": 12.6,
       "explosion_volume_ratio": 8.9,
       "days_since_detected": 5,
-      "volume_decrease_rate": 82,
+      "volume_decrease_rate": 81,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 2,
       "ma150": 7590,
       "above_ma150": false,
-      "market_cap": 1990,
-      "updated_at": "2026-07-02T13:41:23.073243"
+      "market_cap": 1961,
+      "updated_at": "2026-07-02T15:26:40.182998"
     },
     {
       "ticker": "048550",
       "name": "SM C&C",
-      "price": 1642,
-      "change_rate": -2.26,
+      "price": 1613,
+      "change_rate": -3.99,
       "explosion_date": "2026-06-22",
       "explosion_change_rate": 11.6,
       "explosion_volume_ratio": 4.2,
@@ -56,26 +56,26 @@
       "volume_rank": 3,
       "ma150": 1188,
       "above_ma150": true,
-      "market_cap": 1596,
-      "updated_at": "2026-07-02T13:41:23.123975"
+      "market_cap": 1560,
+      "updated_at": "2026-07-02T15:26:40.258787"
     },
     {
       "ticker": "069960",
       "name": "현대백화점",
-      "price": 189100,
-      "change_rate": -2.53,
+      "price": 186600,
+      "change_rate": -3.81,
       "explosion_date": "2026-06-04",
       "explosion_change_rate": 14.8,
       "explosion_volume_ratio": 3.5,
       "days_since_detected": 20,
-      "volume_decrease_rate": 65,
+      "volume_decrease_rate": 63,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 1.46,
+      "ma20_distance": 0.18,
       "volume_rank": 4,
-      "ma150": 108028,
+      "ma150": 108012,
       "above_ma150": true,
-      "market_cap": 40844,
-      "updated_at": "2026-07-02T13:41:23.081265"
+      "market_cap": 40240,
+      "updated_at": "2026-07-02T15:26:40.211079"
     }
   ]
 }
