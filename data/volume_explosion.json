@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-03T13:19:04.560530",
-    "totalCount": 5,
-    "screened_from": 1304
+    "lastUpdated": "2026-07-03T15:12:56.615524",
+    "totalCount": 7,
+    "screened_from": 1316
   },
   "data": [
     {
@@ -10,60 +10,84 @@
       "name": "동원개발",
       "price": 3150,
       "change_rate": 29.9,
-      "volume_ratio": 26.7,
+      "volume_ratio": 31.3,
       "volume_rank": 1,
       "ma150": 2762,
       "above_ma150": true,
       "market_cap": 2860,
-      "updated_at": "2026-07-03T13:19:02.658427"
-    },
-    {
-      "ticker": "225530",
-      "name": "HC보광산업",
-      "price": 2820,
-      "change_rate": 13.25,
-      "volume_ratio": 22.2,
-      "volume_rank": 2,
-      "ma150": 2956,
-      "above_ma150": false,
-      "market_cap": 1025,
-      "updated_at": "2026-07-03T13:19:01.684171"
+      "updated_at": "2026-07-03T15:12:53.716596"
     },
     {
       "ticker": "037070",
       "name": "파세코",
-      "price": 6770,
-      "change_rate": 13.4,
-      "volume_ratio": 21.1,
-      "volume_rank": 3,
-      "ma150": 7790,
+      "price": 6830,
+      "change_rate": 14.41,
+      "volume_ratio": 25.2,
+      "volume_rank": 2,
+      "ma150": 7791,
       "above_ma150": false,
-      "market_cap": 1356,
-      "updated_at": "2026-07-03T13:19:04.142602"
+      "market_cap": 1366,
+      "updated_at": "2026-07-03T15:12:55.823761"
     },
     {
       "ticker": "095500",
       "name": "미래나노텍",
-      "price": 8640,
-      "change_rate": 19.83,
-      "volume_ratio": 10.2,
-      "volume_rank": 4,
-      "ma150": 10081,
+      "price": 8880,
+      "change_rate": 23.16,
+      "volume_ratio": 15.9,
+      "volume_rank": 3,
+      "ma150": 10083,
       "above_ma150": false,
-      "market_cap": 2679,
-      "updated_at": "2026-07-03T13:19:02.992489"
+      "market_cap": 2747,
+      "updated_at": "2026-07-03T15:12:54.083438"
     },
     {
       "ticker": "065170",
       "name": "비엘팜텍",
-      "price": 4055,
-      "change_rate": 14.71,
-      "volume_ratio": 4.0,
-      "volume_rank": 5,
-      "ma150": 2286,
+      "price": 4595,
+      "change_rate": 29.99,
+      "volume_ratio": 5.2,
+      "volume_rank": 4,
+      "ma150": 2290,
       "above_ma150": true,
-      "market_cap": 1133,
-      "updated_at": "2026-07-03T13:19:03.069842"
+      "market_cap": 1283,
+      "updated_at": "2026-07-03T15:12:54.163993"
+    },
+    {
+      "ticker": "441270",
+      "name": "파인엠텍",
+      "price": 7410,
+      "change_rate": 15.6,
+      "volume_ratio": 3.7,
+      "volume_rank": 5,
+      "ma150": 9533,
+      "above_ma150": false,
+      "market_cap": 3120,
+      "updated_at": "2026-07-03T15:12:55.844902"
+    },
+    {
+      "ticker": "039830",
+      "name": "오로라",
+      "price": 20050,
+      "change_rate": 12.7,
+      "volume_ratio": 2.5,
+      "volume_rank": 6,
+      "ma150": 14619,
+      "above_ma150": true,
+      "market_cap": 2163,
+      "updated_at": "2026-07-03T15:12:54.657553"
+    },
+    {
+      "ticker": "484120",
+      "name": "도우인시스",
+      "price": 16590,
+      "change_rate": 15.05,
+      "volume_ratio": 2.3,
+      "volume_rank": 7,
+      "ma150": 21505,
+      "above_ma150": false,
+      "market_cap": 1817,
+      "updated_at": "2026-07-03T15:12:53.622724"
     }
   ]
 }

@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-03T13:19:05.729199",
-    "totalCount": 4,
-    "screened_from": 1304
+    "lastUpdated": "2026-07-03T15:13:00.255680",
+    "totalCount": 3,
+    "screened_from": 1316
   },
   "data": [
     {
       "ticker": "067990",
       "name": "도이치모터스",
-      "price": 3980,
-      "change_rate": -0.38,
+      "price": 4065,
+      "change_rate": 1.75,
       "explosion_date": "2026-06-29",
       "explosion_change_rate": 12.8,
       "explosion_volume_ratio": 3.1,
@@ -20,32 +20,32 @@
       "volume_rank": 1,
       "ma150": 4496,
       "above_ma150": false,
-      "market_cap": 1161,
-      "updated_at": "2026-07-03T13:19:05.721736"
+      "market_cap": 1186,
+      "updated_at": "2026-07-03T15:13:00.247861"
     },
     {
       "ticker": "034810",
       "name": "해성산업",
-      "price": 6260,
-      "change_rate": 1.13,
+      "price": 6290,
+      "change_rate": 1.62,
       "explosion_date": "2026-06-25",
       "explosion_change_rate": 12.6,
       "explosion_volume_ratio": 8.9,
       "days_since_detected": 6,
-      "volume_decrease_rate": 80,
+      "volume_decrease_rate": 79,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 2,
-      "ma150": 7582,
+      "ma150": 7583,
       "above_ma150": false,
-      "market_cap": 1977,
-      "updated_at": "2026-07-03T13:19:05.654420"
+      "market_cap": 1993,
+      "updated_at": "2026-07-03T15:13:00.162609"
     },
     {
       "ticker": "048550",
       "name": "SM C&C",
-      "price": 1603,
-      "change_rate": 0.75,
+      "price": 1609,
+      "change_rate": 1.13,
       "explosion_date": "2026-06-22",
       "explosion_change_rate": 11.6,
       "explosion_volume_ratio": 4.2,
@@ -56,26 +56,8 @@
       "volume_rank": 3,
       "ma150": 1188,
       "above_ma150": true,
-      "market_cap": 1550,
-      "updated_at": "2026-07-03T13:19:05.725734"
-    },
-    {
-      "ticker": "122640",
-      "name": "예스티",
-      "price": 33200,
-      "change_rate": 0.61,
-      "explosion_date": "2026-06-18",
-      "explosion_change_rate": 18.4,
-      "explosion_volume_ratio": 16.1,
-      "days_since_detected": 11,
-      "volume_decrease_rate": 84,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.41,
-      "volume_rank": 4,
-      "ma150": 23702,
-      "above_ma150": true,
-      "market_cap": 7167,
-      "updated_at": "2026-07-03T13:19:05.049068"
+      "market_cap": 1556,
+      "updated_at": "2026-07-03T15:13:00.250958"
     }
   ]
 }
