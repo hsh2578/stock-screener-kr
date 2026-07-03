@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-03T15:13:20.271614",
+    "lastUpdated": "2026-07-03T16:49:40.907375",
     "totalCount": 32,
-    "screened_from": 1316
+    "screened_from": 1320
   },
   "data": [
     {
@@ -25,7 +25,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 11.3,
-      "updated_at": "2026-07-03T15:13:04.894528"
+      "updated_at": "2026-07-03T16:49:26.306266"
     },
     {
       "ticker": "000400",
@@ -47,7 +47,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 3.8,
-      "updated_at": "2026-07-03T15:13:08.982650"
+      "updated_at": "2026-07-03T16:49:29.913968"
     },
     {
       "ticker": "123330",
@@ -61,7 +61,7 @@
       "drop_from_high": -39.41,
       "ma150": 22333,
       "above_ma150": true,
-      "market_cap": 2044,
+      "market_cap": 2052,
       "score_near_ma150": 2,
       "score_ma_breakout": 3,
       "score_higher_low": 0,
@@ -69,7 +69,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 14.5,
-      "updated_at": "2026-07-03T15:13:17.987145"
+      "updated_at": "2026-07-03T16:49:38.345679"
     },
     {
       "ticker": "306620",
@@ -78,12 +78,12 @@
       "score": 10,
       "signal_date": "2026-06-24",
       "days_since_signal": 7,
-      "current_price": 2300,
-      "change_since_signal": -13.04,
-      "drop_from_high": -44.44,
+      "current_price": 2295,
+      "change_since_signal": -13.23,
+      "drop_from_high": -44.57,
       "ma150": 2729,
       "above_ma150": false,
-      "market_cap": 1103,
+      "market_cap": 1100,
       "score_near_ma150": 2,
       "score_ma_breakout": 3,
       "score_higher_low": 0,
@@ -91,7 +91,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": -2.1,
-      "updated_at": "2026-07-03T15:13:18.134361"
+      "updated_at": "2026-07-03T16:49:38.485985"
     },
     {
       "ticker": "005960",
@@ -100,20 +100,20 @@
       "score": 9,
       "signal_date": "2026-07-03",
       "days_since_signal": 0,
-      "current_price": 7060,
+      "current_price": 7100,
       "change_since_signal": 0.0,
-      "drop_from_high": -33.46,
+      "drop_from_high": -33.08,
       "ma150": 7146,
       "above_ma150": false,
-      "market_cap": 1611,
+      "market_cap": 1629,
       "score_near_ma150": 2,
       "score_ma_breakout": 3,
       "score_higher_low": 0,
       "score_slope": 2,
       "score_volume": 2,
       "score_macd": 0,
-      "ma150_gap": -1.2,
-      "updated_at": "2026-07-03T15:13:08.487845"
+      "ma150_gap": -0.7,
+      "updated_at": "2026-07-03T16:49:29.379630"
     },
     {
       "ticker": "013580",
@@ -122,12 +122,12 @@
       "score": 9,
       "signal_date": "2026-07-01",
       "days_since_signal": 2,
-      "current_price": 23100,
-      "change_since_signal": -2.94,
-      "drop_from_high": -30.63,
-      "ma150": 23360,
+      "current_price": 22850,
+      "change_since_signal": -3.99,
+      "drop_from_high": -31.38,
+      "ma150": 23359,
       "above_ma150": false,
-      "market_cap": 2059,
+      "market_cap": 2041,
       "score_near_ma150": 2,
       "score_ma_breakout": 3,
       "score_higher_low": 0,
@@ -135,7 +135,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 2.2,
-      "updated_at": "2026-07-03T15:13:07.422049"
+      "updated_at": "2026-07-03T16:49:27.909624"
     },
     {
       "ticker": "065170",
@@ -157,7 +157,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 8.8,
-      "updated_at": "2026-07-03T15:13:09.727006"
+      "updated_at": "2026-07-03T16:49:31.747027"
     },
     {
       "ticker": "002990",
@@ -166,12 +166,12 @@
       "score": 9,
       "signal_date": "2026-06-24",
       "days_since_signal": 7,
-      "current_price": 9550,
-      "change_since_signal": 97.11,
-      "drop_from_high": -49.47,
-      "ma150": 4763,
+      "current_price": 9500,
+      "change_since_signal": 96.08,
+      "drop_from_high": -49.74,
+      "ma150": 4762,
       "above_ma150": true,
-      "market_cap": 3558,
+      "market_cap": 3540,
       "score_near_ma150": 2,
       "score_ma_breakout": 3,
       "score_higher_low": 0,
@@ -179,7 +179,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 8.0,
-      "updated_at": "2026-07-03T15:13:07.635706"
+      "updated_at": "2026-07-03T16:49:28.649572"
     },
     {
       "ticker": "004310",
@@ -188,12 +188,12 @@
       "score": 9,
       "signal_date": "2026-06-22",
       "days_since_signal": 9,
-      "current_price": 5210,
-      "change_since_signal": -36.62,
-      "drop_from_high": -67.36,
-      "ma150": 8470,
+      "current_price": 5160,
+      "change_since_signal": -37.23,
+      "drop_from_high": -67.67,
+      "ma150": 8469,
       "above_ma150": false,
-      "market_cap": 1664,
+      "market_cap": 1651,
       "score_near_ma150": 2,
       "score_ma_breakout": 3,
       "score_higher_low": 0,
@@ -201,7 +201,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": -1.2,
-      "updated_at": "2026-07-03T15:13:20.039347"
+      "updated_at": "2026-07-03T16:49:40.629791"
     },
     {
       "ticker": "037710",
@@ -210,20 +210,20 @@
       "score": 8,
       "signal_date": "2026-07-03",
       "days_since_signal": 0,
-      "current_price": 38950,
+      "current_price": 38900,
       "change_since_signal": 0.0,
-      "drop_from_high": -34.65,
+      "drop_from_high": -34.73,
       "ma150": 35502,
       "above_ma150": true,
-      "market_cap": 2975,
+      "market_cap": 2967,
       "score_near_ma150": 2,
       "score_ma_breakout": 0,
       "score_higher_low": 2,
       "score_slope": 2,
       "score_volume": 2,
       "score_macd": 0,
-      "ma150_gap": 9.7,
-      "updated_at": "2026-07-03T15:13:07.517834"
+      "ma150_gap": 9.6,
+      "updated_at": "2026-07-03T16:49:28.527004"
     },
     {
       "ticker": "001440",
@@ -232,20 +232,20 @@
       "score": 8,
       "signal_date": "2026-07-03",
       "days_since_signal": 0,
-      "current_price": 33100,
+      "current_price": 32900,
       "change_since_signal": 0.0,
-      "drop_from_high": -56.39,
-      "ma150": 34228,
+      "drop_from_high": -56.65,
+      "ma150": 34227,
       "above_ma150": false,
-      "market_cap": 64874,
+      "market_cap": 64482,
       "score_near_ma150": 2,
       "score_ma_breakout": 3,
       "score_higher_low": 0,
       "score_slope": 2,
       "score_volume": 0,
       "score_macd": 1,
-      "ma150_gap": -3.3,
-      "updated_at": "2026-07-03T15:13:08.312996"
+      "ma150_gap": -3.9,
+      "updated_at": "2026-07-03T16:49:29.269510"
     },
     {
       "ticker": "138360",
@@ -254,20 +254,20 @@
       "score": 8,
       "signal_date": "2026-07-03",
       "days_since_signal": 0,
-      "current_price": 2240,
+      "current_price": 2265,
       "change_since_signal": 0.0,
-      "drop_from_high": -55.02,
+      "drop_from_high": -54.52,
       "ma150": 2187,
       "above_ma150": true,
-      "market_cap": 1705,
+      "market_cap": 1744,
       "score_near_ma150": 2,
       "score_ma_breakout": 3,
       "score_higher_low": 0,
       "score_slope": 2,
       "score_volume": 0,
       "score_macd": 1,
-      "ma150_gap": 2.4,
-      "updated_at": "2026-07-03T15:13:12.423426"
+      "ma150_gap": 3.5,
+      "updated_at": "2026-07-03T16:49:35.161219"
     },
     {
       "ticker": "103590",
@@ -276,20 +276,20 @@
       "score": 8,
       "signal_date": "2026-07-03",
       "days_since_signal": 0,
-      "current_price": 74800,
+      "current_price": 75300,
       "change_since_signal": 0.0,
-      "drop_from_high": -49.43,
-      "ma150": 78204,
+      "drop_from_high": -49.09,
+      "ma150": 78208,
       "above_ma150": false,
-      "market_cap": 35621,
+      "market_cap": 35907,
       "score_near_ma150": 2,
       "score_ma_breakout": 3,
       "score_higher_low": 0,
       "score_slope": 2,
       "score_volume": 0,
       "score_macd": 1,
-      "ma150_gap": -4.4,
-      "updated_at": "2026-07-03T15:13:17.899501"
+      "ma150_gap": -3.7,
+      "updated_at": "2026-07-03T16:49:38.287852"
     },
     {
       "ticker": "007660",
@@ -298,12 +298,12 @@
       "score": 8,
       "signal_date": "2026-07-02",
       "days_since_signal": 1,
-      "current_price": 109100,
-      "change_since_signal": -8.93,
-      "drop_from_high": -33.64,
-      "ma150": 122464,
+      "current_price": 110100,
+      "change_since_signal": -8.1,
+      "drop_from_high": -33.03,
+      "ma150": 122470,
       "above_ma150": false,
-      "market_cap": 79649,
+      "market_cap": 80824,
       "score_near_ma150": 2,
       "score_ma_breakout": 3,
       "score_higher_low": 0,
@@ -311,7 +311,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": -2.3,
-      "updated_at": "2026-07-03T15:13:17.766452"
+      "updated_at": "2026-07-03T16:49:37.738299"
     },
     {
       "ticker": "009830",
@@ -320,12 +320,12 @@
       "score": 8,
       "signal_date": "2026-07-02",
       "days_since_signal": 1,
-      "current_price": 32950,
-      "change_since_signal": -5.59,
-      "drop_from_high": -41.09,
-      "ma150": 36006,
+      "current_price": 32700,
+      "change_since_signal": -6.3,
+      "drop_from_high": -41.54,
+      "ma150": 36004,
       "above_ma150": false,
-      "market_cap": 56725,
+      "market_cap": 56209,
       "score_near_ma150": 2,
       "score_ma_breakout": 3,
       "score_higher_low": 0,
@@ -333,7 +333,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": -2.9,
-      "updated_at": "2026-07-03T15:13:19.808251"
+      "updated_at": "2026-07-03T16:49:40.325579"
     },
     {
       "ticker": "039440",
@@ -347,7 +347,7 @@
       "drop_from_high": -33.56,
       "ma150": 31536,
       "above_ma150": false,
-      "market_cap": 4458,
+      "market_cap": 4451,
       "score_near_ma150": 2,
       "score_ma_breakout": 3,
       "score_higher_low": 0,
@@ -355,7 +355,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": 0.4,
-      "updated_at": "2026-07-03T15:13:13.203223"
+      "updated_at": "2026-07-03T16:49:35.309010"
     },
     {
       "ticker": "119830",
@@ -364,12 +364,12 @@
       "score": 8,
       "signal_date": "2026-06-26",
       "days_since_signal": 5,
-      "current_price": 5560,
-      "change_since_signal": -16.14,
-      "drop_from_high": -42.86,
+      "current_price": 5660,
+      "change_since_signal": -14.63,
+      "drop_from_high": -41.83,
       "ma150": 6806,
       "above_ma150": false,
-      "market_cap": 1473,
+      "market_cap": 1502,
       "score_near_ma150": 2,
       "score_ma_breakout": 3,
       "score_higher_low": 0,
@@ -377,7 +377,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": -2.3,
-      "updated_at": "2026-07-03T15:13:12.105608"
+      "updated_at": "2026-07-03T16:49:35.096038"
     },
     {
       "ticker": "383310",
@@ -386,20 +386,20 @@
       "score": 7,
       "signal_date": "2026-07-03",
       "days_since_signal": 0,
-      "current_price": 28550,
+      "current_price": 28600,
       "change_since_signal": 0.0,
-      "drop_from_high": -39.13,
-      "ma150": 29842,
+      "drop_from_high": -39.02,
+      "ma150": 29843,
       "above_ma150": false,
-      "market_cap": 5978,
+      "market_cap": 5999,
       "score_near_ma150": 2,
       "score_ma_breakout": 0,
       "score_higher_low": 2,
       "score_slope": 2,
       "score_volume": 0,
       "score_macd": 1,
-      "ma150_gap": -4.3,
-      "updated_at": "2026-07-03T15:13:13.606649"
+      "ma150_gap": -4.2,
+      "updated_at": "2026-07-03T16:49:35.840095"
     },
     {
       "ticker": "226950",
@@ -408,12 +408,12 @@
       "score": 7,
       "signal_date": "2026-07-03",
       "days_since_signal": 0,
-      "current_price": 149200,
+      "current_price": 149300,
       "change_since_signal": 0.0,
-      "drop_from_high": -31.24,
+      "drop_from_high": -31.2,
       "ma150": 152922,
       "above_ma150": false,
-      "market_cap": 30280,
+      "market_cap": 30341,
       "score_near_ma150": 2,
       "score_ma_breakout": 3,
       "score_higher_low": 0,
@@ -421,7 +421,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": -2.4,
-      "updated_at": "2026-07-03T15:13:14.762212"
+      "updated_at": "2026-07-03T16:49:36.189372"
     },
     {
       "ticker": "033100",
@@ -430,20 +430,20 @@
       "score": 7,
       "signal_date": "2026-07-03",
       "days_since_signal": 0,
-      "current_price": 51900,
+      "current_price": 52100,
       "change_since_signal": 0.0,
-      "drop_from_high": -44.67,
-      "ma150": 49537,
+      "drop_from_high": -44.46,
+      "ma150": 49538,
       "above_ma150": true,
-      "market_cap": 8320,
+      "market_cap": 8369,
       "score_near_ma150": 2,
       "score_ma_breakout": 0,
       "score_higher_low": 0,
       "score_slope": 2,
       "score_volume": 2,
       "score_macd": 1,
-      "ma150_gap": 4.8,
-      "updated_at": "2026-07-03T15:13:18.001962"
+      "ma150_gap": 5.2,
+      "updated_at": "2026-07-03T16:49:38.358817"
     },
     {
       "ticker": "002780",
@@ -452,20 +452,20 @@
       "score": 7,
       "signal_date": "2026-07-03",
       "days_since_signal": 0,
-      "current_price": 935,
+      "current_price": 936,
       "change_since_signal": 0.0,
-      "drop_from_high": -43.16,
+      "drop_from_high": -43.1,
       "ma150": 872,
       "above_ma150": true,
-      "market_cap": 1360,
+      "market_cap": 1362,
       "score_near_ma150": 2,
       "score_ma_breakout": 0,
       "score_higher_low": 0,
       "score_slope": 2,
       "score_volume": 2,
       "score_macd": 1,
-      "ma150_gap": 7.1,
-      "updated_at": "2026-07-03T15:13:18.193049"
+      "ma150_gap": 7.2,
+      "updated_at": "2026-07-03T16:49:38.542179"
     },
     {
       "ticker": "009410",
@@ -474,20 +474,20 @@
       "score": 7,
       "signal_date": "2026-07-03",
       "days_since_signal": 0,
-      "current_price": 1703,
+      "current_price": 1714,
       "change_since_signal": 0.0,
-      "drop_from_high": -44.53,
+      "drop_from_high": -44.17,
       "ma150": 1766,
       "above_ma150": false,
-      "market_cap": 5095,
+      "market_cap": 5101,
       "score_near_ma150": 2,
       "score_ma_breakout": 0,
       "score_higher_low": 2,
       "score_slope": 2,
       "score_volume": 0,
       "score_macd": 1,
-      "ma150_gap": -3.6,
-      "updated_at": "2026-07-03T15:13:18.842119"
+      "ma150_gap": -3.0,
+      "updated_at": "2026-07-03T16:49:39.472748"
     },
     {
       "ticker": "214450",
@@ -496,20 +496,20 @@
       "score": 7,
       "signal_date": "2026-07-03",
       "days_since_signal": 0,
-      "current_price": 342000,
+      "current_price": 341000,
       "change_since_signal": 0.0,
-      "drop_from_high": -52.03,
-      "ma150": 353056,
+      "drop_from_high": -52.17,
+      "ma150": 353050,
       "above_ma150": false,
-      "market_cap": 35481,
+      "market_cap": 35429,
       "score_near_ma150": 2,
       "score_ma_breakout": 3,
       "score_higher_low": 0,
       "score_slope": 0,
       "score_volume": 2,
       "score_macd": 0,
-      "ma150_gap": -3.1,
-      "updated_at": "2026-07-03T15:13:19.025321"
+      "ma150_gap": -3.4,
+      "updated_at": "2026-07-03T16:49:39.619273"
     },
     {
       "ticker": "089890",
@@ -518,12 +518,12 @@
       "score": 7,
       "signal_date": "2026-07-02",
       "days_since_signal": 1,
-      "current_price": 31550,
-      "change_since_signal": 0.0,
-      "drop_from_high": -38.62,
-      "ma150": 28971,
+      "current_price": 31900,
+      "change_since_signal": 1.11,
+      "drop_from_high": -37.94,
+      "ma150": 28974,
       "above_ma150": true,
-      "market_cap": 5233,
+      "market_cap": 5291,
       "score_near_ma150": 2,
       "score_ma_breakout": 0,
       "score_higher_low": 0,
@@ -531,7 +531,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 9.0,
-      "updated_at": "2026-07-03T15:13:18.558757"
+      "updated_at": "2026-07-03T16:49:39.244099"
     },
     {
       "ticker": "094170",
@@ -545,7 +545,7 @@
       "drop_from_high": -43.88,
       "ma150": 33189,
       "above_ma150": false,
-      "market_cap": 6597,
+      "market_cap": 6618,
       "score_near_ma150": 2,
       "score_ma_breakout": 3,
       "score_higher_low": 0,
@@ -553,7 +553,7 @@
       "score_volume": 0,
       "score_macd": 0,
       "ma150_gap": 1.8,
-      "updated_at": "2026-07-03T15:13:08.541752"
+      "updated_at": "2026-07-03T16:49:29.406993"
     },
     {
       "ticker": "025320",
@@ -562,12 +562,12 @@
       "score": 7,
       "signal_date": "2026-06-30",
       "days_since_signal": 3,
-      "current_price": 4535,
-      "change_since_signal": -24.79,
-      "drop_from_high": -45.56,
+      "current_price": 4520,
+      "change_since_signal": -25.04,
+      "drop_from_high": -45.74,
       "ma150": 5893,
       "above_ma150": false,
-      "market_cap": 4180,
+      "market_cap": 4166,
       "score_near_ma150": 2,
       "score_ma_breakout": 3,
       "score_higher_low": 0,
@@ -575,7 +575,7 @@
       "score_volume": 2,
       "score_macd": 0,
       "ma150_gap": 2.1,
-      "updated_at": "2026-07-03T15:13:10.997445"
+      "updated_at": "2026-07-03T16:49:34.212823"
     },
     {
       "ticker": "149950",
@@ -584,12 +584,12 @@
       "score": 7,
       "signal_date": "2026-06-25",
       "days_since_signal": 6,
-      "current_price": 9820,
-      "change_since_signal": -14.9,
-      "drop_from_high": -49.62,
-      "ma150": 11281,
+      "current_price": 9680,
+      "change_since_signal": -16.12,
+      "drop_from_high": -50.33,
+      "ma150": 11280,
       "above_ma150": false,
-      "market_cap": 1339,
+      "market_cap": 1323,
       "score_near_ma150": 2,
       "score_ma_breakout": 0,
       "score_higher_low": 2,
@@ -597,7 +597,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": 3.0,
-      "updated_at": "2026-07-03T15:13:11.412399"
+      "updated_at": "2026-07-03T16:49:34.868143"
     },
     {
       "ticker": "092790",
@@ -606,12 +606,12 @@
       "score": 7,
       "signal_date": "2026-06-23",
       "days_since_signal": 8,
-      "current_price": 11560,
-      "change_since_signal": -20.82,
-      "drop_from_high": -49.74,
-      "ma150": 12971,
+      "current_price": 11500,
+      "change_since_signal": -21.23,
+      "drop_from_high": -50.0,
+      "ma150": 12970,
       "above_ma150": false,
-      "market_cap": 3001,
+      "market_cap": 2990,
       "score_near_ma150": 2,
       "score_ma_breakout": 0,
       "score_higher_low": 0,
@@ -619,7 +619,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 13.4,
-      "updated_at": "2026-07-03T15:13:07.967041"
+      "updated_at": "2026-07-03T16:49:28.860896"
     },
     {
       "ticker": "058430",
@@ -628,12 +628,12 @@
       "score": 7,
       "signal_date": "2026-06-23",
       "days_since_signal": 8,
-      "current_price": 4995,
-      "change_since_signal": -4.13,
-      "drop_from_high": -52.43,
-      "ma150": 4888,
+      "current_price": 5030,
+      "change_since_signal": -3.45,
+      "drop_from_high": -52.1,
+      "ma150": 4889,
       "above_ma150": true,
-      "market_cap": 2991,
+      "market_cap": 3018,
       "score_near_ma150": 2,
       "score_ma_breakout": 0,
       "score_higher_low": 0,
@@ -641,7 +641,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 8.2,
-      "updated_at": "2026-07-03T15:13:19.156950"
+      "updated_at": "2026-07-03T16:49:39.721838"
     },
     {
       "ticker": "001250",
@@ -650,12 +650,12 @@
       "score": 7,
       "signal_date": "2026-06-22",
       "days_since_signal": 9,
-      "current_price": 2710,
-      "change_since_signal": -5.41,
-      "drop_from_high": -52.37,
+      "current_price": 2730,
+      "change_since_signal": -4.71,
+      "drop_from_high": -52.02,
       "ma150": 2872,
       "above_ma150": false,
-      "market_cap": 2237,
+      "market_cap": 2253,
       "score_near_ma150": 2,
       "score_ma_breakout": 0,
       "score_higher_low": 0,
@@ -663,7 +663,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": 0.3,
-      "updated_at": "2026-07-03T15:13:04.919090"
+      "updated_at": "2026-07-03T16:49:26.322252"
     },
     {
       "ticker": "010820",
@@ -672,12 +672,12 @@
       "score": 7,
       "signal_date": "2026-06-22",
       "days_since_signal": 9,
-      "current_price": 6030,
-      "change_since_signal": -12.99,
-      "drop_from_high": -67.81,
+      "current_price": 6060,
+      "change_since_signal": -12.55,
+      "drop_from_high": -67.65,
       "ma150": 7304,
       "above_ma150": false,
-      "market_cap": 2953,
+      "market_cap": 2956,
       "score_near_ma150": 2,
       "score_ma_breakout": 0,
       "score_higher_low": 0,
@@ -685,7 +685,7 @@
       "score_volume": 2,
       "score_macd": 1,
       "ma150_gap": -3.4,
-      "updated_at": "2026-07-03T15:13:19.097948"
+      "updated_at": "2026-07-03T16:49:39.675715"
     },
     {
       "ticker": "018880",
@@ -694,12 +694,12 @@
       "score": 7,
       "signal_date": "2026-06-22",
       "days_since_signal": 9,
-      "current_price": 3860,
-      "change_since_signal": -11.26,
-      "drop_from_high": -35.02,
+      "current_price": 3850,
+      "change_since_signal": -11.49,
+      "drop_from_high": -35.19,
       "ma150": 4010,
       "above_ma150": false,
-      "market_cap": 39614,
+      "market_cap": 39511,
       "score_near_ma150": 2,
       "score_ma_breakout": 0,
       "score_higher_low": 2,
@@ -707,7 +707,7 @@
       "score_volume": 0,
       "score_macd": 1,
       "ma150_gap": 8.3,
-      "updated_at": "2026-07-03T15:13:19.690579"
+      "updated_at": "2026-07-03T16:49:40.133295"
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-03T15:12:53.456526",
+    "lastUpdated": "2026-07-03T16:49:14.624838",
     "totalCount": 2,
-    "screened_from": 1316
+    "screened_from": 1320
   },
   "data": [
     {
@@ -23,27 +23,27 @@
       "days": 90,
       "ma150": 108004,
       "above_ma150": true,
-      "updated_at": "2026-07-03T15:12:51.674310"
+      "updated_at": "2026-07-03T16:49:13.398583"
     },
     {
       "ticker": "072870",
       "name": "메가스터디",
-      "price": 13200,
-      "change_rate": 0.08,
-      "market_cap": 1574,
+      "price": 13280,
+      "change_rate": 0.68,
+      "market_cap": 1583,
       "box_high": 13610,
       "box_low": 12160,
       "range_percent": 11.92,
-      "atr": 2.62,
-      "atr_multiple": 4.54,
+      "atr": 2.61,
+      "atr_multiple": 4.57,
       "support_touches": 2,
       "resistance_touches": 2,
-      "slope_daily": 0.009,
-      "volume_decrease_rate": 14.39,
+      "slope_daily": 0.01,
+      "volume_decrease_rate": 14.35,
       "days": 77,
       "ma150": 12056,
       "above_ma150": true,
-      "updated_at": "2026-07-03T15:12:51.928602"
+      "updated_at": "2026-07-03T16:49:13.651772"
     }
   ]
 }
