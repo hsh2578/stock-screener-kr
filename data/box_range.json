@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-02T20:07:59.095341",
+    "lastUpdated": "2026-07-03T13:19:01.656836",
     "totalCount": 2,
-    "screened_from": 1320
+    "screened_from": 1304
   },
   "data": [
     {
@@ -14,36 +14,36 @@
       "box_high": 120300,
       "box_low": 118700,
       "range_percent": 1.35,
-      "atr": 9.42,
-      "atr_multiple": 0.14,
+      "atr": 11.08,
+      "atr_multiple": 0.12,
       "support_touches": 4,
       "resistance_touches": 3,
-      "slope_daily": 0.0116,
-      "volume_decrease_rate": 45.53,
-      "days": 89,
-      "ma150": 107836,
+      "slope_daily": 0.0113,
+      "volume_decrease_rate": 46.28,
+      "days": 90,
+      "ma150": 108004,
       "above_ma150": true,
-      "updated_at": "2026-07-02T20:07:56.292422"
+      "updated_at": "2026-07-03T13:18:59.494392"
     },
     {
       "ticker": "072870",
       "name": "메가스터디",
-      "price": 13190,
-      "change_rate": -0.53,
-      "market_cap": 1572,
+      "price": 13150,
+      "change_rate": -0.3,
+      "market_cap": 1568,
       "box_high": 13610,
       "box_low": 12160,
       "range_percent": 11.92,
-      "atr": 2.63,
-      "atr_multiple": 4.54,
-      "support_touches": 3,
+      "atr": 2.62,
+      "atr_multiple": 4.55,
+      "support_touches": 2,
       "resistance_touches": 2,
-      "slope_daily": 0.0136,
-      "volume_decrease_rate": 18.58,
-      "days": 76,
-      "ma150": 12044,
+      "slope_daily": 0.0084,
+      "volume_decrease_rate": 14.74,
+      "days": 77,
+      "ma150": 12055,
       "above_ma150": true,
-      "updated_at": "2026-07-02T20:07:56.618484"
+      "updated_at": "2026-07-03T13:18:59.738815"
     }
   ]
 }

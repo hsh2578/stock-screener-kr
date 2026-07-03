@@ -1,81 +1,69 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-02T20:08:02.628942",
-    "totalCount": 6,
-    "screened_from": 1320
+    "lastUpdated": "2026-07-03T13:19:04.560530",
+    "totalCount": 5,
+    "screened_from": 1304
   },
   "data": [
     {
-      "ticker": "025950",
-      "name": "동신건설",
-      "price": 15800,
-      "change_rate": 14.66,
-      "volume_ratio": 33.5,
+      "ticker": "013120",
+      "name": "동원개발",
+      "price": 3150,
+      "change_rate": 29.9,
+      "volume_ratio": 26.7,
       "volume_rank": 1,
-      "ma150": 16082,
-      "above_ma150": false,
-      "market_cap": 1327,
-      "updated_at": "2026-07-02T20:07:59.017642"
+      "ma150": 2762,
+      "above_ma150": true,
+      "market_cap": 2860,
+      "updated_at": "2026-07-03T13:19:02.658427"
     },
     {
-      "ticker": "094360",
-      "name": "칩스앤미디어",
-      "price": 14460,
-      "change_rate": 18.91,
-      "volume_ratio": 14.5,
+      "ticker": "225530",
+      "name": "HC보광산업",
+      "price": 2820,
+      "change_rate": 13.25,
+      "volume_ratio": 22.2,
       "volume_rank": 2,
-      "ma150": 16773,
+      "ma150": 2956,
       "above_ma150": false,
-      "market_cap": 3088,
-      "updated_at": "2026-07-02T20:08:01.054912"
+      "market_cap": 1025,
+      "updated_at": "2026-07-03T13:19:01.684171"
     },
     {
-      "ticker": "419050",
-      "name": "삼기에너지솔루션즈",
-      "price": 1944,
-      "change_rate": 29.95,
-      "volume_ratio": 9.1,
+      "ticker": "037070",
+      "name": "파세코",
+      "price": 6770,
+      "change_rate": 13.4,
+      "volume_ratio": 21.1,
       "volume_rank": 3,
-      "ma150": 1681,
-      "above_ma150": true,
-      "market_cap": 1112,
-      "updated_at": "2026-07-02T20:07:59.278630"
+      "ma150": 7790,
+      "above_ma150": false,
+      "market_cap": 1356,
+      "updated_at": "2026-07-03T13:19:04.142602"
     },
     {
-      "ticker": "007610",
-      "name": "선도전기",
-      "price": 6300,
-      "change_rate": 23.29,
-      "volume_ratio": 3.7,
+      "ticker": "095500",
+      "name": "미래나노텍",
+      "price": 8640,
+      "change_rate": 19.83,
+      "volume_ratio": 10.2,
       "volume_rank": 4,
-      "ma150": 4322,
-      "above_ma150": true,
-      "market_cap": 1134,
-      "updated_at": "2026-07-02T20:07:59.522534"
+      "ma150": 10081,
+      "above_ma150": false,
+      "market_cap": 2679,
+      "updated_at": "2026-07-03T13:19:02.992489"
     },
     {
-      "ticker": "002780",
-      "name": "진흥기업",
-      "price": 1142,
-      "change_rate": 29.92,
-      "volume_ratio": 2.6,
+      "ticker": "065170",
+      "name": "비엘팜텍",
+      "price": 4055,
+      "change_rate": 14.71,
+      "volume_ratio": 4.0,
       "volume_rank": 5,
-      "ma150": 870,
+      "ma150": 2286,
       "above_ma150": true,
-      "market_cap": 1661,
-      "updated_at": "2026-07-02T20:08:01.036900"
-    },
-    {
-      "ticker": "013360",
-      "name": "일성건설",
-      "price": 2045,
-      "change_rate": 29.76,
-      "volume_ratio": 2.0,
-      "volume_rank": 6,
-      "ma150": 1818,
-      "above_ma150": true,
-      "market_cap": 1105,
-      "updated_at": "2026-07-02T20:08:00.759808"
+      "market_cap": 1133,
+      "updated_at": "2026-07-03T13:19:03.069842"
     }
   ]
 }
