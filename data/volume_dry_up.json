@@ -1,63 +1,63 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-03T20:09:28.412227",
+    "lastUpdated": "2026-07-06T15:56:05.280320",
     "totalCount": 3,
-    "screened_from": 1320
+    "screened_from": 1326
   },
   "data": [
     {
       "ticker": "067990",
       "name": "도이치모터스",
-      "price": 4070,
-      "change_rate": 1.88,
+      "price": 4090,
+      "change_rate": 0.49,
       "explosion_date": "2026-06-29",
       "explosion_change_rate": 12.8,
       "explosion_volume_ratio": 3.1,
-      "days_since_detected": 4,
+      "days_since_detected": 5,
       "volume_decrease_rate": 73,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
       "ma150": 4496,
       "above_ma150": false,
-      "market_cap": 1188,
-      "updated_at": "2026-07-03T20:09:28.405228"
+      "market_cap": 1194,
+      "updated_at": "2026-07-06T15:56:05.273429"
     },
     {
       "ticker": "034810",
       "name": "해성산업",
-      "price": 6320,
-      "change_rate": 2.1,
+      "price": 6400,
+      "change_rate": 1.27,
       "explosion_date": "2026-06-25",
       "explosion_change_rate": 12.6,
       "explosion_volume_ratio": 8.9,
-      "days_since_detected": 6,
-      "volume_decrease_rate": 79,
+      "days_since_detected": 7,
+      "volume_decrease_rate": 86,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 2,
-      "ma150": 7583,
+      "ma150": 7578,
       "above_ma150": false,
-      "market_cap": 1996,
-      "updated_at": "2026-07-03T20:09:28.202539"
+      "market_cap": 2021,
+      "updated_at": "2026-07-06T15:56:05.221283"
     },
     {
       "ticker": "048550",
       "name": "SM C&C",
-      "price": 1604,
-      "change_rate": 0.82,
+      "price": 1598,
+      "change_rate": -0.37,
       "explosion_date": "2026-06-22",
       "explosion_change_rate": 11.6,
       "explosion_volume_ratio": 4.2,
-      "days_since_detected": 9,
+      "days_since_detected": 10,
       "volume_decrease_rate": 69,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 3,
       "ma150": 1188,
       "above_ma150": true,
-      "market_cap": 1551,
-      "updated_at": "2026-07-03T20:09:28.411414"
+      "market_cap": 1545,
+      "updated_at": "2026-07-06T15:56:05.279298"
     }
   ]
 }
