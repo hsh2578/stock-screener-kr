@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-07T13:32:58.968081",
+    "lastUpdated": "2026-07-07T15:33:07.464237",
     "totalCount": 3,
-    "screened_from": 1303
+    "screened_from": 1311
   },
   "data": [
     {
@@ -23,47 +23,47 @@
       "days": 93,
       "ma150": 108366,
       "above_ma150": true,
-      "updated_at": "2026-07-07T13:32:55.751755"
+      "updated_at": "2026-07-07T15:33:04.250406"
     },
     {
       "ticker": "072870",
       "name": "메가스터디",
-      "price": 13330,
-      "change_rate": 0.23,
-      "market_cap": 1589,
+      "price": 13440,
+      "change_rate": 1.05,
+      "market_cap": 1602,
       "box_high": 13610,
       "box_low": 12310,
       "range_percent": 10.56,
-      "atr": 2.61,
-      "atr_multiple": 4.05,
+      "atr": 2.59,
+      "atr_multiple": 4.07,
       "support_touches": 3,
       "resistance_touches": 2,
-      "slope_daily": 0.0031,
-      "volume_decrease_rate": 7.43,
+      "slope_daily": 0.0045,
+      "volume_decrease_rate": 6.84,
       "days": 79,
-      "ma150": 12081,
+      "ma150": 12082,
       "above_ma150": true,
-      "updated_at": "2026-07-07T13:32:55.938343"
+      "updated_at": "2026-07-07T15:33:04.627341"
     },
     {
       "ticker": "002810",
       "name": "삼영무역",
-      "price": 19030,
-      "change_rate": -3.74,
-      "market_cap": 3514,
+      "price": 19250,
+      "change_rate": -2.63,
+      "market_cap": 3555,
       "box_high": 22050,
       "box_low": 18860,
       "range_percent": 16.91,
-      "atr": 3.9,
-      "atr_multiple": 4.34,
+      "atr": 3.85,
+      "atr_multiple": 4.39,
       "support_touches": 2,
       "resistance_touches": 3,
-      "slope_daily": 0.0213,
-      "volume_decrease_rate": 11.74,
+      "slope_daily": 0.023,
+      "volume_decrease_rate": 11.43,
       "days": 91,
-      "ma150": 18833,
+      "ma150": 18835,
       "above_ma150": true,
-      "updated_at": "2026-07-07T13:32:56.071281"
+      "updated_at": "2026-07-07T15:33:05.071508"
     }
   ]
 }
