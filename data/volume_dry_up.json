@@ -1,63 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-06T21:20:53.343897",
-    "totalCount": 3,
-    "screened_from": 1326
+    "lastUpdated": "2026-07-07T13:33:00.737527",
+    "totalCount": 2,
+    "screened_from": 1303
   },
   "data": [
     {
       "ticker": "067990",
       "name": "도이치모터스",
-      "price": 4090,
-      "change_rate": 0.49,
+      "price": 4060,
+      "change_rate": -0.73,
       "explosion_date": "2026-06-29",
       "explosion_change_rate": 12.8,
       "explosion_volume_ratio": 3.1,
-      "days_since_detected": 5,
+      "days_since_detected": 6,
       "volume_decrease_rate": 73,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
       "ma150": 4496,
       "above_ma150": false,
-      "market_cap": 1194,
-      "updated_at": "2026-07-06T21:20:53.342421"
+      "market_cap": 1185,
+      "updated_at": "2026-07-07T13:33:00.736604"
     },
     {
       "ticker": "034810",
       "name": "해성산업",
-      "price": 6400,
-      "change_rate": 1.27,
+      "price": 6370,
+      "change_rate": -0.47,
       "explosion_date": "2026-06-25",
       "explosion_change_rate": 12.6,
       "explosion_volume_ratio": 8.9,
-      "days_since_detected": 7,
+      "days_since_detected": 8,
       "volume_decrease_rate": 86,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 2,
-      "ma150": 7578,
+      "ma150": 7571,
       "above_ma150": false,
-      "market_cap": 2021,
-      "updated_at": "2026-07-06T21:20:53.270688"
-    },
-    {
-      "ticker": "048550",
-      "name": "SM C&C",
-      "price": 1598,
-      "change_rate": -0.37,
-      "explosion_date": "2026-06-22",
-      "explosion_change_rate": 11.6,
-      "explosion_volume_ratio": 4.2,
-      "days_since_detected": 10,
-      "volume_decrease_rate": 69,
-      "pattern_type": "candle_range",
-      "ma20_distance": null,
-      "volume_rank": 3,
-      "ma150": 1188,
-      "above_ma150": true,
-      "market_cap": 1545,
-      "updated_at": "2026-07-06T21:20:53.343252"
+      "market_cap": 2012,
+      "updated_at": "2026-07-07T13:33:00.683083"
     }
   ]
 }
