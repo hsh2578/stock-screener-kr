@@ -1,45 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-07T20:24:32.650006",
+    "lastUpdated": "2026-07-08T12:55:10.877335",
     "totalCount": 2,
-    "screened_from": 1311
+    "screened_from": 1299
   },
   "data": [
     {
       "ticker": "067990",
       "name": "도이치모터스",
-      "price": 4095,
-      "change_rate": 0.12,
+      "price": 4010,
+      "change_rate": -2.08,
       "explosion_date": "2026-06-29",
       "explosion_change_rate": 12.8,
       "explosion_volume_ratio": 3.1,
-      "days_since_detected": 6,
+      "days_since_detected": 7,
       "volume_decrease_rate": 73,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
       "ma150": 4496,
       "above_ma150": false,
-      "market_cap": 1195,
-      "updated_at": "2026-07-07T20:24:32.649197"
+      "market_cap": 1170,
+      "updated_at": "2026-07-08T12:55:10.870373"
     },
     {
       "ticker": "034810",
       "name": "해성산업",
-      "price": 6440,
-      "change_rate": 0.62,
+      "price": 6380,
+      "change_rate": -0.93,
       "explosion_date": "2026-06-25",
       "explosion_change_rate": 12.6,
       "explosion_volume_ratio": 8.9,
-      "days_since_detected": 8,
-      "volume_decrease_rate": 85,
+      "days_since_detected": 9,
+      "volume_decrease_rate": 87,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 2,
-      "ma150": 7572,
+      "ma150": 7566,
       "above_ma150": false,
-      "market_cap": 2034,
-      "updated_at": "2026-07-07T20:24:32.529468"
+      "market_cap": 2015,
+      "updated_at": "2026-07-08T12:55:10.742468"
     }
   ]
 }
