@@ -1,93 +1,57 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-08T12:55:07.934010",
-    "totalCount": 7,
-    "screened_from": 1299
+    "lastUpdated": "2026-07-08T14:40:19.380727",
+    "totalCount": 4,
+    "screened_from": 1288
   },
   "data": [
     {
-      "ticker": "029480",
-      "name": "광무",
-      "price": 1768,
-      "change_rate": 23.21,
-      "volume_ratio": 25.2,
+      "ticker": "036630",
+      "name": "세종텔레콤",
+      "price": 10270,
+      "change_rate": 25.24,
+      "volume_ratio": 29.1,
       "volume_rank": 1,
-      "ma150": 2087,
-      "above_ma150": false,
-      "market_cap": 1056,
-      "updated_at": "2026-07-08T12:55:07.648777"
+      "ma150": 9638,
+      "above_ma150": true,
+      "market_cap": 1020,
+      "updated_at": "2026-07-08T14:40:16.797267"
     },
     {
       "ticker": "439090",
       "name": "마녀공장",
-      "price": 16700,
-      "change_rate": 12.38,
-      "volume_ratio": 5.6,
+      "price": 17030,
+      "change_rate": 14.6,
+      "volume_ratio": 8.2,
       "volume_rank": 2,
-      "ma150": 14079,
+      "ma150": 14081,
       "above_ma150": true,
-      "market_cap": 2749,
-      "updated_at": "2026-07-08T12:55:07.681561"
+      "market_cap": 2788,
+      "updated_at": "2026-07-08T14:40:16.389562"
     },
     {
-      "ticker": "377450",
-      "name": "리파인",
-      "price": 10620,
-      "change_rate": 12.26,
-      "volume_ratio": 4.2,
+      "ticker": "024060",
+      "name": "흥구석유",
+      "price": 10860,
+      "change_rate": 19.34,
+      "volume_ratio": 5.4,
       "volume_rank": 3,
-      "ma150": 11632,
+      "ma150": 15305,
       "above_ma150": false,
-      "market_cap": 1847,
-      "updated_at": "2026-07-08T12:55:07.680488"
+      "market_cap": 1619,
+      "updated_at": "2026-07-08T14:40:19.374340"
     },
     {
       "ticker": "079650",
       "name": "서산",
-      "price": 5970,
-      "change_rate": 25.03,
-      "volume_ratio": 3.3,
+      "price": 5570,
+      "change_rate": 16.65,
+      "volume_ratio": 4.4,
       "volume_rank": 4,
-      "ma150": 1801,
+      "ma150": 1798,
       "above_ma150": true,
-      "market_cap": 1178,
-      "updated_at": "2026-07-08T12:55:07.717109"
-    },
-    {
-      "ticker": "226320",
-      "name": "잇츠한불",
-      "price": 10860,
-      "change_rate": 12.07,
-      "volume_ratio": 2.9,
-      "volume_rank": 5,
-      "ma150": 10921,
-      "above_ma150": false,
-      "market_cap": 2386,
-      "updated_at": "2026-07-08T12:55:07.873029"
-    },
-    {
-      "ticker": "198440",
-      "name": "강동씨앤엘",
-      "price": 2025,
-      "change_rate": 12.44,
-      "volume_ratio": 2.6,
-      "volume_rank": 6,
-      "ma150": 1165,
-      "above_ma150": true,
-      "market_cap": 1219,
-      "updated_at": "2026-07-08T12:55:07.645060"
-    },
-    {
-      "ticker": "091590",
-      "name": "남화토건",
-      "price": 10930,
-      "change_rate": 16.15,
-      "volume_ratio": 2.5,
-      "volume_rank": 7,
-      "ma150": 4202,
-      "above_ma150": true,
-      "market_cap": 1282,
-      "updated_at": "2026-07-08T12:55:07.656676"
+      "market_cap": 1124,
+      "updated_at": "2026-07-08T14:40:16.671843"
     }
   ]
 }

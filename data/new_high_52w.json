@@ -1,94 +1,77 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-08T12:55:22.953199",
-    "totalCount": 6,
-    "screened_from": 1299
+    "lastUpdated": "2026-07-08T14:40:28.677574",
+    "totalCount": 5,
+    "screened_from": 1288
   },
   "data": [
     {
-      "ticker": "010960",
-      "name": "삼호개발",
-      "price": 4505,
-      "change_rate": 7.52,
-      "high_52w": 4315,
-      "breakout_date": "2026-07-08",
-      "days_since": 0,
-      "above_high_percent": 4.4,
-      "volume_ratio": 1.6,
-      "vs_breakout_close": 0.0,
-      "predicted_gain": 17.2,
-      "success_probability": 14.7,
-      "ai_score": 25.8,
-      "market_cap": 1084,
-      "updated_at": "2026-07-08T12:55:22.394009"
-    },
-    {
       "ticker": "161890",
       "name": "한국콜마",
-      "price": 111300,
-      "change_rate": -3.3,
+      "price": 109000,
+      "change_rate": -5.3,
       "high_52w": 110700,
       "breakout_date": "2026-07-02",
       "days_since": 4,
-      "above_high_percent": 0.54,
+      "above_high_percent": -1.54,
       "volume_ratio": 4.7,
-      "vs_breakout_close": -2.11,
+      "vs_breakout_close": -4.13,
       "predicted_gain": 25.8,
       "success_probability": 35.1,
       "ai_score": 47.9,
-      "market_cap": 26272,
-      "updated_at": "2026-07-08T12:55:22.950160"
+      "market_cap": 25635,
+      "updated_at": "2026-07-08T14:40:28.674132"
     },
     {
       "ticker": "011560",
       "name": "세보엠이씨",
-      "price": 23250,
-      "change_rate": -4.52,
+      "price": 22550,
+      "change_rate": -7.39,
       "high_52w": 26850,
       "breakout_date": "2026-07-01",
       "days_since": 5,
-      "above_high_percent": -13.41,
+      "above_high_percent": -16.01,
       "volume_ratio": 2.7,
-      "vs_breakout_close": -16.82,
+      "vs_breakout_close": -19.32,
       "predicted_gain": 38.0,
       "success_probability": 48.6,
       "ai_score": 64.0,
-      "market_cap": 2345,
-      "updated_at": "2026-07-08T12:55:22.950975"
+      "market_cap": 2259,
+      "updated_at": "2026-07-08T14:40:28.674933"
     },
     {
       "ticker": "222800",
       "name": "심텍",
-      "price": 108300,
-      "change_rate": -0.09,
+      "price": 104100,
+      "change_rate": -3.97,
       "high_52w": 141000,
       "breakout_date": "2026-06-30",
       "days_since": 6,
-      "above_high_percent": -23.19,
+      "above_high_percent": -26.17,
       "volume_ratio": 1.3,
-      "vs_breakout_close": -27.17,
+      "vs_breakout_close": -29.99,
       "predicted_gain": 21.5,
       "success_probability": 43.9,
       "ai_score": 50.1,
-      "market_cap": 40499,
-      "updated_at": "2026-07-08T12:55:22.951555"
+      "market_cap": 38888,
+      "updated_at": "2026-07-08T14:40:28.675621"
     },
     {
       "ticker": "041830",
       "name": "인바디",
-      "price": 54900,
-      "change_rate": -1.96,
+      "price": 53900,
+      "change_rate": -3.75,
       "high_52w": 48900,
       "breakout_date": "2026-06-29",
       "days_since": 7,
-      "above_high_percent": 12.27,
+      "above_high_percent": 10.22,
       "volume_ratio": 2.7,
-      "vs_breakout_close": 4.37,
+      "vs_breakout_close": 2.47,
       "predicted_gain": 20.2,
       "success_probability": 46.8,
       "ai_score": 51.0,
-      "market_cap": 7388,
-      "updated_at": "2026-07-08T12:55:22.952082"
+      "market_cap": 7280,
+      "updated_at": "2026-07-08T14:40:28.676244"
     },
     {
       "ticker": "002990",
@@ -105,7 +88,7 @@
       "success_probability": 19.1,
       "ai_score": 30.2,
       "market_cap": 5216,
-      "updated_at": "2026-07-08T12:55:22.952561"
+      "updated_at": "2026-07-08T14:40:28.676888"
     }
   ]
 }
