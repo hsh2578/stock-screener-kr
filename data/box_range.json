@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-08T14:40:16.375975",
+    "lastUpdated": "2026-07-08T16:07:34.823585",
     "totalCount": 4,
-    "screened_from": 1288
+    "screened_from": 1291
   },
   "data": [
     {
@@ -23,47 +23,47 @@
       "days": 95,
       "ma150": 108551,
       "above_ma150": true,
-      "updated_at": "2026-07-08T14:40:14.474790"
+      "updated_at": "2026-07-08T16:07:31.252757"
     },
     {
       "ticker": "072870",
       "name": "메가스터디",
-      "price": 13200,
-      "change_rate": -1.79,
-      "market_cap": 1574,
+      "price": 13300,
+      "change_rate": -1.04,
+      "market_cap": 1585,
       "box_high": 13610,
       "box_low": 12310,
       "range_percent": 10.56,
-      "atr": 2.64,
-      "atr_multiple": 4.0,
+      "atr": 2.63,
+      "atr_multiple": 4.02,
       "support_touches": 3,
       "resistance_touches": 3,
-      "slope_daily": -0.0002,
-      "volume_decrease_rate": 8.56,
+      "slope_daily": 0.0011,
+      "volume_decrease_rate": 8.02,
       "days": 80,
-      "ma150": 12094,
+      "ma150": 12095,
       "above_ma150": true,
-      "updated_at": "2026-07-08T14:40:14.690975"
+      "updated_at": "2026-07-08T16:07:31.493541"
     },
     {
       "ticker": "002810",
       "name": "삼영무역",
-      "price": 19040,
-      "change_rate": -1.09,
-      "market_cap": 3516,
+      "price": 19100,
+      "change_rate": -0.78,
+      "market_cap": 3527,
       "box_high": 22050,
       "box_low": 18860,
       "range_percent": 16.91,
-      "atr": 3.91,
-      "atr_multiple": 4.33,
+      "atr": 3.89,
+      "atr_multiple": 4.34,
       "support_touches": 2,
       "resistance_touches": 3,
-      "slope_daily": 0.0005,
-      "volume_decrease_rate": 16.26,
+      "slope_daily": 0.001,
+      "volume_decrease_rate": 16.14,
       "days": 92,
-      "ma150": 18860,
+      "ma150": 18861,
       "above_ma150": true,
-      "updated_at": "2026-07-08T14:40:14.861923"
+      "updated_at": "2026-07-08T16:07:31.767123"
     },
     {
       "ticker": "057050",
@@ -83,7 +83,7 @@
       "days": 165,
       "ma150": 72755,
       "above_ma150": true,
-      "updated_at": "2026-07-08T14:40:16.286609"
+      "updated_at": "2026-07-08T16:07:34.727806"
     }
   ]
 }

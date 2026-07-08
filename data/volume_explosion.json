@@ -1,57 +1,81 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-08T14:40:19.380727",
-    "totalCount": 4,
-    "screened_from": 1288
+    "lastUpdated": "2026-07-08T16:07:35.263155",
+    "totalCount": 6,
+    "screened_from": 1291
   },
   "data": [
     {
-      "ticker": "036630",
-      "name": "세종텔레콤",
-      "price": 10270,
-      "change_rate": 25.24,
-      "volume_ratio": 29.1,
-      "volume_rank": 1,
-      "ma150": 9638,
-      "above_ma150": true,
-      "market_cap": 1020,
-      "updated_at": "2026-07-08T14:40:16.797267"
-    },
-    {
       "ticker": "439090",
       "name": "마녀공장",
-      "price": 17030,
-      "change_rate": 14.6,
-      "volume_ratio": 8.2,
-      "volume_rank": 2,
-      "ma150": 14081,
+      "price": 17600,
+      "change_rate": 18.44,
+      "volume_ratio": 10.6,
+      "volume_rank": 1,
+      "ma150": 14085,
       "above_ma150": true,
-      "market_cap": 2788,
-      "updated_at": "2026-07-08T14:40:16.389562"
+      "market_cap": 2885,
+      "updated_at": "2026-07-08T16:07:32.838375"
+    },
+    {
+      "ticker": "001790",
+      "name": "대한제당",
+      "price": 2905,
+      "change_rate": 12.38,
+      "volume_ratio": 7.1,
+      "volume_rank": 2,
+      "ma150": 2775,
+      "above_ma150": true,
+      "market_cap": 2505,
+      "updated_at": "2026-07-08T16:07:32.463879"
+    },
+    {
+      "ticker": "058730",
+      "name": "다스코",
+      "price": 5200,
+      "change_rate": 30.0,
+      "volume_ratio": 6.8,
+      "volume_rank": 3,
+      "ma150": 3403,
+      "above_ma150": true,
+      "market_cap": 1037,
+      "updated_at": "2026-07-08T16:07:32.416629"
     },
     {
       "ticker": "024060",
       "name": "흥구석유",
-      "price": 10860,
-      "change_rate": 19.34,
-      "volume_ratio": 5.4,
-      "volume_rank": 3,
-      "ma150": 15305,
+      "price": 10440,
+      "change_rate": 14.73,
+      "volume_ratio": 6.1,
+      "volume_rank": 4,
+      "ma150": 15302,
       "above_ma150": false,
-      "market_cap": 1619,
-      "updated_at": "2026-07-08T14:40:19.374340"
+      "market_cap": 1566,
+      "updated_at": "2026-07-08T16:07:35.256091"
     },
     {
       "ticker": "079650",
       "name": "서산",
-      "price": 5570,
-      "change_rate": 16.65,
-      "volume_ratio": 4.4,
-      "volume_rank": 4,
-      "ma150": 1798,
+      "price": 5380,
+      "change_rate": 12.67,
+      "volume_ratio": 5.4,
+      "volume_rank": 5,
+      "ma150": 1797,
       "above_ma150": true,
-      "market_cap": 1124,
-      "updated_at": "2026-07-08T14:40:16.671843"
+      "market_cap": 1076,
+      "updated_at": "2026-07-08T16:07:33.105342"
+    },
+    {
+      "ticker": "226320",
+      "name": "잇츠한불",
+      "price": 11000,
+      "change_rate": 13.52,
+      "volume_ratio": 4.8,
+      "volume_rank": 6,
+      "ma150": 10922,
+      "above_ma150": true,
+      "market_cap": 2412,
+      "updated_at": "2026-07-08T16:07:33.989226"
     }
   ]
 }
