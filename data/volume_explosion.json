@@ -1,93 +1,81 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-09T13:40:38.711948",
-    "totalCount": 7,
-    "screened_from": 1293
+    "lastUpdated": "2026-07-09T17:03:43.097418",
+    "totalCount": 6,
+    "screened_from": 1290
   },
   "data": [
-    {
-      "ticker": "214330",
-      "name": "금호에이치티",
-      "price": 10720,
-      "change_rate": 18.72,
-      "volume_ratio": 187.8,
-      "volume_rank": 1,
-      "ma150": 11674,
-      "above_ma150": false,
-      "market_cap": 1119,
-      "updated_at": "2026-07-09T13:40:35.713983"
-    },
     {
       "ticker": "263800",
       "name": "데이타솔루션",
       "price": 7720,
       "change_rate": 29.97,
-      "volume_ratio": 29.9,
-      "volume_rank": 2,
+      "volume_ratio": 30.1,
+      "volume_rank": 1,
       "ma150": 4916,
       "above_ma150": true,
       "market_cap": 1253,
-      "updated_at": "2026-07-09T13:40:35.745296"
-    },
-    {
-      "ticker": "024060",
-      "name": "흥구석유",
-      "price": 11800,
-      "change_rate": 13.03,
-      "volume_ratio": 8.6,
-      "volume_rank": 3,
-      "ma150": 15300,
-      "above_ma150": false,
-      "market_cap": 1770,
-      "updated_at": "2026-07-09T13:40:38.698165"
+      "updated_at": "2026-07-09T17:03:41.125593"
     },
     {
       "ticker": "399720",
       "name": "가온칩스",
-      "price": 52500,
-      "change_rate": 22.66,
-      "volume_ratio": 7.2,
-      "volume_rank": 4,
-      "ma150": 58907,
+      "price": 55600,
+      "change_rate": 29.91,
+      "volume_ratio": 9.1,
+      "volume_rank": 2,
+      "ma150": 58928,
       "above_ma150": false,
-      "market_cap": 6215,
-      "updated_at": "2026-07-09T13:40:35.703166"
+      "market_cap": 6582,
+      "updated_at": "2026-07-09T17:03:41.072215"
     },
     {
       "ticker": "445090",
       "name": "에이직랜드",
-      "price": 20950,
-      "change_rate": 21.1,
-      "volume_ratio": 5.9,
-      "volume_rank": 5,
-      "ma150": 28481,
+      "price": 21400,
+      "change_rate": 23.7,
+      "volume_ratio": 7.7,
+      "volume_rank": 3,
+      "ma150": 28484,
       "above_ma150": false,
-      "market_cap": 2289,
-      "updated_at": "2026-07-09T13:40:36.822202"
-    },
-    {
-      "ticker": "298690",
-      "name": "에어부산",
-      "price": 1650,
-      "change_rate": 12.55,
-      "volume_ratio": 4.7,
-      "volume_rank": 6,
-      "ma150": 1821,
-      "above_ma150": false,
-      "market_cap": 2678,
-      "updated_at": "2026-07-09T13:40:36.820425"
+      "market_cap": 2338,
+      "updated_at": "2026-07-09T17:03:41.798542"
     },
     {
       "ticker": "002990",
       "name": "금호건설",
-      "price": 15860,
-      "change_rate": 13.29,
-      "volume_ratio": 3.4,
-      "volume_rank": 7,
-      "ma150": 5039,
+      "price": 17310,
+      "change_rate": 23.64,
+      "volume_ratio": 5.8,
+      "volume_rank": 4,
+      "ma150": 5049,
       "above_ma150": true,
-      "market_cap": 5988,
-      "updated_at": "2026-07-09T13:40:35.713212"
+      "market_cap": 6450,
+      "updated_at": "2026-07-09T17:03:41.081533"
+    },
+    {
+      "ticker": "200710",
+      "name": "에이디테크놀로지",
+      "price": 35450,
+      "change_rate": 13.08,
+      "volume_ratio": 3.7,
+      "volume_rank": 5,
+      "ma150": 40308,
+      "above_ma150": false,
+      "market_cap": 4772,
+      "updated_at": "2026-07-09T17:03:41.796995"
+    },
+    {
+      "ticker": "065170",
+      "name": "비엘팜텍",
+      "price": 3910,
+      "change_rate": 29.9,
+      "volume_ratio": 2.6,
+      "volume_rank": 6,
+      "ma150": 2377,
+      "above_ma150": true,
+      "market_cap": 1091,
+      "updated_at": "2026-07-09T17:03:41.201386"
     }
   ]
 }

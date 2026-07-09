@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-09T13:40:37.351148",
+    "lastUpdated": "2026-07-09T17:03:42.165157",
     "totalCount": 4,
-    "screened_from": 1293
+    "screened_from": 1290
   },
   "data": [
     {
@@ -23,47 +23,47 @@
       "days": 97,
       "ma150": 108729,
       "above_ma150": true,
-      "updated_at": "2026-07-09T13:40:33.595638"
+      "updated_at": "2026-07-09T17:03:39.711819"
     },
     {
       "ticker": "072870",
       "name": "메가스터디",
-      "price": 13190,
-      "change_rate": -0.83,
-      "market_cap": 1572,
+      "price": 13320,
+      "change_rate": 0.15,
+      "market_cap": 1588,
       "box_high": 13610,
       "box_low": 12310,
       "range_percent": 10.56,
-      "atr": 2.64,
-      "atr_multiple": 4.0,
+      "atr": 2.62,
+      "atr_multiple": 4.04,
       "support_touches": 3,
       "resistance_touches": 3,
-      "slope_daily": -0.0028,
-      "volume_decrease_rate": 8.45,
+      "slope_daily": -0.0011,
+      "volume_decrease_rate": 7.81,
       "days": 81,
-      "ma150": 12106,
+      "ma150": 12107,
       "above_ma150": true,
-      "updated_at": "2026-07-09T13:40:34.058209"
+      "updated_at": "2026-07-09T17:03:39.907443"
     },
     {
       "ticker": "002810",
       "name": "삼영무역",
-      "price": 18790,
-      "change_rate": -1.62,
-      "market_cap": 3468,
+      "price": 18750,
+      "change_rate": -1.83,
+      "market_cap": 3463,
       "box_high": 22050,
-      "box_low": 18790,
-      "range_percent": 17.35,
-      "atr": 3.97,
-      "atr_multiple": 4.37,
+      "box_low": 18750,
+      "range_percent": 17.6,
+      "atr": 4.0,
+      "atr_multiple": 4.4,
       "support_touches": 1,
       "resistance_touches": 3,
-      "slope_daily": -0.0229,
-      "volume_decrease_rate": 20.7,
+      "slope_daily": -0.0232,
+      "volume_decrease_rate": 19.7,
       "days": 93,
-      "ma150": 18883,
+      "ma150": 18882,
       "above_ma150": false,
-      "updated_at": "2026-07-09T13:40:34.522860"
+      "updated_at": "2026-07-09T17:03:40.149063"
     },
     {
       "ticker": "057050",
@@ -83,7 +83,7 @@
       "days": 200,
       "ma150": 72974,
       "above_ma150": true,
-      "updated_at": "2026-07-09T13:40:37.255633"
+      "updated_at": "2026-07-09T17:03:42.061200"
     }
   ]
 }

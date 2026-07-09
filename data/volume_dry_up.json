@@ -1,15 +1,33 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-09T13:40:43.021910",
-    "totalCount": 3,
-    "screened_from": 1293
+    "lastUpdated": "2026-07-09T17:03:45.341874",
+    "totalCount": 4,
+    "screened_from": 1290
   },
   "data": [
     {
+      "ticker": "212560",
+      "name": "네오오토",
+      "price": 10900,
+      "change_rate": 1.02,
+      "explosion_date": "2026-07-06",
+      "explosion_change_rate": 17.6,
+      "explosion_volume_ratio": 4.7,
+      "days_since_detected": 3,
+      "volume_decrease_rate": 66,
+      "pattern_type": "candle_range",
+      "ma20_distance": null,
+      "volume_rank": 1,
+      "ma150": 9358,
+      "above_ma150": true,
+      "market_cap": 1470,
+      "updated_at": "2026-07-09T17:03:43.906777"
+    },
+    {
       "ticker": "067990",
       "name": "도이치모터스",
-      "price": 3985,
-      "change_rate": 0.0,
+      "price": 3980,
+      "change_rate": -0.13,
       "explosion_date": "2026-06-29",
       "explosion_change_rate": 12.8,
       "explosion_volume_ratio": 3.1,
@@ -17,47 +35,47 @@
       "volume_decrease_rate": 73,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 1,
+      "volume_rank": 2,
       "ma150": 4496,
       "above_ma150": false,
-      "market_cap": 1163,
-      "updated_at": "2026-07-09T13:40:43.021163"
+      "market_cap": 1161,
+      "updated_at": "2026-07-09T17:03:45.341079"
     },
     {
       "ticker": "034810",
       "name": "해성산업",
-      "price": 6370,
-      "change_rate": -0.31,
+      "price": 6390,
+      "change_rate": 0.0,
       "explosion_date": "2026-06-25",
       "explosion_change_rate": 12.6,
       "explosion_volume_ratio": 8.9,
       "days_since_detected": 10,
-      "volume_decrease_rate": 88,
+      "volume_decrease_rate": 86,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 2,
-      "ma150": 7559,
+      "volume_rank": 3,
+      "ma150": 7560,
       "above_ma150": false,
-      "market_cap": 2008,
-      "updated_at": "2026-07-09T13:40:42.830737"
+      "market_cap": 2018,
+      "updated_at": "2026-07-09T17:03:45.290307"
     },
     {
       "ticker": "006120",
       "name": "SK디스커버리",
-      "price": 48500,
-      "change_rate": -2.61,
+      "price": 48050,
+      "change_rate": -3.51,
       "explosion_date": "2026-06-25",
       "explosion_change_rate": 12.6,
       "explosion_volume_ratio": 5.9,
       "days_since_detected": 10,
-      "volume_decrease_rate": 82,
+      "volume_decrease_rate": 80,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 1.21,
-      "volume_rank": 3,
-      "ma150": 55980,
+      "ma20_distance": 0.32,
+      "volume_rank": 4,
+      "ma150": 55977,
       "above_ma150": false,
-      "market_cap": 8446,
-      "updated_at": "2026-07-09T13:40:39.485490"
+      "market_cap": 8367,
+      "updated_at": "2026-07-09T17:03:43.802182"
     }
   ]
 }
