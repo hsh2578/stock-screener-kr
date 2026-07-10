@@ -1,81 +1,141 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-10T13:32:56.817574",
-    "totalCount": 6,
-    "screened_from": 1319
+    "lastUpdated": "2026-07-10T15:29:19.499269",
+    "totalCount": 11,
+    "screened_from": 1321
   },
   "data": [
+    {
+      "ticker": "453450",
+      "name": "그리드위즈",
+      "price": 14070,
+      "change_rate": 14.02,
+      "volume_ratio": 8.0,
+      "volume_rank": 1,
+      "ma150": 17757,
+      "above_ma150": false,
+      "market_cap": 1118,
+      "updated_at": "2026-07-10T15:29:19.204338"
+    },
     {
       "ticker": "073240",
       "name": "금호타이어",
       "price": 7800,
       "change_rate": 30.0,
-      "volume_ratio": 5.8,
-      "volume_rank": 1,
+      "volume_ratio": 6.1,
+      "volume_rank": 2,
       "ma150": 5804,
       "above_ma150": true,
       "market_cap": 22406,
-      "updated_at": "2026-07-10T13:32:55.937217"
+      "updated_at": "2026-07-10T15:29:19.206060"
     },
     {
       "ticker": "092870",
       "name": "엑시콘",
-      "price": 18410,
-      "change_rate": 20.56,
-      "volume_ratio": 4.1,
-      "volume_rank": 2,
-      "ma150": 25090,
-      "above_ma150": false,
-      "market_cap": 2403,
-      "updated_at": "2026-07-10T13:32:56.625999"
-    },
-    {
-      "ticker": "061090",
-      "name": "세나테크놀로지",
-      "price": 45150,
-      "change_rate": 20.4,
-      "volume_ratio": 3.8,
+      "price": 17690,
+      "change_rate": 15.85,
+      "volume_ratio": 5.0,
       "volume_rank": 3,
-      "ma150": 42868,
-      "above_ma150": true,
-      "market_cap": 2469,
-      "updated_at": "2026-07-10T13:32:56.589565"
+      "ma150": 25085,
+      "above_ma150": false,
+      "market_cap": 2309,
+      "updated_at": "2026-07-10T15:29:19.335889"
     },
     {
       "ticker": "003200",
       "name": "일신방직",
-      "price": 11980,
-      "change_rate": 18.61,
-      "volume_ratio": 3.8,
+      "price": 11390,
+      "change_rate": 12.77,
+      "volume_ratio": 4.9,
       "volume_rank": 4,
-      "ma150": 12220,
+      "ma150": 12216,
       "above_ma150": false,
-      "market_cap": 2737,
-      "updated_at": "2026-07-10T13:32:56.764043"
+      "market_cap": 2615,
+      "updated_at": "2026-07-10T15:29:19.391763"
+    },
+    {
+      "ticker": "037710",
+      "name": "광주신세계",
+      "price": 49750,
+      "change_rate": 19.59,
+      "volume_ratio": 4.7,
+      "volume_rank": 5,
+      "ma150": 36034,
+      "above_ma150": true,
+      "market_cap": 3795,
+      "updated_at": "2026-07-10T15:29:19.202712"
+    },
+    {
+      "ticker": "061090",
+      "name": "세나테크놀로지",
+      "price": 45400,
+      "change_rate": 21.07,
+      "volume_ratio": 4.3,
+      "volume_rank": 6,
+      "ma150": 42870,
+      "above_ma150": true,
+      "market_cap": 2482,
+      "updated_at": "2026-07-10T15:29:19.286328"
+    },
+    {
+      "ticker": "445090",
+      "name": "에이직랜드",
+      "price": 25100,
+      "change_rate": 17.29,
+      "volume_ratio": 3.5,
+      "volume_rank": 7,
+      "ma150": 28466,
+      "above_ma150": false,
+      "market_cap": 2742,
+      "updated_at": "2026-07-10T15:29:19.332694"
     },
     {
       "ticker": "065660",
       "name": "안트로젠",
-      "price": 19045,
-      "change_rate": 26.71,
-      "volume_ratio": 2.4,
-      "volume_rank": 5,
-      "ma150": 36175,
+      "price": 19530,
+      "change_rate": 29.94,
+      "volume_ratio": 3.2,
+      "volume_rank": 8,
+      "ma150": 36179,
       "above_ma150": false,
-      "market_cap": 1906,
-      "updated_at": "2026-07-10T13:32:56.610034"
+      "market_cap": 1954,
+      "updated_at": "2026-07-10T15:29:19.321316"
+    },
+    {
+      "ticker": "007610",
+      "name": "선도전기",
+      "price": 5600,
+      "change_rate": 28.44,
+      "volume_ratio": 3.0,
+      "volume_rank": 9,
+      "ma150": 4403,
+      "above_ma150": true,
+      "market_cap": 1008,
+      "updated_at": "2026-07-10T15:29:19.284541"
     },
     {
       "ticker": "468530",
       "name": "프로티나",
       "price": 26650,
       "change_rate": 13.89,
-      "volume_ratio": 2.1,
-      "volume_rank": 6,
+      "volume_ratio": 2.4,
+      "volume_rank": 10,
       "ma150": 66677,
       "above_ma150": false,
-      "market_cap": 2946,
-      "updated_at": "2026-07-10T13:32:56.794542"
+      "market_cap": 2941,
+      "updated_at": "2026-07-10T15:29:19.436544"
+    },
+    {
+      "ticker": "010170",
+      "name": "대한광통신",
+      "price": 12600,
+      "change_rate": 18.31,
+      "volume_ratio": 2.0,
+      "volume_rank": 11,
+      "ma150": 10176,
+      "above_ma150": true,
+      "market_cap": 19591,
+      "updated_at": "2026-07-10T15:29:19.222857"
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-10T13:32:56.182853",
+    "lastUpdated": "2026-07-10T15:29:19.499927",
     "totalCount": 4,
-    "screened_from": 1319
+    "screened_from": 1321
   },
   "data": [
     {
@@ -23,47 +23,47 @@
       "days": 102,
       "ma150": 108904,
       "above_ma150": true,
-      "updated_at": "2026-07-10T13:32:54.220504"
+      "updated_at": "2026-07-10T15:29:17.976230"
     },
     {
       "ticker": "072870",
       "name": "메가스터디",
-      "price": 13190,
-      "change_rate": -0.98,
-      "market_cap": 1572,
+      "price": 13130,
+      "change_rate": -1.43,
+      "market_cap": 1565,
       "box_high": 13610,
       "box_low": 12310,
       "range_percent": 10.56,
-      "atr": 2.67,
-      "atr_multiple": 3.95,
+      "atr": 2.7,
+      "atr_multiple": 3.91,
       "support_touches": 3,
       "resistance_touches": 3,
-      "slope_daily": -0.0053,
-      "volume_decrease_rate": 9.61,
+      "slope_daily": -0.006,
+      "volume_decrease_rate": 8.23,
       "days": 82,
       "ma150": 12119,
       "above_ma150": true,
-      "updated_at": "2026-07-10T13:32:54.516629"
+      "updated_at": "2026-07-10T15:29:18.068677"
     },
     {
       "ticker": "002810",
       "name": "삼영무역",
-      "price": 19130,
-      "change_rate": 2.03,
-      "market_cap": 3529,
+      "price": 19170,
+      "change_rate": 2.24,
+      "market_cap": 3540,
       "box_high": 22050,
       "box_low": 18750,
       "range_percent": 17.6,
-      "atr": 3.96,
-      "atr_multiple": 4.44,
+      "atr": 3.95,
+      "atr_multiple": 4.45,
       "support_touches": 3,
       "resistance_touches": 3,
-      "slope_daily": -0.0458,
-      "volume_decrease_rate": 22.65,
+      "slope_daily": -0.0454,
+      "volume_decrease_rate": 22.35,
       "days": 94,
       "ma150": 18905,
       "above_ma150": true,
-      "updated_at": "2026-07-10T13:32:54.847624"
+      "updated_at": "2026-07-10T15:29:18.336224"
     },
     {
       "ticker": "057050",
@@ -83,7 +83,7 @@
       "days": 200,
       "ma150": 73189,
       "above_ma150": true,
-      "updated_at": "2026-07-10T13:32:56.107954"
+      "updated_at": "2026-07-10T15:29:19.402515"
     }
   ]
 }
