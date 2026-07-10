@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-07-09T23:07:20.753930",
-    "total_count": 5,
+    "updated_at": "2026-07-10T22:59:40.250035",
+    "total_count": 3,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -12,62 +12,38 @@
     {
       "ticker": "267260",
       "name": "HD현대일렉트릭",
-      "current_price": 815000,
-      "ma60w": 812152,
-      "ma60w_gap": 0.35,
+      "current_price": 851000,
+      "ma60w": 812306,
+      "ma60w_gap": 4.76,
       "op_margin": 24.4,
       "op_growth_3y": 53.7,
-      "market_cap": 293784,
+      "market_cap": 306761,
       "sector": "기타",
-      "updated_at": "2026-07-09T23:06:42.347320"
+      "updated_at": "2026-07-10T22:54:37.499887"
     },
     {
-      "ticker": "042700",
-      "name": "한미반도체",
-      "current_price": 215500,
-      "ma60w": 200243,
-      "ma60w_gap": 7.62,
-      "op_margin": 43.6,
-      "op_growth_3y": 212.2,
-      "market_cap": 205398,
+      "ticker": "007660",
+      "name": "이수페타시스",
+      "current_price": 103800,
+      "ma60w": 97282,
+      "ma60w_gap": 6.7,
+      "op_margin": 17.1,
+      "op_growth_3y": 29.2,
+      "market_cap": 76199,
       "sector": "기타",
-      "updated_at": "2026-07-09T23:06:42.349766"
-    },
-    {
-      "ticker": "004800",
-      "name": "효성",
-      "current_price": 146700,
-      "ma60w": 133858,
-      "ma60w_gap": 9.59,
-      "op_margin": 16.2,
-      "op_growth_3y": 120.3,
-      "market_cap": 24558,
-      "sector": "기타",
-      "updated_at": "2026-07-09T23:06:51.946711"
+      "updated_at": "2026-07-10T22:56:01.477594"
     },
     {
       "ticker": "000240",
       "name": "한국앤컴퍼니",
-      "current_price": 25450,
-      "ma60w": 23756,
-      "ma60w_gap": 7.13,
+      "current_price": 25050,
+      "ma60w": 23784,
+      "ma60w_gap": 5.32,
       "op_margin": 26.1,
       "op_growth_3y": 18.6,
-      "market_cap": 24161,
+      "market_cap": 23781,
       "sector": "기타",
-      "updated_at": "2026-07-09T23:06:51.947627"
-    },
-    {
-      "ticker": "395400",
-      "name": "SK리츠",
-      "current_price": 5770,
-      "ma60w": 5507,
-      "ma60w_gap": 4.77,
-      "op_margin": 88.7,
-      "op_growth_3y": 89.1,
-      "market_cap": 17369,
-      "sector": "기타",
-      "updated_at": "2026-07-09T23:07:16.379052"
+      "updated_at": "2026-07-10T22:56:05.358573"
     }
   ]
 }
