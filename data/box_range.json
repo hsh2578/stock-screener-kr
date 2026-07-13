@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-10T20:25:21.305090",
-    "totalCount": 4,
-    "screened_from": 1319
+    "lastUpdated": "2026-07-13T13:10:48.598820",
+    "totalCount": 3,
+    "screened_from": 1291
   },
   "data": [
     {
@@ -14,56 +14,36 @@
       "box_high": 120300,
       "box_low": 118700,
       "range_percent": 1.35,
-      "atr": 19.39,
-      "atr_multiple": 0.07,
+      "atr": 21.05,
+      "atr_multiple": 0.06,
       "support_touches": 3,
       "resistance_touches": 2,
-      "slope_daily": 0.0093,
-      "volume_decrease_rate": 49.09,
-      "days": 102,
-      "ma150": 108904,
+      "slope_daily": 0.0087,
+      "volume_decrease_rate": 51.59,
+      "days": 199,
+      "ma150": 109082,
       "above_ma150": true,
-      "updated_at": "2026-07-10T20:25:17.950364"
+      "updated_at": "2026-07-13T13:10:46.705752"
     },
     {
       "ticker": "072870",
       "name": "메가스터디",
-      "price": 13140,
-      "change_rate": -1.35,
-      "market_cap": 1566,
+      "price": 13000,
+      "change_rate": -1.07,
+      "market_cap": 1550,
       "box_high": 13610,
       "box_low": 12310,
       "range_percent": 10.56,
-      "atr": 2.7,
-      "atr_multiple": 3.92,
-      "support_touches": 3,
+      "atr": 2.73,
+      "atr_multiple": 3.87,
+      "support_touches": 4,
       "resistance_touches": 3,
-      "slope_daily": -0.0059,
-      "volume_decrease_rate": 8.23,
-      "days": 82,
-      "ma150": 12119,
+      "slope_daily": -0.011,
+      "volume_decrease_rate": 9.34,
+      "days": 83,
+      "ma150": 12129,
       "above_ma150": true,
-      "updated_at": "2026-07-10T20:25:18.148141"
-    },
-    {
-      "ticker": "002810",
-      "name": "삼영무역",
-      "price": 19170,
-      "change_rate": 2.24,
-      "market_cap": 3540,
-      "box_high": 22050,
-      "box_low": 18750,
-      "range_percent": 17.6,
-      "atr": 3.95,
-      "atr_multiple": 4.45,
-      "support_touches": 3,
-      "resistance_touches": 3,
-      "slope_daily": -0.0454,
-      "volume_decrease_rate": 22.33,
-      "days": 94,
-      "ma150": 18905,
-      "above_ma150": true,
-      "updated_at": "2026-07-10T20:25:18.357889"
+      "updated_at": "2026-07-13T13:10:47.027025"
     },
     {
       "ticker": "057050",
@@ -74,16 +54,16 @@
       "box_high": 88800,
       "box_low": 72700,
       "range_percent": 22.15,
-      "atr": 22.3,
-      "atr_multiple": 0.99,
-      "support_touches": 4,
+      "atr": 23.88,
+      "atr_multiple": 0.93,
+      "support_touches": 3,
       "resistance_touches": 2,
-      "slope_daily": 0.0326,
-      "volume_decrease_rate": 42.81,
+      "slope_daily": 0.0296,
+      "volume_decrease_rate": 45.45,
       "days": 200,
-      "ma150": 73189,
+      "ma150": 73406,
       "above_ma150": true,
-      "updated_at": "2026-07-10T20:25:21.106248"
+      "updated_at": "2026-07-13T13:10:48.552884"
     }
   ]
 }

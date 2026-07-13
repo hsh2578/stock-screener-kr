@@ -1,45 +1,63 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-10T20:25:23.331873",
-    "totalCount": 2,
-    "screened_from": 1319
+    "lastUpdated": "2026-07-13T13:10:51.196293",
+    "totalCount": 3,
+    "screened_from": 1291
   },
   "data": [
     {
-      "ticker": "212560",
-      "name": "네오오토",
-      "price": 11790,
-      "change_rate": 8.17,
-      "explosion_date": "2026-07-06",
-      "explosion_change_rate": 17.6,
-      "explosion_volume_ratio": 4.7,
-      "days_since_detected": 4,
-      "volume_decrease_rate": 66,
+      "ticker": "001790",
+      "name": "대한제당",
+      "price": 2840,
+      "change_rate": -1.05,
+      "explosion_date": "2026-07-08",
+      "explosion_change_rate": 12.4,
+      "explosion_volume_ratio": 6.9,
+      "days_since_detected": 3,
+      "volume_decrease_rate": 73,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
+      "ma150": 2775,
+      "above_ma150": true,
+      "market_cap": 2449,
+      "updated_at": "2026-07-13T13:10:49.190436"
+    },
+    {
+      "ticker": "212560",
+      "name": "네오오토",
+      "price": 10450,
+      "change_rate": -11.37,
+      "explosion_date": "2026-07-06",
+      "explosion_change_rate": 17.6,
+      "explosion_volume_ratio": 4.7,
+      "days_since_detected": 5,
+      "volume_decrease_rate": 66,
+      "pattern_type": "candle_range",
+      "ma20_distance": null,
+      "volume_rank": 2,
       "ma150": 9358,
       "above_ma150": true,
-      "market_cap": 1590,
-      "updated_at": "2026-07-10T20:25:23.327273"
+      "market_cap": 1409,
+      "updated_at": "2026-07-13T13:10:51.192517"
     },
     {
       "ticker": "067990",
       "name": "도이치모터스",
-      "price": 4055,
-      "change_rate": 1.88,
+      "price": 4005,
+      "change_rate": -1.23,
       "explosion_date": "2026-06-29",
       "explosion_change_rate": 12.8,
       "explosion_volume_ratio": 3.1,
-      "days_since_detected": 9,
+      "days_since_detected": 10,
       "volume_decrease_rate": 73,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 2,
+      "volume_rank": 3,
       "ma150": 4496,
       "above_ma150": false,
-      "market_cap": 1183,
-      "updated_at": "2026-07-10T20:25:23.331203"
+      "market_cap": 1169,
+      "updated_at": "2026-07-13T13:10:51.193373"
     }
   ]
 }
