@@ -1,33 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-13T14:56:19.931697",
-    "totalCount": 2,
-    "screened_from": 1291
+    "lastUpdated": "2026-07-13T16:51:23.216215",
+    "totalCount": 3,
+    "screened_from": 1288
   },
   "data": [
     {
       "ticker": "037070",
       "name": "파세코",
-      "price": 8830,
-      "change_rate": 26.32,
-      "volume_ratio": 13.6,
+      "price": 8760,
+      "change_rate": 25.32,
+      "volume_ratio": 14.7,
       "volume_rank": 1,
-      "ma150": 7809,
+      "ma150": 7808,
       "above_ma150": true,
-      "market_cap": 1766,
-      "updated_at": "2026-07-13T14:56:19.273874"
+      "market_cap": 1752,
+      "updated_at": "2026-07-13T16:51:23.187505"
+    },
+    {
+      "ticker": "091440",
+      "name": "한울소재과학",
+      "price": 3030,
+      "change_rate": 19.76,
+      "volume_ratio": 4.3,
+      "volume_rank": 2,
+      "ma150": 2849,
+      "above_ma150": true,
+      "market_cap": 1011,
+      "updated_at": "2026-07-13T16:51:23.204771"
     },
     {
       "ticker": "475150",
       "name": "SK이터닉스",
-      "price": 48800,
-      "change_rate": 13.89,
-      "volume_ratio": 2.2,
-      "volume_rank": 2,
-      "ma150": 37236,
+      "price": 48050,
+      "change_rate": 12.14,
+      "volume_ratio": 2.3,
+      "volume_rank": 3,
+      "ma150": 37231,
       "above_ma150": true,
-      "market_cap": 16625,
-      "updated_at": "2026-07-13T14:56:17.857048"
+      "market_cap": 16369,
+      "updated_at": "2026-07-13T16:51:22.938382"
     }
   ]
 }
