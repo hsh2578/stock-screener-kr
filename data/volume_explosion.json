@@ -1,21 +1,33 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-13T13:10:48.595202",
-    "totalCount": 1,
+    "lastUpdated": "2026-07-13T14:56:19.931697",
+    "totalCount": 2,
     "screened_from": 1291
   },
   "data": [
     {
       "ticker": "037070",
       "name": "파세코",
-      "price": 8930,
-      "change_rate": 27.75,
-      "volume_ratio": 11.6,
+      "price": 8830,
+      "change_rate": 26.32,
+      "volume_ratio": 13.6,
       "volume_rank": 1,
       "ma150": 7809,
       "above_ma150": true,
-      "market_cap": 1790,
-      "updated_at": "2026-07-13T13:10:48.530555"
+      "market_cap": 1766,
+      "updated_at": "2026-07-13T14:56:19.273874"
+    },
+    {
+      "ticker": "475150",
+      "name": "SK이터닉스",
+      "price": 48800,
+      "change_rate": 13.89,
+      "volume_ratio": 2.2,
+      "volume_rank": 2,
+      "ma150": 37236,
+      "above_ma150": true,
+      "market_cap": 16625,
+      "updated_at": "2026-07-13T14:56:17.857048"
     }
   ]
 }
