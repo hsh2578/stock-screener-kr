@@ -1,33 +1,33 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-14T12:45:40.018630",
+    "lastUpdated": "2026-07-14T14:18:10.974312",
     "totalCount": 2,
-    "screened_from": 1254
+    "screened_from": 1268
   },
   "data": [
     {
-      "ticker": "024060",
-      "name": "흥구석유",
-      "price": 13240,
-      "change_rate": 13.75,
-      "volume_ratio": 4.3,
-      "volume_rank": 1,
-      "ma150": 15288,
-      "above_ma150": false,
-      "market_cap": 2001,
-      "updated_at": "2026-07-14T12:45:40.008480"
-    },
-    {
       "ticker": "376900",
       "name": "로킷헬스케어",
-      "price": 44200,
-      "change_rate": 20.44,
-      "volume_ratio": 3.4,
-      "volume_rank": 2,
-      "ma150": 72224,
+      "price": 43100,
+      "change_rate": 17.44,
+      "volume_ratio": 3.9,
+      "volume_rank": 1,
+      "ma150": 72216,
       "above_ma150": false,
-      "market_cap": 7016,
-      "updated_at": "2026-07-14T12:45:37.225142"
+      "market_cap": 6842,
+      "updated_at": "2026-07-14T14:18:09.424263"
+    },
+    {
+      "ticker": "006340",
+      "name": "대원전선",
+      "price": 13380,
+      "change_rate": 23.66,
+      "volume_ratio": 2.8,
+      "volume_rank": 2,
+      "ma150": 7459,
+      "above_ma150": true,
+      "market_cap": 10500,
+      "updated_at": "2026-07-14T14:18:09.128155"
     }
   ]
 }

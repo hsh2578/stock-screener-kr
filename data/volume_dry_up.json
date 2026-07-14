@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-14T12:45:42.558983",
-    "totalCount": 3,
-    "screened_from": 1254
+    "lastUpdated": "2026-07-14T14:18:12.601532",
+    "totalCount": 4,
+    "screened_from": 1268
   },
   "data": [
     {
       "ticker": "001790",
       "name": "대한제당",
-      "price": 2765,
-      "change_rate": -2.64,
+      "price": 2780,
+      "change_rate": -2.11,
       "explosion_date": "2026-07-08",
       "explosion_change_rate": 12.4,
       "explosion_volume_ratio": 6.9,
@@ -20,14 +20,14 @@
       "volume_rank": 1,
       "ma150": 2775,
       "above_ma150": true,
-      "market_cap": 2380,
-      "updated_at": "2026-07-14T12:45:42.544510"
+      "market_cap": 2393,
+      "updated_at": "2026-07-14T14:18:12.592075"
     },
     {
       "ticker": "212560",
       "name": "네오오토",
-      "price": 10260,
-      "change_rate": -2.56,
+      "price": 10480,
+      "change_rate": -0.47,
       "explosion_date": "2026-07-06",
       "explosion_change_rate": 17.6,
       "explosion_volume_ratio": 4.7,
@@ -38,14 +38,14 @@
       "volume_rank": 2,
       "ma150": 9358,
       "above_ma150": true,
-      "market_cap": 1384,
-      "updated_at": "2026-07-14T12:45:42.548571"
+      "market_cap": 1413,
+      "updated_at": "2026-07-14T14:18:12.597358"
     },
     {
       "ticker": "005960",
       "name": "동부건설",
-      "price": 6770,
-      "change_rate": -3.84,
+      "price": 6900,
+      "change_rate": -1.99,
       "explosion_date": "2026-07-01",
       "explosion_change_rate": 13.7,
       "explosion_volume_ratio": 5.8,
@@ -56,8 +56,26 @@
       "volume_rank": 3,
       "ma150": 7220,
       "above_ma150": false,
-      "market_cap": 1553,
-      "updated_at": "2026-07-14T12:45:40.625946"
+      "market_cap": 1579,
+      "updated_at": "2026-07-14T14:18:12.600187"
+    },
+    {
+      "ticker": "006360",
+      "name": "GS건설",
+      "price": 28100,
+      "change_rate": -4.58,
+      "explosion_date": "2026-07-01",
+      "explosion_change_rate": 19.9,
+      "explosion_volume_ratio": 5.2,
+      "days_since_detected": 9,
+      "volume_decrease_rate": 60,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 1.21,
+      "volume_rank": 4,
+      "ma150": 26163,
+      "above_ma150": true,
+      "market_cap": 24006,
+      "updated_at": "2026-07-14T14:18:11.625125"
     }
   ]
 }
