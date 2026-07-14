@@ -1,77 +1,60 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-13T20:39:19.653742",
-    "totalCount": 4,
-    "screened_from": 1288
+    "lastUpdated": "2026-07-14T12:46:07.109283",
+    "totalCount": 3,
+    "screened_from": 1254
   },
   "data": [
     {
       "ticker": "105560",
       "name": "KB금융",
-      "price": 186200,
-      "change_rate": 0.98,
+      "price": 183700,
+      "change_rate": -1.34,
       "high_52w": 182700,
       "breakout_date": "2026-07-13",
-      "days_since": 0,
-      "above_high_percent": 1.92,
+      "days_since": 1,
+      "above_high_percent": 0.55,
       "volume_ratio": 1.5,
-      "vs_breakout_close": 0.0,
+      "vs_breakout_close": -1.34,
       "predicted_gain": 25.1,
       "success_probability": 13.6,
       "ai_score": 32.1,
-      "market_cap": 660429,
-      "updated_at": "2026-07-13T20:39:18.620049"
+      "market_cap": 648724,
+      "updated_at": "2026-07-14T12:46:07.097244"
     },
     {
       "ticker": "073240",
       "name": "금호타이어",
-      "price": 7160,
-      "change_rate": -8.21,
+      "price": 6300,
+      "change_rate": -12.01,
       "high_52w": 7650,
       "breakout_date": "2026-07-10",
-      "days_since": 1,
-      "above_high_percent": -6.41,
+      "days_since": 2,
+      "above_high_percent": -17.65,
       "volume_ratio": 3.6,
-      "vs_breakout_close": -8.21,
+      "vs_breakout_close": -19.23,
       "predicted_gain": 17.9,
       "success_probability": 25.1,
       "ai_score": 33.7,
-      "market_cap": 20568,
-      "updated_at": "2026-07-13T20:39:19.640217"
+      "market_cap": 18184,
+      "updated_at": "2026-07-14T12:46:07.098359"
     },
     {
       "ticker": "161890",
       "name": "한국콜마",
-      "price": 115800,
-      "change_rate": 8.73,
+      "price": 105500,
+      "change_rate": -8.89,
       "high_52w": 110700,
       "breakout_date": "2026-07-02",
-      "days_since": 7,
-      "above_high_percent": 4.61,
+      "days_since": 8,
+      "above_high_percent": -4.7,
       "volume_ratio": 4.7,
-      "vs_breakout_close": 1.85,
+      "vs_breakout_close": -7.21,
       "predicted_gain": 25.8,
       "success_probability": 35.1,
       "ai_score": 47.9,
-      "market_cap": 27335,
-      "updated_at": "2026-07-13T20:39:19.640985"
-    },
-    {
-      "ticker": "011560",
-      "name": "세보엠이씨",
-      "price": 23300,
-      "change_rate": -1.69,
-      "high_52w": 26850,
-      "breakout_date": "2026-07-01",
-      "days_since": 8,
-      "above_high_percent": -13.22,
-      "volume_ratio": 2.7,
-      "vs_breakout_close": -16.64,
-      "predicted_gain": 38.0,
-      "success_probability": 48.6,
-      "ai_score": 64.0,
-      "market_cap": 2350,
-      "updated_at": "2026-07-13T20:39:19.641663"
+      "market_cap": 24785,
+      "updated_at": "2026-07-14T12:46:07.099386"
     }
   ]
 }

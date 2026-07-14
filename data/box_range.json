@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-13T20:39:04.057218",
+    "lastUpdated": "2026-07-14T12:45:38.231096",
     "totalCount": 3,
-    "screened_from": 1288
+    "screened_from": 1254
   },
   "data": [
     {
@@ -14,36 +14,36 @@
       "box_high": 120300,
       "box_low": 118700,
       "range_percent": 1.35,
-      "atr": 21.05,
+      "atr": 22.71,
       "atr_multiple": 0.06,
       "support_touches": 3,
       "resistance_touches": 2,
-      "slope_daily": 0.0087,
-      "volume_decrease_rate": 51.59,
-      "days": 199,
-      "ma150": 109082,
+      "slope_daily": 0.0082,
+      "volume_decrease_rate": 55.3,
+      "days": 200,
+      "ma150": 109267,
       "above_ma150": true,
-      "updated_at": "2026-07-13T20:39:02.563531"
+      "updated_at": "2026-07-14T12:45:35.720512"
     },
     {
       "ticker": "072870",
       "name": "메가스터디",
       "price": 13100,
-      "change_rate": -0.3,
-      "market_cap": 1562,
+      "change_rate": 0.0,
+      "market_cap": 1566,
       "box_high": 13610,
       "box_low": 12310,
       "range_percent": 10.56,
-      "atr": 2.72,
-      "atr_multiple": 3.89,
-      "support_touches": 4,
+      "atr": 2.71,
+      "atr_multiple": 3.9,
+      "support_touches": 3,
       "resistance_touches": 3,
-      "slope_daily": -0.0097,
-      "volume_decrease_rate": 8.32,
-      "days": 83,
-      "ma150": 12129,
+      "slope_daily": -0.0105,
+      "volume_decrease_rate": 10.05,
+      "days": 84,
+      "ma150": 12140,
       "above_ma150": true,
-      "updated_at": "2026-07-13T20:39:02.651552"
+      "updated_at": "2026-07-14T12:45:35.975885"
     },
     {
       "ticker": "057050",
@@ -54,16 +54,16 @@
       "box_high": 88800,
       "box_low": 72700,
       "range_percent": 22.15,
-      "atr": 23.88,
-      "atr_multiple": 0.93,
-      "support_touches": 3,
+      "atr": 25.49,
+      "atr_multiple": 0.87,
+      "support_touches": 4,
       "resistance_touches": 2,
-      "slope_daily": 0.0296,
-      "volume_decrease_rate": 45.45,
+      "slope_daily": 0.0251,
+      "volume_decrease_rate": 47.37,
       "days": 200,
-      "ma150": 73406,
+      "ma150": 73618,
       "above_ma150": true,
-      "updated_at": "2026-07-13T20:39:03.950903"
+      "updated_at": "2026-07-14T12:45:38.029034"
     }
   ]
 }
