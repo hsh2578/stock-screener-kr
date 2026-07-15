@@ -1,45 +1,93 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-14T19:17:07.074947",
-    "totalCount": 3,
-    "screened_from": 1275
+    "lastUpdated": "2026-07-15T12:45:41.422749",
+    "totalCount": 7,
+    "screened_from": 1295
   },
   "data": [
     {
-      "ticker": "376900",
-      "name": "로킷헬스케어",
-      "price": 45200,
-      "change_rate": 23.16,
+      "ticker": "115450",
+      "name": "HLB테라퓨틱스",
+      "price": 1976,
+      "change_rate": 30.0,
       "volume_ratio": 5.0,
       "volume_rank": 1,
-      "ma150": 72230,
+      "ma150": 2883,
       "above_ma150": false,
-      "market_cap": 7175,
-      "updated_at": "2026-07-14T19:17:06.803375"
+      "market_cap": 1750,
+      "updated_at": "2026-07-15T12:45:40.034762"
     },
     {
-      "ticker": "006340",
-      "name": "대원전선",
-      "price": 12750,
-      "change_rate": 17.84,
-      "volume_ratio": 3.3,
+      "ticker": "024850",
+      "name": "HLB이노베이션",
+      "price": 11960,
+      "change_rate": 30.0,
+      "volume_ratio": 3.9,
       "volume_rank": 2,
-      "ma150": 7455,
-      "above_ma150": true,
-      "market_cap": 9998,
-      "updated_at": "2026-07-14T19:17:06.594156"
+      "ma150": 15941,
+      "above_ma150": false,
+      "market_cap": 3798,
+      "updated_at": "2026-07-15T12:45:40.033796"
     },
     {
-      "ticker": "119850",
-      "name": "지엔씨에너지",
-      "price": 30000,
-      "change_rate": 12.15,
-      "volume_ratio": 2.4,
+      "ticker": "484120",
+      "name": "도우인시스",
+      "price": 17500,
+      "change_rate": 15.36,
+      "volume_ratio": 3.8,
       "volume_rank": 3,
-      "ma150": 31847,
+      "ma150": 21163,
       "above_ma150": false,
-      "market_cap": 4935,
-      "updated_at": "2026-07-14T19:17:06.910778"
+      "market_cap": 1926,
+      "updated_at": "2026-07-15T12:45:40.229547"
+    },
+    {
+      "ticker": "067630",
+      "name": "HLB생명과학",
+      "price": 2325,
+      "change_rate": 29.82,
+      "volume_ratio": 3.0,
+      "volume_rank": 4,
+      "ma150": 3797,
+      "above_ma150": false,
+      "market_cap": 2835,
+      "updated_at": "2026-07-15T12:45:40.033283"
+    },
+    {
+      "ticker": "047920",
+      "name": "HLB제약",
+      "price": 8580,
+      "change_rate": 30.0,
+      "volume_ratio": 2.9,
+      "volume_rank": 5,
+      "ma150": 15133,
+      "above_ma150": false,
+      "market_cap": 2814,
+      "updated_at": "2026-07-15T12:45:40.034292"
+    },
+    {
+      "ticker": "376900",
+      "name": "로킷헬스케어",
+      "price": 50800,
+      "change_rate": 12.39,
+      "volume_ratio": 2.3,
+      "volume_rank": 6,
+      "ma150": 72010,
+      "above_ma150": false,
+      "market_cap": 8064,
+      "updated_at": "2026-07-15T12:45:40.326753"
+    },
+    {
+      "ticker": "058730",
+      "name": "다스코",
+      "price": 5160,
+      "change_rate": 17.54,
+      "volume_ratio": 2.0,
+      "volume_rank": 7,
+      "ma150": 3457,
+      "above_ma150": true,
+      "market_cap": 1029,
+      "updated_at": "2026-07-15T12:45:40.123833"
     }
   ]
 }
