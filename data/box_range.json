@@ -1,49 +1,49 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-15T14:18:33.990597",
+    "lastUpdated": "2026-07-15T15:39:23.719638",
     "totalCount": 3,
-    "screened_from": 1296
+    "screened_from": 1300
   },
   "data": [
     {
       "ticker": "072870",
       "name": "메가스터디",
-      "price": 12970,
-      "change_rate": -0.77,
-      "market_cap": 1546,
+      "price": 13100,
+      "change_rate": 0.23,
+      "market_cap": 1562,
       "box_high": 13610,
       "box_low": 12310,
       "range_percent": 10.56,
-      "atr": 2.74,
-      "atr_multiple": 3.86,
+      "atr": 2.71,
+      "atr_multiple": 3.89,
       "support_touches": 3,
       "resistance_touches": 3,
-      "slope_daily": -0.0137,
-      "volume_decrease_rate": 10.43,
+      "slope_daily": -0.0121,
+      "volume_decrease_rate": 9.86,
       "days": 85,
-      "ma150": 12149,
+      "ma150": 12150,
       "above_ma150": true,
-      "updated_at": "2026-07-15T14:18:30.779671"
+      "updated_at": "2026-07-15T15:39:22.435048"
     },
     {
       "ticker": "120240",
       "name": "대정화금",
-      "price": 14060,
-      "change_rate": 2.48,
-      "market_cap": 1011,
+      "price": 14080,
+      "change_rate": 2.62,
+      "market_cap": 1012,
       "box_high": 14170,
       "box_low": 12680,
       "range_percent": 11.75,
-      "atr": 3.28,
+      "atr": 3.27,
       "atr_multiple": 3.59,
       "support_touches": 3,
       "resistance_touches": 2,
-      "slope_daily": -0.0365,
-      "volume_decrease_rate": 31.58,
+      "slope_daily": -0.0363,
+      "volume_decrease_rate": 31.47,
       "days": 200,
       "ma150": 13411,
       "above_ma150": true,
-      "updated_at": "2026-07-15T14:18:30.395611"
+      "updated_at": "2026-07-15T15:39:22.322779"
     },
     {
       "ticker": "057050",
@@ -63,7 +63,7 @@
       "days": 200,
       "ma150": 73832,
       "above_ma150": true,
-      "updated_at": "2026-07-15T14:18:33.572955"
+      "updated_at": "2026-07-15T15:39:23.677154"
     }
   ]
 }
