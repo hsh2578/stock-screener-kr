@@ -1,45 +1,81 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-15T12:45:41.422749",
-    "totalCount": 7,
-    "screened_from": 1295
+    "lastUpdated": "2026-07-15T14:18:33.036353",
+    "totalCount": 14,
+    "screened_from": 1296
   },
   "data": [
+    {
+      "ticker": "217590",
+      "name": "티엠씨",
+      "price": 12800,
+      "change_rate": 21.33,
+      "volume_ratio": 5.2,
+      "volume_rank": 1,
+      "ma150": null,
+      "above_ma150": false,
+      "market_cap": 3033,
+      "updated_at": "2026-07-15T14:18:32.388657"
+    },
     {
       "ticker": "115450",
       "name": "HLB테라퓨틱스",
       "price": 1976,
       "change_rate": 30.0,
       "volume_ratio": 5.0,
-      "volume_rank": 1,
+      "volume_rank": 2,
       "ma150": 2883,
       "above_ma150": false,
       "market_cap": 1750,
-      "updated_at": "2026-07-15T12:45:40.034762"
+      "updated_at": "2026-07-15T14:18:31.023273"
+    },
+    {
+      "ticker": "484120",
+      "name": "도우인시스",
+      "price": 17660,
+      "change_rate": 16.41,
+      "volume_ratio": 4.2,
+      "volume_rank": 3,
+      "ma150": 21164,
+      "above_ma150": false,
+      "market_cap": 1935,
+      "updated_at": "2026-07-15T14:18:31.225642"
     },
     {
       "ticker": "024850",
       "name": "HLB이노베이션",
       "price": 11960,
       "change_rate": 30.0,
-      "volume_ratio": 3.9,
-      "volume_rank": 2,
+      "volume_ratio": 4.0,
+      "volume_rank": 4,
       "ma150": 15941,
       "above_ma150": false,
       "market_cap": 3798,
-      "updated_at": "2026-07-15T12:45:40.033796"
+      "updated_at": "2026-07-15T14:18:31.022307"
     },
     {
-      "ticker": "484120",
-      "name": "도우인시스",
-      "price": 17500,
-      "change_rate": 15.36,
-      "volume_ratio": 3.8,
-      "volume_rank": 3,
-      "ma150": 21163,
+      "ticker": "004310",
+      "name": "현대약품",
+      "price": 7070,
+      "change_rate": 16.47,
+      "volume_ratio": 3.7,
+      "volume_rank": 5,
+      "ma150": 8554,
       "above_ma150": false,
-      "market_cap": 1926,
-      "updated_at": "2026-07-15T12:45:40.229547"
+      "market_cap": 2288,
+      "updated_at": "2026-07-15T14:18:32.959819"
+    },
+    {
+      "ticker": "069540",
+      "name": "빛과전자",
+      "price": 2940,
+      "change_rate": 18.07,
+      "volume_ratio": 3.2,
+      "volume_rank": 6,
+      "ma150": 2649,
+      "above_ma150": true,
+      "market_cap": 3313,
+      "updated_at": "2026-07-15T14:18:31.268570"
     },
     {
       "ticker": "067630",
@@ -47,11 +83,11 @@
       "price": 2325,
       "change_rate": 29.82,
       "volume_ratio": 3.0,
-      "volume_rank": 4,
+      "volume_rank": 7,
       "ma150": 3797,
       "above_ma150": false,
       "market_cap": 2835,
-      "updated_at": "2026-07-15T12:45:40.033283"
+      "updated_at": "2026-07-15T14:18:31.021825"
     },
     {
       "ticker": "047920",
@@ -59,35 +95,83 @@
       "price": 8580,
       "change_rate": 30.0,
       "volume_ratio": 2.9,
-      "volume_rank": 5,
+      "volume_rank": 8,
       "ma150": 15133,
       "above_ma150": false,
       "market_cap": 2814,
-      "updated_at": "2026-07-15T12:45:40.034292"
+      "updated_at": "2026-07-15T14:18:31.022808"
     },
     {
-      "ticker": "376900",
-      "name": "로킷헬스케어",
-      "price": 50800,
-      "change_rate": 12.39,
-      "volume_ratio": 2.3,
-      "volume_rank": 6,
-      "ma150": 72010,
+      "ticker": "413630",
+      "name": "씨피시스템",
+      "price": 2990,
+      "change_rate": 30.0,
+      "volume_ratio": 2.8,
+      "volume_rank": 9,
+      "ma150": 3813,
       "above_ma150": false,
-      "market_cap": 8064,
-      "updated_at": "2026-07-15T12:45:40.326753"
+      "market_cap": 1089,
+      "updated_at": "2026-07-15T14:18:31.332252"
+    },
+    {
+      "ticker": "067290",
+      "name": "JW신약",
+      "price": 1870,
+      "change_rate": 29.95,
+      "volume_ratio": 2.6,
+      "volume_rank": 10,
+      "ma150": 1903,
+      "above_ma150": false,
+      "market_cap": 1048,
+      "updated_at": "2026-07-15T14:18:31.026256"
+    },
+    {
+      "ticker": "000400",
+      "name": "롯데손해보험",
+      "price": 2645,
+      "change_rate": 12.55,
+      "volume_ratio": 2.5,
+      "volume_rank": 11,
+      "ma150": 1972,
+      "above_ma150": true,
+      "market_cap": 8208,
+      "updated_at": "2026-07-15T14:18:31.240349"
     },
     {
       "ticker": "058730",
       "name": "다스코",
-      "price": 5160,
-      "change_rate": 17.54,
-      "volume_ratio": 2.0,
-      "volume_rank": 7,
+      "price": 5180,
+      "change_rate": 18.0,
+      "volume_ratio": 2.4,
+      "volume_rank": 12,
       "ma150": 3457,
       "above_ma150": true,
-      "market_cap": 1029,
-      "updated_at": "2026-07-15T12:45:40.123833"
+      "market_cap": 1019,
+      "updated_at": "2026-07-15T14:18:31.124915"
+    },
+    {
+      "ticker": "101160",
+      "name": "월덱스",
+      "price": 32350,
+      "change_rate": 12.52,
+      "volume_ratio": 2.3,
+      "volume_rank": 13,
+      "ma150": 27353,
+      "above_ma150": true,
+      "market_cap": 5333,
+      "updated_at": "2026-07-15T14:18:31.735266"
+    },
+    {
+      "ticker": "087010",
+      "name": "펩트론",
+      "price": 130600,
+      "change_rate": 18.73,
+      "volume_ratio": 2.0,
+      "volume_rank": 14,
+      "ma150": 255724,
+      "above_ma150": false,
+      "market_cap": 30383,
+      "updated_at": "2026-07-15T14:18:32.471407"
     }
   ]
 }
