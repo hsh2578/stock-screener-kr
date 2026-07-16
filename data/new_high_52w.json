@@ -1,60 +1,60 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-15T19:21:46.815184",
+    "lastUpdated": "2026-07-16T12:49:27.478491",
     "totalCount": 3,
-    "screened_from": 1300
+    "screened_from": 1283
   },
   "data": [
     {
       "ticker": "094840",
       "name": "슈프리마에이치큐",
-      "price": 13810,
-      "change_rate": 10.83,
+      "price": 13140,
+      "change_rate": -4.85,
       "high_52w": 12790,
       "breakout_date": "2026-07-15",
-      "days_since": 0,
-      "above_high_percent": 7.97,
+      "days_since": 1,
+      "above_high_percent": 2.74,
       "volume_ratio": 2.0,
-      "vs_breakout_close": 0.0,
+      "vs_breakout_close": -4.85,
       "predicted_gain": 42.0,
       "success_probability": 56.2,
       "ai_score": 69.3,
-      "market_cap": 1354,
-      "updated_at": "2026-07-15T19:21:46.406385"
+      "market_cap": 1289,
+      "updated_at": "2026-07-16T12:49:27.476356"
     },
     {
       "ticker": "105560",
       "name": "KB금융",
-      "price": 181600,
-      "change_rate": 0.89,
+      "price": 180800,
+      "change_rate": -0.44,
       "high_52w": 182700,
       "breakout_date": "2026-07-13",
-      "days_since": 2,
-      "above_high_percent": -0.6,
+      "days_since": 3,
+      "above_high_percent": -1.04,
       "volume_ratio": 1.5,
-      "vs_breakout_close": -2.47,
+      "vs_breakout_close": -2.9,
       "predicted_gain": 25.1,
       "success_probability": 13.6,
       "ai_score": 32.1,
-      "market_cap": 644113,
-      "updated_at": "2026-07-15T19:21:46.811870"
+      "market_cap": 640921,
+      "updated_at": "2026-07-16T12:49:27.477140"
     },
     {
       "ticker": "073240",
       "name": "금호타이어",
-      "price": 6680,
-      "change_rate": 2.14,
+      "price": 5960,
+      "change_rate": -10.78,
       "high_52w": 7650,
       "breakout_date": "2026-07-10",
-      "days_since": 3,
-      "above_high_percent": -12.68,
+      "days_since": 4,
+      "above_high_percent": -22.09,
       "volume_ratio": 3.6,
-      "vs_breakout_close": -14.36,
+      "vs_breakout_close": -23.59,
       "predicted_gain": 17.9,
       "success_probability": 25.1,
       "ai_score": 33.7,
-      "market_cap": 19189,
-      "updated_at": "2026-07-15T19:21:46.812914"
+      "market_cap": 17149,
+      "updated_at": "2026-07-16T12:49:27.477798"
     }
   ]
 }

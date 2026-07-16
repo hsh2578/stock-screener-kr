@@ -1,81 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-15T19:21:21.408932",
-    "totalCount": 4,
-    "screened_from": 1300
+    "lastUpdated": "2026-07-16T12:49:05.583089",
+    "totalCount": 2,
+    "screened_from": 1283
   },
   "data": [
     {
       "ticker": "001790",
       "name": "대한제당",
-      "price": 2705,
-      "change_rate": -0.92,
+      "price": 2725,
+      "change_rate": 0.74,
       "explosion_date": "2026-07-08",
       "explosion_change_rate": 12.4,
       "explosion_volume_ratio": 6.9,
-      "days_since_detected": 5,
+      "days_since_detected": 6,
       "volume_decrease_rate": 71,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
       "ma150": 2775,
       "above_ma150": true,
-      "market_cap": 2333,
-      "updated_at": "2026-07-15T19:21:21.395573"
+      "market_cap": 2350,
+      "updated_at": "2026-07-16T12:49:05.580722"
     },
     {
       "ticker": "212560",
       "name": "네오오토",
-      "price": 11530,
-      "change_rate": 8.88,
+      "price": 11500,
+      "change_rate": -0.26,
       "explosion_date": "2026-07-06",
       "explosion_change_rate": 17.6,
       "explosion_volume_ratio": 4.7,
-      "days_since_detected": 7,
+      "days_since_detected": 8,
       "volume_decrease_rate": 66,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 2,
       "ma150": 9358,
       "above_ma150": true,
-      "market_cap": 1555,
-      "updated_at": "2026-07-15T19:21:21.399632"
-    },
-    {
-      "ticker": "005960",
-      "name": "동부건설",
-      "price": 6830,
-      "change_rate": 0.59,
-      "explosion_date": "2026-07-01",
-      "explosion_change_rate": 13.7,
-      "explosion_volume_ratio": 5.8,
-      "days_since_detected": 10,
-      "volume_decrease_rate": 88,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.38,
-      "volume_rank": 3,
-      "ma150": 7229,
-      "above_ma150": false,
-      "market_cap": 1567,
-      "updated_at": "2026-07-15T19:21:21.403947"
-    },
-    {
-      "ticker": "006360",
-      "name": "GS건설",
-      "price": 28750,
-      "change_rate": 2.68,
-      "explosion_date": "2026-07-01",
-      "explosion_change_rate": 19.9,
-      "explosion_volume_ratio": 5.2,
-      "days_since_detected": 10,
-      "volume_decrease_rate": 60,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.21,
-      "volume_rank": 4,
-      "ma150": 26163,
-      "above_ma150": true,
-      "market_cap": 24605,
-      "updated_at": "2026-07-15T19:21:21.407990"
+      "market_cap": 1551,
+      "updated_at": "2026-07-16T12:49:05.582142"
     }
   ]
 }
