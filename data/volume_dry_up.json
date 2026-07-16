@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-16T14:28:40.967144",
-    "totalCount": 4,
-    "screened_from": 1290
+    "lastUpdated": "2026-07-16T16:04:47.735792",
+    "totalCount": 3,
+    "screened_from": 1286
   },
   "data": [
     {
       "ticker": "001790",
       "name": "대한제당",
-      "price": 2725,
-      "change_rate": 0.74,
+      "price": 2740,
+      "change_rate": 1.29,
       "explosion_date": "2026-07-08",
       "explosion_change_rate": 12.4,
       "explosion_volume_ratio": 6.9,
@@ -20,14 +20,14 @@
       "volume_rank": 1,
       "ma150": 2775,
       "above_ma150": true,
-      "market_cap": 2350,
-      "updated_at": "2026-07-16T14:28:40.965466"
+      "market_cap": 2363,
+      "updated_at": "2026-07-16T16:04:47.725744"
     },
     {
       "ticker": "212560",
       "name": "네오오토",
-      "price": 11810,
-      "change_rate": 2.43,
+      "price": 11980,
+      "change_rate": 3.9,
       "explosion_date": "2026-07-06",
       "explosion_change_rate": 17.6,
       "explosion_volume_ratio": 4.7,
@@ -38,44 +38,26 @@
       "volume_rank": 2,
       "ma150": 9358,
       "above_ma150": true,
-      "market_cap": 1589,
-      "updated_at": "2026-07-16T14:28:40.966137"
+      "market_cap": 1616,
+      "updated_at": "2026-07-16T16:04:47.728409"
     },
     {
       "ticker": "005960",
       "name": "동부건설",
-      "price": 6820,
-      "change_rate": -0.15,
+      "price": 6790,
+      "change_rate": -0.59,
       "explosion_date": "2026-07-01",
       "explosion_change_rate": 13.7,
       "explosion_volume_ratio": 5.8,
       "days_since_detected": 11,
-      "volume_decrease_rate": 87,
+      "volume_decrease_rate": 86,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 1.2,
+      "ma20_distance": 0.78,
       "volume_rank": 3,
       "ma150": 7236,
       "above_ma150": false,
-      "market_cap": 1565,
-      "updated_at": "2026-07-16T14:28:39.645940"
-    },
-    {
-      "ticker": "006360",
-      "name": "GS건설",
-      "price": 27750,
-      "change_rate": -3.48,
-      "explosion_date": "2026-07-01",
-      "explosion_change_rate": 19.9,
-      "explosion_volume_ratio": 5.2,
-      "days_since_detected": 11,
-      "volume_decrease_rate": 79,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.08,
-      "volume_rank": 4,
-      "ma150": 26284,
-      "above_ma150": true,
-      "market_cap": 23749,
-      "updated_at": "2026-07-16T14:28:39.223385"
+      "market_cap": 1558,
+      "updated_at": "2026-07-16T16:04:47.032121"
     }
   ]
 }
