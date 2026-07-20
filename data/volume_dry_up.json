@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-20T14:57:32.301375",
-    "totalCount": 4,
+    "lastUpdated": "2026-07-20T16:43:40.399995",
+    "totalCount": 5,
     "screened_from": 1262
   },
   "data": [
     {
       "ticker": "001790",
       "name": "대한제당",
-      "price": 2725,
-      "change_rate": -0.55,
+      "price": 2730,
+      "change_rate": -0.36,
       "explosion_date": "2026-07-08",
       "explosion_change_rate": 12.4,
       "explosion_volume_ratio": 6.9,
@@ -20,14 +20,14 @@
       "volume_rank": 1,
       "ma150": 2775,
       "above_ma150": true,
-      "market_cap": 2363,
-      "updated_at": "2026-07-20T14:57:32.295543"
+      "market_cap": 2354,
+      "updated_at": "2026-07-20T16:43:40.396659"
     },
     {
       "ticker": "212560",
       "name": "네오오토",
-      "price": 10680,
-      "change_rate": -10.85,
+      "price": 10660,
+      "change_rate": -11.02,
       "explosion_date": "2026-07-06",
       "explosion_change_rate": 17.6,
       "explosion_volume_ratio": 4.7,
@@ -38,44 +38,62 @@
       "volume_rank": 2,
       "ma150": 9358,
       "above_ma150": true,
-      "market_cap": 1440,
-      "updated_at": "2026-07-20T14:57:32.296620"
+      "market_cap": 1438,
+      "updated_at": "2026-07-20T16:43:40.397605"
+    },
+    {
+      "ticker": "002990",
+      "name": "금호건설",
+      "price": 10860,
+      "change_rate": -0.37,
+      "explosion_date": "2026-07-06",
+      "explosion_change_rate": 30.0,
+      "explosion_volume_ratio": 3.5,
+      "days_since_detected": 9,
+      "volume_decrease_rate": 60,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 0.06,
+      "volume_rank": 3,
+      "ma150": 5425,
+      "above_ma150": true,
+      "market_cap": 4046,
+      "updated_at": "2026-07-20T16:43:38.917285"
     },
     {
       "ticker": "039830",
       "name": "오로라",
-      "price": 18720,
-      "change_rate": -1.11,
+      "price": 18740,
+      "change_rate": -1.0,
       "explosion_date": "2026-07-03",
       "explosion_change_rate": 14.7,
       "explosion_volume_ratio": 4.0,
       "days_since_detected": 10,
       "volume_decrease_rate": 87,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.25,
-      "volume_rank": 3,
+      "ma20_distance": 0.35,
+      "volume_rank": 4,
       "ma150": 14859,
       "above_ma150": true,
-      "market_cap": 2015,
-      "updated_at": "2026-07-20T14:57:31.323126"
+      "market_cap": 2017,
+      "updated_at": "2026-07-20T16:43:39.898144"
     },
     {
       "ticker": "007160",
       "name": "사조산업",
-      "price": 46100,
-      "change_rate": -4.26,
+      "price": 45950,
+      "change_rate": -4.57,
       "explosion_date": "2026-06-30",
       "explosion_change_rate": 11.5,
       "explosion_volume_ratio": 8.7,
       "days_since_detected": 13,
       "volume_decrease_rate": 92,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.89,
-      "volume_rank": 4,
-      "ma150": 53035,
+      "ma20_distance": 0.58,
+      "volume_rank": 5,
+      "ma150": 53034,
       "above_ma150": false,
-      "market_cap": 2305,
-      "updated_at": "2026-07-20T14:57:31.057824"
+      "market_cap": 2298,
+      "updated_at": "2026-07-20T16:43:39.435607"
     }
   ]
 }
