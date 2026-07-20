@@ -1,57 +1,69 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-20T13:14:52.155062",
-    "totalCount": 4,
-    "screened_from": 1268
+    "lastUpdated": "2026-07-20T14:57:29.651465",
+    "totalCount": 5,
+    "screened_from": 1262
   },
   "data": [
     {
-      "ticker": "066590",
-      "name": "스모트로닉",
-      "price": 3280,
-      "change_rate": 29.9,
-      "volume_ratio": 38.2,
-      "volume_rank": 1,
-      "ma150": 2657,
-      "above_ma150": true,
-      "market_cap": 1269,
-      "updated_at": "2026-07-20T13:14:51.195027"
-    },
-    {
       "ticker": "005860",
       "name": "한일사료",
-      "price": 2725,
-      "change_rate": 13.07,
-      "volume_ratio": 17.2,
-      "volume_rank": 2,
-      "ma150": 3238,
+      "price": 2840,
+      "change_rate": 17.84,
+      "volume_ratio": 24.3,
+      "volume_rank": 1,
+      "ma150": 3239,
       "above_ma150": false,
-      "market_cap": 1074,
-      "updated_at": "2026-07-20T13:14:52.138995"
-    },
-    {
-      "ticker": "049080",
-      "name": "기가레인",
-      "price": 13210,
-      "change_rate": 17.01,
-      "volume_ratio": 4.4,
-      "volume_rank": 3,
-      "ma150": 10327,
-      "above_ma150": true,
-      "market_cap": 1122,
-      "updated_at": "2026-07-20T13:14:51.088470"
+      "market_cap": 1131,
+      "updated_at": "2026-07-20T14:57:29.440653"
     },
     {
       "ticker": "376900",
       "name": "로킷헬스케어",
-      "price": 57400,
-      "change_rate": 18.72,
-      "volume_ratio": 2.3,
-      "volume_rank": 4,
-      "ma150": 71638,
+      "price": 60700,
+      "change_rate": 25.54,
+      "volume_ratio": 3.7,
+      "volume_rank": 2,
+      "ma150": 71660,
       "above_ma150": false,
-      "market_cap": 9080,
-      "updated_at": "2026-07-20T13:14:51.139656"
+      "market_cap": 9683,
+      "updated_at": "2026-07-20T14:57:29.158695"
+    },
+    {
+      "ticker": "085910",
+      "name": "네오티스",
+      "price": 18850,
+      "change_rate": 16.86,
+      "volume_ratio": 3.5,
+      "volume_rank": 3,
+      "ma150": 18897,
+      "above_ma150": false,
+      "market_cap": 2600,
+      "updated_at": "2026-07-20T14:57:29.132258"
+    },
+    {
+      "ticker": "320000",
+      "name": "한울반도체",
+      "price": 16200,
+      "change_rate": 23.85,
+      "volume_ratio": 2.7,
+      "volume_rank": 4,
+      "ma150": 10362,
+      "above_ma150": true,
+      "market_cap": 1096,
+      "updated_at": "2026-07-20T14:57:29.437579"
+    },
+    {
+      "ticker": "095190",
+      "name": "신화프리텍",
+      "price": 2120,
+      "change_rate": 12.77,
+      "volume_ratio": 2.4,
+      "volume_rank": 5,
+      "ma150": 2228,
+      "above_ma150": false,
+      "market_cap": 1384,
+      "updated_at": "2026-07-20T14:57:29.206126"
     }
   ]
 }
