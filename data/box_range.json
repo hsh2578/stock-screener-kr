@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-21T14:38:44.906771",
+    "lastUpdated": "2026-07-21T16:12:19.348972",
     "totalCount": 4,
-    "screened_from": 1267
+    "screened_from": 1270
   },
   "data": [
     {
@@ -19,71 +19,71 @@
       "support_touches": 2,
       "resistance_touches": 2,
       "slope_daily": -0.0495,
-      "volume_decrease_rate": 54.36,
+      "volume_decrease_rate": 54.24,
       "days": 102,
       "ma150": 3029,
       "above_ma150": false,
-      "updated_at": "2026-07-21T14:38:43.705686"
+      "updated_at": "2026-07-21T16:12:18.283622"
     },
     {
       "ticker": "033780",
       "name": "KT&G",
-      "price": 178400,
-      "change_rate": -0.56,
+      "price": 178200,
+      "change_rate": -0.67,
       "market_cap": 184990,
       "box_high": 189000,
       "box_low": 167100,
       "range_percent": 13.11,
-      "atr": 3.82,
+      "atr": 3.83,
       "atr_multiple": 3.43,
       "support_touches": 4,
       "resistance_touches": 3,
-      "slope_daily": -0.0358,
-      "volume_decrease_rate": 12.74,
+      "slope_daily": -0.036,
+      "volume_decrease_rate": 12.27,
       "days": 70,
-      "ma150": 164228,
+      "ma150": 164227,
       "above_ma150": true,
-      "updated_at": "2026-07-21T14:38:41.742073"
+      "updated_at": "2026-07-21T16:12:15.589347"
     },
     {
       "ticker": "138040",
       "name": "메리츠금융지주",
-      "price": 113600,
-      "change_rate": 0.53,
-      "market_cap": 190274,
+      "price": 113000,
+      "change_rate": 0.0,
+      "market_cap": 189102,
       "box_high": 118300,
       "box_low": 100600,
       "range_percent": 17.59,
-      "atr": 4.11,
-      "atr_multiple": 4.28,
+      "atr": 4.13,
+      "atr_multiple": 4.26,
       "support_touches": 3,
       "resistance_touches": 2,
-      "slope_daily": 0.002,
-      "volume_decrease_rate": 8.86,
+      "slope_daily": 0.0011,
+      "volume_decrease_rate": 8.49,
       "days": 96,
-      "ma150": 112606,
+      "ma150": 112602,
       "above_ma150": true,
-      "updated_at": "2026-07-21T14:38:42.511634"
+      "updated_at": "2026-07-21T16:12:16.402976"
     },
     {
       "ticker": "138930",
       "name": "BNK금융지주",
-      "price": 18170,
-      "change_rate": 2.66,
-      "market_cap": 56386,
+      "price": 18100,
+      "change_rate": 2.26,
+      "market_cap": 56169,
       "box_high": 19000,
       "box_low": 15880,
       "range_percent": 19.65,
-      "atr": 4.44,
-      "atr_multiple": 4.43,
+      "atr": 4.45,
+      "atr_multiple": 4.41,
       "support_touches": 3,
       "resistance_touches": 2,
-      "slope_daily": -0.0462,
-      "volume_decrease_rate": 12.13,
+      "slope_daily": -0.0469,
+      "volume_decrease_rate": 11.57,
       "days": 97,
       "ma150": 17608,
       "above_ma150": true,
-      "updated_at": "2026-07-21T14:38:41.598435"
+      "updated_at": "2026-07-21T16:12:15.145515"
     }
   ]
 }
