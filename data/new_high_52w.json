@@ -1,26 +1,26 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-21T12:56:49.505337",
+    "lastUpdated": "2026-07-21T14:39:13.138410",
     "totalCount": 5,
-    "screened_from": 1272
+    "screened_from": 1267
   },
   "data": [
     {
       "ticker": "079940",
       "name": "가비아",
-      "price": 47450,
-      "change_rate": 7.72,
+      "price": 47550,
+      "change_rate": 7.95,
       "high_52w": 36750,
       "breakout_date": "2026-07-20",
       "days_since": 1,
-      "above_high_percent": 29.12,
+      "above_high_percent": 29.39,
       "volume_ratio": 0.9,
-      "vs_breakout_close": 7.72,
+      "vs_breakout_close": 7.95,
       "predicted_gain": 74.4,
       "success_probability": 82.2,
       "ai_score": 87.5,
-      "market_cap": 6368,
-      "updated_at": "2026-07-21T12:56:49.502063"
+      "market_cap": 6382,
+      "updated_at": "2026-07-21T14:39:13.135021"
     },
     {
       "ticker": "317400",
@@ -36,42 +36,42 @@
       "predicted_gain": 40.0,
       "success_probability": 43.3,
       "ai_score": 60.3,
-      "market_cap": 2253,
-      "updated_at": "2026-07-21T12:56:49.502859"
+      "market_cap": 2249,
+      "updated_at": "2026-07-21T14:39:13.135809"
     },
     {
       "ticker": "094840",
       "name": "슈프리마에이치큐",
-      "price": 12890,
-      "change_rate": 4.8,
+      "price": 12750,
+      "change_rate": 3.66,
       "high_52w": 12790,
       "breakout_date": "2026-07-15",
       "days_since": 3,
-      "above_high_percent": 0.78,
+      "above_high_percent": -0.31,
       "volume_ratio": 2.0,
-      "vs_breakout_close": -6.66,
+      "vs_breakout_close": -7.68,
       "predicted_gain": 42.0,
       "success_probability": 56.2,
       "ai_score": 69.3,
-      "market_cap": 1264,
-      "updated_at": "2026-07-21T12:56:49.503470"
+      "market_cap": 1257,
+      "updated_at": "2026-07-21T14:39:13.136436"
     },
     {
       "ticker": "105560",
       "name": "KB금융",
-      "price": 172000,
-      "change_rate": 1.9,
+      "price": 173950,
+      "change_rate": 3.05,
       "high_52w": 182700,
       "breakout_date": "2026-07-13",
       "days_since": 5,
-      "above_high_percent": -5.86,
+      "above_high_percent": -4.79,
       "volume_ratio": 1.5,
-      "vs_breakout_close": -7.63,
+      "vs_breakout_close": -6.58,
       "predicted_gain": 25.1,
       "success_probability": 13.6,
       "ai_score": 32.1,
-      "market_cap": 610063,
-      "updated_at": "2026-07-21T12:56:49.504103"
+      "market_cap": 617157,
+      "updated_at": "2026-07-21T14:39:13.137116"
     },
     {
       "ticker": "073240",
@@ -87,8 +87,8 @@
       "predicted_gain": 17.9,
       "success_probability": 25.1,
       "ai_score": 33.7,
-      "market_cap": 17509,
-      "updated_at": "2026-07-21T12:56:49.504711"
+      "market_cap": 17552,
+      "updated_at": "2026-07-21T14:39:13.137708"
     }
   ]
 }

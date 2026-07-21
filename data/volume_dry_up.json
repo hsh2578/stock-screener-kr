@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-21T12:56:25.459724",
-    "totalCount": 5,
-    "screened_from": 1272
+    "lastUpdated": "2026-07-21T14:38:48.260283",
+    "totalCount": 4,
+    "screened_from": 1267
   },
   "data": [
     {
       "ticker": "001790",
       "name": "대한제당",
-      "price": 2635,
-      "change_rate": -3.48,
+      "price": 2625,
+      "change_rate": -3.85,
       "explosion_date": "2026-07-08",
       "explosion_change_rate": 12.4,
       "explosion_volume_ratio": 6.9,
@@ -20,14 +20,14 @@
       "volume_rank": 1,
       "ma150": 2775,
       "above_ma150": true,
-      "market_cap": 2272,
-      "updated_at": "2026-07-21T12:56:25.452017"
+      "market_cap": 2264,
+      "updated_at": "2026-07-21T14:38:48.257662"
     },
     {
       "ticker": "212560",
       "name": "네오오토",
-      "price": 10740,
-      "change_rate": 0.75,
+      "price": 10460,
+      "change_rate": -1.88,
       "explosion_date": "2026-07-06",
       "explosion_change_rate": 17.6,
       "explosion_volume_ratio": 4.7,
@@ -38,14 +38,14 @@
       "volume_rank": 2,
       "ma150": 9358,
       "above_ma150": true,
-      "market_cap": 1446,
-      "updated_at": "2026-07-21T12:56:25.454383"
+      "market_cap": 1411,
+      "updated_at": "2026-07-21T14:38:48.258885"
     },
     {
       "ticker": "002990",
       "name": "금호건설",
-      "price": 10090,
-      "change_rate": -7.09,
+      "price": 10170,
+      "change_rate": -6.35,
       "explosion_date": "2026-07-06",
       "explosion_change_rate": 30.0,
       "explosion_volume_ratio": 3.5,
@@ -56,26 +56,8 @@
       "volume_rank": 3,
       "ma150": 5425,
       "above_ma150": true,
-      "market_cap": 3771,
-      "updated_at": "2026-07-21T12:56:25.455062"
-    },
-    {
-      "ticker": "039830",
-      "name": "오로라",
-      "price": 18990,
-      "change_rate": 1.33,
-      "explosion_date": "2026-07-03",
-      "explosion_change_rate": 14.7,
-      "explosion_volume_ratio": 4.0,
-      "days_since_detected": 11,
-      "volume_decrease_rate": 90,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.19,
-      "volume_rank": 4,
-      "ma150": 14875,
-      "above_ma150": true,
-      "market_cap": 2044,
-      "updated_at": "2026-07-21T12:56:25.109782"
+      "market_cap": 3789,
+      "updated_at": "2026-07-21T14:38:48.259520"
     },
     {
       "ticker": "006120",
@@ -86,14 +68,14 @@
       "explosion_change_rate": 12.6,
       "explosion_volume_ratio": 5.9,
       "days_since_detected": 17,
-      "volume_decrease_rate": 83,
+      "volume_decrease_rate": 78,
       "pattern_type": "ma20_approach",
       "ma20_distance": 0.76,
-      "volume_rank": 5,
+      "volume_rank": 4,
       "ma150": 55584,
       "above_ma150": false,
-      "market_cap": 8811,
-      "updated_at": "2026-07-21T12:56:24.406982"
+      "market_cap": 8829,
+      "updated_at": "2026-07-21T14:38:47.106114"
     }
   ]
 }

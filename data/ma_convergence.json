@@ -1,28 +1,47 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-21T12:56:47.041763",
-    "totalCount": 1,
-    "screened_from": 1272
+    "lastUpdated": "2026-07-21T14:39:10.128755",
+    "totalCount": 2,
+    "screened_from": 1267
   },
   "data": [
     {
       "ticker": "003690",
       "name": "코리안리",
-      "current_price": 13470,
-      "volume": 203712,
-      "ma10w": 13444,
-      "ma20w": 13024,
-      "ma60w": 11834,
-      "ma20d": 13294,
-      "ma60d": 13132,
-      "ma120d": 12904,
-      "gap_20_60": 1.23,
-      "gap_20_120": 3.02,
-      "gap_60_120": 1.76,
-      "gap_price_20": 1.32,
+      "current_price": 13320,
+      "volume": 210467,
+      "ma10w": 13429,
+      "ma20w": 13016,
+      "ma60w": 11832,
+      "ma20d": 13287,
+      "ma60d": 13130,
+      "ma120d": 12903,
+      "gap_20_60": 1.2,
+      "gap_20_120": 2.97,
+      "gap_60_120": 1.75,
+      "gap_price_20": 0.25,
       "weeks_since_high": 22,
-      "market_cap": 23751,
-      "updated_at": "2026-07-21T12:56:46.246700"
+      "market_cap": 23539,
+      "updated_at": "2026-07-21T14:39:09.193610"
+    },
+    {
+      "ticker": "417310",
+      "name": "코람코더원리츠",
+      "current_price": 10220,
+      "volume": 113943,
+      "ma10w": 10019,
+      "ma20w": 9971,
+      "ma60w": 7947,
+      "ma20d": 9976,
+      "ma60d": 10059,
+      "ma120d": 9696,
+      "gap_20_60": 0.82,
+      "gap_20_120": 2.88,
+      "gap_60_120": 3.74,
+      "gap_price_20": 2.44,
+      "weeks_since_high": 13,
+      "market_cap": 4121,
+      "updated_at": "2026-07-21T14:39:09.168655"
     }
   ]
 }
