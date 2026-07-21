@@ -1,8 +1,27 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-20T20:21:49.528031",
-    "totalCount": 0,
-    "screened_from": 1262
+    "lastUpdated": "2026-07-21T12:56:27.058199",
+    "totalCount": 1,
+    "screened_from": 1272
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "120240",
+      "name": "대정화금",
+      "price": 14520,
+      "change_rate": 3.27,
+      "breakout_date": "2026-07-21",
+      "resistance": 14210,
+      "days_since_breakout": 0,
+      "breakout_pct": 2.18,
+      "gain_since_breakout": 0.0,
+      "ma150": 13437,
+      "above_ma150": true,
+      "market_cap": 1044,
+      "success_prob": 32.2,
+      "predicted_gain": 9.4,
+      "ai_score": 31.0,
+      "updated_at": "2026-07-21T12:56:21.062256"
+    }
+  ]
 }

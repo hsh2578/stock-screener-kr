@@ -1,81 +1,117 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-20T20:21:43.662043",
-    "totalCount": 6,
-    "screened_from": 1262
+    "lastUpdated": "2026-07-21T12:56:24.082459",
+    "totalCount": 9,
+    "screened_from": 1272
   },
   "data": [
     {
-      "ticker": "005860",
-      "name": "한일사료",
-      "price": 2770,
-      "change_rate": 14.94,
-      "volume_ratio": 26.6,
+      "ticker": "066590",
+      "name": "스모트로닉",
+      "price": 2825,
+      "change_rate": 15.31,
+      "volume_ratio": 24.5,
       "volume_rank": 1,
-      "ma150": 3238,
-      "above_ma150": false,
-      "market_cap": 1091,
-      "updated_at": "2026-07-20T20:21:43.380212"
-    },
-    {
-      "ticker": "460930",
-      "name": "현대힘스",
-      "price": 13760,
-      "change_rate": 13.34,
-      "volume_ratio": 13.5,
-      "volume_rank": 2,
-      "ma150": 17216,
-      "above_ma150": false,
-      "market_cap": 4886,
-      "updated_at": "2026-07-20T20:21:43.582821"
-    },
-    {
-      "ticker": "049080",
-      "name": "기가레인",
-      "price": 12990,
-      "change_rate": 15.06,
-      "volume_ratio": 5.5,
-      "volume_rank": 3,
-      "ma150": 10326,
+      "ma150": 2653,
       "above_ma150": true,
-      "market_cap": 1103,
-      "updated_at": "2026-07-20T20:21:42.472394"
+      "market_cap": 1093,
+      "updated_at": "2026-07-21T12:56:21.951955"
     },
     {
-      "ticker": "376900",
-      "name": "로킷헬스케어",
-      "price": 61400,
-      "change_rate": 26.99,
+      "ticker": "013990",
+      "name": "아가방컴퍼니",
+      "price": 3940,
+      "change_rate": 12.25,
+      "volume_ratio": 20.7,
+      "volume_rank": 2,
+      "ma150": 4512,
+      "above_ma150": false,
+      "market_cap": 1296,
+      "updated_at": "2026-07-21T12:56:22.137600"
+    },
+    {
+      "ticker": "270660",
+      "name": "에브리봇",
+      "price": 12610,
+      "change_rate": 30.0,
+      "volume_ratio": 4.1,
+      "volume_rank": 3,
+      "ma150": 18315,
+      "above_ma150": false,
+      "market_cap": 1600,
+      "updated_at": "2026-07-21T12:56:22.330926"
+    },
+    {
+      "ticker": "217590",
+      "name": "티엠씨",
+      "price": 13580,
+      "change_rate": 17.17,
       "volume_ratio": 4.1,
       "volume_rank": 4,
-      "ma150": 71665,
+      "ma150": null,
       "above_ma150": false,
-      "market_cap": 9747,
-      "updated_at": "2026-07-20T20:21:42.640807"
+      "market_cap": 3318,
+      "updated_at": "2026-07-21T12:56:23.575497"
     },
     {
-      "ticker": "085910",
-      "name": "네오티스",
-      "price": 18070,
-      "change_rate": 12.03,
-      "volume_ratio": 3.7,
+      "ticker": "059120",
+      "name": "아진엑스텍",
+      "price": 5550,
+      "change_rate": 28.62,
+      "volume_ratio": 4.0,
       "volume_rank": 5,
-      "ma150": 18892,
+      "ma150": 7271,
       "above_ma150": false,
-      "market_cap": 2493,
-      "updated_at": "2026-07-20T20:21:42.477019"
+      "market_cap": 1016,
+      "updated_at": "2026-07-21T12:56:22.269174"
     },
     {
-      "ticker": "320000",
-      "name": "한울반도체",
-      "price": 15970,
-      "change_rate": 22.09,
-      "volume_ratio": 3.5,
+      "ticker": "264850",
+      "name": "이랜시스",
+      "price": 4705,
+      "change_rate": 29.97,
+      "volume_ratio": 3.0,
       "volume_rank": 6,
-      "ma150": 10360,
-      "above_ma150": true,
-      "market_cap": 1076,
-      "updated_at": "2026-07-20T20:21:43.376830"
+      "ma150": 6392,
+      "above_ma150": false,
+      "market_cap": 1425,
+      "updated_at": "2026-07-21T12:56:22.684747"
+    },
+    {
+      "ticker": "332570",
+      "name": "PS일렉트로닉스",
+      "price": 6650,
+      "change_rate": 29.88,
+      "volume_ratio": 2.8,
+      "volume_rank": 7,
+      "ma150": 7093,
+      "above_ma150": false,
+      "market_cap": 3106,
+      "updated_at": "2026-07-21T12:56:20.579583"
+    },
+    {
+      "ticker": "362320",
+      "name": "청담글로벌",
+      "price": 4820,
+      "change_rate": 14.76,
+      "volume_ratio": 2.7,
+      "volume_rank": 8,
+      "ma150": 5140,
+      "above_ma150": false,
+      "market_cap": 1023,
+      "updated_at": "2026-07-21T12:56:23.050806"
+    },
+    {
+      "ticker": "187790",
+      "name": "나노",
+      "price": 3730,
+      "change_rate": 29.97,
+      "volume_ratio": 2.2,
+      "volume_rank": 9,
+      "ma150": 4269,
+      "above_ma150": false,
+      "market_cap": 1150,
+      "updated_at": "2026-07-21T12:56:20.969428"
     }
   ]
 }
