@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-22T12:57:56.607320",
+    "lastUpdated": "2026-07-22T16:15:13.166999",
     "totalCount": 3,
-    "screened_from": 1276
+    "screened_from": 1268
   },
   "data": [
     {
       "ticker": "279570",
       "name": "케이뱅크",
-      "price": 6140,
-      "change_rate": -0.65,
+      "price": 6110,
+      "change_rate": -1.13,
       "explosion_date": "2026-07-16",
       "explosion_change_rate": 11.1,
       "explosion_volume_ratio": 5.6,
@@ -20,14 +20,14 @@
       "volume_rank": 1,
       "ma150": null,
       "above_ma150": false,
-      "market_cap": 24910,
-      "updated_at": "2026-07-22T12:57:55.736121"
+      "market_cap": 24788,
+      "updated_at": "2026-07-22T16:15:13.165399"
     },
     {
       "ticker": "001790",
       "name": "대한제당",
-      "price": 2550,
-      "change_rate": -3.41,
+      "price": 2530,
+      "change_rate": -4.17,
       "explosion_date": "2026-07-08",
       "explosion_change_rate": 12.4,
       "explosion_volume_ratio": 6.9,
@@ -38,26 +38,26 @@
       "volume_rank": 2,
       "ma150": 2775,
       "above_ma150": true,
-      "market_cap": 2203,
-      "updated_at": "2026-07-22T12:57:56.591580"
+      "market_cap": 2182,
+      "updated_at": "2026-07-22T16:15:13.166185"
     },
     {
-      "ticker": "039830",
-      "name": "오로라",
-      "price": 19080,
-      "change_rate": 0.1,
-      "explosion_date": "2026-07-03",
-      "explosion_change_rate": 14.7,
-      "explosion_volume_ratio": 4.0,
-      "days_since_detected": 12,
-      "volume_decrease_rate": 89,
+      "ticker": "006120",
+      "name": "SK디스커버리",
+      "price": 51000,
+      "change_rate": 1.19,
+      "explosion_date": "2026-06-25",
+      "explosion_change_rate": 12.6,
+      "explosion_volume_ratio": 5.9,
+      "days_since_detected": 18,
+      "volume_decrease_rate": 80,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.89,
+      "ma20_distance": 0.74,
       "volume_rank": 3,
-      "ma150": 14894,
-      "above_ma150": true,
-      "market_cap": 2058,
-      "updated_at": "2026-07-22T12:57:55.576228"
+      "ma150": 55513,
+      "above_ma150": false,
+      "market_cap": 8881,
+      "updated_at": "2026-07-22T16:15:12.078795"
     }
   ]
 }
