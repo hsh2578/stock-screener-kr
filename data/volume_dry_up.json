@@ -1,63 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-22T19:39:34.636584",
-    "totalCount": 3,
-    "screened_from": 1268
+    "lastUpdated": "2026-07-23T12:54:26.038582",
+    "totalCount": 2,
+    "screened_from": 1285
   },
   "data": [
     {
       "ticker": "279570",
       "name": "케이뱅크",
-      "price": 6110,
-      "change_rate": -1.13,
+      "price": 6180,
+      "change_rate": 1.15,
       "explosion_date": "2026-07-16",
       "explosion_change_rate": 11.1,
       "explosion_volume_ratio": 5.6,
-      "days_since_detected": 3,
+      "days_since_detected": 4,
       "volume_decrease_rate": 87,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
       "ma150": null,
       "above_ma150": false,
-      "market_cap": 24788,
-      "updated_at": "2026-07-22T19:39:34.633705"
+      "market_cap": 25113,
+      "updated_at": "2026-07-23T12:54:26.036943"
     },
     {
       "ticker": "001790",
       "name": "대한제당",
-      "price": 2530,
-      "change_rate": -4.17,
+      "price": 2630,
+      "change_rate": 3.95,
       "explosion_date": "2026-07-08",
       "explosion_change_rate": 12.4,
       "explosion_volume_ratio": 6.9,
-      "days_since_detected": 9,
+      "days_since_detected": 10,
       "volume_decrease_rate": 71,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 2,
       "ma150": 2775,
       "above_ma150": true,
-      "market_cap": 2182,
-      "updated_at": "2026-07-22T19:39:34.634617"
-    },
-    {
-      "ticker": "006120",
-      "name": "SK디스커버리",
-      "price": 51000,
-      "change_rate": 1.19,
-      "explosion_date": "2026-06-25",
-      "explosion_change_rate": 12.6,
-      "explosion_volume_ratio": 5.9,
-      "days_since_detected": 18,
-      "volume_decrease_rate": 80,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.74,
-      "volume_rank": 3,
-      "ma150": 55513,
-      "above_ma150": false,
-      "market_cap": 8881,
-      "updated_at": "2026-07-22T19:39:32.732481"
+      "market_cap": 2264,
+      "updated_at": "2026-07-23T12:54:26.037705"
     }
   ]
 }
