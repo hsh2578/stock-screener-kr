@@ -1,29 +1,29 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-23T14:42:37.648075",
+    "lastUpdated": "2026-07-23T16:09:41.552620",
     "totalCount": 4,
-    "screened_from": 1285
+    "screened_from": 1294
   },
   "data": [
     {
       "ticker": "034590",
       "name": "인천도시가스",
-      "price": 26400,
-      "change_rate": 0.19,
-      "market_cap": 1155,
+      "price": 26450,
+      "change_rate": 0.38,
+      "market_cap": 1157,
       "box_high": 26950,
       "box_low": 25700,
       "range_percent": 4.86,
       "atr": 1.47,
-      "atr_multiple": 3.31,
+      "atr_multiple": 3.32,
       "support_touches": 2,
       "resistance_touches": 3,
-      "slope_daily": -0.0456,
-      "volume_decrease_rate": 12.78,
+      "slope_daily": -0.0453,
+      "volume_decrease_rate": 12.65,
       "days": 100,
       "ma150": 26330,
       "above_ma150": true,
-      "updated_at": "2026-07-23T14:42:36.110871"
+      "updated_at": "2026-07-23T16:09:39.913840"
     },
     {
       "ticker": "100250",
@@ -39,31 +39,31 @@
       "support_touches": 3,
       "resistance_touches": 2,
       "slope_daily": -0.0494,
-      "volume_decrease_rate": 57.6,
+      "volume_decrease_rate": 57.58,
       "days": 104,
       "ma150": 3027,
       "above_ma150": false,
-      "updated_at": "2026-07-23T14:42:36.375384"
+      "updated_at": "2026-07-23T16:09:40.230775"
     },
     {
       "ticker": "072870",
       "name": "메가스터디",
-      "price": 12910,
-      "change_rate": 2.06,
-      "market_cap": 1539,
+      "price": 12960,
+      "change_rate": 2.45,
+      "market_cap": 1545,
       "box_high": 13520,
       "box_low": 12310,
       "range_percent": 9.83,
-      "atr": 2.73,
-      "atr_multiple": 3.6,
+      "atr": 2.72,
+      "atr_multiple": 3.61,
       "support_touches": 4,
       "resistance_touches": 3,
-      "slope_daily": -0.0031,
-      "volume_decrease_rate": 7.55,
+      "slope_daily": -0.0024,
+      "volume_decrease_rate": 7.3,
       "days": 90,
       "ma150": 12190,
       "above_ma150": true,
-      "updated_at": "2026-07-23T14:42:34.882770"
+      "updated_at": "2026-07-23T16:09:38.917431"
     },
     {
       "ticker": "026960",
@@ -74,16 +74,16 @@
       "box_high": 26700,
       "box_low": 22950,
       "range_percent": 16.34,
-      "atr": 3.63,
-      "atr_multiple": 4.5,
+      "atr": 3.64,
+      "atr_multiple": 4.49,
       "support_touches": 2,
       "resistance_touches": 2,
       "slope_daily": -0.0458,
-      "volume_decrease_rate": 19.94,
+      "volume_decrease_rate": 19.5,
       "days": 100,
       "ma150": 26191,
       "above_ma150": false,
-      "updated_at": "2026-07-23T14:42:34.764463"
+      "updated_at": "2026-07-23T16:09:38.680864"
     }
   ]
 }
