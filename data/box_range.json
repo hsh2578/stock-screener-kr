@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-23T12:54:23.665651",
+    "lastUpdated": "2026-07-23T14:42:37.648075",
     "totalCount": 4,
     "screened_from": 1285
   },
@@ -8,22 +8,22 @@
     {
       "ticker": "034590",
       "name": "인천도시가스",
-      "price": 26500,
-      "change_rate": 0.57,
-      "market_cap": 1159,
+      "price": 26400,
+      "change_rate": 0.19,
+      "market_cap": 1155,
       "box_high": 26950,
       "box_low": 25700,
       "range_percent": 4.86,
-      "atr": 1.46,
-      "atr_multiple": 3.33,
+      "atr": 1.47,
+      "atr_multiple": 3.31,
       "support_touches": 2,
       "resistance_touches": 3,
-      "slope_daily": -0.045,
-      "volume_decrease_rate": 13.0,
+      "slope_daily": -0.0456,
+      "volume_decrease_rate": 12.78,
       "days": 100,
       "ma150": 26330,
       "above_ma150": true,
-      "updated_at": "2026-07-23T12:54:21.578125"
+      "updated_at": "2026-07-23T14:42:36.110871"
     },
     {
       "ticker": "100250",
@@ -39,18 +39,18 @@
       "support_touches": 3,
       "resistance_touches": 2,
       "slope_daily": -0.0494,
-      "volume_decrease_rate": 57.66,
+      "volume_decrease_rate": 57.6,
       "days": 104,
       "ma150": 3027,
       "above_ma150": false,
-      "updated_at": "2026-07-23T12:54:21.734176"
+      "updated_at": "2026-07-23T14:42:36.375384"
     },
     {
       "ticker": "072870",
       "name": "메가스터디",
-      "price": 12900,
-      "change_rate": 1.98,
-      "market_cap": 1538,
+      "price": 12910,
+      "change_rate": 2.06,
+      "market_cap": 1539,
       "box_high": 13520,
       "box_low": 12310,
       "range_percent": 9.83,
@@ -58,32 +58,32 @@
       "atr_multiple": 3.6,
       "support_touches": 4,
       "resistance_touches": 3,
-      "slope_daily": -0.0032,
-      "volume_decrease_rate": 7.76,
+      "slope_daily": -0.0031,
+      "volume_decrease_rate": 7.55,
       "days": 90,
       "ma150": 12190,
       "above_ma150": true,
-      "updated_at": "2026-07-23T12:54:20.349462"
+      "updated_at": "2026-07-23T14:42:34.882770"
     },
     {
       "ticker": "026960",
       "name": "동서",
-      "price": 25650,
-      "change_rate": 0.2,
-      "market_cap": 25573,
+      "price": 25850,
+      "change_rate": 0.98,
+      "market_cap": 25772,
       "box_high": 26700,
       "box_low": 22950,
       "range_percent": 16.34,
-      "atr": 3.66,
-      "atr_multiple": 4.47,
+      "atr": 3.63,
+      "atr_multiple": 4.5,
       "support_touches": 2,
       "resistance_touches": 2,
-      "slope_daily": -0.0471,
-      "volume_decrease_rate": 20.54,
+      "slope_daily": -0.0458,
+      "volume_decrease_rate": 19.94,
       "days": 100,
-      "ma150": 26190,
+      "ma150": 26191,
       "above_ma150": false,
-      "updated_at": "2026-07-23T12:54:20.235042"
+      "updated_at": "2026-07-23T14:42:34.764463"
     }
   ]
 }
