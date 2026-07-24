@@ -1,57 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-24T14:39:03.687448",
-    "totalCount": 4,
-    "screened_from": 1273
+    "lastUpdated": "2026-07-24T16:11:17.431696",
+    "totalCount": 3,
+    "screened_from": 1280
   },
   "data": [
     {
       "ticker": "460930",
       "name": "현대힘스",
-      "price": 15720,
-      "change_rate": 20.74,
-      "volume_ratio": 20.6,
+      "price": 15950,
+      "change_rate": 22.5,
+      "volume_ratio": 24.6,
       "volume_rank": 1,
-      "ma150": 17079,
+      "ma150": 17080,
       "above_ma150": false,
-      "market_cap": 5572,
-      "updated_at": "2026-07-24T14:39:03.682865"
+      "market_cap": 5664,
+      "updated_at": "2026-07-24T16:11:17.423739"
     },
     {
       "ticker": "333430",
       "name": "일승",
       "price": 4110,
       "change_rate": 29.86,
-      "volume_ratio": 19.9,
+      "volume_ratio": 20.0,
       "volume_rank": 2,
       "ma150": 5189,
       "above_ma150": false,
       "market_cap": 1263,
-      "updated_at": "2026-07-24T14:39:03.513487"
-    },
-    {
-      "ticker": "047920",
-      "name": "HLB제약",
-      "price": 9040,
-      "change_rate": 12.02,
-      "volume_ratio": 7.1,
-      "volume_rank": 3,
-      "ma150": 14838,
-      "above_ma150": false,
-      "market_cap": 2965,
-      "updated_at": "2026-07-24T14:39:02.595910"
+      "updated_at": "2026-07-24T16:11:17.327112"
     },
     {
       "ticker": "037070",
       "name": "파세코",
-      "price": 7310,
-      "change_rate": 23.69,
-      "volume_ratio": 3.1,
-      "volume_rank": 4,
-      "ma150": 7770,
+      "price": 6810,
+      "change_rate": 15.23,
+      "volume_ratio": 4.2,
+      "volume_rank": 3,
+      "ma150": 7767,
       "above_ma150": false,
-      "market_cap": 1462,
-      "updated_at": "2026-07-24T14:39:03.558712"
+      "market_cap": 1362,
+      "updated_at": "2026-07-24T16:11:17.385385"
     }
   ]
 }
