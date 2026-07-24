@@ -1,45 +1,57 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-24T12:54:39.971844",
-    "totalCount": 3,
-    "screened_from": 1275
+    "lastUpdated": "2026-07-24T14:39:03.687448",
+    "totalCount": 4,
+    "screened_from": 1273
   },
   "data": [
+    {
+      "ticker": "460930",
+      "name": "현대힘스",
+      "price": 15720,
+      "change_rate": 20.74,
+      "volume_ratio": 20.6,
+      "volume_rank": 1,
+      "ma150": 17079,
+      "above_ma150": false,
+      "market_cap": 5572,
+      "updated_at": "2026-07-24T14:39:03.682865"
+    },
     {
       "ticker": "333430",
       "name": "일승",
       "price": 4110,
       "change_rate": 29.86,
-      "volume_ratio": 19.7,
-      "volume_rank": 1,
+      "volume_ratio": 19.9,
+      "volume_rank": 2,
       "ma150": 5189,
       "above_ma150": false,
       "market_cap": 1263,
-      "updated_at": "2026-07-24T12:54:39.505073"
+      "updated_at": "2026-07-24T14:39:03.513487"
     },
     {
-      "ticker": "460930",
-      "name": "현대힘스",
-      "price": 15950,
-      "change_rate": 22.5,
-      "volume_ratio": 18.0,
-      "volume_rank": 2,
-      "ma150": 17080,
-      "above_ma150": false,
-      "market_cap": 5699,
-      "updated_at": "2026-07-24T12:54:39.893960"
-    },
-    {
-      "ticker": "900290",
-      "name": "GRT",
-      "price": 2685,
-      "change_rate": 13.29,
-      "volume_ratio": 2.3,
+      "ticker": "047920",
+      "name": "HLB제약",
+      "price": 9040,
+      "change_rate": 12.02,
+      "volume_ratio": 7.1,
       "volume_rank": 3,
-      "ma150": 3956,
+      "ma150": 14838,
       "above_ma150": false,
-      "market_cap": 2196,
-      "updated_at": "2026-07-24T12:54:36.474451"
+      "market_cap": 2965,
+      "updated_at": "2026-07-24T14:39:02.595910"
+    },
+    {
+      "ticker": "037070",
+      "name": "파세코",
+      "price": 7310,
+      "change_rate": 23.69,
+      "volume_ratio": 3.1,
+      "volume_rank": 4,
+      "ma150": 7770,
+      "above_ma150": false,
+      "market_cap": 1462,
+      "updated_at": "2026-07-24T14:39:03.558712"
     }
   ]
 }
