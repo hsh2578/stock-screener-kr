@@ -1,27 +1,63 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-23T19:41:11.340847",
-    "totalCount": 1,
-    "screened_from": 1294
+    "lastUpdated": "2026-07-24T12:54:44.380499",
+    "totalCount": 3,
+    "screened_from": 1275
   },
   "data": [
     {
+      "ticker": "002810",
+      "name": "삼영무역",
+      "price": 22850,
+      "change_rate": 4.34,
+      "breakout_date": "2026-07-24",
+      "resistance": 22050,
+      "days_since_breakout": 0,
+      "breakout_pct": 3.63,
+      "gain_since_breakout": 0.0,
+      "ma150": 19192,
+      "above_ma150": true,
+      "market_cap": 4210,
+      "success_prob": 31.2,
+      "predicted_gain": 16.4,
+      "ai_score": 36.5,
+      "updated_at": "2026-07-24T12:54:39.066417"
+    },
+    {
       "ticker": "120240",
       "name": "대정화금",
-      "price": 14840,
-      "change_rate": 0.41,
+      "price": 14800,
+      "change_rate": -0.27,
       "breakout_date": "2026-07-21",
       "resistance": 14210,
-      "days_since_breakout": 2,
-      "breakout_pct": 4.43,
-      "gain_since_breakout": 1.37,
-      "ma150": 13458,
+      "days_since_breakout": 3,
+      "breakout_pct": 4.15,
+      "gain_since_breakout": 1.09,
+      "ma150": 13468,
       "above_ma150": true,
-      "market_cap": 1067,
+      "market_cap": 1064,
       "success_prob": 24.3,
       "predicted_gain": 10.0,
       "ai_score": 26.0,
-      "updated_at": "2026-07-23T19:41:08.484485"
+      "updated_at": "2026-07-24T12:54:37.875608"
+    },
+    {
+      "ticker": "138040",
+      "name": "메리츠금융지주",
+      "price": 122000,
+      "change_rate": 4.63,
+      "breakout_date": "2026-07-24",
+      "resistance": 118300,
+      "days_since_breakout": 0,
+      "breakout_pct": 3.13,
+      "gain_since_breakout": 0.0,
+      "ma150": 112756,
+      "above_ma150": true,
+      "market_cap": 203996,
+      "success_prob": 21.0,
+      "predicted_gain": 11.7,
+      "ai_score": 25.2,
+      "updated_at": "2026-07-24T12:54:38.407615"
     }
   ]
 }

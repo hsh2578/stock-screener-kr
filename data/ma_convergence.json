@@ -1,28 +1,47 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-23T19:41:27.610388",
-    "totalCount": 1,
-    "screened_from": 1294
+    "lastUpdated": "2026-07-24T12:55:03.414270",
+    "totalCount": 2,
+    "screened_from": 1275
   },
   "data": [
     {
+      "ticker": "033780",
+      "name": "KT&G",
+      "current_price": 182300,
+      "volume": 200126,
+      "ma10w": 179800,
+      "ma20w": 173685,
+      "ma60w": 151916,
+      "ma20d": 175450,
+      "ma60d": 178771,
+      "ma120d": 170305,
+      "gap_20_60": 1.86,
+      "gap_20_120": 3.02,
+      "gap_60_120": 4.97,
+      "gap_price_20": 3.9,
+      "weeks_since_high": 10,
+      "market_cap": 189246,
+      "updated_at": "2026-07-24T12:54:59.887975"
+    },
+    {
       "ticker": "003690",
       "name": "코리안리",
-      "current_price": 13750,
-      "volume": 153141,
-      "ma10w": 13472,
-      "ma20w": 13038,
-      "ma60w": 11839,
-      "ma20d": 13392,
-      "ma60d": 13174,
-      "ma120d": 12945,
-      "gap_20_60": 1.66,
-      "gap_20_120": 3.45,
-      "gap_60_120": 1.77,
-      "gap_price_20": 2.67,
+      "current_price": 14090,
+      "volume": 144692,
+      "ma10w": 13506,
+      "ma20w": 13055,
+      "ma60w": 11845,
+      "ma20d": 13463,
+      "ma60d": 13203,
+      "ma120d": 12970,
+      "gap_20_60": 1.97,
+      "gap_20_120": 3.8,
+      "gap_60_120": 1.79,
+      "gap_price_20": 4.65,
       "weeks_since_high": 22,
-      "market_cap": 24299,
-      "updated_at": "2026-07-23T19:41:26.503611"
+      "market_cap": 24829,
+      "updated_at": "2026-07-24T12:55:02.612335"
     }
   ]
 }
