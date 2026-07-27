@@ -1,63 +1,63 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-27T15:08:41.512841",
+    "lastUpdated": "2026-07-27T17:05:25.719166",
     "totalCount": 3,
-    "screened_from": 1278
+    "screened_from": 1279
   },
   "data": [
     {
       "ticker": "002810",
       "name": "삼영무역",
-      "price": 23600,
-      "change_rate": 3.06,
+      "price": 23500,
+      "change_rate": 2.62,
       "breakout_date": "2026-07-24",
       "resistance": 22050,
       "days_since_breakout": 1,
-      "breakout_pct": 7.03,
-      "gain_since_breakout": 3.06,
-      "ma150": 19242,
+      "breakout_pct": 6.58,
+      "gain_since_breakout": 2.62,
+      "ma150": 19241,
       "above_ma150": true,
-      "market_cap": 4358,
+      "market_cap": 4340,
       "success_prob": 41.9,
       "predicted_gain": 16.7,
       "ai_score": 44.4,
-      "updated_at": "2026-07-27T15:08:38.923723"
+      "updated_at": "2026-07-27T17:05:21.802658"
     },
     {
       "ticker": "120240",
       "name": "대정화금",
-      "price": 14830,
-      "change_rate": -0.27,
+      "price": 14760,
+      "change_rate": -0.74,
       "breakout_date": "2026-07-21",
       "resistance": 14210,
       "days_since_breakout": 4,
-      "breakout_pct": 4.36,
-      "gain_since_breakout": 1.3,
-      "ma150": 13479,
+      "breakout_pct": 3.87,
+      "gain_since_breakout": 0.82,
+      "ma150": 13478,
       "above_ma150": true,
-      "market_cap": 1066,
+      "market_cap": 1061,
       "success_prob": 24.3,
       "predicted_gain": 10.0,
       "ai_score": 26.0,
-      "updated_at": "2026-07-27T15:08:38.148851"
+      "updated_at": "2026-07-27T17:05:19.557553"
     },
     {
       "ticker": "138040",
       "name": "메리츠금융지주",
-      "price": 125200,
-      "change_rate": 1.54,
+      "price": 125600,
+      "change_rate": 1.87,
       "breakout_date": "2026-07-24",
       "resistance": 118300,
       "days_since_breakout": 1,
-      "breakout_pct": 5.83,
-      "gain_since_breakout": 1.54,
-      "ma150": 112876,
+      "breakout_pct": 6.17,
+      "gain_since_breakout": 1.87,
+      "ma150": 112879,
       "above_ma150": true,
-      "market_cap": 209519,
+      "market_cap": 210188,
       "success_prob": 19.8,
       "predicted_gain": 12.3,
       "ai_score": 24.9,
-      "updated_at": "2026-07-27T15:08:38.536610"
+      "updated_at": "2026-07-27T17:05:20.382118"
     }
   ]
 }

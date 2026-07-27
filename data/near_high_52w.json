@@ -1,27 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-27T15:08:54.057591",
-    "totalCount": 11,
-    "screened_from": 1278
+    "lastUpdated": "2026-07-27T17:05:41.309022",
+    "totalCount": 12,
+    "screened_from": 1279
   },
   "data": [
     {
+      "ticker": "002810",
+      "name": "삼영무역",
+      "price": 23500,
+      "change_rate": 2.62,
+      "high_52w": 23600,
+      "percent_from_high": -0.42,
+      "high_52w_date": "2026-02-23",
+      "entry_date": "2026-07-27",
+      "status": "active",
+      "days_since": 0,
+      "volume_ratio": 2.0,
+      "predicted_gain": 17.2,
+      "breakout_probability": 87.9,
+      "ai_score": 77.1,
+      "market_cap": 4340,
+      "updated_at": "2026-07-27T17:05:40.952612"
+    },
+    {
       "ticker": "120240",
       "name": "대정화금",
-      "price": 14830,
-      "change_rate": -0.27,
+      "price": 14760,
+      "change_rate": -0.74,
       "high_52w": 15200,
-      "percent_from_high": -2.43,
+      "percent_from_high": -2.89,
       "high_52w_date": "2025-07-01",
       "entry_date": "2026-07-27",
       "status": "active",
       "days_since": 0,
-      "volume_ratio": 0.7,
+      "volume_ratio": 0.8,
       "predicted_gain": 14.3,
-      "breakout_probability": 71.1,
-      "ai_score": 62.6,
-      "market_cap": 1066,
-      "updated_at": "2026-07-27T15:08:53.474419"
+      "breakout_probability": 67.1,
+      "ai_score": 59.8,
+      "market_cap": 1061,
+      "updated_at": "2026-07-27T17:05:40.851805"
     },
     {
       "ticker": "086790",
@@ -39,26 +57,26 @@
       "breakout_probability": 71.1,
       "ai_score": 63.0,
       "market_cap": 358324,
-      "updated_at": "2026-07-27T15:08:54.050428",
+      "updated_at": "2026-07-27T17:05:41.303311",
       "above_high_percent": -3.97
     },
     {
       "ticker": "339950",
       "name": "아이비김영",
-      "price": 2830,
-      "change_rate": -2.75,
+      "price": 2825,
+      "change_rate": -2.92,
       "high_52w": 2955,
-      "percent_from_high": -4.23,
+      "percent_from_high": -4.4,
       "high_52w_date": "2026-04-27",
       "entry_date": "2026-07-27",
       "status": "active",
       "days_since": 0,
-      "volume_ratio": 0.5,
+      "volume_ratio": 0.6,
       "predicted_gain": 16.4,
-      "breakout_probability": 58.8,
-      "ai_score": 55.9,
-      "market_cap": 1272,
-      "updated_at": "2026-07-27T15:08:53.642157"
+      "breakout_probability": 57.2,
+      "ai_score": 54.8,
+      "market_cap": 1270,
+      "updated_at": "2026-07-27T17:05:41.020171"
     },
     {
       "ticker": "035610",
@@ -76,7 +94,7 @@
       "breakout_probability": 83.1,
       "ai_score": 74.1,
       "market_cap": 1277,
-      "updated_at": "2026-07-27T15:08:54.051377",
+      "updated_at": "2026-07-27T17:05:41.304103",
       "above_high_percent": 2.08
     },
     {
@@ -95,16 +113,16 @@
       "breakout_probability": 81.9,
       "ai_score": 77.0,
       "market_cap": 85092,
-      "updated_at": "2026-07-27T15:08:54.051989",
+      "updated_at": "2026-07-27T17:05:41.304760",
       "above_high_percent": 5.65
     },
     {
       "ticker": "317400",
       "name": "자이에스앤디",
-      "price": 7060,
-      "change_rate": -6.61,
+      "price": 7050,
+      "change_rate": -6.75,
       "high_52w": 5150,
-      "percent_from_high": 37.09,
+      "percent_from_high": 36.89,
       "high_52w_date": "2026-04-28",
       "entry_date": "2026-07-16",
       "status": "breakout",
@@ -114,8 +132,8 @@
       "breakout_probability": 93.3,
       "ai_score": 88.0,
       "market_cap": 2734,
-      "updated_at": "2026-07-27T15:08:54.052630",
-      "above_high_percent": 37.09
+      "updated_at": "2026-07-27T17:05:41.305347",
+      "above_high_percent": 36.89
     },
     {
       "ticker": "004080",
@@ -132,17 +150,17 @@
       "predicted_gain": 6.6,
       "breakout_probability": 32.1,
       "ai_score": 28.4,
-      "market_cap": 1302,
-      "updated_at": "2026-07-27T15:08:54.053238",
+      "market_cap": 1303,
+      "updated_at": "2026-07-27T17:05:41.305977",
       "above_high_percent": -5.08
     },
     {
       "ticker": "055550",
       "name": "신한지주",
-      "price": 104800,
-      "change_rate": 0.38,
+      "price": 105000,
+      "change_rate": 0.57,
       "high_52w": 110800,
-      "percent_from_high": -5.42,
+      "percent_from_high": -5.23,
       "high_52w_date": "2026-06-15",
       "entry_date": "2026-07-15",
       "status": "dropped",
@@ -151,17 +169,17 @@
       "predicted_gain": 13.8,
       "breakout_probability": 62.7,
       "ai_score": 56.3,
-      "market_cap": 497912,
-      "updated_at": "2026-07-27T15:08:54.053819",
-      "above_high_percent": -5.42
+      "market_cap": 498387,
+      "updated_at": "2026-07-27T17:05:41.306585",
+      "above_high_percent": -5.23
     },
     {
       "ticker": "161390",
       "name": "한국타이어앤테크놀로지",
-      "price": 69700,
-      "change_rate": -1.13,
+      "price": 69800,
+      "change_rate": -0.99,
       "high_52w": 78400,
-      "percent_from_high": -11.1,
+      "percent_from_high": -10.97,
       "high_52w_date": "2026-02-23",
       "entry_date": "2026-07-23",
       "status": "dropped",
@@ -170,17 +188,17 @@
       "predicted_gain": 20.1,
       "breakout_probability": 84.7,
       "ai_score": 77.4,
-      "market_cap": 86217,
-      "updated_at": "2026-07-27T15:08:54.055066",
-      "above_high_percent": -11.1
+      "market_cap": 86465,
+      "updated_at": "2026-07-27T17:05:41.307154",
+      "above_high_percent": -10.97
     },
     {
       "ticker": "001540",
       "name": "안국약품",
-      "price": 11170,
-      "change_rate": -2.7,
+      "price": 11180,
+      "change_rate": -2.61,
       "high_52w": 12730,
-      "percent_from_high": -12.25,
+      "percent_from_high": -12.18,
       "high_52w_date": "2026-05-27",
       "entry_date": "2026-07-15",
       "status": "dropped",
@@ -189,17 +207,17 @@
       "predicted_gain": 20.3,
       "breakout_probability": 62.8,
       "ai_score": 62.2,
-      "market_cap": 1457,
-      "updated_at": "2026-07-27T15:08:54.054406",
-      "above_high_percent": -12.25
+      "market_cap": 1458,
+      "updated_at": "2026-07-27T17:05:41.307734",
+      "above_high_percent": -12.18
     },
     {
       "ticker": "119850",
       "name": "지엔씨에너지",
-      "price": 36550,
-      "change_rate": -19.32,
+      "price": 37400,
+      "change_rate": -17.44,
       "high_52w": 46750,
-      "percent_from_high": -21.82,
+      "percent_from_high": -20.0,
       "high_52w_date": "2025-10-29",
       "entry_date": "2026-07-24",
       "status": "dropped",
@@ -208,9 +226,9 @@
       "predicted_gain": 43.7,
       "breakout_probability": 95.7,
       "ai_score": 97.0,
-      "market_cap": 6012,
-      "updated_at": "2026-07-27T15:08:54.055651",
-      "above_high_percent": -21.82
+      "market_cap": 6152,
+      "updated_at": "2026-07-27T17:05:41.308295",
+      "above_high_percent": -20.0
     }
   ]
 }
