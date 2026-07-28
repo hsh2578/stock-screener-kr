@@ -1,45 +1,57 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-28T12:47:14.509215",
-    "totalCount": 3,
-    "screened_from": 1249
+    "lastUpdated": "2026-07-28T14:34:46.015834",
+    "totalCount": 4,
+    "screened_from": 1244
   },
   "data": [
     {
-      "ticker": "333430",
-      "name": "일승",
-      "price": 4355,
-      "change_rate": 16.13,
-      "volume_ratio": 44.8,
+      "ticker": "199430",
+      "name": "케이엔알시스템",
+      "price": 16190,
+      "change_rate": 13.45,
+      "volume_ratio": 21.5,
       "volume_rank": 1,
-      "ma150": 5160,
+      "ma150": 23000,
       "above_ma150": false,
-      "market_cap": 1337,
-      "updated_at": "2026-07-28T12:47:13.708638"
+      "market_cap": 1813,
+      "updated_at": "2026-07-28T14:34:45.973567"
     },
     {
-      "ticker": "396300",
-      "name": "세아메카닉스",
-      "price": 4060,
-      "change_rate": 16.17,
-      "volume_ratio": 10.4,
+      "ticker": "413630",
+      "name": "씨피시스템",
+      "price": 4645,
+      "change_rate": 14.27,
+      "volume_ratio": 13.3,
       "volume_rank": 2,
-      "ma150": 4025,
+      "ma150": 3758,
       "above_ma150": true,
-      "market_cap": 1098,
-      "updated_at": "2026-07-28T12:47:12.525970"
+      "market_cap": 1692,
+      "updated_at": "2026-07-28T14:34:45.827466"
+    },
+    {
+      "ticker": "108860",
+      "name": "셀바스AI",
+      "price": 9120,
+      "change_rate": 13.15,
+      "volume_ratio": 11.4,
+      "volume_rank": 3,
+      "ma150": 11160,
+      "above_ma150": false,
+      "market_cap": 2455,
+      "updated_at": "2026-07-28T14:34:45.812495"
     },
     {
       "ticker": "235980",
       "name": "메드팩토",
       "price": 3480,
       "change_rate": 29.85,
-      "volume_ratio": 4.1,
-      "volume_rank": 3,
+      "volume_ratio": 4.2,
+      "volume_rank": 4,
       "ma150": 4954,
       "above_ma150": false,
       "market_cap": 1193,
-      "updated_at": "2026-07-28T12:47:12.377791"
+      "updated_at": "2026-07-28T14:34:45.790201"
     }
   ]
 }
