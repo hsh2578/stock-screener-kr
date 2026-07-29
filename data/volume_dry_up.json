@@ -1,45 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-28T19:58:49.983453",
+    "lastUpdated": "2026-07-29T12:51:31.549491",
     "totalCount": 2,
-    "screened_from": 1247
+    "screened_from": 1199
   },
   "data": [
     {
       "ticker": "217590",
       "name": "티엠씨",
-      "price": 10930,
-      "change_rate": -10.92,
+      "price": 9750,
+      "change_rate": -10.8,
       "explosion_date": "2026-07-21",
       "explosion_change_rate": 14.8,
       "explosion_volume_ratio": 6.7,
-      "days_since_detected": 5,
+      "days_since_detected": 6,
       "volume_decrease_rate": 74,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
       "ma150": null,
       "above_ma150": false,
-      "market_cap": 2633,
-      "updated_at": "2026-07-28T19:58:49.938368"
+      "market_cap": 2349,
+      "updated_at": "2026-07-29T12:51:31.544956"
     },
     {
       "ticker": "279570",
       "name": "케이뱅크",
-      "price": 5780,
-      "change_rate": -3.67,
+      "price": 5420,
+      "change_rate": -6.23,
       "explosion_date": "2026-07-16",
       "explosion_change_rate": 11.1,
       "explosion_volume_ratio": 5.6,
-      "days_since_detected": 7,
+      "days_since_detected": 8,
       "volume_decrease_rate": 87,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 2,
       "ma150": null,
       "above_ma150": false,
-      "market_cap": 23449,
-      "updated_at": "2026-07-28T19:58:49.940279"
+      "market_cap": 21989,
+      "updated_at": "2026-07-29T12:51:31.548741"
     }
   ]
 }
