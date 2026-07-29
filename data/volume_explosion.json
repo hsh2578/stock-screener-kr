@@ -1,21 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-29T12:51:29.610159",
-    "totalCount": 1,
-    "screened_from": 1199
+    "lastUpdated": "2026-07-29T14:40:49.477107",
+    "totalCount": 3,
+    "screened_from": 1201
   },
   "data": [
     {
       "ticker": "484810",
       "name": "티엑스알로보틱스",
-      "price": 13590,
-      "change_rate": 22.1,
-      "volume_ratio": 7.5,
+      "price": 14170,
+      "change_rate": 27.31,
+      "volume_ratio": 11.8,
       "volume_rank": 1,
-      "ma150": 15676,
+      "ma150": 15680,
       "above_ma150": false,
-      "market_cap": 2115,
-      "updated_at": "2026-07-29T12:51:29.186861"
+      "market_cap": 2192,
+      "updated_at": "2026-07-29T14:40:48.579556"
+    },
+    {
+      "ticker": "058610",
+      "name": "에스피지",
+      "price": 79200,
+      "change_rate": 16.47,
+      "volume_ratio": 5.8,
+      "volume_rank": 2,
+      "ma150": 107588,
+      "above_ma150": false,
+      "market_cap": 17564,
+      "updated_at": "2026-07-29T14:40:47.392762"
+    },
+    {
+      "ticker": "039830",
+      "name": "오로라",
+      "price": 19620,
+      "change_rate": 12.05,
+      "volume_ratio": 4.7,
+      "volume_rank": 3,
+      "ma150": 14985,
+      "above_ma150": true,
+      "market_cap": 2112,
+      "updated_at": "2026-07-29T14:40:47.573230"
     }
   ]
 }
