@@ -1,45 +1,57 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-29T14:40:49.477107",
-    "totalCount": 3,
-    "screened_from": 1201
+    "lastUpdated": "2026-07-29T16:23:19.310405",
+    "totalCount": 4,
+    "screened_from": 1203
   },
   "data": [
     {
       "ticker": "484810",
       "name": "티엑스알로보틱스",
-      "price": 14170,
-      "change_rate": 27.31,
-      "volume_ratio": 11.8,
+      "price": 13870,
+      "change_rate": 24.62,
+      "volume_ratio": 16.3,
       "volume_rank": 1,
-      "ma150": 15680,
+      "ma150": 15678,
       "above_ma150": false,
-      "market_cap": 2192,
-      "updated_at": "2026-07-29T14:40:48.579556"
+      "market_cap": 2143,
+      "updated_at": "2026-07-29T16:23:18.555812"
+    },
+    {
+      "ticker": "459510",
+      "name": "나우로보틱스",
+      "price": 14200,
+      "change_rate": 18.33,
+      "volume_ratio": 13.4,
+      "volume_rank": 2,
+      "ma150": 22465,
+      "above_ma150": false,
+      "market_cap": 1843,
+      "updated_at": "2026-07-29T16:23:17.362794"
     },
     {
       "ticker": "058610",
       "name": "에스피지",
-      "price": 79200,
-      "change_rate": 16.47,
-      "volume_ratio": 5.8,
-      "volume_rank": 2,
-      "ma150": 107588,
+      "price": 81800,
+      "change_rate": 20.29,
+      "volume_ratio": 6.9,
+      "volume_rank": 3,
+      "ma150": 107605,
       "above_ma150": false,
-      "market_cap": 17564,
-      "updated_at": "2026-07-29T14:40:47.392762"
+      "market_cap": 18141,
+      "updated_at": "2026-07-29T16:23:18.245750"
     },
     {
-      "ticker": "039830",
-      "name": "오로라",
-      "price": 19620,
-      "change_rate": 12.05,
-      "volume_ratio": 4.7,
-      "volume_rank": 3,
-      "ma150": 14985,
-      "above_ma150": true,
-      "market_cap": 2112,
-      "updated_at": "2026-07-29T14:40:47.573230"
+      "ticker": "319400",
+      "name": "현대무벡스",
+      "price": 23450,
+      "change_rate": 12.47,
+      "volume_ratio": 4.6,
+      "volume_rank": 4,
+      "ma150": 29243,
+      "above_ma150": false,
+      "market_cap": 26118,
+      "updated_at": "2026-07-29T16:23:19.050360"
     }
   ]
 }
