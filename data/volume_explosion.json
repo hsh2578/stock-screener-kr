@@ -1,57 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-29T20:02:22.039738",
-    "totalCount": 4,
+    "lastUpdated": "2026-07-30T12:42:20.805039",
+    "totalCount": 3,
     "screened_from": 1203
   },
   "data": [
     {
-      "ticker": "484810",
-      "name": "티엑스알로보틱스",
-      "price": 13870,
-      "change_rate": 24.62,
-      "volume_ratio": 16.3,
+      "ticker": "333430",
+      "name": "일승",
+      "price": 3685,
+      "change_rate": 12.01,
+      "volume_ratio": 10.2,
       "volume_rank": 1,
-      "ma150": 15678,
+      "ma150": 5119,
       "above_ma150": false,
-      "market_cap": 2143,
-      "updated_at": "2026-07-29T20:02:21.274325"
+      "market_cap": 1132,
+      "updated_at": "2026-07-30T12:42:20.339493"
     },
     {
-      "ticker": "459510",
-      "name": "나우로보틱스",
-      "price": 14200,
-      "change_rate": 18.33,
-      "volume_ratio": 13.4,
+      "ticker": "217730",
+      "name": "강스템바이오텍",
+      "price": 2315,
+      "change_rate": 16.04,
+      "volume_ratio": 2.6,
       "volume_rank": 2,
-      "ma150": 22465,
+      "ma150": 2670,
       "above_ma150": false,
-      "market_cap": 1843,
-      "updated_at": "2026-07-29T20:02:19.183243"
+      "market_cap": 2177,
+      "updated_at": "2026-07-30T12:42:19.282894"
     },
     {
-      "ticker": "058610",
-      "name": "에스피지",
-      "price": 81800,
-      "change_rate": 20.29,
-      "volume_ratio": 6.9,
+      "ticker": "011760",
+      "name": "현대코퍼레이션",
+      "price": 24450,
+      "change_rate": 12.41,
+      "volume_ratio": 2.4,
       "volume_rank": 3,
-      "ma150": 107605,
+      "ma150": 25038,
       "above_ma150": false,
-      "market_cap": 18141,
-      "updated_at": "2026-07-29T20:02:20.993276"
-    },
-    {
-      "ticker": "319400",
-      "name": "현대무벡스",
-      "price": 23450,
-      "change_rate": 12.47,
-      "volume_ratio": 4.6,
-      "volume_rank": 4,
-      "ma150": 29243,
-      "above_ma150": false,
-      "market_cap": 26118,
-      "updated_at": "2026-07-29T20:02:21.863708"
+      "market_cap": 3228,
+      "updated_at": "2026-07-30T12:42:20.799025"
     }
   ]
 }
