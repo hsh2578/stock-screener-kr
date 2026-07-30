@@ -1,69 +1,81 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-30T14:27:39.143801",
-    "totalCount": 5,
-    "screened_from": 1207
+    "lastUpdated": "2026-07-30T16:16:49.255343",
+    "totalCount": 6,
+    "screened_from": 1204
   },
   "data": [
     {
-      "ticker": "333430",
-      "name": "일승",
-      "price": 3765,
-      "change_rate": 14.44,
-      "volume_ratio": 14.4,
-      "volume_rank": 1,
-      "ma150": 5119,
-      "above_ma150": false,
-      "market_cap": 1146,
-      "updated_at": "2026-07-30T14:27:38.972354"
-    },
-    {
       "ticker": "079160",
       "name": "CJ CGV",
-      "price": 5390,
-      "change_rate": 13.0,
-      "volume_ratio": 4.7,
-      "volume_rank": 2,
-      "ma150": 5104,
+      "price": 5430,
+      "change_rate": 13.84,
+      "volume_ratio": 5.5,
+      "volume_rank": 1,
+      "ma150": 5105,
       "above_ma150": true,
-      "market_cap": 8892,
-      "updated_at": "2026-07-30T14:27:38.501689"
+      "market_cap": 8991,
+      "updated_at": "2026-07-30T16:16:49.065056"
+    },
+    {
+      "ticker": "402030",
+      "name": "코난테크놀로지",
+      "price": 13760,
+      "change_rate": 20.07,
+      "volume_ratio": 4.3,
+      "volume_rank": 2,
+      "ma150": 18052,
+      "above_ma150": false,
+      "market_cap": 1722,
+      "updated_at": "2026-07-30T16:16:49.224190"
     },
     {
       "ticker": "054950",
       "name": "제이브이엠",
-      "price": 23350,
-      "change_rate": 13.9,
-      "volume_ratio": 3.3,
+      "price": 23050,
+      "change_rate": 12.44,
+      "volume_ratio": 4.1,
       "volume_rank": 3,
-      "ma150": 24093,
+      "ma150": 24091,
       "above_ma150": false,
-      "market_cap": 2823,
-      "updated_at": "2026-07-30T14:27:38.976146"
+      "market_cap": 2787,
+      "updated_at": "2026-07-30T16:16:49.216432"
     },
     {
-      "ticker": "377450",
-      "name": "리파인",
-      "price": 12000,
-      "change_rate": 14.39,
-      "volume_ratio": 2.8,
+      "ticker": "039830",
+      "name": "오로라",
+      "price": 22000,
+      "change_rate": 12.42,
+      "volume_ratio": 3.2,
       "volume_rank": 4,
-      "ma150": 11373,
+      "ma150": 15025,
       "above_ma150": true,
-      "market_cap": 2080,
-      "updated_at": "2026-07-30T14:27:38.703031"
+      "market_cap": 2368,
+      "updated_at": "2026-07-30T16:16:49.196861"
     },
     {
       "ticker": "011760",
       "name": "현대코퍼레이션",
-      "price": 24400,
-      "change_rate": 12.18,
-      "volume_ratio": 2.8,
+      "price": 25000,
+      "change_rate": 14.94,
+      "volume_ratio": 3.2,
       "volume_rank": 5,
-      "ma150": 25038,
+      "ma150": 25042,
       "above_ma150": false,
-      "market_cap": 3228,
-      "updated_at": "2026-07-30T14:27:39.088154"
+      "market_cap": 3307,
+      "updated_at": "2026-07-30T16:16:49.252340"
+    },
+    {
+      "ticker": "377450",
+      "name": "리파인",
+      "price": 11980,
+      "change_rate": 14.2,
+      "volume_ratio": 3.1,
+      "volume_rank": 6,
+      "ma150": 11373,
+      "above_ma150": true,
+      "market_cap": 2076,
+      "updated_at": "2026-07-30T16:16:49.126048"
     }
   ]
 }
