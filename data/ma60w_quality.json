@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-07-28T22:04:30.084321",
-    "total_count": 7,
+    "updated_at": "2026-07-30T21:57:54.341142",
+    "total_count": 4,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -10,88 +10,52 @@
   },
   "data": [
     {
-      "ticker": "207940",
-      "name": "삼성바이오로직스",
-      "current_price": 1549000,
-      "ma60w": 1535273,
-      "ma60w_gap": 0.89,
-      "op_margin": 45.4,
-      "op_growth_3y": 25.1,
-      "market_cap": 717047,
+      "ticker": "068270",
+      "name": "셀트리온",
+      "current_price": 190000,
+      "ma60w": 178567,
+      "ma60w_gap": 6.4,
+      "op_margin": 28.1,
+      "op_growth_3y": 37.7,
+      "market_cap": 441852,
       "sector": "기타",
-      "updated_at": "2026-07-28T22:04:17.340290"
+      "updated_at": "2026-07-30T21:57:43.444237"
     },
     {
-      "ticker": "298040",
-      "name": "효성중공업",
-      "current_price": 2324000,
-      "ma60w": 2290977,
-      "ma60w_gap": 1.44,
-      "op_margin": 12.5,
-      "op_growth_3y": 48.9,
-      "market_cap": 216702,
+      "ticker": "011200",
+      "name": "HMM",
+      "current_price": 20650,
+      "ma60w": 20389,
+      "ma60w_gap": 1.28,
+      "op_margin": 13.4,
+      "op_growth_3y": 147.4,
+      "market_cap": 194779,
       "sector": "기타",
-      "updated_at": "2026-07-28T22:04:17.345966"
+      "updated_at": "2026-07-30T21:57:43.448789"
     },
     {
       "ticker": "003230",
       "name": "삼양식품",
-      "current_price": 1183000,
-      "ma60w": 1166824,
-      "ma60w_gap": 1.39,
+      "current_price": 1243000,
+      "ma60w": 1169828,
+      "ma60w_gap": 6.25,
       "op_margin": 21.6,
       "op_growth_3y": 78.0,
-      "market_cap": 89116,
+      "market_cap": 93635,
       "sector": "기타",
-      "updated_at": "2026-07-28T22:04:21.258376"
+      "updated_at": "2026-07-30T21:57:43.456458"
     },
     {
       "ticker": "000240",
       "name": "한국앤컴퍼니",
-      "current_price": 24950,
-      "ma60w": 23893,
-      "ma60w_gap": 4.42,
+      "current_price": 24850,
+      "ma60w": 23852,
+      "ma60w_gap": 4.18,
       "op_margin": 26.1,
       "op_growth_3y": 18.6,
-      "market_cap": 23686,
+      "market_cap": 23591,
       "sector": "기타",
-      "updated_at": "2026-07-28T22:04:23.988961"
-    },
-    {
-      "ticker": "004800",
-      "name": "효성",
-      "current_price": 139300,
-      "ma60w": 134889,
-      "ma60w_gap": 3.27,
-      "op_margin": 16.2,
-      "op_growth_3y": 120.3,
-      "market_cap": 23319,
-      "sector": "기타",
-      "updated_at": "2026-07-28T22:04:24.572235"
-    },
-    {
-      "ticker": "073240",
-      "name": "금호타이어",
-      "current_price": 5920,
-      "ma60w": 5431,
-      "ma60w_gap": 8.99,
-      "op_margin": 12.2,
-      "op_growth_3y": 13.7,
-      "market_cap": 17006,
-      "sector": "기타",
-      "updated_at": "2026-07-28T22:04:25.098449"
-    },
-    {
-      "ticker": "395400",
-      "name": "SK리츠",
-      "current_price": 5600,
-      "ma60w": 5523,
-      "ma60w_gap": 1.38,
-      "op_margin": 88.7,
-      "op_growth_3y": 89.1,
-      "market_cap": 16857,
-      "sector": "기타",
-      "updated_at": "2026-07-28T22:04:28.120360"
+      "updated_at": "2026-07-30T21:57:46.780758"
     }
   ]
 }
