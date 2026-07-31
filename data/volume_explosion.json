@@ -1,81 +1,117 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-30T19:39:17.168220",
-    "totalCount": 6,
-    "screened_from": 1204
+    "lastUpdated": "2026-07-31T13:01:27.885751",
+    "totalCount": 9,
+    "screened_from": 1245
   },
   "data": [
     {
-      "ticker": "079160",
-      "name": "CJ CGV",
-      "price": 5430,
-      "change_rate": 13.84,
-      "volume_ratio": 5.5,
+      "ticker": "487570",
+      "name": "HS효성",
+      "price": 45400,
+      "change_rate": 13.08,
+      "volume_ratio": 23.2,
       "volume_rank": 1,
-      "ma150": 5105,
-      "above_ma150": true,
-      "market_cap": 8991,
-      "updated_at": "2026-07-30T19:39:16.292538"
+      "ma150": 55523,
+      "above_ma150": false,
+      "market_cap": 1699,
+      "updated_at": "2026-07-31T13:01:26.710645"
     },
     {
-      "ticker": "402030",
-      "name": "코난테크놀로지",
-      "price": 13760,
-      "change_rate": 20.07,
-      "volume_ratio": 4.3,
+      "ticker": "194480",
+      "name": "데브시스터즈",
+      "price": 18260,
+      "change_rate": 28.14,
+      "volume_ratio": 4.8,
       "volume_rank": 2,
-      "ma150": 18052,
+      "ma150": 26217,
       "above_ma150": false,
-      "market_cap": 1722,
-      "updated_at": "2026-07-30T19:39:16.905642"
+      "market_cap": 2217,
+      "updated_at": "2026-07-31T13:01:27.091615"
     },
     {
-      "ticker": "054950",
-      "name": "제이브이엠",
-      "price": 23050,
-      "change_rate": 12.44,
-      "volume_ratio": 4.1,
+      "ticker": "058610",
+      "name": "에스피지",
+      "price": 93400,
+      "change_rate": 21.61,
+      "volume_ratio": 4.4,
       "volume_rank": 3,
-      "ma150": 24091,
+      "ma150": 107716,
       "above_ma150": false,
-      "market_cap": 2787,
-      "updated_at": "2026-07-30T19:39:16.889423"
+      "market_cap": 20780,
+      "updated_at": "2026-07-31T13:01:27.258073"
     },
     {
-      "ticker": "039830",
-      "name": "오로라",
-      "price": 22000,
-      "change_rate": 12.42,
-      "volume_ratio": 3.2,
+      "ticker": "199430",
+      "name": "케이엔알시스템",
+      "price": 13710,
+      "change_rate": 16.68,
+      "volume_ratio": 3.3,
       "volume_rank": 4,
-      "ma150": 15025,
-      "above_ma150": true,
-      "market_cap": 2368,
-      "updated_at": "2026-07-30T19:39:16.864620"
-    },
-    {
-      "ticker": "011760",
-      "name": "현대코퍼레이션",
-      "price": 25000,
-      "change_rate": 14.94,
-      "volume_ratio": 3.2,
-      "volume_rank": 5,
-      "ma150": 25042,
+      "ma150": 22749,
       "above_ma150": false,
-      "market_cap": 3307,
-      "updated_at": "2026-07-30T19:39:17.155702"
+      "market_cap": 1540,
+      "updated_at": "2026-07-31T13:01:27.386150"
     },
     {
-      "ticker": "377450",
-      "name": "리파인",
-      "price": 11980,
-      "change_rate": 14.2,
-      "volume_ratio": 3.1,
+      "ticker": "484810",
+      "name": "티엑스알로보틱스",
+      "price": 13280,
+      "change_rate": 12.16,
+      "volume_ratio": 3.0,
+      "volume_rank": 5,
+      "ma150": 15637,
+      "above_ma150": false,
+      "market_cap": 2053,
+      "updated_at": "2026-07-31T13:01:27.420820"
+    },
+    {
+      "ticker": "028670",
+      "name": "팬오션",
+      "price": 5640,
+      "change_rate": 14.29,
+      "volume_ratio": 2.7,
       "volume_rank": 6,
-      "ma150": 11373,
+      "ma150": 5050,
       "above_ma150": true,
-      "market_cap": 2076,
-      "updated_at": "2026-07-30T19:39:16.631552"
+      "market_cap": 30150,
+      "updated_at": "2026-07-31T13:01:27.424230"
+    },
+    {
+      "ticker": "073240",
+      "name": "금호타이어",
+      "price": 6990,
+      "change_rate": 14.97,
+      "volume_ratio": 2.6,
+      "volume_rank": 7,
+      "ma150": 5822,
+      "above_ma150": true,
+      "market_cap": 20108,
+      "updated_at": "2026-07-31T13:01:26.765007"
+    },
+    {
+      "ticker": "336260",
+      "name": "두산퓨얼셀",
+      "price": 24500,
+      "change_rate": 29.63,
+      "volume_ratio": 2.5,
+      "volume_rank": 8,
+      "ma150": 48804,
+      "above_ma150": false,
+      "market_cap": 16079,
+      "updated_at": "2026-07-31T13:01:27.169518"
+    },
+    {
+      "ticker": "437730",
+      "name": "삼현",
+      "price": 38100,
+      "change_rate": 16.87,
+      "volume_ratio": 2.2,
+      "volume_rank": 9,
+      "ma150": 50781,
+      "above_ma150": false,
+      "market_cap": 12160,
+      "updated_at": "2026-07-31T13:01:27.211249"
     }
   ]
 }
