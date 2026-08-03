@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-07-31T22:19:25.809711",
-    "total_count": 7,
+    "updated_at": "2026-08-03T23:04:21.752897",
+    "total_count": 6,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -12,86 +12,74 @@
     {
       "ticker": "068270",
       "name": "셀트리온",
-      "current_price": 186700,
-      "ma60w": 178567,
-      "ma60w_gap": 4.55,
+      "current_price": 182200,
+      "ma60w": 178286,
+      "ma60w_gap": 2.2,
       "op_margin": 28.1,
       "op_growth_3y": 37.7,
-      "market_cap": 434178,
+      "market_cap": 423713,
       "sector": "기타",
-      "updated_at": "2026-07-31T22:19:17.612804"
-    },
-    {
-      "ticker": "009540",
-      "name": "HD한국조선해양",
-      "current_price": 384500,
-      "ma60w": 372312,
-      "ma60w_gap": 3.27,
-      "op_margin": 11.6,
-      "op_growth_3y": 121.1,
-      "market_cap": 272123,
-      "sector": "기타",
-      "updated_at": "2026-07-31T22:19:17.615093"
+      "updated_at": "2026-08-03T23:03:57.609795"
     },
     {
       "ticker": "298040",
       "name": "효성중공업",
-      "current_price": 2417000,
-      "ma60w": 2287421,
-      "ma60w_gap": 5.66,
+      "current_price": 2495000,
+      "ma60w": 2288175,
+      "ma60w_gap": 9.04,
       "op_margin": 12.5,
       "op_growth_3y": 48.9,
-      "market_cap": 225374,
+      "market_cap": 232647,
       "sector": "기타",
-      "updated_at": "2026-07-31T22:19:17.616563"
-    },
-    {
-      "ticker": "042700",
-      "name": "한미반도체",
-      "current_price": 214500,
-      "ma60w": 200546,
-      "ma60w_gap": 6.96,
-      "op_margin": 43.6,
-      "op_growth_3y": 212.2,
-      "market_cap": 204445,
-      "sector": "기타",
-      "updated_at": "2026-07-31T22:19:17.617580"
+      "updated_at": "2026-08-03T23:03:57.612298"
     },
     {
       "ticker": "011200",
       "name": "HMM",
-      "current_price": 20950,
-      "ma60w": 20378,
-      "ma60w_gap": 2.8,
+      "current_price": 20750,
+      "ma60w": 20367,
+      "ma60w_gap": 1.88,
       "op_margin": 13.4,
       "op_growth_3y": 147.4,
-      "market_cap": 197608,
+      "market_cap": 195722,
       "sector": "기타",
-      "updated_at": "2026-07-31T22:19:17.618095"
+      "updated_at": "2026-08-03T23:04:03.083690"
+    },
+    {
+      "ticker": "042700",
+      "name": "한미반도체",
+      "current_price": 202500,
+      "ma60w": 200406,
+      "ma60w_gap": 1.04,
+      "op_margin": 43.6,
+      "op_growth_3y": 212.2,
+      "market_cap": 193007,
+      "sector": "기타",
+      "updated_at": "2026-08-03T23:04:03.083990"
     },
     {
       "ticker": "004800",
       "name": "효성",
-      "current_price": 144500,
-      "ma60w": 134710,
-      "ma60w_gap": 7.27,
+      "current_price": 143100,
+      "ma60w": 134641,
+      "ma60w_gap": 6.28,
       "op_margin": 16.2,
       "op_growth_3y": 120.3,
-      "market_cap": 24190,
+      "market_cap": 23956,
       "sector": "기타",
-      "updated_at": "2026-07-31T22:19:21.535253"
+      "updated_at": "2026-08-03T23:04:07.220775"
     },
     {
       "ticker": "000240",
       "name": "한국앤컴퍼니",
       "current_price": 24950,
-      "ma60w": 23811,
-      "ma60w_gap": 4.78,
+      "ma60w": 23823,
+      "ma60w_gap": 4.73,
       "op_margin": 26.1,
       "op_growth_3y": 18.6,
       "market_cap": 23686,
       "sector": "기타",
-      "updated_at": "2026-07-31T22:19:21.536151"
+      "updated_at": "2026-08-03T23:04:07.221261"
     }
   ]
 }
