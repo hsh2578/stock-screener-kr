@@ -1,77 +1,77 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-03T15:11:38.139678",
+    "lastUpdated": "2026-08-03T17:03:17.043823",
     "totalCount": 4,
-    "screened_from": 1267
+    "screened_from": 1273
   },
   "data": [
     {
       "ticker": "417310",
       "name": "코람코더원리츠",
-      "price": 10700,
-      "change_rate": 0.0,
+      "price": 10660,
+      "change_rate": -0.37,
       "high_52w": 10550,
       "breakout_date": "2026-07-24",
       "days_since": 6,
-      "above_high_percent": 1.42,
+      "above_high_percent": 1.04,
       "volume_ratio": 4.4,
-      "vs_breakout_close": -1.65,
+      "vs_breakout_close": -2.02,
       "predicted_gain": 27.0,
       "success_probability": 70.9,
       "ai_score": 74.0,
-      "market_cap": 4323,
-      "updated_at": "2026-08-03T15:11:38.112822"
+      "market_cap": 4307,
+      "updated_at": "2026-08-03T17:03:17.035457"
     },
     {
       "ticker": "078930",
       "name": "GS",
-      "price": 84200,
-      "change_rate": -5.39,
+      "price": 84600,
+      "change_rate": -4.94,
       "high_52w": 86700,
       "breakout_date": "2026-07-23",
       "days_since": 7,
-      "above_high_percent": -2.88,
+      "above_high_percent": -2.42,
       "volume_ratio": 2.5,
-      "vs_breakout_close": -10.04,
+      "vs_breakout_close": -9.62,
       "predicted_gain": 20.3,
       "success_probability": 53.2,
       "ai_score": 55.5,
-      "market_cap": 78218,
-      "updated_at": "2026-08-03T15:11:38.113664"
+      "market_cap": 78590,
+      "updated_at": "2026-08-03T17:03:17.036284"
     },
     {
       "ticker": "475150",
       "name": "SK이터닉스",
-      "price": 46200,
-      "change_rate": 1.65,
+      "price": 46550,
+      "change_rate": 2.42,
       "high_52w": 69300,
       "breakout_date": "2026-07-23",
       "days_since": 7,
-      "above_high_percent": -33.33,
+      "above_high_percent": -32.83,
       "volume_ratio": 3.1,
-      "vs_breakout_close": -42.68,
+      "vs_breakout_close": -42.25,
       "predicted_gain": 21.5,
       "success_probability": 44.8,
       "ai_score": 50.7,
-      "market_cap": 15739,
-      "updated_at": "2026-08-03T15:11:38.114496"
+      "market_cap": 15858,
+      "updated_at": "2026-08-03T17:03:17.036993"
     },
     {
       "ticker": "093320",
       "name": "케이아이엔엑스",
-      "price": 135000,
-      "change_rate": 4.09,
+      "price": 136400,
+      "change_rate": 5.17,
       "high_52w": 145100,
       "breakout_date": "2026-07-23",
       "days_since": 7,
-      "above_high_percent": -6.96,
+      "above_high_percent": -6.0,
       "volume_ratio": 2.0,
-      "vs_breakout_close": -9.03,
+      "vs_breakout_close": -8.09,
       "predicted_gain": 26.4,
       "success_probability": 35.9,
       "ai_score": 48.9,
-      "market_cap": 6593,
-      "updated_at": "2026-08-03T15:11:38.115145"
+      "market_cap": 6656,
+      "updated_at": "2026-08-03T17:03:17.037682"
     }
   ]
 }
