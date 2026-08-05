@@ -1,45 +1,27 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-04T20:03:12.078092",
-    "totalCount": 2,
-    "screened_from": 1296
+    "lastUpdated": "2026-08-05T12:45:00.756133",
+    "totalCount": 1,
+    "screened_from": 1307
   },
   "data": [
     {
       "ticker": "051900",
       "name": "LG생활건강",
-      "price": 291500,
-      "change_rate": 2.82,
+      "price": 302000,
+      "change_rate": 3.6,
       "explosion_date": "2026-07-30",
       "explosion_change_rate": 11.0,
       "explosion_volume_ratio": 8.9,
-      "days_since_detected": 3,
+      "days_since_detected": 4,
       "volume_decrease_rate": 76,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
       "ma150": 254673,
       "above_ma150": true,
-      "market_cap": 43654,
-      "updated_at": "2026-08-04T20:03:10.007337"
-    },
-    {
-      "ticker": "217590",
-      "name": "티엠씨",
-      "price": 12410,
-      "change_rate": 18.64,
-      "explosion_date": "2026-07-21",
-      "explosion_change_rate": 14.8,
-      "explosion_volume_ratio": 6.7,
-      "days_since_detected": 10,
-      "volume_decrease_rate": 74,
-      "pattern_type": "candle_range",
-      "ma20_distance": null,
-      "volume_rank": 2,
-      "ma150": null,
-      "above_ma150": false,
-      "market_cap": 2990,
-      "updated_at": "2026-08-04T20:03:12.077232"
+      "market_cap": 45226,
+      "updated_at": "2026-08-05T12:45:00.755087"
     }
   ]
 }
