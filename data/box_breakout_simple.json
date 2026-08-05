@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-05T14:34:44.519612",
-    "totalCount": 3,
-    "screened_from": 1306
+    "lastUpdated": "2026-08-05T16:18:46.563249",
+    "totalCount": 4,
+    "screened_from": 1308
   },
   "data": [
     {
       "ticker": "002810",
       "name": "삼영무역",
-      "price": 22950,
-      "change_rate": 6.25,
+      "price": 23350,
+      "change_rate": 8.1,
       "breakout_date": "2026-07-24",
       "resistance": 22050,
       "days_since_breakout": 8,
@@ -17,48 +17,66 @@
       "gain_since_breakout": 1.31,
       "ma150": 19286,
       "above_ma150": true,
-      "market_cap": 4238,
+      "market_cap": 4312,
       "success_prob": 41.9,
       "predicted_gain": 16.7,
       "ai_score": 44.4,
-      "updated_at": "2026-08-05T14:34:44.518494",
-      "vs_breakout_close": 0.22
+      "updated_at": "2026-08-05T16:18:46.561129",
+      "vs_breakout_close": 1.97
     },
     {
       "ticker": "000700",
       "name": "유수홀딩스",
-      "price": 6490,
-      "change_rate": 1.72,
+      "price": 6500,
+      "change_rate": 1.88,
       "breakout_date": "2026-08-03",
       "resistance": 6120,
       "days_since_breakout": 2,
-      "breakout_pct": 6.05,
-      "gain_since_breakout": 3.02,
+      "breakout_pct": 6.21,
+      "gain_since_breakout": 3.17,
       "ma150": 6000,
       "above_ma150": true,
-      "market_cap": 1688,
+      "market_cap": 1693,
       "success_prob": 44.9,
       "predicted_gain": 12.0,
       "ai_score": 42.2,
-      "updated_at": "2026-08-05T14:34:42.743905"
+      "updated_at": "2026-08-05T16:18:44.471092"
     },
     {
       "ticker": "138040",
       "name": "메리츠금융지주",
-      "price": 120600,
-      "change_rate": 0.92,
+      "price": 120400,
+      "change_rate": 0.75,
       "breakout_date": "2026-07-24",
       "resistance": 118300,
       "days_since_breakout": 8,
-      "breakout_pct": 1.94,
-      "gain_since_breakout": -2.19,
-      "ma150": 113392,
+      "breakout_pct": 1.78,
+      "gain_since_breakout": -2.35,
+      "ma150": 113391,
       "above_ma150": true,
       "market_cap": 201486,
       "success_prob": 19.8,
       "predicted_gain": 12.3,
       "ai_score": 24.9,
-      "updated_at": "2026-08-05T14:34:40.881001"
+      "updated_at": "2026-08-05T16:18:40.590289"
+    },
+    {
+      "ticker": "003610",
+      "name": "방림",
+      "price": 5590,
+      "change_rate": 3.14,
+      "breakout_date": "2026-08-05",
+      "resistance": 5500,
+      "days_since_breakout": 0,
+      "breakout_pct": 1.64,
+      "gain_since_breakout": 0.0,
+      "ma150": 5391,
+      "above_ma150": true,
+      "market_cap": 1795,
+      "success_prob": 20.9,
+      "predicted_gain": 9.8,
+      "ai_score": 23.5,
+      "updated_at": "2026-08-05T16:18:41.799592"
     }
   ]
 }
