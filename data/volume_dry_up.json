@@ -1,27 +1,27 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-05T12:45:00.756133",
+    "lastUpdated": "2026-08-05T14:34:40.257675",
     "totalCount": 1,
-    "screened_from": 1307
+    "screened_from": 1306
   },
   "data": [
     {
       "ticker": "051900",
       "name": "LG생활건강",
-      "price": 302000,
-      "change_rate": 3.6,
+      "price": 297500,
+      "change_rate": 2.06,
       "explosion_date": "2026-07-30",
       "explosion_change_rate": 11.0,
       "explosion_volume_ratio": 8.9,
       "days_since_detected": 4,
-      "volume_decrease_rate": 76,
+      "volume_decrease_rate": 80,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
-      "ma150": 254673,
+      "ma150": 254900,
       "above_ma150": true,
-      "market_cap": 45226,
-      "updated_at": "2026-08-05T12:45:00.755087"
+      "market_cap": 44477,
+      "updated_at": "2026-08-05T14:34:38.995243"
     }
   ]
 }

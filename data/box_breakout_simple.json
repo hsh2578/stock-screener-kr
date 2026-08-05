@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-05T12:45:04.150098",
+    "lastUpdated": "2026-08-05T14:34:44.519612",
     "totalCount": 3,
-    "screened_from": 1307
+    "screened_from": 1306
   },
   "data": [
     {
       "ticker": "002810",
       "name": "삼영무역",
-      "price": 21550,
-      "change_rate": -0.23,
+      "price": 22950,
+      "change_rate": 6.25,
       "breakout_date": "2026-07-24",
       "resistance": 22050,
       "days_since_breakout": 8,
@@ -17,48 +17,48 @@
       "gain_since_breakout": 1.31,
       "ma150": 19286,
       "above_ma150": true,
-      "market_cap": 3980,
+      "market_cap": 4238,
       "success_prob": 41.9,
       "predicted_gain": 16.7,
       "ai_score": 44.4,
-      "updated_at": "2026-08-05T12:45:04.148717",
-      "vs_breakout_close": -5.9
+      "updated_at": "2026-08-05T14:34:44.518494",
+      "vs_breakout_close": 0.22
     },
     {
       "ticker": "000700",
       "name": "유수홀딩스",
-      "price": 6510,
-      "change_rate": 2.04,
+      "price": 6490,
+      "change_rate": 1.72,
       "breakout_date": "2026-08-03",
       "resistance": 6120,
       "days_since_breakout": 2,
-      "breakout_pct": 6.37,
-      "gain_since_breakout": 3.33,
+      "breakout_pct": 6.05,
+      "gain_since_breakout": 3.02,
       "ma150": 6000,
       "above_ma150": true,
-      "market_cap": 1695,
+      "market_cap": 1688,
       "success_prob": 44.9,
       "predicted_gain": 12.0,
       "ai_score": 42.2,
-      "updated_at": "2026-08-05T12:45:02.741187"
+      "updated_at": "2026-08-05T14:34:42.743905"
     },
     {
       "ticker": "138040",
       "name": "메리츠금융지주",
-      "price": 121800,
-      "change_rate": 1.92,
+      "price": 120600,
+      "change_rate": 0.92,
       "breakout_date": "2026-07-24",
       "resistance": 118300,
       "days_since_breakout": 8,
-      "breakout_pct": 2.96,
-      "gain_since_breakout": -1.22,
-      "ma150": 113400,
+      "breakout_pct": 1.94,
+      "gain_since_breakout": -2.19,
+      "ma150": 113392,
       "above_ma150": true,
-      "market_cap": 203829,
+      "market_cap": 201486,
       "success_prob": 19.8,
       "predicted_gain": 12.3,
       "ai_score": 24.9,
-      "updated_at": "2026-08-05T12:45:01.209296"
+      "updated_at": "2026-08-05T14:34:40.881001"
     }
   ]
 }
