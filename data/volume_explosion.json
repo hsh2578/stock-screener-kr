@@ -1,33 +1,21 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-06T14:37:03.668955",
+    "lastUpdated": "2026-08-06T16:19:52.630938",
     "totalCount": 11,
-    "screened_from": 1309
+    "screened_from": 1310
   },
   "data": [
-    {
-      "ticker": "463020",
-      "name": "뉴엔AI",
-      "price": 12150,
-      "change_rate": 17.62,
-      "volume_ratio": 14.0,
-      "volume_rank": 1,
-      "ma150": 12188,
-      "above_ma150": false,
-      "market_cap": 1092,
-      "updated_at": "2026-08-06T14:37:02.027163"
-    },
     {
       "ticker": "0015N0",
       "name": "아로마티카",
       "price": 8950,
       "change_rate": 29.9,
-      "volume_ratio": 12.5,
-      "volume_rank": 2,
+      "volume_ratio": 12.7,
+      "volume_rank": 1,
       "ma150": 8563,
       "above_ma150": true,
       "market_cap": 1126,
-      "updated_at": "2026-08-06T14:37:02.621149"
+      "updated_at": "2026-08-06T16:19:51.779020"
     },
     {
       "ticker": "210980",
@@ -35,35 +23,47 @@
       "price": 5940,
       "change_rate": 29.84,
       "volume_ratio": 12.0,
-      "volume_rank": 3,
+      "volume_rank": 2,
       "ma150": 11692,
       "above_ma150": false,
       "market_cap": 1106,
-      "updated_at": "2026-08-06T14:37:01.742614"
+      "updated_at": "2026-08-06T16:19:51.043853"
     },
     {
       "ticker": "476060",
       "name": "온코닉테라퓨틱스",
-      "price": 16310,
-      "change_rate": 25.17,
-      "volume_ratio": 10.0,
-      "volume_rank": 4,
-      "ma150": 18515,
+      "price": 15940,
+      "change_rate": 22.33,
+      "volume_ratio": 11.0,
+      "volume_rank": 3,
+      "ma150": 18513,
       "above_ma150": false,
-      "market_cap": 7451,
-      "updated_at": "2026-08-06T14:37:02.692438"
+      "market_cap": 7238,
+      "updated_at": "2026-08-06T16:19:51.812759"
     },
     {
       "ticker": "041830",
       "name": "인바디",
-      "price": 70100,
-      "change_rate": 23.63,
-      "volume_ratio": 4.9,
-      "volume_rank": 5,
-      "ma150": 38178,
+      "price": 70000,
+      "change_rate": 23.46,
+      "volume_ratio": 5.5,
+      "volume_rank": 4,
+      "ma150": 38177,
       "above_ma150": true,
-      "market_cap": 9423,
-      "updated_at": "2026-08-06T14:37:02.976792"
+      "market_cap": 9437,
+      "updated_at": "2026-08-06T16:19:52.044989"
+    },
+    {
+      "ticker": "222040",
+      "name": "코스맥스엔비티",
+      "price": 9000,
+      "change_rate": 15.83,
+      "volume_ratio": 5.0,
+      "volume_rank": 5,
+      "ma150": 5190,
+      "above_ma150": true,
+      "market_cap": 1857,
+      "updated_at": "2026-08-06T16:19:52.522520"
     },
     {
       "ticker": "001290",
@@ -75,67 +75,67 @@
       "ma150": 954,
       "above_ma150": false,
       "market_cap": 1003,
-      "updated_at": "2026-08-06T14:37:02.549095"
-    },
-    {
-      "ticker": "222040",
-      "name": "코스맥스엔비티",
-      "price": 8970,
-      "change_rate": 15.44,
-      "volume_ratio": 4.5,
-      "volume_rank": 7,
-      "ma150": 5190,
-      "above_ma150": true,
-      "market_cap": 1848,
-      "updated_at": "2026-08-06T14:37:03.388019"
+      "updated_at": "2026-08-06T16:19:51.751796"
     },
     {
       "ticker": "001540",
       "name": "안국약품",
-      "price": 12490,
-      "change_rate": 13.34,
-      "volume_ratio": 4.3,
-      "volume_rank": 8,
-      "ma150": 9168,
+      "price": 12560,
+      "change_rate": 13.97,
+      "volume_ratio": 4.7,
+      "volume_rank": 7,
+      "ma150": 9169,
       "above_ma150": true,
-      "market_cap": 1636,
-      "updated_at": "2026-08-06T14:37:02.634453"
+      "market_cap": 1638,
+      "updated_at": "2026-08-06T16:19:51.786724"
     },
     {
       "ticker": "010130",
       "name": "고려아연",
-      "price": 1243000,
-      "change_rate": 13.52,
-      "volume_ratio": 4.0,
-      "volume_rank": 9,
-      "ma150": 1431326,
+      "price": 1234000,
+      "change_rate": 12.69,
+      "volume_ratio": 4.5,
+      "volume_rank": 8,
+      "ma150": 1431266,
       "above_ma150": false,
-      "market_cap": 259451,
-      "updated_at": "2026-08-06T14:37:01.768659"
+      "market_cap": 257572,
+      "updated_at": "2026-08-06T16:19:51.057236"
+    },
+    {
+      "ticker": "115310",
+      "name": "인포바인",
+      "price": 8000,
+      "change_rate": 12.52,
+      "volume_ratio": 3.1,
+      "volume_rank": 9,
+      "ma150": 11821,
+      "above_ma150": false,
+      "market_cap": 1187,
+      "updated_at": "2026-08-06T16:19:52.086579"
     },
     {
       "ticker": "159010",
       "name": "아스플로",
-      "price": 18990,
-      "change_rate": 15.09,
-      "volume_ratio": 2.6,
+      "price": 19000,
+      "change_rate": 15.15,
+      "volume_ratio": 2.9,
       "volume_rank": 10,
       "ma150": 10619,
       "above_ma150": true,
-      "market_cap": 2535,
-      "updated_at": "2026-08-06T14:37:02.624031"
+      "market_cap": 2534,
+      "updated_at": "2026-08-06T16:19:51.781704"
     },
     {
       "ticker": "127120",
       "name": "제이에스링크",
-      "price": 40350,
-      "change_rate": 14.14,
-      "volume_ratio": 2.6,
+      "price": 40100,
+      "change_rate": 13.44,
+      "volume_ratio": 2.9,
       "volume_rank": 11,
-      "ma150": 34172,
+      "ma150": 34170,
       "above_ma150": true,
-      "market_cap": 14005,
-      "updated_at": "2026-08-06T14:37:02.988147"
+      "market_cap": 13936,
+      "updated_at": "2026-08-06T16:19:52.210234"
     }
   ]
 }
