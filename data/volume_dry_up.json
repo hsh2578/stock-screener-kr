@@ -1,27 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-05T20:00:27.882083",
-    "totalCount": 1,
-    "screened_from": 1308
+    "lastUpdated": "2026-08-06T12:50:55.767844",
+    "totalCount": 2,
+    "screened_from": 1307
   },
   "data": [
     {
-      "ticker": "051900",
-      "name": "LG생활건강",
-      "price": 292500,
-      "change_rate": 0.34,
-      "explosion_date": "2026-07-30",
-      "explosion_change_rate": 11.0,
-      "explosion_volume_ratio": 8.9,
-      "days_since_detected": 4,
-      "volume_decrease_rate": 79,
+      "ticker": "058610",
+      "name": "에스피지",
+      "price": 109600,
+      "change_rate": 0.64,
+      "explosion_date": "2026-08-03",
+      "explosion_change_rate": 14.9,
+      "explosion_volume_ratio": 5.1,
+      "days_since_detected": 3,
+      "volume_decrease_rate": 67,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
+      "ma150": 108382,
+      "above_ma150": true,
+      "market_cap": 24329,
+      "updated_at": "2026-08-06T12:50:55.271814"
+    },
+    {
+      "ticker": "051900",
+      "name": "LG생활건강",
+      "price": 314000,
+      "change_rate": 7.35,
+      "explosion_date": "2026-07-30",
+      "explosion_change_rate": 11.0,
+      "explosion_volume_ratio": 8.9,
+      "days_since_detected": 5,
+      "volume_decrease_rate": 79,
+      "pattern_type": "candle_range",
+      "ma20_distance": null,
+      "volume_rank": 2,
       "ma150": 254866,
       "above_ma150": true,
-      "market_cap": 43803,
-      "updated_at": "2026-08-05T20:00:25.327380"
+      "market_cap": 46948,
+      "updated_at": "2026-08-06T12:50:55.766342"
     }
   ]
 }
