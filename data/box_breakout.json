@@ -1,29 +1,29 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-06T20:01:47.768104",
+    "lastUpdated": "2026-08-07T12:27:39.311495",
     "totalCount": 1,
-    "screened_from": 1310
+    "screened_from": 1307
   },
   "data": [
     {
       "ticker": "002810",
       "name": "삼영무역",
-      "price": 22850,
-      "change_rate": -2.14,
+      "price": 22900,
+      "change_rate": 0.22,
       "breakout_date": "2026-07-24",
-      "days_since_breakout": 9,
+      "days_since_breakout": 10,
       "breakout_price": 22050,
       "breakout_pct": 5.22,
       "gain_since_breakout": 1.31,
       "volume_ratio": 3.2,
       "ma150": 19286,
       "above_ma150": true,
-      "market_cap": 4220,
+      "market_cap": 4238,
       "success_prob": 28.2,
       "predicted_gain": 13.5,
       "ai_score": 31.9,
-      "updated_at": "2026-08-06T20:01:47.717488",
-      "vs_breakout_close": -0.22
+      "updated_at": "2026-08-07T12:27:39.310424",
+      "vs_breakout_close": 0.0
     }
   ]
 }
