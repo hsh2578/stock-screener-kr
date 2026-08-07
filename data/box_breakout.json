@@ -1,34 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-07T14:59:23.122106",
-    "totalCount": 2,
-    "screened_from": 1309
+    "lastUpdated": "2026-08-07T16:59:00.984876",
+    "totalCount": 1,
+    "screened_from": 1310
   },
   "data": [
     {
-      "ticker": "052330",
-      "name": "코텍",
-      "price": 12610,
-      "change_rate": 3.02,
-      "breakout_date": "2026-08-07",
-      "days_since_breakout": 0,
-      "breakout_price": 12370,
-      "breakout_pct": 1.94,
-      "gain_since_breakout": 0.0,
-      "volume_ratio": 4.0,
-      "ma150": 10741,
-      "above_ma150": true,
-      "market_cap": 2240,
-      "success_prob": 34.6,
-      "predicted_gain": 10.5,
-      "ai_score": 33.6,
-      "updated_at": "2026-08-07T14:59:22.071350"
-    },
-    {
       "ticker": "002810",
       "name": "삼영무역",
-      "price": 23000,
-      "change_rate": 0.66,
+      "price": 23050,
+      "change_rate": 0.88,
       "breakout_date": "2026-07-24",
       "days_since_breakout": 10,
       "breakout_price": 22050,
@@ -41,8 +22,8 @@
       "success_prob": 28.2,
       "predicted_gain": 13.5,
       "ai_score": 31.9,
-      "updated_at": "2026-08-07T14:59:23.082750",
-      "vs_breakout_close": 0.44
+      "updated_at": "2026-08-07T16:59:00.983029",
+      "vs_breakout_close": 0.66
     }
   ]
 }

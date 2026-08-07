@@ -1,69 +1,81 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-07T14:59:12.171728",
+    "lastUpdated": "2026-08-07T16:58:52.317476",
     "totalCount": 10,
-    "screened_from": 1309
+    "screened_from": 1310
   },
   "data": [
     {
       "ticker": "025900",
       "name": "동화기업",
-      "price": 7820,
-      "change_rate": 26.13,
-      "volume_ratio": 13.6,
+      "price": 8060,
+      "change_rate": 30.0,
+      "volume_ratio": 14.9,
       "volume_rank": 1,
-      "ma150": 8921,
+      "ma150": 8922,
       "above_ma150": false,
-      "market_cap": 3954,
-      "updated_at": "2026-08-07T14:59:11.982026"
+      "market_cap": 4075,
+      "updated_at": "2026-08-07T16:58:52.085517"
     },
     {
       "ticker": "017900",
       "name": "광전자",
-      "price": 7740,
-      "change_rate": 13.99,
-      "volume_ratio": 8.4,
+      "price": 7810,
+      "change_rate": 15.02,
+      "volume_ratio": 8.7,
       "volume_rank": 2,
-      "ma150": 6000,
+      "ma150": 6001,
       "above_ma150": true,
-      "market_cap": 4473,
-      "updated_at": "2026-08-07T14:59:11.771167"
+      "market_cap": 4525,
+      "updated_at": "2026-08-07T16:58:52.066383"
     },
     {
       "ticker": "138080",
       "name": "오이솔루션",
-      "price": 26175,
-      "change_rate": 16.85,
-      "volume_ratio": 6.9,
+      "price": 26550,
+      "change_rate": 18.53,
+      "volume_ratio": 7.3,
       "volume_rank": 3,
-      "ma150": 27951,
+      "ma150": 27953,
       "above_ma150": false,
-      "market_cap": 3249,
-      "updated_at": "2026-08-07T14:59:12.076108"
-    },
-    {
-      "ticker": "053260",
-      "name": "금강철강",
-      "price": 5360,
-      "change_rate": 13.32,
-      "volume_ratio": 6.2,
-      "volume_rank": 4,
-      "ma150": 4803,
-      "above_ma150": true,
-      "market_cap": 1003,
-      "updated_at": "2026-08-07T14:59:11.818060"
+      "market_cap": 3286,
+      "updated_at": "2026-08-07T16:58:52.146414"
     },
     {
       "ticker": "126730",
       "name": "코칩",
-      "price": 15800,
-      "change_rate": 22.48,
-      "volume_ratio": 5.8,
-      "volume_rank": 5,
-      "ma150": 17891,
+      "price": 14690,
+      "change_rate": 13.88,
+      "volume_ratio": 6.6,
+      "volume_rank": 4,
+      "ma150": 17883,
       "above_ma150": false,
-      "market_cap": 1380,
-      "updated_at": "2026-08-07T14:59:12.116818"
+      "market_cap": 1288,
+      "updated_at": "2026-08-07T16:58:52.205531"
+    },
+    {
+      "ticker": "280360",
+      "name": "롯데웰푸드",
+      "price": 116900,
+      "change_rate": 12.4,
+      "volume_ratio": 5.3,
+      "volume_rank": 5,
+      "ma150": 112081,
+      "above_ma150": true,
+      "market_cap": 10760,
+      "updated_at": "2026-08-07T16:58:52.090243"
+    },
+    {
+      "ticker": "114190",
+      "name": "강원에너지",
+      "price": 9380,
+      "change_rate": 15.52,
+      "volume_ratio": 4.7,
+      "volume_rank": 6,
+      "ma150": 12545,
+      "above_ma150": false,
+      "market_cap": 2450,
+      "updated_at": "2026-08-07T16:58:52.063825"
     },
     {
       "ticker": "001290",
@@ -71,59 +83,47 @@
       "price": 1203,
       "change_rate": 29.91,
       "volume_ratio": 4.4,
-      "volume_rank": 6,
+      "volume_rank": 7,
       "ma150": 957,
       "above_ma150": true,
       "market_cap": 1303,
-      "updated_at": "2026-08-07T14:59:12.012768"
-    },
-    {
-      "ticker": "280360",
-      "name": "롯데웰푸드",
-      "price": 116800,
-      "change_rate": 12.31,
-      "volume_ratio": 3.7,
-      "volume_rank": 7,
-      "ma150": 112080,
-      "above_ma150": true,
-      "market_cap": 10788,
-      "updated_at": "2026-08-07T14:59:11.988349"
+      "updated_at": "2026-08-07T16:58:52.111121"
     },
     {
       "ticker": "066970",
       "name": "엘앤에프",
-      "price": 90400,
-      "change_rate": 13.28,
-      "volume_ratio": 3.6,
+      "price": 90200,
+      "change_rate": 13.03,
+      "volume_ratio": 3.7,
       "volume_rank": 8,
-      "ma150": 129938,
+      "ma150": 129937,
       "above_ma150": false,
-      "market_cap": 36818,
-      "updated_at": "2026-08-07T14:59:12.066591"
-    },
-    {
-      "ticker": "282330",
-      "name": "BGF리테일",
-      "price": 152700,
-      "change_rate": 14.38,
-      "volume_ratio": 2.2,
-      "volume_rank": 9,
-      "ma150": 124836,
-      "above_ma150": true,
-      "market_cap": 26358,
-      "updated_at": "2026-08-07T14:59:11.594429"
+      "market_cap": 36696,
+      "updated_at": "2026-08-07T16:58:52.142926"
     },
     {
       "ticker": "348370",
       "name": "엔켐",
-      "price": 24150,
-      "change_rate": 15.27,
-      "volume_ratio": 2.2,
-      "volume_rank": 10,
-      "ma150": 46066,
+      "price": 24850,
+      "change_rate": 18.62,
+      "volume_ratio": 2.6,
+      "volume_rank": 9,
+      "ma150": 46071,
       "above_ma150": false,
-      "market_cap": 5313,
-      "updated_at": "2026-08-07T14:59:12.065892"
+      "market_cap": 5445,
+      "updated_at": "2026-08-07T16:58:52.142374"
+    },
+    {
+      "ticker": "282330",
+      "name": "BGF리테일",
+      "price": 153100,
+      "change_rate": 14.68,
+      "volume_ratio": 2.4,
+      "volume_rank": 10,
+      "ma150": 124839,
+      "above_ma150": true,
+      "market_cap": 26462,
+      "updated_at": "2026-08-07T16:58:52.031937"
     }
   ]
 }
