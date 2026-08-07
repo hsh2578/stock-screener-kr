@@ -1,69 +1,129 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-07T12:27:28.699755",
-    "totalCount": 5,
-    "screened_from": 1307
+    "lastUpdated": "2026-08-07T14:59:12.171728",
+    "totalCount": 10,
+    "screened_from": 1309
   },
   "data": [
     {
       "ticker": "025900",
       "name": "동화기업",
-      "price": 7450,
-      "change_rate": 20.16,
-      "volume_ratio": 9.6,
+      "price": 7820,
+      "change_rate": 26.13,
+      "volume_ratio": 13.6,
       "volume_rank": 1,
-      "ma150": 8918,
+      "ma150": 8921,
       "above_ma150": false,
-      "market_cap": 3767,
-      "updated_at": "2026-08-07T12:27:28.294399"
-    },
-    {
-      "ticker": "463020",
-      "name": "뉴엔AI",
-      "price": 13680,
-      "change_rate": 20.95,
-      "volume_ratio": 9.0,
-      "volume_rank": 2,
-      "ma150": 12163,
-      "above_ma150": true,
-      "market_cap": 1229,
-      "updated_at": "2026-08-07T12:27:28.274479"
+      "market_cap": 3954,
+      "updated_at": "2026-08-07T14:59:11.982026"
     },
     {
       "ticker": "017900",
       "name": "광전자",
-      "price": 7760,
-      "change_rate": 14.29,
-      "volume_ratio": 6.2,
-      "volume_rank": 3,
+      "price": 7740,
+      "change_rate": 13.99,
+      "volume_ratio": 8.4,
+      "volume_rank": 2,
       "ma150": 6000,
       "above_ma150": true,
-      "market_cap": 4496,
-      "updated_at": "2026-08-07T12:27:28.262556"
+      "market_cap": 4473,
+      "updated_at": "2026-08-07T14:59:11.771167"
     },
     {
       "ticker": "138080",
       "name": "오이솔루션",
-      "price": 26250,
-      "change_rate": 17.19,
-      "volume_ratio": 5.5,
-      "volume_rank": 4,
+      "price": 26175,
+      "change_rate": 16.85,
+      "volume_ratio": 6.9,
+      "volume_rank": 3,
       "ma150": 27951,
       "above_ma150": false,
-      "market_cap": 3243,
-      "updated_at": "2026-08-07T12:27:28.462703"
+      "market_cap": 3249,
+      "updated_at": "2026-08-07T14:59:12.076108"
+    },
+    {
+      "ticker": "053260",
+      "name": "금강철강",
+      "price": 5360,
+      "change_rate": 13.32,
+      "volume_ratio": 6.2,
+      "volume_rank": 4,
+      "ma150": 4803,
+      "above_ma150": true,
+      "market_cap": 1003,
+      "updated_at": "2026-08-07T14:59:11.818060"
+    },
+    {
+      "ticker": "126730",
+      "name": "코칩",
+      "price": 15800,
+      "change_rate": 22.48,
+      "volume_ratio": 5.8,
+      "volume_rank": 5,
+      "ma150": 17891,
+      "above_ma150": false,
+      "market_cap": 1380,
+      "updated_at": "2026-08-07T14:59:12.116818"
     },
     {
       "ticker": "001290",
       "name": "상상인증권",
       "price": 1203,
       "change_rate": 29.91,
-      "volume_ratio": 3.7,
-      "volume_rank": 5,
+      "volume_ratio": 4.4,
+      "volume_rank": 6,
       "ma150": 957,
       "above_ma150": true,
       "market_cap": 1303,
-      "updated_at": "2026-08-07T12:27:28.413828"
+      "updated_at": "2026-08-07T14:59:12.012768"
+    },
+    {
+      "ticker": "280360",
+      "name": "롯데웰푸드",
+      "price": 116800,
+      "change_rate": 12.31,
+      "volume_ratio": 3.7,
+      "volume_rank": 7,
+      "ma150": 112080,
+      "above_ma150": true,
+      "market_cap": 10788,
+      "updated_at": "2026-08-07T14:59:11.988349"
+    },
+    {
+      "ticker": "066970",
+      "name": "엘앤에프",
+      "price": 90400,
+      "change_rate": 13.28,
+      "volume_ratio": 3.6,
+      "volume_rank": 8,
+      "ma150": 129938,
+      "above_ma150": false,
+      "market_cap": 36818,
+      "updated_at": "2026-08-07T14:59:12.066591"
+    },
+    {
+      "ticker": "282330",
+      "name": "BGF리테일",
+      "price": 152700,
+      "change_rate": 14.38,
+      "volume_ratio": 2.2,
+      "volume_rank": 9,
+      "ma150": 124836,
+      "above_ma150": true,
+      "market_cap": 26358,
+      "updated_at": "2026-08-07T14:59:11.594429"
+    },
+    {
+      "ticker": "348370",
+      "name": "엔켐",
+      "price": 24150,
+      "change_rate": 15.27,
+      "volume_ratio": 2.2,
+      "volume_rank": 10,
+      "ma150": 46066,
+      "above_ma150": false,
+      "market_cap": 5313,
+      "updated_at": "2026-08-07T14:59:12.065892"
     }
   ]
 }

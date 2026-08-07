@@ -1,27 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-07T12:27:31.590575",
-    "totalCount": 4,
-    "screened_from": 1307
+    "lastUpdated": "2026-08-07T14:59:14.935630",
+    "totalCount": 5,
+    "screened_from": 1309
   },
   "data": [
     {
+      "ticker": "053690",
+      "name": "한미글로벌",
+      "price": 17670,
+      "change_rate": -2.7,
+      "explosion_date": "2026-08-04",
+      "explosion_change_rate": 16.5,
+      "explosion_volume_ratio": 3.8,
+      "days_since_detected": 3,
+      "volume_decrease_rate": 86,
+      "pattern_type": "candle_range",
+      "ma20_distance": null,
+      "volume_rank": 1,
+      "ma150": 21249,
+      "above_ma150": false,
+      "market_cap": 1935,
+      "updated_at": "2026-08-07T14:59:14.801509"
+    },
+    {
       "ticker": "119850",
       "name": "지엔씨에너지",
-      "price": 51550,
-      "change_rate": 0.88,
+      "price": 52200,
+      "change_rate": 2.15,
       "explosion_date": "2026-08-04",
       "explosion_change_rate": 21.9,
       "explosion_volume_ratio": 3.9,
       "days_since_detected": 3,
-      "volume_decrease_rate": 73,
+      "volume_decrease_rate": 71,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 1,
-      "ma150": 32602,
+      "volume_rank": 2,
+      "ma150": 32606,
       "above_ma150": true,
-      "market_cap": 8504,
-      "updated_at": "2026-08-07T12:27:31.304019"
+      "market_cap": 8586,
+      "updated_at": "2026-08-07T14:59:14.604817"
     },
     {
       "ticker": "488280",
@@ -32,20 +50,20 @@
       "explosion_change_rate": 17.0,
       "explosion_volume_ratio": 4.9,
       "days_since_detected": 3,
-      "volume_decrease_rate": 70,
+      "volume_decrease_rate": 66,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 2,
+      "volume_rank": 3,
       "ma150": 18450,
       "above_ma150": false,
-      "market_cap": 1199,
-      "updated_at": "2026-08-07T12:27:31.051352"
+      "market_cap": 1195,
+      "updated_at": "2026-08-07T14:59:14.376239"
     },
     {
       "ticker": "058610",
       "name": "에스피지",
-      "price": 99700,
-      "change_rate": -8.03,
+      "price": 100000,
+      "change_rate": -7.75,
       "explosion_date": "2026-08-03",
       "explosion_change_rate": 14.9,
       "explosion_volume_ratio": 5.1,
@@ -53,17 +71,17 @@
       "volume_decrease_rate": 66,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 3,
+      "volume_rank": 4,
       "ma150": 108374,
       "above_ma150": true,
-      "market_cap": 22089,
-      "updated_at": "2026-08-07T12:27:31.586613"
+      "market_cap": 22177,
+      "updated_at": "2026-08-07T14:59:14.934254"
     },
     {
       "ticker": "051900",
       "name": "LG생활건강",
-      "price": 329000,
-      "change_rate": 1.54,
+      "price": 335000,
+      "change_rate": 3.4,
       "explosion_date": "2026-07-30",
       "explosion_change_rate": 11.0,
       "explosion_volume_ratio": 8.9,
@@ -71,11 +89,11 @@
       "volume_decrease_rate": 79,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 4,
+      "volume_rank": 5,
       "ma150": 254866,
       "above_ma150": true,
-      "market_cap": 49269,
-      "updated_at": "2026-08-07T12:27:31.588050"
+      "market_cap": 50168,
+      "updated_at": "2026-08-07T14:59:14.935054"
     }
   ]
 }
