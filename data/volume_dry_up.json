@@ -1,27 +1,27 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-11T11:35:42.516222",
+    "lastUpdated": "2026-08-11T13:06:39.119151",
     "totalCount": 8,
-    "screened_from": 1324
+    "screened_from": 1323
   },
   "data": [
     {
       "ticker": "041830",
       "name": "인바디",
-      "price": 69700,
-      "change_rate": -0.43,
+      "price": 68900,
+      "change_rate": -1.57,
       "explosion_date": "2026-08-06",
       "explosion_change_rate": 23.5,
       "explosion_volume_ratio": 6.9,
       "days_since_detected": 3,
-      "volume_decrease_rate": 65,
+      "volume_decrease_rate": 64,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
-      "ma150": 38932,
+      "ma150": 38927,
       "above_ma150": true,
-      "market_cap": 9450,
-      "updated_at": "2026-08-11T11:35:41.561787"
+      "market_cap": 9288,
+      "updated_at": "2026-08-11T13:06:38.739712"
     },
     {
       "ticker": "147830",
@@ -39,13 +39,13 @@
       "ma150": 7735,
       "above_ma150": false,
       "market_cap": 1380,
-      "updated_at": "2026-08-11T11:35:41.642768"
+      "updated_at": "2026-08-11T13:06:38.775117"
     },
     {
       "ticker": "059120",
       "name": "아진엑스텍",
-      "price": 7280,
-      "change_rate": 5.81,
+      "price": 7590,
+      "change_rate": 10.32,
       "explosion_date": "2026-08-05",
       "explosion_change_rate": 11.7,
       "explosion_volume_ratio": 4.4,
@@ -56,14 +56,14 @@
       "volume_rank": 3,
       "ma150": 7423,
       "above_ma150": false,
-      "market_cap": 1332,
-      "updated_at": "2026-08-11T11:35:42.496583"
+      "market_cap": 1386,
+      "updated_at": "2026-08-11T13:06:39.100033"
     },
     {
       "ticker": "053690",
       "name": "한미글로벌",
-      "price": 19180,
-      "change_rate": -0.72,
+      "price": 19030,
+      "change_rate": -1.5,
       "explosion_date": "2026-08-04",
       "explosion_change_rate": 16.5,
       "explosion_volume_ratio": 3.8,
@@ -74,14 +74,14 @@
       "volume_rank": 4,
       "ma150": 21250,
       "above_ma150": false,
-      "market_cap": 2103,
-      "updated_at": "2026-08-11T11:35:42.513316"
+      "market_cap": 2086,
+      "updated_at": "2026-08-11T13:06:39.100889"
     },
     {
       "ticker": "119850",
       "name": "지엔씨에너지",
-      "price": 50200,
-      "change_rate": -4.92,
+      "price": 49850,
+      "change_rate": -5.59,
       "explosion_date": "2026-08-04",
       "explosion_change_rate": 21.9,
       "explosion_volume_ratio": 3.9,
@@ -92,14 +92,14 @@
       "volume_rank": 5,
       "ma150": 32606,
       "above_ma150": true,
-      "market_cap": 8257,
-      "updated_at": "2026-08-11T11:35:42.514007"
+      "market_cap": 8208,
+      "updated_at": "2026-08-11T13:06:39.101431"
     },
     {
       "ticker": "488280",
       "name": "에스투더블유",
-      "price": 11250,
-      "change_rate": -3.85,
+      "price": 11320,
+      "change_rate": -3.25,
       "explosion_date": "2026-08-04",
       "explosion_change_rate": 17.0,
       "explosion_volume_ratio": 4.9,
@@ -110,14 +110,14 @@
       "volume_rank": 6,
       "ma150": 18450,
       "above_ma150": false,
-      "market_cap": 1217,
-      "updated_at": "2026-08-11T11:35:42.514593"
+      "market_cap": 1225,
+      "updated_at": "2026-08-11T13:06:39.101998"
     },
     {
       "ticker": "058610",
       "name": "에스피지",
-      "price": 115800,
-      "change_rate": 7.82,
+      "price": 112600,
+      "change_rate": 4.84,
       "explosion_date": "2026-08-03",
       "explosion_change_rate": 14.9,
       "explosion_volume_ratio": 5.1,
@@ -128,14 +128,14 @@
       "volume_rank": 7,
       "ma150": 108374,
       "above_ma150": true,
-      "market_cap": 25726,
-      "updated_at": "2026-08-11T11:35:42.515114"
+      "market_cap": 25016,
+      "updated_at": "2026-08-11T13:06:39.104366"
     },
     {
       "ticker": "051900",
       "name": "LG생활건강",
-      "price": 322500,
-      "change_rate": 0.78,
+      "price": 315500,
+      "change_rate": -1.41,
       "explosion_date": "2026-07-30",
       "explosion_change_rate": 11.0,
       "explosion_volume_ratio": 8.9,
@@ -146,8 +146,8 @@
       "volume_rank": 8,
       "ma150": 254866,
       "above_ma150": true,
-      "market_cap": 48296,
-      "updated_at": "2026-08-11T11:35:42.515636"
+      "market_cap": 47248,
+      "updated_at": "2026-08-11T13:06:39.105218"
     }
   ]
 }

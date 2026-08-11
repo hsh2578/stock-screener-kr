@@ -1,81 +1,93 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-11T11:35:39.130737",
-    "totalCount": 6,
-    "screened_from": 1324
+    "lastUpdated": "2026-08-11T13:06:36.469374",
+    "totalCount": 7,
+    "screened_from": 1323
   },
   "data": [
     {
       "ticker": "003350",
       "name": "한국화장품제조",
-      "price": 10610,
-      "change_rate": 17.63,
-      "volume_ratio": 17.3,
+      "price": 10680,
+      "change_rate": 18.4,
+      "volume_ratio": 33.9,
       "volume_rank": 1,
       "ma150": 9140,
       "above_ma150": true,
-      "market_cap": 2400,
-      "updated_at": "2026-08-11T11:35:39.067936"
-    },
-    {
-      "ticker": "090460",
-      "name": "비에이치",
-      "price": 17580,
-      "change_rate": 13.35,
-      "volume_ratio": 6.9,
-      "volume_rank": 2,
-      "ma150": 22348,
-      "above_ma150": false,
-      "market_cap": 5926,
-      "updated_at": "2026-08-11T11:35:38.682632"
+      "market_cap": 2418,
+      "updated_at": "2026-08-11T13:06:36.423954"
     },
     {
       "ticker": "241710",
       "name": "코스메카코리아",
-      "price": 115900,
-      "change_rate": 22.0,
-      "volume_ratio": 5.0,
-      "volume_rank": 3,
-      "ma150": 79655,
+      "price": 108100,
+      "change_rate": 13.79,
+      "volume_ratio": 6.4,
+      "volume_rank": 2,
+      "ma150": 79603,
       "above_ma150": true,
-      "market_cap": 12389,
-      "updated_at": "2026-08-11T11:35:38.995565"
+      "market_cap": 11577,
+      "updated_at": "2026-08-11T13:06:36.396646"
+    },
+    {
+      "ticker": "126730",
+      "name": "코칩",
+      "price": 18030,
+      "change_rate": 16.93,
+      "volume_ratio": 5.9,
+      "volume_rank": 3,
+      "ma150": 17913,
+      "above_ma150": true,
+      "market_cap": 1594,
+      "updated_at": "2026-08-11T13:06:36.398791"
     },
     {
       "ticker": "181710",
       "name": "NHN",
-      "price": 47400,
-      "change_rate": 13.53,
-      "volume_ratio": 3.8,
+      "price": 48050,
+      "change_rate": 15.09,
+      "volume_ratio": 4.4,
       "volume_rank": 4,
-      "ma150": 37622,
+      "ma150": 37626,
       "above_ma150": true,
-      "market_cap": 15525,
-      "updated_at": "2026-08-11T11:35:38.593170"
+      "market_cap": 15705,
+      "updated_at": "2026-08-11T13:06:36.205947"
     },
     {
       "ticker": "101730",
       "name": "위메이드맥스",
-      "price": 4345,
-      "change_rate": 28.55,
-      "volume_ratio": 3.7,
+      "price": 4390,
+      "change_rate": 29.88,
+      "volume_ratio": 4.2,
       "volume_rank": 5,
       "ma150": 5045,
       "above_ma150": false,
-      "market_cap": 3658,
-      "updated_at": "2026-08-11T11:35:38.836691"
+      "market_cap": 3679,
+      "updated_at": "2026-08-11T13:06:36.364039"
+    },
+    {
+      "ticker": "112040",
+      "name": "위메이드",
+      "price": 18950,
+      "change_rate": 13.07,
+      "volume_ratio": 3.2,
+      "volume_rank": 6,
+      "ma150": 21901,
+      "above_ma150": false,
+      "market_cap": 6437,
+      "updated_at": "2026-08-11T13:06:36.363588"
     },
     {
       "ticker": "189330",
       "name": "씨이랩",
-      "price": 16300,
-      "change_rate": 18.03,
-      "volume_ratio": 2.9,
-      "volume_rank": 6,
-      "ma150": 6833,
+      "price": 15910,
+      "change_rate": 15.21,
+      "volume_ratio": 3.0,
+      "volume_rank": 7,
+      "ma150": 6830,
       "above_ma150": true,
-      "market_cap": 1530,
-      "updated_at": "2026-08-11T11:35:38.788822"
+      "market_cap": 1495,
+      "updated_at": "2026-08-11T13:06:36.332924"
     }
   ]
 }
