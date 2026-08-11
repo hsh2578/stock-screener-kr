@@ -1,81 +1,81 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-11T13:06:42.807808",
+    "lastUpdated": "2026-08-11T14:38:32.740967",
     "totalCount": 5,
-    "screened_from": 1323
+    "screened_from": 1321
   },
   "data": [
     {
-      "ticker": "021240",
-      "name": "코웨이",
-      "price": 98600,
-      "change_rate": 4.56,
-      "breakout_date": "2026-08-11",
-      "resistance": 96800,
-      "days_since_breakout": 0,
-      "breakout_pct": 1.86,
-      "gain_since_breakout": 0.0,
-      "ma150": 84977,
-      "above_ma150": true,
-      "market_cap": 69777,
-      "success_prob": 50.0,
-      "predicted_gain": 10.2,
-      "ai_score": 44.2,
-      "updated_at": "2026-08-11T13:06:41.978986"
-    },
-    {
       "ticker": "000700",
       "name": "유수홀딩스",
-      "price": 6840,
-      "change_rate": 2.24,
+      "price": 6820,
+      "change_rate": 1.94,
       "breakout_date": "2026-08-03",
       "resistance": 6120,
       "days_since_breakout": 6,
-      "breakout_pct": 11.76,
-      "gain_since_breakout": 8.57,
-      "ma150": 6018,
+      "breakout_pct": 11.44,
+      "gain_since_breakout": 8.25,
+      "ma150": 6017,
       "above_ma150": true,
-      "market_cap": 1781,
+      "market_cap": 1776,
       "success_prob": 44.9,
       "predicted_gain": 12.0,
       "ai_score": 42.2,
-      "updated_at": "2026-08-11T13:06:41.308085"
+      "updated_at": "2026-08-11T14:38:30.899185"
     },
     {
       "ticker": "316140",
       "name": "우리금융지주",
-      "price": 34250,
-      "change_rate": 2.7,
+      "price": 34150,
+      "change_rate": 2.4,
       "breakout_date": "2026-08-07",
       "resistance": 33350,
       "days_since_breakout": 2,
-      "breakout_pct": 2.7,
-      "gain_since_breakout": -1.58,
+      "breakout_pct": 2.4,
+      "gain_since_breakout": -1.87,
       "ma150": 32028,
       "above_ma150": true,
-      "market_cap": 249007,
+      "market_cap": 248643,
       "success_prob": 39.4,
       "predicted_gain": 12.8,
       "ai_score": 39.2,
-      "updated_at": "2026-08-11T13:06:41.231137"
+      "updated_at": "2026-08-11T14:38:30.797905"
     },
     {
       "ticker": "030190",
       "name": "NICE평가정보",
-      "price": 15600,
-      "change_rate": 1.3,
+      "price": 15630,
+      "change_rate": 1.49,
       "breakout_date": "2026-08-10",
       "resistance": 14990,
       "days_since_breakout": 1,
-      "breakout_pct": 4.07,
-      "gain_since_breakout": 1.3,
+      "breakout_pct": 4.27,
+      "gain_since_breakout": 1.49,
       "ma150": 15449,
       "above_ma150": true,
-      "market_cap": 9184,
+      "market_cap": 9208,
       "success_prob": 27.6,
       "predicted_gain": 11.5,
       "ai_score": 29.7,
-      "updated_at": "2026-08-11T13:06:38.286677"
+      "updated_at": "2026-08-11T14:38:26.640065"
+    },
+    {
+      "ticker": "211050",
+      "name": "인카금융서비스",
+      "price": 10930,
+      "change_rate": 1.86,
+      "breakout_date": "2026-08-11",
+      "resistance": 10660,
+      "days_since_breakout": 0,
+      "breakout_pct": 2.53,
+      "gain_since_breakout": 0.0,
+      "ma150": 11510,
+      "above_ma150": false,
+      "market_cap": 5375,
+      "success_prob": 26.3,
+      "predicted_gain": 12.6,
+      "ai_score": 29.7,
+      "updated_at": "2026-08-11T14:38:31.116468"
     },
     {
       "ticker": "003610",
@@ -93,7 +93,7 @@
       "success_prob": 20.9,
       "predicted_gain": 9.8,
       "ai_score": 23.5,
-      "updated_at": "2026-08-11T13:06:40.134228"
+      "updated_at": "2026-08-11T14:38:29.307653"
     }
   ]
 }
