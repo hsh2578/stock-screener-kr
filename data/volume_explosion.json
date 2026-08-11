@@ -1,105 +1,105 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-11T14:38:25.140232",
-    "totalCount": 11,
-    "screened_from": 1321
+    "lastUpdated": "2026-08-11T16:48:24.363213",
+    "totalCount": 12,
+    "screened_from": 1324
   },
   "data": [
     {
       "ticker": "003350",
       "name": "한국화장품제조",
-      "price": 10540,
-      "change_rate": 16.85,
-      "volume_ratio": 37.9,
+      "price": 10340,
+      "change_rate": 14.63,
+      "volume_ratio": 40.1,
       "volume_rank": 1,
-      "ma150": 9139,
+      "ma150": 9138,
       "above_ma150": true,
-      "market_cap": 2397,
-      "updated_at": "2026-08-11T14:38:25.085032"
+      "market_cap": 2343,
+      "updated_at": "2026-08-11T16:48:24.324267"
+    },
+    {
+      "ticker": "043150",
+      "name": "바텍",
+      "price": 22150,
+      "change_rate": 12.21,
+      "volume_ratio": 11.9,
+      "volume_rank": 2,
+      "ma150": 20448,
+      "above_ma150": true,
+      "market_cap": 3290,
+      "updated_at": "2026-08-11T16:48:23.793154"
+    },
+    {
+      "ticker": "090460",
+      "name": "비에이치",
+      "price": 18120,
+      "change_rate": 16.83,
+      "volume_ratio": 10.6,
+      "volume_rank": 3,
+      "ma150": 22351,
+      "above_ma150": false,
+      "market_cap": 6109,
+      "updated_at": "2026-08-11T16:48:23.797740"
     },
     {
       "ticker": "181710",
       "name": "NHN",
       "price": 54200,
       "change_rate": 29.82,
-      "volume_ratio": 9.4,
-      "volume_rank": 2,
+      "volume_ratio": 9.5,
+      "volume_rank": 4,
       "ma150": 37667,
       "above_ma150": true,
       "market_cap": 17752,
-      "updated_at": "2026-08-11T14:38:24.413937"
+      "updated_at": "2026-08-11T16:48:23.644133"
     },
     {
       "ticker": "126730",
       "name": "코칩",
       "price": 20000,
       "change_rate": 29.7,
-      "volume_ratio": 9.4,
-      "volume_rank": 3,
+      "volume_ratio": 9.5,
+      "volume_rank": 5,
       "ma150": 17926,
       "above_ma150": true,
       "market_cap": 1754,
-      "updated_at": "2026-08-11T14:38:25.035918"
-    },
-    {
-      "ticker": "043150",
-      "name": "바텍",
-      "price": 22450,
-      "change_rate": 13.73,
-      "volume_ratio": 9.3,
-      "volume_rank": 4,
-      "ma150": 20450,
-      "above_ma150": true,
-      "market_cap": 3335,
-      "updated_at": "2026-08-11T14:38:24.534340"
-    },
-    {
-      "ticker": "090460",
-      "name": "비에이치",
-      "price": 17690,
-      "change_rate": 14.06,
-      "volume_ratio": 9.3,
-      "volume_rank": 5,
-      "ma150": 22349,
-      "above_ma150": false,
-      "market_cap": 5960,
-      "updated_at": "2026-08-11T14:38:24.538878"
+      "updated_at": "2026-08-11T16:48:24.067942"
     },
     {
       "ticker": "241710",
       "name": "코스메카코리아",
-      "price": 108100,
-      "change_rate": 13.79,
-      "volume_ratio": 7.8,
+      "price": 109400,
+      "change_rate": 15.16,
+      "volume_ratio": 8.4,
       "volume_rank": 6,
-      "ma150": 79603,
+      "ma150": 79612,
       "above_ma150": true,
-      "market_cap": 11545,
-      "updated_at": "2026-08-11T14:38:25.033040"
+      "market_cap": 11684,
+      "updated_at": "2026-08-11T16:48:24.065009"
     },
     {
       "ticker": "382800",
       "name": "지앤비에스 에코",
-      "price": 5580,
-      "change_rate": 16.98,
-      "volume_ratio": 5.7,
+      "price": 5560,
+      "change_rate": 16.56,
+      "volume_ratio": 6.4,
       "volume_rank": 7,
-      "ma150": 5235,
+      "ma150": 5234,
       "above_ma150": true,
-      "market_cap": 1776,
-      "updated_at": "2026-08-11T14:38:24.774371"
+      "market_cap": 1770,
+      "updated_at": "2026-08-11T16:48:24.023796"
     },
     {
       "ticker": "025320",
       "name": "시노펙스",
-      "price": 4660,
-      "change_rate": 13.52,
-      "volume_ratio": 5.0,
+      "price": 4625,
+      "change_rate": 12.67,
+      "volume_ratio": 5.3,
       "volume_rank": 8,
-      "ma150": 5473,
+      "ma150": 5472,
       "above_ma150": false,
-      "market_cap": 4295,
-      "updated_at": "2026-08-11T14:38:24.572315"
+      "market_cap": 4263,
+      "updated_at": "2026-08-11T16:48:23.885420"
     },
     {
       "ticker": "101730",
@@ -111,31 +111,43 @@
       "ma150": 5045,
       "above_ma150": false,
       "market_cap": 3679,
-      "updated_at": "2026-08-11T14:38:24.641610"
+      "updated_at": "2026-08-11T16:48:23.959544"
     },
     {
       "ticker": "112040",
       "name": "위메이드",
-      "price": 18950,
-      "change_rate": 13.07,
-      "volume_ratio": 3.7,
+      "price": 19010,
+      "change_rate": 13.42,
+      "volume_ratio": 3.9,
       "volume_rank": 10,
       "ma150": 21901,
       "above_ma150": false,
-      "market_cap": 6440,
-      "updated_at": "2026-08-11T14:38:24.641127"
+      "market_cap": 6454,
+      "updated_at": "2026-08-11T16:48:23.945302"
     },
     {
       "ticker": "189330",
       "name": "씨이랩",
-      "price": 16310,
-      "change_rate": 18.1,
-      "volume_ratio": 3.3,
+      "price": 16880,
+      "change_rate": 22.23,
+      "volume_ratio": 3.8,
       "volume_rank": 11,
-      "ma150": 6833,
+      "ma150": 6837,
       "above_ma150": true,
-      "market_cap": 1530,
-      "updated_at": "2026-08-11T14:38:24.580711"
+      "market_cap": 1584,
+      "updated_at": "2026-08-11T16:48:23.894148"
+    },
+    {
+      "ticker": "119830",
+      "name": "아이텍",
+      "price": 6530,
+      "change_rate": 23.91,
+      "volume_ratio": 2.3,
+      "volume_rank": 12,
+      "ma150": 6810,
+      "above_ma150": false,
+      "market_cap": 1733,
+      "updated_at": "2026-08-11T16:48:23.901359"
     }
   ]
 }

@@ -1,51 +1,51 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-11T14:38:27.642333",
+    "lastUpdated": "2026-08-11T16:48:26.872107",
     "totalCount": 8,
-    "screened_from": 1321
+    "screened_from": 1324
   },
   "data": [
     {
       "ticker": "041830",
       "name": "인바디",
-      "price": 69100,
-      "change_rate": -1.29,
+      "price": 69900,
+      "change_rate": -0.14,
       "explosion_date": "2026-08-06",
       "explosion_change_rate": 23.5,
       "explosion_volume_ratio": 6.9,
       "days_since_detected": 3,
-      "volume_decrease_rate": 63,
+      "volume_decrease_rate": 62,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
-      "ma150": 38928,
+      "ma150": 38933,
       "above_ma150": true,
-      "market_cap": 9315,
-      "updated_at": "2026-08-11T14:38:27.282202"
+      "market_cap": 9423,
+      "updated_at": "2026-08-11T16:48:26.448743"
     },
     {
       "ticker": "147830",
       "name": "제룡산업",
-      "price": 6870,
-      "change_rate": -1.43,
+      "price": 6920,
+      "change_rate": -0.72,
       "explosion_date": "2026-08-05",
       "explosion_change_rate": 11.0,
       "explosion_volume_ratio": 8.3,
       "days_since_detected": 4,
-      "volume_decrease_rate": 90,
+      "volume_decrease_rate": 89,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 2,
       "ma150": 7735,
       "above_ma150": false,
-      "market_cap": 1374,
-      "updated_at": "2026-08-11T14:38:27.304832"
+      "market_cap": 1384,
+      "updated_at": "2026-08-11T16:48:26.476512"
     },
     {
       "ticker": "059120",
       "name": "아진엑스텍",
-      "price": 7470,
-      "change_rate": 8.58,
+      "price": 7450,
+      "change_rate": 8.28,
       "explosion_date": "2026-08-05",
       "explosion_change_rate": 11.7,
       "explosion_volume_ratio": 4.4,
@@ -56,14 +56,14 @@
       "volume_rank": 3,
       "ma150": 7423,
       "above_ma150": false,
-      "market_cap": 1368,
-      "updated_at": "2026-08-11T14:38:27.621625"
+      "market_cap": 1364,
+      "updated_at": "2026-08-11T16:48:26.867871"
     },
     {
       "ticker": "053690",
       "name": "한미글로벌",
-      "price": 19130,
-      "change_rate": -0.98,
+      "price": 19150,
+      "change_rate": -0.88,
       "explosion_date": "2026-08-04",
       "explosion_change_rate": 16.5,
       "explosion_volume_ratio": 3.8,
@@ -74,14 +74,14 @@
       "volume_rank": 4,
       "ma150": 21250,
       "above_ma150": false,
-      "market_cap": 2097,
-      "updated_at": "2026-08-11T14:38:27.625270"
+      "market_cap": 2098,
+      "updated_at": "2026-08-11T16:48:26.868843"
     },
     {
       "ticker": "119850",
       "name": "지엔씨에너지",
-      "price": 49750,
-      "change_rate": -5.78,
+      "price": 49900,
+      "change_rate": -5.49,
       "explosion_date": "2026-08-04",
       "explosion_change_rate": 21.9,
       "explosion_volume_ratio": 3.9,
@@ -92,14 +92,14 @@
       "volume_rank": 5,
       "ma150": 32606,
       "above_ma150": true,
-      "market_cap": 8192,
-      "updated_at": "2026-08-11T14:38:27.631012"
+      "market_cap": 8208,
+      "updated_at": "2026-08-11T16:48:26.869535"
     },
     {
       "ticker": "488280",
       "name": "에스투더블유",
-      "price": 11410,
-      "change_rate": -2.48,
+      "price": 11470,
+      "change_rate": -1.97,
       "explosion_date": "2026-08-04",
       "explosion_change_rate": 17.0,
       "explosion_volume_ratio": 4.9,
@@ -110,14 +110,14 @@
       "volume_rank": 6,
       "ma150": 18450,
       "above_ma150": false,
-      "market_cap": 1235,
-      "updated_at": "2026-08-11T14:38:27.633376"
+      "market_cap": 1242,
+      "updated_at": "2026-08-11T16:48:26.870143"
     },
     {
       "ticker": "058610",
       "name": "에스피지",
-      "price": 113700,
-      "change_rate": 5.87,
+      "price": 114000,
+      "change_rate": 6.15,
       "explosion_date": "2026-08-03",
       "explosion_change_rate": 14.9,
       "explosion_volume_ratio": 5.1,
@@ -128,14 +128,14 @@
       "volume_rank": 7,
       "ma150": 108374,
       "above_ma150": true,
-      "market_cap": 25238,
-      "updated_at": "2026-08-11T14:38:27.637188"
+      "market_cap": 25282,
+      "updated_at": "2026-08-11T16:48:26.870761"
     },
     {
       "ticker": "051900",
       "name": "LG생활건강",
-      "price": 318000,
-      "change_rate": -0.62,
+      "price": 318500,
+      "change_rate": -0.47,
       "explosion_date": "2026-07-30",
       "explosion_change_rate": 11.0,
       "explosion_volume_ratio": 8.9,
@@ -146,8 +146,8 @@
       "volume_rank": 8,
       "ma150": 254866,
       "above_ma150": true,
-      "market_cap": 47622,
-      "updated_at": "2026-08-11T14:38:27.641168"
+      "market_cap": 47697,
+      "updated_at": "2026-08-11T16:48:26.871353"
     }
   ]
 }
