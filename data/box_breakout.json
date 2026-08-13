@@ -1,28 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-13T15:00:55.665845",
+    "lastUpdated": "2026-08-13T17:03:30.429459",
     "totalCount": 1,
-    "screened_from": 1326
+    "screened_from": 1325
   },
   "data": [
     {
       "ticker": "096760",
       "name": "JW홀딩스",
-      "price": 4045,
-      "change_rate": -3.23,
+      "price": 4030,
+      "change_rate": -3.59,
       "breakout_date": "2026-08-12",
       "days_since_breakout": 1,
       "breakout_price": 4005,
-      "breakout_pct": 1.0,
-      "gain_since_breakout": -3.23,
+      "breakout_pct": 0.62,
+      "gain_since_breakout": -3.59,
       "volume_ratio": 11.9,
       "ma150": 3937,
       "above_ma150": true,
-      "market_cap": 2990,
+      "market_cap": 2979,
       "success_prob": 40.0,
       "predicted_gain": 17.5,
       "ai_score": 43.7,
-      "updated_at": "2026-08-13T15:00:52.002669"
+      "updated_at": "2026-08-13T17:03:25.296316"
     }
   ]
 }
