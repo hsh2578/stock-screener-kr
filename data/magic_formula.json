@@ -3,7 +3,7 @@
     "type": "magic-formula",
     "name": "마법공식 (그린블라트)",
     "description": "이익수익률 + 투하자본수익률 순위 합산",
-    "lastUpdated": "2026-08-14T21:06:58.854025",
+    "lastUpdated": "2026-08-17T20:48:05.391406",
     "totalCount": 20,
     "screened_from": 852
   },
@@ -266,22 +266,6 @@
     },
     {
       "rank": 17,
-      "ticker": "052400",
-      "name": "코나아이",
-      "current_price": 39950,
-      "per": 11.3,
-      "pbr": 3.18,
-      "combined_rank": 117,
-      "ey_rank": 102,
-      "roc_rank": 15,
-      "earnings_yield": 11.66,
-      "roc": 38.48,
-      "ebit": 889.0,
-      "market_cap": 5818.0,
-      "ev": 7625.0
-    },
-    {
-      "rank": 18,
       "ticker": "096760",
       "name": "JW홀딩스",
       "current_price": 4135,
@@ -295,6 +279,22 @@
       "ebit": 1680.0,
       "market_cap": 3057.0,
       "ev": 10551.0
+    },
+    {
+      "rank": 18,
+      "ticker": "052400",
+      "name": "코나아이",
+      "current_price": 39950,
+      "per": 11.3,
+      "pbr": 3.18,
+      "combined_rank": 117,
+      "ey_rank": 102,
+      "roc_rank": 15,
+      "earnings_yield": 11.66,
+      "roc": 38.48,
+      "ebit": 889.0,
+      "market_cap": 5818.0,
+      "ev": 7625.0
     },
     {
       "rank": 19,
