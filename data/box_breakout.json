@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-18T14:05:47.337133",
+    "lastUpdated": "2026-08-18T16:17:01.185932",
     "totalCount": 3,
-    "screened_from": 1323
+    "screened_from": 1321
   },
   "data": [
     {
@@ -22,45 +22,45 @@
       "success_prob": 40.0,
       "predicted_gain": 17.5,
       "ai_score": 43.7,
-      "updated_at": "2026-08-18T14:05:41.647186"
+      "updated_at": "2026-08-18T16:16:57.581718"
     },
     {
       "ticker": "025000",
       "name": "KPX케미칼",
-      "price": 54500,
-      "change_rate": 7.92,
+      "price": 54400,
+      "change_rate": 7.72,
       "breakout_date": "2026-08-18",
       "days_since_breakout": 0,
       "breakout_price": 52000,
-      "breakout_pct": 4.81,
+      "breakout_pct": 4.62,
       "gain_since_breakout": 0.0,
-      "volume_ratio": 3.7,
-      "ma150": 50259,
+      "volume_ratio": 4.1,
+      "ma150": 50258,
       "above_ma150": true,
-      "market_cap": 2386,
-      "success_prob": 25.3,
-      "predicted_gain": 12.0,
-      "ai_score": 28.5,
-      "updated_at": "2026-08-18T14:05:41.695169"
+      "market_cap": 2382,
+      "success_prob": 25.6,
+      "predicted_gain": 11.9,
+      "ai_score": 28.7,
+      "updated_at": "2026-08-18T16:16:57.629989"
     },
     {
       "ticker": "100250",
       "name": "진양홀딩스",
-      "price": 3185,
-      "change_rate": 0.0,
+      "price": 3180,
+      "change_rate": -0.16,
       "breakout_date": "2026-08-14",
       "days_since_breakout": 1,
       "breakout_price": 3080,
-      "breakout_pct": 3.41,
-      "gain_since_breakout": 0.0,
+      "breakout_pct": 3.25,
+      "gain_since_breakout": -0.16,
       "volume_ratio": 5.0,
       "ma150": 3010,
       "above_ma150": true,
-      "market_cap": 2035,
-      "success_prob": 13.9,
+      "market_cap": 2032,
+      "success_prob": 17.1,
       "predicted_gain": 9.5,
-      "ai_score": 18.3,
-      "updated_at": "2026-08-18T14:05:45.990642"
+      "ai_score": 20.5,
+      "updated_at": "2026-08-18T16:17:00.076577"
     }
   ]
 }
