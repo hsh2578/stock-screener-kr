@@ -1,47 +1,66 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-17T18:09:06.213057",
-    "totalCount": 2,
-    "screened_from": 1330
+    "lastUpdated": "2026-08-18T10:59:27.344153",
+    "totalCount": 3,
+    "screened_from": 1328
   },
   "data": [
     {
       "ticker": "096760",
       "name": "JW홀딩스",
-      "price": 4135,
-      "change_rate": 2.61,
+      "price": 4080,
+      "change_rate": -1.33,
       "breakout_date": "2026-08-12",
-      "days_since_breakout": 2,
+      "days_since_breakout": 3,
       "breakout_price": 4005,
-      "breakout_pct": 3.25,
-      "gain_since_breakout": -1.08,
+      "breakout_pct": 1.87,
+      "gain_since_breakout": -2.39,
       "volume_ratio": 11.9,
-      "ma150": 3941,
+      "ma150": 3945,
       "above_ma150": true,
-      "market_cap": 3057,
+      "market_cap": 3012,
       "success_prob": 40.0,
       "predicted_gain": 17.5,
       "ai_score": 43.7,
-      "updated_at": "2026-08-17T18:08:59.444324"
+      "updated_at": "2026-08-18T10:59:23.642280"
+    },
+    {
+      "ticker": "025000",
+      "name": "KPX케미칼",
+      "price": 53700,
+      "change_rate": 6.34,
+      "breakout_date": "2026-08-18",
+      "days_since_breakout": 0,
+      "breakout_price": 52000,
+      "breakout_pct": 3.27,
+      "gain_since_breakout": 0.0,
+      "volume_ratio": 2.1,
+      "ma150": 50253,
+      "above_ma150": true,
+      "market_cap": 2351,
+      "success_prob": 22.5,
+      "predicted_gain": 11.0,
+      "ai_score": 25.6,
+      "updated_at": "2026-08-18T10:59:23.674459"
     },
     {
       "ticker": "100250",
       "name": "진양홀딩스",
-      "price": 3185,
-      "change_rate": 6.7,
+      "price": 3135,
+      "change_rate": -1.57,
       "breakout_date": "2026-08-14",
-      "days_since_breakout": 0,
+      "days_since_breakout": 1,
       "breakout_price": 3080,
-      "breakout_pct": 3.41,
-      "gain_since_breakout": 0.0,
-      "volume_ratio": 4.9,
-      "ma150": 3008,
+      "breakout_pct": 1.79,
+      "gain_since_breakout": -1.57,
+      "volume_ratio": 5.0,
+      "ma150": 3009,
       "above_ma150": true,
-      "market_cap": 2035,
-      "success_prob": 17.3,
+      "market_cap": 2003,
+      "success_prob": 17.1,
       "predicted_gain": 9.5,
-      "ai_score": 20.7,
-      "updated_at": "2026-08-17T18:09:04.171489"
+      "ai_score": 20.5,
+      "updated_at": "2026-08-18T10:59:26.108402"
     }
   ]
 }
