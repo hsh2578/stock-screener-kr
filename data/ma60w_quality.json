@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-08-18T20:55:01.646640",
-    "total_count": 4,
+    "updated_at": "2026-08-19T21:05:16.716968",
+    "total_count": 8,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -10,52 +10,100 @@
   },
   "data": [
     {
+      "ticker": "207940",
+      "name": "삼성바이오로직스",
+      "current_price": 1544000,
+      "ma60w": 1531375,
+      "ma60w_gap": 0.82,
+      "op_margin": 45.4,
+      "op_growth_3y": 25.1,
+      "market_cap": 714732,
+      "sector": "기타",
+      "updated_at": "2026-08-19T21:05:02.694566"
+    },
+    {
       "ticker": "068270",
       "name": "셀트리온",
-      "current_price": 195500,
-      "ma60w": 180667,
-      "ma60w_gap": 8.21,
+      "current_price": 194100,
+      "ma60w": 180786,
+      "ma60w_gap": 7.36,
       "op_margin": 28.1,
       "op_growth_3y": 37.7,
-      "market_cap": 454767,
+      "market_cap": 451510,
       "sector": "기타",
-      "updated_at": "2026-08-18T20:54:49.761400"
+      "updated_at": "2026-08-19T21:05:02.696555"
+    },
+    {
+      "ticker": "042700",
+      "name": "한미반도체",
+      "current_price": 221000,
+      "ma60w": 202287,
+      "ma60w_gap": 9.25,
+      "op_margin": 43.6,
+      "op_growth_3y": 212.2,
+      "market_cap": 210640,
+      "sector": "기타",
+      "updated_at": "2026-08-19T21:05:02.699402"
+    },
+    {
+      "ticker": "011200",
+      "name": "HMM",
+      "current_price": 21700,
+      "ma60w": 20471,
+      "ma60w_gap": 6.0,
+      "op_margin": 13.4,
+      "op_growth_3y": 147.4,
+      "market_cap": 204683,
+      "sector": "기타",
+      "updated_at": "2026-08-19T21:05:02.700084"
+    },
+    {
+      "ticker": "003230",
+      "name": "삼양식품",
+      "current_price": 1304000,
+      "ma60w": 1187350,
+      "ma60w_gap": 9.82,
+      "op_margin": 21.6,
+      "op_growth_3y": 78.0,
+      "market_cap": 98231,
+      "sector": "기타",
+      "updated_at": "2026-08-19T21:05:05.593196"
     },
     {
       "ticker": "443060",
       "name": "HD현대마린솔루션",
-      "current_price": 204000,
-      "ma60w": 198361,
-      "ma60w_gap": 2.84,
+      "current_price": 209500,
+      "ma60w": 198658,
+      "ma60w_gap": 5.46,
       "op_margin": 17.7,
       "op_growth_3y": 21.2,
-      "market_cap": 91460,
+      "market_cap": 93926,
       "sector": "기타",
-      "updated_at": "2026-08-18T20:54:52.702465"
+      "updated_at": "2026-08-19T21:05:05.593853"
     },
     {
       "ticker": "007660",
       "name": "이수페타시스",
-      "current_price": 102900,
-      "ma60w": 95940,
-      "ma60w_gap": 7.25,
+      "current_price": 104400,
+      "ma60w": 96088,
+      "ma60w_gap": 8.65,
       "op_margin": 17.1,
       "op_growth_3y": 29.2,
-      "market_cap": 75538,
+      "market_cap": 76639,
       "sector": "기타",
-      "updated_at": "2026-08-18T20:54:52.703666"
+      "updated_at": "2026-08-19T21:05:06.396694"
     },
     {
       "ticker": "000240",
       "name": "한국앤컴퍼니",
-      "current_price": 25150,
-      "ma60w": 24085,
-      "ma60w_gap": 4.42,
+      "current_price": 24150,
+      "ma60w": 24059,
+      "ma60w_gap": 0.37,
       "op_margin": 26.1,
       "op_growth_3y": 18.6,
-      "market_cap": 23876,
+      "market_cap": 22927,
       "sector": "기타",
-      "updated_at": "2026-08-18T20:54:54.887789"
+      "updated_at": "2026-08-19T21:05:09.501212"
     }
   ]
 }
