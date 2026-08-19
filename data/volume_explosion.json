@@ -1,45 +1,57 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-19T14:06:06.261584",
+    "lastUpdated": "2026-08-19T16:20:25.942674",
     "totalCount": 5,
-    "screened_from": 1306
+    "screened_from": 1311
   },
   "data": [
     {
       "ticker": "025980",
       "name": "아난티",
-      "price": 5340,
-      "change_rate": 18.67,
-      "volume_ratio": 37.4,
+      "price": 5350,
+      "change_rate": 18.89,
+      "volume_ratio": 41.4,
       "volume_rank": 1,
       "ma150": 6236,
       "above_ma150": false,
-      "market_cap": 5215,
-      "updated_at": "2026-08-19T14:06:05.978256"
+      "market_cap": 5206,
+      "updated_at": "2026-08-19T16:20:25.803225"
     },
     {
       "ticker": "082800",
       "name": "비보존 제약",
-      "price": 3465,
-      "change_rate": 23.53,
-      "volume_ratio": 23.4,
+      "price": 3320,
+      "change_rate": 18.36,
+      "volume_ratio": 25.5,
       "volume_rank": 2,
-      "ma150": 3321,
-      "above_ma150": true,
-      "market_cap": 2113,
-      "updated_at": "2026-08-19T14:06:05.939857"
+      "ma150": 3320,
+      "above_ma150": false,
+      "market_cap": 2016,
+      "updated_at": "2026-08-19T16:20:25.770847"
     },
     {
       "ticker": "064550",
       "name": "바이오니아",
       "price": 9190,
       "change_rate": 29.99,
-      "volume_ratio": 14.1,
+      "volume_ratio": 14.3,
       "volume_rank": 3,
       "ma150": 9855,
       "above_ma150": false,
       "market_cap": 2372,
-      "updated_at": "2026-08-19T14:06:05.936288"
+      "updated_at": "2026-08-19T16:20:25.767178"
+    },
+    {
+      "ticker": "101730",
+      "name": "위메이드맥스",
+      "price": 4815,
+      "change_rate": 17.58,
+      "volume_ratio": 7.4,
+      "volume_rank": 4,
+      "ma150": 4985,
+      "above_ma150": false,
+      "market_cap": 4035,
+      "updated_at": "2026-08-19T16:20:25.862510"
     },
     {
       "ticker": "126640",
@@ -47,23 +59,11 @@
       "price": 5380,
       "change_rate": 29.79,
       "volume_ratio": 4.7,
-      "volume_rank": 4,
+      "volume_rank": 5,
       "ma150": 2485,
       "above_ma150": true,
       "market_cap": 1886,
-      "updated_at": "2026-08-19T14:06:06.256710"
-    },
-    {
-      "ticker": "101730",
-      "name": "위메이드맥스",
-      "price": 4600,
-      "change_rate": 12.33,
-      "volume_ratio": 3.8,
-      "volume_rank": 5,
-      "ma150": 4984,
-      "above_ma150": false,
-      "market_cap": 3851,
-      "updated_at": "2026-08-19T14:06:06.026223"
+      "updated_at": "2026-08-19T16:20:25.940162"
     }
   ]
 }
