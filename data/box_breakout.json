@@ -1,66 +1,66 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-20T14:07:41.297539",
+    "lastUpdated": "2026-08-20T16:26:00.628432",
     "totalCount": 3,
-    "screened_from": 1314
+    "screened_from": 1316
   },
   "data": [
     {
       "ticker": "096760",
       "name": "JW홀딩스",
-      "price": 3995,
-      "change_rate": 0.5,
+      "price": 4070,
+      "change_rate": 2.39,
       "breakout_date": "2026-08-12",
       "days_since_breakout": 5,
       "breakout_price": 4005,
-      "breakout_pct": -0.25,
-      "gain_since_breakout": -4.43,
+      "breakout_pct": 1.62,
+      "gain_since_breakout": -2.63,
       "volume_ratio": 11.9,
-      "ma150": 3951,
+      "ma150": 3952,
       "above_ma150": true,
-      "market_cap": 2953,
+      "market_cap": 3009,
       "success_prob": 40.0,
       "predicted_gain": 17.5,
       "ai_score": 43.7,
-      "updated_at": "2026-08-20T14:07:38.035059"
+      "updated_at": "2026-08-20T16:25:57.562314"
     },
     {
       "ticker": "025000",
       "name": "KPX케미칼",
-      "price": 52200,
-      "change_rate": -1.14,
+      "price": 52400,
+      "change_rate": -0.76,
       "breakout_date": "2026-08-18",
       "days_since_breakout": 2,
       "breakout_price": 52000,
-      "breakout_pct": 0.38,
-      "gain_since_breakout": -4.04,
+      "breakout_pct": 0.77,
+      "gain_since_breakout": -3.68,
       "volume_ratio": 4.1,
-      "ma150": 50352,
+      "ma150": 50354,
       "above_ma150": true,
-      "market_cap": 2286,
+      "market_cap": 2294,
       "success_prob": 25.6,
       "predicted_gain": 11.9,
       "ai_score": 28.7,
-      "updated_at": "2026-08-20T14:07:38.063770"
+      "updated_at": "2026-08-20T16:25:57.601709"
     },
     {
       "ticker": "100250",
       "name": "진양홀딩스",
-      "price": 3140,
-      "change_rate": 0.16,
+      "price": 3145,
+      "change_rate": 0.32,
       "breakout_date": "2026-08-14",
       "days_since_breakout": 3,
       "breakout_price": 3075,
-      "breakout_pct": 2.11,
-      "gain_since_breakout": -1.41,
+      "breakout_pct": 2.28,
+      "gain_since_breakout": -1.26,
       "volume_ratio": 5.0,
       "ma150": 3012,
       "above_ma150": true,
-      "market_cap": 2006,
+      "market_cap": 2010,
       "success_prob": 14.5,
       "predicted_gain": 9.6,
       "ai_score": 18.8,
-      "updated_at": "2026-08-20T14:07:40.379095"
+      "updated_at": "2026-08-20T16:26:00.055733"
     }
   ]
 }
