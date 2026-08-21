@@ -1,93 +1,81 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-21T14:08:11.396894",
-    "totalCount": 7,
-    "screened_from": 1305
+    "lastUpdated": "2026-08-21T16:26:13.948898",
+    "totalCount": 6,
+    "screened_from": 1307
   },
   "data": [
     {
       "ticker": "094480",
       "name": "갤럭시아머니트리",
-      "price": 6450,
-      "change_rate": 17.92,
-      "volume_ratio": 41.2,
+      "price": 6160,
+      "change_rate": 12.61,
+      "volume_ratio": 50.1,
       "volume_rank": 1,
-      "ma150": 7558,
+      "ma150": 7556,
       "above_ma150": false,
-      "market_cap": 2530,
-      "updated_at": "2026-08-21T14:08:10.196377"
+      "market_cap": 2417,
+      "updated_at": "2026-08-21T16:26:13.562685"
     },
     {
       "ticker": "041190",
       "name": "우리기술투자",
-      "price": 6080,
-      "change_rate": 23.2,
-      "volume_ratio": 38.1,
+      "price": 5920,
+      "change_rate": 19.96,
+      "volume_ratio": 43.5,
       "volume_rank": 2,
-      "ma150": 6178,
+      "ma150": 6177,
       "above_ma150": false,
-      "market_cap": 5124,
-      "updated_at": "2026-08-21T14:08:10.832605"
-    },
-    {
-      "ticker": "095700",
-      "name": "제넥신",
-      "price": 3475,
-      "change_rate": 15.83,
-      "volume_ratio": 26.2,
-      "volume_rank": 3,
-      "ma150": 4006,
-      "above_ma150": false,
-      "market_cap": 1592,
-      "updated_at": "2026-08-21T14:08:10.965005"
+      "market_cap": 4973,
+      "updated_at": "2026-08-21T16:26:13.794351"
     },
     {
       "ticker": "294570",
       "name": "쿠콘",
-      "price": 24850,
-      "change_rate": 13.99,
-      "volume_ratio": 15.4,
-      "volume_rank": 4,
-      "ma150": 26044,
-      "above_ma150": false,
-      "market_cap": 2543,
-      "updated_at": "2026-08-21T14:08:11.023019"
+      "price": 26850,
+      "change_rate": 23.17,
+      "volume_ratio": 29.2,
+      "volume_rank": 3,
+      "ma150": 26058,
+      "above_ma150": true,
+      "market_cap": 2710,
+      "updated_at": "2026-08-21T16:26:13.812445"
     },
     {
       "ticker": "216080",
       "name": "제테마",
-      "price": 5070,
-      "change_rate": 17.63,
-      "volume_ratio": 6.4,
-      "volume_rank": 5,
-      "ma150": 6677,
+      "price": 5030,
+      "change_rate": 16.71,
+      "volume_ratio": 7.7,
+      "volume_rank": 4,
+      "ma150": 6676,
       "above_ma150": false,
-      "market_cap": 1890,
-      "updated_at": "2026-08-21T14:08:10.999198"
-    },
-    {
-      "ticker": "001210",
-      "name": "금호전기",
-      "price": 8450,
-      "change_rate": 13.27,
-      "volume_ratio": 4.8,
-      "volume_rank": 6,
-      "ma150": 4347,
-      "above_ma150": true,
-      "market_cap": 1046,
-      "updated_at": "2026-08-21T14:08:10.205444"
+      "market_cap": 1876,
+      "updated_at": "2026-08-21T16:26:13.804466"
     },
     {
       "ticker": "183300",
       "name": "코미코",
-      "price": 27650,
-      "change_rate": 26.83,
-      "volume_ratio": 4.1,
-      "volume_rank": 7,
+      "price": 27700,
+      "change_rate": 27.06,
+      "volume_ratio": 5.4,
+      "volume_rank": 5,
       "ma150": 27841,
       "above_ma150": false,
-      "market_cap": 14279,
-      "updated_at": "2026-08-21T14:08:11.018069"
+      "market_cap": 14228,
+      "updated_at": "2026-08-21T16:26:13.810540"
+    },
+    {
+      "ticker": "001210",
+      "name": "금호전기",
+      "price": 8380,
+      "change_rate": 12.33,
+      "volume_ratio": 5.3,
+      "volume_rank": 6,
+      "ma150": 4346,
+      "above_ma150": true,
+      "market_cap": 1037,
+      "updated_at": "2026-08-21T16:26:13.565970"
     }
   ]
 }
