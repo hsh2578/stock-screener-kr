@@ -1,117 +1,177 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-24T12:35:53.494544",
-    "totalCount": 9,
-    "screened_from": 1309
+    "lastUpdated": "2026-08-24T14:14:51.307421",
+    "totalCount": 14,
+    "screened_from": 1308
   },
   "data": [
     {
       "ticker": "950220",
       "name": "네오이뮨텍",
-      "price": 3215,
-      "change_rate": 12.81,
-      "volume_ratio": 55.2,
+      "price": 3240,
+      "change_rate": 13.68,
+      "volume_ratio": 69.4,
       "volume_rank": 1,
       "ma150": 2332,
       "above_ma150": true,
-      "market_cap": 1095,
-      "updated_at": "2026-08-24T12:35:53.306867"
+      "market_cap": 1102,
+      "updated_at": "2026-08-24T14:14:50.985745"
     },
     {
       "ticker": "020120",
       "name": "키다리스튜디오",
       "price": 5030,
       "change_rate": 25.12,
-      "volume_ratio": 31.0,
+      "volume_ratio": 35.0,
       "volume_rank": 2,
       "ma150": 3494,
       "above_ma150": true,
-      "market_cap": 1864,
-      "updated_at": "2026-08-24T12:35:53.456506"
+      "market_cap": 1872,
+      "updated_at": "2026-08-24T14:14:51.231759"
     },
     {
       "ticker": "019170",
       "name": "신풍제약",
       "price": 10550,
       "change_rate": 29.93,
-      "volume_ratio": 28.8,
+      "volume_ratio": 29.1,
       "volume_rank": 3,
       "ma150": 10355,
       "above_ma150": true,
       "market_cap": 5530,
-      "updated_at": "2026-08-24T12:35:53.371031"
-    },
-    {
-      "ticker": "134580",
-      "name": "탑코미디어",
-      "price": 2870,
-      "change_rate": 21.87,
-      "volume_ratio": 14.3,
-      "volume_rank": 4,
-      "ma150": 1561,
-      "above_ma150": true,
-      "market_cap": 1402,
-      "updated_at": "2026-08-24T12:35:53.457294"
+      "updated_at": "2026-08-24T14:14:51.129496"
     },
     {
       "ticker": "249420",
       "name": "일동제약",
-      "price": 15310,
-      "change_rate": 13.32,
-      "volume_ratio": 12.9,
-      "volume_rank": 5,
+      "price": 15190,
+      "change_rate": 12.44,
+      "volume_ratio": 14.9,
+      "volume_rank": 4,
       "ma150": 25164,
       "above_ma150": false,
-      "market_cap": 4841,
-      "updated_at": "2026-08-24T12:35:53.436807"
+      "market_cap": 4815,
+      "updated_at": "2026-08-24T14:14:51.193516"
+    },
+    {
+      "ticker": "134580",
+      "name": "탑코미디어",
+      "price": 2895,
+      "change_rate": 22.93,
+      "volume_ratio": 14.9,
+      "volume_rank": 5,
+      "ma150": 1562,
+      "above_ma150": true,
+      "market_cap": 1412,
+      "updated_at": "2026-08-24T14:14:51.232989"
     },
     {
       "ticker": "008930",
       "name": "한미사이언스",
-      "price": 53300,
-      "change_rate": 18.58,
-      "volume_ratio": 9.4,
+      "price": 53600,
+      "change_rate": 19.24,
+      "volume_ratio": 13.9,
       "volume_rank": 6,
-      "ma150": 37201,
+      "ma150": 37203,
       "above_ma150": true,
-      "market_cap": 36384,
-      "updated_at": "2026-08-24T12:35:53.477075"
+      "market_cap": 36726,
+      "updated_at": "2026-08-24T14:14:51.259476"
+    },
+    {
+      "ticker": "108230",
+      "name": "톱텍",
+      "price": 3260,
+      "change_rate": 17.27,
+      "volume_ratio": 11.3,
+      "volume_rank": 7,
+      "ma150": 3929,
+      "above_ma150": false,
+      "market_cap": 1192,
+      "updated_at": "2026-08-24T14:14:51.235802"
     },
     {
       "ticker": "124500",
       "name": "아이티센글로벌",
-      "price": 38500,
-      "change_rate": 18.28,
-      "volume_ratio": 7.9,
-      "volume_rank": 7,
+      "price": 38550,
+      "change_rate": 18.43,
+      "volume_ratio": 8.7,
+      "volume_rank": 8,
       "ma150": 41915,
       "above_ma150": false,
-      "market_cap": 8911,
-      "updated_at": "2026-08-24T12:35:53.377594"
+      "market_cap": 8922,
+      "updated_at": "2026-08-24T14:14:51.139292"
     },
     {
       "ticker": "405100",
       "name": "큐알티",
-      "price": 11240,
-      "change_rate": 13.77,
-      "volume_ratio": 7.7,
-      "volume_rank": 8,
-      "ma150": 15837,
+      "price": 11340,
+      "change_rate": 14.78,
+      "volume_ratio": 8.2,
+      "volume_rank": 9,
+      "ma150": 15838,
       "above_ma150": false,
-      "market_cap": 1375,
-      "updated_at": "2026-08-24T12:35:53.455384"
+      "market_cap": 1391,
+      "updated_at": "2026-08-24T14:14:51.229671"
     },
     {
       "ticker": "128940",
       "name": "한미약품",
       "price": 540000,
       "change_rate": 29.96,
-      "volume_ratio": 5.2,
-      "volume_rank": 9,
+      "volume_ratio": 5.3,
+      "volume_rank": 10,
       "ma150": 465563,
       "above_ma150": true,
       "market_cap": 69179,
-      "updated_at": "2026-08-24T12:35:53.483322"
+      "updated_at": "2026-08-24T14:14:51.259901"
+    },
+    {
+      "ticker": "402030",
+      "name": "코난테크놀로지",
+      "price": 15560,
+      "change_rate": 16.12,
+      "volume_ratio": 4.4,
+      "volume_rank": 11,
+      "ma150": 17454,
+      "above_ma150": false,
+      "market_cap": 1975,
+      "updated_at": "2026-08-24T14:14:51.210821"
+    },
+    {
+      "ticker": "304100",
+      "name": "솔트룩스",
+      "price": 17480,
+      "change_rate": 13.73,
+      "volume_ratio": 3.9,
+      "volume_rank": 12,
+      "ma150": 20199,
+      "above_ma150": false,
+      "market_cap": 2198,
+      "updated_at": "2026-08-24T14:14:51.122442"
+    },
+    {
+      "ticker": "006110",
+      "name": "삼아알미늄",
+      "price": 56300,
+      "change_rate": 16.93,
+      "volume_ratio": 2.3,
+      "volume_rank": 13,
+      "ma150": 46030,
+      "above_ma150": true,
+      "market_cap": 8499,
+      "updated_at": "2026-08-24T14:14:51.085962"
+    },
+    {
+      "ticker": "066970",
+      "name": "엘앤에프",
+      "price": 122400,
+      "change_rate": 17.13,
+      "volume_ratio": 2.3,
+      "volume_rank": 14,
+      "ma150": 130164,
+      "above_ma150": false,
+      "market_cap": 49757,
+      "updated_at": "2026-08-24T14:14:51.163195"
     }
   ]
 }
