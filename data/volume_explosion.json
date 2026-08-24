@@ -1,117 +1,117 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-24T11:08:15.859655",
+    "lastUpdated": "2026-08-24T12:35:53.494544",
     "totalCount": 9,
-    "screened_from": 1305
+    "screened_from": 1309
   },
   "data": [
+    {
+      "ticker": "950220",
+      "name": "네오이뮨텍",
+      "price": 3215,
+      "change_rate": 12.81,
+      "volume_ratio": 55.2,
+      "volume_rank": 1,
+      "ma150": 2332,
+      "above_ma150": true,
+      "market_cap": 1095,
+      "updated_at": "2026-08-24T12:35:53.306867"
+    },
+    {
+      "ticker": "020120",
+      "name": "키다리스튜디오",
+      "price": 5030,
+      "change_rate": 25.12,
+      "volume_ratio": 31.0,
+      "volume_rank": 2,
+      "ma150": 3494,
+      "above_ma150": true,
+      "market_cap": 1864,
+      "updated_at": "2026-08-24T12:35:53.456506"
+    },
     {
       "ticker": "019170",
       "name": "신풍제약",
       "price": 10550,
       "change_rate": 29.93,
-      "volume_ratio": 28.6,
-      "volume_rank": 1,
+      "volume_ratio": 28.8,
+      "volume_rank": 3,
       "ma150": 10355,
       "above_ma150": true,
       "market_cap": 5530,
-      "updated_at": "2026-08-24T11:08:15.698679"
-    },
-    {
-      "ticker": "020120",
-      "name": "키다리스튜디오",
-      "price": 5020,
-      "change_rate": 24.88,
-      "volume_ratio": 28.5,
-      "volume_rank": 2,
-      "ma150": 3494,
-      "above_ma150": true,
-      "market_cap": 1872,
-      "updated_at": "2026-08-24T11:08:15.783800"
-    },
-    {
-      "ticker": "462860",
-      "name": "더즌",
-      "price": 2960,
-      "change_rate": 16.77,
-      "volume_ratio": 14.0,
-      "volume_rank": 3,
-      "ma150": 3156,
-      "above_ma150": false,
-      "market_cap": 2128,
-      "updated_at": "2026-08-24T11:08:15.645204"
+      "updated_at": "2026-08-24T12:35:53.371031"
     },
     {
       "ticker": "134580",
       "name": "탑코미디어",
-      "price": 3015,
-      "change_rate": 28.03,
-      "volume_ratio": 11.5,
+      "price": 2870,
+      "change_rate": 21.87,
+      "volume_ratio": 14.3,
       "volume_rank": 4,
-      "ma150": 1562,
+      "ma150": 1561,
       "above_ma150": true,
-      "market_cap": 1501,
-      "updated_at": "2026-08-24T11:08:15.784775"
-    },
-    {
-      "ticker": "124500",
-      "name": "아이티센글로벌",
-      "price": 39050,
-      "change_rate": 19.97,
-      "volume_ratio": 6.7,
-      "volume_rank": 5,
-      "ma150": 41918,
-      "above_ma150": false,
-      "market_cap": 9050,
-      "updated_at": "2026-08-24T11:08:15.707890"
-    },
-    {
-      "ticker": "405100",
-      "name": "큐알티",
-      "price": 11250,
-      "change_rate": 13.87,
-      "volume_ratio": 6.7,
-      "volume_rank": 6,
-      "ma150": 15837,
-      "above_ma150": false,
-      "market_cap": 1383,
-      "updated_at": "2026-08-24T11:08:15.782342"
+      "market_cap": 1402,
+      "updated_at": "2026-08-24T12:35:53.457294"
     },
     {
       "ticker": "249420",
       "name": "일동제약",
-      "price": 15400,
-      "change_rate": 13.99,
-      "volume_ratio": 4.4,
+      "price": 15310,
+      "change_rate": 13.32,
+      "volume_ratio": 12.9,
+      "volume_rank": 5,
+      "ma150": 25164,
+      "above_ma150": false,
+      "market_cap": 4841,
+      "updated_at": "2026-08-24T12:35:53.436807"
+    },
+    {
+      "ticker": "008930",
+      "name": "한미사이언스",
+      "price": 53300,
+      "change_rate": 18.58,
+      "volume_ratio": 9.4,
+      "volume_rank": 6,
+      "ma150": 37201,
+      "above_ma150": true,
+      "market_cap": 36384,
+      "updated_at": "2026-08-24T12:35:53.477075"
+    },
+    {
+      "ticker": "124500",
+      "name": "아이티센글로벌",
+      "price": 38500,
+      "change_rate": 18.28,
+      "volume_ratio": 7.9,
       "volume_rank": 7,
-      "ma150": 25165,
+      "ma150": 41915,
       "above_ma150": false,
-      "market_cap": 4815,
-      "updated_at": "2026-08-24T11:08:15.757557"
+      "market_cap": 8911,
+      "updated_at": "2026-08-24T12:35:53.377594"
     },
     {
-      "ticker": "137310",
-      "name": "에스디바이오센서",
-      "price": 6650,
-      "change_rate": 12.33,
-      "volume_ratio": 4.3,
+      "ticker": "405100",
+      "name": "큐알티",
+      "price": 11240,
+      "change_rate": 13.77,
+      "volume_ratio": 7.7,
       "volume_rank": 8,
-      "ma150": 7596,
+      "ma150": 15837,
       "above_ma150": false,
-      "market_cap": 8102,
-      "updated_at": "2026-08-24T11:08:15.711419"
+      "market_cap": 1375,
+      "updated_at": "2026-08-24T12:35:53.455384"
     },
     {
-      "ticker": "100790",
-      "name": "미래에셋벤처투자",
-      "price": 16560,
-      "change_rate": 14.21,
-      "volume_ratio": 3.0,
+      "ticker": "128940",
+      "name": "한미약품",
+      "price": 540000,
+      "change_rate": 29.96,
+      "volume_ratio": 5.2,
       "volume_rank": 9,
-      "ma150": 28177,
-      "above_ma150": false,
-      "market_cap": 8797,
-      "updated_at": "2026-08-24T11:08:15.666970"
+      "ma150": 465563,
+      "above_ma150": true,
+      "market_cap": 69179,
+      "updated_at": "2026-08-24T12:35:53.483322"
     }
   ]
 }

@@ -1,28 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-24T11:08:26.637894",
+    "lastUpdated": "2026-08-24T12:36:02.399293",
     "totalCount": 4,
-    "screened_from": 1305
+    "screened_from": 1309
   },
   "data": [
     {
       "ticker": "096760",
       "name": "JW홀딩스",
-      "price": 4005,
-      "change_rate": 0.0,
+      "price": 4000,
+      "change_rate": -0.12,
       "breakout_date": "2026-08-12",
       "days_since_breakout": 7,
       "breakout_price": 4005,
-      "breakout_pct": 0.0,
-      "gain_since_breakout": -4.19,
+      "breakout_pct": -0.12,
+      "gain_since_breakout": -4.31,
       "volume_ratio": 11.9,
       "ma150": 3958,
       "above_ma150": true,
-      "market_cap": 2961,
+      "market_cap": 2964,
       "success_prob": 40.0,
       "predicted_gain": 17.5,
       "ai_score": 43.7,
-      "updated_at": "2026-08-24T11:08:23.649277"
+      "updated_at": "2026-08-24T12:36:00.002099"
     },
     {
       "ticker": "123890",
@@ -37,49 +37,49 @@
       "volume_ratio": 2.1,
       "ma150": 2498,
       "above_ma150": true,
-      "market_cap": 3127,
+      "market_cap": 3133,
       "success_prob": 42.8,
       "predicted_gain": 9.6,
       "ai_score": 38.6,
-      "updated_at": "2026-08-24T11:08:25.843163"
+      "updated_at": "2026-08-24T12:36:01.875953"
     },
     {
       "ticker": "025000",
       "name": "KPX케미칼",
-      "price": 53400,
-      "change_rate": 1.52,
+      "price": 53500,
+      "change_rate": 1.71,
       "breakout_date": "2026-08-18",
       "days_since_breakout": 4,
       "breakout_price": 52000,
-      "breakout_pct": 2.69,
-      "gain_since_breakout": -1.84,
+      "breakout_pct": 2.88,
+      "gain_since_breakout": -1.65,
       "volume_ratio": 4.1,
-      "ma150": 50458,
+      "ma150": 50459,
       "above_ma150": true,
-      "market_cap": 2329,
+      "market_cap": 2343,
       "success_prob": 25.6,
       "predicted_gain": 11.9,
       "ai_score": 28.7,
-      "updated_at": "2026-08-24T11:08:23.679517"
+      "updated_at": "2026-08-24T12:36:00.025199"
     },
     {
       "ticker": "100250",
       "name": "진양홀딩스",
-      "price": 3140,
-      "change_rate": -0.63,
+      "price": 3110,
+      "change_rate": -1.58,
       "breakout_date": "2026-08-14",
       "days_since_breakout": 5,
       "breakout_price": 3075,
-      "breakout_pct": 2.11,
-      "gain_since_breakout": -1.41,
+      "breakout_pct": 1.14,
+      "gain_since_breakout": -2.35,
       "volume_ratio": 5.0,
       "ma150": 3015,
       "above_ma150": true,
-      "market_cap": 1997,
+      "market_cap": 1987,
       "success_prob": 14.5,
       "predicted_gain": 9.6,
       "ai_score": 18.8,
-      "updated_at": "2026-08-24T11:08:24.955713"
+      "updated_at": "2026-08-24T12:36:00.991896"
     }
   ]
 }
