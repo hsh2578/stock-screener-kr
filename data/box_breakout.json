@@ -1,20 +1,20 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-25T11:01:05.554453",
+    "lastUpdated": "2026-08-25T12:30:17.172258",
     "totalCount": 4,
-    "screened_from": 1306
+    "screened_from": 1305
   },
   "data": [
     {
       "ticker": "096760",
       "name": "JW홀딩스",
-      "price": 4010,
-      "change_rate": -0.74,
+      "price": 4020,
+      "change_rate": -0.5,
       "breakout_date": "2026-08-12",
       "days_since_breakout": 8,
       "breakout_price": 4005,
-      "breakout_pct": 0.12,
-      "gain_since_breakout": -4.07,
+      "breakout_pct": 0.37,
+      "gain_since_breakout": -3.83,
       "volume_ratio": 11.9,
       "ma150": 3961,
       "above_ma150": true,
@@ -22,45 +22,45 @@
       "success_prob": 40.0,
       "predicted_gain": 17.5,
       "ai_score": 43.7,
-      "updated_at": "2026-08-25T11:01:02.467135"
+      "updated_at": "2026-08-25T12:30:08.806615"
     },
     {
       "ticker": "123890",
       "name": "한국자산신탁",
-      "price": 2545,
-      "change_rate": -0.59,
+      "price": 2540,
+      "change_rate": -0.78,
       "breakout_date": "2026-08-20",
       "days_since_breakout": 3,
       "breakout_price": 2435,
-      "breakout_pct": 4.52,
-      "gain_since_breakout": 2.41,
+      "breakout_pct": 4.31,
+      "gain_since_breakout": 2.21,
       "volume_ratio": 2.1,
       "ma150": 2498,
       "above_ma150": true,
-      "market_cap": 3102,
+      "market_cap": 3121,
       "success_prob": 42.8,
       "predicted_gain": 9.6,
       "ai_score": 38.6,
-      "updated_at": "2026-08-25T11:01:05.340707"
+      "updated_at": "2026-08-25T12:30:16.448446"
     },
     {
       "ticker": "025000",
       "name": "KPX케미칼",
-      "price": 54400,
-      "change_rate": 0.74,
+      "price": 53800,
+      "change_rate": -0.37,
       "breakout_date": "2026-08-18",
       "days_since_breakout": 5,
       "breakout_price": 52000,
-      "breakout_pct": 4.62,
-      "gain_since_breakout": 0.0,
+      "breakout_pct": 3.46,
+      "gain_since_breakout": -1.1,
       "volume_ratio": 4.1,
-      "ma150": 50519,
+      "ma150": 50515,
       "above_ma150": true,
-      "market_cap": 2382,
+      "market_cap": 2356,
       "success_prob": 25.6,
       "predicted_gain": 11.9,
       "ai_score": 28.7,
-      "updated_at": "2026-08-25T11:01:02.503381"
+      "updated_at": "2026-08-25T12:30:08.868649"
     },
     {
       "ticker": "100250",
@@ -79,7 +79,7 @@
       "success_prob": 14.5,
       "predicted_gain": 9.6,
       "ai_score": 18.8,
-      "updated_at": "2026-08-25T11:01:05.007670"
+      "updated_at": "2026-08-25T12:30:15.394535"
     }
   ]
 }
