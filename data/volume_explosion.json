@@ -1,81 +1,105 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-26T11:09:36.621306",
-    "totalCount": 6,
-    "screened_from": 1317
+    "lastUpdated": "2026-08-26T12:36:40.817825",
+    "totalCount": 8,
+    "screened_from": 1316
   },
   "data": [
     {
       "ticker": "130660",
       "name": "한전산업",
-      "price": 13830,
-      "change_rate": 17.5,
-      "volume_ratio": 38.9,
+      "price": 13530,
+      "change_rate": 14.95,
+      "volume_ratio": 43.9,
       "volume_rank": 1,
-      "ma150": 15691,
+      "ma150": 15689,
       "above_ma150": false,
-      "market_cap": 4512,
-      "updated_at": "2026-08-26T11:09:36.613056"
-    },
-    {
-      "ticker": "079900",
-      "name": "전진건설로봇",
-      "price": 39250,
-      "change_rate": 15.61,
-      "volume_ratio": 14.2,
-      "volume_rank": 2,
-      "ma150": 50796,
-      "above_ma150": false,
-      "market_cap": 5698,
-      "updated_at": "2026-08-26T11:09:36.585864"
+      "market_cap": 4421,
+      "updated_at": "2026-08-26T12:36:40.765780"
     },
     {
       "ticker": "053690",
       "name": "한미글로벌",
-      "price": 21850,
-      "change_rate": 22.62,
-      "volume_ratio": 12.6,
-      "volume_rank": 3,
-      "ma150": 21305,
+      "price": 21900,
+      "change_rate": 22.9,
+      "volume_ratio": 16.1,
+      "volume_rank": 2,
+      "ma150": 21306,
       "above_ma150": true,
-      "market_cap": 2397,
-      "updated_at": "2026-08-26T11:09:36.610601"
+      "market_cap": 2334,
+      "updated_at": "2026-08-26T12:36:40.760665"
+    },
+    {
+      "ticker": "079900",
+      "name": "전진건설로봇",
+      "price": 38950,
+      "change_rate": 14.73,
+      "volume_ratio": 15.0,
+      "volume_rank": 3,
+      "ma150": 50794,
+      "above_ma150": false,
+      "market_cap": 5677,
+      "updated_at": "2026-08-26T12:36:40.702376"
+    },
+    {
+      "ticker": "108230",
+      "name": "톱텍",
+      "price": 3435,
+      "change_rate": 12.25,
+      "volume_ratio": 13.7,
+      "volume_rank": 4,
+      "ma150": 3913,
+      "above_ma150": false,
+      "market_cap": 1308,
+      "updated_at": "2026-08-26T12:36:40.737708"
     },
     {
       "ticker": "052690",
       "name": "한전기술",
-      "price": 123900,
-      "change_rate": 14.09,
-      "volume_ratio": 8.8,
-      "volume_rank": 4,
-      "ma150": 137434,
+      "price": 122100,
+      "change_rate": 12.43,
+      "volume_ratio": 10.2,
+      "volume_rank": 5,
+      "ma150": 137422,
       "above_ma150": false,
-      "market_cap": 47584,
-      "updated_at": "2026-08-26T11:09:36.612812"
+      "market_cap": 46705,
+      "updated_at": "2026-08-26T12:36:40.764865"
+    },
+    {
+      "ticker": "012210",
+      "name": "삼미금속",
+      "price": 8920,
+      "change_rate": 13.05,
+      "volume_ratio": 7.8,
+      "volume_rank": 6,
+      "ma150": 11374,
+      "above_ma150": false,
+      "market_cap": 2056,
+      "updated_at": "2026-08-26T12:36:40.584939"
     },
     {
       "ticker": "100840",
       "name": "SNT에너지",
-      "price": 32300,
-      "change_rate": 15.15,
-      "volume_ratio": 4.8,
-      "volume_rank": 5,
-      "ma150": 40122,
+      "price": 32450,
+      "change_rate": 15.69,
+      "volume_ratio": 6.2,
+      "volume_rank": 7,
+      "ma150": 40123,
       "above_ma150": false,
-      "market_cap": 6680,
-      "updated_at": "2026-08-26T11:09:36.510988"
+      "market_cap": 6701,
+      "updated_at": "2026-08-26T12:36:40.472326"
     },
     {
-      "ticker": "014620",
-      "name": "성광벤드",
-      "price": 30200,
-      "change_rate": 15.27,
-      "volume_ratio": 3.8,
-      "volume_rank": 6,
-      "ma150": 32530,
+      "ticker": "355150",
+      "name": "코스텍시스",
+      "price": 23250,
+      "change_rate": 16.25,
+      "volume_ratio": 2.2,
+      "volume_rank": 8,
+      "ma150": 25192,
       "above_ma150": false,
-      "market_cap": 7994,
-      "updated_at": "2026-08-26T11:09:36.552509"
+      "market_cap": 1809,
+      "updated_at": "2026-08-26T12:36:40.726143"
     }
   ]
 }
