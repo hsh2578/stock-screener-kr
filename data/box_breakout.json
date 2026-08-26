@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-26T12:36:54.476306",
+    "lastUpdated": "2026-08-26T14:09:06.784930",
     "totalCount": 5,
-    "screened_from": 1316
+    "screened_from": 1318
   },
   "data": [
     {
       "ticker": "096760",
       "name": "JW홀딩스",
-      "price": 4030,
-      "change_rate": 0.5,
+      "price": 4050,
+      "change_rate": 1.0,
       "breakout_date": "2026-08-12",
       "days_since_breakout": 9,
       "breakout_price": 4005,
@@ -18,31 +18,31 @@
       "volume_ratio": 11.9,
       "ma150": 3961,
       "above_ma150": true,
-      "market_cap": 2972,
+      "market_cap": 2994,
       "success_prob": 40.0,
       "predicted_gain": 17.5,
       "ai_score": 43.7,
-      "updated_at": "2026-08-26T12:36:54.470598",
-      "vs_breakout_close": -3.59
+      "updated_at": "2026-08-26T14:09:06.780852",
+      "vs_breakout_close": -3.11
     },
     {
       "ticker": "123890",
       "name": "한국자산신탁",
-      "price": 2600,
-      "change_rate": 0.39,
+      "price": 2605,
+      "change_rate": 0.58,
       "breakout_date": "2026-08-20",
       "days_since_breakout": 4,
       "breakout_price": 2435,
-      "breakout_pct": 6.78,
-      "gain_since_breakout": 4.63,
+      "breakout_pct": 6.98,
+      "gain_since_breakout": 4.83,
       "volume_ratio": 2.1,
       "ma150": 2499,
       "above_ma150": true,
-      "market_cap": 3182,
+      "market_cap": 3188,
       "success_prob": 42.8,
       "predicted_gain": 9.6,
       "ai_score": 38.6,
-      "updated_at": "2026-08-26T12:36:54.107969"
+      "updated_at": "2026-08-26T14:09:06.390318"
     },
     {
       "ticker": "025000",
@@ -61,13 +61,13 @@
       "success_prob": 25.6,
       "predicted_gain": 11.9,
       "ai_score": 28.7,
-      "updated_at": "2026-08-26T12:36:49.798575"
+      "updated_at": "2026-08-26T14:09:02.389099"
     },
     {
       "ticker": "002310",
       "name": "아세아제지",
-      "price": 8450,
-      "change_rate": -1.29,
+      "price": 8370,
+      "change_rate": -2.22,
       "breakout_date": "2026-08-25",
       "days_since_breakout": 1,
       "breakout_price": 8350,
@@ -76,11 +76,12 @@
       "volume_ratio": 3.3,
       "ma150": 8413,
       "above_ma150": true,
-      "market_cap": 3333,
+      "market_cap": 3302,
       "success_prob": 22.3,
       "predicted_gain": 11.1,
       "ai_score": 25.6,
-      "updated_at": "2026-08-26T12:36:52.245156"
+      "updated_at": "2026-08-26T14:09:06.782541",
+      "vs_breakout_close": -2.22
     },
     {
       "ticker": "100250",
@@ -99,7 +100,7 @@
       "success_prob": 14.5,
       "predicted_gain": 9.6,
       "ai_score": 18.8,
-      "updated_at": "2026-08-26T12:36:53.489412"
+      "updated_at": "2026-08-26T14:09:05.654341"
     }
   ]
 }
