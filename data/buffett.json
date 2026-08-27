@@ -3,7 +3,7 @@
     "type": "buffett",
     "name": "워렌 버핏 전략",
     "description": "ROE·FCF·부채비율 기반 내재가치 전략",
-    "lastUpdated": "2026-08-26T21:04:23.332663",
+    "lastUpdated": "2026-08-28T06:30:18.279369",
     "totalCount": 5,
     "conditions": [
       "ROE > 15%",
@@ -19,8 +19,8 @@
     {
       "ticker": "950170",
       "name": "JTC",
-      "current_price": 4370,
-      "market_cap": 2261.0,
+      "current_price": 4395,
+      "market_cap": 2274.0,
       "roe": 35.4,
       "per": 3.6,
       "pbr": 1.5,
@@ -34,8 +34,8 @@
     {
       "ticker": "068790",
       "name": "DMS",
-      "current_price": 7410,
-      "market_cap": 1672.0,
+      "current_price": 7290,
+      "market_cap": 1645.0,
       "roe": 30.2,
       "per": 0.8,
       "pbr": 0.22,
@@ -49,8 +49,8 @@
     {
       "ticker": "123410",
       "name": "코리아에프티",
-      "current_price": 5680,
-      "market_cap": 1581.0,
+      "current_price": 5620,
+      "market_cap": 1565.0,
       "roe": 20.2,
       "per": 5.8,
       "pbr": 0.94,
@@ -64,8 +64,8 @@
     {
       "ticker": "097520",
       "name": "엠씨넥스",
-      "current_price": 20250,
-      "market_cap": 3524.0,
+      "current_price": 20000,
+      "market_cap": 3480.0,
       "roe": 18.8,
       "per": 6.7,
       "pbr": 1.07,
@@ -79,8 +79,8 @@
     {
       "ticker": "035150",
       "name": "백산",
-      "current_price": 10580,
-      "market_cap": 2092.0,
+      "current_price": 10590,
+      "market_cap": 2094.0,
       "roe": 17.9,
       "per": 4.9,
       "pbr": 1.16,
