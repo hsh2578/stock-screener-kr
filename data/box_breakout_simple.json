@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-31T23:19:17.831935",
+    "lastUpdated": "2026-09-01T01:18:29.205878",
     "totalCount": 16,
     "screened_from": 1323
   },
@@ -21,7 +21,7 @@
       "success_prob": 49.8,
       "predicted_gain": 9.8,
       "ai_score": 43.7,
-      "updated_at": "2026-08-31T23:19:16.026996"
+      "updated_at": "2026-09-01T01:18:25.962004"
     },
     {
       "ticker": "017940",
@@ -39,7 +39,7 @@
       "success_prob": 44.3,
       "predicted_gain": 12.9,
       "ai_score": 42.6,
-      "updated_at": "2026-08-31T23:19:07.350038"
+      "updated_at": "2026-09-01T01:18:18.308509"
     },
     {
       "ticker": "036190",
@@ -57,7 +57,7 @@
       "success_prob": 38.7,
       "predicted_gain": 12.8,
       "ai_score": 38.6,
-      "updated_at": "2026-08-31T23:19:11.750876"
+      "updated_at": "2026-09-01T01:18:22.050075"
     },
     {
       "ticker": "123890",
@@ -72,10 +72,10 @@
       "ma150": 2502,
       "above_ma150": true,
       "market_cap": 3231,
-      "success_prob": 40.4,
-      "predicted_gain": 11.3,
-      "ai_score": 38.4,
-      "updated_at": "2026-08-31T23:19:17.257230"
+      "success_prob": 42.8,
+      "predicted_gain": 9.6,
+      "ai_score": 38.6,
+      "updated_at": "2026-09-01T01:18:27.676064"
     },
     {
       "ticker": "014820",
@@ -93,7 +93,7 @@
       "success_prob": 36.5,
       "predicted_gain": 11.3,
       "ai_score": 35.7,
-      "updated_at": "2026-08-31T23:19:12.533893"
+      "updated_at": "2026-09-01T01:18:22.753331"
     },
     {
       "ticker": "461300",
@@ -111,7 +111,7 @@
       "success_prob": 31.1,
       "predicted_gain": 13.5,
       "ai_score": 33.9,
-      "updated_at": "2026-08-31T23:19:14.539249"
+      "updated_at": "2026-09-01T01:18:24.637244"
     },
     {
       "ticker": "183190",
@@ -129,7 +129,7 @@
       "success_prob": 25.3,
       "predicted_gain": 13.8,
       "ai_score": 30.1,
-      "updated_at": "2026-08-31T23:19:14.407425"
+      "updated_at": "2026-09-01T01:18:24.522825"
     },
     {
       "ticker": "025000",
@@ -147,7 +147,7 @@
       "success_prob": 21.6,
       "predicted_gain": 12.9,
       "ai_score": 26.7,
-      "updated_at": "2026-08-31T23:19:07.906369"
+      "updated_at": "2026-09-01T01:18:20.204762"
     },
     {
       "ticker": "021240",
@@ -165,26 +165,8 @@
       "success_prob": 24.7,
       "predicted_gain": 10.1,
       "ai_score": 26.4,
-      "updated_at": "2026-08-31T23:19:17.829996",
+      "updated_at": "2026-09-01T01:18:29.204969",
       "vs_breakout_close": -3.1
-    },
-    {
-      "ticker": "300720",
-      "name": "한일시멘트",
-      "price": 17010,
-      "change_rate": 0.35,
-      "breakout_date": "2026-08-21",
-      "resistance": 15250,
-      "days_since_breakout": 6,
-      "breakout_pct": 11.54,
-      "gain_since_breakout": 9.6,
-      "ma150": 15844,
-      "above_ma150": true,
-      "market_cap": 12510,
-      "success_prob": 21.4,
-      "predicted_gain": 10.2,
-      "ai_score": 24.2,
-      "updated_at": "2026-08-31T23:19:17.447026"
     },
     {
       "ticker": "284740",
@@ -202,7 +184,25 @@
       "success_prob": 18.2,
       "predicted_gain": 12.4,
       "ai_score": 24.0,
-      "updated_at": "2026-08-31T23:19:16.404630"
+      "updated_at": "2026-09-01T01:18:26.233172"
+    },
+    {
+      "ticker": "300720",
+      "name": "한일시멘트",
+      "price": 17010,
+      "change_rate": 0.35,
+      "breakout_date": "2026-08-21",
+      "resistance": 15250,
+      "days_since_breakout": 6,
+      "breakout_pct": 11.54,
+      "gain_since_breakout": 9.6,
+      "ma150": 15844,
+      "above_ma150": true,
+      "market_cap": 12510,
+      "success_prob": 20.2,
+      "predicted_gain": 8.9,
+      "ai_score": 22.1,
+      "updated_at": "2026-09-01T01:18:28.564843"
     },
     {
       "ticker": "023450",
@@ -220,7 +220,7 @@
       "success_prob": 16.0,
       "predicted_gain": 11.4,
       "ai_score": 21.5,
-      "updated_at": "2026-08-31T23:19:12.458241"
+      "updated_at": "2026-09-01T01:18:22.686441"
     },
     {
       "ticker": "002310",
@@ -238,7 +238,7 @@
       "success_prob": 14.2,
       "predicted_gain": 12.7,
       "ai_score": 21.4,
-      "updated_at": "2026-08-31T23:19:14.415262"
+      "updated_at": "2026-09-01T01:18:24.529859"
     },
     {
       "ticker": "016450",
@@ -253,10 +253,10 @@
       "ma150": 4408,
       "above_ma150": true,
       "market_cap": 1842,
-      "success_prob": 17.4,
-      "predicted_gain": 8.9,
-      "ai_score": 20.2,
-      "updated_at": "2026-08-31T23:19:17.405983"
+      "success_prob": 18.8,
+      "predicted_gain": 8.5,
+      "ai_score": 20.8,
+      "updated_at": "2026-09-01T01:18:28.497988"
     },
     {
       "ticker": "072870",
@@ -274,7 +274,7 @@
       "success_prob": 13.7,
       "predicted_gain": 7.9,
       "ai_score": 16.7,
-      "updated_at": "2026-08-31T23:19:12.952965"
+      "updated_at": "2026-09-01T01:18:23.078334"
     },
     {
       "ticker": "039340",
@@ -289,10 +289,10 @@
       "ma150": 4972,
       "above_ma150": false,
       "market_cap": 1082,
-      "success_prob": 10.6,
-      "predicted_gain": 6.5,
-      "ai_score": 13.2,
-      "updated_at": "2026-08-31T23:19:17.167925"
+      "success_prob": 10.2,
+      "predicted_gain": 6.0,
+      "ai_score": 12.5,
+      "updated_at": "2026-09-01T01:18:27.212197"
     }
   ]
 }
