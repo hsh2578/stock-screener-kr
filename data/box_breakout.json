@@ -1,28 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-31T14:54:03.466733",
+    "lastUpdated": "2026-08-31T17:54:34.527451",
     "totalCount": 6,
-    "screened_from": 1324
+    "screened_from": 1323
   },
   "data": [
     {
       "ticker": "123890",
       "name": "한국자산신탁",
-      "price": 2630,
-      "change_rate": 0.77,
+      "price": 2640,
+      "change_rate": 1.15,
       "breakout_date": "2026-08-20",
       "days_since_breakout": 7,
       "breakout_price": 2435,
-      "breakout_pct": 8.01,
-      "gain_since_breakout": 5.84,
+      "breakout_pct": 8.42,
+      "gain_since_breakout": 6.24,
       "volume_ratio": 2.1,
       "ma150": 2502,
       "above_ma150": true,
-      "market_cap": 3218,
+      "market_cap": 3231,
       "success_prob": 42.8,
       "predicted_gain": 9.6,
       "ai_score": 38.6,
-      "updated_at": "2026-08-31T14:54:01.838365"
+      "updated_at": "2026-08-31T17:54:34.405607"
     },
     {
       "ticker": "025000",
@@ -41,7 +41,7 @@
       "success_prob": 32.4,
       "predicted_gain": 11.9,
       "ai_score": 33.4,
-      "updated_at": "2026-08-31T14:53:56.204690"
+      "updated_at": "2026-08-31T17:54:32.253276"
     },
     {
       "ticker": "284740",
@@ -60,45 +60,45 @@
       "success_prob": 32.1,
       "predicted_gain": 11.2,
       "ai_score": 32.6,
-      "updated_at": "2026-08-31T14:54:01.422135"
+      "updated_at": "2026-08-31T17:54:34.177899"
     },
     {
       "ticker": "002310",
       "name": "아세아제지",
-      "price": 8500,
-      "change_rate": -0.7,
+      "price": 8540,
+      "change_rate": -0.23,
       "breakout_date": "2026-08-25",
       "days_since_breakout": 4,
       "breakout_price": 8350,
-      "breakout_pct": 1.8,
-      "gain_since_breakout": -0.7,
+      "breakout_pct": 2.28,
+      "gain_since_breakout": -0.23,
       "volume_ratio": 3.3,
-      "ma150": 8431,
+      "ma150": 8432,
       "above_ma150": true,
-      "market_cap": 3353,
+      "market_cap": 3369,
       "success_prob": 22.3,
       "predicted_gain": 11.1,
       "ai_score": 25.6,
-      "updated_at": "2026-08-31T14:53:59.749986"
+      "updated_at": "2026-08-31T17:54:32.977042"
     },
     {
       "ticker": "036190",
       "name": "금화피에스시",
-      "price": 34500,
-      "change_rate": -1.0,
+      "price": 34650,
+      "change_rate": -0.57,
       "breakout_date": "2026-08-26",
       "days_since_breakout": 3,
       "breakout_price": 34350,
-      "breakout_pct": 0.44,
-      "gain_since_breakout": -1.29,
+      "breakout_pct": 0.87,
+      "gain_since_breakout": -0.86,
       "volume_ratio": 18.8,
-      "ma150": 34245,
+      "ma150": 34246,
       "above_ma150": true,
-      "market_cap": 2070,
+      "market_cap": 2079,
       "success_prob": 21.3,
       "predicted_gain": 11.6,
       "ai_score": 25.4,
-      "updated_at": "2026-08-31T14:53:56.568616"
+      "updated_at": "2026-08-31T17:54:32.459861"
     },
     {
       "ticker": "100250",
@@ -117,7 +117,7 @@
       "success_prob": 14.5,
       "predicted_gain": 9.6,
       "ai_score": 18.8,
-      "updated_at": "2026-08-31T14:54:00.944192"
+      "updated_at": "2026-08-31T17:54:33.656945"
     }
   ]
 }
