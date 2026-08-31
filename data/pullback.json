@@ -1,8 +1,23 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-29T03:57:53.138331",
-    "totalCount": 0,
-    "screened_from": 1326
+    "lastUpdated": "2026-08-31T14:53:43.791747",
+    "totalCount": 1,
+    "screened_from": 1324
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "100250",
+      "name": "진양홀딩스",
+      "price": 3165,
+      "change_rate": 0.16,
+      "breakout_date": "2026-08-14",
+      "resistance": 3080,
+      "pullback_ratio": 2.76,
+      "volume_decrease": 70,
+      "ma150": 3021,
+      "above_ma150": true,
+      "market_cap": 2022,
+      "updated_at": "2026-08-31T14:53:43.458983"
+    }
+  ]
 }
