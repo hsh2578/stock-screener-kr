@@ -1,93 +1,117 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-03T13:51:20.705723",
-    "totalCount": 7,
-    "screened_from": 1314
+    "lastUpdated": "2026-09-03T16:23:34.296341",
+    "totalCount": 9,
+    "screened_from": 1313
   },
   "data": [
     {
       "ticker": "234690",
       "name": "녹십자웰빙",
-      "price": 10900,
-      "change_rate": 18.09,
-      "volume_ratio": 83.5,
+      "price": 10750,
+      "change_rate": 16.47,
+      "volume_ratio": 123.4,
       "volume_rank": 1,
-      "ma150": 9999,
+      "ma150": 9998,
       "above_ma150": true,
-      "market_cap": 1920,
-      "updated_at": "2026-09-03T13:51:20.429651"
-    },
-    {
-      "ticker": "441270",
-      "name": "파인엠텍",
-      "price": 9160,
-      "change_rate": 18.04,
-      "volume_ratio": 17.2,
-      "volume_rank": 2,
-      "ma150": 8888,
-      "above_ma150": true,
-      "market_cap": 3870,
-      "updated_at": "2026-09-03T13:51:20.624561"
+      "market_cap": 1931,
+      "updated_at": "2026-09-03T16:23:34.061994"
     },
     {
       "ticker": "032940",
       "name": "원익",
-      "price": 8990,
-      "change_rate": 24.52,
-      "volume_ratio": 16.7,
+      "price": 8580,
+      "change_rate": 18.84,
+      "volume_ratio": 25.4,
+      "volume_rank": 2,
+      "ma150": 8747,
+      "above_ma150": false,
+      "market_cap": 1561,
+      "updated_at": "2026-09-03T16:23:34.205333"
+    },
+    {
+      "ticker": "441270",
+      "name": "파인엠텍",
+      "price": 9220,
+      "change_rate": 18.81,
+      "volume_ratio": 19.7,
       "volume_rank": 3,
-      "ma150": 8750,
+      "ma150": 8888,
       "above_ma150": true,
-      "market_cap": 1643,
-      "updated_at": "2026-09-03T13:51:20.531589"
+      "market_cap": 3891,
+      "updated_at": "2026-09-03T16:23:34.256213"
     },
     {
       "ticker": "053260",
       "name": "금강철강",
-      "price": 6620,
-      "change_rate": 21.92,
-      "volume_ratio": 12.1,
+      "price": 6390,
+      "change_rate": 17.68,
+      "volume_ratio": 14.4,
       "volume_rank": 4,
-      "ma150": 5006,
+      "ma150": 5004,
       "above_ma150": true,
-      "market_cap": 1239,
-      "updated_at": "2026-09-03T13:51:20.388498"
-    },
-    {
-      "ticker": "079900",
-      "name": "전진건설로봇",
-      "price": 42650,
-      "change_rate": 14.19,
-      "volume_ratio": 9.1,
-      "volume_rank": 5,
-      "ma150": 50443,
-      "above_ma150": false,
-      "market_cap": 6195,
-      "updated_at": "2026-09-03T13:51:20.555279"
+      "market_cap": 1196,
+      "updated_at": "2026-09-03T16:23:34.053007"
     },
     {
       "ticker": "095700",
       "name": "제넥신",
-      "price": 3445,
-      "change_rate": 22.38,
-      "volume_ratio": 6.8,
-      "volume_rank": 6,
-      "ma150": 3916,
+      "price": 3260,
+      "change_rate": 15.81,
+      "volume_ratio": 8.5,
+      "volume_rank": 5,
+      "ma150": 3915,
       "above_ma150": false,
-      "market_cap": 1519,
-      "updated_at": "2026-09-03T13:51:20.555850"
+      "market_cap": 1485,
+      "updated_at": "2026-09-03T16:23:34.225866"
+    },
+    {
+      "ticker": "484120",
+      "name": "도우인시스",
+      "price": 20950,
+      "change_rate": 12.27,
+      "volume_ratio": 7.6,
+      "volume_rank": 6,
+      "ma150": 19623,
+      "above_ma150": true,
+      "market_cap": 2296,
+      "updated_at": "2026-09-03T16:23:34.072643"
+    },
+    {
+      "ticker": "059120",
+      "name": "아진엑스텍",
+      "price": 6910,
+      "change_rate": 12.18,
+      "volume_ratio": 5.3,
+      "volume_rank": 7,
+      "ma150": 7477,
+      "above_ma150": false,
+      "market_cap": 1265,
+      "updated_at": "2026-09-03T16:23:34.183331"
+    },
+    {
+      "ticker": "033790",
+      "name": "피노",
+      "price": 8830,
+      "change_rate": 12.48,
+      "volume_ratio": 5.0,
+      "volume_rank": 8,
+      "ma150": 8044,
+      "above_ma150": true,
+      "market_cap": 7357,
+      "updated_at": "2026-09-03T16:23:34.261139"
     },
     {
       "ticker": "004710",
       "name": "한솔테크닉스",
-      "price": 8630,
-      "change_rate": 13.85,
-      "volume_ratio": 4.2,
-      "volume_rank": 7,
-      "ma150": 7975,
+      "price": 8490,
+      "change_rate": 12.01,
+      "volume_ratio": 4.8,
+      "volume_rank": 9,
+      "ma150": 7974,
       "above_ma150": true,
-      "market_cap": 4584,
-      "updated_at": "2026-09-03T13:51:20.683393"
+      "market_cap": 4510,
+      "updated_at": "2026-09-03T16:23:34.282514"
     }
   ]
 }
