@@ -1,28 +1,47 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-03T21:57:54.354651",
-    "totalCount": 1,
-    "screened_from": 1313
+    "lastUpdated": "2026-09-04T13:53:08.610551",
+    "totalCount": 2,
+    "screened_from": 1318
   },
   "data": [
     {
+      "ticker": "105560",
+      "name": "KB금융",
+      "current_price": 171400,
+      "volume": 1762748,
+      "ma10w": 172720,
+      "ma20w": 165670,
+      "ma60w": 141625,
+      "ma20d": 168730,
+      "ma60d": 167735,
+      "ma120d": 161230,
+      "gap_20_60": 0.59,
+      "gap_20_120": 4.65,
+      "gap_60_120": 4.03,
+      "gap_price_20": 1.58,
+      "weeks_since_high": 12,
+      "market_cap": 608289,
+      "updated_at": "2026-09-04T13:53:03.180577"
+    },
+    {
       "ticker": "316140",
       "name": "우리금융지주",
-      "current_price": 34650,
-      "volume": 2684403,
-      "ma10w": 32695,
-      "ma20w": 32122,
-      "ma60w": 29840,
-      "ma20d": 33395,
-      "ma60d": 31830,
-      "ma120d": 32171,
-      "gap_20_60": 4.91,
-      "gap_20_120": 3.8,
-      "gap_60_120": 1.06,
-      "gap_price_20": 3.76,
+      "current_price": 33150,
+      "volume": 5668005,
+      "ma10w": 32545,
+      "ma20w": 32047,
+      "ma60w": 29815,
+      "ma20d": 33377,
+      "ma60d": 31886,
+      "ma120d": 32177,
+      "gap_20_60": 4.68,
+      "gap_20_120": 3.73,
+      "gap_60_120": 0.9,
+      "gap_price_20": 0.68,
       "weeks_since_high": 28,
-      "market_cap": 255297,
-      "updated_at": "2026-09-03T21:57:50.974336"
+      "market_cap": 244245,
+      "updated_at": "2026-09-04T13:53:06.377397"
     }
   ]
 }
