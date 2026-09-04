@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-04T16:26:38.609542",
+    "lastUpdated": "2026-09-04T18:02:47.952930",
     "totalCount": 17,
     "screened_from": 1319
   },
@@ -21,25 +21,7 @@
       "success_prob": 44.5,
       "predicted_gain": 13.4,
       "ai_score": 43.2,
-      "updated_at": "2026-09-04T16:26:30.678024"
-    },
-    {
-      "ticker": "036460",
-      "name": "한국가스공사",
-      "price": 35100,
-      "change_rate": -6.9,
-      "breakout_date": "2026-09-03",
-      "resistance": 37000,
-      "days_since_breakout": 1,
-      "breakout_pct": -5.14,
-      "gain_since_breakout": -6.9,
-      "ma150": 36512,
-      "above_ma150": false,
-      "market_cap": 32402,
-      "success_prob": 47.1,
-      "predicted_gain": 7.2,
-      "ai_score": 39.4,
-      "updated_at": "2026-09-04T16:26:37.833915"
+      "updated_at": "2026-09-04T18:02:40.314868"
     },
     {
       "ticker": "017940",
@@ -57,7 +39,7 @@
       "success_prob": 39.6,
       "predicted_gain": 12.8,
       "ai_score": 39.2,
-      "updated_at": "2026-09-04T16:26:38.604241",
+      "updated_at": "2026-09-04T18:02:47.946486",
       "vs_breakout_close": 0.0
     },
     {
@@ -76,7 +58,7 @@
       "success_prob": 38.7,
       "predicted_gain": 12.8,
       "ai_score": 38.6,
-      "updated_at": "2026-09-04T16:26:38.605120",
+      "updated_at": "2026-09-04T18:02:47.947498",
       "vs_breakout_close": -5.29
     },
     {
@@ -95,7 +77,7 @@
       "success_prob": 36.5,
       "predicted_gain": 11.3,
       "ai_score": 35.7,
-      "updated_at": "2026-09-04T16:26:31.880075"
+      "updated_at": "2026-09-04T18:02:42.649305"
     },
     {
       "ticker": "461300",
@@ -113,26 +95,8 @@
       "success_prob": 31.1,
       "predicted_gain": 13.5,
       "ai_score": 33.9,
-      "updated_at": "2026-09-04T16:26:38.605802",
+      "updated_at": "2026-09-04T18:02:47.948234",
       "vs_breakout_close": 2.79
-    },
-    {
-      "ticker": "284740",
-      "name": "쿠쿠홈시스",
-      "price": 23500,
-      "change_rate": 1.29,
-      "breakout_date": "2026-08-28",
-      "resistance": 23000,
-      "days_since_breakout": 5,
-      "breakout_pct": 2.17,
-      "gain_since_breakout": -2.29,
-      "ma150": 23195,
-      "above_ma150": true,
-      "market_cap": 5273,
-      "success_prob": 32.1,
-      "predicted_gain": 11.2,
-      "ai_score": 32.6,
-      "updated_at": "2026-09-04T16:26:37.091270"
     },
     {
       "ticker": "066620",
@@ -150,7 +114,7 @@
       "success_prob": 30.9,
       "predicted_gain": 11.3,
       "ai_score": 31.8,
-      "updated_at": "2026-09-04T16:26:30.936214"
+      "updated_at": "2026-09-04T18:02:41.663660"
     },
     {
       "ticker": "183190",
@@ -168,7 +132,7 @@
       "success_prob": 25.3,
       "predicted_gain": 13.8,
       "ai_score": 30.1,
-      "updated_at": "2026-09-04T16:26:33.851378"
+      "updated_at": "2026-09-04T18:02:44.692803"
     },
     {
       "ticker": "049520",
@@ -186,7 +150,7 @@
       "success_prob": 23.5,
       "predicted_gain": 11.2,
       "ai_score": 26.6,
-      "updated_at": "2026-09-04T16:26:38.606416",
+      "updated_at": "2026-09-04T18:02:47.948920",
       "vs_breakout_close": -2.15
     },
     {
@@ -205,8 +169,44 @@
       "success_prob": 24.7,
       "predicted_gain": 10.1,
       "ai_score": 26.4,
-      "updated_at": "2026-09-04T16:26:38.607111",
+      "updated_at": "2026-09-04T18:02:47.949634",
       "vs_breakout_close": -0.6
+    },
+    {
+      "ticker": "284740",
+      "name": "쿠쿠홈시스",
+      "price": 23500,
+      "change_rate": 1.29,
+      "breakout_date": "2026-08-28",
+      "resistance": 23000,
+      "days_since_breakout": 5,
+      "breakout_pct": 2.17,
+      "gain_since_breakout": -2.29,
+      "ma150": 23195,
+      "above_ma150": true,
+      "market_cap": 5273,
+      "success_prob": 18.2,
+      "predicted_gain": 12.4,
+      "ai_score": 24.0,
+      "updated_at": "2026-09-04T18:02:46.535643"
+    },
+    {
+      "ticker": "036460",
+      "name": "한국가스공사",
+      "price": 35100,
+      "change_rate": -6.9,
+      "breakout_date": "2026-09-03",
+      "resistance": 37000,
+      "days_since_breakout": 1,
+      "breakout_pct": -5.14,
+      "gain_since_breakout": -6.9,
+      "ma150": 36512,
+      "above_ma150": false,
+      "market_cap": 32402,
+      "success_prob": 23.1,
+      "predicted_gain": 8.7,
+      "ai_score": 24.0,
+      "updated_at": "2026-09-04T18:02:47.232493"
     },
     {
       "ticker": "300720",
@@ -221,10 +221,10 @@
       "ma150": 15845,
       "above_ma150": true,
       "market_cap": 12260,
-      "success_prob": 22.1,
-      "predicted_gain": 9.1,
-      "ai_score": 23.6,
-      "updated_at": "2026-09-04T16:26:38.154905"
+      "success_prob": 19.4,
+      "predicted_gain": 10.4,
+      "ai_score": 23.0,
+      "updated_at": "2026-09-04T18:02:47.512333"
     },
     {
       "ticker": "023450",
@@ -242,7 +242,7 @@
       "success_prob": 16.0,
       "predicted_gain": 11.4,
       "ai_score": 21.5,
-      "updated_at": "2026-09-04T16:26:38.607695",
+      "updated_at": "2026-09-04T18:02:47.950326",
       "vs_breakout_close": -0.32
     },
     {
@@ -261,7 +261,7 @@
       "success_prob": 14.2,
       "predicted_gain": 12.7,
       "ai_score": 21.4,
-      "updated_at": "2026-09-04T16:26:38.608304",
+      "updated_at": "2026-09-04T18:02:47.950990",
       "vs_breakout_close": 3.27
     },
     {
@@ -280,7 +280,7 @@
       "success_prob": 13.7,
       "predicted_gain": 7.9,
       "ai_score": 16.7,
-      "updated_at": "2026-09-04T16:26:38.608896",
+      "updated_at": "2026-09-04T18:02:47.951685",
       "vs_breakout_close": -1.9
     },
     {
@@ -296,10 +296,10 @@
       "ma150": 4420,
       "above_ma150": true,
       "market_cap": 1786,
-      "success_prob": 12.5,
-      "predicted_gain": 8.4,
-      "ai_score": 16.3,
-      "updated_at": "2026-09-04T16:26:38.104447"
+      "success_prob": 10.7,
+      "predicted_gain": 8.8,
+      "ai_score": 15.5,
+      "updated_at": "2026-09-04T18:02:47.475995"
     },
     {
       "ticker": "034950",
@@ -314,10 +314,10 @@
       "ma150": 102223,
       "above_ma150": true,
       "market_cap": 4718,
-      "success_prob": 7.7,
-      "predicted_gain": 6.7,
-      "ai_score": 11.4,
-      "updated_at": "2026-09-04T16:26:37.879367"
+      "success_prob": 9.0,
+      "predicted_gain": 6.6,
+      "ai_score": 12.3,
+      "updated_at": "2026-09-04T18:02:47.268775"
     }
   ]
 }
