@@ -1,43 +1,43 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-04T13:53:02.775387",
+    "lastUpdated": "2026-09-04T16:26:43.545978",
     "totalCount": 4,
-    "screened_from": 1318
+    "screened_from": 1319
   },
   "data": [
     {
       "ticker": "159010",
       "name": "아스플로",
-      "price": 25300,
-      "change_rate": 1.4,
+      "price": 25400,
+      "change_rate": 1.8,
       "high_52w": 24000,
       "breakout_date": "2026-09-03",
       "days_since": 1,
-      "above_high_percent": 5.42,
+      "above_high_percent": 5.83,
       "volume_ratio": 1.0,
-      "vs_breakout_close": 1.4,
+      "vs_breakout_close": 1.8,
       "predicted_gain": 21.8,
       "success_probability": 31.4,
       "ai_score": 41.6,
-      "market_cap": 3374,
-      "updated_at": "2026-09-04T13:53:02.767299"
+      "market_cap": 3387,
+      "updated_at": "2026-09-04T16:26:43.533715"
     },
     {
       "ticker": "096530",
       "name": "씨젠",
-      "price": 31850,
-      "change_rate": 0.95,
+      "price": 31900,
+      "change_rate": 1.11,
       "high_52w": 32500,
       "breakout_date": "2026-08-28",
       "days_since": 5,
-      "above_high_percent": -2.0,
+      "above_high_percent": -1.85,
       "volume_ratio": 3.2,
-      "vs_breakout_close": -10.66,
+      "vs_breakout_close": -10.52,
       "predicted_gain": 19.7,
       "success_probability": 46.6,
       "ai_score": 50.3,
-      "market_cap": 16608,
-      "updated_at": "2026-09-04T13:53:02.768142"
+      "market_cap": 16660,
+      "updated_at": "2026-09-04T16:26:43.534543"
     },
     {
       "ticker": "280360",
@@ -53,25 +53,25 @@
       "predicted_gain": 19.4,
       "success_probability": 37.0,
       "ai_score": 43.4,
-      "market_cap": 13402,
-      "updated_at": "2026-09-04T13:53:02.768713"
+      "market_cap": 13393,
+      "updated_at": "2026-09-04T16:26:43.535225"
     },
     {
       "ticker": "036800",
       "name": "나이스정보통신",
-      "price": 7240,
-      "change_rate": 0.56,
+      "price": 7270,
+      "change_rate": 0.97,
       "high_52w": 7270,
       "breakout_date": "2026-08-25",
       "days_since": 8,
-      "above_high_percent": -0.41,
+      "above_high_percent": 0.0,
       "volume_ratio": 1.6,
-      "vs_breakout_close": -4.11,
+      "vs_breakout_close": -3.71,
       "predicted_gain": 29.8,
       "success_probability": 58.5,
       "ai_score": 67.8,
-      "market_cap": 3294,
-      "updated_at": "2026-09-04T13:53:02.769252"
+      "market_cap": 3308,
+      "updated_at": "2026-09-04T16:26:43.535856"
     }
   ]
 }
