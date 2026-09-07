@@ -1,77 +1,77 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-07T14:02:05.649637",
+    "lastUpdated": "2026-09-07T16:33:42.223902",
     "totalCount": 4,
-    "screened_from": 1321
+    "screened_from": 1320
   },
   "data": [
     {
       "ticker": "067290",
       "name": "JW신약",
-      "price": 3570,
-      "change_rate": 9.34,
+      "price": 3580,
+      "change_rate": 9.65,
       "high_52w": 3465,
       "breakout_date": "2026-09-07",
       "days_since": 0,
-      "above_high_percent": 3.03,
-      "volume_ratio": 3.4,
+      "above_high_percent": 3.32,
+      "volume_ratio": 3.6,
       "vs_breakout_close": 0.0,
       "predicted_gain": 20.0,
-      "success_probability": 47.4,
-      "ai_score": 51.2,
-      "market_cap": 2001,
-      "updated_at": "2026-09-07T14:02:01.075078"
+      "success_probability": 47.1,
+      "ai_score": 51.0,
+      "market_cap": 2006,
+      "updated_at": "2026-09-07T16:33:39.291475"
     },
     {
       "ticker": "159010",
       "name": "아스플로",
-      "price": 23550,
-      "change_rate": -7.28,
+      "price": 24100,
+      "change_rate": -5.12,
       "high_52w": 24000,
       "breakout_date": "2026-09-03",
       "days_since": 2,
-      "above_high_percent": -1.88,
+      "above_high_percent": 0.42,
       "volume_ratio": 1.0,
-      "vs_breakout_close": -5.61,
+      "vs_breakout_close": -3.41,
       "predicted_gain": 21.8,
       "success_probability": 31.4,
       "ai_score": 41.6,
-      "market_cap": 3120,
-      "updated_at": "2026-09-07T14:02:05.647397"
+      "market_cap": 3214,
+      "updated_at": "2026-09-07T16:33:42.221845"
     },
     {
       "ticker": "096530",
       "name": "씨젠",
-      "price": 31500,
-      "change_rate": -1.25,
+      "price": 31400,
+      "change_rate": -1.57,
       "high_52w": 32500,
       "breakout_date": "2026-08-28",
       "days_since": 6,
-      "above_high_percent": -3.08,
+      "above_high_percent": -3.38,
       "volume_ratio": 3.2,
-      "vs_breakout_close": -11.64,
+      "vs_breakout_close": -11.92,
       "predicted_gain": 19.7,
       "success_probability": 46.6,
       "ai_score": 50.3,
-      "market_cap": 16425,
-      "updated_at": "2026-09-07T14:02:05.648216"
+      "market_cap": 16399,
+      "updated_at": "2026-09-07T16:33:42.222685"
     },
     {
       "ticker": "280360",
       "name": "롯데웰푸드",
-      "price": 138200,
-      "change_rate": -5.02,
+      "price": 138600,
+      "change_rate": -4.74,
       "high_52w": 136400,
       "breakout_date": "2026-08-26",
       "days_since": 8,
-      "above_high_percent": 1.32,
+      "above_high_percent": 1.61,
       "volume_ratio": 2.3,
-      "vs_breakout_close": -1.22,
+      "vs_breakout_close": -0.93,
       "predicted_gain": 19.4,
       "success_probability": 37.0,
       "ai_score": 43.4,
-      "market_cap": 12730,
-      "updated_at": "2026-09-07T14:02:05.648841"
+      "market_cap": 12758,
+      "updated_at": "2026-09-07T16:33:42.223266"
     }
   ]
 }

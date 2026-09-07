@@ -1,33 +1,69 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-07T14:01:46.506958",
-    "totalCount": 13,
-    "screened_from": 1321
+    "lastUpdated": "2026-09-07T16:33:26.425011",
+    "totalCount": 15,
+    "screened_from": 1320
   },
   "data": [
     {
       "ticker": "012210",
       "name": "삼미금속",
-      "price": 10170,
-      "change_rate": 21.8,
-      "volume_ratio": 47.2,
+      "price": 10200,
+      "change_rate": 22.16,
+      "volume_ratio": 60.5,
       "volume_rank": 1,
       "ma150": 11370,
       "above_ma150": false,
-      "market_cap": 2331,
-      "updated_at": "2026-09-07T14:01:45.687790"
+      "market_cap": 2351,
+      "updated_at": "2026-09-07T16:33:26.266469"
     },
     {
       "ticker": "190510",
       "name": "나무가",
-      "price": 16200,
-      "change_rate": 16.71,
-      "volume_ratio": 28.0,
+      "price": 16480,
+      "change_rate": 18.73,
+      "volume_ratio": 39.6,
       "volume_rank": 2,
-      "ma150": 17127,
+      "ma150": 17129,
       "above_ma150": false,
-      "market_cap": 2289,
-      "updated_at": "2026-09-07T14:01:45.594754"
+      "market_cap": 2321,
+      "updated_at": "2026-09-07T16:33:26.225357"
+    },
+    {
+      "ticker": "161580",
+      "name": "필옵틱스",
+      "price": 33500,
+      "change_rate": 29.84,
+      "volume_ratio": 9.4,
+      "volume_rank": 3,
+      "ma150": 40056,
+      "above_ma150": false,
+      "market_cap": 7853,
+      "updated_at": "2026-09-07T16:33:26.400062"
+    },
+    {
+      "ticker": "417500",
+      "name": "제이아이테크",
+      "price": 4125,
+      "change_rate": 16.36,
+      "volume_ratio": 6.8,
+      "volume_rank": 4,
+      "ma150": 3971,
+      "above_ma150": true,
+      "market_cap": 1352,
+      "updated_at": "2026-09-07T16:33:26.357338"
+    },
+    {
+      "ticker": "100840",
+      "name": "SNT에너지",
+      "price": 37600,
+      "change_rate": 14.98,
+      "volume_ratio": 6.7,
+      "volume_rank": 5,
+      "ma150": 39793,
+      "above_ma150": false,
+      "market_cap": 7776,
+      "updated_at": "2026-09-07T16:33:26.209310"
     },
     {
       "ticker": "212560",
@@ -35,131 +71,119 @@
       "price": 11880,
       "change_rate": 29.98,
       "volume_ratio": 5.9,
-      "volume_rank": 3,
+      "volume_rank": 6,
       "ma150": 9744,
       "above_ma150": true,
       "market_cap": 1602,
-      "updated_at": "2026-09-07T14:01:45.597499"
-    },
-    {
-      "ticker": "417500",
-      "name": "제이아이테크",
-      "price": 4065,
-      "change_rate": 14.67,
-      "volume_ratio": 5.4,
-      "volume_rank": 4,
-      "ma150": 3971,
-      "above_ma150": true,
-      "market_cap": 1325,
-      "updated_at": "2026-09-07T14:01:45.983127"
+      "updated_at": "2026-09-07T16:33:26.227348"
     },
     {
       "ticker": "156100",
       "name": "엘앤케이바이오",
-      "price": 5200,
-      "change_rate": 22.64,
-      "volume_ratio": 4.9,
-      "volume_rank": 5,
-      "ma150": 7084,
-      "above_ma150": false,
-      "market_cap": 1162,
-      "updated_at": "2026-09-07T14:01:45.766241"
-    },
-    {
-      "ticker": "100840",
-      "name": "SNT에너지",
-      "price": 37600,
-      "change_rate": 14.98,
-      "volume_ratio": 4.6,
-      "volume_rank": 6,
-      "ma150": 39793,
-      "above_ma150": false,
-      "market_cap": 7776,
-      "updated_at": "2026-09-07T14:01:45.556755"
-    },
-    {
-      "ticker": "354320",
-      "name": "알멕",
-      "price": 37700,
-      "change_rate": 16.72,
-      "volume_ratio": 3.8,
+      "price": 5090,
+      "change_rate": 20.05,
+      "volume_ratio": 5.2,
       "volume_rank": 7,
-      "ma150": 53662,
+      "ma150": 7083,
       "above_ma150": false,
-      "market_cap": 2413,
-      "updated_at": "2026-09-07T14:01:45.751292"
+      "market_cap": 1138,
+      "updated_at": "2026-09-07T16:33:26.335277"
     },
     {
       "ticker": "160190",
       "name": "하이젠알앤엠",
       "price": 21800,
       "change_rate": 13.66,
-      "volume_ratio": 3.8,
+      "volume_ratio": 4.4,
       "volume_rank": 8,
       "ma150": 36429,
       "above_ma150": false,
-      "market_cap": 6749,
-      "updated_at": "2026-09-07T14:01:46.242977"
+      "market_cap": 6734,
+      "updated_at": "2026-09-07T16:33:26.403632"
     },
     {
       "ticker": "083650",
       "name": "비에이치아이",
-      "price": 68200,
-      "change_rate": 13.67,
-      "volume_ratio": 3.3,
+      "price": 67700,
+      "change_rate": 12.83,
+      "volume_ratio": 4.2,
       "volume_rank": 9,
-      "ma150": 74025,
+      "ma150": 74022,
       "above_ma150": false,
-      "market_cap": 21135,
-      "updated_at": "2026-09-07T14:01:45.683931"
+      "market_cap": 20949,
+      "updated_at": "2026-09-07T16:33:26.263800"
+    },
+    {
+      "ticker": "354320",
+      "name": "알멕",
+      "price": 37550,
+      "change_rate": 16.25,
+      "volume_ratio": 4.2,
+      "volume_rank": 10,
+      "ma150": 53661,
+      "above_ma150": false,
+      "market_cap": 2400,
+      "updated_at": "2026-09-07T16:33:26.309934"
+    },
+    {
+      "ticker": "052690",
+      "name": "한전기술",
+      "price": 122300,
+      "change_rate": 13.66,
+      "volume_ratio": 3.9,
+      "volume_rank": 11,
+      "ma150": 136428,
+      "above_ma150": false,
+      "market_cap": 46743,
+      "updated_at": "2026-09-07T16:33:26.413914"
     },
     {
       "ticker": "336260",
       "name": "두산퓨얼셀",
-      "price": 50700,
-      "change_rate": 15.62,
-      "volume_ratio": 3.0,
-      "volume_rank": 10,
-      "ma150": 49793,
+      "price": 49900,
+      "change_rate": 13.8,
+      "volume_ratio": 3.3,
+      "volume_rank": 12,
+      "ma150": 49788,
       "above_ma150": true,
-      "market_cap": 33140,
-      "updated_at": "2026-09-07T14:01:45.631445"
+      "market_cap": 32681,
+      "updated_at": "2026-09-07T16:33:26.244648"
+    },
+    {
+      "ticker": "304360",
+      "name": "에스바이오메딕스",
+      "price": 21950,
+      "change_rate": 15.28,
+      "volume_ratio": 3.0,
+      "volume_rank": 13,
+      "ma150": 27512,
+      "above_ma150": false,
+      "market_cap": 2719,
+      "updated_at": "2026-09-07T16:33:26.312157"
     },
     {
       "ticker": "351320",
       "name": "넥사다이내믹스",
-      "price": 4350,
-      "change_rate": 16.78,
-      "volume_ratio": 2.2,
-      "volume_rank": 11,
+      "price": 4335,
+      "change_rate": 16.38,
+      "volume_ratio": 2.5,
+      "volume_rank": 14,
       "ma150": 1322,
       "above_ma150": true,
-      "market_cap": 1298,
-      "updated_at": "2026-09-07T14:01:45.599428"
-    },
-    {
-      "ticker": "161580",
-      "name": "필옵틱스",
-      "price": 29450,
-      "change_rate": 14.15,
-      "volume_ratio": 2.2,
-      "volume_rank": 12,
-      "ma150": 40029,
-      "above_ma150": false,
-      "market_cap": 6904,
-      "updated_at": "2026-09-07T14:01:46.240016"
+      "market_cap": 1287,
+      "updated_at": "2026-09-07T16:33:26.228728"
     },
     {
       "ticker": "0039P0",
       "name": "매드업",
-      "price": 9730,
-      "change_rate": 18.95,
-      "volume_ratio": 2.1,
-      "volume_rank": 13,
+      "price": 9340,
+      "change_rate": 14.18,
+      "volume_ratio": 2.4,
+      "volume_rank": 15,
       "ma150": null,
       "above_ma150": false,
-      "market_cap": 1809,
-      "updated_at": "2026-09-07T14:01:45.660462"
+      "market_cap": 1757,
+      "updated_at": "2026-09-07T16:33:26.252867"
     }
   ]
 }

@@ -1,34 +1,34 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-07T14:02:02.876657",
+    "lastUpdated": "2026-09-07T16:33:37.890365",
     "totalCount": 4,
-    "screened_from": 1321
+    "screened_from": 1320
   },
   "data": [
     {
       "ticker": "284740",
       "name": "쿠쿠홈시스",
-      "price": 23700,
-      "change_rate": 0.85,
+      "price": 23550,
+      "change_rate": 0.21,
       "breakout_date": "2026-08-28",
       "days_since_breakout": 6,
       "breakout_price": 23000,
-      "breakout_pct": 3.04,
-      "gain_since_breakout": -1.46,
+      "breakout_pct": 2.39,
+      "gain_since_breakout": -2.08,
       "volume_ratio": 2.7,
-      "ma150": 23194,
+      "ma150": 23193,
       "above_ma150": true,
-      "market_cap": 5306,
+      "market_cap": 5284,
       "success_prob": 32.1,
       "predicted_gain": 11.2,
       "ai_score": 32.6,
-      "updated_at": "2026-09-07T14:02:01.059306"
+      "updated_at": "2026-09-07T16:33:36.103668"
     },
     {
       "ticker": "002310",
       "name": "아세아제지",
-      "price": 8940,
-      "change_rate": 1.13,
+      "price": 8980,
+      "change_rate": 1.58,
       "breakout_date": "2026-08-25",
       "days_since_breakout": 9,
       "breakout_price": 8350,
@@ -37,18 +37,18 @@
       "volume_ratio": 3.3,
       "ma150": 8441,
       "above_ma150": true,
-      "market_cap": 3523,
+      "market_cap": 3543,
       "success_prob": 22.3,
       "predicted_gain": 11.1,
       "ai_score": 25.6,
-      "updated_at": "2026-09-07T14:02:02.872627",
-      "vs_breakout_close": 4.44
+      "updated_at": "2026-09-07T16:33:37.886006",
+      "vs_breakout_close": 4.91
     },
     {
       "ticker": "036190",
       "name": "금화피에스시",
-      "price": 33500,
-      "change_rate": 1.21,
+      "price": 34200,
+      "change_rate": 3.32,
       "breakout_date": "2026-08-26",
       "days_since_breakout": 8,
       "breakout_price": 34350,
@@ -57,18 +57,18 @@
       "volume_ratio": 18.8,
       "ma150": 34261,
       "above_ma150": true,
-      "market_cap": 2010,
+      "market_cap": 2052,
       "success_prob": 21.3,
       "predicted_gain": 11.6,
       "ai_score": 25.4,
-      "updated_at": "2026-09-07T14:02:02.874449",
-      "vs_breakout_close": -4.15
+      "updated_at": "2026-09-07T16:33:37.886864",
+      "vs_breakout_close": -2.15
     },
     {
       "ticker": "049520",
       "name": "유아이엘",
-      "price": 3890,
-      "change_rate": 0.78,
+      "price": 3875,
+      "change_rate": 0.39,
       "breakout_date": "2026-09-01",
       "days_since_breakout": 4,
       "breakout_price": 3865,
@@ -77,12 +77,12 @@
       "volume_ratio": 4.3,
       "ma150": 3813,
       "above_ma150": true,
-      "market_cap": 1200,
+      "market_cap": 1195,
       "success_prob": 20.6,
       "predicted_gain": 10.7,
       "ai_score": 24.1,
-      "updated_at": "2026-09-07T14:02:02.876047",
-      "vs_breakout_close": -1.39
+      "updated_at": "2026-09-07T16:33:37.887530",
+      "vs_breakout_close": -1.77
     }
   ]
 }
