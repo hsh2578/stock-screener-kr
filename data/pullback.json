@@ -1,37 +1,23 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-04T20:36:25.501850",
-    "totalCount": 2,
-    "screened_from": 1319
+    "lastUpdated": "2026-09-07T14:01:45.223900",
+    "totalCount": 1,
+    "screened_from": 1321
   },
   "data": [
     {
-      "ticker": "100250",
-      "name": "진양홀딩스",
-      "price": 3175,
-      "change_rate": 0.63,
-      "breakout_date": "2026-08-14",
-      "resistance": 3075,
-      "pullback_ratio": 3.25,
-      "volume_decrease": 82,
-      "ma150": 3027,
-      "above_ma150": true,
-      "market_cap": 2029,
-      "updated_at": "2026-09-04T20:36:25.039688"
-    },
-    {
       "ticker": "096760",
       "name": "JW홀딩스",
-      "price": 4180,
-      "change_rate": 0.0,
+      "price": 4170,
+      "change_rate": -0.24,
       "breakout_date": "2026-08-12",
       "resistance": 4005,
-      "pullback_ratio": 4.37,
+      "pullback_ratio": 4.12,
       "volume_decrease": 92,
-      "ma150": 3992,
+      "ma150": 3994,
       "above_ma150": true,
-      "market_cap": 3090,
-      "updated_at": "2026-09-04T20:36:24.193440"
+      "market_cap": 3083,
+      "updated_at": "2026-09-07T14:01:43.635657"
     }
   ]
 }
