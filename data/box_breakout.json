@@ -1,28 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-08T13:59:28.456486",
+    "lastUpdated": "2026-09-08T16:27:29.061615",
     "totalCount": 4,
-    "screened_from": 1322
+    "screened_from": 1321
   },
   "data": [
     {
       "ticker": "284740",
       "name": "쿠쿠홈시스",
-      "price": 23600,
-      "change_rate": 0.21,
+      "price": 23550,
+      "change_rate": 0.0,
       "breakout_date": "2026-08-28",
       "days_since_breakout": 7,
       "breakout_price": 23000,
-      "breakout_pct": 2.61,
-      "gain_since_breakout": -1.87,
+      "breakout_pct": 2.39,
+      "gain_since_breakout": -2.08,
       "volume_ratio": 2.7,
       "ma150": 23195,
       "above_ma150": true,
-      "market_cap": 5273,
+      "market_cap": 5284,
       "success_prob": 32.1,
       "predicted_gain": 11.2,
       "ai_score": 32.6,
-      "updated_at": "2026-09-08T13:59:27.195476"
+      "updated_at": "2026-09-08T16:27:27.471544"
     },
     {
       "ticker": "002310",
@@ -41,14 +41,14 @@
       "success_prob": 22.3,
       "predicted_gain": 11.1,
       "ai_score": 25.6,
-      "updated_at": "2026-09-08T13:59:28.454732",
+      "updated_at": "2026-09-08T16:27:29.054895",
       "vs_breakout_close": 4.21
     },
     {
       "ticker": "036190",
       "name": "금화피에스시",
-      "price": 34500,
-      "change_rate": 0.88,
+      "price": 34700,
+      "change_rate": 1.46,
       "breakout_date": "2026-08-26",
       "days_since_breakout": 9,
       "breakout_price": 34350,
@@ -57,18 +57,18 @@
       "volume_ratio": 18.8,
       "ma150": 34261,
       "above_ma150": true,
-      "market_cap": 2070,
+      "market_cap": 2082,
       "success_prob": 21.3,
       "predicted_gain": 11.6,
       "ai_score": 25.4,
-      "updated_at": "2026-09-08T13:59:28.455331",
-      "vs_breakout_close": -1.29
+      "updated_at": "2026-09-08T16:27:29.059345",
+      "vs_breakout_close": -0.72
     },
     {
       "ticker": "049520",
       "name": "유아이엘",
-      "price": 3865,
-      "change_rate": -0.26,
+      "price": 3860,
+      "change_rate": -0.39,
       "breakout_date": "2026-09-01",
       "days_since_breakout": 5,
       "breakout_price": 3865,
@@ -77,12 +77,12 @@
       "volume_ratio": 4.3,
       "ma150": 3813,
       "above_ma150": true,
-      "market_cap": 1192,
+      "market_cap": 1191,
       "success_prob": 20.6,
       "predicted_gain": 10.7,
       "ai_score": 24.1,
-      "updated_at": "2026-09-08T13:59:28.455814",
-      "vs_breakout_close": -2.03
+      "updated_at": "2026-09-08T16:27:29.060189",
+      "vs_breakout_close": -2.15
     }
   ]
 }
