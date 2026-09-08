@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-08T16:27:24.004365",
+    "lastUpdated": "2026-09-08T18:03:37.230264",
     "totalCount": 17,
     "screened_from": 1321
   },
@@ -21,7 +21,7 @@
       "success_prob": 44.5,
       "predicted_gain": 13.4,
       "ai_score": 43.2,
-      "updated_at": "2026-09-08T16:27:16.171311"
+      "updated_at": "2026-09-08T18:03:27.094184"
     },
     {
       "ticker": "017940",
@@ -39,7 +39,7 @@
       "success_prob": 39.6,
       "predicted_gain": 12.8,
       "ai_score": 39.2,
-      "updated_at": "2026-09-08T16:27:23.990588",
+      "updated_at": "2026-09-08T18:03:37.222980",
       "vs_breakout_close": -0.41
     },
     {
@@ -58,7 +58,7 @@
       "success_prob": 38.7,
       "predicted_gain": 12.8,
       "ai_score": 38.6,
-      "updated_at": "2026-09-08T16:27:23.991519",
+      "updated_at": "2026-09-08T18:03:37.223828",
       "vs_breakout_close": -0.72
     },
     {
@@ -77,7 +77,7 @@
       "success_prob": 36.5,
       "predicted_gain": 11.3,
       "ai_score": 35.7,
-      "updated_at": "2026-09-08T16:27:23.992352",
+      "updated_at": "2026-09-08T18:03:37.224573",
       "vs_breakout_close": -7.54
     },
     {
@@ -96,8 +96,26 @@
       "success_prob": 31.1,
       "predicted_gain": 13.5,
       "ai_score": 33.9,
-      "updated_at": "2026-09-08T16:27:23.993133",
+      "updated_at": "2026-09-08T18:03:37.225281",
       "vs_breakout_close": -0.26
+    },
+    {
+      "ticker": "284740",
+      "name": "쿠쿠홈시스",
+      "price": 23550,
+      "change_rate": 0.0,
+      "breakout_date": "2026-08-28",
+      "resistance": 23000,
+      "days_since_breakout": 7,
+      "breakout_pct": 2.39,
+      "gain_since_breakout": -2.08,
+      "ma150": 23195,
+      "above_ma150": true,
+      "market_cap": 5284,
+      "success_prob": 32.1,
+      "predicted_gain": 11.2,
+      "ai_score": 32.6,
+      "updated_at": "2026-09-08T18:03:33.204282"
     },
     {
       "ticker": "066620",
@@ -115,7 +133,7 @@
       "success_prob": 30.9,
       "predicted_gain": 11.3,
       "ai_score": 31.8,
-      "updated_at": "2026-09-08T16:27:16.500081"
+      "updated_at": "2026-09-08T18:03:27.384731"
     },
     {
       "ticker": "183190",
@@ -133,7 +151,7 @@
       "success_prob": 25.3,
       "predicted_gain": 13.8,
       "ai_score": 30.1,
-      "updated_at": "2026-09-08T16:27:19.610436"
+      "updated_at": "2026-09-08T18:03:30.713654"
     },
     {
       "ticker": "049520",
@@ -151,7 +169,7 @@
       "success_prob": 23.5,
       "predicted_gain": 11.2,
       "ai_score": 26.6,
-      "updated_at": "2026-09-08T16:27:23.993873",
+      "updated_at": "2026-09-08T18:03:37.225990",
       "vs_breakout_close": -2.15
     },
     {
@@ -170,26 +188,8 @@
       "success_prob": 24.7,
       "predicted_gain": 10.1,
       "ai_score": 26.4,
-      "updated_at": "2026-09-08T16:27:23.994586",
+      "updated_at": "2026-09-08T18:03:37.226720",
       "vs_breakout_close": -0.2
-    },
-    {
-      "ticker": "284740",
-      "name": "쿠쿠홈시스",
-      "price": 23550,
-      "change_rate": 0.0,
-      "breakout_date": "2026-08-28",
-      "resistance": 23000,
-      "days_since_breakout": 7,
-      "breakout_pct": 2.39,
-      "gain_since_breakout": -2.08,
-      "ma150": 23195,
-      "above_ma150": true,
-      "market_cap": 5284,
-      "success_prob": 18.2,
-      "predicted_gain": 12.4,
-      "ai_score": 24.0,
-      "updated_at": "2026-09-08T16:27:21.758918"
     },
     {
       "ticker": "036460",
@@ -207,7 +207,7 @@
       "success_prob": 23.1,
       "predicted_gain": 8.7,
       "ai_score": 24.0,
-      "updated_at": "2026-09-08T16:27:23.995323",
+      "updated_at": "2026-09-08T18:03:37.227414",
       "vs_breakout_close": -6.1
     },
     {
@@ -226,7 +226,7 @@
       "success_prob": 14.2,
       "predicted_gain": 12.7,
       "ai_score": 21.4,
-      "updated_at": "2026-09-08T16:27:23.996054",
+      "updated_at": "2026-09-08T18:03:37.228095",
       "vs_breakout_close": 4.21
     },
     {
@@ -245,7 +245,7 @@
       "success_prob": 13.7,
       "predicted_gain": 7.9,
       "ai_score": 16.7,
-      "updated_at": "2026-09-08T16:27:23.996791",
+      "updated_at": "2026-09-08T18:03:37.228802",
       "vs_breakout_close": -4.17
     },
     {
@@ -264,7 +264,7 @@
       "success_prob": 12.5,
       "predicted_gain": 8.4,
       "ai_score": 16.3,
-      "updated_at": "2026-09-08T16:27:23.997498",
+      "updated_at": "2026-09-08T18:03:37.229473",
       "vs_breakout_close": -4.54
     },
     {
@@ -283,7 +283,7 @@
       "success_prob": 8.9,
       "predicted_gain": 8.7,
       "ai_score": 14.1,
-      "updated_at": "2026-09-08T16:27:18.562933"
+      "updated_at": "2026-09-08T18:03:29.639428"
     },
     {
       "ticker": "034950",
@@ -298,10 +298,10 @@
       "ma150": 102300,
       "above_ma150": true,
       "market_cap": 4672,
-      "success_prob": 9.0,
-      "predicted_gain": 6.6,
-      "ai_score": 12.3,
-      "updated_at": "2026-09-08T16:27:22.503288"
+      "success_prob": 7.7,
+      "predicted_gain": 6.7,
+      "ai_score": 11.4,
+      "updated_at": "2026-09-08T18:03:36.174039"
     },
     {
       "ticker": "024090",
@@ -319,7 +319,7 @@
       "success_prob": 6.3,
       "predicted_gain": 7.4,
       "ai_score": 11.0,
-      "updated_at": "2026-09-08T16:27:17.699926"
+      "updated_at": "2026-09-08T18:03:28.755156"
     }
   ]
 }
