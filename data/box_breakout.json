@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-09T13:59:47.103575",
+    "lastUpdated": "2026-09-09T18:09:03.164195",
     "totalCount": 3,
     "screened_from": 1320
   },
@@ -8,27 +8,27 @@
     {
       "ticker": "284740",
       "name": "쿠쿠홈시스",
-      "price": 23300,
-      "change_rate": -1.06,
+      "price": 23200,
+      "change_rate": -1.49,
       "breakout_date": "2026-08-28",
       "days_since_breakout": 8,
       "breakout_price": 23050,
-      "breakout_pct": 1.08,
-      "gain_since_breakout": -3.12,
+      "breakout_pct": 0.65,
+      "gain_since_breakout": -3.53,
       "volume_ratio": 2.7,
       "ma150": 23195,
       "above_ma150": true,
-      "market_cap": 5228,
+      "market_cap": 5205,
       "success_prob": 26.2,
       "predicted_gain": 11.2,
       "ai_score": 28.4,
-      "updated_at": "2026-09-09T13:59:45.639681"
+      "updated_at": "2026-09-09T18:09:01.591267"
     },
     {
       "ticker": "036190",
       "name": "금화피에스시",
-      "price": 34350,
-      "change_rate": -1.01,
+      "price": 34400,
+      "change_rate": -0.86,
       "breakout_date": "2026-08-26",
       "days_since_breakout": 10,
       "breakout_price": 34350,
@@ -37,18 +37,18 @@
       "volume_ratio": 18.8,
       "ma150": 34261,
       "above_ma150": true,
-      "market_cap": 2061,
+      "market_cap": 2064,
       "success_prob": 21.3,
       "predicted_gain": 11.6,
       "ai_score": 25.4,
-      "updated_at": "2026-09-09T13:59:47.101189",
-      "vs_breakout_close": -1.72
+      "updated_at": "2026-09-09T18:09:03.140857",
+      "vs_breakout_close": -1.57
     },
     {
       "ticker": "049520",
       "name": "유아이엘",
-      "price": 3860,
-      "change_rate": 0.0,
+      "price": 3855,
+      "change_rate": -0.13,
       "breakout_date": "2026-09-01",
       "days_since_breakout": 6,
       "breakout_price": 3865,
@@ -57,12 +57,12 @@
       "volume_ratio": 4.3,
       "ma150": 3813,
       "above_ma150": true,
-      "market_cap": 1191,
+      "market_cap": 1189,
       "success_prob": 20.6,
       "predicted_gain": 10.7,
       "ai_score": 24.1,
-      "updated_at": "2026-09-09T13:59:47.102069",
-      "vs_breakout_close": -2.15
+      "updated_at": "2026-09-09T18:09:03.141973",
+      "vs_breakout_close": -2.28
     }
   ]
 }
