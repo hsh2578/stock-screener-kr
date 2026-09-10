@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-10T14:01:25.371008",
-    "totalCount": 9,
-    "screened_from": 1324
+    "lastUpdated": "2026-09-10T16:31:56.725988",
+    "totalCount": 14,
+    "screened_from": 1326
   },
   "data": [
     {
@@ -10,108 +10,168 @@
       "name": "샘표식품",
       "price": 30150,
       "change_rate": 29.96,
-      "volume_ratio": 75.6,
+      "volume_ratio": 75.9,
       "volume_rank": 1,
       "ma150": 25444,
       "above_ma150": true,
       "market_cap": 1377,
-      "updated_at": "2026-09-10T14:01:25.105059"
+      "updated_at": "2026-09-10T16:31:56.556726"
     },
     {
-      "ticker": "214680",
-      "name": "디알텍",
-      "price": 6160,
-      "change_rate": 28.33,
-      "volume_ratio": 24.3,
+      "ticker": "0011A0",
+      "name": "액스비스",
+      "price": 11700,
+      "change_rate": 12.5,
+      "volume_ratio": 57.0,
       "volume_rank": 2,
-      "ma150": 7187,
+      "ma150": null,
       "above_ma150": false,
-      "market_cap": 1028,
-      "updated_at": "2026-09-10T14:01:24.976810"
-    },
-    {
-      "ticker": "452450",
-      "name": "피아이이",
-      "price": 5070,
-      "change_rate": 16.82,
-      "volume_ratio": 24.0,
-      "volume_rank": 3,
-      "ma150": 4884,
-      "above_ma150": true,
-      "market_cap": 1827,
-      "updated_at": "2026-09-10T14:01:25.301315"
-    },
-    {
-      "ticker": "950250",
-      "name": "테라뷰",
-      "price": 3580,
-      "change_rate": 15.3,
-      "volume_ratio": 17.6,
-      "volume_rank": 4,
-      "ma150": 4952,
-      "above_ma150": false,
-      "market_cap": 1278,
-      "updated_at": "2026-09-10T14:01:25.274554"
+      "market_cap": 1092,
+      "updated_at": "2026-09-10T16:31:56.594731"
     },
     {
       "ticker": "073010",
       "name": "케이에스피",
-      "price": 3390,
-      "change_rate": 21.51,
-      "volume_ratio": 17.0,
-      "volume_rank": 5,
+      "price": 3350,
+      "change_rate": 20.07,
+      "volume_ratio": 43.4,
+      "volume_rank": 3,
       "ma150": 3647,
       "above_ma150": false,
-      "market_cap": 1362,
-      "updated_at": "2026-09-10T14:01:25.254417"
+      "market_cap": 1346,
+      "updated_at": "2026-09-10T16:31:56.659063"
+    },
+    {
+      "ticker": "452450",
+      "name": "피아이이",
+      "price": 4925,
+      "change_rate": 13.48,
+      "volume_ratio": 42.7,
+      "volume_rank": 4,
+      "ma150": 4883,
+      "above_ma150": true,
+      "market_cap": 1774,
+      "updated_at": "2026-09-10T16:31:56.694330"
+    },
+    {
+      "ticker": "950250",
+      "name": "테라뷰",
+      "price": 3660,
+      "change_rate": 17.87,
+      "volume_ratio": 19.1,
+      "volume_rank": 5,
+      "ma150": 4952,
+      "above_ma150": false,
+      "market_cap": 1307,
+      "updated_at": "2026-09-10T16:31:56.678149"
+    },
+    {
+      "ticker": "432720",
+      "name": "퀄리타스반도체",
+      "price": 10080,
+      "change_rate": 12.37,
+      "volume_ratio": 15.1,
+      "volume_rank": 6,
+      "ma150": 13453,
+      "above_ma150": false,
+      "market_cap": 1430,
+      "updated_at": "2026-09-10T16:31:56.673716"
     },
     {
       "ticker": "475400",
       "name": "씨메스로보틱스",
-      "price": 19380,
-      "change_rate": 12.61,
-      "volume_ratio": 12.1,
-      "volume_rank": 6,
+      "price": 19460,
+      "change_rate": 13.07,
+      "volume_ratio": 12.8,
+      "volume_rank": 7,
       "ma150": 27029,
       "above_ma150": false,
-      "market_cap": 2288,
-      "updated_at": "2026-09-10T14:01:25.149762"
+      "market_cap": 2298,
+      "updated_at": "2026-09-10T16:31:56.576402"
     },
     {
       "ticker": "007540",
       "name": "샘표",
       "price": 55700,
       "change_rate": 29.99,
-      "volume_ratio": 9.7,
-      "volume_rank": 7,
+      "volume_ratio": 10.1,
+      "volume_rank": 8,
       "ma150": 48416,
       "above_ma150": true,
       "market_cap": 1602,
-      "updated_at": "2026-09-10T14:01:25.104574"
+      "updated_at": "2026-09-10T16:31:56.556222"
     },
     {
-      "ticker": "187660",
-      "name": "페니트리움바이오",
-      "price": 8330,
-      "change_rate": 12.26,
-      "volume_ratio": 6.6,
-      "volume_rank": 8,
-      "ma150": 8132,
-      "above_ma150": true,
-      "market_cap": 5328,
-      "updated_at": "2026-09-10T14:01:25.295430"
+      "ticker": "475040",
+      "name": "스트라드비젼",
+      "price": 3810,
+      "change_rate": 14.59,
+      "volume_ratio": 7.3,
+      "volume_rank": 9,
+      "ma150": null,
+      "above_ma150": false,
+      "market_cap": 2051,
+      "updated_at": "2026-09-10T16:31:56.568165"
     },
     {
       "ticker": "024060",
       "name": "흥구석유",
-      "price": 14560,
-      "change_rate": 20.43,
-      "volume_ratio": 6.6,
-      "volume_rank": 9,
+      "price": 14510,
+      "change_rate": 20.02,
+      "volume_ratio": 7.2,
+      "volume_rank": 10,
       "ma150": 14929,
       "above_ma150": false,
-      "market_cap": 2184,
-      "updated_at": "2026-09-10T14:01:25.370359"
+      "market_cap": 2177,
+      "updated_at": "2026-09-10T16:31:56.725388"
+    },
+    {
+      "ticker": "131290",
+      "name": "티에스이",
+      "price": 306500,
+      "change_rate": 14.15,
+      "volume_ratio": 6.0,
+      "volume_rank": 11,
+      "ma150": 181890,
+      "above_ma150": true,
+      "market_cap": 33903,
+      "updated_at": "2026-09-10T16:31:56.681542"
+    },
+    {
+      "ticker": "217820",
+      "name": "원익피앤이",
+      "price": 2645,
+      "change_rate": 29.98,
+      "volume_ratio": 3.8,
+      "volume_rank": 12,
+      "ma150": 2777,
+      "above_ma150": false,
+      "market_cap": 1255,
+      "updated_at": "2026-09-10T16:31:56.634628"
+    },
+    {
+      "ticker": "437730",
+      "name": "삼현",
+      "price": 38650,
+      "change_rate": 13.68,
+      "volume_ratio": 2.5,
+      "volume_rank": 13,
+      "ma150": 45743,
+      "above_ma150": false,
+      "market_cap": 12255,
+      "updated_at": "2026-09-10T16:31:56.554578"
+    },
+    {
+      "ticker": "475230",
+      "name": "엔알비",
+      "price": 10250,
+      "change_rate": 12.51,
+      "volume_ratio": 2.2,
+      "volume_rank": 14,
+      "ma150": 15171,
+      "above_ma150": false,
+      "market_cap": 1117,
+      "updated_at": "2026-09-10T16:31:56.612406"
     }
   ]
 }

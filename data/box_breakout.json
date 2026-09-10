@@ -1,35 +1,34 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-10T14:01:38.539994",
+    "lastUpdated": "2026-09-10T16:32:09.241135",
     "totalCount": 2,
-    "screened_from": 1324
+    "screened_from": 1326
   },
   "data": [
     {
       "ticker": "284740",
       "name": "쿠쿠홈시스",
-      "price": 23150,
-      "change_rate": -0.22,
+      "price": 23250,
+      "change_rate": 0.22,
       "breakout_date": "2026-08-28",
       "days_since_breakout": 9,
       "breakout_price": 23050,
-      "breakout_pct": 0.65,
-      "gain_since_breakout": -3.53,
+      "breakout_pct": 0.87,
+      "gain_since_breakout": -3.33,
       "volume_ratio": 2.7,
-      "ma150": 23195,
+      "ma150": 23193,
       "above_ma150": true,
-      "market_cap": 5194,
+      "market_cap": 5217,
       "success_prob": 26.2,
       "predicted_gain": 11.2,
       "ai_score": 28.4,
-      "updated_at": "2026-09-10T14:01:38.538033",
-      "vs_breakout_close": -3.74
+      "updated_at": "2026-09-10T16:32:08.379931"
     },
     {
       "ticker": "049520",
       "name": "유아이엘",
-      "price": 3870,
-      "change_rate": 0.39,
+      "price": 3875,
+      "change_rate": 0.52,
       "breakout_date": "2026-09-01",
       "days_since_breakout": 7,
       "breakout_price": 3865,
@@ -38,12 +37,12 @@
       "volume_ratio": 4.3,
       "ma150": 3813,
       "above_ma150": true,
-      "market_cap": 1194,
+      "market_cap": 1195,
       "success_prob": 20.6,
       "predicted_gain": 10.7,
       "ai_score": 24.1,
-      "updated_at": "2026-09-10T14:01:38.538972",
-      "vs_breakout_close": -1.9
+      "updated_at": "2026-09-10T16:32:09.223850",
+      "vs_breakout_close": -1.77
     }
   ]
 }

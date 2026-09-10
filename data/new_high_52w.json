@@ -1,60 +1,77 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-10T14:01:45.050357",
-    "totalCount": 3,
-    "screened_from": 1324
+    "lastUpdated": "2026-09-10T16:32:10.627569",
+    "totalCount": 4,
+    "screened_from": 1326
   },
   "data": [
     {
+      "ticker": "131290",
+      "name": "티에스이",
+      "price": 306500,
+      "change_rate": 14.15,
+      "high_52w": 294000,
+      "breakout_date": "2026-09-10",
+      "days_since": 0,
+      "above_high_percent": 4.25,
+      "volume_ratio": 6.1,
+      "vs_breakout_close": 0.0,
+      "predicted_gain": 21.3,
+      "success_probability": 56.1,
+      "ai_score": 58.5,
+      "market_cap": 33903,
+      "updated_at": "2026-09-10T16:32:10.336110"
+    },
+    {
       "ticker": "162300",
       "name": "신스틸",
-      "price": 2715,
-      "change_rate": -1.81,
+      "price": 2775,
+      "change_rate": 0.36,
       "high_52w": 2360,
       "breakout_date": "2026-09-08",
       "days_since": 2,
-      "above_high_percent": 15.04,
+      "above_high_percent": 17.58,
       "volume_ratio": 8.8,
-      "vs_breakout_close": 9.92,
+      "vs_breakout_close": 12.35,
       "predicted_gain": 24.3,
       "success_probability": 50.6,
       "ai_score": 57.3,
-      "market_cap": 1126,
-      "updated_at": "2026-09-10T14:01:45.048035"
+      "market_cap": 1151,
+      "updated_at": "2026-09-10T16:32:10.586022"
     },
     {
       "ticker": "067290",
       "name": "JW신약",
-      "price": 3660,
-      "change_rate": -5.3,
+      "price": 3620,
+      "change_rate": -6.34,
       "high_52w": 3465,
       "breakout_date": "2026-09-07",
       "days_since": 3,
-      "above_high_percent": 5.63,
+      "above_high_percent": 4.47,
       "volume_ratio": 3.6,
-      "vs_breakout_close": 2.23,
+      "vs_breakout_close": 1.12,
       "predicted_gain": 20.0,
       "success_probability": 47.1,
       "ai_score": 51.0,
-      "market_cap": 2051,
-      "updated_at": "2026-09-10T14:01:45.048845"
+      "market_cap": 2029,
+      "updated_at": "2026-09-10T16:32:10.587076"
     },
     {
       "ticker": "159010",
       "name": "아스플로",
-      "price": 23200,
-      "change_rate": -4.13,
+      "price": 23500,
+      "change_rate": -2.89,
       "high_52w": 24000,
       "breakout_date": "2026-09-03",
       "days_since": 5,
-      "above_high_percent": -3.33,
+      "above_high_percent": -2.08,
       "volume_ratio": 1.0,
-      "vs_breakout_close": -7.01,
+      "vs_breakout_close": -5.81,
       "predicted_gain": 21.8,
       "success_probability": 31.4,
       "ai_score": 41.6,
-      "market_cap": 3094,
-      "updated_at": "2026-09-10T14:01:45.049538"
+      "market_cap": 3134,
+      "updated_at": "2026-09-10T16:32:10.616654"
     }
   ]
 }
