@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-10T16:32:09.240866",
+    "lastUpdated": "2026-09-10T18:07:54.459349",
     "totalCount": 15,
     "screened_from": 1326
   },
@@ -21,7 +21,25 @@
       "success_prob": 44.5,
       "predicted_gain": 13.4,
       "ai_score": 43.2,
-      "updated_at": "2026-09-10T16:31:59.963306"
+      "updated_at": "2026-09-10T18:07:47.957854"
+    },
+    {
+      "ticker": "004090",
+      "name": "한국석유",
+      "price": 12740,
+      "change_rate": 10.3,
+      "breakout_date": "2026-09-10",
+      "resistance": 12100,
+      "days_since_breakout": 0,
+      "breakout_pct": 5.29,
+      "gain_since_breakout": 0.0,
+      "ma150": 14086,
+      "above_ma150": false,
+      "market_cap": 1617,
+      "success_prob": 29.4,
+      "predicted_gain": 18.9,
+      "ai_score": 37.6,
+      "updated_at": "2026-09-10T18:07:53.855259"
     },
     {
       "ticker": "014820",
@@ -39,7 +57,7 @@
       "success_prob": 36.5,
       "predicted_gain": 11.3,
       "ai_score": 35.7,
-      "updated_at": "2026-09-10T16:32:09.225236",
+      "updated_at": "2026-09-10T18:07:54.455468",
       "vs_breakout_close": -6.68
     },
     {
@@ -58,25 +76,7 @@
       "success_prob": 30.9,
       "predicted_gain": 11.3,
       "ai_score": 31.8,
-      "updated_at": "2026-09-10T16:32:00.299281"
-    },
-    {
-      "ticker": "004090",
-      "name": "한국석유",
-      "price": 12740,
-      "change_rate": 10.3,
-      "breakout_date": "2026-09-10",
-      "resistance": 12100,
-      "days_since_breakout": 0,
-      "breakout_pct": 5.29,
-      "gain_since_breakout": 0.0,
-      "ma150": 14086,
-      "above_ma150": false,
-      "market_cap": 1617,
-      "success_prob": 23.9,
-      "predicted_gain": 16.5,
-      "ai_score": 31.6,
-      "updated_at": "2026-09-10T16:32:08.092931"
+      "updated_at": "2026-09-10T18:07:48.561961"
     },
     {
       "ticker": "183190",
@@ -94,7 +94,7 @@
       "success_prob": 25.3,
       "predicted_gain": 13.8,
       "ai_score": 30.1,
-      "updated_at": "2026-09-10T16:32:03.671481"
+      "updated_at": "2026-09-10T18:07:51.685657"
     },
     {
       "ticker": "049520",
@@ -112,7 +112,7 @@
       "success_prob": 23.5,
       "predicted_gain": 11.2,
       "ai_score": 26.6,
-      "updated_at": "2026-09-10T16:32:09.226321",
+      "updated_at": "2026-09-10T18:07:54.456323",
       "vs_breakout_close": -1.77
     },
     {
@@ -131,7 +131,7 @@
       "success_prob": 23.1,
       "predicted_gain": 8.7,
       "ai_score": 24.0,
-      "updated_at": "2026-09-10T16:32:09.227267",
+      "updated_at": "2026-09-10T18:07:54.456937",
       "vs_breakout_close": -3.18
     },
     {
@@ -150,7 +150,7 @@
       "success_prob": 15.8,
       "predicted_gain": 12.3,
       "ai_score": 22.2,
-      "updated_at": "2026-09-10T16:32:05.940097"
+      "updated_at": "2026-09-10T18:07:53.223952"
     },
     {
       "ticker": "432320",
@@ -168,7 +168,7 @@
       "success_prob": 13.8,
       "predicted_gain": 11.9,
       "ai_score": 20.4,
-      "updated_at": "2026-09-10T16:31:56.938013"
+      "updated_at": "2026-09-10T18:07:46.263902"
     },
     {
       "ticker": "014530",
@@ -186,7 +186,7 @@
       "success_prob": 10.8,
       "predicted_gain": 12.3,
       "ai_score": 18.7,
-      "updated_at": "2026-09-10T16:32:00.366942"
+      "updated_at": "2026-09-10T18:07:48.689940"
     },
     {
       "ticker": "072870",
@@ -204,7 +204,7 @@
       "success_prob": 13.7,
       "predicted_gain": 7.9,
       "ai_score": 16.7,
-      "updated_at": "2026-09-10T16:32:09.228169",
+      "updated_at": "2026-09-10T18:07:54.457533",
       "vs_breakout_close": -4.53
     },
     {
@@ -223,7 +223,7 @@
       "success_prob": 12.5,
       "predicted_gain": 8.4,
       "ai_score": 16.3,
-      "updated_at": "2026-09-10T16:32:09.229396",
+      "updated_at": "2026-09-10T18:07:54.458123",
       "vs_breakout_close": -4.65
     },
     {
@@ -242,7 +242,7 @@
       "success_prob": 8.9,
       "predicted_gain": 8.7,
       "ai_score": 14.1,
-      "updated_at": "2026-09-10T16:32:02.531235"
+      "updated_at": "2026-09-10T18:07:50.811240"
     },
     {
       "ticker": "034950",
@@ -257,10 +257,10 @@
       "ma150": 102390,
       "above_ma150": true,
       "market_cap": 4718,
-      "success_prob": 7.7,
-      "predicted_gain": 6.7,
-      "ai_score": 11.4,
-      "updated_at": "2026-09-10T16:32:07.742383"
+      "success_prob": 9.0,
+      "predicted_gain": 6.6,
+      "ai_score": 12.3,
+      "updated_at": "2026-09-10T18:07:53.827126"
     },
     {
       "ticker": "024090",
@@ -278,7 +278,7 @@
       "success_prob": 6.3,
       "predicted_gain": 7.4,
       "ai_score": 11.0,
-      "updated_at": "2026-09-10T16:32:09.230162",
+      "updated_at": "2026-09-10T18:07:54.458717",
       "vs_breakout_close": -0.76
     }
   ]
