@@ -1,37 +1,51 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-10T22:02:21.137843",
-    "totalCount": 2,
-    "screened_from": 1326
+    "lastUpdated": "2026-09-11T13:59:22.476671",
+    "totalCount": 3,
+    "screened_from": 1324
   },
   "data": [
     {
       "ticker": "049520",
       "name": "유아이엘",
-      "price": 3875,
-      "change_rate": 0.52,
+      "price": 3880,
+      "change_rate": 0.13,
       "breakout_date": "2026-09-01",
       "resistance": 3865,
-      "pullback_ratio": 0.26,
-      "volume_decrease": 79,
-      "ma150": 3819,
+      "pullback_ratio": 0.39,
+      "volume_decrease": 81,
+      "ma150": 3821,
       "above_ma150": true,
-      "market_cap": 1195,
-      "updated_at": "2026-09-10T22:02:20.866021"
+      "market_cap": 1197,
+      "updated_at": "2026-09-11T13:59:21.742670"
     },
     {
       "ticker": "100250",
       "name": "진양홀딩스",
-      "price": 3145,
+      "price": 3135,
       "change_rate": -0.32,
       "breakout_date": "2026-08-14",
       "resistance": 3075,
-      "pullback_ratio": 2.28,
-      "volume_decrease": 91,
-      "ma150": 3032,
+      "pullback_ratio": 1.95,
+      "volume_decrease": 93,
+      "ma150": 3034,
       "above_ma150": true,
-      "market_cap": 2010,
-      "updated_at": "2026-09-10T22:02:20.922104"
+      "market_cap": 2000,
+      "updated_at": "2026-09-11T13:59:21.896889"
+    },
+    {
+      "ticker": "123890",
+      "name": "한국자산신탁",
+      "price": 2530,
+      "change_rate": -0.59,
+      "breakout_date": "2026-08-20",
+      "resistance": 2435,
+      "pullback_ratio": 3.9,
+      "volume_decrease": 62,
+      "ma150": 2507,
+      "above_ma150": true,
+      "market_cap": 3090,
+      "updated_at": "2026-09-11T13:59:22.331388"
     }
   ]
 }
