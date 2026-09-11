@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-11T20:43:47.900767",
+    "lastUpdated": "2026-09-11T21:57:22.361971",
     "totalCount": 14,
     "screened_from": 1329
   },
@@ -21,25 +21,7 @@
       "success_prob": 44.5,
       "predicted_gain": 13.4,
       "ai_score": 43.2,
-      "updated_at": "2026-09-11T20:43:37.910585"
-    },
-    {
-      "ticker": "004090",
-      "name": "한국석유",
-      "price": 12330,
-      "change_rate": -3.22,
-      "breakout_date": "2026-09-10",
-      "resistance": 12100,
-      "days_since_breakout": 1,
-      "breakout_pct": 1.9,
-      "gain_since_breakout": -3.22,
-      "ma150": 14062,
-      "above_ma150": false,
-      "market_cap": 1565,
-      "success_prob": 29.4,
-      "predicted_gain": 18.9,
-      "ai_score": 37.6,
-      "updated_at": "2026-09-11T20:43:44.454878"
+      "updated_at": "2026-09-11T21:57:11.709124"
     },
     {
       "ticker": "014820",
@@ -57,7 +39,7 @@
       "success_prob": 36.5,
       "predicted_gain": 11.3,
       "ai_score": 35.7,
-      "updated_at": "2026-09-11T20:43:47.873286",
+      "updated_at": "2026-09-11T21:57:22.356637",
       "vs_breakout_close": -7.76
     },
     {
@@ -76,7 +58,25 @@
       "success_prob": 30.9,
       "predicted_gain": 11.3,
       "ai_score": 31.8,
-      "updated_at": "2026-09-11T20:43:38.197900"
+      "updated_at": "2026-09-11T21:57:12.018202"
+    },
+    {
+      "ticker": "004090",
+      "name": "한국석유",
+      "price": 12330,
+      "change_rate": -3.22,
+      "breakout_date": "2026-09-10",
+      "resistance": 12100,
+      "days_since_breakout": 1,
+      "breakout_pct": 1.9,
+      "gain_since_breakout": -3.22,
+      "ma150": 14062,
+      "above_ma150": false,
+      "market_cap": 1565,
+      "success_prob": 23.9,
+      "predicted_gain": 16.5,
+      "ai_score": 31.6,
+      "updated_at": "2026-09-11T21:57:20.654416"
     },
     {
       "ticker": "049520",
@@ -94,7 +94,7 @@
       "success_prob": 23.5,
       "predicted_gain": 11.2,
       "ai_score": 26.6,
-      "updated_at": "2026-09-11T20:43:47.874180",
+      "updated_at": "2026-09-11T21:57:22.357409",
       "vs_breakout_close": -1.65
     },
     {
@@ -113,7 +113,7 @@
       "success_prob": 23.1,
       "predicted_gain": 8.7,
       "ai_score": 24.0,
-      "updated_at": "2026-09-11T20:43:47.874978",
+      "updated_at": "2026-09-11T21:57:22.358174",
       "vs_breakout_close": -1.86
     },
     {
@@ -132,7 +132,7 @@
       "success_prob": 15.8,
       "predicted_gain": 12.3,
       "ai_score": 22.2,
-      "updated_at": "2026-09-11T20:43:43.577341"
+      "updated_at": "2026-09-11T21:57:17.846418"
     },
     {
       "ticker": "432320",
@@ -150,7 +150,7 @@
       "success_prob": 13.8,
       "predicted_gain": 11.9,
       "ai_score": 20.4,
-      "updated_at": "2026-09-11T20:43:35.727609"
+      "updated_at": "2026-09-11T21:57:10.277577"
     },
     {
       "ticker": "014530",
@@ -168,7 +168,7 @@
       "success_prob": 10.8,
       "predicted_gain": 12.3,
       "ai_score": 18.7,
-      "updated_at": "2026-09-11T20:43:38.261765"
+      "updated_at": "2026-09-11T21:57:12.086624"
     },
     {
       "ticker": "072870",
@@ -186,7 +186,7 @@
       "success_prob": 13.7,
       "predicted_gain": 7.9,
       "ai_score": 16.7,
-      "updated_at": "2026-09-11T20:43:47.875753",
+      "updated_at": "2026-09-11T21:57:22.358963",
       "vs_breakout_close": -4.53
     },
     {
@@ -205,7 +205,7 @@
       "success_prob": 12.5,
       "predicted_gain": 8.4,
       "ai_score": 16.3,
-      "updated_at": "2026-09-11T20:43:47.876464",
+      "updated_at": "2026-09-11T21:57:22.359682",
       "vs_breakout_close": -4.0
     },
     {
@@ -224,7 +224,7 @@
       "success_prob": 8.9,
       "predicted_gain": 8.7,
       "ai_score": 14.1,
-      "updated_at": "2026-09-11T20:43:40.235542"
+      "updated_at": "2026-09-11T21:57:14.275014"
     },
     {
       "ticker": "034950",
@@ -242,7 +242,7 @@
       "success_prob": 9.0,
       "predicted_gain": 6.6,
       "ai_score": 12.3,
-      "updated_at": "2026-09-11T20:43:47.893923",
+      "updated_at": "2026-09-11T21:57:22.360429",
       "vs_breakout_close": -1.24
     },
     {
@@ -261,7 +261,7 @@
       "success_prob": 6.3,
       "predicted_gain": 7.4,
       "ai_score": 11.0,
-      "updated_at": "2026-09-11T20:43:47.894661",
+      "updated_at": "2026-09-11T21:57:22.361226",
       "vs_breakout_close": -0.42
     }
   ]
