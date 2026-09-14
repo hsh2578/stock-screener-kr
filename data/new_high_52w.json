@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-14T19:07:09.931863",
-    "totalCount": 5,
-    "screened_from": 1327
+    "lastUpdated": "2026-09-14T22:13:07.751623",
+    "totalCount": 6,
+    "screened_from": 1329
   },
   "data": [
     {
@@ -20,7 +20,24 @@
       "success_probability": 66.4,
       "ai_score": 73.9,
       "market_cap": 2759,
-      "updated_at": "2026-09-14T19:07:08.987546"
+      "updated_at": "2026-09-14T22:13:06.969794"
+    },
+    {
+      "ticker": "055550",
+      "name": "신한지주",
+      "price": 115000,
+      "change_rate": 1.86,
+      "high_52w": 113300,
+      "breakout_date": "2026-09-14",
+      "days_since": 0,
+      "above_high_percent": 1.5,
+      "volume_ratio": 0.8,
+      "vs_breakout_close": 0.0,
+      "predicted_gain": 19.5,
+      "success_probability": 49.6,
+      "ai_score": 52.2,
+      "market_cap": 539868,
+      "updated_at": "2026-09-14T22:13:06.850099"
     },
     {
       "ticker": "131290",
@@ -37,7 +54,7 @@
       "success_probability": 56.1,
       "ai_score": 58.5,
       "market_cap": 26105,
-      "updated_at": "2026-09-14T19:07:09.929219"
+      "updated_at": "2026-09-14T22:13:07.729969"
     },
     {
       "ticker": "162300",
@@ -54,41 +71,41 @@
       "success_probability": 50.6,
       "ai_score": 57.3,
       "market_cap": 1186,
-      "updated_at": "2026-09-14T19:07:09.930025"
+      "updated_at": "2026-09-14T22:13:07.730815"
     },
     {
       "ticker": "067290",
       "name": "JW신약",
-      "price": 3395,
-      "change_rate": -3.41,
+      "price": 3390,
+      "change_rate": -3.56,
       "high_52w": 3465,
       "breakout_date": "2026-09-07",
       "days_since": 5,
-      "above_high_percent": -2.02,
+      "above_high_percent": -2.16,
       "volume_ratio": 3.6,
-      "vs_breakout_close": -5.17,
+      "vs_breakout_close": -5.31,
       "predicted_gain": 20.0,
       "success_probability": 47.1,
       "ai_score": 51.0,
-      "market_cap": 1902,
-      "updated_at": "2026-09-14T19:07:09.930658"
+      "market_cap": 1900,
+      "updated_at": "2026-09-14T22:13:07.731455"
     },
     {
       "ticker": "159010",
       "name": "아스플로",
-      "price": 22250,
-      "change_rate": -4.71,
+      "price": 22150,
+      "change_rate": -5.14,
       "high_52w": 24000,
       "breakout_date": "2026-09-03",
       "days_since": 7,
-      "above_high_percent": -7.29,
+      "above_high_percent": -7.71,
       "volume_ratio": 1.0,
-      "vs_breakout_close": -10.82,
+      "vs_breakout_close": -11.22,
       "predicted_gain": 21.8,
       "success_probability": 31.4,
       "ai_score": 41.6,
-      "market_cap": 2967,
-      "updated_at": "2026-09-14T19:07:09.931215"
+      "market_cap": 2954,
+      "updated_at": "2026-09-14T22:13:07.732179"
     }
   ]
 }
