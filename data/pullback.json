@@ -1,37 +1,37 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-14T17:07:24.714076",
+    "lastUpdated": "2026-09-14T19:06:56.998927",
     "totalCount": 2,
-    "screened_from": 1331
+    "screened_from": 1327
   },
   "data": [
     {
       "ticker": "049520",
       "name": "유아이엘",
-      "price": 3900,
-      "change_rate": 0.52,
+      "price": 3845,
+      "change_rate": -0.9,
       "breakout_date": "2026-09-01",
       "resistance": 3865,
-      "pullback_ratio": 0.91,
+      "pullback_ratio": 0.52,
       "volume_decrease": 86,
       "ma150": 3823,
       "above_ma150": true,
-      "market_cap": 1203,
-      "updated_at": "2026-09-14T17:07:24.140536"
+      "market_cap": 1186,
+      "updated_at": "2026-09-14T19:06:56.609682"
     },
     {
       "ticker": "123890",
       "name": "한국자산신탁",
-      "price": 2520,
-      "change_rate": -0.4,
+      "price": 2515,
+      "change_rate": -0.59,
       "breakout_date": "2026-08-20",
       "resistance": 2435,
-      "pullback_ratio": 3.49,
+      "pullback_ratio": 3.29,
       "volume_decrease": 59,
       "ma150": 2507,
       "above_ma150": true,
-      "market_cap": 3084,
-      "updated_at": "2026-09-14T17:07:24.549633"
+      "market_cap": 3078,
+      "updated_at": "2026-09-14T19:06:56.909601"
     }
   ]
 }
