@@ -1,23 +1,51 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-15T14:08:29.488207",
-    "totalCount": 1,
-    "screened_from": 1324
+    "lastUpdated": "2026-09-15T17:02:29.330747",
+    "totalCount": 3,
+    "screened_from": 1333
   },
   "data": [
     {
       "ticker": "049520",
       "name": "유아이엘",
-      "price": 3845,
-      "change_rate": -0.9,
+      "price": 3895,
+      "change_rate": 0.39,
       "breakout_date": "2026-09-01",
       "resistance": 3865,
-      "pullback_ratio": 0.52,
+      "pullback_ratio": 0.78,
       "volume_decrease": 88,
-      "ma150": 3823,
+      "ma150": 3824,
       "above_ma150": true,
-      "market_cap": 1186,
-      "updated_at": "2026-09-15T14:08:29.007897"
+      "market_cap": 1201,
+      "updated_at": "2026-09-15T17:02:29.067999"
+    },
+    {
+      "ticker": "036190",
+      "name": "금화피에스시",
+      "price": 34800,
+      "change_rate": 0.0,
+      "breakout_date": "2026-08-26",
+      "resistance": 34350,
+      "pullback_ratio": 1.31,
+      "volume_decrease": 96,
+      "ma150": 34367,
+      "above_ma150": true,
+      "market_cap": 2088,
+      "updated_at": "2026-09-15T17:02:28.649327"
+    },
+    {
+      "ticker": "002310",
+      "name": "아세아제지",
+      "price": 8550,
+      "change_rate": -1.5,
+      "breakout_date": "2026-08-25",
+      "resistance": 8350,
+      "pullback_ratio": 2.4,
+      "volume_decrease": 83,
+      "ma150": 8500,
+      "above_ma150": true,
+      "market_cap": 3373,
+      "updated_at": "2026-09-15T17:02:28.979061"
     }
   ]
 }
