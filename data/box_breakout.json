@@ -1,29 +1,29 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-15T00:09:56.930315",
+    "lastUpdated": "2026-09-15T14:08:44.793924",
     "totalCount": 1,
-    "screened_from": 1329
+    "screened_from": 1324
   },
   "data": [
     {
       "ticker": "049520",
       "name": "유아이엘",
-      "price": 3880,
-      "change_rate": 0.0,
+      "price": 3845,
+      "change_rate": -0.9,
       "breakout_date": "2026-09-01",
-      "days_since_breakout": 9,
+      "days_since_breakout": 10,
       "breakout_price": 3865,
       "breakout_pct": -0.13,
       "gain_since_breakout": -2.15,
       "volume_ratio": 4.3,
       "ma150": 3813,
       "above_ma150": true,
-      "market_cap": 1197,
+      "market_cap": 1186,
       "success_prob": 20.6,
       "predicted_gain": 10.7,
       "ai_score": 24.1,
-      "updated_at": "2026-09-15T00:09:56.928467",
-      "vs_breakout_close": -1.65
+      "updated_at": "2026-09-15T14:08:44.792877",
+      "vs_breakout_close": -2.53
     }
   ]
 }
