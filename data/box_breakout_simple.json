@@ -1,33 +1,33 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-16T18:29:50.422305",
+    "lastUpdated": "2026-09-16T20:58:01.846600",
     "totalCount": 8,
-    "screened_from": 1333
+    "screened_from": 1335
   },
   "data": [
     {
       "ticker": "950190",
       "name": "고스트스튜디오",
-      "price": 10980,
-      "change_rate": -2.23,
+      "price": 10990,
+      "change_rate": -2.14,
       "breakout_date": "2026-09-15",
       "resistance": 10210,
       "days_since_breakout": 1,
-      "breakout_pct": 7.54,
-      "gain_since_breakout": -2.23,
+      "breakout_pct": 7.64,
+      "gain_since_breakout": -2.14,
       "ma150": 8670,
       "above_ma150": true,
-      "market_cap": 1429,
+      "market_cap": 1431,
       "success_prob": 76.5,
       "predicted_gain": 22.9,
       "ai_score": 74.2,
-      "updated_at": "2026-09-16T18:29:39.694777"
+      "updated_at": "2026-09-16T20:57:51.437743"
     },
     {
       "ticker": "139130",
       "name": "iM금융지주",
-      "price": 18400,
-      "change_rate": 0.49,
+      "price": 18450,
+      "change_rate": 0.76,
       "breakout_date": "2026-09-03",
       "resistance": 18710,
       "days_since_breakout": 9,
@@ -35,36 +35,36 @@
       "gain_since_breakout": -3.88,
       "ma150": 17859,
       "above_ma150": true,
-      "market_cap": 29139,
+      "market_cap": 29218,
       "success_prob": 44.5,
       "predicted_gain": 13.4,
       "ai_score": 43.2,
-      "updated_at": "2026-09-16T18:29:50.419077",
-      "vs_breakout_close": -3.41
+      "updated_at": "2026-09-16T20:58:01.843525",
+      "vs_breakout_close": -3.15
     },
     {
       "ticker": "004090",
       "name": "한국석유",
-      "price": 11900,
-      "change_rate": -1.98,
+      "price": 11870,
+      "change_rate": -2.22,
       "breakout_date": "2026-09-10",
       "resistance": 12100,
       "days_since_breakout": 4,
-      "breakout_pct": -1.65,
-      "gain_since_breakout": -6.59,
+      "breakout_pct": -1.9,
+      "gain_since_breakout": -6.83,
       "ma150": 14018,
       "above_ma150": false,
-      "market_cap": 1511,
+      "market_cap": 1507,
       "success_prob": 23.9,
       "predicted_gain": 16.5,
       "ai_score": 31.6,
-      "updated_at": "2026-09-16T18:29:49.133629"
+      "updated_at": "2026-09-16T20:58:00.647076"
     },
     {
       "ticker": "432320",
       "name": "KB스타리츠",
-      "price": 1640,
-      "change_rate": 0.37,
+      "price": 1650,
+      "change_rate": 0.98,
       "breakout_date": "2026-09-09",
       "resistance": 1521,
       "days_since_breakout": 5,
@@ -72,18 +72,18 @@
       "gain_since_breakout": 4.14,
       "ma150": 1945,
       "above_ma150": false,
-      "market_cap": 2473,
+      "market_cap": 2488,
       "success_prob": 18.9,
       "predicted_gain": 11.9,
       "ai_score": 24.0,
-      "updated_at": "2026-09-16T18:29:50.419981",
-      "vs_breakout_close": 4.53
+      "updated_at": "2026-09-16T20:58:01.844399",
+      "vs_breakout_close": 5.16
     },
     {
       "ticker": "036460",
       "name": "한국가스공사",
-      "price": 36050,
-      "change_rate": -1.5,
+      "price": 36150,
+      "change_rate": -1.23,
       "breakout_date": "2026-09-03",
       "resistance": 37000,
       "days_since_breakout": 9,
@@ -91,30 +91,30 @@
       "gain_since_breakout": -6.9,
       "ma150": 36478,
       "above_ma150": false,
-      "market_cap": 33279,
+      "market_cap": 33371,
       "success_prob": 23.1,
       "predicted_gain": 8.7,
       "ai_score": 24.0,
-      "updated_at": "2026-09-16T18:29:50.420781",
-      "vs_breakout_close": -4.38
+      "updated_at": "2026-09-16T20:58:01.845146",
+      "vs_breakout_close": -4.11
     },
     {
       "ticker": "014530",
       "name": "극동유화",
-      "price": 3385,
-      "change_rate": 0.59,
+      "price": 3365,
+      "change_rate": 0.0,
       "breakout_date": "2026-09-10",
       "resistance": 3310,
       "days_since_breakout": 4,
-      "breakout_pct": 2.27,
-      "gain_since_breakout": -0.88,
+      "breakout_pct": 1.66,
+      "gain_since_breakout": -1.46,
       "ma150": 3522,
       "above_ma150": false,
-      "market_cap": 1187,
+      "market_cap": 1173,
       "success_prob": 10.8,
       "predicted_gain": 12.3,
       "ai_score": 18.7,
-      "updated_at": "2026-09-16T18:29:39.844000"
+      "updated_at": "2026-09-16T20:57:51.578916"
     },
     {
       "ticker": "005610",
@@ -132,7 +132,7 @@
       "success_prob": 8.9,
       "predicted_gain": 8.7,
       "ai_score": 14.1,
-      "updated_at": "2026-09-16T18:29:42.122825"
+      "updated_at": "2026-09-16T20:57:53.697905"
     },
     {
       "ticker": "024090",
@@ -150,7 +150,7 @@
       "success_prob": 6.3,
       "predicted_gain": 7.4,
       "ai_score": 11.0,
-      "updated_at": "2026-09-16T18:29:50.421495",
+      "updated_at": "2026-09-16T20:58:01.845875",
       "vs_breakout_close": -0.68
     }
   ]
