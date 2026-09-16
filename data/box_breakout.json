@@ -1,48 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-15T22:46:08.079653",
-    "totalCount": 2,
-    "screened_from": 1331
+    "lastUpdated": "2026-09-16T14:04:27.069232",
+    "totalCount": 1,
+    "screened_from": 1332
   },
   "data": [
     {
       "ticker": "950190",
       "name": "고스트스튜디오",
-      "price": 11230,
-      "change_rate": 14.83,
+      "price": 11280,
+      "change_rate": 0.45,
       "breakout_date": "2026-09-15",
-      "days_since_breakout": 0,
+      "days_since_breakout": 1,
       "breakout_price": 10210,
-      "breakout_pct": 9.99,
-      "gain_since_breakout": 0.0,
+      "breakout_pct": 10.48,
+      "gain_since_breakout": 0.45,
       "volume_ratio": 11.7,
-      "ma150": 8652,
+      "ma150": 8672,
       "above_ma150": true,
-      "market_cap": 1462,
+      "market_cap": 1476,
       "success_prob": 59.4,
       "predicted_gain": 18.6,
       "ai_score": 58.3,
-      "updated_at": "2026-09-15T22:46:04.717342"
-    },
-    {
-      "ticker": "049520",
-      "name": "유아이엘",
-      "price": 3845,
-      "change_rate": -0.9,
-      "breakout_date": "2026-09-01",
-      "days_since_breakout": 10,
-      "breakout_price": 3865,
-      "breakout_pct": -0.13,
-      "gain_since_breakout": -2.15,
-      "volume_ratio": 4.3,
-      "ma150": 3813,
-      "above_ma150": true,
-      "market_cap": 1186,
-      "success_prob": 20.6,
-      "predicted_gain": 10.7,
-      "ai_score": 24.1,
-      "updated_at": "2026-09-15T22:46:08.076210",
-      "vs_breakout_close": -2.53
+      "updated_at": "2026-09-16T14:04:23.827541"
     }
   ]
 }
