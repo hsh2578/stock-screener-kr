@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-16T16:55:25.876358",
-    "totalCount": 20,
-    "screened_from": 1332
+    "lastUpdated": "2026-09-16T18:29:51.763951",
+    "totalCount": 21,
+    "screened_from": 1333
   },
   "data": [
     {
@@ -21,15 +21,15 @@
       "breakout_probability": 81.2,
       "ai_score": 67.0,
       "market_cap": 1012,
-      "updated_at": "2026-09-16T16:55:25.294834"
+      "updated_at": "2026-09-16T18:29:51.112486"
     },
     {
       "ticker": "055550",
       "name": "신한지주",
-      "price": 112000,
-      "change_rate": 0.09,
+      "price": 111800,
+      "change_rate": -0.09,
       "high_52w": 113300,
-      "percent_from_high": -1.15,
+      "percent_from_high": -1.32,
       "high_52w_date": "2026-07-13",
       "entry_date": "2026-09-08",
       "status": "active",
@@ -38,53 +38,71 @@
       "predicted_gain": 11.7,
       "breakout_probability": 82.9,
       "ai_score": 68.6,
-      "market_cap": 524376,
-      "updated_at": "2026-09-16T16:55:25.865869",
-      "above_high_percent": -1.15
+      "market_cap": 524845,
+      "updated_at": "2026-09-16T18:29:51.651212",
+      "above_high_percent": -1.32
     },
     {
       "ticker": "021240",
       "name": "코웨이",
-      "price": 107200,
-      "change_rate": 6.24,
+      "price": 107500,
+      "change_rate": 6.54,
       "high_52w": 109300,
-      "percent_from_high": -1.92,
+      "percent_from_high": -1.65,
       "high_52w_date": "2025-08-27",
       "entry_date": "2026-09-16",
       "status": "active",
       "days_since": 0,
       "volume_ratio": 1.4,
       "predicted_gain": 15.3,
-      "breakout_probability": 78.9,
-      "ai_score": 69.0,
-      "market_cap": 75863,
-      "updated_at": "2026-09-16T16:55:25.722641"
+      "breakout_probability": 80.7,
+      "ai_score": 70.3,
+      "market_cap": 76075,
+      "updated_at": "2026-09-16T18:29:51.500293"
     },
     {
       "ticker": "252990",
       "name": "샘씨엔에스",
-      "price": 16590,
-      "change_rate": 1.41,
+      "price": 16610,
+      "change_rate": 1.53,
       "high_52w": 16960,
-      "percent_from_high": -2.18,
+      "percent_from_high": -2.06,
       "high_52w_date": "2026-06-12",
       "entry_date": "2026-09-16",
       "status": "active",
       "days_since": 0,
       "volume_ratio": 1.1,
       "predicted_gain": 27.0,
-      "breakout_probability": 90.9,
-      "ai_score": 87.9,
-      "market_cap": 9996,
-      "updated_at": "2026-09-16T16:55:25.492485"
+      "breakout_probability": 91.3,
+      "ai_score": 88.2,
+      "market_cap": 10002,
+      "updated_at": "2026-09-16T18:29:51.276757"
+    },
+    {
+      "ticker": "453340",
+      "name": "현대그린푸드",
+      "price": 19500,
+      "change_rate": 0.78,
+      "high_52w": 19950,
+      "percent_from_high": -2.26,
+      "high_52w_date": "2026-08-10",
+      "entry_date": "2026-09-16",
+      "status": "active",
+      "days_since": 0,
+      "volume_ratio": 1.7,
+      "predicted_gain": 12.7,
+      "breakout_probability": 70.5,
+      "ai_score": 60.8,
+      "market_cap": 6332,
+      "updated_at": "2026-09-16T18:29:51.602428"
     },
     {
       "ticker": "003690",
       "name": "코리안리",
-      "price": 15160,
-      "change_rate": 0.33,
+      "price": 15150,
+      "change_rate": 0.26,
       "high_52w": 15500,
-      "percent_from_high": -2.19,
+      "percent_from_high": -2.26,
       "high_52w_date": "2026-08-18",
       "entry_date": "2026-09-14",
       "status": "active",
@@ -93,35 +111,17 @@
       "predicted_gain": 11.9,
       "breakout_probability": 64.4,
       "ai_score": 55.8,
-      "market_cap": 26791,
-      "updated_at": "2026-09-16T16:55:25.867138",
-      "above_high_percent": -2.19
-    },
-    {
-      "ticker": "453340",
-      "name": "현대그린푸드",
-      "price": 19510,
-      "change_rate": 0.83,
-      "high_52w": 19950,
-      "percent_from_high": -2.21,
-      "high_52w_date": "2026-08-10",
-      "entry_date": "2026-09-16",
-      "status": "active",
-      "days_since": 0,
-      "volume_ratio": 1.7,
-      "predicted_gain": 12.7,
-      "breakout_probability": 70.9,
-      "ai_score": 61.1,
-      "market_cap": 6335,
-      "updated_at": "2026-09-16T16:55:25.824203"
+      "market_cap": 26773,
+      "updated_at": "2026-09-16T18:29:51.666466",
+      "above_high_percent": -2.26
     },
     {
       "ticker": "025000",
       "name": "KPX케미칼",
-      "price": 55300,
-      "change_rate": 0.0,
+      "price": 55200,
+      "change_rate": -0.18,
       "high_52w": 57000,
-      "percent_from_high": -2.98,
+      "percent_from_high": -3.16,
       "high_52w_date": "2026-04-30",
       "entry_date": "2026-09-04",
       "status": "active",
@@ -130,27 +130,9 @@
       "predicted_gain": 10.2,
       "breakout_probability": 41.5,
       "ai_score": 38.2,
-      "market_cap": 2421,
-      "updated_at": "2026-09-16T16:55:25.867981",
-      "above_high_percent": -2.98
-    },
-    {
-      "ticker": "094800",
-      "name": "맵스리얼티",
-      "price": 7930,
-      "change_rate": 4.89,
-      "high_52w": 8190,
-      "percent_from_high": -3.17,
-      "high_52w_date": "2026-04-28",
-      "entry_date": "2026-09-16",
-      "status": "active",
-      "days_since": 0,
-      "volume_ratio": 2.6,
-      "predicted_gain": 15.7,
-      "breakout_probability": 68.8,
-      "ai_score": 62.3,
-      "market_cap": 7362,
-      "updated_at": "2026-09-16T16:55:25.427681"
+      "market_cap": 2417,
+      "updated_at": "2026-09-16T18:29:51.675913",
+      "above_high_percent": -3.16
     },
     {
       "ticker": "031980",
@@ -168,7 +150,7 @@
       "breakout_probability": 89.4,
       "ai_score": 89.8,
       "market_cap": 35966,
-      "updated_at": "2026-09-16T16:55:25.772346"
+      "updated_at": "2026-09-16T18:29:51.552011"
     },
     {
       "ticker": "049430",
@@ -186,7 +168,7 @@
       "breakout_probability": 65.1,
       "ai_score": 59.0,
       "market_cap": 2063,
-      "updated_at": "2026-09-16T16:55:25.702742"
+      "updated_at": "2026-09-16T18:29:51.487035"
     },
     {
       "ticker": "068930",
@@ -204,15 +186,15 @@
       "breakout_probability": 49.0,
       "ai_score": 42.9,
       "market_cap": 2447,
-      "updated_at": "2026-09-16T16:55:25.406299"
+      "updated_at": "2026-09-16T18:29:51.179511"
     },
     {
       "ticker": "086790",
       "name": "하나금융지주",
-      "price": 136800,
-      "change_rate": -0.51,
+      "price": 136900,
+      "change_rate": -0.44,
       "high_52w": 142500,
-      "percent_from_high": -4.0,
+      "percent_from_high": -3.93,
       "high_52w_date": "2026-07-16",
       "entry_date": "2026-09-15",
       "status": "active",
@@ -222,8 +204,44 @@
       "breakout_probability": 57.3,
       "ai_score": 51.3,
       "market_cap": 370958,
-      "updated_at": "2026-09-16T16:55:25.868805",
-      "above_high_percent": -4.0
+      "updated_at": "2026-09-16T18:29:51.690886",
+      "above_high_percent": -3.93
+    },
+    {
+      "ticker": "143240",
+      "name": "사람인",
+      "price": 17650,
+      "change_rate": 5.0,
+      "high_52w": 18400,
+      "percent_from_high": -4.08,
+      "high_52w_date": "2026-04-28",
+      "entry_date": "2026-09-16",
+      "status": "active",
+      "days_since": 0,
+      "volume_ratio": 0.9,
+      "predicted_gain": 11.1,
+      "breakout_probability": 49.3,
+      "ai_score": 44.5,
+      "market_cap": 1894,
+      "updated_at": "2026-09-16T18:29:51.235491"
+    },
+    {
+      "ticker": "294870",
+      "name": "IPARK현대산업개발",
+      "price": 23800,
+      "change_rate": -2.86,
+      "high_52w": 25050,
+      "percent_from_high": -4.99,
+      "high_52w_date": "2026-04-27",
+      "entry_date": "2026-09-16",
+      "status": "active",
+      "days_since": 0,
+      "volume_ratio": 1.3,
+      "predicted_gain": 11.6,
+      "breakout_probability": 41.3,
+      "ai_score": 39.3,
+      "market_cap": 15686,
+      "updated_at": "2026-09-16T18:29:51.005343"
     },
     {
       "ticker": "052860",
@@ -241,7 +259,7 @@
       "breakout_probability": 77.3,
       "ai_score": 78.0,
       "market_cap": 1242,
-      "updated_at": "2026-09-16T16:55:25.869967",
+      "updated_at": "2026-09-16T18:29:51.703926",
       "above_high_percent": -5.44
     },
     {
@@ -260,7 +278,7 @@
       "breakout_probability": 47.1,
       "ai_score": 43.8,
       "market_cap": 1886,
-      "updated_at": "2026-09-16T16:55:25.871551",
+      "updated_at": "2026-09-16T18:29:51.716832",
       "above_high_percent": -5.98
     },
     {
@@ -278,17 +296,17 @@
       "predicted_gain": 13.0,
       "breakout_probability": 45.8,
       "ai_score": 43.8,
-      "market_cap": 107152,
-      "updated_at": "2026-09-16T16:55:25.872382",
+      "market_cap": 107336,
+      "updated_at": "2026-09-16T18:29:51.730055",
       "above_high_percent": -6.73
     },
     {
       "ticker": "121440",
       "name": "골프존홀딩스",
-      "price": 7750,
-      "change_rate": -1.65,
+      "price": 7760,
+      "change_rate": -1.52,
       "high_52w": 8330,
-      "percent_from_high": -6.96,
+      "percent_from_high": -6.84,
       "high_52w_date": "2026-08-19",
       "entry_date": "2026-09-14",
       "status": "dropped",
@@ -297,9 +315,9 @@
       "predicted_gain": 17.6,
       "breakout_probability": 66.8,
       "ai_score": 62.6,
-      "market_cap": 3320,
-      "updated_at": "2026-09-16T16:55:25.870745",
-      "above_high_percent": -6.96
+      "market_cap": 3324,
+      "updated_at": "2026-09-16T18:29:51.743284",
+      "above_high_percent": -6.84
     },
     {
       "ticker": "001940",
@@ -317,16 +335,16 @@
       "breakout_probability": 38.4,
       "ai_score": 35.8,
       "market_cap": 3707,
-      "updated_at": "2026-09-16T16:55:25.873170",
+      "updated_at": "2026-09-16T18:29:51.748323",
       "above_high_percent": -8.25
     },
     {
       "ticker": "282330",
       "name": "BGF리테일",
-      "price": 141500,
-      "change_rate": 0.57,
+      "price": 141900,
+      "change_rate": 0.85,
       "high_52w": 156600,
-      "percent_from_high": -9.64,
+      "percent_from_high": -9.39,
       "high_52w_date": "2026-08-11",
       "entry_date": "2026-09-07",
       "status": "dropped",
@@ -335,9 +353,9 @@
       "predicted_gain": 11.7,
       "breakout_probability": 51.6,
       "ai_score": 46.7,
-      "market_cap": 24457,
-      "updated_at": "2026-09-16T16:55:25.873968",
-      "above_high_percent": -9.64
+      "market_cap": 24526,
+      "updated_at": "2026-09-16T18:29:51.755955",
+      "above_high_percent": -9.39
     },
     {
       "ticker": "014710",
@@ -355,16 +373,16 @@
       "breakout_probability": 67.3,
       "ai_score": 59.2,
       "market_cap": 1725,
-      "updated_at": "2026-09-16T16:55:25.874754",
+      "updated_at": "2026-09-16T18:29:51.760911",
       "above_high_percent": -10.85
     },
     {
       "ticker": "096770",
       "name": "SK이노베이션",
-      "price": 136800,
-      "change_rate": -3.66,
+      "price": 136600,
+      "change_rate": -3.8,
       "high_52w": 155400,
-      "percent_from_high": -11.97,
+      "percent_from_high": -12.1,
       "high_52w_date": "2026-05-04",
       "entry_date": "2026-09-10",
       "status": "dropped",
@@ -373,9 +391,9 @@
       "predicted_gain": 21.8,
       "breakout_probability": 88.7,
       "ai_score": 81.7,
-      "market_cap": 231264,
-      "updated_at": "2026-09-16T16:55:25.875556",
-      "above_high_percent": -11.97
+      "market_cap": 231095,
+      "updated_at": "2026-09-16T18:29:51.763246",
+      "above_high_percent": -12.1
     }
   ]
 }

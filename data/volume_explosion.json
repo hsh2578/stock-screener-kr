@@ -1,57 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-16T16:55:09.063742",
-    "totalCount": 8,
-    "screened_from": 1332
+    "lastUpdated": "2026-09-16T18:29:36.230568",
+    "totalCount": 7,
+    "screened_from": 1333
   },
   "data": [
     {
       "ticker": "005160",
       "name": "동국산업",
-      "price": 3680,
-      "change_rate": 19.48,
-      "volume_ratio": 70.4,
+      "price": 3565,
+      "change_rate": 15.75,
+      "volume_ratio": 74.4,
       "volume_rank": 1,
-      "ma150": 2796,
+      "ma150": 2795,
       "above_ma150": true,
-      "market_cap": 1996,
-      "updated_at": "2026-09-16T16:55:08.545985"
+      "market_cap": 1934,
+      "updated_at": "2026-09-16T18:29:35.401686"
     },
     {
       "ticker": "452280",
       "name": "한선엔지니어링",
-      "price": 12950,
-      "change_rate": 20.24,
-      "volume_ratio": 23.6,
+      "price": 13170,
+      "change_rate": 22.28,
+      "volume_ratio": 24.2,
       "volume_rank": 2,
-      "ma150": 14944,
+      "ma150": 14946,
       "above_ma150": false,
-      "market_cap": 2498,
-      "updated_at": "2026-09-16T16:55:09.029997"
+      "market_cap": 2531,
+      "updated_at": "2026-09-16T18:29:36.201421"
     },
     {
       "ticker": "072950",
       "name": "빛샘전자",
-      "price": 13560,
-      "change_rate": 26.26,
-      "volume_ratio": 20.8,
+      "price": 13750,
+      "change_rate": 28.03,
+      "volume_ratio": 21.0,
       "volume_rank": 3,
-      "ma150": 9550,
+      "ma150": 9551,
       "above_ma150": true,
-      "market_cap": 1092,
-      "updated_at": "2026-09-16T16:55:08.597019"
-    },
-    {
-      "ticker": "028100",
-      "name": "동아지질",
-      "price": 21500,
-      "change_rate": 13.04,
-      "volume_ratio": 12.7,
-      "volume_rank": 4,
-      "ma150": 17026,
-      "above_ma150": true,
-      "market_cap": 2396,
-      "updated_at": "2026-09-16T16:55:08.549119"
+      "market_cap": 1107,
+      "updated_at": "2026-09-16T18:29:35.650609"
     },
     {
       "ticker": "088800",
@@ -59,47 +47,47 @@
       "price": 2450,
       "change_rate": 30.04,
       "volume_ratio": 6.5,
-      "volume_rank": 5,
+      "volume_rank": 4,
       "ma150": 2997,
       "above_ma150": false,
       "market_cap": 1850,
-      "updated_at": "2026-09-16T16:55:08.696333"
+      "updated_at": "2026-09-16T18:29:35.884141"
     },
     {
       "ticker": "126340",
       "name": "비나텍",
-      "price": 74300,
-      "change_rate": 13.26,
-      "volume_ratio": 5.3,
-      "volume_rank": 6,
-      "ma150": 106585,
+      "price": 74200,
+      "change_rate": 13.11,
+      "volume_ratio": 5.4,
+      "volume_rank": 5,
+      "ma150": 106584,
       "above_ma150": false,
-      "market_cap": 5335,
-      "updated_at": "2026-09-16T16:55:08.593942"
+      "market_cap": 5328,
+      "updated_at": "2026-09-16T18:29:35.589879"
     },
     {
       "ticker": "195870",
       "name": "해성디에스",
-      "price": 56700,
-      "change_rate": 16.55,
+      "price": 56000,
+      "change_rate": 15.11,
       "volume_ratio": 4.3,
-      "volume_rank": 7,
-      "ma150": 62781,
+      "volume_rank": 6,
+      "ma150": 62776,
       "above_ma150": false,
-      "market_cap": 9605,
-      "updated_at": "2026-09-16T16:55:09.042668"
+      "market_cap": 9520,
+      "updated_at": "2026-09-16T18:29:36.216642"
     },
     {
       "ticker": "010170",
       "name": "대한광통신",
-      "price": 16040,
-      "change_rate": 12.01,
-      "volume_ratio": 4.1,
-      "volume_rank": 8,
+      "price": 16140,
+      "change_rate": 12.71,
+      "volume_ratio": 4.2,
+      "volume_rank": 7,
       "ma150": 13081,
       "above_ma150": true,
-      "market_cap": 24924,
-      "updated_at": "2026-09-16T16:55:08.535411"
+      "market_cap": 25095,
+      "updated_at": "2026-09-16T18:29:35.395546"
     }
   ]
 }
