@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-09-16T01:07:38.724224",
-    "total_count": 6,
+    "updated_at": "2026-09-17T00:50:00.668641",
+    "total_count": 5,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -12,74 +12,62 @@
     {
       "ticker": "012450",
       "name": "한화에어로스페이스",
-      "current_price": 1066000,
-      "ma60w": 1042924,
-      "ma60w_gap": 2.21,
+      "current_price": 1057000,
+      "ma60w": 1044933,
+      "ma60w_gap": 1.15,
       "op_margin": 11.6,
       "op_growth_3y": 89.9,
-      "market_cap": 549666,
+      "market_cap": 545025,
       "sector": "기타",
-      "updated_at": "2026-09-16T01:07:31.299329"
+      "updated_at": "2026-09-17T00:49:53.192241"
     },
     {
       "ticker": "042700",
       "name": "한미반도체",
-      "current_price": 225000,
-      "ma60w": 207530,
-      "ma60w_gap": 8.42,
+      "current_price": 226500,
+      "ma60w": 207565,
+      "ma60w_gap": 9.12,
       "op_margin": 43.6,
       "op_growth_3y": 212.2,
-      "market_cap": 214452,
+      "market_cap": 215882,
       "sector": "기타",
-      "updated_at": "2026-09-16T01:07:31.304402"
-    },
-    {
-      "ticker": "011200",
-      "name": "HMM",
-      "current_price": 20750,
-      "ma60w": 20616,
-      "ma60w_gap": 0.65,
-      "op_margin": 13.4,
-      "op_growth_3y": 147.4,
-      "market_cap": 195722,
-      "sector": "기타",
-      "updated_at": "2026-09-16T01:07:31.305407"
+      "updated_at": "2026-09-17T00:49:53.197866"
     },
     {
       "ticker": "003230",
       "name": "삼양식품",
-      "current_price": 1275000,
-      "ma60w": 1205936,
-      "ma60w_gap": 5.73,
+      "current_price": 1264000,
+      "ma60w": 1207156,
+      "ma60w_gap": 4.71,
       "op_margin": 21.6,
       "op_growth_3y": 78.0,
-      "market_cap": 96046,
+      "market_cap": 95217,
       "sector": "기타",
-      "updated_at": "2026-09-16T01:07:31.312739"
+      "updated_at": "2026-09-17T00:49:55.590869"
     },
     {
       "ticker": "007660",
       "name": "이수페타시스",
-      "current_price": 105600,
-      "ma60w": 97915,
-      "ma60w_gap": 7.85,
+      "current_price": 107500,
+      "ma60w": 98584,
+      "ma60w_gap": 9.04,
       "op_margin": 17.1,
       "op_growth_3y": 29.2,
-      "market_cap": 77520,
+      "market_cap": 78915,
       "sector": "기타",
-      "updated_at": "2026-09-16T01:07:32.262010"
+      "updated_at": "2026-09-17T00:49:56.197768"
     },
     {
       "ticker": "000240",
       "name": "한국앤컴퍼니",
       "current_price": 24200,
-      "ma60w": 24011,
-      "ma60w_gap": 0.79,
+      "ma60w": 24019,
+      "ma60w_gap": 0.75,
       "op_margin": 26.1,
       "op_growth_3y": 18.6,
       "market_cap": 22974,
       "sector": "기타",
-      "updated_at": "2026-09-16T01:07:35.472891"
+      "updated_at": "2026-09-17T00:49:58.370581"
     }
   ]
 }
