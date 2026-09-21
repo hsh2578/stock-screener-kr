@@ -1,47 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-21T14:14:28.117581",
-    "totalCount": 2,
-    "screened_from": 1334
+    "lastUpdated": "2026-09-21T17:13:19.620953",
+    "totalCount": 1,
+    "screened_from": 1337
   },
   "data": [
     {
-      "ticker": "028050",
-      "name": "삼성E&A",
-      "current_price": 51300,
-      "volume": 2166683,
-      "ma10w": 48345,
-      "ma20w": 47972,
-      "ma60w": 37302,
-      "ma20d": 48857,
-      "ma60d": 46737,
-      "ma120d": 48305,
-      "gap_20_60": 4.54,
-      "gap_20_120": 1.14,
-      "gap_60_120": 3.25,
-      "gap_price_20": 5.0,
-      "weeks_since_high": 21,
-      "market_cap": 100548,
-      "updated_at": "2026-09-21T14:14:25.468515"
-    },
-    {
       "ticker": "475150",
       "name": "SK이터닉스",
-      "current_price": 50000,
-      "volume": 683258,
-      "ma10w": 54735,
-      "ma20w": 49155,
-      "ma60w": 36152,
-      "ma20d": 52025,
-      "ma60d": 52406,
+      "current_price": 50100,
+      "volume": 697004,
+      "ma10w": 54745,
+      "ma20w": 49160,
+      "ma60w": 36154,
+      "ma20d": 52030,
+      "ma60d": 52408,
       "ma120d": 50870,
-      "gap_20_60": 0.73,
-      "gap_20_120": 2.27,
+      "gap_20_60": 0.72,
+      "gap_20_120": 2.28,
       "gap_60_120": 3.02,
-      "gap_price_20": 3.89,
+      "gap_price_20": 3.71,
       "weeks_since_high": 10,
-      "market_cap": 17034,
-      "updated_at": "2026-09-21T14:14:24.009973"
+      "market_cap": 17102,
+      "updated_at": "2026-09-21T17:13:14.803735"
     }
   ]
 }
