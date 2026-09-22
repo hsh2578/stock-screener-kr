@@ -1,53 +1,53 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-22T18:29:52.954962",
+    "lastUpdated": "2026-09-22T20:59:52.670142",
     "totalCount": 3,
-    "screened_from": 1332
+    "screened_from": 1330
   },
   "data": [
     {
       "ticker": "028050",
       "name": "삼성E&A",
-      "current_price": 51200,
-      "volume": 2280380,
-      "ma10w": 48335,
-      "ma20w": 47967,
-      "ma60w": 37300,
-      "ma20d": 49170,
-      "ma60d": 46915,
-      "ma120d": 48462,
+      "current_price": 51300,
+      "volume": 2288239,
+      "ma10w": 48345,
+      "ma20w": 47972,
+      "ma60w": 37302,
+      "ma20d": 49175,
+      "ma60d": 46916,
+      "ma120d": 48463,
       "gap_20_60": 4.81,
-      "gap_20_120": 1.46,
+      "gap_20_120": 1.47,
       "gap_60_120": 3.19,
-      "gap_price_20": 4.13,
+      "gap_price_20": 4.32,
       "weeks_since_high": 21,
-      "market_cap": 100352,
-      "updated_at": "2026-09-22T18:29:50.255612"
+      "market_cap": 100548,
+      "updated_at": "2026-09-22T20:59:49.631545"
     },
     {
       "ticker": "475150",
       "name": "SK이터닉스",
-      "current_price": 50700,
-      "volume": 755702,
-      "ma10w": 54805,
-      "ma20w": 49190,
-      "ma60w": 36164,
-      "ma20d": 51830,
-      "ma60d": 52541,
-      "ma120d": 50815,
-      "gap_20_60": 1.35,
-      "gap_20_120": 2.0,
+      "current_price": 51000,
+      "volume": 761065,
+      "ma10w": 54835,
+      "ma20w": 49205,
+      "ma60w": 36169,
+      "ma20d": 51845,
+      "ma60d": 52546,
+      "ma120d": 50817,
+      "gap_20_60": 1.34,
+      "gap_20_120": 2.02,
       "gap_60_120": 3.4,
-      "gap_price_20": 2.18,
+      "gap_price_20": 1.63,
       "weeks_since_high": 10,
-      "market_cap": 17272,
-      "updated_at": "2026-09-22T18:29:48.533395"
+      "market_cap": 17374,
+      "updated_at": "2026-09-22T20:59:48.042159"
     },
     {
       "ticker": "002900",
       "name": "TYM",
       "current_price": 6680,
-      "volume": 200293,
+      "volume": 200355,
       "ma10w": 6822,
       "ma20w": 6798,
       "ma60w": 6623,
@@ -60,7 +60,7 @@
       "gap_price_20": 3.68,
       "weeks_since_high": 20,
       "market_cap": 2766,
-      "updated_at": "2026-09-22T18:29:48.686391"
+      "updated_at": "2026-09-22T20:59:48.137151"
     }
   ]
 }
