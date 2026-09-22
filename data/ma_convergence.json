@@ -1,28 +1,66 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-22T00:16:14.127210",
-    "totalCount": 1,
-    "screened_from": 1336
+    "lastUpdated": "2026-09-22T14:15:44.646271",
+    "totalCount": 3,
+    "screened_from": 1324
   },
   "data": [
     {
+      "ticker": "028050",
+      "name": "삼성E&A",
+      "current_price": 51350,
+      "volume": 2211628,
+      "ma10w": 48350,
+      "ma20w": 47975,
+      "ma60w": 37303,
+      "ma20d": 49177,
+      "ma60d": 46917,
+      "ma120d": 48464,
+      "gap_20_60": 4.82,
+      "gap_20_120": 1.47,
+      "gap_60_120": 3.19,
+      "gap_price_20": 4.42,
+      "weeks_since_high": 21,
+      "market_cap": 100744,
+      "updated_at": "2026-09-22T14:15:41.410405"
+    },
+    {
       "ticker": "475150",
       "name": "SK이터닉스",
-      "current_price": 50600,
-      "volume": 703217,
-      "ma10w": 54795,
-      "ma20w": 49185,
-      "ma60w": 36162,
-      "ma20d": 52055,
-      "ma60d": 52416,
-      "ma120d": 50875,
-      "gap_20_60": 0.69,
-      "gap_20_120": 2.32,
-      "gap_60_120": 3.03,
-      "gap_price_20": 2.8,
+      "current_price": 50700,
+      "volume": 737335,
+      "ma10w": 54805,
+      "ma20w": 49190,
+      "ma60w": 36164,
+      "ma20d": 51830,
+      "ma60d": 52541,
+      "ma120d": 50815,
+      "gap_20_60": 1.35,
+      "gap_20_120": 2.0,
+      "gap_60_120": 3.4,
+      "gap_price_20": 2.18,
       "weeks_since_high": 10,
-      "market_cap": 17238,
-      "updated_at": "2026-09-22T00:16:09.585944"
+      "market_cap": 17272,
+      "updated_at": "2026-09-22T14:15:39.906116"
+    },
+    {
+      "ticker": "002900",
+      "name": "TYM",
+      "current_price": 6670,
+      "volume": 194554,
+      "ma10w": 6821,
+      "ma20w": 6797,
+      "ma60w": 6623,
+      "ma20d": 6935,
+      "ma60d": 6625,
+      "ma120d": 6901,
+      "gap_20_60": 4.68,
+      "gap_20_120": 0.48,
+      "gap_60_120": 4.01,
+      "gap_price_20": 3.82,
+      "weeks_since_high": 20,
+      "market_cap": 2763,
+      "updated_at": "2026-09-22T14:15:40.031887"
     }
   ]
 }
