@@ -1,45 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-23T16:59:34.530512",
+    "lastUpdated": "2026-09-23T18:29:55.813456",
     "totalCount": 6,
-    "screened_from": 1339
+    "screened_from": 1338
   },
   "data": [
     {
       "ticker": "950190",
       "name": "고스트스튜디오",
-      "price": 9610,
-      "change_rate": -2.93,
+      "price": 9690,
+      "change_rate": -2.12,
       "breakout_date": "2026-09-15",
       "resistance": 10210,
       "days_since_breakout": 6,
-      "breakout_pct": -5.88,
-      "gain_since_breakout": -14.43,
+      "breakout_pct": -5.09,
+      "gain_since_breakout": -13.71,
       "ma150": 8720,
       "above_ma150": true,
-      "market_cap": 1251,
+      "market_cap": 1261,
       "success_prob": 76.5,
       "predicted_gain": 22.9,
       "ai_score": 74.2,
-      "updated_at": "2026-09-23T16:59:22.683359"
+      "updated_at": "2026-09-23T18:29:44.706677"
     },
     {
       "ticker": "000520",
       "name": "삼일제약",
-      "price": 8130,
-      "change_rate": 1.12,
+      "price": 8090,
+      "change_rate": 0.62,
       "breakout_date": "2026-09-17",
       "resistance": 7270,
       "days_since_breakout": 4,
-      "breakout_pct": 11.83,
-      "gain_since_breakout": 8.98,
+      "breakout_pct": 11.28,
+      "gain_since_breakout": 8.45,
       "ma150": 8051,
       "above_ma150": true,
-      "market_cap": 1766,
+      "market_cap": 1755,
       "success_prob": 52.9,
       "predicted_gain": 16.1,
       "ai_score": 51.5,
-      "updated_at": "2026-09-23T16:59:25.703700"
+      "updated_at": "2026-09-23T18:29:47.519330"
     },
     {
       "ticker": "004090",
@@ -57,13 +57,13 @@
       "success_prob": 23.9,
       "predicted_gain": 16.5,
       "ai_score": 31.6,
-      "updated_at": "2026-09-23T16:59:32.670989"
+      "updated_at": "2026-09-23T18:29:54.577169"
     },
     {
       "ticker": "432320",
       "name": "KB스타리츠",
-      "price": 1635,
-      "change_rate": -0.73,
+      "price": 1637,
+      "change_rate": -0.61,
       "breakout_date": "2026-09-09",
       "resistance": 1521,
       "days_since_breakout": 10,
@@ -71,12 +71,12 @@
       "gain_since_breakout": 4.14,
       "ma150": 1945,
       "above_ma150": false,
-      "market_cap": 2465,
+      "market_cap": 2468,
       "success_prob": 18.9,
       "predicted_gain": 11.9,
       "ai_score": 24.0,
-      "updated_at": "2026-09-23T16:59:34.528751",
-      "vs_breakout_close": 4.21
+      "updated_at": "2026-09-23T18:29:55.811756",
+      "vs_breakout_close": 4.33
     },
     {
       "ticker": "002170",
@@ -94,13 +94,13 @@
       "success_prob": 13.7,
       "predicted_gain": 10.1,
       "ai_score": 18.7,
-      "updated_at": "2026-09-23T16:59:22.380317"
+      "updated_at": "2026-09-23T18:29:44.399014"
     },
     {
       "ticker": "014530",
       "name": "극동유화",
-      "price": 3305,
-      "change_rate": 0.15,
+      "price": 3285,
+      "change_rate": -0.45,
       "breakout_date": "2026-09-10",
       "resistance": 3310,
       "days_since_breakout": 9,
@@ -108,12 +108,12 @@
       "gain_since_breakout": -3.22,
       "ma150": 3517,
       "above_ma150": false,
-      "market_cap": 1152,
+      "market_cap": 1145,
       "success_prob": 10.8,
       "predicted_gain": 12.3,
       "ai_score": 18.7,
-      "updated_at": "2026-09-23T16:59:34.529725",
-      "vs_breakout_close": -3.22
+      "updated_at": "2026-09-23T18:29:55.812625",
+      "vs_breakout_close": -3.81
     }
   ]
 }

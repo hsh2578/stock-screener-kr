@@ -1,69 +1,57 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-23T16:59:18.805242",
+    "lastUpdated": "2026-09-23T18:29:40.974170",
     "totalCount": 16,
-    "screened_from": 1339
+    "screened_from": 1338
   },
   "data": [
     {
-      "ticker": "478340",
-      "name": "나라스페이스테크놀로지",
-      "price": 14410,
-      "change_rate": 12.4,
-      "volume_ratio": 31.4,
-      "volume_rank": 1,
-      "ma150": 24883,
-      "above_ma150": false,
-      "market_cap": 1674,
-      "updated_at": "2026-09-23T16:59:18.312169"
-    },
-    {
       "ticker": "394800",
       "name": "쓰리빌리언",
-      "price": 5720,
-      "change_rate": 20.93,
-      "volume_ratio": 19.8,
-      "volume_rank": 2,
-      "ma150": 8982,
+      "price": 5660,
+      "change_rate": 19.66,
+      "volume_ratio": 20.2,
+      "volume_rank": 1,
+      "ma150": 8981,
       "above_ma150": false,
-      "market_cap": 1820,
-      "updated_at": "2026-09-23T16:59:18.436175"
+      "market_cap": 1801,
+      "updated_at": "2026-09-23T18:29:40.655715"
     },
     {
       "ticker": "042000",
       "name": "카페24",
-      "price": 17840,
-      "change_rate": 18.3,
-      "volume_ratio": 15.8,
-      "volume_rank": 3,
+      "price": 17930,
+      "change_rate": 18.9,
+      "volume_ratio": 16.0,
+      "volume_rank": 2,
       "ma150": 21862,
       "above_ma150": false,
-      "market_cap": 4313,
-      "updated_at": "2026-09-23T16:59:18.668993"
+      "market_cap": 4338,
+      "updated_at": "2026-09-23T18:29:40.798982"
     },
     {
       "ticker": "419050",
       "name": "삼기에너지솔루션즈",
-      "price": 1916,
-      "change_rate": 20.13,
-      "volume_ratio": 11.3,
-      "volume_rank": 4,
+      "price": 1912,
+      "change_rate": 19.87,
+      "volume_ratio": 11.5,
+      "volume_rank": 3,
       "ma150": 1580,
       "above_ma150": true,
-      "market_cap": 1096,
-      "updated_at": "2026-09-23T16:59:18.392945"
+      "market_cap": 1094,
+      "updated_at": "2026-09-23T18:29:40.586332"
     },
     {
       "ticker": "079370",
       "name": "제우스",
-      "price": 12880,
-      "change_rate": 13.78,
-      "volume_ratio": 10.1,
-      "volume_rank": 5,
-      "ma150": 12820,
-      "above_ma150": true,
-      "market_cap": 3989,
-      "updated_at": "2026-09-23T16:59:18.585520"
+      "price": 12750,
+      "change_rate": 12.63,
+      "volume_ratio": 10.3,
+      "volume_rank": 4,
+      "ma150": 12819,
+      "above_ma150": false,
+      "market_cap": 3958,
+      "updated_at": "2026-09-23T18:29:40.777070"
     },
     {
       "ticker": "115440",
@@ -71,23 +59,23 @@
       "price": 12120,
       "change_rate": 22.42,
       "volume_ratio": 8.6,
-      "volume_rank": 6,
+      "volume_rank": 5,
       "ma150": 9763,
       "above_ma150": true,
       "market_cap": 1308,
-      "updated_at": "2026-09-23T16:59:18.511774"
+      "updated_at": "2026-09-23T18:29:40.741681"
     },
     {
       "ticker": "446540",
       "name": "메가터치",
-      "price": 10990,
-      "change_rate": 16.05,
-      "volume_ratio": 7.2,
-      "volume_rank": 7,
-      "ma150": 6291,
+      "price": 10870,
+      "change_rate": 14.78,
+      "volume_ratio": 7.3,
+      "volume_rank": 6,
+      "ma150": 6290,
       "above_ma150": true,
-      "market_cap": 3193,
-      "updated_at": "2026-09-23T16:59:18.370868"
+      "market_cap": 3161,
+      "updated_at": "2026-09-23T18:29:40.552860"
     },
     {
       "ticker": "396300",
@@ -95,107 +83,119 @@
       "price": 6010,
       "change_rate": 30.09,
       "volume_ratio": 5.7,
-      "volume_rank": 8,
+      "volume_rank": 7,
       "ma150": 4400,
       "above_ma150": true,
       "market_cap": 1592,
-      "updated_at": "2026-09-23T16:59:18.185941"
+      "updated_at": "2026-09-23T18:29:40.214548"
     },
     {
       "ticker": "159010",
       "name": "아스플로",
-      "price": 29500,
-      "change_rate": 21.65,
-      "volume_ratio": 4.7,
-      "volume_rank": 9,
+      "price": 29450,
+      "change_rate": 21.44,
+      "volume_ratio": 4.8,
+      "volume_rank": 8,
       "ma150": 14455,
       "above_ma150": true,
-      "market_cap": 3934,
-      "updated_at": "2026-09-23T16:59:18.442552"
+      "market_cap": 3927,
+      "updated_at": "2026-09-23T18:29:40.662244"
     },
     {
       "ticker": "468530",
       "name": "프로티나",
-      "price": 47050,
-      "change_rate": 17.77,
+      "price": 47200,
+      "change_rate": 18.15,
       "volume_ratio": 3.9,
-      "volume_rank": 10,
-      "ma150": 45899,
+      "volume_rank": 9,
+      "ma150": 45900,
       "above_ma150": true,
-      "market_cap": 5225,
-      "updated_at": "2026-09-23T16:59:18.738297"
+      "market_cap": 5242,
+      "updated_at": "2026-09-23T18:29:40.849475"
     },
     {
       "ticker": "092870",
       "name": "엑시콘",
-      "price": 43150,
-      "change_rate": 13.55,
+      "price": 43000,
+      "change_rate": 13.16,
       "volume_ratio": 3.8,
-      "volume_rank": 11,
-      "ma150": 26576,
+      "volume_rank": 10,
+      "ma150": 26575,
       "above_ma150": true,
-      "market_cap": 5631,
-      "updated_at": "2026-09-23T16:59:18.464910"
+      "market_cap": 5618,
+      "updated_at": "2026-09-23T18:29:40.728752"
     },
     {
       "ticker": "387690",
       "name": "레메디",
-      "price": 18620,
-      "change_rate": 20.67,
-      "volume_ratio": 3.5,
-      "volume_rank": 12,
+      "price": 18890,
+      "change_rate": 22.42,
+      "volume_ratio": 3.6,
+      "volume_rank": 11,
       "ma150": null,
       "above_ma150": false,
-      "market_cap": 1421,
-      "updated_at": "2026-09-23T16:59:18.354831"
+      "market_cap": 1441,
+      "updated_at": "2026-09-23T18:29:40.508453"
     },
     {
       "ticker": "314130",
       "name": "지놈앤컴퍼니",
-      "price": 4845,
-      "change_rate": 14.95,
+      "price": 4810,
+      "change_rate": 14.12,
       "volume_ratio": 2.8,
-      "volume_rank": 13,
+      "volume_rank": 12,
       "ma150": 5543,
       "above_ma150": false,
-      "market_cap": 2544,
-      "updated_at": "2026-09-23T16:59:18.663070"
+      "market_cap": 2516,
+      "updated_at": "2026-09-23T18:29:40.783488"
     },
     {
       "ticker": "389650",
       "name": "넥스트바이오메디컬",
-      "price": 32300,
-      "change_rate": 13.53,
+      "price": 32550,
+      "change_rate": 14.41,
       "volume_ratio": 2.7,
-      "volume_rank": 14,
-      "ma150": 49659,
+      "volume_rank": 13,
+      "ma150": 49661,
       "above_ma150": false,
-      "market_cap": 2669,
-      "updated_at": "2026-09-23T16:59:18.318829"
+      "market_cap": 2694,
+      "updated_at": "2026-09-23T18:29:40.472062"
     },
     {
       "ticker": "354320",
       "name": "알멕",
-      "price": 41950,
-      "change_rate": 12.77,
+      "price": 42000,
+      "change_rate": 12.9,
       "volume_ratio": 2.6,
-      "volume_rank": 15,
+      "volume_rank": 14,
       "ma150": 51605,
       "above_ma150": false,
-      "market_cap": 2681,
-      "updated_at": "2026-09-23T16:59:18.450554"
+      "market_cap": 2684,
+      "updated_at": "2026-09-23T18:29:40.688980"
     },
     {
       "ticker": "440110",
       "name": "파두",
-      "price": 81300,
-      "change_rate": 12.45,
+      "price": 81400,
+      "change_rate": 12.59,
       "volume_ratio": 2.4,
-      "volume_rank": 16,
+      "volume_rank": 15,
       "ma150": 73244,
       "above_ma150": true,
-      "market_cap": 40790,
-      "updated_at": "2026-09-23T16:59:18.729291"
+      "market_cap": 40840,
+      "updated_at": "2026-09-23T18:29:40.832337"
+    },
+    {
+      "ticker": "129920",
+      "name": "대성하이텍",
+      "price": 6250,
+      "change_rate": 12.41,
+      "volume_ratio": 2.0,
+      "volume_rank": 16,
+      "ma150": 7540,
+      "above_ma150": false,
+      "market_cap": 1016,
+      "updated_at": "2026-09-23T18:29:40.480061"
     }
   ]
 }
