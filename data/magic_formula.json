@@ -3,7 +3,7 @@
     "type": "magic-formula",
     "name": "마법공식 (그린블라트)",
     "description": "이익수익률 + 투하자본수익률 순위 합산",
-    "lastUpdated": "2026-09-25T01:10:39.080499",
+    "lastUpdated": "2026-09-26T01:10:47.325240",
     "totalCount": 20,
     "screened_from": 850
   },
@@ -154,22 +154,6 @@
     },
     {
       "rank": 10,
-      "ticker": "052400",
-      "name": "코나아이",
-      "current_price": 36900,
-      "per": 11.3,
-      "pbr": 3.18,
-      "combined_rank": 114,
-      "ey_rank": 99,
-      "roc_rank": 15,
-      "earnings_yield": 12.38,
-      "roc": 38.48,
-      "ebit": 889.0,
-      "market_cap": 5374.0,
-      "ev": 7181.0
-    },
-    {
-      "rank": 11,
       "ticker": "069510",
       "name": "에스텍",
       "current_price": 13130,
@@ -183,6 +167,22 @@
       "ebit": 458.0,
       "market_cap": 1432.0,
       "ev": 2191.0
+    },
+    {
+      "rank": 11,
+      "ticker": "052400",
+      "name": "코나아이",
+      "current_price": 36900,
+      "per": 11.3,
+      "pbr": 3.18,
+      "combined_rank": 114,
+      "ey_rank": 99,
+      "roc_rank": 15,
+      "earnings_yield": 12.38,
+      "roc": 38.48,
+      "ebit": 889.0,
+      "market_cap": 5374.0,
+      "ev": 7181.0
     },
     {
       "rank": 12,
@@ -250,22 +250,6 @@
     },
     {
       "rank": 16,
-      "ticker": "124500",
-      "name": "아이티센글로벌",
-      "current_price": 29700,
-      "per": 335.4,
-      "pbr": 18.31,
-      "combined_rank": 123,
-      "ey_rank": 101,
-      "roc_rank": 22,
-      "earnings_yield": 12.28,
-      "roc": 33.76,
-      "ebit": 1480.0,
-      "market_cap": 6892.0,
-      "ev": 12057.0
-    },
-    {
-      "rank": 17,
       "ticker": "064820",
       "name": "케이프",
       "current_price": 7590,
@@ -279,6 +263,22 @@
       "ebit": 627.0,
       "market_cap": 2342.0,
       "ev": 5566.0
+    },
+    {
+      "rank": 17,
+      "ticker": "124500",
+      "name": "아이티센글로벌",
+      "current_price": 29700,
+      "per": 335.4,
+      "pbr": 18.31,
+      "combined_rank": 123,
+      "ey_rank": 101,
+      "roc_rank": 22,
+      "earnings_yield": 12.28,
+      "roc": 33.76,
+      "ebit": 1480.0,
+      "market_cap": 6892.0,
+      "ev": 12057.0
     },
     {
       "rank": 18,
@@ -298,22 +298,6 @@
     },
     {
       "rank": 19,
-      "ticker": "037460",
-      "name": "삼지전자",
-      "current_price": 30550,
-      "per": 6.1,
-      "pbr": 0.91,
-      "combined_rank": 127,
-      "ey_rank": 62,
-      "roc_rank": 65,
-      "earnings_yield": 15.0,
-      "roc": 22.96,
-      "ebit": 1624.0,
-      "market_cap": 4985.0,
-      "ev": 10824.0
-    },
-    {
-      "rank": 20,
       "ticker": "096760",
       "name": "JW홀딩스",
       "current_price": 4340,
@@ -327,6 +311,22 @@
       "ebit": 1680.0,
       "market_cap": 3208.0,
       "ev": 10702.0
+    },
+    {
+      "rank": 20,
+      "ticker": "037460",
+      "name": "삼지전자",
+      "current_price": 30550,
+      "per": 6.1,
+      "pbr": 0.91,
+      "combined_rank": 127,
+      "ey_rank": 62,
+      "roc_rank": 65,
+      "earnings_yield": 15.0,
+      "roc": 22.96,
+      "ebit": 1624.0,
+      "market_cap": 4985.0,
+      "ev": 10824.0
     }
   ]
 }
