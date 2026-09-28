@@ -1,28 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-25T23:02:17.646211",
+    "lastUpdated": "2026-09-28T14:41:55.331196",
     "totalCount": 1,
-    "screened_from": 1337
+    "screened_from": 1344
   },
   "data": [
     {
       "ticker": "950190",
       "name": "고스트스튜디오",
-      "price": 9680,
-      "change_rate": -2.22,
+      "price": 9660,
+      "change_rate": -0.21,
       "breakout_date": "2026-09-15",
-      "days_since_breakout": 6,
+      "days_since_breakout": 7,
       "breakout_price": 10210,
-      "breakout_pct": -5.19,
-      "gain_since_breakout": -13.8,
+      "breakout_pct": -5.39,
+      "gain_since_breakout": -13.98,
       "volume_ratio": 11.7,
-      "ma150": 8720,
+      "ma150": 8728,
       "above_ma150": true,
-      "market_cap": 1260,
+      "market_cap": 1257,
       "success_prob": 59.4,
       "predicted_gain": 18.6,
       "ai_score": 58.3,
-      "updated_at": "2026-09-25T23:02:13.695815"
+      "updated_at": "2026-09-28T14:41:50.801044"
     }
   ]
 }
