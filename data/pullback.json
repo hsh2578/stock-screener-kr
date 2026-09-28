@@ -1,8 +1,23 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-28T17:58:07.731209",
-    "totalCount": 0,
-    "screened_from": 1344
+    "lastUpdated": "2026-09-28T20:12:19.513603",
+    "totalCount": 1,
+    "screened_from": 1343
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "284740",
+      "name": "쿠쿠홈시스",
+      "price": 24200,
+      "change_rate": 1.68,
+      "breakout_date": "2026-08-28",
+      "resistance": 23050,
+      "pullback_ratio": 4.99,
+      "volume_decrease": 81,
+      "ma150": 23154,
+      "above_ma150": true,
+      "market_cap": 5430,
+      "updated_at": "2026-09-28T20:12:19.101503"
+    }
+  ]
 }
