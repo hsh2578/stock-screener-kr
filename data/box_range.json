@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-29T19:54:19.571319",
+    "lastUpdated": "2026-09-29T22:17:37.488563",
     "totalCount": 42,
-    "screened_from": 1345
+    "screened_from": 1348
   },
   "data": [
     {
@@ -23,7 +23,7 @@
       "days": 72,
       "ma150": 17152,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:18.054045"
+      "updated_at": "2026-09-29T22:17:36.568664"
     },
     {
       "ticker": "094280",
@@ -43,7 +43,7 @@
       "days": 86,
       "ma150": 12262,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:19.538579"
+      "updated_at": "2026-09-29T22:17:37.478763"
     },
     {
       "ticker": "034590",
@@ -63,7 +63,7 @@
       "days": 145,
       "ma150": 26519,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:17.412047"
+      "updated_at": "2026-09-29T22:17:36.308012"
     },
     {
       "ticker": "092130",
@@ -83,7 +83,7 @@
       "days": 99,
       "ma150": 14540,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:17.341972"
+      "updated_at": "2026-09-29T22:17:36.268967"
     },
     {
       "ticker": "034950",
@@ -103,7 +103,7 @@
       "days": 95,
       "ma150": 102604,
       "above_ma150": true,
-      "updated_at": "2026-09-29T19:54:18.983394"
+      "updated_at": "2026-09-29T22:17:36.972883"
     },
     {
       "ticker": "003800",
@@ -123,27 +123,27 @@
       "days": 96,
       "ma150": 33239,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:16.546616"
+      "updated_at": "2026-09-29T22:17:35.887766"
     },
     {
       "ticker": "004970",
       "name": "신라교역",
-      "price": 9050,
-      "change_rate": 0.44,
-      "market_cap": 1448,
+      "price": 8950,
+      "change_rate": -0.67,
+      "market_cap": 1432,
       "box_high": 9500,
-      "box_low": 9010,
-      "range_percent": 5.44,
-      "atr": 2.49,
-      "atr_multiple": 2.18,
-      "support_touches": 6,
+      "box_low": 8950,
+      "range_percent": 6.15,
+      "atr": 2.52,
+      "atr_multiple": 2.44,
+      "support_touches": 5,
       "resistance_touches": 3,
-      "slope_daily": -0.0161,
-      "volume_decrease_rate": 22.1,
+      "slope_daily": -0.0178,
+      "volume_decrease_rate": 22.09,
       "days": 143,
-      "ma150": 9376,
+      "ma150": 9375,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:16.218345"
+      "updated_at": "2026-09-29T22:17:35.711790"
     },
     {
       "ticker": "039570",
@@ -163,7 +163,7 @@
       "days": 96,
       "ma150": 7887,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:14.331456"
+      "updated_at": "2026-09-29T22:17:34.341565"
     },
     {
       "ticker": "007330",
@@ -183,7 +183,7 @@
       "days": 80,
       "ma150": 10612,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:18.718653"
+      "updated_at": "2026-09-29T22:17:36.837128"
     },
     {
       "ticker": "038390",
@@ -203,27 +203,27 @@
       "days": 92,
       "ma150": 10256,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:15.490700"
+      "updated_at": "2026-09-29T22:17:35.181512"
     },
     {
       "ticker": "035250",
       "name": "강원랜드",
-      "price": 14360,
-      "change_rate": -0.49,
-      "market_cap": 30722,
+      "price": 14400,
+      "change_rate": -0.21,
+      "market_cap": 30807,
       "box_high": 15080,
       "box_low": 14110,
       "range_percent": 6.87,
-      "atr": 2.25,
-      "atr_multiple": 3.06,
-      "support_touches": 3,
+      "atr": 2.24,
+      "atr_multiple": 3.07,
+      "support_touches": 4,
       "resistance_touches": 3,
-      "slope_daily": 0.0007,
+      "slope_daily": 0.0011,
       "volume_decrease_rate": 42.29,
       "days": 71,
       "ma150": 15819,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:14.742374"
+      "updated_at": "2026-09-29T22:17:34.781427"
     },
     {
       "ticker": "350520",
@@ -243,27 +243,27 @@
       "days": 91,
       "ma150": 3545,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:17.320790"
+      "updated_at": "2026-09-29T22:17:36.243064"
     },
     {
       "ticker": "026960",
       "name": "동서",
-      "price": 25600,
-      "change_rate": 0.0,
-      "market_cap": 25523,
+      "price": 25650,
+      "change_rate": 0.2,
+      "market_cap": 25573,
       "box_high": 26600,
       "box_low": 24750,
       "range_percent": 7.47,
       "atr": 3.03,
-      "atr_multiple": 2.46,
+      "atr_multiple": 2.47,
       "support_touches": 5,
       "resistance_touches": 4,
-      "slope_daily": -0.0022,
+      "slope_daily": -0.0019,
       "volume_decrease_rate": 39.08,
       "days": 61,
-      "ma150": 25862,
+      "ma150": 25863,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:15.362948"
+      "updated_at": "2026-09-29T22:17:35.121913"
     },
     {
       "ticker": "136480",
@@ -283,7 +283,7 @@
       "days": 72,
       "ma150": 2914,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:18.840230"
+      "updated_at": "2026-09-29T22:17:36.916944"
     },
     {
       "ticker": "073560",
@@ -303,7 +303,7 @@
       "days": 70,
       "ma150": 1622,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:16.917002"
+      "updated_at": "2026-09-29T22:17:36.065952"
     },
     {
       "ticker": "000970",
@@ -323,7 +323,7 @@
       "days": 96,
       "ma150": 6760,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:19.125687"
+      "updated_at": "2026-09-29T22:17:37.173554"
     },
     {
       "ticker": "072870",
@@ -343,7 +343,7 @@
       "days": 117,
       "ma150": 12809,
       "above_ma150": true,
-      "updated_at": "2026-09-29T19:54:15.577916"
+      "updated_at": "2026-09-29T22:17:35.298377"
     },
     {
       "ticker": "267980",
@@ -359,31 +359,31 @@
       "support_touches": 2,
       "resistance_touches": 5,
       "slope_daily": 0.0402,
-      "volume_decrease_rate": 60.38,
+      "volume_decrease_rate": 60.37,
       "days": 109,
       "ma150": 34865,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:15.562018"
+      "updated_at": "2026-09-29T22:17:35.286185"
     },
     {
       "ticker": "267850",
       "name": "아시아나IDT",
-      "price": 9130,
-      "change_rate": -1.4,
-      "market_cap": 1013,
+      "price": 9040,
+      "change_rate": -2.38,
+      "market_cap": 1003,
       "box_high": 9650,
       "box_low": 8880,
       "range_percent": 8.67,
-      "atr": 3.09,
-      "atr_multiple": 2.81,
+      "atr": 3.12,
+      "atr_multiple": 2.78,
       "support_touches": 5,
       "resistance_touches": 2,
-      "slope_daily": -0.0352,
-      "volume_decrease_rate": 20.5,
+      "slope_daily": -0.0368,
+      "volume_decrease_rate": 20.48,
       "days": 83,
-      "ma150": 9833,
+      "ma150": 9832,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:16.332999"
+      "updated_at": "2026-09-29T22:17:35.791473"
     },
     {
       "ticker": "214320",
@@ -403,7 +403,7 @@
       "days": 71,
       "ma150": 19146,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:17.092413"
+      "updated_at": "2026-09-29T22:17:36.208923"
     },
     {
       "ticker": "002960",
@@ -423,7 +423,7 @@
       "days": 88,
       "ma150": 499333,
       "above_ma150": true,
-      "updated_at": "2026-09-29T19:54:19.018214"
+      "updated_at": "2026-09-29T22:17:37.014071"
     },
     {
       "ticker": "015360",
@@ -443,14 +443,14 @@
       "days": 83,
       "ma150": 15067,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:14.353284"
+      "updated_at": "2026-09-29T22:17:34.374903"
     },
     {
       "ticker": "234080",
       "name": "JW생명과학",
       "price": 11000,
       "change_rate": -0.72,
-      "market_cap": 1734,
+      "market_cap": 1742,
       "box_high": 11740,
       "box_low": 10720,
       "range_percent": 9.51,
@@ -463,14 +463,14 @@
       "days": 92,
       "ma150": 11918,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:14.375424"
+      "updated_at": "2026-09-29T22:17:34.377579"
     },
     {
       "ticker": "000080",
       "name": "하이트진로",
-      "price": 15030,
-      "change_rate": -0.53,
-      "market_cap": 10541,
+      "price": 15040,
+      "change_rate": -0.46,
+      "market_cap": 10548,
       "box_high": 15970,
       "box_low": 14550,
       "range_percent": 9.76,
@@ -478,19 +478,19 @@
       "atr_multiple": 3.73,
       "support_touches": 4,
       "resistance_touches": 3,
-      "slope_daily": 0.0247,
+      "slope_daily": 0.0248,
       "volume_decrease_rate": 29.36,
       "days": 86,
-      "ma150": 16064,
+      "ma150": 16065,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:18.894491"
+      "updated_at": "2026-09-29T22:17:36.924951"
     },
     {
       "ticker": "032640",
       "name": "LG유플러스",
-      "price": 14740,
-      "change_rate": -0.27,
-      "market_cap": 62561,
+      "price": 14760,
+      "change_rate": -0.14,
+      "market_cap": 62646,
       "box_high": 15590,
       "box_low": 14190,
       "range_percent": 9.87,
@@ -498,12 +498,12 @@
       "atr_multiple": 3.47,
       "support_touches": 4,
       "resistance_touches": 2,
-      "slope_daily": 0.0214,
+      "slope_daily": 0.0216,
       "volume_decrease_rate": 24.8,
       "days": 71,
       "ma150": 15376,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:14.525494"
+      "updated_at": "2026-09-29T22:17:34.624346"
     },
     {
       "ticker": "071840",
@@ -523,27 +523,27 @@
       "days": 85,
       "ma150": 7005,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:15.520472"
+      "updated_at": "2026-09-29T22:17:35.248496"
     },
     {
       "ticker": "009410",
       "name": "태영건설",
-      "price": 1615,
-      "change_rate": -0.92,
-      "market_cap": 5159,
+      "price": 1622,
+      "change_rate": -0.49,
+      "market_cap": 5182,
       "box_high": 1723,
       "box_low": 1560,
       "range_percent": 10.45,
-      "atr": 3.88,
-      "atr_multiple": 2.69,
+      "atr": 3.87,
+      "atr_multiple": 2.7,
       "support_touches": 3,
       "resistance_touches": 4,
-      "slope_daily": 0.0377,
+      "slope_daily": 0.0384,
       "volume_decrease_rate": 19.15,
       "days": 70,
       "ma150": 1753,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:18.430571"
+      "updated_at": "2026-09-29T22:17:36.706445"
     },
     {
       "ticker": "001130",
@@ -563,7 +563,7 @@
       "days": 86,
       "ma150": 12920,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:15.243295"
+      "updated_at": "2026-09-29T22:17:35.083792"
     },
     {
       "ticker": "003920",
@@ -583,7 +583,7 @@
       "days": 85,
       "ma150": 46643,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:14.943364"
+      "updated_at": "2026-09-29T22:17:34.912844"
     },
     {
       "ticker": "095570",
@@ -603,7 +603,7 @@
       "days": 86,
       "ma150": 4611,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:14.206992"
+      "updated_at": "2026-09-29T22:17:34.259419"
     },
     {
       "ticker": "002170",
@@ -623,14 +623,14 @@
       "days": 74,
       "ma150": 56432,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:14.719591"
+      "updated_at": "2026-09-29T22:17:34.741027"
     },
     {
       "ticker": "002240",
       "name": "고려제강",
       "price": 16660,
       "change_rate": -0.54,
-      "market_cap": 4496,
+      "market_cap": 4498,
       "box_high": 17840,
       "box_low": 15860,
       "range_percent": 12.48,
@@ -643,14 +643,14 @@
       "days": 69,
       "ma150": 19751,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:14.756700"
+      "updated_at": "2026-09-29T22:17:34.832222"
     },
     {
       "ticker": "004000",
       "name": "롯데정밀화학",
-      "price": 43200,
-      "change_rate": -1.82,
-      "market_cap": 11146,
+      "price": 43250,
+      "change_rate": -1.7,
+      "market_cap": 11159,
       "box_high": 48700,
       "box_low": 42900,
       "range_percent": 13.52,
@@ -658,12 +658,12 @@
       "atr_multiple": 3.31,
       "support_touches": 4,
       "resistance_touches": 2,
-      "slope_daily": 0.006,
+      "slope_daily": 0.0062,
       "volume_decrease_rate": 22.51,
       "days": 82,
       "ma150": 49437,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:15.511715"
+      "updated_at": "2026-09-29T22:17:35.218217"
     },
     {
       "ticker": "051500",
@@ -683,27 +683,27 @@
       "days": 63,
       "ma150": 25762,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:14.258440"
+      "updated_at": "2026-09-29T22:17:34.300917"
     },
     {
       "ticker": "298690",
       "name": "에어부산",
-      "price": 1510,
-      "change_rate": -0.33,
-      "market_cap": 2460,
+      "price": 1508,
+      "change_rate": -0.46,
+      "market_cap": 2457,
       "box_high": 1625,
       "box_low": 1413,
       "range_percent": 15.0,
       "atr": 4.07,
-      "atr_multiple": 3.69,
+      "atr_multiple": 3.68,
       "support_touches": 3,
       "resistance_touches": 2,
-      "slope_daily": 0.0311,
-      "volume_decrease_rate": 66.74,
+      "slope_daily": 0.0309,
+      "volume_decrease_rate": 66.73,
       "days": 70,
       "ma150": 1717,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:16.530974"
+      "updated_at": "2026-09-29T22:17:35.883839"
     },
     {
       "ticker": "0030R0",
@@ -723,47 +723,47 @@
       "days": 93,
       "ma150": 4090,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:15.195812"
+      "updated_at": "2026-09-29T22:17:35.045779"
     },
     {
       "ticker": "122450",
       "name": "KX",
-      "price": 2530,
-      "change_rate": -0.78,
-      "market_cap": 1134,
+      "price": 2535,
+      "change_rate": -0.59,
+      "market_cap": 1136,
       "box_high": 2800,
       "box_low": 2400,
       "range_percent": 16.67,
-      "atr": 4.85,
+      "atr": 4.84,
       "atr_multiple": 3.44,
       "support_touches": 1,
       "resistance_touches": 2,
-      "slope_daily": 0.0169,
+      "slope_daily": 0.0172,
       "volume_decrease_rate": 19.33,
       "days": 82,
       "ma150": 2917,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:14.487537"
+      "updated_at": "2026-09-29T22:17:34.604576"
     },
     {
       "ticker": "043370",
       "name": "피에이치에이",
-      "price": 11310,
-      "change_rate": 0.0,
-      "market_cap": 2375,
+      "price": 11320,
+      "change_rate": 0.09,
+      "market_cap": 2377,
       "box_high": 11730,
       "box_low": 10010,
       "range_percent": 17.18,
       "atr": 3.55,
-      "atr_multiple": 4.83,
+      "atr_multiple": 4.84,
       "support_touches": 1,
       "resistance_touches": 3,
-      "slope_daily": 0.0288,
+      "slope_daily": 0.0289,
       "volume_decrease_rate": 13.68,
       "days": 69,
       "ma150": 11986,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:18.779539"
+      "updated_at": "2026-09-29T22:17:36.875290"
     },
     {
       "ticker": "016800",
@@ -783,67 +783,67 @@
       "days": 86,
       "ma150": 31247,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:18.589277"
+      "updated_at": "2026-09-29T22:17:36.774993"
     },
     {
       "ticker": "207940",
       "name": "삼성바이오로직스",
-      "price": 1382000,
-      "change_rate": -0.58,
-      "market_cap": 639278,
+      "price": 1384000,
+      "change_rate": -0.43,
+      "market_cap": 640667,
       "box_high": 1609000,
       "box_low": 1325000,
       "range_percent": 21.43,
-      "atr": 4.03,
-      "atr_multiple": 5.32,
+      "atr": 4.02,
+      "atr_multiple": 5.33,
       "support_touches": 3,
       "resistance_touches": 2,
-      "slope_daily": 0.0281,
+      "slope_daily": 0.0283,
       "volume_decrease_rate": 37.03,
       "days": 77,
-      "ma150": 1485026,
+      "ma150": 1485040,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:15.809800"
+      "updated_at": "2026-09-29T22:17:35.458375"
     },
     {
       "ticker": "001200",
       "name": "유진투자증권",
-      "price": 4070,
-      "change_rate": -1.69,
-      "market_cap": 3942,
+      "price": 4090,
+      "change_rate": -1.21,
+      "market_cap": 3962,
       "box_high": 4550,
       "box_low": 3705,
       "range_percent": 22.81,
-      "atr": 4.59,
-      "atr_multiple": 4.97,
+      "atr": 4.57,
+      "atr_multiple": 4.99,
       "support_touches": 1,
       "resistance_touches": 2,
-      "slope_daily": 0.0173,
+      "slope_daily": 0.0181,
       "volume_decrease_rate": 29.44,
       "days": 70,
       "ma150": 4718,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:17.067895"
+      "updated_at": "2026-09-29T22:17:36.203230"
     },
     {
       "ticker": "033500",
       "name": "동성화인텍",
-      "price": 15570,
-      "change_rate": -2.69,
-      "market_cap": 4672,
+      "price": 15620,
+      "change_rate": -2.38,
+      "market_cap": 4684,
       "box_high": 18360,
       "box_low": 14700,
       "range_percent": 24.9,
-      "atr": 5.49,
-      "atr_multiple": 4.54,
+      "atr": 5.47,
+      "atr_multiple": 4.55,
       "support_touches": 2,
       "resistance_touches": 2,
-      "slope_daily": 0.0382,
+      "slope_daily": 0.0386,
       "volume_decrease_rate": 12.63,
       "days": 70,
-      "ma150": 21281,
+      "ma150": 21282,
       "above_ma150": false,
-      "updated_at": "2026-09-29T19:54:15.405744"
+      "updated_at": "2026-09-29T22:17:35.138064"
     }
   ]
 }
