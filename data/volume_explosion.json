@@ -1,33 +1,33 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-30T17:59:17.409538",
-    "totalCount": 7,
+    "lastUpdated": "2026-09-30T19:43:21.090916",
+    "totalCount": 10,
     "screened_from": 1332
   },
   "data": [
     {
       "ticker": "084990",
       "name": "헬릭스미스",
-      "price": 3790,
-      "change_rate": 17.7,
-      "volume_ratio": 21.4,
+      "price": 3785,
+      "change_rate": 17.55,
+      "volume_ratio": 21.5,
       "volume_rank": 1,
       "ma150": 5314,
       "above_ma150": false,
-      "market_cap": 1747,
-      "updated_at": "2026-09-30T17:59:17.403551"
+      "market_cap": 1745,
+      "updated_at": "2026-09-30T19:43:21.081576"
     },
     {
       "ticker": "002710",
       "name": "TCC스틸",
-      "price": 14320,
-      "change_rate": 27.29,
-      "volume_ratio": 19.0,
+      "price": 14610,
+      "change_rate": 29.87,
+      "volume_ratio": 20.9,
       "volume_rank": 2,
-      "ma150": 13036,
+      "ma150": 13038,
       "above_ma150": true,
-      "market_cap": 3754,
-      "updated_at": "2026-09-30T17:59:17.238850"
+      "market_cap": 3830,
+      "updated_at": "2026-09-30T19:43:19.783204"
     },
     {
       "ticker": "008970",
@@ -39,43 +39,79 @@
       "ma150": 1438,
       "above_ma150": true,
       "market_cap": 1539,
-      "updated_at": "2026-09-30T17:59:17.219968"
+      "updated_at": "2026-09-30T19:43:19.761649"
+    },
+    {
+      "ticker": "005010",
+      "name": "휴스틸",
+      "price": 4330,
+      "change_rate": 12.32,
+      "volume_ratio": 16.2,
+      "volume_rank": 4,
+      "ma150": 4575,
+      "above_ma150": false,
+      "market_cap": 2433,
+      "updated_at": "2026-09-30T19:43:21.089147"
     },
     {
       "ticker": "112290",
       "name": "와이씨켐",
-      "price": 12440,
-      "change_rate": 14.23,
-      "volume_ratio": 12.1,
-      "volume_rank": 4,
+      "price": 12460,
+      "change_rate": 14.42,
+      "volume_ratio": 12.4,
+      "volume_rank": 5,
       "ma150": 11743,
       "above_ma150": true,
-      "market_cap": 2518,
-      "updated_at": "2026-09-30T17:59:17.321835"
+      "market_cap": 2520,
+      "updated_at": "2026-09-30T19:43:20.488308"
+    },
+    {
+      "ticker": "290690",
+      "name": "아리바이오홀딩스",
+      "price": 3375,
+      "change_rate": 13.64,
+      "volume_ratio": 8.1,
+      "volume_rank": 6,
+      "ma150": 4117,
+      "above_ma150": false,
+      "market_cap": 1791,
+      "updated_at": "2026-09-30T19:43:20.300942"
     },
     {
       "ticker": "053260",
       "name": "금강철강",
-      "price": 8180,
-      "change_rate": 23.94,
-      "volume_ratio": 3.9,
-      "volume_rank": 5,
-      "ma150": 5378,
+      "price": 8250,
+      "change_rate": 25.0,
+      "volume_ratio": 4.0,
+      "volume_rank": 7,
+      "ma150": 5379,
       "above_ma150": true,
-      "market_cap": 1529,
-      "updated_at": "2026-09-30T17:59:17.246002"
+      "market_cap": 1544,
+      "updated_at": "2026-09-30T19:43:19.791813"
     },
     {
       "ticker": "200470",
       "name": "에이팩트",
-      "price": 9220,
-      "change_rate": 12.44,
-      "volume_ratio": 3.5,
-      "volume_rank": 6,
+      "price": 9320,
+      "change_rate": 13.66,
+      "volume_ratio": 3.6,
+      "volume_rank": 8,
       "ma150": 7454,
       "above_ma150": true,
-      "market_cap": 4041,
-      "updated_at": "2026-09-30T17:59:17.312338"
+      "market_cap": 4080,
+      "updated_at": "2026-09-30T19:43:20.466312"
+    },
+    {
+      "ticker": "092790",
+      "name": "넥스틸",
+      "price": 14930,
+      "change_rate": 13.11,
+      "volume_ratio": 3.0,
+      "volume_rank": 9,
+      "ma150": 13771,
+      "above_ma150": true,
+      "market_cap": 3869,
+      "updated_at": "2026-09-30T19:43:19.810589"
     },
     {
       "ticker": "078350",
@@ -83,11 +119,11 @@
       "price": 31950,
       "change_rate": 12.3,
       "volume_ratio": 2.3,
-      "volume_rank": 7,
+      "volume_rank": 10,
       "ma150": 25360,
       "above_ma150": true,
       "market_cap": 4871,
-      "updated_at": "2026-09-30T17:59:17.399316"
+      "updated_at": "2026-09-30T19:43:21.073830"
     }
   ]
 }

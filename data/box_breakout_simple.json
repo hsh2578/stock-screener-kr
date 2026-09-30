@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-30T17:59:27.709075",
+    "lastUpdated": "2026-09-30T19:43:31.890960",
     "totalCount": 3,
     "screened_from": 1332
   },
@@ -8,38 +8,38 @@
     {
       "ticker": "950190",
       "name": "고스트스튜디오",
-      "price": 9680,
-      "change_rate": 0.83,
+      "price": 9670,
+      "change_rate": 0.73,
       "breakout_date": "2026-09-15",
       "resistance": 10210,
       "days_since_breakout": 9,
-      "breakout_pct": -5.19,
-      "gain_since_breakout": -13.8,
+      "breakout_pct": -5.29,
+      "gain_since_breakout": -13.89,
       "ma150": 8744,
       "above_ma150": true,
-      "market_cap": 1260,
+      "market_cap": 1259,
       "success_prob": 76.5,
       "predicted_gain": 22.9,
       "ai_score": 74.2,
-      "updated_at": "2026-09-30T17:59:20.278963"
+      "updated_at": "2026-09-30T19:43:23.360851"
     },
     {
       "ticker": "000520",
       "name": "삼일제약",
-      "price": 8030,
-      "change_rate": -1.23,
+      "price": 8100,
+      "change_rate": -0.37,
       "breakout_date": "2026-09-17",
       "resistance": 7270,
       "days_since_breakout": 7,
-      "breakout_pct": 10.45,
-      "gain_since_breakout": 7.64,
-      "ma150": 7996,
+      "breakout_pct": 11.42,
+      "gain_since_breakout": 8.58,
+      "ma150": 7997,
       "above_ma150": true,
-      "market_cap": 1742,
+      "market_cap": 1757,
       "success_prob": 52.9,
       "predicted_gain": 16.1,
       "ai_score": 51.5,
-      "updated_at": "2026-09-30T17:59:22.277261"
+      "updated_at": "2026-09-30T19:43:25.883437"
     },
     {
       "ticker": "002170",
@@ -57,7 +57,7 @@
       "success_prob": 13.7,
       "predicted_gain": 10.1,
       "ai_score": 18.7,
-      "updated_at": "2026-09-30T17:59:20.041381"
+      "updated_at": "2026-09-30T19:43:23.077012"
     }
   ]
 }
