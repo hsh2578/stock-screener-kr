@@ -1,21 +1,33 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-30T14:49:18.269096",
+    "lastUpdated": "2026-09-30T17:59:17.409538",
     "totalCount": 7,
-    "screened_from": 1329
+    "screened_from": 1332
   },
   "data": [
     {
       "ticker": "084990",
       "name": "헬릭스미스",
-      "price": 3820,
-      "change_rate": 18.63,
-      "volume_ratio": 20.4,
+      "price": 3790,
+      "change_rate": 17.7,
+      "volume_ratio": 21.4,
       "volume_rank": 1,
-      "ma150": 5315,
+      "ma150": 5314,
       "above_ma150": false,
-      "market_cap": 1761,
-      "updated_at": "2026-09-30T14:49:18.258179"
+      "market_cap": 1747,
+      "updated_at": "2026-09-30T17:59:17.403551"
+    },
+    {
+      "ticker": "002710",
+      "name": "TCC스틸",
+      "price": 14320,
+      "change_rate": 27.29,
+      "volume_ratio": 19.0,
+      "volume_rank": 2,
+      "ma150": 13036,
+      "above_ma150": true,
+      "market_cap": 3754,
+      "updated_at": "2026-09-30T17:59:17.238850"
     },
     {
       "ticker": "008970",
@@ -23,71 +35,59 @@
       "price": 1483,
       "change_rate": 29.18,
       "volume_ratio": 17.3,
-      "volume_rank": 2,
+      "volume_rank": 3,
       "ma150": 1438,
       "above_ma150": true,
       "market_cap": 1539,
-      "updated_at": "2026-09-30T14:49:17.599382"
-    },
-    {
-      "ticker": "002710",
-      "name": "TCC스틸",
-      "price": 13870,
-      "change_rate": 23.29,
-      "volume_ratio": 13.8,
-      "volume_rank": 3,
-      "ma150": 13033,
-      "above_ma150": true,
-      "market_cap": 3636,
-      "updated_at": "2026-09-30T14:49:17.752571"
+      "updated_at": "2026-09-30T17:59:17.219968"
     },
     {
       "ticker": "112290",
       "name": "와이씨켐",
-      "price": 12230,
-      "change_rate": 12.3,
-      "volume_ratio": 11.3,
+      "price": 12440,
+      "change_rate": 14.23,
+      "volume_ratio": 12.1,
       "volume_rank": 4,
-      "ma150": 11741,
+      "ma150": 11743,
       "above_ma150": true,
-      "market_cap": 2473,
-      "updated_at": "2026-09-30T14:49:18.125902"
-    },
-    {
-      "ticker": "290690",
-      "name": "아리바이오홀딩스",
-      "price": 3400,
-      "change_rate": 14.48,
-      "volume_ratio": 7.2,
-      "volume_rank": 5,
-      "ma150": 4117,
-      "above_ma150": false,
-      "market_cap": 1804,
-      "updated_at": "2026-09-30T14:49:18.042949"
+      "market_cap": 2518,
+      "updated_at": "2026-09-30T17:59:17.321835"
     },
     {
       "ticker": "053260",
       "name": "금강철강",
-      "price": 8010,
-      "change_rate": 21.36,
-      "volume_ratio": 3.7,
-      "volume_rank": 6,
-      "ma150": 5377,
+      "price": 8180,
+      "change_rate": 23.94,
+      "volume_ratio": 3.9,
+      "volume_rank": 5,
+      "ma150": 5378,
       "above_ma150": true,
-      "market_cap": 1499,
-      "updated_at": "2026-09-30T14:49:17.762770"
+      "market_cap": 1529,
+      "updated_at": "2026-09-30T17:59:17.246002"
     },
     {
       "ticker": "200470",
       "name": "에이팩트",
-      "price": 9240,
-      "change_rate": 12.68,
-      "volume_ratio": 3.1,
-      "volume_rank": 7,
+      "price": 9220,
+      "change_rate": 12.44,
+      "volume_ratio": 3.5,
+      "volume_rank": 6,
       "ma150": 7454,
       "above_ma150": true,
-      "market_cap": 4049,
-      "updated_at": "2026-09-30T14:49:18.102791"
+      "market_cap": 4041,
+      "updated_at": "2026-09-30T17:59:17.312338"
+    },
+    {
+      "ticker": "078350",
+      "name": "한양디지텍",
+      "price": 31950,
+      "change_rate": 12.3,
+      "volume_ratio": 2.3,
+      "volume_rank": 7,
+      "ma150": 25360,
+      "above_ma150": true,
+      "market_cap": 4871,
+      "updated_at": "2026-09-30T17:59:17.399316"
     }
   ]
 }
