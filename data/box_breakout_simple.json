@@ -1,63 +1,63 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-29T23:58:42.002298",
+    "lastUpdated": "2026-09-30T14:49:33.510339",
     "totalCount": 3,
-    "screened_from": 1348
+    "screened_from": 1329
   },
   "data": [
     {
       "ticker": "950190",
       "name": "고스트스튜디오",
-      "price": 9600,
-      "change_rate": -0.41,
+      "price": 9650,
+      "change_rate": 0.52,
       "breakout_date": "2026-09-15",
       "resistance": 10210,
-      "days_since_breakout": 8,
-      "breakout_pct": -5.97,
-      "gain_since_breakout": -14.51,
-      "ma150": 8736,
+      "days_since_breakout": 9,
+      "breakout_pct": -5.48,
+      "gain_since_breakout": -14.07,
+      "ma150": 8744,
       "above_ma150": true,
-      "market_cap": 1250,
+      "market_cap": 1256,
       "success_prob": 76.5,
       "predicted_gain": 22.9,
       "ai_score": 74.2,
-      "updated_at": "2026-09-29T23:58:30.698554"
+      "updated_at": "2026-09-30T14:49:21.518263"
     },
     {
       "ticker": "000520",
       "name": "삼일제약",
-      "price": 8130,
-      "change_rate": -0.61,
+      "price": 7970,
+      "change_rate": -1.97,
       "breakout_date": "2026-09-17",
       "resistance": 7270,
-      "days_since_breakout": 6,
-      "breakout_pct": 11.83,
-      "gain_since_breakout": 8.98,
-      "ma150": 8017,
-      "above_ma150": true,
-      "market_cap": 1764,
+      "days_since_breakout": 7,
+      "breakout_pct": 9.63,
+      "gain_since_breakout": 6.84,
+      "ma150": 7996,
+      "above_ma150": false,
+      "market_cap": 1731,
       "success_prob": 52.9,
       "predicted_gain": 16.1,
       "ai_score": 51.5,
-      "updated_at": "2026-09-29T23:58:33.566161"
+      "updated_at": "2026-09-30T14:49:24.407852"
     },
     {
       "ticker": "002170",
       "name": "SYTS",
-      "price": 52500,
-      "change_rate": -1.13,
+      "price": 51800,
+      "change_rate": -1.33,
       "breakout_date": "2026-09-17",
       "resistance": 57900,
-      "days_since_breakout": 6,
-      "breakout_pct": -9.33,
-      "gain_since_breakout": -11.02,
-      "ma150": 56432,
+      "days_since_breakout": 7,
+      "breakout_pct": -10.54,
+      "gain_since_breakout": -12.2,
+      "ma150": 56361,
       "above_ma150": false,
-      "market_cap": 1575,
+      "market_cap": 1554,
       "success_prob": 13.7,
       "predicted_gain": 10.1,
       "ai_score": 18.7,
-      "updated_at": "2026-09-29T23:58:30.344905"
+      "updated_at": "2026-09-30T14:49:21.184666"
     }
   ]
 }
