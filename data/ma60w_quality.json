@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-09-30T02:19:44.419702",
-    "total_count": 5,
+    "updated_at": "2026-10-01T02:12:23.426829",
+    "total_count": 4,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -12,62 +12,50 @@
     {
       "ticker": "011200",
       "name": "HMM",
-      "current_price": 20950,
-      "ma60w": 20595,
-      "ma60w_gap": 1.72,
+      "current_price": 20900,
+      "ma60w": 20609,
+      "ma60w_gap": 1.41,
       "op_margin": 13.4,
       "op_growth_3y": 147.4,
-      "market_cap": 197608,
+      "market_cap": 197137,
       "sector": "기타",
-      "updated_at": "2026-09-30T02:19:36.436584"
-    },
-    {
-      "ticker": "003230",
-      "name": "삼양식품",
-      "current_price": 1223000,
-      "ma60w": 1215323,
-      "ma60w_gap": 0.63,
-      "op_margin": 21.6,
-      "op_growth_3y": 78.0,
-      "market_cap": 92129,
-      "sector": "기타",
-      "updated_at": "2026-09-30T02:19:36.442437"
-    },
-    {
-      "ticker": "483650",
-      "name": "달바글로벌",
-      "current_price": 188700,
-      "ma60w": 181810,
-      "ma60w_gap": 3.79,
-      "op_margin": 19.8,
-      "op_growth_3y": 85.4,
-      "market_cap": 23639,
-      "sector": "기타",
-      "updated_at": "2026-09-30T02:19:39.118599"
+      "updated_at": "2026-10-01T02:12:14.946310"
     },
     {
       "ticker": "000240",
       "name": "한국앤컴퍼니",
-      "current_price": 24850,
-      "ma60w": 23983,
-      "ma60w_gap": 3.61,
+      "current_price": 25050,
+      "ma60w": 24001,
+      "ma60w_gap": 4.37,
       "op_margin": 26.1,
       "op_growth_3y": 18.6,
-      "market_cap": 23591,
+      "market_cap": 23781,
       "sector": "기타",
-      "updated_at": "2026-09-30T02:19:39.118854"
+      "updated_at": "2026-10-01T02:12:17.697950"
+    },
+    {
+      "ticker": "483650",
+      "name": "달바글로벌",
+      "current_price": 186600,
+      "ma60w": 181842,
+      "ma60w_gap": 2.62,
+      "op_margin": 19.8,
+      "op_growth_3y": 85.4,
+      "market_cap": 23376,
+      "sector": "기타",
+      "updated_at": "2026-10-01T02:12:17.698911"
     },
     {
       "ticker": "112610",
       "name": "씨에스윈드",
-      "current_price": 50700,
-      "ma60w": 47186,
-      "ma60w_gap": 7.45,
+      "current_price": 51400,
+      "ma60w": 47221,
+      "ma60w_gap": 8.85,
       "op_margin": 10.1,
       "op_growth_3y": 101.5,
-      "market_cap": 21381,
+      "market_cap": 21676,
       "sector": "기타",
-      "updated_at": "2026-09-30T02:19:39.550551"
+      "updated_at": "2026-10-01T02:12:18.333654"
     }
   ]
 }
