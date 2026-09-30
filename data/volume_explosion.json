@@ -1,33 +1,33 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-30T19:43:21.090916",
-    "totalCount": 10,
+    "lastUpdated": "2026-09-30T21:56:14.483069",
+    "totalCount": 8,
     "screened_from": 1332
   },
   "data": [
     {
       "ticker": "084990",
       "name": "헬릭스미스",
-      "price": 3785,
-      "change_rate": 17.55,
-      "volume_ratio": 21.5,
+      "price": 3805,
+      "change_rate": 18.17,
+      "volume_ratio": 21.6,
       "volume_rank": 1,
-      "ma150": 5314,
+      "ma150": 5315,
       "above_ma150": false,
-      "market_cap": 1745,
-      "updated_at": "2026-09-30T19:43:21.081576"
+      "market_cap": 1754,
+      "updated_at": "2026-09-30T21:56:14.466924"
     },
     {
       "ticker": "002710",
       "name": "TCC스틸",
       "price": 14610,
       "change_rate": 29.87,
-      "volume_ratio": 20.9,
+      "volume_ratio": 21.3,
       "volume_rank": 2,
       "ma150": 13038,
       "above_ma150": true,
       "market_cap": 3830,
-      "updated_at": "2026-09-30T19:43:19.783204"
+      "updated_at": "2026-09-30T21:56:14.162435"
     },
     {
       "ticker": "008970",
@@ -39,79 +39,55 @@
       "ma150": 1438,
       "above_ma150": true,
       "market_cap": 1539,
-      "updated_at": "2026-09-30T19:43:19.761649"
-    },
-    {
-      "ticker": "005010",
-      "name": "휴스틸",
-      "price": 4330,
-      "change_rate": 12.32,
-      "volume_ratio": 16.2,
-      "volume_rank": 4,
-      "ma150": 4575,
-      "above_ma150": false,
-      "market_cap": 2433,
-      "updated_at": "2026-09-30T19:43:21.089147"
+      "updated_at": "2026-09-30T21:56:14.139079"
     },
     {
       "ticker": "112290",
       "name": "와이씨켐",
-      "price": 12460,
-      "change_rate": 14.42,
-      "volume_ratio": 12.4,
-      "volume_rank": 5,
+      "price": 12580,
+      "change_rate": 15.52,
+      "volume_ratio": 12.5,
+      "volume_rank": 4,
       "ma150": 11743,
       "above_ma150": true,
-      "market_cap": 2520,
-      "updated_at": "2026-09-30T19:43:20.488308"
+      "market_cap": 2544,
+      "updated_at": "2026-09-30T21:56:14.307409"
     },
     {
       "ticker": "290690",
       "name": "아리바이오홀딩스",
-      "price": 3375,
-      "change_rate": 13.64,
-      "volume_ratio": 8.1,
-      "volume_rank": 6,
+      "price": 3385,
+      "change_rate": 13.97,
+      "volume_ratio": 8.2,
+      "volume_rank": 5,
       "ma150": 4117,
       "above_ma150": false,
-      "market_cap": 1791,
-      "updated_at": "2026-09-30T19:43:20.300942"
+      "market_cap": 1797,
+      "updated_at": "2026-09-30T21:56:14.283218"
     },
     {
       "ticker": "053260",
       "name": "금강철강",
-      "price": 8250,
-      "change_rate": 25.0,
-      "volume_ratio": 4.0,
-      "volume_rank": 7,
-      "ma150": 5379,
+      "price": 8170,
+      "change_rate": 23.79,
+      "volume_ratio": 4.1,
+      "volume_rank": 6,
+      "ma150": 5378,
       "above_ma150": true,
-      "market_cap": 1544,
-      "updated_at": "2026-09-30T19:43:19.791813"
+      "market_cap": 1529,
+      "updated_at": "2026-09-30T21:56:14.170425"
     },
     {
       "ticker": "200470",
       "name": "에이팩트",
-      "price": 9320,
-      "change_rate": 13.66,
+      "price": 9230,
+      "change_rate": 12.56,
       "volume_ratio": 3.6,
-      "volume_rank": 8,
+      "volume_rank": 7,
       "ma150": 7454,
       "above_ma150": true,
-      "market_cap": 4080,
-      "updated_at": "2026-09-30T19:43:20.466312"
-    },
-    {
-      "ticker": "092790",
-      "name": "넥스틸",
-      "price": 14930,
-      "change_rate": 13.11,
-      "volume_ratio": 3.0,
-      "volume_rank": 9,
-      "ma150": 13771,
-      "above_ma150": true,
-      "market_cap": 3869,
-      "updated_at": "2026-09-30T19:43:19.810589"
+      "market_cap": 4045,
+      "updated_at": "2026-09-30T21:56:14.298044"
     },
     {
       "ticker": "078350",
@@ -119,11 +95,11 @@
       "price": 31950,
       "change_rate": 12.3,
       "volume_ratio": 2.3,
-      "volume_rank": 10,
+      "volume_rank": 8,
       "ma150": 25360,
       "above_ma150": true,
       "market_cap": 4871,
-      "updated_at": "2026-09-30T19:43:21.073830"
+      "updated_at": "2026-09-30T21:56:14.459799"
     }
   ]
 }
