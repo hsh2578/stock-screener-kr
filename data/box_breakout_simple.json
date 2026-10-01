@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-01T15:17:33.623592",
+    "lastUpdated": "2026-10-01T18:22:47.989845",
     "totalCount": 5,
-    "screened_from": 1345
+    "screened_from": 1347
   },
   "data": [
     {
@@ -21,79 +21,79 @@
       "success_prob": 76.5,
       "predicted_gain": 22.9,
       "ai_score": 74.2,
-      "updated_at": "2026-10-01T15:17:27.076365"
+      "updated_at": "2026-10-01T18:22:43.228826"
     },
     {
       "ticker": "256940",
       "name": "킵스파마",
-      "price": 6830,
-      "change_rate": 12.15,
+      "price": 6890,
+      "change_rate": 13.14,
       "breakout_date": "2026-10-01",
       "resistance": 6350,
       "days_since_breakout": 0,
-      "breakout_pct": 7.56,
+      "breakout_pct": 8.5,
       "gain_since_breakout": 0.0,
       "ma150": 6722,
       "above_ma150": true,
-      "market_cap": 1371,
-      "success_prob": 62.7,
-      "predicted_gain": 19.2,
-      "ai_score": 61.2,
-      "updated_at": "2026-10-01T15:17:32.245521"
+      "market_cap": 1383,
+      "success_prob": 63.7,
+      "predicted_gain": 20.1,
+      "ai_score": 62.7,
+      "updated_at": "2026-10-01T18:22:46.831833"
     },
     {
       "ticker": "000520",
       "name": "삼일제약",
-      "price": 8200,
-      "change_rate": 1.23,
+      "price": 8110,
+      "change_rate": 0.12,
       "breakout_date": "2026-09-17",
       "resistance": 7270,
       "days_since_breakout": 8,
-      "breakout_pct": 12.79,
-      "gain_since_breakout": 9.92,
-      "ma150": 7976,
+      "breakout_pct": 11.55,
+      "gain_since_breakout": 8.71,
+      "ma150": 7975,
       "above_ma150": true,
-      "market_cap": 1777,
+      "market_cap": 1759,
       "success_prob": 52.9,
       "predicted_gain": 16.1,
       "ai_score": 51.5,
-      "updated_at": "2026-10-01T15:17:29.505291"
+      "updated_at": "2026-10-01T18:22:44.901326"
     },
     {
       "ticker": "001360",
       "name": "삼성제약",
-      "price": 1452,
-      "change_rate": 11.35,
+      "price": 1450,
+      "change_rate": 11.2,
       "breakout_date": "2026-10-01",
       "resistance": 1385,
       "days_since_breakout": 0,
-      "breakout_pct": 4.84,
+      "breakout_pct": 4.69,
       "gain_since_breakout": 0.0,
       "ma150": 1551,
       "above_ma150": false,
-      "market_cap": 1365,
-      "success_prob": 37.9,
-      "predicted_gain": 13.4,
-      "ai_score": 38.6,
-      "updated_at": "2026-10-01T15:17:29.404659"
+      "market_cap": 1362,
+      "success_prob": 34.3,
+      "predicted_gain": 13.3,
+      "ai_score": 35.9,
+      "updated_at": "2026-10-01T18:22:44.828362"
     },
     {
       "ticker": "002170",
       "name": "SYTS",
-      "price": 52000,
-      "change_rate": 0.78,
+      "price": 52300,
+      "change_rate": 1.36,
       "breakout_date": "2026-09-17",
       "resistance": 57900,
       "days_since_breakout": 8,
-      "breakout_pct": -10.19,
-      "gain_since_breakout": -11.86,
-      "ma150": 56299,
+      "breakout_pct": -9.67,
+      "gain_since_breakout": -11.36,
+      "ma150": 56301,
       "above_ma150": false,
-      "market_cap": 1560,
+      "market_cap": 1569,
       "success_prob": 13.7,
       "predicted_gain": 10.1,
       "ai_score": 18.7,
-      "updated_at": "2026-10-01T15:17:26.797349"
+      "updated_at": "2026-10-01T18:22:42.827922"
     }
   ]
 }
