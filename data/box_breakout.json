@@ -1,28 +1,47 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-01T00:05:03.907442",
-    "totalCount": 1,
-    "screened_from": 1332
+    "lastUpdated": "2026-10-01T15:17:39.122698",
+    "totalCount": 2,
+    "screened_from": 1345
   },
   "data": [
     {
       "ticker": "950190",
       "name": "고스트스튜디오",
-      "price": 9680,
-      "change_rate": 0.83,
+      "price": 9750,
+      "change_rate": 0.72,
       "breakout_date": "2026-09-15",
-      "days_since_breakout": 9,
+      "days_since_breakout": 10,
       "breakout_price": 10210,
-      "breakout_pct": -5.19,
-      "gain_since_breakout": -13.8,
+      "breakout_pct": -4.51,
+      "gain_since_breakout": -13.18,
       "volume_ratio": 11.7,
-      "ma150": 8744,
+      "ma150": 8753,
       "above_ma150": true,
-      "market_cap": 1260,
+      "market_cap": 1269,
       "success_prob": 59.4,
       "predicted_gain": 18.6,
       "ai_score": 58.3,
-      "updated_at": "2026-10-01T00:04:58.807982"
+      "updated_at": "2026-10-01T15:17:33.952696"
+    },
+    {
+      "ticker": "256940",
+      "name": "킵스파마",
+      "price": 6830,
+      "change_rate": 12.15,
+      "breakout_date": "2026-10-01",
+      "days_since_breakout": 0,
+      "breakout_price": 6350,
+      "breakout_pct": 7.56,
+      "gain_since_breakout": 0.0,
+      "volume_ratio": 4.9,
+      "ma150": 6722,
+      "above_ma150": true,
+      "market_cap": 1371,
+      "success_prob": 48.6,
+      "predicted_gain": 15.9,
+      "ai_score": 48.4,
+      "updated_at": "2026-10-01T15:17:37.665097"
     }
   ]
 }

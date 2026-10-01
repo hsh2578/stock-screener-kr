@@ -1,66 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-01T00:05:11.379427",
-    "totalCount": 3,
-    "screened_from": 1332
+    "lastUpdated": "2026-10-01T15:17:44.002256",
+    "totalCount": 1,
+    "screened_from": 1345
   },
   "data": [
     {
-      "ticker": "028050",
-      "name": "삼성E&A",
-      "current_price": 47900,
-      "volume": 1610061,
-      "ma10w": 48205,
-      "ma20w": 47752,
-      "ma60w": 37625,
-      "ma20d": 49222,
-      "ma60d": 46903,
-      "ma120d": 48846,
-      "gap_20_60": 4.94,
-      "gap_20_120": 0.77,
-      "gap_60_120": 3.98,
-      "gap_price_20": 2.69,
-      "weeks_since_high": 22,
-      "market_cap": 93884,
-      "updated_at": "2026-10-01T00:05:08.126700"
-    },
-    {
       "ticker": "475150",
       "name": "SK이터닉스",
-      "current_price": 49800,
-      "volume": 647529,
-      "ma10w": 51705,
-      "ma20w": 49462,
-      "ma60w": 36592,
-      "ma20d": 50955,
-      "ma60d": 52361,
-      "ma120d": 50577,
-      "gap_20_60": 2.69,
-      "gap_20_120": 0.75,
-      "gap_60_120": 3.53,
-      "gap_price_20": 2.27,
+      "current_price": 49400,
+      "volume": 583395,
+      "ma10w": 51665,
+      "ma20w": 49442,
+      "ma60w": 36585,
+      "ma20d": 50835,
+      "ma60d": 52389,
+      "ma120d": 50472,
+      "gap_20_60": 2.97,
+      "gap_20_120": 0.72,
+      "gap_60_120": 3.8,
+      "gap_price_20": 2.82,
       "weeks_since_high": 11,
-      "market_cap": 16965,
-      "updated_at": "2026-10-01T00:05:06.638571"
-    },
-    {
-      "ticker": "451800",
-      "name": "한화리츠",
-      "current_price": 5320,
-      "volume": 101444,
-      "ma10w": 5350,
-      "ma20w": 5057,
-      "ma60w": 4731,
-      "ma20d": 5297,
-      "ma60d": 5146,
-      "ma120d": 5203,
-      "gap_20_60": 2.92,
-      "gap_20_120": 1.81,
-      "gap_60_120": 1.09,
-      "gap_price_20": 0.43,
-      "weeks_since_high": 23,
-      "market_cap": 9555,
-      "updated_at": "2026-10-01T00:05:11.108041"
+      "market_cap": 16812,
+      "updated_at": "2026-10-01T15:17:39.781374"
     }
   ]
 }
