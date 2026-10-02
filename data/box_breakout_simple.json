@@ -1,45 +1,45 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-02T17:56:35.539666",
+    "lastUpdated": "2026-10-02T19:44:51.545655",
     "totalCount": 8,
-    "screened_from": 1359
+    "screened_from": 1361
   },
   "data": [
     {
       "ticker": "000520",
       "name": "삼일제약",
-      "price": 8620,
-      "change_rate": 5.9,
+      "price": 8610,
+      "change_rate": 5.77,
       "breakout_date": "2026-09-17",
       "resistance": 7270,
       "days_since_breakout": 9,
-      "breakout_pct": 18.57,
-      "gain_since_breakout": 15.55,
+      "breakout_pct": 18.43,
+      "gain_since_breakout": 15.42,
       "ma150": 7956,
       "above_ma150": true,
-      "market_cap": 1870,
+      "market_cap": 1868,
       "success_prob": 52.9,
       "predicted_gain": 16.1,
       "ai_score": 51.5,
-      "updated_at": "2026-10-02T17:56:26.693222"
+      "updated_at": "2026-10-02T19:44:43.683558"
     },
     {
       "ticker": "256940",
       "name": "킵스파마",
-      "price": 7130,
-      "change_rate": 4.39,
+      "price": 7140,
+      "change_rate": 4.54,
       "breakout_date": "2026-10-01",
       "resistance": 6350,
       "days_since_breakout": 1,
-      "breakout_pct": 12.28,
-      "gain_since_breakout": 4.39,
+      "breakout_pct": 12.44,
+      "gain_since_breakout": 4.54,
       "ma150": 6712,
       "above_ma150": true,
-      "market_cap": 1432,
+      "market_cap": 1434,
       "success_prob": 52.3,
       "predicted_gain": 16.1,
       "ai_score": 51.1,
-      "updated_at": "2026-10-02T17:56:32.659969"
+      "updated_at": "2026-10-02T19:44:48.209150"
     },
     {
       "ticker": "001360",
@@ -57,7 +57,7 @@
       "success_prob": 43.7,
       "predicted_gain": 14.1,
       "ai_score": 43.2,
-      "updated_at": "2026-10-02T17:56:26.565297"
+      "updated_at": "2026-10-02T19:44:43.549060"
     },
     {
       "ticker": "001250",
@@ -72,28 +72,28 @@
       "ma150": 2992,
       "above_ma150": false,
       "market_cap": 2455,
-      "success_prob": 41.1,
+      "success_prob": 40.9,
       "predicted_gain": 14.3,
-      "ai_score": 41.6,
-      "updated_at": "2026-10-02T17:56:18.892379"
+      "ai_score": 41.5,
+      "updated_at": "2026-10-02T19:44:36.801014"
     },
     {
       "ticker": "005720",
       "name": "넥센",
-      "price": 6400,
-      "change_rate": 6.49,
+      "price": 6460,
+      "change_rate": 7.49,
       "breakout_date": "2026-10-02",
       "resistance": 6280,
       "days_since_breakout": 0,
-      "breakout_pct": 1.91,
+      "breakout_pct": 2.87,
       "gain_since_breakout": 0.0,
       "ma150": 6359,
       "above_ma150": true,
-      "market_cap": 3363,
-      "success_prob": 28.8,
-      "predicted_gain": 14.1,
-      "ai_score": 32.8,
-      "updated_at": "2026-10-02T17:56:24.078797"
+      "market_cap": 3394,
+      "success_prob": 32.3,
+      "predicted_gain": 14.4,
+      "ai_score": 35.6,
+      "updated_at": "2026-10-02T19:44:41.381952"
     },
     {
       "ticker": "126600",
@@ -111,25 +111,25 @@
       "success_prob": 25.7,
       "predicted_gain": 11.5,
       "ai_score": 28.3,
-      "updated_at": "2026-10-02T17:56:17.866897"
+      "updated_at": "2026-10-02T19:44:35.850425"
     },
     {
       "ticker": "026960",
       "name": "동서",
-      "price": 27650,
-      "change_rate": 5.53,
+      "price": 27600,
+      "change_rate": 5.34,
       "breakout_date": "2026-10-02",
       "resistance": 26600,
       "days_since_breakout": 0,
-      "breakout_pct": 3.95,
+      "breakout_pct": 3.76,
       "gain_since_breakout": 0.0,
-      "ma150": 25805,
+      "ma150": 25804,
       "above_ma150": true,
-      "market_cap": 27567,
-      "success_prob": 18.1,
-      "predicted_gain": 12.0,
-      "ai_score": 23.4,
-      "updated_at": "2026-10-02T17:56:24.983871"
+      "market_cap": 27517,
+      "success_prob": 17.3,
+      "predicted_gain": 11.9,
+      "ai_score": 22.8,
+      "updated_at": "2026-10-02T19:44:42.222211"
     },
     {
       "ticker": "002170",
@@ -147,7 +147,7 @@
       "success_prob": 13.7,
       "predicted_gain": 10.1,
       "ai_score": 18.7,
-      "updated_at": "2026-10-02T17:56:23.267161"
+      "updated_at": "2026-10-02T19:44:40.638927"
     }
   ]
 }
