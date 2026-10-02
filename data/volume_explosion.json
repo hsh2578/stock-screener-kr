@@ -1,93 +1,81 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-02T19:44:37.745098",
-    "totalCount": 10,
-    "screened_from": 1361
+    "lastUpdated": "2026-10-02T22:02:50.259946",
+    "totalCount": 9,
+    "screened_from": 1362
   },
   "data": [
     {
       "ticker": "136150",
       "name": "원일티엔아이",
-      "price": 12820,
-      "change_rate": 18.16,
-      "volume_ratio": 157.6,
+      "price": 12840,
+      "change_rate": 18.34,
+      "volume_ratio": 159.3,
       "volume_rank": 1,
       "ma150": 12223,
       "above_ma150": true,
-      "market_cap": 1070,
-      "updated_at": "2026-10-02T19:44:37.587480"
+      "market_cap": 1076,
+      "updated_at": "2026-10-02T22:02:50.118654"
     },
     {
       "ticker": "039560",
       "name": "다산네트웍스",
-      "price": 2990,
-      "change_rate": 15.67,
-      "volume_ratio": 19.0,
+      "price": 3005,
+      "change_rate": 16.25,
+      "volume_ratio": 19.2,
       "volume_rank": 2,
-      "ma150": 3504,
+      "ma150": 3505,
       "above_ma150": false,
-      "market_cap": 1282,
-      "updated_at": "2026-10-02T19:44:37.276444"
+      "market_cap": 1289,
+      "updated_at": "2026-10-02T22:02:49.794337"
     },
     {
       "ticker": "478340",
       "name": "나라스페이스테크놀로지",
-      "price": 17220,
-      "change_rate": 20.08,
-      "volume_ratio": 14.9,
+      "price": 17090,
+      "change_rate": 19.18,
+      "volume_ratio": 15.1,
       "volume_rank": 3,
-      "ma150": 23576,
+      "ma150": 23575,
       "above_ma150": false,
-      "market_cap": 1999,
-      "updated_at": "2026-10-02T19:44:37.264712"
-    },
-    {
-      "ticker": "209640",
-      "name": "와이제이링크",
-      "price": 4130,
-      "change_rate": 12.23,
-      "volume_ratio": 10.9,
-      "volume_rank": 4,
-      "ma150": 4678,
-      "above_ma150": false,
-      "market_cap": 1173,
-      "updated_at": "2026-10-02T19:44:37.583478"
+      "market_cap": 1984,
+      "updated_at": "2026-10-02T22:02:49.778864"
     },
     {
       "ticker": "105740",
       "name": "디케이락",
-      "price": 11690,
-      "change_rate": 12.51,
-      "volume_ratio": 10.0,
-      "volume_rank": 5,
+      "price": 11680,
+      "change_rate": 12.42,
+      "volume_ratio": 10.8,
+      "volume_rank": 4,
       "ma150": 8364,
       "above_ma150": true,
-      "market_cap": 1189,
-      "updated_at": "2026-10-02T19:44:37.301625"
+      "market_cap": 1188,
+      "updated_at": "2026-10-02T22:02:49.870273"
     },
     {
       "ticker": "005160",
       "name": "동국산업",
-      "price": 3995,
-      "change_rate": 18.9,
-      "volume_ratio": 5.8,
-      "volume_rank": 6,
+      "price": 3965,
+      "change_rate": 18.01,
+      "volume_ratio": 5.9,
+      "volume_rank": 5,
       "ma150": 2836,
       "above_ma150": true,
-      "market_cap": 2167,
-      "updated_at": "2026-10-02T19:44:37.288908"
+      "market_cap": 2151,
+      "updated_at": "2026-10-02T22:02:49.813096"
     },
     {
       "ticker": "020150",
       "name": "롯데에너지머티리얼즈",
-      "price": 51200,
-      "change_rate": 19.77,
+      "price": 51100,
+      "change_rate": 19.53,
       "volume_ratio": 5.6,
-      "volume_rank": 7,
+      "volume_rank": 6,
       "ma150": 44366,
       "above_ma150": true,
-      "market_cap": 26811,
-      "updated_at": "2026-10-02T19:44:37.305629"
+      "market_cap": 26759,
+      "updated_at": "2026-10-02T22:02:49.875128"
     },
     {
       "ticker": "217590",
@@ -95,11 +83,11 @@
       "price": 18440,
       "change_rate": 29.68,
       "volume_ratio": 4.7,
-      "volume_rank": 8,
+      "volume_rank": 7,
       "ma150": 17945,
       "above_ma150": true,
       "market_cap": 4443,
-      "updated_at": "2026-10-02T19:44:37.648805"
+      "updated_at": "2026-10-02T22:02:50.204505"
     },
     {
       "ticker": "100590",
@@ -107,23 +95,23 @@
       "price": 6250,
       "change_rate": 29.8,
       "volume_ratio": 4.1,
-      "volume_rank": 9,
+      "volume_rank": 8,
       "ma150": 5076,
       "above_ma150": true,
       "market_cap": 1071,
-      "updated_at": "2026-10-02T19:44:37.309661"
+      "updated_at": "2026-10-02T22:02:49.888641"
     },
     {
       "ticker": "080580",
       "name": "오킨스전자",
-      "price": 29000,
-      "change_rate": 12.4,
+      "price": 29150,
+      "change_rate": 12.98,
       "volume_ratio": 3.4,
-      "volume_rank": 10,
-      "ma150": 18493,
+      "volume_rank": 9,
+      "ma150": 18494,
       "above_ma150": true,
-      "market_cap": 6116,
-      "updated_at": "2026-10-02T19:44:37.581139"
+      "market_cap": 6148,
+      "updated_at": "2026-10-02T22:02:50.108182"
     }
   ]
 }

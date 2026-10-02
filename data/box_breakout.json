@@ -1,66 +1,66 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-02T19:44:51.545984",
+    "lastUpdated": "2026-10-02T22:03:06.914503",
     "totalCount": 3,
-    "screened_from": 1361
+    "screened_from": 1362
   },
   "data": [
     {
       "ticker": "256940",
       "name": "킵스파마",
-      "price": 7140,
-      "change_rate": 4.54,
+      "price": 7120,
+      "change_rate": 4.25,
       "breakout_date": "2026-10-01",
       "days_since_breakout": 1,
       "breakout_price": 6350,
-      "breakout_pct": 12.44,
-      "gain_since_breakout": 4.54,
+      "breakout_pct": 12.13,
+      "gain_since_breakout": 4.25,
       "volume_ratio": 5.1,
       "ma150": 6712,
       "above_ma150": true,
-      "market_cap": 1434,
+      "market_cap": 1430,
       "success_prob": 52.3,
       "predicted_gain": 16.1,
       "ai_score": 51.1,
-      "updated_at": "2026-10-02T19:44:48.214225"
+      "updated_at": "2026-10-02T22:03:04.053863"
     },
     {
       "ticker": "005720",
       "name": "넥센",
-      "price": 6460,
-      "change_rate": 7.49,
+      "price": 6490,
+      "change_rate": 7.99,
       "breakout_date": "2026-10-02",
       "days_since_breakout": 0,
       "breakout_price": 6280,
-      "breakout_pct": 2.87,
+      "breakout_pct": 3.34,
       "gain_since_breakout": 0.0,
       "volume_ratio": 4.0,
       "ma150": 6359,
       "above_ma150": true,
-      "market_cap": 3394,
-      "success_prob": 34.6,
-      "predicted_gain": 13.9,
-      "ai_score": 36.7,
-      "updated_at": "2026-10-02T19:44:45.427690"
+      "market_cap": 3410,
+      "success_prob": 38.4,
+      "predicted_gain": 14.0,
+      "ai_score": 39.5,
+      "updated_at": "2026-10-02T22:03:01.639579"
     },
     {
       "ticker": "026960",
       "name": "동서",
-      "price": 27600,
-      "change_rate": 5.34,
+      "price": 27550,
+      "change_rate": 5.15,
       "breakout_date": "2026-10-02",
       "days_since_breakout": 0,
       "breakout_price": 26600,
-      "breakout_pct": 3.76,
+      "breakout_pct": 3.57,
       "gain_since_breakout": 0.0,
-      "volume_ratio": 4.5,
+      "volume_ratio": 4.6,
       "ma150": 25804,
       "above_ma150": true,
-      "market_cap": 27517,
-      "success_prob": 12.4,
+      "market_cap": 27467,
+      "success_prob": 15.7,
       "predicted_gain": 11.0,
-      "ai_score": 18.6,
-      "updated_at": "2026-10-02T19:44:45.594564"
+      "ai_score": 20.9,
+      "updated_at": "2026-10-02T22:03:01.865870"
     }
   ]
 }
