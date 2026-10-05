@@ -1,10 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-05T15:02:39.441777",
+    "lastUpdated": "2026-10-05T18:35:44.174328",
     "totalCount": 8,
     "screened_from": 1362
   },
   "data": [
+    {
+      "ticker": "256940",
+      "name": "킵스파마",
+      "price": 7120,
+      "change_rate": 4.25,
+      "breakout_date": "2026-10-01",
+      "resistance": 6350,
+      "days_since_breakout": 1,
+      "breakout_pct": 12.13,
+      "gain_since_breakout": 4.25,
+      "ma150": 6712,
+      "above_ma150": true,
+      "market_cap": 1430,
+      "success_prob": 64.5,
+      "predicted_gain": 19.4,
+      "ai_score": 62.6,
+      "updated_at": "2026-10-05T18:35:39.395220"
+    },
     {
       "ticker": "000520",
       "name": "삼일제약",
@@ -21,25 +39,7 @@
       "success_prob": 52.9,
       "predicted_gain": 16.1,
       "ai_score": 51.5,
-      "updated_at": "2026-10-05T15:02:30.805246"
-    },
-    {
-      "ticker": "256940",
-      "name": "킵스파마",
-      "price": 7120,
-      "change_rate": 4.25,
-      "breakout_date": "2026-10-01",
-      "resistance": 6350,
-      "days_since_breakout": 1,
-      "breakout_pct": 12.13,
-      "gain_since_breakout": 4.25,
-      "ma150": 6712,
-      "above_ma150": true,
-      "market_cap": 1430,
-      "success_prob": 52.3,
-      "predicted_gain": 16.1,
-      "ai_score": 51.1,
-      "updated_at": "2026-10-05T15:02:36.941354"
+      "updated_at": "2026-10-05T18:35:35.761378"
     },
     {
       "ticker": "001360",
@@ -57,7 +57,7 @@
       "success_prob": 43.7,
       "predicted_gain": 14.1,
       "ai_score": 43.2,
-      "updated_at": "2026-10-05T15:02:30.676541"
+      "updated_at": "2026-10-05T18:35:35.640352"
     },
     {
       "ticker": "001250",
@@ -75,7 +75,7 @@
       "success_prob": 40.9,
       "predicted_gain": 14.3,
       "ai_score": 41.5,
-      "updated_at": "2026-10-05T15:02:22.839496"
+      "updated_at": "2026-10-05T18:35:28.625901"
     },
     {
       "ticker": "005720",
@@ -93,7 +93,7 @@
       "success_prob": 33.6,
       "predicted_gain": 14.6,
       "ai_score": 36.7,
-      "updated_at": "2026-10-05T15:02:28.149287"
+      "updated_at": "2026-10-05T18:35:33.473559"
     },
     {
       "ticker": "126600",
@@ -111,7 +111,7 @@
       "success_prob": 28.4,
       "predicted_gain": 11.6,
       "ai_score": 30.3,
-      "updated_at": "2026-10-05T15:02:21.757362"
+      "updated_at": "2026-10-05T18:35:27.857962"
     },
     {
       "ticker": "026960",
@@ -129,7 +129,7 @@
       "success_prob": 19.9,
       "predicted_gain": 11.8,
       "ai_score": 24.6,
-      "updated_at": "2026-10-05T15:02:29.065801"
+      "updated_at": "2026-10-05T18:35:34.266163"
     },
     {
       "ticker": "002170",
@@ -147,7 +147,7 @@
       "success_prob": 13.7,
       "predicted_gain": 10.1,
       "ai_score": 18.7,
-      "updated_at": "2026-10-05T15:02:27.328248"
+      "updated_at": "2026-10-05T18:35:32.702073"
     }
   ]
 }
