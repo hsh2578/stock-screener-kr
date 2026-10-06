@@ -1,15 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-06T15:40:18.918988",
-    "totalCount": 8,
-    "screened_from": 1360
+    "lastUpdated": "2026-10-06T18:22:14.085340",
+    "totalCount": 9,
+    "screened_from": 1363
   },
   "data": [
     {
       "ticker": "000520",
       "name": "삼일제약",
-      "price": 8720,
-      "change_rate": 0.93,
+      "price": 8670,
+      "change_rate": 0.35,
       "breakout_date": "2026-09-17",
       "resistance": 7270,
       "days_since_breakout": 10,
@@ -17,36 +17,54 @@
       "gain_since_breakout": 15.82,
       "ma150": 7957,
       "above_ma150": true,
-      "market_cap": 1892,
+      "market_cap": 1881,
       "success_prob": 52.9,
       "predicted_gain": 16.1,
       "ai_score": 51.5,
-      "updated_at": "2026-10-06T15:40:18.917216",
-      "vs_breakout_close": 16.89
+      "updated_at": "2026-10-06T18:22:14.083683",
+      "vs_breakout_close": 16.22
     },
     {
       "ticker": "256940",
       "name": "킵스파마",
-      "price": 7380,
-      "change_rate": 3.65,
+      "price": 7320,
+      "change_rate": 2.81,
       "breakout_date": "2026-10-01",
       "resistance": 6350,
       "days_since_breakout": 2,
-      "breakout_pct": 16.22,
-      "gain_since_breakout": 8.05,
-      "ma150": 6705,
+      "breakout_pct": 15.28,
+      "gain_since_breakout": 7.17,
+      "ma150": 6704,
       "above_ma150": true,
-      "market_cap": 1482,
+      "market_cap": 1470,
       "success_prob": 52.3,
       "predicted_gain": 16.1,
       "ai_score": 51.1,
-      "updated_at": "2026-10-06T15:40:16.560463"
+      "updated_at": "2026-10-06T18:22:10.191716"
+    },
+    {
+      "ticker": "018880",
+      "name": "한온시스템",
+      "price": 3930,
+      "change_rate": 2.34,
+      "breakout_date": "2026-10-06",
+      "resistance": 3865,
+      "days_since_breakout": 0,
+      "breakout_pct": 1.68,
+      "gain_since_breakout": 0.0,
+      "ma150": 4009,
+      "above_ma150": false,
+      "market_cap": 40332,
+      "success_prob": 48.0,
+      "predicted_gain": 14.3,
+      "ai_score": 46.4,
+      "updated_at": "2026-10-06T18:22:13.286498"
     },
     {
       "ticker": "001360",
       "name": "삼성제약",
-      "price": 1470,
-      "change_rate": 1.45,
+      "price": 1474,
+      "change_rate": 1.73,
       "breakout_date": "2026-10-01",
       "resistance": 1385,
       "days_since_breakout": 2,
@@ -54,66 +72,66 @@
       "gain_since_breakout": -1.09,
       "ma150": 1547,
       "above_ma150": false,
-      "market_cap": 1384,
+      "market_cap": 1388,
       "success_prob": 43.7,
       "predicted_gain": 14.1,
       "ai_score": 43.2,
-      "updated_at": "2026-10-06T15:40:18.918168",
-      "vs_breakout_close": 0.34
+      "updated_at": "2026-10-06T18:22:14.084543",
+      "vs_breakout_close": 0.61
     },
     {
       "ticker": "001250",
       "name": "GS글로벌",
-      "price": 3145,
-      "change_rate": 5.71,
+      "price": 3170,
+      "change_rate": 6.55,
       "breakout_date": "2026-10-02",
       "resistance": 2915,
       "days_since_breakout": 1,
-      "breakout_pct": 7.89,
-      "gain_since_breakout": 5.71,
+      "breakout_pct": 8.75,
+      "gain_since_breakout": 6.55,
       "ma150": 2996,
       "above_ma150": true,
-      "market_cap": 2596,
+      "market_cap": 2616,
       "success_prob": 40.9,
       "predicted_gain": 14.3,
       "ai_score": 41.5,
-      "updated_at": "2026-10-06T15:40:02.491066"
+      "updated_at": "2026-10-06T18:21:57.830147"
     },
     {
       "ticker": "005720",
       "name": "넥센",
-      "price": 6440,
-      "change_rate": -0.77,
+      "price": 6370,
+      "change_rate": -1.85,
       "breakout_date": "2026-10-02",
       "resistance": 6280,
       "days_since_breakout": 1,
-      "breakout_pct": 2.55,
-      "gain_since_breakout": -0.77,
+      "breakout_pct": 1.43,
+      "gain_since_breakout": -1.85,
       "ma150": 6349,
       "above_ma150": true,
-      "market_cap": 3384,
+      "market_cap": 3347,
       "success_prob": 33.6,
       "predicted_gain": 14.6,
       "ai_score": 36.7,
-      "updated_at": "2026-10-06T15:40:07.833809"
+      "updated_at": "2026-10-06T18:22:03.010910"
     },
     {
       "ticker": "126600",
       "name": "BGF에코머티리얼즈",
-      "price": 3205,
-      "change_rate": 0.16,
+      "price": 3225,
+      "change_rate": 0.78,
       "breakout_date": "2026-10-02",
       "resistance": 3110,
       "days_since_breakout": 1,
-      "breakout_pct": 3.05,
-      "gain_since_breakout": 0.16,
+      "breakout_pct": 3.7,
+      "gain_since_breakout": 0.78,
       "ma150": 3390,
       "above_ma150": false,
-      "market_cap": 2012,
+      "market_cap": 2024,
       "success_prob": 28.4,
       "predicted_gain": 11.6,
       "ai_score": 30.3,
-      "updated_at": "2026-10-06T15:40:01.528759"
+      "updated_at": "2026-10-06T18:21:56.759265"
     },
     {
       "ticker": "026960",
@@ -131,7 +149,7 @@
       "success_prob": 19.9,
       "predicted_gain": 11.8,
       "ai_score": 24.6,
-      "updated_at": "2026-10-06T15:40:08.748515"
+      "updated_at": "2026-10-06T18:22:03.892273"
     },
     {
       "ticker": "002170",
@@ -149,7 +167,7 @@
       "success_prob": 13.7,
       "predicted_gain": 10.1,
       "ai_score": 18.7,
-      "updated_at": "2026-10-06T15:40:06.988711"
+      "updated_at": "2026-10-06T18:22:02.211840"
     }
   ]
 }
