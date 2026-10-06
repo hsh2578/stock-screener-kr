@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-06T22:36:56.064111",
-    "totalCount": 24,
+    "lastUpdated": "2026-10-07T00:24:21.338926",
+    "totalCount": 23,
     "screened_from": 1369
   },
   "data": [
@@ -21,7 +21,7 @@
       "ma150": 5260,
       "above_ma150": false,
       "market_cap": 1735,
-      "updated_at": "2026-10-06T22:36:55.945626"
+      "updated_at": "2026-10-07T00:24:21.261655"
     },
     {
       "ticker": "112290",
@@ -39,7 +39,7 @@
       "ma150": 11739,
       "above_ma150": true,
       "market_cap": 2570,
-      "updated_at": "2026-10-06T22:36:55.619751"
+      "updated_at": "2026-10-07T00:24:20.921474"
     },
     {
       "ticker": "086960",
@@ -57,7 +57,7 @@
       "ma150": 2487,
       "above_ma150": false,
       "market_cap": 1050,
-      "updated_at": "2026-10-06T22:36:56.017045"
+      "updated_at": "2026-10-07T00:24:21.324642"
     },
     {
       "ticker": "452190",
@@ -75,7 +75,7 @@
       "ma150": 4871,
       "above_ma150": true,
       "market_cap": 1567,
-      "updated_at": "2026-10-06T22:36:56.019818"
+      "updated_at": "2026-10-07T00:24:21.325466"
     },
     {
       "ticker": "159010",
@@ -93,7 +93,7 @@
       "ma150": 14929,
       "above_ma150": true,
       "market_cap": 4287,
-      "updated_at": "2026-10-06T22:36:56.021076"
+      "updated_at": "2026-10-07T00:24:21.326141"
     },
     {
       "ticker": "051370",
@@ -111,25 +111,7 @@
       "ma150": 9508,
       "above_ma150": false,
       "market_cap": 1775,
-      "updated_at": "2026-10-06T22:36:56.022158"
-    },
-    {
-      "ticker": "059090",
-      "name": "미코",
-      "price": 23950,
-      "change_rate": 0.0,
-      "explosion_date": "2026-09-22",
-      "explosion_change_rate": 10.4,
-      "explosion_volume_ratio": 6.1,
-      "days_since_detected": 7,
-      "volume_decrease_rate": 82,
-      "pattern_type": "candle_range",
-      "ma20_distance": null,
-      "volume_rank": 7,
-      "ma150": 18023,
-      "above_ma150": true,
-      "market_cap": 8003,
-      "updated_at": "2026-10-06T22:36:56.024474"
+      "updated_at": "2026-10-07T00:24:21.326819"
     },
     {
       "ticker": "052710",
@@ -143,11 +125,11 @@
       "volume_decrease_rate": 75,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 8,
+      "volume_rank": 7,
       "ma150": 16240,
       "above_ma150": true,
       "market_cap": 4241,
-      "updated_at": "2026-10-06T22:36:56.031415"
+      "updated_at": "2026-10-07T00:24:21.327540"
     },
     {
       "ticker": "356860",
@@ -161,11 +143,11 @@
       "volume_decrease_rate": 74,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 9,
+      "volume_rank": 8,
       "ma150": 37962,
       "above_ma150": true,
       "market_cap": 12088,
-      "updated_at": "2026-10-06T22:36:56.033455"
+      "updated_at": "2026-10-07T00:24:21.328166"
     },
     {
       "ticker": "036540",
@@ -179,11 +161,11 @@
       "volume_decrease_rate": 84,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 10,
+      "volume_rank": 9,
       "ma150": 6953,
       "above_ma150": true,
       "market_cap": 19061,
-      "updated_at": "2026-10-06T22:36:56.035980"
+      "updated_at": "2026-10-07T00:24:21.328763"
     },
     {
       "ticker": "425040",
@@ -197,11 +179,11 @@
       "volume_decrease_rate": 83,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 11,
+      "volume_rank": 10,
       "ma150": 12736,
       "above_ma150": true,
       "market_cap": 3389,
-      "updated_at": "2026-10-06T22:36:56.037998"
+      "updated_at": "2026-10-07T00:24:21.329378"
     },
     {
       "ticker": "272110",
@@ -215,11 +197,11 @@
       "volume_decrease_rate": 75,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 12,
+      "volume_rank": 11,
       "ma150": 31607,
       "above_ma150": false,
       "market_cap": 2636,
-      "updated_at": "2026-10-06T22:36:56.039384"
+      "updated_at": "2026-10-07T00:24:21.330007"
     },
     {
       "ticker": "094360",
@@ -233,11 +215,11 @@
       "volume_decrease_rate": 74,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 13,
+      "volume_rank": 12,
       "ma150": 14118,
       "above_ma150": false,
       "market_cap": 2774,
-      "updated_at": "2026-10-06T22:36:56.041380"
+      "updated_at": "2026-10-07T00:24:21.330585"
     },
     {
       "ticker": "078350",
@@ -251,11 +233,11 @@
       "volume_decrease_rate": 68,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 14,
+      "volume_rank": 13,
       "ma150": 25293,
       "above_ma150": true,
       "market_cap": 5541,
-      "updated_at": "2026-10-06T22:36:56.042766"
+      "updated_at": "2026-10-07T00:24:21.331180"
     },
     {
       "ticker": "232140",
@@ -269,11 +251,11 @@
       "volume_decrease_rate": 67,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 15,
+      "volume_rank": 14,
       "ma150": 15563,
       "above_ma150": false,
       "market_cap": 14875,
-      "updated_at": "2026-10-06T22:36:56.045099"
+      "updated_at": "2026-10-07T00:24:21.331753"
     },
     {
       "ticker": "001520",
@@ -287,11 +269,11 @@
       "volume_decrease_rate": 94,
       "pattern_type": "ma20_approach",
       "ma20_distance": 0.48,
-      "volume_rank": 16,
+      "volume_rank": 15,
       "ma150": 1304,
       "above_ma150": false,
       "market_cap": 1201,
-      "updated_at": "2026-10-06T22:36:55.341765"
+      "updated_at": "2026-10-07T00:24:20.106057"
     },
     {
       "ticker": "010170",
@@ -305,11 +287,11 @@
       "volume_decrease_rate": 79,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 17,
+      "volume_rank": 16,
       "ma150": 13563,
       "above_ma150": true,
       "market_cap": 29200,
-      "updated_at": "2026-10-06T22:36:56.047945"
+      "updated_at": "2026-10-07T00:24:21.332342"
     },
     {
       "ticker": "000500",
@@ -323,11 +305,11 @@
       "volume_decrease_rate": 78,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 18,
+      "volume_rank": 17,
       "ma150": 157581,
       "above_ma150": true,
       "market_cap": 98564,
-      "updated_at": "2026-10-06T22:36:56.050560"
+      "updated_at": "2026-10-07T00:24:21.332911"
     },
     {
       "ticker": "201490",
@@ -341,11 +323,11 @@
       "volume_decrease_rate": 99,
       "pattern_type": "ma20_approach",
       "ma20_distance": 1.04,
-      "volume_rank": 19,
+      "volume_rank": 18,
       "ma150": 2740,
       "above_ma150": true,
       "market_cap": 1157,
-      "updated_at": "2026-10-06T22:36:56.053278"
+      "updated_at": "2026-10-07T00:24:21.333504"
     },
     {
       "ticker": "361390",
@@ -359,11 +341,11 @@
       "volume_decrease_rate": 86,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 20,
+      "volume_rank": 19,
       "ma150": 20045,
       "above_ma150": false,
       "market_cap": 1329,
-      "updated_at": "2026-10-06T22:36:56.056177"
+      "updated_at": "2026-10-07T00:24:21.334100"
     },
     {
       "ticker": "209640",
@@ -377,11 +359,11 @@
       "volume_decrease_rate": 83,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 21,
+      "volume_rank": 20,
       "ma150": 4722,
       "above_ma150": false,
       "market_cap": 1200,
-      "updated_at": "2026-10-06T22:36:56.058442"
+      "updated_at": "2026-10-07T00:24:21.334661"
     },
     {
       "ticker": "295310",
@@ -395,11 +377,11 @@
       "volume_decrease_rate": 75,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 22,
+      "volume_rank": 21,
       "ma150": 73465,
       "above_ma150": false,
       "market_cap": 9524,
-      "updated_at": "2026-10-06T22:36:56.060923"
+      "updated_at": "2026-10-07T00:24:21.337695"
     },
     {
       "ticker": "042370",
@@ -413,11 +395,11 @@
       "volume_decrease_rate": 61,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 23,
+      "volume_rank": 22,
       "ma150": 11103,
       "above_ma150": false,
       "market_cap": 3110,
-      "updated_at": "2026-10-06T22:36:56.062763"
+      "updated_at": "2026-10-07T00:24:21.338307"
     },
     {
       "ticker": "003350",
@@ -431,11 +413,11 @@
       "volume_decrease_rate": 89,
       "pattern_type": "ma20_approach",
       "ma20_distance": 1.37,
-      "volume_rank": 24,
+      "volume_rank": 23,
       "ma150": 10035,
       "above_ma150": true,
       "market_cap": 3379,
-      "updated_at": "2026-10-06T22:36:55.873841"
+      "updated_at": "2026-10-07T00:24:21.212023"
     }
   ]
 }
