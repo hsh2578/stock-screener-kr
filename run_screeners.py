@@ -164,6 +164,19 @@ FEATURES_52W = [
     'days_since_ath', 'atr_ratio'
 ]
 
+# ML 피처 입력 길이: 이벤트일까지 최근 N행 (학습 ml/build_events.py 와 같아야 한다).
+# 캐시 길이(550~800행)에 따라 days_since_ath 등이 달라지는 것을 막고, 200일선 기울기에 필요한 220행을 보장한다.
+FEATURE_HISTORY_ROWS = 500
+
+
+def _feature_frame(ticker, df, idx):
+    """ML 피처 계산용 (프레임, 인덱스): 전체 캐시에서 이벤트일까지 최근 FEATURE_HISTORY_ROWS 행."""
+    d = df.index[idx]
+    full = _DATA_CACHE.get(ticker)
+    src = full if full is not None and d in full.index else df
+    w = src.loc[:d].tail(FEATURE_HISTORY_ROWS)
+    return w, len(w) - 1
+
 
 def load_box_breakout_models():
     """박스권 돌파 ML 모델 로드"""
@@ -2131,7 +2144,7 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
         # ML 피처 계산 (배치 예측용)
         features = None
         if _box_models_loaded:
-            features = calculate_box_features(df, breakout_idx, box_high, box_low)
+            features = calculate_box_features(*_feature_frame(ticker, df, breakout_idx), box_high, box_low)
 
         days_since_breakout = len(df) - 1 - breakout_idx
 
@@ -2303,7 +2316,7 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
         # ML 피처 계산 (배치 예측용)
         features = None
         if _box_models_loaded and breakout_idx is not None and support is not None:
-            features = calculate_box_features(df, breakout_idx, resistance, support)
+            features = calculate_box_features(*_feature_frame(ticker, df, breakout_idx), resistance, support)
 
         results.append({
             'ticker': ticker,
@@ -3086,11 +3099,7 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         # --- ML 피처 계산 (배치 예측용) ---
         features = None
         if _52w_models_loaded:
-            full = _DATA_CACHE.get(ticker)
-            if full is not None and len(full) > len(df) and full.index[-1] == df.index[-1]:
-                features = calculate_52w_features(full, len(full) - 1)  # 돌파일 = 오늘
-            else:
-                features = calculate_52w_features(df, breakout_idx)
+            features = calculate_52w_features(*_feature_frame(ticker, df, breakout_idx))
 
         results.append({
             'ticker': ticker,
