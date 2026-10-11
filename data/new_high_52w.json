@@ -1,7 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-12T01:38:57.709509",
-    "totalCount": 17,
+    "lastUpdated": "2026-10-12T02:32:35.340997",
+    "marketDate": "2026-10-08",
+    "totalCount": 10,
     "screened_from": 1358
   },
   "data": [
@@ -16,28 +17,11 @@
       "above_high_percent": 5.48,
       "volume_ratio": 4.8,
       "vs_breakout_close": 0.0,
-      "predicted_gain": 26.5,
-      "success_probability": 67.5,
-      "ai_score": 71.1,
+      "predicted_gain": 17.3,
+      "success_probability": 55.9,
+      "ai_score": 54.7,
       "market_cap": 1342,
-      "updated_at": "2026-10-12T01:38:57.556560"
-    },
-    {
-      "ticker": "005160",
-      "name": "동국산업",
-      "price": 4635,
-      "change_rate": 20.23,
-      "high_52w": 3945,
-      "breakout_date": "2026-10-06",
-      "days_since": 2,
-      "above_high_percent": 17.49,
-      "volume_ratio": 1.9,
-      "vs_breakout_close": 12.91,
-      "predicted_gain": 25.8,
-      "success_probability": 62.2,
-      "ai_score": 66.8,
-      "market_cap": 2514,
-      "updated_at": "2026-10-12T01:38:57.698865"
+      "updated_at": "2026-10-12T02:32:35.241827"
     },
     {
       "ticker": "144960",
@@ -54,7 +38,7 @@
       "success_probability": 43.9,
       "ai_score": 50.4,
       "market_cap": 6117,
-      "updated_at": "2026-10-12T01:38:57.699773"
+      "updated_at": "2026-10-12T02:32:35.335796"
     },
     {
       "ticker": "080580",
@@ -71,7 +55,7 @@
       "success_probability": 62.1,
       "ai_score": 63.0,
       "market_cap": 5821,
-      "updated_at": "2026-10-12T01:38:57.700339"
+      "updated_at": "2026-10-12T02:32:35.336405"
     },
     {
       "ticker": "222800",
@@ -88,7 +72,7 @@
       "success_probability": 46.7,
       "ai_score": 52.2,
       "market_cap": 65693,
-      "updated_at": "2026-10-12T01:38:57.700844"
+      "updated_at": "2026-10-12T02:32:35.336824"
     },
     {
       "ticker": "096530",
@@ -105,7 +89,7 @@
       "success_probability": 51.0,
       "ai_score": 53.5,
       "market_cap": 17736,
-      "updated_at": "2026-10-12T01:38:57.701273"
+      "updated_at": "2026-10-12T02:32:35.337238"
     },
     {
       "ticker": "005430",
@@ -122,92 +106,7 @@
       "success_probability": 50.1,
       "ai_score": 65.0,
       "market_cap": 3021,
-      "updated_at": "2026-10-12T01:38:57.701674"
-    },
-    {
-      "ticker": "003350",
-      "name": "한국화장품제조",
-      "price": 16150,
-      "change_rate": -2.53,
-      "high_52w": 15690,
-      "breakout_date": "2026-10-01",
-      "days_since": 4,
-      "above_high_percent": 2.93,
-      "volume_ratio": 1.1,
-      "vs_breakout_close": -3.41,
-      "predicted_gain": 20.4,
-      "success_probability": 34.3,
-      "ai_score": 42.4,
-      "market_cap": 3660,
-      "updated_at": "2026-10-12T01:38:57.702146"
-    },
-    {
-      "ticker": "053800",
-      "name": "안랩",
-      "price": 75200,
-      "change_rate": -2.08,
-      "high_52w": 75000,
-      "breakout_date": "2026-10-01",
-      "days_since": 4,
-      "above_high_percent": 0.27,
-      "volume_ratio": 0.8,
-      "vs_breakout_close": -3.22,
-      "predicted_gain": 19.3,
-      "success_probability": 17.9,
-      "ai_score": 29.9,
-      "market_cap": 8367,
-      "updated_at": "2026-10-12T01:38:57.703251"
-    },
-    {
-      "ticker": "003490",
-      "name": "대한항공",
-      "price": 30500,
-      "change_rate": -0.49,
-      "high_52w": 31200,
-      "breakout_date": "2026-09-30",
-      "days_since": 5,
-      "above_high_percent": -2.24,
-      "volume_ratio": 0.9,
-      "vs_breakout_close": -4.84,
-      "predicted_gain": 19.4,
-      "success_probability": 28.2,
-      "ai_score": 37.2,
-      "market_cap": 112307,
-      "updated_at": "2026-10-12T01:38:57.703821"
-    },
-    {
-      "ticker": "446540",
-      "name": "메가터치",
-      "price": 11030,
-      "change_rate": 0.27,
-      "high_52w": 10990,
-      "breakout_date": "2026-09-30",
-      "days_since": 5,
-      "above_high_percent": 0.36,
-      "volume_ratio": 0.7,
-      "vs_breakout_close": -1.69,
-      "predicted_gain": 21.8,
-      "success_probability": 16.3,
-      "ai_score": 31.0,
-      "market_cap": 3207,
-      "updated_at": "2026-10-12T01:38:57.705620"
-    },
-    {
-      "ticker": "077500",
-      "name": "유니퀘스트",
-      "price": 9960,
-      "change_rate": 2.68,
-      "high_52w": 9520,
-      "breakout_date": "2026-09-29",
-      "days_since": 6,
-      "above_high_percent": 4.62,
-      "volume_ratio": 1.3,
-      "vs_breakout_close": -0.7,
-      "predicted_gain": 27.4,
-      "success_probability": 48.4,
-      "ai_score": 58.5,
-      "market_cap": 2151,
-      "updated_at": "2026-10-12T01:38:57.706121"
+      "updated_at": "2026-10-12T02:32:35.337591"
     },
     {
       "ticker": "219130",
@@ -224,7 +123,7 @@
       "success_probability": 46.9,
       "ai_score": 57.6,
       "market_cap": 6125,
-      "updated_at": "2026-10-12T01:38:57.706601"
+      "updated_at": "2026-10-12T02:32:35.338526"
     },
     {
       "ticker": "031980",
@@ -241,7 +140,7 @@
       "success_probability": 26.2,
       "ai_score": 37.9,
       "market_cap": 45173,
-      "updated_at": "2026-10-12T01:38:57.707109"
+      "updated_at": "2026-10-12T02:32:35.338896"
     },
     {
       "ticker": "052860",
@@ -258,24 +157,7 @@
       "success_probability": 56.6,
       "ai_score": 67.9,
       "market_cap": 1378,
-      "updated_at": "2026-10-12T01:38:57.707587"
-    },
-    {
-      "ticker": "096770",
-      "name": "SK이노베이션",
-      "price": 161500,
-      "change_rate": 1.25,
-      "high_52w": 155400,
-      "breakout_date": "2026-09-28",
-      "days_since": 7,
-      "above_high_percent": 3.93,
-      "volume_ratio": 1.0,
-      "vs_breakout_close": 1.64,
-      "predicted_gain": 19.6,
-      "success_probability": 22.7,
-      "ai_score": 33.6,
-      "market_cap": 273020,
-      "updated_at": "2026-10-12T01:38:57.708034"
+      "updated_at": "2026-10-12T02:32:35.339256"
     },
     {
       "ticker": "092870",
@@ -292,7 +174,7 @@
       "success_probability": 39.8,
       "ai_score": 47.5,
       "market_cap": 6904,
-      "updated_at": "2026-10-12T01:38:57.708934"
+      "updated_at": "2026-10-12T02:32:35.339737"
     }
   ]
 }
