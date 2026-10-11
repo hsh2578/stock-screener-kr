@@ -129,6 +129,24 @@ jobs:
 
       # 60주선 우량주 스크리너는 value-screener.yml로 이동 (20시 통합 실행)
 
+      - name: 📈 차트 데이터 게시 (chart-data 브랜치, 최신 1개만)
+        # chart_data.json(~40MB)을 main 에 매번 커밋하면 이력이 쌓여 저장소가 1GB 를 넘었다.
+        # 별도 브랜치에 커밋 1개만 강제로 덮어써서 용량이 늘지 않게 한다.
+        # 인증은 actions/checkout 이 설정한 헤더를 재사용 (토큰을 직접 다루지 않음)
+        run: |
+          if [ ! -f data/chart_data.json ]; then echo "chart_data.json 없음 — 게시 생략"; exit 0; fi
+          HDR=$(git config --get http.https://github.com/.extraheader)
+          TMP=$(mktemp -d)
+          cp data/chart_data.json "$TMP/"
+          cd "$TMP"
+          git init -q
+          git checkout -q -b chart-data
+          git add chart_data.json
+          git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" \
+            commit -q -m "chart data $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')"
+          git -c http.extraheader="$HDR" push -q -f "https://github.com/${{ github.repository }}.git" chart-data
+          echo "✅ chart-data 브랜치 갱신 ($(du -h chart_data.json | cut -f1))"
+
       - name: 🔍 변경 사항 확인
         id: check_changes
         run: |
@@ -205,6 +223,14 @@ jobs:
             ls -la _site/data/
           else
             echo "⚠️ data 폴더가 비어있습니다"
+          fi
+
+          # 차트 데이터는 main 이 아니라 chart-data 브랜치에 있음
+          if git fetch -q --depth=1 origin chart-data; then
+            git show FETCH_HEAD:chart_data.json > _site/data/chart_data.json
+            echo "✅ chart_data.json $(du -h _site/data/chart_data.json | cut -f1)"
+          else
+            echo "::warning::chart-data 브랜치를 가져오지 못함 — 차트 없이 배포"
           fi
 
           # 404.html 생성 (SPA 지원)

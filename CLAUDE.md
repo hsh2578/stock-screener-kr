@@ -12,8 +12,8 @@
 | **로컬 경로** | `C:\Users\hsh\Desktop\vibecoding\주식웹사이트\국내주식웹사이트\stock-screener-kr` |
 
 ### !! 주의 !!
-- **`web/` 디렉토리는 미배포.** React/Vite 앱이지만 실제 서비스에는 사용되지 않음.
-- **UI 수정은 반드시 `주식_스크리너_전체.html`에서** 해야 한다. `web/src/`를 수정해도 배포에 반영 안 됨.
+- **UI 수정은 반드시 `주식_스크리너_전체.html`에서** 한다. (예전 미배포 React 앱 `web/`은 2026-10 삭제)
+- **`chart_data.json`은 main 에 커밋하지 않는다.** CI가 `chart-data` 브랜치에 최신 1개만 덮어쓰고, 배포 시 거기서 가져온다 (이력 누적으로 저장소가 1GB를 넘었던 문제).
 - 배포 흐름: `주식_스크리너_전체.html` → deploy.yml이 `_site/index.html`로 복사 → GitHub Pages
 
 ---
@@ -71,7 +71,6 @@ stock-screener-kr/
 ├── .github/workflows/
 │   ├── deploy.yml               평일 4회 자동 배포 (OHLCV 캐시 사용)
 │   ├── value-screener.yml       평일 20시 퀀트+대가 스크리너
-├── web/                         ⚠️ React 앱 (미배포, 참고용)
 └── .cache/                      daily/YYYYMMDD.parquet 날짜별 전종목 일봉 저장소 (scripts/ohlcv_store.py, actions/cache로 유지)
                                  + stock_data_*.pkl (ma60w/multi_factor 호환 내보내기)
 ```
