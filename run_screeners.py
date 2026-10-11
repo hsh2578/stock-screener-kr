@@ -3346,173 +3346,98 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
 
 
 # ============================================================================
-# 8. 업종별 4단계 스크리너 (네이버 증권 업종 기준, 와인스테인 4단계)
+# 8. 업종별 4단계 스크리너 (KRX 업종지수 기준, 와인스테인 4단계)
 # ============================================================================
 
-SECTOR_MA_PERIOD = 150
-SECTOR_SLOPE_PERIOD = 20
-SECTOR_SLOPE_THRESHOLD = 1.0
-SECTOR_MIN_STOCKS = 10  # 최소 종목 수
+SECTOR_MA_PERIOD = 150          # 30주선 ≈ 150거래일
+SECTOR_SLOPE_PERIOD = 20        # 기울기 = MA150의 20거래일 변화율(%)
+SECTOR_SLOPE_THRESHOLD = 1.0    # |기울기| ≤ 1.0% 이면 '평평'
 
-# 네이버 증권 업종 목록 (업종코드, 업종명)
-NAVER_SECTOR_LIST = [
-    (278, "반도체"), (267, "IT서비스"), (287, "소프트웨어"),
-    (272, "화학"), (270, "자동차부품"), (261, "제약"),
-    (282, "전자장비"), (279, "건설"), (268, "식품"),
-    (274, "섬유/의류"), (299, "기계"), (283, "전기제품"),
-    (269, "디스플레이장비"), (286, "생물공학"), (304, "철강"),
-    (285, "방송/엔터"), (263, "게임"), (294, "통신장비"),
-    (292, "핸드셋"), (281, "건강관리장비"), (266, "화장품"),
-    (284, "우주항공/국방"), (280, "부동산"), (289, "건축자재"),
-    (322, "비철금속"), (291, "조선"), (306, "전기장비"),
-    (273, "자동차"), (276, "복합기업"), (295, "에너지장비"),
-    (311, "포장재"), (290, "교육서비스"), (324, "상업서비스"),
-    (277, "창업투자"), (301, "은행"), (321, "증권"),
-    (313, "석유/가스"), (316, "건강관리서비스"), (271, "레저장비"),
-    (317, "호텔/레저"), (326, "항공화물/물류"), (293, "컴퓨터/주변기기"),
-    (298, "가정용기기"), (262, "생명과학도구"), (310, "광고"),
-    (300, "양방향미디어"), (308, "인터넷소매"),
-    (315, "손해보험"), (312, "가스유틸리티"),
-]
+# KRX 업종지수 (pykrx 지수 코드). 규모(대/중/소형)·스타일(코스피200 등)·
+# 종합(코스피/코스닥)·광역 집계(제조)·소속부 지수는 제외한 순수 업종만 사용.
+KRX_SECTOR_INDICES = {
+    '코스피': ['1005', '1006', '1007', '1008', '1009', '1010', '1011', '1012', '1013',
+             '1014', '1015', '1016', '1017', '1018', '1019', '1020', '1021', '1024',
+             '1025', '1026', '1045', '1046', '1047'],
+    '코스닥': ['2012', '2026', '2027', '2029', '2031', '2037', '2056', '2058', '2062',
+             '2063', '2065', '2066', '2067', '2068', '2070', '2072', '2074', '2075',
+             '2077', '2114', '2118'],
+}
 
 
-def _fetch_sector_stocks(sector_no: int) -> List[str]:
-    """네이버 증권에서 업종 구성 종목 코드를 가져옵니다."""
-    import requests
-    from bs4 import BeautifulSoup
+def _weinstein_stage(price: float, ma: float, slope: float, prev_slope: Optional[float]) -> Tuple[int, str]:
+    """와인스테인 4단계 판별 (Stan Weinstein, "Secrets for Profiting in Bull and Bear Markets").
 
-    url = f'https://finance.naver.com/sise/sise_group_detail.naver?type=upjong&no={sector_no}'
-    headers = {'User-Agent': 'Mozilla/5.0'}
-    try:
-        resp = requests.get(url, headers=headers, timeout=10)
-        resp.encoding = 'euc-kr'
-        soup = BeautifulSoup(resp.text, 'html.parser')
-        table = soup.find('table', {'class': 'type_5'})
-        if not table:
-            return []
-        codes = []
-        for link in table.find_all('a', href=True):
-            if 'code=' in link['href']:
-                code = link['href'].split('code=')[1]
-                if code and len(code) == 6:
-                    codes.append(code)
-        return codes
-    except Exception as e:
-        logging.warning(f"Failed to fetch sector stocks from {url}: {e}")
-        return []
-
-
-def _calc_sector_index(stock_codes: List[str]) -> Optional[pd.Series]:
-    """캐시된 주가 데이터로 업종 등락률 기반 지수를 계산합니다."""
-    global _DATA_CACHE
-    required_days = SECTOR_MA_PERIOD + SECTOR_SLOPE_PERIOD * 2 + 10
-
-    # 캐시에서 종목 데이터 수집
-    close_list = []
-    for code in stock_codes:
-        if code in _DATA_CACHE and _DATA_CACHE[code] is not None:
-            df = _DATA_CACHE[code]
-            if len(df) >= required_days:
-                close = df['Close'].iloc[-required_days:]
-                if close.isna().sum() < 10:
-                    close_list.append(close.pct_change())
-
-    if len(close_list) < SECTOR_MIN_STOCKS:
-        return None
-
-    # 등락률 평균 → 누적 지수
-    returns_df = pd.concat(close_list, axis=1)
-    avg_returns = returns_df.mean(axis=1).fillna(0)
-    sector_index = (1 + avg_returns).cumprod() * 1000
-    return sector_index
+    T = SECTOR_SLOPE_THRESHOLD(1.0%), slope = MA150 20일 변화율, prev_slope = 그 직전 20일 변화율
+      2단계(상승):  slope > +T  그리고 종가 > MA150   (상승하는 30주선 위)
+      4단계(쇠퇴):  slope < -T  그리고 종가 < MA150   (하락하는 30주선 아래)
+      3단계(최정상): 위 둘이 아니면서 30주선이 상승 중이었음 (slope > T 또는 prev_slope > T)
+                    → 상승 이평 위 모멘텀 둔화/이평 이탈 = 천장권
+      1단계(기초):  그 외 (평평한 이평 위 횡보, 하락 이평 위 반등 등 바닥권)
+    """
+    T = SECTOR_SLOPE_THRESHOLD
+    if slope > T and price > ma:
+        return 2, "상승"
+    if slope < -T and price < ma:
+        return 4, "쇠퇴"
+    if slope > T or (prev_slope is not None and prev_slope > T):
+        return 3, "최정상"
+    return 1, "기초"
 
 
 def screen_sector_stage() -> List[Dict]:
-    """업종별 4단계 판별 스크리너 (네이버 증권 업종 기준, 와인스테인 Stage Analysis)"""
-    print("\n[업종별 4단계] 분석 시작...")
+    """업종별 4단계 스크리너 — KRX 업종지수(pykrx) 종가로 와인스테인 단계 판별.
+
+    pykrx 1.2+ 는 KRX 로그인이 필요하다 (환경변수 KRX_ID / KRX_PW).
+    업종이 0개면 RuntimeError — 빈 JSON 저장으로 조용히 망가지지 않게 한다.
+    """
+    from pykrx import stock
+
+    print("\n[업종별 4단계] 분석 시작 (KRX 업종지수)...")
+    end = datetime.now().strftime('%Y%m%d')
+    start = (datetime.now() - timedelta(days=500)).strftime('%Y%m%d')
+    min_len = SECTOR_MA_PERIOD + SECTOR_SLOPE_PERIOD * 2
 
     results = []
+    for market, tickers in KRX_SECTOR_INDICES.items():
+        for ticker in tickers:
+            try:
+                name = stock.get_index_ticker_name(ticker)
+                close = stock.get_index_ohlcv(start, end, ticker)['종가'].dropna()
+            except Exception as e:
+                logging.warning(f"KRX 업종지수 {ticker} 조회 실패: {e}")
+                continue
+            if len(close) < min_len:
+                continue
 
-    # 업종별 종목 목록 병렬 스크래핑
-    from concurrent.futures import ThreadPoolExecutor
-    sector_stocks = {}
+            ma = close.rolling(SECTOR_MA_PERIOD).mean()
+            price, ma_now = float(close.iloc[-1]), float(ma.iloc[-1])
+            ma_20, ma_40 = ma.iloc[-1 - SECTOR_SLOPE_PERIOD], ma.iloc[-1 - SECTOR_SLOPE_PERIOD * 2]
+            slope = (ma_now - ma_20) / ma_20 * 100
+            prev_slope = (ma_20 - ma_40) / ma_40 * 100 if not pd.isna(ma_40) else None
+            stage, stage_name = _weinstein_stage(price, ma_now, slope, prev_slope)
+            return_3m = (price / float(close.iloc[-61]) - 1) * 100
 
-    def fetch_one(item):
-        no, name = item
-        codes = _fetch_sector_stocks(no)
-        return (no, name, codes)
+            try:
+                stock_count = len(stock.get_index_portfolio_deposit_file(ticker, close.index[-1].strftime('%Y%m%d')))
+            except Exception:
+                stock_count = None
 
-    with ThreadPoolExecutor(max_workers=8) as executor:
-        futures = list(executor.map(fetch_one, NAVER_SECTOR_LIST))
+            results.append({
+                'sector_name': f"{market} {name}",
+                'stage': stage,
+                'stage_name': stage_name,
+                'ma150_slope': round(slope, 2),
+                'return_3m': round(return_3m, 2),
+                'is_overheated': return_3m > 50,
+                'current_price': round(price, 2),
+                'ma150': round(ma_now, 2),
+                'stock_count': stock_count,
+                'updated_at': datetime.now().isoformat()
+            })
 
-    for no, name, codes in futures:
-        if len(codes) >= SECTOR_MIN_STOCKS:
-            sector_stocks[(no, name)] = codes
-
-    print(f"  업종 {len(sector_stocks)}개 로드 (종목 {SECTOR_MIN_STOCKS}개 이상)")
-
-    for (sector_no, sector_name), codes in sector_stocks.items():
-        sector_index = _calc_sector_index(codes)
-        if sector_index is None or len(sector_index) < SECTOR_MA_PERIOD + SECTOR_SLOPE_PERIOD * 2:
-            continue
-
-        close = sector_index.dropna()
-        if len(close) < SECTOR_MA_PERIOD + SECTOR_SLOPE_PERIOD * 2:
-            continue
-
-        # 150일 이동평균
-        ma150_series = close.rolling(window=SECTOR_MA_PERIOD, min_periods=SECTOR_MA_PERIOD).mean()
-        current_price = float(close.iloc[-1])
-        ma150 = float(ma150_series.iloc[-1])
-
-        if pd.isna(ma150) or ma150 <= 0:
-            continue
-
-        # 기울기 계산 (20일간 150MA 변화율)
-        current_ma = ma150_series.iloc[-1]
-        past_ma = ma150_series.iloc[-SECTOR_SLOPE_PERIOD]
-        if pd.isna(current_ma) or pd.isna(past_ma) or past_ma <= 0:
-            continue
-        slope = (current_ma - past_ma) / past_ma * 100
-
-        # 이전 기울기 (3단계 판별용)
-        prev_slope = None
-        if len(ma150_series) > SECTOR_SLOPE_PERIOD * 2:
-            prev_current = ma150_series.iloc[-SECTOR_SLOPE_PERIOD]
-            prev_past = ma150_series.iloc[-SECTOR_SLOPE_PERIOD * 2]
-            if not pd.isna(prev_current) and not pd.isna(prev_past) and prev_past > 0:
-                prev_slope = (prev_current - prev_past) / prev_past * 100
-
-        # 와인스테인 4단계 판별
-        if slope < -SECTOR_SLOPE_THRESHOLD:
-            stage, stage_name = 4, "쇠퇴"
-        elif slope > SECTOR_SLOPE_THRESHOLD and current_price > ma150:
-            stage, stage_name = 2, "상승"
-        elif prev_slope is not None and prev_slope > SECTOR_SLOPE_THRESHOLD and abs(slope) <= SECTOR_SLOPE_THRESHOLD and current_price > ma150:
-            stage, stage_name = 3, "최정상"
-        else:
-            stage, stage_name = 1, "기초"
-
-
-        # 3개월 수익률
-        return_3m = 0.0
-        if len(close) >= 60:
-            past_price = float(close.iloc[-60])
-            if past_price > 0:
-                return_3m = (current_price - past_price) / past_price * 100
-
-        results.append({
-            'sector_name': sector_name,
-            'stage': stage,
-            'stage_name': stage_name,
-            'ma150_slope': round(slope, 2),
-            'return_3m': round(return_3m, 2),
-            'is_overheated': return_3m > 50,
-            'current_price': round(current_price, 2),
-            'ma150': round(ma150, 2),
-            'stock_count': len(codes),
-            'updated_at': datetime.now().isoformat()
-        })
+    if not results:
+        raise RuntimeError("업종별 4단계: KRX 업종지수 0개 — KRX_ID/KRX_PW 또는 pykrx 상태 확인 필요")
 
     # 2단계 우선, 그 다음 3개월 수익률 순
     results.sort(key=lambda x: (-x['stage'] if x['stage'] == 2 else x['stage'], -x['return_3m']))
@@ -3982,7 +3907,7 @@ def main():
             ('낙폭과대 반등', screen_fallen_rebound, stocks, 'fallen_rebound.json', len(stocks)),
             ('52주 신고가', screen_new_high_52w, stocks, 'new_high_52w.json', len(stocks)),
             ('52주 신고가 근접', screen_near_high_52w, stocks, 'near_high_52w.json', len(stocks)),
-            ('업종별 4단계', screen_sector_stage, None, 'sector_stage.json', len(NAVER_SECTOR_LIST)),
+            ('업종별 4단계', screen_sector_stage, None, 'sector_stage.json', sum(len(v) for v in KRX_SECTOR_INDICES.values())),
             ('바닥 탈출', bottom_breakout_with_cache, None, 'bottom_breakout.json', len(stocks)),
             ('이평선 수렴', ma_convergence_with_cache, None, 'ma_convergence.json', len(stocks)),
         ]

@@ -2184,7 +2184,7 @@
                     <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M4 2h10v20H4z" opacity="0.85"/><path d="M15 8h6v14h-6z" opacity="0.5"/></svg></span>
                     <h1>업종별 4단계</h1>
                 </div>
-                <p class="desc">Weinstein 4단계 업종 분석</p>
+                <p class="desc">Weinstein 4단계 업종 분석 · KRX 업종지수 기준</p>
                 <div class="meta">
                     <span class="date" id="sector-stage-date">데이터 기준: -</span>
                     <span><span class="count" id="sector-stage-count">-</span>개 업종</span>
@@ -5794,12 +5794,12 @@
             },
             'sector-stage': {
                 items: [
-                    { label: '2단계 (상승)', value: '기울기 > +1.0% & 종가 > 150일선', key: true },
-                    { label: '3단계 (최정상)', value: '이전 기울기 > +1.0% & 현재 |기울기| ≤ 1.0% & 종가 > 150일선' },
-                    { label: '4단계 (쇠퇴)', value: '기울기 < -1.0%' },
-                    { label: '1단계 (기초)', value: '그 외 모든 경우 (바닥 형성·횡보 포함)' },
+                    { label: '2단계 (상승)', value: '기울기 > +1.0% & 종가 > 150일선 (상승하는 30주선 위)', key: true },
+                    { label: '4단계 (쇠퇴)', value: '기울기 < -1.0% & 종가 < 150일선 (하락하는 30주선 아래)' },
+                    { label: '3단계 (최정상)', value: '2·4단계가 아니면서 150일선이 상승 중이었음 (현재 또는 직전 20일 기울기 > +1.0%) — 상승 둔화·이평 이탈' },
+                    { label: '1단계 (기초)', value: '그 외 (평평한 150일선 횡보, 하락 이평 위 반등 등 바닥권)' },
                 ],
-                note: '네이버 증권 업종 | 기울기 = 150일선 20일 변화율 | 임계값 ±1.0% | 2단계(상승) = 매수 구간'
+                note: 'KRX 업종지수 (코스피·코스닥 업종별 지수, 규모·스타일 지수 제외) | 기울기 = 150일선(≈30주선) 20거래일 변화율 | 임계값 ±1.0% | 2단계(상승) = 매수 구간'
             },
             'value-stocks': {
                 items: [
