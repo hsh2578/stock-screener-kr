@@ -4393,9 +4393,9 @@
                 { label: 'PER', align: 'text-right', key: 'per' },
                 { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '등락률', align: 'text-right', key: 'change_rate' },
-                { label: 'AI점수', align: 'text-right', key: 'ai_score' },
-                { label: '성공확률', align: 'text-right', key: 'success_prob' },
-                { label: '예상수익', align: 'text-right', key: 'predicted_gain' },
+                { label: 'AI 순위', align: 'text-right', key: 'ai_score' },
+                { label: '모델 점수', align: 'text-right', key: 'success_prob' },
+                { label: '모델 예상치', align: 'text-right', key: 'predicted_gain' },
                 { label: '돌파일', key: 'breakout_date', defaultSort: 'desc' },
                 { label: '경과일', align: 'text-right', key: 'days_since_breakout' },
                 { label: '돌파후등락', align: 'text-right', key: 'gain_since_breakout' }
@@ -4424,9 +4424,9 @@
                 extraFields: [
                     { label: 'PER', key: 'per', format: function(s) { return s.per ? s.per.toFixed(1) : '-'; } },
                     { label: 'PBR', key: 'pbr', format: function(s) { return s.pbr ? s.pbr.toFixed(2) : '-'; } },
-                    { label: 'AI점수', key: 'ai_score', format: function(s) { return s.ai_score ? s.ai_score.toFixed(0) + '점' : '-'; } },
-                    { label: '성공확률', key: 'success_prob', format: function(s) { return s.success_prob ? s.success_prob.toFixed(0) + '%' : '-'; } },
-                    { label: '예상수익', key: 'predicted_gain', format: function(s) { return s.predicted_gain ? s.predicted_gain.toFixed(1) + '%' : '-'; } },
+                    { label: 'AI 순위', key: 'ai_score', format: function(s) { return s.ai_score ? s.ai_score.toFixed(0) + '점' : '-'; } },
+                    { label: '모델 점수', key: 'success_prob', format: function(s) { return s.success_prob ? s.success_prob.toFixed(0) : '-'; } },
+                    { label: '모델 예상치', key: 'predicted_gain', format: function(s) { return s.predicted_gain ? s.predicted_gain.toFixed(1) + '%' : '-'; } },
                     { label: '돌파일', key: 'breakout_date', format: function(s) { return formatShortDate(s.breakout_date); } },
                     { label: '돌파후등락', key: 'gain_since_breakout', format: function(s) { return s.gain_since_breakout != null ? s.gain_since_breakout.toFixed(1) + '%' : '-'; } }
                 ]
@@ -4723,9 +4723,9 @@
                 { label: 'PER', align: 'text-right', key: 'per' },
                 { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '등락률', align: 'text-right', key: 'change_rate' },
-                { label: 'AI점수', align: 'text-right', key: 'ai_score' },
-                { label: '성공확률', align: 'text-right', key: 'success_probability' },
-                { label: '예상수익', align: 'text-right', key: 'predicted_gain' },
+                { label: 'AI 순위', align: 'text-right', key: 'ai_score' },
+                { label: '모델 점수', align: 'text-right', key: 'success_probability' },
+                { label: '모델 예상치', align: 'text-right', key: 'predicted_gain' },
                 { label: '돌파 강도', align: 'text-right', key: 'above_high_percent' },
                 { label: '돌파종가대비', align: 'text-right', key: 'vs_breakout_close' },
                 { label: '거래량비', align: 'text-right', key: 'volume_ratio' },
@@ -4767,9 +4767,9 @@
             renderTable('new-high-52w-table', headers, rows, renderNewHigh52w);
             renderMobileCards('new-high-52w-mobile', paginatedData, {
                 extraFields: [
-                    { label: 'AI점수', key: 'ai_score', format: function(s) { return s.ai_score ? s.ai_score.toFixed(0) + '점' : '-'; } },
-                    { label: '성공확률', key: 'success_probability', format: function(s) { return s.success_probability != null ? s.success_probability.toFixed(1) + '%' : '-'; } },
-                    { label: '예상수익', key: 'predicted_gain', format: function(s) { return s.predicted_gain != null ? s.predicted_gain.toFixed(1) + '%' : '-'; } },
+                    { label: 'AI 순위', key: 'ai_score', format: function(s) { return s.ai_score ? s.ai_score.toFixed(0) + '점' : '-'; } },
+                    { label: '모델 점수', key: 'success_probability', format: function(s) { return s.success_probability != null ? s.success_probability.toFixed(0) : '-'; } },
+                    { label: '모델 예상치', key: 'predicted_gain', format: function(s) { return s.predicted_gain != null ? s.predicted_gain.toFixed(1) + '%' : '-'; } },
                     { label: '돌파강도', key: 'above_high_percent', format: function(s) { return (s.above_high_percent >= 0 ? '+' : '') + s.above_high_percent.toFixed(1) + '%'; } },
                     { label: '돌파종가대비', key: 'vs_breakout_close', format: function(s) { return s.vs_breakout_close != null ? (s.vs_breakout_close >= 0 ? '+' : '') + s.vs_breakout_close.toFixed(1) + '%' : '-'; } },
                     { label: '경과일', key: 'days_since', format: function(s) { return s.days_since != null ? s.days_since + '일' : '-'; } }
@@ -4832,9 +4832,9 @@
                 { label: 'PER', align: 'text-right', key: 'per' },
                 { label: 'PBR', align: 'text-right', key: 'pbr' },
                 { label: '등락률', align: 'text-right', key: 'change_rate' },
-                { label: 'AI점수', align: 'text-right', key: 'ai_score' },
-                { label: '돌파확률', align: 'text-right', key: 'breakout_probability' },
-                { label: '예상수익', align: 'text-right', key: 'predicted_gain' },
+                { label: 'AI 순위', align: 'text-right', key: 'ai_score' },
+                { label: '모델 점수', align: 'text-right', key: 'breakout_probability' },
+                { label: '모델 예상치', align: 'text-right', key: 'predicted_gain' },
                 { label: '52주고가', align: 'text-right', key: 'high_52w' },
                 { label: '괴리율', align: 'text-right', key: 'percent_from_high' },
                 { label: '고가일', align: 'text-right', key: 'high_52w_date' },
@@ -4871,9 +4871,9 @@
             renderTable('near-high-52w-table', headers, rows, renderNearHigh52w);
             renderMobileCards('near-high-52w-mobile', paginatedData, {
                 extraFields: [
-                    { label: 'AI점수', key: 'ai_score', format: function(s) { return s.ai_score ? s.ai_score.toFixed(0) + '점' : '-'; } },
-                    { label: '돌파확률', key: 'breakout_probability', format: function(s) { return s.breakout_probability != null ? s.breakout_probability.toFixed(1) + '%' : '-'; } },
-                    { label: '예상수익', key: 'predicted_gain', format: function(s) { return s.predicted_gain != null ? s.predicted_gain.toFixed(1) + '%' : '-'; } },
+                    { label: 'AI 순위', key: 'ai_score', format: function(s) { return s.ai_score ? s.ai_score.toFixed(0) + '점' : '-'; } },
+                    { label: '모델 점수', key: 'breakout_probability', format: function(s) { return s.breakout_probability != null ? s.breakout_probability.toFixed(0) : '-'; } },
+                    { label: '모델 예상치', key: 'predicted_gain', format: function(s) { return s.predicted_gain != null ? s.predicted_gain.toFixed(1) + '%' : '-'; } },
                     { label: '52주고가', key: 'high_52w', format: function(s) { return formatNumber(s.high_52w) + '원'; } },
                     { label: '괴리율', key: 'percent_from_high', format: function(s) { return s.percent_from_high.toFixed(2) + '%'; } },
                     { label: '경과일', key: 'days_since', format: function(s) { return s.days_since != null ? s.days_since + '일' : '-'; } }
@@ -5700,7 +5700,7 @@
                     { label: '이평선', value: '종가 > 150일선' },
                     { label: '경과 기간', value: '10거래일 추적, 종가가 돌파 가격 −3% 아래면 돌파 실패로 제외' },
                 ],
-                note: 'AI 예측: Ridge(예상수익) + XGBoost(성공확률) | 20일 내 고가 +15% 도달 확률 (참고용)'
+                note: 'AI 순위: 20일 내 고가 +15% 도달 가능성으로 줄 세운 점수 (확률 아님) | 시간순 표본외 검증 AUC 0.64, 상위 10% 적중 43% (전체 평균 24%) | 거래량 급증 단일 지표와 비슷한 수준'
             },
             'box-breakout-simple': {
                 items: [
@@ -5748,7 +5748,7 @@
                     { label: '시가총액', value: '1,000억 이상' },
                     { label: '유지/제외', value: '돌파 후 8거래일 추적, 종가가 52주 고가 −3% 아래면 돌파 실패로 제외' },
                 ],
-                note: '근거: George & Hwang (2004) 52주 고가 모멘텀 | 거래량은 표시용 | AI 점수는 참고용 (검증 성능이 기준선 수준)'
+                note: '근거: George & Hwang (2004) 52주 고가 모멘텀 | 거래량은 표시용 | AI 순위: 시간순 표본외 AUC 0.61, 상위 10% 적중 44% (평균 31%) — 돌파율 단일 지표보다 낫지 않음, 참고용'
             },
             'near-high-52w': {
                 items: [
@@ -5759,7 +5759,7 @@
                     { label: '시가총액', value: '1,000억 이상' },
                     { label: '경과 기간', value: '근접 진입 후 8거래일 추적' },
                 ],
-                note: '1.5% 미만 돌파는 근접에서 관찰 (돌파 스크리너와 기준 일치) | AI 예측: Lasso + LogisticRegression | 10거래일 내 돌파 확률'
+                note: '1.5% 미만 돌파는 근접에서 관찰 (돌파 스크리너와 기준 일치) | AI 순위: 10거래일 내 종가 돌파 가능성 순위 (확률 아님) | 시간순 표본외 AUC 0.64, 상위 10% 적중 56% (평균 40%)'
             },
             'ma-convergence': {
                 items: [
