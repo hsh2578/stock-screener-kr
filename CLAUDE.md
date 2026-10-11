@@ -71,7 +71,6 @@ stock-screener-kr/
 ├── .github/workflows/
 │   ├── deploy.yml               평일 4회 자동 배포 (OHLCV 캐시 사용)
 │   ├── value-screener.yml       평일 20시 퀀트+대가 스크리너
-│   └── ml-retrain.yml           월간 ML 재훈련 (3개 모델)
 ├── web/                         ⚠️ React 앱 (미배포, 참고용)
 └── .cache/                      OHLCV pickle 캐시 (CI에서도 actions/cache로 유지)
 ```
@@ -153,7 +152,7 @@ const screenerGroups = [
 |-----------|----------|----------|
 | `deploy.yml` | 평일 10/12/14/16/18시 KST | `run_screeners.py` + 배포 |
 | `value-screener.yml` | 평일 20시 KST | `collect_quant_data.py` → 가치주 + 마법공식 + 멀티팩터 + 60주선 + 대가 4종 |
-| `ml-retrain.yml` | 월간 | ML 모델 재훈련 |
+| (없음) | 로컬 수동 | ML 재학습 — 8장 참고 (패널 데이터가 로컬에만 있어 CI 불가) |
 
 ### value-screener.yml 실행 순서
 ```
@@ -231,11 +230,18 @@ python guru_screeners.py        # 대가 4종
 
 | 스크리너 | 회귀 모델 | 분류 모델 | 피처 수 | 예측 내용 |
 |----------|----------|----------|---------|----------|
-| 박스권 돌파 | Ridge | XGBoost | 15개 | 20일 수익률 / 10%+ 상승 확률 |
-| 52주 신고가 | LGBMRegressor | LGBMClassifier | 14개 | 20일 수익률 / 15%+ 상승 확률 |
-| 52주 근접 | Lasso | LogisticRegression | 13개 | 20일 수익률 / 10일 내 돌파 확률 |
+| 박스권 돌파 | Ridge | XGBoost | 15개 | 20일 최고가 수익률 / `max(High[t+1..t+20])/Close[t]-1 >= 15%` |
+| 52주 신고가 | LGBMRegressor | LGBMClassifier | 14개 | 20일 최고 종가 수익률 / `max(Close[t+1..t+20])/Close[t]-1 >= 15%` |
+| 52주 근접 | Lasso | LogisticRegression | 13개 | 20일 최고가 수익률 / `Close[t+1..t+10]` 중 하나라도 `> 52주고가 × 1.015` |
 
 - AI점수 공식: `확률 × 0.7 + min(100, max(0, 예상수익 × 3)) × 0.3`
+- **재학습은 로컬 전용** (2026-10, 월간 `ml-retrain.yml` 삭제 — 옛 누수 파이프라인으로 모델을 덮어쓰던 워크플로):
+  1. `python ml/build_events.py` — `기술적분석 에이전트/backtest/data/panel` (상폐 포함 수정주가 일봉) 위에 **현재 스크리너 규칙**을 과거 전 기간에 적용해 `ml/data/events_*.csv` 생성. 피처는 추론과 같은 함수.
+  2. `python ml/walkforward_train.py` — 연도별 워크포워드(확장 학습, 30영업일 엠바고, 폴드 내 스케일러) 평가 후 최종 모델 저장. 지표는 각 모델 폴더의 `metadata.json` / `box_breakout_model_metadata.json`, 요약은 `ml/data/walkforward_summary.json`.
+  3. `python ml/test_event_parity.py` — 이벤트가 실제 스크리너 판정·추론 피처와 같은지 확인.
+- 추론 피처 입력 = 이벤트일까지 최근 `FEATURE_HISTORY_ROWS`(500)행 (`_feature_frame`). 박스권은 예전에 200행만 넘겨 `ma200_slope`가 항상 0이었다.
+- 확률은 보정되지 않은 값이다 (박스권 Brier가 상수 예측보다 나쁨). "확률 %"보다 순위로 읽을 것.
+- `ml/src/*`, `ml/train_*` 등 옛 학습 스크립트는 하이퍼파라미터·피처 목록 import 용으로만 남아 있다 (`collect_training_data.calculate_features` 는 52주 추론 피처 함수).
 - 상세 조건식: `docs/스크리너_조건식_설명서.md` 참조
 
 ---
