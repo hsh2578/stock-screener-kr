@@ -14,6 +14,7 @@ FnGuide 재무데이터 공유 수집기
 import os
 import sys
 import glob
+import json
 import time
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -23,7 +24,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, SCRIPT_DIR)
 
 from scripts.krx_data import get_stock_master
-from scripts.fnguide_data import get_financial_data, save_fnguide_cache
+from scripts.fnguide_data import get_financial_data, save_fnguide_cache, SCHEMA_VERSION
 
 # ============================================================================
 # 상수
@@ -35,16 +36,86 @@ MAX_WORKERS = 5  # FnGuide 병렬 종목 수 (종목당 7요청은 순차)
 MAX_CACHE_DAYS = 2  # 최근 N일 캐시만 유지
 CACHE_REFRESH_DAYS = 7  # 종목별 수집 시각(fetched_at)이 N일 지나면 재수집
 MIN_SUCCESS_RATE = 0.5  # 수집 성공률이 이보다 낮으면 실패로 종료 (FnGuide 개편 등 감지)
+STALE_FALLBACK_DAYS = 30  # 수집 실패 시 이전 값을 쓰는 최대 기간
+
+# 재무 히스토리: 신규 API는 연간 3년·분기 4개만 주므로 받은 값을 git에 쌓아 둔다
+# (actions/cache 는 7일 미사용 시 삭제되므로 영구 저장소로 부적합)
+HISTORY_FILE = os.path.join(SCRIPT_DIR, 'history', 'fin_history.json')
+KEEP_PERIODS = {'annual': 5, 'quarter': 8}  # 연간 최대 5년, 분기 8개(=TTM 전년 대비 가능)
 
 
-def merge_older_annual(new: dict, old: dict) -> None:
-    """신규 API는 연간 3개년만 주므로, 이전 캐시의 더 오래된 연도를 이어붙인다 (최신 값은 덮어쓰지 않음)."""
-    for key, old_years in (old.get('annual') or {}).items():
-        cur = new['annual'].setdefault(key, {})
-        oldest = min(cur) if cur else '9999/99'
-        for period, value in old_years.items():
-            if period < oldest:
-                cur[period] = value
+def _keep_latest(series: dict, n: int) -> dict:
+    return dict(sorted(series.items())[-n:])
+
+
+def sanitize_annual(annual: dict, trusted=()) -> int:
+    """
+    지배주주순이익 > 당기순이익 × 1.01 (둘 다 양수)인 연도는 과거 크롤링에서 연결/별도가 섞인 값으로 보고
+    그 연도의 지배주주순이익·EPS 를 지운다 (제자리 수정). 지운 연도 수를 반환.
+    trusted: 이번에 신규 API 로 받은 연도 — 비지배지분 적자로 지배 > 전체가 실제로 성립하므로 건드리지 않는다
+    (예: BGF 2023 지배 778 / 전체 691 / 비지배 -87).
+    ponytail: 히스토리 전용 연도에서 비지배 적자로 성립하는 드문 경우도 함께 지워진다.
+    """
+    ctrl = annual.get('net_income_controlling', {})
+    total = annual.get('net_income', {})
+    bad = [p for p, v in ctrl.items()
+           if p not in trusted and v is not None and total.get(p) is not None
+           and v > 0 and total[p] > 0 and v > total[p] * 1.01]
+    for p in bad:
+        del ctrl[p]
+        annual.get('eps', {}).pop(p, None)
+    return len(bad)
+
+
+def apply_history(data: dict, hist: dict) -> None:
+    """
+    새로 받은 값과 히스토리를 합친다 (같은 기간은 새 값 우선).
+    합친 결과를 data 와 hist 양쪽에 반영하고 기간 수를 제한한다.
+    """
+    trusted = set(data['annual'].get('net_income_controlling', {}))  # 신규 API 값 (병합 전)
+    sections = [('annual', data['annual'], KEEP_PERIODS['annual']),
+                ('quarter', data['quarter'], KEEP_PERIODS['quarter'])]
+    for section, target, n in sections:
+        h = hist.setdefault(section, {})
+        for key in set(target) | set(h):
+            merged = _keep_latest({**h.get(key, {}), **target.get(key, {})}, n)
+            target[key] = h[key] = merged
+    sanitize_annual(data['annual'], trusted)  # data/hist 가 같은 dict 를 공유하므로 양쪽에 반영됨
+    h_cf = hist.setdefault('cashflow', {})
+    for key in set(data['cashflow']) | set(h_cf):
+        n = KEEP_PERIODS['quarter' if key.endswith('_quarter') else 'annual']
+        merged = _keep_latest({**h_cf.get(key, {}), **data['cashflow'].get(key, {})}, n)
+        data['cashflow'][key] = h_cf[key] = merged
+
+
+def seed_history(hist: dict, prev: dict) -> None:
+    """
+    히스토리에 없는 연간 기간을 이전 캐시(prev, 이관 전 5년치 포함)에서 채운다 (히스토리 값 우선).
+    히스토리 항목이 없는 종목이 신규 API(3년)만으로 4~5년차를 잃지 않게 apply_history 전에 호출.
+    """
+    h = hist.setdefault('annual', {})
+    for key, series in ((prev or {}).get('annual') or {}).items():
+        h[key] = {**series, **h.get(key, {})}
+
+
+def load_history() -> dict:
+    if os.path.exists(HISTORY_FILE):
+        with open(HISTORY_FILE, encoding='utf-8') as f:
+            return json.load(f)
+    return {}
+
+
+def save_history(history: dict) -> None:
+    os.makedirs(os.path.dirname(HISTORY_FILE), exist_ok=True)
+    rounded = {code: {sec: {k: {p: round(v, 2) for p, v in s.items()} for k, s in d.items()}
+                      for sec, d in h.items()}
+               for code, h in history.items()}
+    # 종목당 한 줄 → git diff 가 바뀐 종목만 보이도록
+    lines = (json.dumps(code) + ':' + json.dumps(rounded[code], sort_keys=True, ensure_ascii=False,
+                                                 separators=(',', ':'))
+             for code in sorted(rounded))
+    with open(HISTORY_FILE, 'w', encoding='utf-8') as f:
+        f.write('{\n' + ',\n'.join(lines) + '\n}\n')
 
 
 # ============================================================================
@@ -122,11 +193,13 @@ def collect_fnguide_data():
 
     # 증분 수집: 종목별 수집 시각이 7일 이내면 재사용, 아니면 재수집
     # (파일 날짜로 판단하면 매일 이어 저장되는 캐시가 영원히 '신선'해 보여 재수집이 안 됨)
+    # 종목마다 0~3일 엇갈리게 해서 전 종목이 같은 날 한꺼번에 재수집되지 않도록 함
     codes_to_fetch = []
-    refresh_sec = CACHE_REFRESH_DAYS * 86400
     for code in codes:
         cached = prev_cache.get(code)
-        if cached and time.time() - cached.get('fetched_at', 0) <= refresh_sec:
+        refresh_sec = (CACHE_REFRESH_DAYS + sum(map(ord, code)) % 4) * 86400
+        fresh = time.time() - cached.get('fetched_at', 0) <= refresh_sec if cached else False
+        if fresh and cached.get('schema') == SCHEMA_VERSION:
             results[code] = cached
             reused += 1
         else:
@@ -139,6 +212,9 @@ def collect_fnguide_data():
     success = 0
     failed = 0
 
+    history = load_history()
+    print(f"  재무 히스토리: {len(history)}개 종목")
+
     if codes_to_fetch:
         def _fetch_one(code):
             return code, get_financial_data(code)
@@ -150,14 +226,17 @@ def collect_fnguide_data():
                 try:
                     code, data = future.result()
                     if data:
-                        if code in prev_cache:
-                            merge_older_annual(data, prev_cache[code])
+                        hist = history.setdefault(code, {})
+                        seed_history(hist, prev_cache.get(code))
+                        apply_history(data, hist)
                         results[code] = data
                         success += 1
                     else:
                         failed += 1
-                        if code in prev_cache:  # 일시 실패 시 이전 값 유지 (fetched_at 그대로 → 다음 실행에 재시도)
-                            results[code] = prev_cache[code]
+                        # 일시 실패 시 최근(30일 내) 값만 유지. fetched_at 그대로 → 다음 실행에 재시도
+                        prev = prev_cache.get(code)
+                        if prev and time.time() - prev.get('fetched_at', 0) <= STALE_FALLBACK_DAYS * 86400:
+                            results[code] = prev
                 except Exception:
                     failed += 1
 
@@ -171,6 +250,7 @@ def collect_fnguide_data():
     # 캐시 저장
     cache_file = get_cache_filepath()
     save_fnguide_cache(results, cache_file)
+    save_history(history)
 
     # 이전 캐시 정리
     cleanup_old_caches()

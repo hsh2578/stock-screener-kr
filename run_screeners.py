@@ -117,6 +117,7 @@ RESISTANCE_MIN_GAP = 5  # 저항선 터치 최소 간격 (거래일)
 MAX_SLOPE_PERCENT = 0.05  # 최대 일평균 기울기 (%)
 VOLUME_DECREASE_THRESHOLD = 0.95  # 거래량 감소 임계값 (후반 < 전반 × 0.95, 5% 감소)
 BREAKOUT_WINDOW = 11  # 돌파 확인 윈도우 (10거래일 이내 = 오늘 포함 11행)
+BREAKOUT_FAIL_PCT = 3.0  # 돌파 후 종가가 돌파 기준선보다 이만큼(%) 아래로 내려오면 돌파 실패
 
 # ============================================================================
 # ML 모델 (박스권 돌파)
@@ -257,169 +258,22 @@ def load_52w_models():
         return False
 
 
+_KR_COLS = {'Open': '시가', 'High': '고가', 'Low': '저가', 'Close': '종가', 'Volume': '거래량'}
+
+
 def calculate_52w_features(df, breakout_idx):
     """
-    52주 신고가 ML 피처 계산 (14개)
-
-    성능 최적화: 자주 사용되는 슬라이싱 결과를 지역 변수로 캐싱하여
-    반복적인 데이터프레임 슬라이싱을 방지합니다.
+    52주 신고가 ML 피처 (14개) — 학습과 같은 함수(ml/src/collect_training_data.calculate_features)를 쓴다.
+    예전에는 추론용으로 따로 구현해 ma200_slope 등의 단위(%) 와 base_length 등의 정의가
+    학습과 달라 모델 입력이 학습 분포를 벗어났다.
+    시장지수는 학습(KOSPI/KOSDAQ)과 달리 캐시 종목 등가중 대리지수를 쓴다 (KS11 조회 불가).
     """
-    global _kospi_data
+    from ml.src.collect_training_data import calculate_features
 
+    market = _kospi_data.rename(columns={'Close': '종가'}) if _kospi_data is not None else pd.DataFrame()
     try:
-        close = df['Close']
-        high = df['High']
-        low = df['Low']
-        volume = df['Volume']
-
-        breakout_close = close.iloc[breakout_idx]
-
-        # 52주 고저 (돌파 전)
-        lookback_start = max(0, breakout_idx - HIGH_52W_PERIOD)
-        # 성능 최적화: 52주 구간 슬라이싱 결과 캐싱
-        high_52w_slice = high.iloc[lookback_start:breakout_idx]
-        low_52w_slice = low.iloc[lookback_start:breakout_idx]
-        high_52w = high_52w_slice.max()  # High 기준 (표준)
-        low_52w = low_52w_slice.min()
-
-        # 1. breakout_pct: 돌파 강도
-        breakout_pct = (breakout_close / high_52w - 1) * 100 if high_52w > 0 else 0
-
-        # 성능 최적화: 20일 구간 슬라이싱 결과 캐싱 (여러 피처에서 공통 사용)
-        if breakout_idx >= 20:
-            close_20d = close.iloc[breakout_idx - 20:breakout_idx]
-            volume_20d = volume.iloc[breakout_idx - 20:breakout_idx]
-        else:
-            close_20d = None
-            volume_20d = None
-
-        # 2. volume_surge: 거래량 급증
-        if volume_20d is not None:
-            vol_20d_avg = volume_20d.mean()
-            vol_breakout = volume.iloc[breakout_idx]
-            volume_surge = vol_breakout / vol_20d_avg if vol_20d_avg > 0 else 1
-        else:
-            volume_surge = 1
-
-        # 3. close_strength: 종가 강도
-        breakout_high = high.iloc[breakout_idx]
-        breakout_low = low.iloc[breakout_idx]
-        if breakout_high != breakout_low:
-            close_strength = (breakout_close - breakout_low) / (breakout_high - breakout_low)
-        else:
-            close_strength = 0.5
-
-        # 성능 최적화: 60일 구간 슬라이싱 결과 캐싱 (base_length, volatility_contraction에서 공통 사용)
-        if breakout_idx >= 60:
-            close_60d = close.iloc[breakout_idx - 60:breakout_idx]
-        else:
-            close_60d = None
-
-        # 4. base_length: 베이스 기간 (60일 중 횡보일수)
-        if close_60d is not None:
-            pct_change = close_60d.pct_change().abs()
-            base_length = (pct_change < 0.03).sum()
-        else:
-            base_length = 0
-
-        # 5. volatility_contraction: 변동성 수축
-        if close_60d is not None and close_20d is not None:
-            past_close = close.iloc[breakout_idx - 60:breakout_idx - 20]
-            recent_vol = close_20d.std() / close_20d.mean() if close_20d.mean() > 0 else 0
-            past_vol = past_close.std() / past_close.mean() if past_close.mean() > 0 else 0
-            volatility_contraction = recent_vol / past_vol if past_vol > 0 else 1
-        else:
-            volatility_contraction = 1
-
-        # 6. volume_dry_up: 거래량 고갈
-        if breakout_idx >= 40:
-            vol_recent = volume.iloc[breakout_idx - 10:breakout_idx].mean()
-            vol_past = volume.iloc[breakout_idx - 40:breakout_idx - 10].mean()
-            volume_dry_up = vol_recent / vol_past if vol_past > 0 else 1
-        else:
-            volume_dry_up = 1
-
-        # 7. ma200_slope: 200일선 기울기
-        if breakout_idx >= 220:
-            ma200_now = close.iloc[breakout_idx - 200:breakout_idx].mean()
-            ma200_20d_ago = close.iloc[breakout_idx - 220:breakout_idx - 20].mean()
-            ma200_slope = (ma200_now / ma200_20d_ago - 1) * 100 if ma200_20d_ago > 0 else 0
-        else:
-            ma200_slope = 0
-
-        # 8. pct_above_52w_low: 52주 저점 대비 상승률
-        pct_above_52w_low = (breakout_close / low_52w - 1) * 100 if low_52w > 0 else 0
-
-        # 9, 10. rs_vs_market, market_return: 시장 대비 상대강도
-        rs_vs_market = 0
-        market_return = 0
-        if _kospi_data is not None and len(_kospi_data) > 0:
-            try:
-                breakout_date = df.index[breakout_idx]
-                kospi_breakout_idx = _kospi_data.index.get_indexer([breakout_date], method='nearest')[0]
-                if kospi_breakout_idx >= 20:
-                    market_return = (_kospi_data['Close'].iloc[kospi_breakout_idx] / _kospi_data['Close'].iloc[kospi_breakout_idx - 20] - 1) * 100
-                    if close_20d is not None:
-                        stock_return = (breakout_close / close_20d.iloc[0] - 1) * 100
-                        rs_vs_market = stock_return - market_return
-            except Exception:
-                pass
-
-        # 11. ma20_deviation: 20일선 대비 이격도
-        if close_20d is not None:
-            ma20 = close_20d.mean()
-            ma20_deviation = (breakout_close / ma20 - 1) * 100 if ma20 > 0 else 0
-        else:
-            ma20_deviation = 0
-
-        # 12. liquidity: 유동성 (20일 평균 거래대금)
-        if close_20d is not None and volume_20d is not None:
-            liquidity = (close_20d * volume_20d).mean()
-        else:
-            liquidity = 0
-
-        # 13. days_since_ath: ATH 이후 경과일
-        try:
-            # 성능 최적화: 이미 캐싱된 high_52w_slice 재사용
-            ath_idx = high_52w_slice.idxmax()
-            breakout_date = df.index[breakout_idx]
-            days_since_ath = (breakout_date - ath_idx).days
-        except Exception:
-            days_since_ath = 0
-
-        # 14. atr_ratio: ATR 비율
-        if breakout_idx >= 15:
-            h = high.iloc[breakout_idx - 14:breakout_idx].values
-            l = low.iloc[breakout_idx - 14:breakout_idx].values
-            c_prev = close.iloc[breakout_idx - 15:breakout_idx - 1].values
-
-            tr1 = h - l
-            tr2 = np.abs(h - c_prev)
-            tr3 = np.abs(l - c_prev)
-            tr = np.maximum(np.maximum(tr1, tr2), tr3)
-
-            atr_14 = tr.mean()
-            atr_ratio = atr_14 / breakout_close * 100 if breakout_close > 0 else 0
-        else:
-            atr_ratio = 0
-
-        return {
-            'breakout_pct': breakout_pct,
-            'volume_surge': volume_surge,
-            'close_strength': close_strength,
-            'base_length': base_length,
-            'volatility_contraction': volatility_contraction,
-            'volume_dry_up': volume_dry_up,
-            'ma200_slope': ma200_slope,
-            'pct_above_52w_low': pct_above_52w_low,
-            'rs_vs_market': rs_vs_market,
-            'market_return': market_return,
-            'ma20_deviation': ma20_deviation,
-            'liquidity': liquidity,
-            'days_since_ath': days_since_ath,
-            'atr_ratio': atr_ratio
-        }
-    except Exception as e:
+        return calculate_features(df.rename(columns=_KR_COLS), breakout_idx, 0, market, 'KOSPI')
+    except Exception:
         return None
 
 
@@ -2263,6 +2117,10 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
         prev_price = float(df['Close'].iloc[-2])
         change_rate = (current_price - prev_price) / prev_price * 100 if prev_price > 0 else 0
 
+        # 돌파 실패: 이미 박스 상단 −3% 아래로 되돌아왔으면 제외 (보존 종목과 같은 기준)
+        if current_price < box_high * (1 - BREAKOUT_FAIL_PCT / 100):
+            continue
+
         # 저항선 대비 상승률
         breakout_pct = (current_price - box_high) / box_high * 100
 
@@ -2317,7 +2175,8 @@ def screen_box_breakout(stocks: pd.DataFrame) -> List[Dict]:
     # --- 기존 등록 종목 유지 (10거래일 이내) ---
     results = _preserve_prev_results(
         'box_breakout.json', results, BREAKOUT_WINDOW - 1,
-        ref_date_key='breakout_date', days_since_key='days_since_breakout', stocks=stocks
+        ref_date_key='breakout_date', days_since_key='days_since_breakout', stocks=stocks,
+        invalidate=_failed_breakout('breakout_price'),
     )
 
     # AI 점수 높은 순 정렬 (모델 있으면), 없으면 거래량
@@ -2430,6 +2289,10 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
         breakout_close = float(df['Close'].iloc[breakout_idx]) if breakout_idx is not None else resistance
         gain_since_breakout = (current_price - breakout_close) / breakout_close * 100 if breakout_close > 0 else 0
 
+        # 돌파 실패: 이미 저항선 −3% 아래로 되돌아왔으면 제외 (보존 종목과 같은 기준)
+        if current_price < resistance * (1 - BREAKOUT_FAIL_PCT / 100):
+            continue
+
         # 150일선 계산
         ma150 = None
         above_ma150 = False
@@ -2481,7 +2344,8 @@ def screen_box_breakout_simple(stocks: pd.DataFrame) -> List[Dict]:
     # --- 기존 등록 종목 유지 (10거래일 이내) ---
     results = _preserve_prev_results(
         'box_breakout_simple.json', results, BREAKOUT_WINDOW - 1,
-        ref_date_key='breakout_date', days_since_key='days_since_breakout', stocks=stocks
+        ref_date_key='breakout_date', days_since_key='days_since_breakout', stocks=stocks,
+        invalidate=_failed_breakout('resistance'),
     )
 
     # ML 모델 있으면 AI점수 내림차순, 없으면 최근 돌파 순 정렬
@@ -2935,7 +2799,8 @@ def screen_volume_dry_up(stocks: pd.DataFrame) -> List[Dict]:
     # --- 기존 등록 종목 유지 (10거래일 이내) ---
     results = _preserve_prev_results(
         'volume_dry_up.json', results, DRYUP_MAX_DAYS,
-        ref_date_key='explosion_date', days_since_key='days_since_detected', stocks=stocks
+        ref_date_key='explosion_date', days_since_key='days_since_detected', stocks=stocks,
+        invalidate=_dryup_broken,
     )
 
     # 급등 후 경과일 오름차순, 같으면 거래량 감소율 높은 순
@@ -3197,7 +3062,7 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
             days_since = 0
             breakout_idx = idx
             breakout_close = current_close
-            high_52w = day_high_52w
+            high_52w = max(day_high_52w, recent_high)  # 표시·저항선은 실제 직전 52주 최고가
 
         if breakout_date is None:
             continue
@@ -3221,7 +3086,11 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         # --- ML 피처 계산 (배치 예측용) ---
         features = None
         if _52w_models_loaded:
-            features = calculate_52w_features(df, breakout_idx)
+            full = _DATA_CACHE.get(ticker)
+            if full is not None and len(full) > len(df) and full.index[-1] == df.index[-1]:
+                features = calculate_52w_features(full, len(full) - 1)  # 돌파일 = 오늘
+            else:
+                features = calculate_52w_features(df, breakout_idx)
 
         results.append({
             'ticker': ticker,
@@ -3266,7 +3135,8 @@ def screen_new_high_52w(stocks: pd.DataFrame) -> List[Dict]:
     # --- 기존 등록 종목 유지 (8거래일 이내) ---
     results = _preserve_prev_results(
         'new_high_52w.json', results, MAX_DAYS_SINCE_BREAKOUT,
-        ref_date_key='breakout_date', days_since_key='days_since', stocks=stocks
+        ref_date_key='breakout_date', days_since_key='days_since', stocks=stocks,
+        invalidate=_new_high_invalid,
     )
 
     # 돌파일 기준 정렬 (최신순), 같은 날이면 성공확률 높은 순
@@ -3371,8 +3241,8 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
         if ever_broken:
             continue
 
-        # 갭 구간(최근 15일) 장중 고가가 이미 52주 고가를 넘었으면 '미돌파 근접'이 아님
-        if high.iloc[end_idx:total_len - 1].max() > high_52w:
+        # 갭 구간(최근 15일, 오늘 포함) 장중 고가가 이미 52주 고가를 넘었으면 '미돌파 근접'이 아님
+        if high.iloc[end_idx:].max() > high_52w:
             continue
 
         # 현재가가 high_52w 대비 -10% 이상 이탈하면 제외
@@ -3464,7 +3334,8 @@ def screen_near_high_52w(stocks: pd.DataFrame) -> List[Dict]:
     # --- 기존 등록 종목 유지 (8거래일 이내) ---
     results = _preserve_prev_results(
         'near_high_52w.json', results, NEAR_HIGH_MAX_DAYS,
-        ref_date_key='entry_date', days_since_key='days_since', stocks=stocks
+        ref_date_key='entry_date', days_since_key='days_since', stocks=stocks,
+        invalidate=_near_high_invalid,
     )
 
     # 정렬: active → breakout → dropped, 각 그룹 내에서 신고가에 가까운 순
@@ -3653,6 +3524,47 @@ def screen_sector_stage() -> List[Dict]:
 # 결과 저장 및 차트 데이터 생성
 # ============================================================================
 
+
+
+def _failed_breakout(level_key: str):
+    """돌파 기준선(level_key) 대비 종가가 BREAKOUT_FAIL_PCT% 넘게 밀리면 무효."""
+    def check(item: Dict, df: pd.DataFrame) -> bool:
+        level = item.get(level_key)
+        return bool(level) and df['Close'].iloc[-1] < level * (1 - BREAKOUT_FAIL_PCT / 100)
+    return check
+
+
+def _new_high_invalid(item: Dict, df: pd.DataFrame) -> bool:
+    """돌파일 종가가 직전 15일 장중 고가를 못 넘었던 가짜 돌파이거나, 52주 고가 아래로 밀리면 무효."""
+    bd = pd.Timestamp(item['breakout_date'])
+    if bd in df.index:
+        i = df.index.get_loc(bd)
+        if i >= HIGH_52W_GAP_DAYS and df['Close'].iloc[i] <= df['High'].iloc[i - HIGH_52W_GAP_DAYS:i].max():
+            return True
+    return _failed_breakout('high_52w')(item, df)
+
+
+def _near_high_invalid(item: Dict, df: pd.DataFrame) -> bool:
+    """52주 고가 대비 10% 넘게 이탈했거나 이미 돌파(1.5%+)했으면 '근접'이 아님."""
+    h = item.get('high_52w')
+    c = df['Close'].iloc[-1]
+    return bool(h) and (c < h * 0.9 or c > h * BREAKOUT_THRESHOLD)
+
+
+def _dryup_broken(item: Dict, df: pd.DataFrame) -> bool:
+    """눌림목: 급등봉 이후 종가가 -4%~+2% 구간을 벗어났거나(A), MA20 아래로 내려갔으면(B) 무효."""
+    ed = pd.Timestamp(item['explosion_date'])
+    if ed not in df.index:
+        return False
+    i = df.index.get_loc(ed)
+    post = df['Close'].iloc[i + 1:]
+    if item.get('pattern_type') == 'ma20_approach':
+        ma20 = df['Close'].rolling(20).mean().iloc[i + 1:]
+        return bool((post < ma20).any())
+    pct = (post / df['Close'].iloc[i] - 1) * 100
+    return bool((pct > DRYUP_CANDLE_MAX_UP).any() or (pct < -DRYUP_CANDLE_MAX_DOWN).any())
+
+
 def _preserve_prev_results(
     json_filename: str,
     new_results: List[Dict],
@@ -3660,6 +3572,7 @@ def _preserve_prev_results(
     ref_date_key: str,
     days_since_key: str,
     stocks: pd.DataFrame = None,
+    invalidate=None,
 ) -> List[Dict]:
     """
     기존 JSON에 등록된 종목을 max_days 이내이면 유지합니다.
@@ -3672,6 +3585,7 @@ def _preserve_prev_results(
         ref_date_key: 기준 날짜 필드명 (e.g., 'breakout_date')
         days_since_key: 경과일 필드명 (e.g., 'days_since')
         stocks: 종목 DataFrame (시가총액 업데이트용, optional)
+        invalidate: (prev_item, df) -> True 면 조건이 깨진 것으로 보고 보존하지 않음
     """
     prev_json_path = os.path.join(DATA_PATH, json_filename)
     prev_data = {}
@@ -3697,7 +3611,7 @@ def _preserve_prev_results(
             ref_date_str = prev_item.get(ref_date_key)
             if not ref_date_str:
                 continue
-            df = get_ohlcv(ticker, max_days + 15)
+            df = get_ohlcv(ticker, max_days + 40)  # 무효화 검사(MA20, 돌파 전 15일) 여유분
             if df is None or len(df) < 2:
                 continue
 
@@ -3716,6 +3630,10 @@ def _preserve_prev_results(
             # 0일차(오늘)는 매 CI마다 신규 스크리너가 재판정하므로 보존 불필요
             # 장중 현재가만 돌파했다가 하락한 가짜 돌파도 이 로직으로 자동 제거됨
             if days_since_now == 0:
+                continue
+
+            # 원래 조건이 깨졌으면 보존하지 않음 (예: 돌파 실패, 눌림 구간 이탈)
+            if invalidate is not None and invalidate(prev_item, df):
                 continue
 
             # 현재가 업데이트
@@ -3780,10 +3698,12 @@ def _preserve_prev_results(
 def save_results(results: List[Dict], filename: str, screened_from: int) -> None:
     """결과를 JSON 파일로 저장합니다."""
     now = datetime.now().isoformat()
+    market_date = get_market_latest_date()
 
     output = {
         'meta': {
             'lastUpdated': now,
+            'marketDate': market_date.strftime('%Y-%m-%d') if market_date is not None else None,  # 시세 기준 거래일
             'totalCount': len(results),
             'screened_from': screened_from
         },

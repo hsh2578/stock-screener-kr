@@ -156,7 +156,7 @@ jobs:
       - name: 🔍 변경 사항 확인
         id: check_changes
         run: |
-          git add data/
+          git add data/ history/
           if git diff --staged --quiet; then
             echo "변경된 파일 없음"
             echo "has_changes=false" >> $GITHUB_OUTPUT

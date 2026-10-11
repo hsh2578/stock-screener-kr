@@ -4,7 +4,7 @@
 3대 팩터를 결합한 고급 퀀트 전략:
 - Quality: ROE, GPA, CFO/자산
 - Value: PER, PBR, PSR, PCR, 배당수익률
-- Momentum: 12개월 수익률, K-Ratio
+- Momentum: 12-1개월 수익률(최근 1개월 제외), K-Ratio
 
 전처리: Winsorizing + 섹터 중립화 Z-Score (WICS 중분류)
 
@@ -114,13 +114,16 @@ def _get_ohlcv(ticker: str, cache: Dict, days: int = 300) -> Optional[pd.DataFra
 
 
 def calc_return_12m(df: pd.DataFrame) -> Optional[float]:
-    """12개월 수익률 계산"""
-    if df is None or len(df) < 200:
+    """
+    12-1 모멘텀: 12개월 전 → 1개월 전 수익률 (최근 1개월 단기 반전 제외).
+    Fama-French Prior(2-12): Close[-22] / Close[-253] - 1. 253거래일 미만이면 None.
+    """
+    if df is None or len(df) < 253:
         return None
 
     try:
-        current = df['Close'].iloc[-1]
-        past = df['Close'].iloc[-252] if len(df) >= 252 else df['Close'].iloc[0]
+        current = df['Close'].iloc[-22]
+        past = df['Close'].iloc[-253]
         if past > 0:
             return ((current / past) - 1) * 100
     except Exception:
@@ -277,7 +280,7 @@ def run_multi_factor():
     momentum_data = {}
     for _, row in filtered.iterrows():
         code = row['종목코드']
-        df_ohlcv = _get_ohlcv(code, ohlcv_cache, days=300)
+        df_ohlcv = _get_ohlcv(code, ohlcv_cache, days=400)  # FDR fallback 도 253거래일 이상 확보
         if df_ohlcv is not None:
             ret_12m = calc_return_12m(df_ohlcv)
             k_ratio = calc_k_ratio(df_ohlcv)

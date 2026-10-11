@@ -11,7 +11,7 @@ FnGuide 공유 캐시 + OHLCV 캐시를 활용합니다.
     A. 60주선 이격도: 100% ~ 110% (60주선 위 0~10% 구간)
     B. 종가 >= 60주 지수이평 (이중 확인)
     C. 영업이익률: 최근 결산 10% 이상 (수익성)
-    D. 영업이익 성장률: 최근 3년 평균 10% 이상 (성장성)
+    D. 영업이익 성장률: 3년 CAGR 10% 이상 + 최근 누적 전년동기 대비 증가 (성장성)
 
 [실행]
     value-screener.yml에서 다른 퀀트 스크리너와 함께 실행
@@ -38,7 +38,8 @@ from scripts.fnguide_data import (
     load_fnguide_cache,
     get_financial_data,
     get_operating_margins,
-    get_growth_rates_with_ttm,
+    get_cagr,
+    get_ytd_growth,
 )
 
 # 상수
@@ -128,7 +129,7 @@ def extract_financial_metrics_from_fnguide(fin_data: Dict) -> Tuple[Optional[flo
     FnGuide 데이터에서 영업이익률, 영업이익 성장률 추출
 
     Returns:
-        (영업이익률, 영업이익 성장률 3년)
+        (영업이익률, 영업이익 3년 CAGR — 누적 YoY <= 0 이면 None)
     """
     # 영업이익률 (최신 = TTM or 최신연간)
     margins = get_operating_margins(fin_data, years=5)
@@ -138,13 +139,11 @@ def extract_financial_metrics_from_fnguide(fin_data: Dict) -> Tuple[Optional[flo
         if valid:
             op_margin = valid[0]
 
-    # 영업이익 성장률 3년 평균
-    op_growth = get_growth_rates_with_ttm(fin_data, 'operating_income', years=5)
-    op_growth_3y = None
-    if op_growth and len(op_growth) >= 1:
-        valid = [g for g in op_growth[:3] if g is not None]
-        if valid:
-            op_growth_3y = sum(valid) / len(valid)
+    # 영업이익 3년 CAGR. 최근 누적 실적이 전년동기보다 줄었으면 성장 꺾임 → None (탈락)
+    op_growth_3y = get_cagr(fin_data, 'operating_income', 3)
+    ytd = get_ytd_growth(fin_data, 'operating_income')
+    if ytd is None or ytd <= 0:
+        op_growth_3y = None
 
     return op_margin, op_growth_3y
 

@@ -22,8 +22,9 @@ from scripts.fnguide_data import (
     load_fnguide_cache,
     get_financial_data,
     get_growth_rates_with_ttm,
-    get_annual_growth_rates,
     get_operating_margins,
+    get_cagr,
+    get_ytd_growth,
     get_per_from_data,
     get_pbr_from_data,
 )
@@ -96,25 +97,39 @@ def save_financial_data(fnguide_cache: Dict[str, Dict], master: 'pd.DataFrame' =
     print(f"financial_data.json 저장: {len(converted)}개 종목 (PER/PBR: {per_count}개)")
 
 
+def annual_operating_margins(fin_data: Dict, years: int = 5) -> List[float]:
+    """연간 영업이익률(%) 시리즈 — 최근 years개 연도, TTM 미포함 (최신 연도와 겹치지 않게)"""
+    rev = fin_data.get('annual', {}).get('revenue', {})
+    op = fin_data.get('annual', {}).get('operating_income', {})
+    return [op[p] / rev[p] * 100 for p in sorted(rev)[-years:] if op.get(p) is not None and rev[p]]
+
+
+def growth_ok(fin_data: Dict, key: str, years: int, low: float, high: float = float('inf')) -> Tuple[bool, Optional[float]]:
+    """연간 CAGR 이 (low, high) 구간이고 최근 누적 전년동기 대비 증가율 > 0 이면 통과 (누적 없으면 최근 연간 YoY)"""
+    cagr = get_cagr(fin_data, key, years)
+    ytd = get_ytd_growth(fin_data, key)
+    return cagr is not None and low < cagr < high and ytd is not None and ytd > 0, cagr
+
+
 def pass_first_filter_ttm(fin_data: Dict, market_cap: float) -> Tuple[bool, Dict[str, Any]]:
     """
-    TTM 기반 1차 필터 (6개 조건)
+    1차 필터 (6개 조건)
 
     조건:
     1. PER: 3 < PER < 30
-    2. 매출액 성장률: 3년 평균 > 10%
-    3. 영업이익률: 가용 기간 평균 > 10% (FnGuide ~4년)
-    4. 영업이익 성장률: 가용 기간 평균 > 10%
-    5. EPS(순이익) 성장률: 가용 기간 평균 > 10%
-    6. 순이익 증가율: 20% < 가용 기간 평균 < 50%
+    2. 매출액: 3년 CAGR > 10% + 최근 누적 전년동기 대비 증가
+    3. 영업이익률: 연간 평균(최대 5년, TTM 미포함) > 10%
+    4. 영업이익: 5년 CAGR > 10% + 최근 누적 전년동기 대비 증가
+    5. EPS: 5년 CAGR > 10%
+    6. 순이익: 20% < 5년 CAGR < 50% + 최근 누적 전년동기 대비 증가
     """
     results = {
         'per_check': {'value': None, 'pass': False, 'condition': '3 < PER < 30'},
-        'revenue_growth': {'value': None, 'pass': False, 'condition': '매출성장률 3년평균 > 10%'},
-        'operating_margin_avg': {'value': None, 'pass': False, 'condition': '영업이익률 평균 > 10%'},
-        'operating_profit_growth': {'value': None, 'pass': False, 'condition': '영업이익성장률 평균 > 10%'},
-        'eps_growth': {'value': None, 'pass': False, 'condition': '순이익성장률 평균 > 10%'},
-        'net_income_growth': {'value': None, 'pass': False, 'condition': '순이익증가율 20~50%'},
+        'revenue_growth': {'value': None, 'pass': False, 'condition': '매출 3년 CAGR > 10% & 누적 YoY > 0'},
+        'operating_margin_avg': {'value': None, 'pass': False, 'condition': '연간 영업이익률 평균 > 10%'},
+        'operating_profit_growth': {'value': None, 'pass': False, 'condition': '영업이익 5년 CAGR > 10% & 누적 YoY > 0'},
+        'eps_growth': {'value': None, 'pass': False, 'condition': 'EPS 5년 CAGR > 10%'},
+        'net_income_growth': {'value': None, 'pass': False, 'condition': '순이익 5년 CAGR 20~50% & 누적 YoY > 0'},
     }
 
     # 1. PER: 3 < PER < 30
@@ -123,54 +138,31 @@ def pass_first_filter_ttm(fin_data: Dict, market_cap: float) -> Tuple[bool, Dict
         results['per_check']['value'] = round(per, 2)
         results['per_check']['pass'] = 3 < per < 30
 
-    # 2. 매출액 성장률: 3년 평균 > 10%
-    rev_growth = get_growth_rates_with_ttm(fin_data, 'revenue', years=5)
-    if rev_growth:
-        valid_rates = [r for r in rev_growth[:3] if r is not None]
-        if valid_rates:
-            avg = sum(valid_rates) / len(valid_rates)
-            results['revenue_growth']['value'] = round(avg, 2)
-            results['revenue_growth']['pass'] = avg > 10
+    # 2. 매출액: 3년 CAGR > 10% + 누적 YoY > 0
+    ok, cagr = growth_ok(fin_data, 'revenue', 3, 10)
+    results['revenue_growth'].update({'value': cagr, 'pass': ok})
 
-    # 3. 영업이익률: 5년 평균 > 10% (TTM + 연간 최대 5개)
-    margins = get_operating_margins(fin_data, years=5)
+    # 3. 영업이익률: 연간 평균 > 10%
+    margins = annual_operating_margins(fin_data)
     if margins:
-        valid_margins = [m for m in margins if m is not None]
-        if valid_margins:
-            avg = sum(valid_margins) / len(valid_margins)
-            results['operating_margin_avg']['value'] = round(avg, 2)
-            results['operating_margin_avg']['pass'] = avg > 10
+        avg = sum(margins) / len(margins)
+        results['operating_margin_avg']['value'] = round(avg, 2)
+        results['operating_margin_avg']['pass'] = avg > 10
 
-    # 4. 영업이익 성장률: 가용 기간 평균 > 10%
-    op_growth = get_growth_rates_with_ttm(fin_data, 'operating_income', years=5)
-    if op_growth:
-        valid_rates = [r for r in op_growth[:5] if r is not None]
-        if valid_rates:
-            avg = sum(valid_rates) / len(valid_rates)
-            results['operating_profit_growth']['value'] = round(avg, 2)
-            results['operating_profit_growth']['pass'] = avg > 10
+    # 4. 영업이익: 5년 CAGR > 10% + 누적 YoY > 0
+    ok, cagr = growth_ok(fin_data, 'operating_income', 5, 10)
+    results['operating_profit_growth'].update({'value': cagr, 'pass': ok})
 
-    # 5. EPS 성장률: 5년 평균 > 10% (SVD_Main.asp EPS 연간 데이터 사용)
-    eps_growth = get_annual_growth_rates(fin_data, 'eps', years=5)
-    if eps_growth:
-        valid_rates = [r for r in eps_growth if r is not None]
-        if valid_rates:
-            avg = sum(valid_rates) / len(valid_rates)
-            results['eps_growth']['value'] = round(avg, 2)
-            results['eps_growth']['pass'] = avg > 10
+    # 5. EPS: 5년 CAGR > 10% (누적 EPS 는 제공되지 않음)
+    cagr = get_cagr(fin_data, 'eps', 5)
+    results['eps_growth'].update({'value': cagr, 'pass': cagr is not None and cagr > 10})
 
-    # 6. 순이익 증가율: 20% < 5년 평균 < 50%
-    ni_growth = get_growth_rates_with_ttm(fin_data, 'net_income', years=5)
-    if ni_growth:
-        valid_rates = [r for r in ni_growth[:5] if r is not None]
-        if valid_rates:
-            avg = sum(valid_rates) / len(valid_rates)
-            results['net_income_growth']['value'] = round(avg, 2)
-            results['net_income_growth']['pass'] = 20 < avg < 50
+    # 6. 순이익: 20% < 5년 CAGR < 50% + 누적 YoY > 0
+    ok, cagr = growth_ok(fin_data, 'net_income', 5, 20, 50)
+    results['net_income_growth'].update({'value': cagr, 'pass': ok})
 
     # 통과 여부: 6개 조건 모두 충족
-    pass_count = sum(1 for r in results.values() if r['pass'])
-    all_pass = pass_count == 6
+    all_pass = all(r['pass'] for r in results.values())
 
     return all_pass, results
 

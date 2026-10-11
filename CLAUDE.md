@@ -281,55 +281,64 @@ python guru_screeners.py        # 대가 4종
 
 ### 가치투자 (2개)
 
-**저평가 우량주** (`value-stocks`, `value_stocks.json`) — TTM 기반 6개 조건 전부 충족
+**저평가 우량주** (`value-stocks`, `value_stocks.json`) — 6개 조건 전부 충족
 1. 3 < PER < 30
-2. 매출액 성장률 3년 평균 > 10%
-3. 영업이익률 가용 기간 평균 > 10% (TTM 포함 최대 5년)
-4. 영업이익 성장률 가용 기간 평균 > 10%
-5. EPS 성장률 5년 평균 > 10% (SVD_Main.asp 실제 EPS 데이터)
-6. 20% < 순이익 증가율 5년 평균 < 50%
+2. 매출 3년 CAGR > 10% **그리고** 최근 누적 전년동기 대비 증가 (`get_ytd_growth > 0`)
+3. 연간 영업이익률 평균 > 10% (최대 5년, TTM 미포함 — `annual_operating_margins`)
+4. 영업이익 5년 CAGR > 10% + 최근 누적 YoY > 0
+5. EPS 5년 CAGR > 10% (누적 EPS 없음 → YoY 조건 없음)
+6. 20% < 순이익 5년 CAGR < 50% + 최근 누적 YoY > 0
+- CAGR = `get_cagr` (가용 연간 최대 N년 양 끝값, 끝값 ≤ 0 이면 None → 탈락)
 
 **60주선 우량주** (`ma60w-quality`, `ma60w_quality.json`) — 코스피 상위 200 대상
 1. 60주 EMA(300일) 이격도 0%~10% (지지 구간)
 2. 종가 >= 60주 EMA (이중 확인)
-3. 영업이익률 최근 결산(TTM) >= 10%
-4. 영업이익 성장률 3년 평균 >= 10%
+3. 영업이익률 TTM(없으면 최근 연간) >= 10%
+4. 영업이익 3년 CAGR >= 10% + 최근 누적 YoY > 0
 
 ### 퀀트 전략 (2개)
 
 **마법공식** (`magic-formula`, `magic_formula.json`) — 조엘 그린블라트
 - EBIT/EV 순위 + EBIT/IC 순위 합산 → 낮을수록 우량저평가
-- EBIT = 영업이익(TTM), EV = 시총+총부채-여유자금, IC = 자본+차입금-현금(4Q평균)
-- 시총 1000억+, 보통주, 스팩/리츠 제외, 금융주 별도 제외
+- EBIT = 영업이익(TTM), EV = 시총 + 이자부채(단기차입금+유동성장기부채+장기차입금+사채) - 여유자금
+- 여유자금 = max(0, 현금 - max(0, 유동부채 - 유동자산 + 현금)) (운전자본에 묶인 현금은 빼지 않음 — 결제대행·광고대행 쏠림 방지)
+- IC = 유형 투하자본 = max(0, (유동자산-현금) - (유동부채-단기차입금-유동성장기부채)) + 유형자산 (최신 분기)
+- 시총 1000억+, 보통주, 스팩/리츠 제외, 금융주·유틸리티 제외 (업종이 전부 '기타'라 종목명 키워드로 판별)
+- 유형 IC < 총자산 × `MIN_IC_TO_ASSETS`(0.1, `fnguide_data.py` 공통 상수, 애크먼과 공유) 제외 — 지주사·결제대행 등
 
 **멀티팩터** (`multi-factor`, `multi_factor.json`) — Q+V+M 글로벌 Z-Score
-- Quality: ROE, ROA, GPA, 영업이익률, ROIC
-- Value: PER역수, PBR역수, EV/EBIT역수, EV/S역수, FCF/EV
-- Momentum: 12M, 6M, 3M 수익률
+- Quality: ROE, GPA, CFO/총자산
+- Value: PER, PBR, PSR, PCR, 배당수익률
+- Momentum: 12-1 수익률 `Close[-22]/Close[-253]-1` (Fama-French Prior 2-12, 253거래일 미만 None), K-Ratio
 - Winsorize 1%-99% (원본은 `_orig` 컬럼 보존), 유효 지표 최소 5/10개, 팩터그룹별 1개 이상 필수
 - 금융주 제외 안 함, 섹터 중립화 아님 (글로벌 Z-Score)
 
-### 투자 대가 (4개)
+### 투자 대가 (4개) — 원전 기준을 5년 데이터로 축소
 
-**워렌 버핏** (`buffett`, `buffett.json`) — 내재가치 전략 (ROE 내림차순)
-- ROE > 15%, PER < 17, PBR < 1.5
-- 유동비율 > 1.5, 부채비율 < 150%, 장기부채비율 < 100%
-- FCF > 0, EPS 성장률 > 10% (전년동기 대비, TTM EPS 근사 = annual_eps × ni_ttm/latest_ni)
+**워렌 버핏** (`buffett`, `buffett.json`) — Validea Patient Investor / Buffettology (연간 ROE 평균 내림차순)
+- 연간 ROE(FnGuide Snapshot) 전부 > 10% & 평균 >= 15% (3년 이상)
+- 연간 EPS 전부 > 0, 전년 대비 감소 최대 1회 (3년 이상)
+- 장기부채(장기차입금+사채) <= 순이익TTM × 5 (무차입 통과), FCF > 0
+- 이익수익률(1/PER)은 표시만 (CI에 국채금리 없음). PBR/유동비율/부채비율은 표시만
 
-**빌 애크먼** (`ackman`, `ackman.json`) — 주가 재평가 전략 (ROIC 내림차순)
-- ROIC > 15%, ROE > 12%, PER < 15, PBR < 2
-- 부채비율 < 150%, FCF > 0, 배당수익률 > 3% (FnGuide 헤더)
+**빌 애크먼** (`ackman`, `ackman.json`) — **애크먼 원칙에서 착안한 자체 규칙** (FCF 수익률 내림차순, 상위 30)
+- 유형 IC >= 총자산 × `MIN_IC_TO_ASSETS`(10%, 마법공식과 공유) (자산 경량 기업의 ROIC 과대 방지)
+- ROIC(유형 IC) > 15%, ROE > 12%, PER < 15, FCF > 0, 순차입금/EBIT < 2 (순현금 통과)
+- `data` = FCF/시총 상위 30, `meta.totalCount` = 전체 통과 수
+- 이자부채 계정이 없는 금융주는 자동 제외
 
-**피터 린치** (`lynch`, `lynch.json`) — GARP 성장주 전략 (PEG 오름차순)
-- PER < 25, 0 < PEG < 1.8 (PEG = PER / EPS성장률 3년평균)
-- ROE > 5%, ROA > 1%, 부채비율 < 150%
-- 배당수익률 > 3%, 재고/매출 < 5%
+**피터 린치** (`lynch`, `lynch.json`) — AAII Lynch 스크린 PEGY (PEGY 오름차순)
+- 5 <= PER < 25 (PER 5 미만 = 일회성 이익 신호), 영업이익TTM > 0
+- PEGY = PER / (EPS 5년 CAGR + 배당수익률) <= 0.5, 0 < CAGR <= 50
+- 이자부채 / 자본총계 < 80%
+- 재고 추이 조건 없음 (분기 재고 이력 미저장). JSON `peg` 키 = PEGY 값 (HTML 호환)
 
-**벤저민 그레이엄** (`graham`, `graham.json`) — 안전마진 가치투자 (PER×PBR 오름차순)
-- 매출 > 1000억, 유동비율 > 200%, 순유동자산 > 장기부채
-- 전 기간 흑자 (순이익 + 영업이익 모두 > 0, 가용 연간 최대 5년)
-- EPS 연평균 성장률(CAGR) > 30% — `(최신/최구)^(1/n)-1`, 최대 5년, TTM EPS 근사 포함
-- PER < 15, PBR × PER < 22
+**벤저민 그레이엄** (`graham`, `graham.json`) — 『현명한 투자자』 14장 방어적 투자자 (PER×PBR 오름차순)
+- 매출TTM > 1000억, 유동비율 >= 2, 장기부채 <= 순유동자산
+- 가용 연간 전 기간 흑자 (순이익+영업이익), 배당수익률 > 0
+- 최근 2년 EPS 평균 >= 최초 2년 EPS 평균 × 1.03^(최근연도-최초연도-1) (연간 EPS 4개 이상, 10년 ⅓ → 연 3%)
+- PER(3년 평균 지배순이익) <= 15, PBR <= 1.5 또는 PER×PBR <= 22.5
+- JSON `per` = 3년 평균 이익 기준 PER, `eps_growth` = 실제 증가율(%)
 
 ---
 
@@ -337,23 +346,29 @@ python guru_screeners.py        # 대가 4종
 
 | 함수 | 계산식 | 사용처 |
 |------|--------|--------|
-| `get_per_from_data` | 시총 / 순이익TTM | 전체 |
-| `get_pbr_from_data` | 시총 / 자본총계 | 전체 |
-| `get_roe` | 순이익TTM / 자본총계(4Q평균) × 100 | 마법공식, 멀티팩터, 버핏 |
-| `get_ebit` | 영업이익TTM | 마법공식, 멀티팩터, 애크먼 |
-| `get_ev` | 시총 + 총부채 - 여유자금 | 마법공식 |
-| `get_invested_capital` | 자본총계 + 차입금 - 현금 (4Q평균) | 마법공식, 애크먼 |
-| `get_current_ratio` | 유동자산 / 유동부채 | 버핏, 그레이엄 |
-| `get_debt_ratio` | (유동+비유동부채) / 자본총계 × 100 | 버핏, 애크먼, 린치 |
-| `get_long_term_debt_ratio` | (장기차입금+사채) / 자본총계 × 100 | 버핏 |
-| `get_roa` | 순이익TTM / 총자산(4Q평균) × 100 | 린치 |
-| `get_roic` | EBIT / IC × 100 | 애크먼 |
-| `get_fcf` | CFO(TTM) + 투자활동CF(TTM) | 버핏, 애크먼 |
-| `get_inventory_ratio` | 재고자산(4Q평균) / 매출TTM × 100 | 린치 |
-| `get_peg` | PER / EPS성장률(3년평균) | 린치 |
+| `get_per_from_data` | 헤더 PER, 없으면 시총 / 순이익TTM | 전체 |
+| `get_pbr_from_data` | 헤더 PBR, 없으면 시총 / 자본총계 | 전체 |
+| `get_roe` | 순이익TTM / 자본총계(4Q평균) × 100 | 멀티팩터, 애크먼 |
+| `get_ebit` | 영업이익TTM | 마법공식, 애크먼 |
+| `get_ev` | 시총 + 이자부채 - 여유자금 (이자부채 계정 없으면 None) | 마법공식 |
+| `get_invested_capital` | 순운전자본(현금·단기차입 제외, 0 하한) + 유형자산 (최신 분기) | 마법공식, 애크먼 |
+| `get_current_ratio` | 유동자산 / 유동부채 | 그레이엄 |
+| `get_debt_ratio` | (유동+비유동부채) / 자본총계 × 100 | 표시용 |
+| `get_long_term_debt_ratio` | (장기차입금+사채) / 자본총계 × 100, 무차입 0.0 | - |
+| `get_roa` | 순이익TTM / 총자산(4Q평균) × 100 | 린치(표시) |
+| `get_roic` | EBIT / 유형 IC × 100 | 애크먼 |
+| `get_fcf` | CFO(TTM) - CAPEX(TTM, 유형+무형자산 증가) | 버핏, 애크먼 |
+| `get_cagr` | 연간 (최근/N년 전)^(1/N)-1, 끝값 ≤ 0 이면 None | 가치·60주선·린치·버핏 |
+| `get_ytd_growth` | 최근 누적 vs 전년동기 누적 증가율 | 가치·60주선 |
+| `get_pegy` | PER / (EPS 5년 CAGR + 배당수익률), 0<g<=50 | 린치 |
+| `get_inventory_ratio` | 재고자산(4Q평균) / 매출TTM × 100 | - |
 | `get_net_current_assets` | 유동자산 - 유동부채 | 그레이엄 |
-| `get_annual_growth_rates` | 연간 YoY 성장률만 (TTM 없이, SVD_Main.asp 데이터 포함) | EPS 성장률 계산 |
-| `get_growth_rates_with_ttm` | TTM + 연간 YoY 성장률 시리즈 | 전체 |
+| `get_annual_growth_rates` | 연간 YoY 성장률만 | - |
+| `get_growth_rates_with_ttm` | TTM + 연간 YoY 성장률 시리즈 | financial_data.json |
+
+- `balance['total_debt']` = 단기차입금 + 유동성장기부채 + 장기차입금 + 사채. 일반 기업 양식(유동자산 있음)이면 무차입도 0으로 생성, 금융업은 미생성
+- `annual['roe']`, `annual['eps']` = Snapshot Financial Highlight 확정 연간값 (추정치 제외). `SCHEMA_VERSION = 3`
+- `collect_quant_data.sanitize_annual`: 지배순이익 > 순이익×1.01(둘 다 양수)인 연도는 연결/별도 혼재로 보고 지배순이익·EPS 삭제 (`apply_history` 에서 매번 적용)
 
 ---
 

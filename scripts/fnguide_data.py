@@ -6,9 +6,9 @@ FnGuide 재무제표 수집 모듈 (wcomp.fnguide.com JSON API)
 
 수집 데이터:
 - 연간/분기 손익계산서: 매출액, 매출총이익, 영업이익(EBIT), 당기순이익, 지배주주순이익
-- 연간/분기 재무상태표: 총자산, 자본총계, 지배주주지분, 유동자산, 유동부채, 비유동자산, 차입금, 현금, 재고자산
+- 연간/분기 재무상태표: 총자산, 자본총계, 지배주주지분, 유동자산, 유동부채, 비유동자산, 유형자산, 차입금(유동성장기부채 포함), 현금, 재고자산
 - 연간/분기 현금흐름표: 영업활동현금흐름, 투자활동현금흐름
-- Snapshot 페이지: PER, 12M PER, 업종 PER, PBR, 배당수익률(헤더), 연간 EPS
+- Snapshot 페이지: PER, 12M PER, 업종 PER, PBR, 배당수익률(헤더), 연간 EPS·ROE
 
 주의: 신규 API의 연간 데이터는 최근 3개년뿐이다. 그 이전 연도는
 collect_quant_data.py 가 이전 캐시에서 이어붙인다.
@@ -38,7 +38,12 @@ HEADERS = {
 }
 
 FNGUIDE_BASE = 'https://wcomp.fnguide.com/CompanyInfo'
+SCHEMA_VERSION = 3  # 수집 필드가 바뀌면 올림 → 이전 캐시는 재사용하지 않고 재수집 (2: capex, ytd / 3: 유형자산, 유동성장기부채, 연간 ROE)
 FNGUIDE_SNAPSHOT_URL = f'{FNGUIDE_BASE}/Snapshot'
+
+# 유형 투하자본 / 총자산 하한 (마법공식·애크먼 공통). 미만이면 지주사·결제대행처럼
+# 자산이 금융성이라 ROIC 가 수백~수만 %로 튀는 종목 → 제외
+MIN_IC_TO_ASSETS = 0.1
 
 # 손익계산서 항목 매핑 (FnGuide 계정명 → 코드 키)
 INCOME_ITEMS = {
@@ -62,9 +67,11 @@ BALANCE_SEARCH = {
     'non_current_liabilities': ['비유동부채'],
     'cash': ['현금및현금성자산'],
     'short_term_debt': ['단기차입금'],
+    'current_portion_ltd': ['유동성장기부채'],
     'long_term_debt': ['장기차입금'],
     'bonds': ['사채'],
     'inventory': ['재고자산'],
+    'ppe': ['유형자산'],
 }
 
 # 현금흐름표 항목 매핑
@@ -73,6 +80,7 @@ CASHFLOW_ITEMS = {
 }
 
 CASHFLOW_INVEST_ITEMS = ['투자활동으로인한현금흐름']
+CAPEX_ITEMS = ['유형자산의증가', '무형자산의증가']
 
 # Snapshot 페이지 헤더 지표 ID 매핑 (corp_group2 영역)
 HEADER_METRIC_IDS = {
@@ -137,7 +145,12 @@ def _parse_header_metrics(html: str) -> Dict[str, float]:
 
 
 def _parse_snapshot_eps(html: str) -> Dict[str, float]:
-    """Snapshot 의 snpFinancial(Financial Highlight)에서 확정 연간 EPS만 추출 (추정치·분기 제외)."""
+    """Snapshot 의 확정 연간 EPS."""
+    return _parse_snapshot_row(html, 'EPS')
+
+
+def _parse_snapshot_row(html: str, row_name: str) -> Dict[str, float]:
+    """Snapshot 의 snpFinancial(Financial Highlight)에서 row_name 행의 확정 연간값만 추출 (추정치·분기 제외)."""
     m = re.search(r'snpFinancial\s*:\s*', html)
     if not m:
         return {}
@@ -148,7 +161,7 @@ def _parse_snapshot_eps(html: str) -> Dict[str, float]:
     annual_cds = {h['CD']: h['YYMM'] for h in obj.get('header', [])
                   if h.get('EP_CHK') is None and re.fullmatch(r'\d{4}/\d{2}', str(h.get('YYMM', '')))}
     for r in obj.get('data', []):
-        if str(r.get('NAME', '')).strip() == 'EPS':
+        if str(r.get('NAME', '')).strip() == row_name:
             out = {}
             for cd, yymm in annual_cds.items():
                 try:
@@ -199,17 +212,51 @@ def _fetch_dataset(endpoint: str, code: str, freq: str, consol: str) -> Dict:
     return resp.json().get('dataset') or {}
 
 
-def _fetch_statements(code: str) -> Optional[Dict[str, pd.DataFrame]]:
-    """연결(C) 우선, 비어 있으면 별도(P)로 6개 표를 받는다."""
+def _parse_ytd(dataset: Dict) -> Dict[str, Dict[str, float]]:
+    """
+    연간 손익표의 '(최근분기)'·'(전년동기)' 누적 컬럼 → {en_key: {'cur', 'prev'}}.
+    예: 2026/06 누적 vs 2025/06 누적. 최근 실적 꺾임 판단용.
+    """
+    cds = {}
+    for h in dataset.get('header') or []:
+        yymm = str(h.get('YYMM', ''))
+        if '최근' in yymm:
+            cds['cur'] = h['CD']
+        elif '전년동기' in yymm and '%' not in yymm:
+            cds['prev'] = h['CD']
+    if len(cds) < 2:
+        return {}
+    out = {}
+    for r in dataset.get('data') or []:
+        name = re.sub(r'\s+', '', str(r.get('NAME', '')))
+        for kr_name, en_key in INCOME_ITEMS.items():
+            if en_key not in out and (name == kr_name or (kr_name == '매출액' and name.startswith('매출액'))):
+                try:
+                    out[en_key] = {k: float(r.get(cd)) for k, cd in cds.items()}
+                except (TypeError, ValueError):
+                    pass
+    return out
+
+
+def _fetch_statements(code: str) -> Optional[Dict[str, Any]]:
+    """
+    연결(C) 우선, 연결 연간 손익이 비어 있을 때만 별도(P)로 6개 표를 받는다.
+    요청 오류는 None (연결 종목을 일시 오류로 별도 기준으로 받아 섞이지 않게 — 호출부가 재시도/이전 값 유지).
+    """
     for consol in ('C', 'P'):
-        tables = {}
-        for name, endpoint in (('income', 'getFinIncome'), ('balance', 'getFinBalance'),
-                               ('cashflow', 'getFinCashFlow')):
-            for freq, quarterly in (('Y', False), ('Q', True)):
-                tables[f'{freq}_{name}'] = _dataset_to_df(
-                    _fetch_dataset(endpoint, code, freq, consol), quarterly)
-        if not tables['Y_income'].dropna(how='all').empty:
+        try:
+            y_income = _fetch_dataset('getFinIncome', code, 'Y', consol)
+            tables = {'Y_income': _dataset_to_df(y_income, False), 'ytd': _parse_ytd(y_income)}
+            if tables['Y_income'].dropna(how='all').empty:
+                continue  # 이 기준으로는 데이터 없음 → 나머지 5개 요청 생략
+            tables['Q_income'] = _dataset_to_df(_fetch_dataset('getFinIncome', code, 'Q', consol), True)
+            for name, endpoint in (('balance', 'getFinBalance'), ('cashflow', 'getFinCashFlow')):
+                for freq, quarterly in (('Y', False), ('Q', True)):
+                    tables[f'{freq}_{name}'] = _dataset_to_df(
+                        _fetch_dataset(endpoint, code, freq, consol), quarterly)
             return tables
+        except (requests.RequestException, ValueError):
+            return None
     return None
 
 
@@ -245,6 +292,7 @@ def get_financial_data(code: str, retry: int = 2) -> Optional[Dict[str, Any]]:
 
             result = {
                 'code': code,
+                'schema': SCHEMA_VERSION,
                 'fetched_at': time.time(),
                 'header': _parse_header_metrics(snap.text),
                 'annual': {},
@@ -261,9 +309,10 @@ def get_financial_data(code: str, retry: int = 2) -> Optional[Dict[str, Any]]:
                     if not series.empty:
                         result[period][en_key] = series.to_dict()
 
-            eps = _parse_snapshot_eps(snap.text)
-            if eps:
-                result['annual']['eps'] = eps
+            for key, row_name in (('eps', 'EPS'), ('roe', 'ROE')):
+                values = _parse_snapshot_row(snap.text, row_name)
+                if values:
+                    result['annual'][key] = values
 
             # 2. 재무상태표 (분기 우선, 없으면 연간). 컬럼은 오래된→최근 순
             bs = tables['Q_balance'] if not tables['Q_balance'].dropna(how='all').empty else tables['Y_balance']
@@ -273,8 +322,11 @@ def get_financial_data(code: str, retry: int = 2) -> Optional[Dict[str, Any]]:
                     result['balance'][en_key] = _latest_value(series)
                     result['balance_avg'][en_key] = float(series.tail(4).mean())
 
-            result['balance']['total_debt'] = sum(
-                result['balance'].get(k) or 0 for k in ('short_term_debt', 'long_term_debt', 'bonds'))
+            # 이자부채: 항목이 하나라도 있거나 일반 기업 양식(유동자산 있음)이면 합산 (무차입 = 0).
+            # 금융업은 계정 체계가 달라 total_debt 를 만들지 않는다 (없음 ≠ 0)
+            debt_keys = ('short_term_debt', 'current_portion_ltd', 'long_term_debt', 'bonds')
+            if 'current_assets' in result['balance'] or any(k in result['balance'] for k in debt_keys):
+                result['balance']['total_debt'] = sum(result['balance'].get(k) or 0 for k in debt_keys)
 
             # 3. 현금흐름표
             for suffix, df in (('annual', tables['Y_cashflow']), ('quarter', tables['Q_cashflow'])):
@@ -284,7 +336,15 @@ def get_financial_data(code: str, retry: int = 2) -> Optional[Dict[str, Any]]:
                 inv = _extract_item(df, CASHFLOW_INVEST_ITEMS).dropna()
                 if not inv.empty:
                     result['cashflow'][f'invest_cf_{suffix}'] = inv.to_dict()
+                # CAPEX = 유형자산의증가 + 무형자산의증가 (FnGuide는 유출을 양수로 표기)
+                capex_rows = [_extract_item(df, [n]) for n in CAPEX_ITEMS]
+                capex_rows = [s for s in capex_rows if not s.empty]
+                if capex_rows:
+                    capex = pd.concat(capex_rows, axis=1).sum(axis=1, min_count=1).dropna()
+                    if not capex.empty:
+                        result['cashflow'][f'capex_{suffix}'] = capex.to_dict()
 
+            result['ytd'] = tables['ytd']
             _calculate_ttm(result)
             return result
 
@@ -295,79 +355,31 @@ def get_financial_data(code: str, retry: int = 2) -> Optional[Dict[str, Any]]:
     return None
 
 
+def _ttm(quarter: Dict[str, float], annual: Dict[str, float]) -> Optional[float]:
+    """최근 4분기 합. 4분기가 다 없으면 최신 연간값."""
+    recent_4 = [v for _, v in sorted(quarter.items(), reverse=True)[:4]
+                if v is not None and not np.isnan(v)]
+    if len(recent_4) == 4:
+        return sum(recent_4)
+    for _, v in sorted(annual.items(), reverse=True):
+        if v is not None and not np.isnan(v):
+            return v
+    return None
+
+
 def _calculate_ttm(data: Dict[str, Any]) -> None:
-    """
-    TTM (Trailing Twelve Months) 계산.
-    분기 데이터가 4개 이상 있으면 최근 4분기 합산.
-    없으면 최신 연간 데이터 사용.
-    """
+    """TTM (Trailing Twelve Months): 손익 항목 + 영업CF·투자CF·CAPEX."""
     for key in ['revenue', 'operating_income', 'net_income', 'gross_profit',
-                 'net_income_controlling', 'tax_expense', 'finance_cost']:
-        annual = data['annual'].get(key, {})
-        quarter = data['quarter'].get(key, {})
+                'net_income_controlling', 'tax_expense', 'finance_cost']:
+        value = _ttm(data['quarter'].get(key, {}), data['annual'].get(key, {}))
+        if value is not None:
+            data[f'{key}_ttm'] = value
 
-        ttm_value = None
-
-        # 분기 데이터로 TTM 시도
-        if len(quarter) >= 4:
-            # 날짜순 정렬 (최신 먼저)
-            sorted_quarters = sorted(quarter.items(), key=lambda x: x[0], reverse=True)
-            recent_4 = [v for _, v in sorted_quarters[:4] if v is not None and not np.isnan(v)]
-            if len(recent_4) == 4:
-                ttm_value = sum(recent_4)
-
-        # TTM 불가 → 최신 연간 데이터
-        if ttm_value is None and annual:
-            sorted_annual = sorted(annual.items(), key=lambda x: x[0], reverse=True)
-            for _, v in sorted_annual:
-                if v is not None and not np.isnan(v):
-                    ttm_value = v
-                    break
-
-        if ttm_value is not None:
-            data[f'{key}_ttm'] = ttm_value
-
-    # CFO TTM
-    cfo_annual = data['cashflow'].get('cfo_annual', {})
-    cfo_quarter = data['cashflow'].get('cfo_quarter', {})
-
-    cfo_ttm = None
-    if len(cfo_quarter) >= 4:
-        sorted_q = sorted(cfo_quarter.items(), key=lambda x: x[0], reverse=True)
-        recent_4 = [v for _, v in sorted_q[:4] if v is not None and not np.isnan(v)]
-        if len(recent_4) == 4:
-            cfo_ttm = sum(recent_4)
-
-    if cfo_ttm is None and cfo_annual:
-        sorted_a = sorted(cfo_annual.items(), key=lambda x: x[0], reverse=True)
-        for _, v in sorted_a:
-            if v is not None and not np.isnan(v):
-                cfo_ttm = v
-                break
-
-    if cfo_ttm is not None:
-        data['cfo_ttm'] = cfo_ttm
-
-    # 투자활동CF TTM
-    inv_annual = data['cashflow'].get('invest_cf_annual', {})
-    inv_quarter = data['cashflow'].get('invest_cf_quarter', {})
-
-    inv_ttm = None
-    if len(inv_quarter) >= 4:
-        sorted_q = sorted(inv_quarter.items(), key=lambda x: x[0], reverse=True)
-        recent_4 = [v for _, v in sorted_q[:4] if v is not None and not np.isnan(v)]
-        if len(recent_4) == 4:
-            inv_ttm = sum(recent_4)
-
-    if inv_ttm is None and inv_annual:
-        sorted_a = sorted(inv_annual.items(), key=lambda x: x[0], reverse=True)
-        for _, v in sorted_a:
-            if v is not None and not np.isnan(v):
-                inv_ttm = v
-                break
-
-    if inv_ttm is not None:
-        data['invest_cf_ttm'] = inv_ttm
+    cf = data['cashflow']
+    for key, out in (('cfo', 'cfo_ttm'), ('invest_cf', 'invest_cf_ttm'), ('capex', 'capex_ttm')):
+        value = _ttm(cf.get(f'{key}_quarter', {}), cf.get(f'{key}_annual', {}))
+        if value is not None:
+            data[out] = value
 
 
 # ============================================================================
@@ -431,40 +443,42 @@ def get_ebit(data: Dict) -> Optional[float]:
 
 
 def get_invested_capital(data: Dict) -> Optional[float]:
-    """투하자본 = 유동자산 - 유동부채 + 비유동자산 (4분기 평균)"""
-    bs = data.get('balance_avg') or data.get('balance', {})
+    """
+    유형 투하자본 (그린블라트) = 순운전자본 + 순고정자산 (최신 분기 B/S)
+    순운전자본 = max(0, (유동자산 - 현금) - (유동부채 - 단기차입금 - 유동성장기부채))
+    순고정자산 = 유형자산
+    총자산 × MIN_IC_TO_ASSETS 미만(지주사·결제대행 등 금융성 자산 기업)이거나 총자산이 없으면 None.
+    """
+    bs = data.get('balance', {})
     ca = bs.get('current_assets')
     cl = bs.get('current_liabilities')
-    nca = bs.get('non_current_assets')
-
-    if ca is not None and cl is not None and nca is not None:
-        return ca - cl + nca
-    return None
+    ppe = bs.get('ppe')
+    ta = bs.get('total_assets')
+    if ca is None or cl is None or ppe is None or not ta:
+        return None
+    nwc = max(0, (ca - (bs.get('cash') or 0))
+              - (cl - (bs.get('short_term_debt') or 0) - (bs.get('current_portion_ltd') or 0)))
+    ic = nwc + ppe
+    return ic if ic >= ta * MIN_IC_TO_ASSETS else None
 
 
 def get_ev(market_cap: float, data: Dict) -> Optional[float]:
     """
-    기업가치 (EV) = 시가총액 + 총부채 - 여유자금
-    총부채 = 유동부채 + 비유동부채
-    여유자금 = 현금 - MAX(0, 유동부채 - 유동자산 + 현금)
-    현금 데이터 없으면 여유자금=0으로 처리
+    기업가치 (EV) = 시가총액 + 이자부채 - 여유자금 (그린블라트 excess cash)
+    이자부채 = 단기차입금 + 유동성장기부채 + 장기차입금 + 사채 (balance['total_debt'])
+    여유자금 = max(0, 현금 - max(0, 유동부채 - 유동자산 + 현금))
+      → 운전자본에 묶인 현금(결제대행 예수금, 광고대행 미지급금 등)은 빼지 않는다.
+    이자부채 계정이 없는 금융업은 None. 0 이하가 될 수 있음 (호출부에서 거름).
     """
     bs = data.get('balance', {})
-    cl = bs.get('current_liabilities', 0) or 0
-    ncl = bs.get('non_current_liabilities', 0) or 0
-    total_liabilities = cl + ncl
-
-    # 여유자금 계산
-    cash = bs.get('cash', 0) or 0
-    ca = bs.get('current_assets', 0) or 0
-    if cash > 0:
-        working_capital_need = max(0, cl - ca + cash)
-        excess_cash = cash - working_capital_need
-    else:
-        excess_cash = 0
-
-    ev = market_cap + total_liabilities - excess_cash
-    return ev if ev > 0 else market_cap
+    debt = bs.get('total_debt')
+    if debt is None:
+        return None
+    cash = bs.get('cash') or 0
+    cl = bs.get('current_liabilities') or 0
+    ca = bs.get('current_assets') or 0
+    excess_cash = max(0, cash - max(0, cl - ca + cash))
+    return market_cap + debt - excess_cash
 
 
 def get_roe(data: Dict) -> Optional[float]:
@@ -543,8 +557,8 @@ def get_long_term_debt_ratio(data: Dict) -> Optional[float]:
     long_debt = bs.get('long_term_debt', 0) or 0
     bonds = bs.get('bonds', 0) or 0
     eq = bs.get('total_equity')
-    if eq is not None and eq > 0 and (long_debt + bonds) > 0:
-        return ((long_debt + bonds) / eq) * 100
+    if eq is not None and eq > 0:
+        return ((long_debt + bonds) / eq) * 100  # 무차입 = 0.0 (제외 대상 아님)
     return None
 
 
@@ -578,12 +592,56 @@ def get_net_current_assets(data: Dict) -> Optional[float]:
 
 
 def get_fcf(data: Dict) -> Optional[float]:
-    """FCF = CFO(TTM) + 투자활동CF(TTM)  (투자CF는 음수이므로 + 연산)"""
+    """
+    FCF = 영업활동현금흐름(TTM) - CAPEX(TTM), CAPEX = 유형자산의증가 + 무형자산의증가.
+    (투자활동CF 전체를 빼면 단기금융상품 매매까지 섞여 FCF가 왜곡됨)
+    """
     cfo = data.get('cfo_ttm')
-    inv_cf = data.get('invest_cf_ttm')
-    if cfo is not None and inv_cf is not None:
-        return cfo + inv_cf
+    capex = data.get('capex_ttm')
+    if cfo is not None and capex is not None:
+        return cfo - capex
     return None
+
+
+def get_cagr(data: Dict, key: str, years: int = 5) -> Optional[float]:
+    """
+    연간 CAGR(%) = (최근 연간 / N년 전 연간)^(1/N) - 1, 최근 years년 구간 사용.
+    양 끝값이 모두 양수일 때만 계산 (적자 구간은 성장률이 정의되지 않음).
+    """
+    annual = sorted((p, v) for p, v in data.get('annual', {}).get(key, {}).items()
+                    if re.fullmatch(r'\d{4}/\d{2}', p) and v is not None and not np.isnan(v))
+    if annual:
+        last_year = int(annual[-1][0][:4])
+        annual = [(p, v) for p, v in annual if int(p[:4]) >= last_year - years]  # 최근 years년 구간
+    if len(annual) < 2:
+        return None
+    first, last = annual[0][1], annual[-1][1]
+    if first <= 0 or last <= 0:
+        return None
+    n = int(annual[-1][0][:4]) - int(annual[0][0][:4])
+    if n <= 0:
+        return None
+    return round(((last / first) ** (1 / n) - 1) * 100, 2)
+
+
+def get_ytd_growth(data: Dict, key: str) -> Optional[float]:
+    """
+    최근 누적(예: 2026 상반기) 전년동기 대비 증가율(%). 전년동기가 0 이하면 None.
+    최신 분기가 결산월이면 FnGuide 연간표에 누적 컬럼이 없다 (12월 결산은 ~3~5월) →
+    최근 2개 연간값의 YoY 로 대체 (직전 연도가 0 이하면 None).
+    """
+    ytd = data.get('ytd', {}).get(key)
+    if ytd:
+        cur, prev = ytd.get('cur'), ytd.get('prev')
+    else:
+        annual = sorted((p, v) for p, v in data.get('annual', {}).get(key, {}).items()
+                        if v is not None and not np.isnan(v))
+        if len(annual) < 2:
+            return None
+        prev, cur = annual[-2][1], annual[-1][1]
+    if prev is None or prev <= 0 or cur is None:
+        return None
+    return round((cur / prev - 1) * 100, 2)
 
 
 def get_inventory_ratio(data: Dict) -> Optional[float]:
@@ -596,24 +654,17 @@ def get_inventory_ratio(data: Dict) -> Optional[float]:
     return None
 
 
-def get_peg(market_cap: float, data: Dict) -> Optional[float]:
-    """PEG = PER / EPS성장률(3년평균). 성장률이 음수면 None."""
+def get_pegy(market_cap: float, data: Dict) -> Optional[float]:
+    """
+    PEGY (린치) = PER / (EPS 성장률 + 배당수익률)
+    성장률 = 연간 EPS CAGR(최대 5년), 0 < g <= 50 일 때만 (과도한 성장률은 지속 불가로 봄).
+    """
     per = get_per_from_data(market_cap, data)
-    if per is None or per <= 0:
+    g = get_cagr(data, 'eps', 5)
+    if per is None or per <= 0 or g is None or not 0 < g <= 50:
         return None
-
-    growth_rates = get_annual_growth_rates(data, 'eps', years=3)
-    if not growth_rates:  # eps 데이터 없으면 net_income으로 fallback (구버전 캐시 호환)
-        growth_rates = get_growth_rates_with_ttm(data, 'net_income', years=3)
-    valid_rates = [r for r in growth_rates if r is not None and r > 0]
-    if not valid_rates:
-        return None
-
-    avg_growth = sum(valid_rates) / len(valid_rates)
-    if avg_growth <= 0:
-        return None
-
-    return per / avg_growth
+    y = data.get('header', {}).get('dividend_yield') or 0
+    return per / (g + y)
 
 
 # ============================================================================

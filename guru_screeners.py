@@ -26,22 +26,17 @@ from scripts.krx_data import get_stock_master
 from scripts.fnguide_data import (
     get_financial_data,
     get_ebit,
-    get_invested_capital,
-    get_ev,
     get_roe,
     get_per_from_data,
     get_pbr_from_data,
     get_current_ratio,
     get_debt_ratio,
-    get_long_term_debt_ratio,
     get_roa,
     get_roic,
     get_net_current_assets,
     get_fcf,
-    get_inventory_ratio,
-    get_peg,
-    get_growth_rates_with_ttm,
-    get_annual_growth_rates,
+    get_cagr,
+    get_pegy,
     load_fnguide_cache,
 )
 
@@ -51,6 +46,7 @@ from scripts.fnguide_data import (
 
 DATA_PATH = os.path.join(SCRIPT_DIR, 'data')
 MIN_MARKET_CAP = 1000  # 시가총액 1,000억 이상
+ACKMAN_TOP_N = 30  # 애크먼: FCF 수익률 상위 N개만 출력
 
 
 # ============================================================================
@@ -83,15 +79,14 @@ def _load_data():
 
 
 def _get_fin_data(code, fnguide_cache):
-    """캐시 우선 → fallback 개별 수집"""
-    fin = fnguide_cache.get(code)
-    if not fin:
-        fin = get_financial_data(code)
-    return fin
+    """캐시 우선 → fallback 개별 수집 (결과를 공유 캐시에 넣어 4개 스크리너가 재수집하지 않게)"""
+    if code not in fnguide_cache:
+        fnguide_cache[code] = get_financial_data(code)
+    return fnguide_cache[code]
 
 
-def _save_result(filename, type_id, name, description, conditions, data_list):
-    """결과 JSON 저장"""
+def _save_result(filename, type_id, name, description, conditions, data_list, total_count=None):
+    """결과 JSON 저장 (total_count: 전체 통과 수, data_list 가 상위 N개로 잘린 경우)"""
     os.makedirs(DATA_PATH, exist_ok=True)
     filepath = os.path.join(DATA_PATH, filename)
 
@@ -101,7 +96,7 @@ def _save_result(filename, type_id, name, description, conditions, data_list):
             'name': name,
             'description': description,
             'lastUpdated': datetime.now().isoformat(),
-            'totalCount': len(data_list),
+            'totalCount': len(data_list) if total_count is None else total_count,
             'conditions': conditions,
         },
         'data': data_list,
@@ -145,23 +140,81 @@ def _print_result(title, data_list, columns):
         print(row)
 
 
+def _annual_values(fin, key):
+    """연간 시계열 [(연도, 값)] 오래된→최근 순, 결측 제외"""
+    return sorted((int(p[:4]), v) for p, v in fin.get('annual', {}).get(key, {}).items()
+                  if v is not None and not np.isnan(v))
+
+
+def _per_3y(market_cap, fin):
+    """3년 평균 이익 기준 PER = 시총 / 최근 3개 연간 (지배)순이익 평균. 평균 이익 0 이하면 None."""
+    ni = _annual_values(fin, 'net_income_controlling') or _annual_values(fin, 'net_income')
+    if len(ni) < 3:
+        return None
+    avg = sum(v for _, v in ni[-3:]) / 3
+    return market_cap / avg if avg > 0 else None
+
+
+def _graham_eps_growth(fin):
+    """
+    그레이엄 이익 성장 (현명한 투자자 14장: 10년간 ⅓ 이상 ≈ 연 3% → 5년 데이터에 적용).
+    최근 2개 연도 EPS 평균 vs 가장 오래된 2개 연도 EPS 평균. 연간 EPS 4개 이상 필요.
+    Returns: (실제 증가율 %, 요구 증가율 %) 또는 None
+    """
+    eps = _annual_values(fin, 'eps')
+    if len(eps) < 4:
+        return None
+    old = (eps[0][1] + eps[1][1]) / 2
+    new = (eps[-2][1] + eps[-1][1]) / 2
+    if old <= 0:
+        return None
+    span = eps[-1][0] - eps[0][0] - 1  # 두 평균 구간 중심 사이 간격 (년)
+    return (new / old - 1) * 100, (1.03 ** span - 1) * 100
+
+
+def _buffett_quality(fin):
+    """
+    버핏 이익 일관성 (Validea Patient Investor / Buffettology, 가용 연간 최대 5년).
+    - 연간 ROE 전부 > 10% 그리고 평균 >= 15% (3년 이상)
+    - 연간 EPS 전부 > 0, 전년 대비 감소는 최대 1회 (3년 이상)
+    Returns: 연간 ROE 평균 또는 None (탈락)
+    """
+    roe = [v for _, v in _annual_values(fin, 'roe')]
+    eps = [v for _, v in _annual_values(fin, 'eps')]
+    if len(roe) < 3 or len(eps) < 3:
+        return None
+    roe_avg = sum(roe) / len(roe)
+    if min(roe) <= 10 or roe_avg < 15:
+        return None
+    if min(eps) <= 0 or sum(b < a for a, b in zip(eps, eps[1:])) > 1:
+        return None
+    return roe_avg
+
+
+def _net_debt_to_ebit(fin):
+    """(이자부채 - 현금) / EBIT. 순현금이면 음수. 이자부채 계정이 없거나 EBIT <= 0 이면 None."""
+    bs = fin.get('balance', {})
+    debt = bs.get('total_debt')
+    ebit = get_ebit(fin)
+    if debt is None or ebit is None or ebit <= 0:
+        return None
+    return (debt - (bs.get('cash') or 0)) / ebit
+
+
 # ============================================================================
 # 워렌 버핏 -내재가치 전략
 # ============================================================================
 
 def screen_buffett(filtered, fnguide_cache):
     """
-    워렌 버핏 전략: 경쟁우위를 가진 우량 기업을 합리적 가격에 매수
+    워렌 버핏 전략 (Validea "Patient Investor" / Buffettology 기준, 10년 → 가용 연간 최대 5년으로 축소)
 
     조건:
-    - ROE > 15%
-    - 장기부채비율 < 100%
-    - 유동비율 > 1.5
-    - FCF > 0
-    - PER < 17
-    - PBR < 1.5
-    - 부채비율 < 150%
-    - EPS 성장률 > 10% (전년동기 대비)
+    - 연간 ROE 전부 > 10%, 평균 >= 15% (3년 이상)
+    - 연간 EPS 전부 > 0, 전년 대비 감소 최대 1회 (3년 이상)
+    - 장기부채(장기차입금+사채) <= 순이익(TTM) × 5 (무차입 통과)
+    - FCF(영업CF - CAPEX, TTM) > 0
+    - 이익수익률(1/PER)은 표시만 (CI에 국채금리 데이터 없음)
     - 시총 1000억+
     """
     print("\n" + "=" * 60)
@@ -178,100 +231,61 @@ def screen_buffett(filtered, fnguide_cache):
         if not fin:
             continue
 
-        roe = get_roe(fin)
-        if roe is None or roe <= 15:
+        roe_avg = _buffett_quality(fin)
+        if roe_avg is None:
             continue
 
-        per = get_per_from_data(market_cap, fin)
-        if per is None or per <= 0 or per > 17:
-            continue
-
-        pbr = get_pbr_from_data(market_cap, fin)
-        if pbr is None or pbr <= 0 or pbr > 1.5:
-            continue
-
-        cr = get_current_ratio(fin)
-        if cr is None or cr < 1.5:
-            continue
-
-        dr = get_debt_ratio(fin)
-        if dr is None or dr > 150:
-            continue
-
-        ltdr = get_long_term_debt_ratio(fin)
-        if ltdr is None or ltdr > 100:
+        bs = fin.get('balance', {})
+        long_debt = (bs.get('long_term_debt') or 0) + (bs.get('bonds') or 0)
+        ni_ttm = fin.get('net_income_ttm')
+        if ni_ttm is None or long_debt > 5 * ni_ttm:
             continue
 
         fcf = get_fcf(fin)
         if fcf is None or fcf <= 0:
             continue
 
-        # EPS 성장률 (전년동기 대비 > 10%, TTM EPS 근사값 사용)
-        annual_eps = fin.get('annual', {}).get('eps', {})
-        sorted_eps = sorted(annual_eps.items(), reverse=True)
-        if not sorted_eps:
-            # eps 없음 → net_income YoY fallback
-            growth = get_annual_growth_rates(fin, 'net_income', years=1)
-            yoy_growth = growth[0] if growth else None
-        else:
-            latest_eps_key = sorted_eps[0][0]
-            if latest_eps_key >= '2025/12':
-                # 2025/12 연간 공시됨 → 연간 YoY
-                curr_eps, prev_eps = sorted_eps[0][1], sorted_eps[1][1] if len(sorted_eps) > 1 else None
-            else:
-                # 2025 미공시 → TTM net_income 기반 EPS 근사값
-                ni_ttm = fin.get('net_income_ttm')
-                latest_ni = fin.get('annual', {}).get('net_income', {}).get(latest_eps_key)
-                if ni_ttm and latest_ni and latest_ni != 0:
-                    curr_eps = sorted_eps[0][1] * (ni_ttm / latest_ni)
-                else:
-                    curr_eps = sorted_eps[0][1]
-                prev_eps = sorted_eps[1][1] if len(sorted_eps) > 1 else None
-            if curr_eps is not None and prev_eps is not None and prev_eps != 0:
-                yoy_growth = ((curr_eps / prev_eps) - 1) * 100
-            else:
-                yoy_growth = None
-        if yoy_growth is None or yoy_growth <= 10:
-            continue
-
-        # 헤더에서 배당수익률 가져오기
-        header = fin.get('header', {})
-        div_yield = header.get('dividend_yield')
+        # 표시용 지표
+        per = get_per_from_data(market_cap, fin)
+        pbr = get_pbr_from_data(market_cap, fin)
+        cr = get_current_ratio(fin)
+        dr = get_debt_ratio(fin)
+        div_yield = fin.get('header', {}).get('dividend_yield')
 
         results.append({
             'ticker': code,
             'name': name,
             'current_price': int(row.get('종가', 0) or 0),
             'market_cap': round(market_cap, 0),
-            'roe': round(roe, 1),
-            'per': round(per, 1),
-            'pbr': round(pbr, 2),
-            'current_ratio': round(cr, 2),
-            'debt_ratio': round(dr, 1),
-            'long_term_debt_ratio': round(ltdr, 1) if ltdr is not None else None,
+            'roe': round(roe_avg, 1),  # 연간 ROE 평균
+            'per': round(per, 1) if per is not None else None,
+            'pbr': round(pbr, 2) if pbr is not None else None,
+            'earnings_yield': round(100 / per, 2) if per else None,
+            'current_ratio': round(cr, 2) if cr is not None else None,
+            'debt_ratio': round(dr, 1) if dr is not None else None,
+            'long_term_debt': round(long_debt, 0),
             'fcf': round(fcf, 0),
-            'eps_growth': round(yoy_growth, 1),
+            'eps_growth': get_cagr(fin, 'eps', 5),
             'dividend_yield': div_yield,
         })
 
-    # ROE 내림차순 정렬
+    # 연간 ROE 평균 내림차순 정렬
     results.sort(key=lambda x: x['roe'], reverse=True)
 
     _save_result('buffett.json', 'buffett', '워렌 버핏 전략',
-                 'ROE·FCF·부채비율 기반 내재가치 전략',
-                 ['ROE > 15%', 'PER < 17', 'PBR < 1.5', '유동비율 > 1.5',
-                  '부채비율 < 150%', 'FCF > 0', 'EPS성장률 > 10% (전년동기 대비)'],
+                 'ROE·이익 일관성·저부채·FCF 기반 내재가치 전략 (Validea Patient Investor, 5년 데이터로 축소)',
+                 ['연간 ROE 전부 > 10% & 평균 >= 15% (3년+)', '연간 EPS 전부 > 0, 감소 최대 1회 (3년+)',
+                  '장기부채 <= 순이익(TTM) × 5', 'FCF > 0'],
                  results)
 
     _print_result('워렌 버핏 전략', results, [
         {'key': 'name', 'label': '종목명', 'width': 14},
-        {'key': 'roe', 'label': 'ROE%', 'width': 8, 'fmt': '.1f'},
+        {'key': 'roe', 'label': 'ROE평균', 'width': 8, 'fmt': '.1f'},
         {'key': 'per', 'label': 'PER', 'width': 8, 'fmt': '.1f'},
-        {'key': 'pbr', 'label': 'PBR', 'width': 7, 'fmt': '.2f'},
-        {'key': 'current_ratio', 'label': '유동비율', 'width': 8, 'fmt': '.2f'},
-        {'key': 'debt_ratio', 'label': '부채비율', 'width': 8, 'fmt': '.1f'},
+        {'key': 'earnings_yield', 'label': '이익수익률', 'width': 9, 'fmt': '.2f'},
+        {'key': 'long_term_debt', 'label': '장기부채', 'width': 10, 'fmt': '.0f'},
         {'key': 'fcf', 'label': 'FCF', 'width': 10, 'fmt': '.0f'},
-        {'key': 'eps_growth', 'label': 'EPS성장', 'width': 8, 'fmt': '.1f'},
+        {'key': 'eps_growth', 'label': 'EPS CAGR', 'width': 9, 'fmt': '.1f'},
     ])
 
     return results
@@ -283,16 +297,17 @@ def screen_buffett(filtered, fnguide_cache):
 
 def screen_ackman(filtered, fnguide_cache):
     """
-    빌 애크먼 전략: 높은 ROIC + 저평가 + 배당으로 주가 재평가 기대
+    애크먼 투자 원칙(단순·예측 가능한 고수익 사업, 강한 FCF, 보수적 재무)에서 착안한 자체 규칙.
+    애크먼이 공개한 정량 스크린이 아님.
 
     조건:
-    - ROIC > 15%
+    - 유형 투하자본 >= 총자산 × 10% (자산이 가벼워 ROIC 가 수백 %로 튀는 종목 제외)
+    - ROIC > 15% (EBIT / 유형 투하자본, 그린블라트 방식)
     - ROE > 12%
     - PER < 15
-    - PBR < 2
-    - 부채비율 < 150%
     - FCF > 0
-    - 배당수익률 > 3%
+    - 순차입금 / EBIT < 2 (순현금 통과)
+    정렬: FCF 수익률(FCF / 시총) 내림차순, 상위 ACKMAN_TOP_N 개만 출력 (meta.totalCount = 전체 통과 수)
     """
     print("\n" + "=" * 60)
     print("빌 애크먼 -주가 재평가 전략")
@@ -308,7 +323,7 @@ def screen_ackman(filtered, fnguide_cache):
         if not fin:
             continue
 
-        roic = get_roic(fin)
+        roic = get_roic(fin)  # 유형 IC < 총자산 10% 이면 None (get_invested_capital)
         if roic is None or roic <= 15:
             continue
 
@@ -320,23 +335,17 @@ def screen_ackman(filtered, fnguide_cache):
         if per is None or per <= 0 or per > 15:
             continue
 
-        pbr = get_pbr_from_data(market_cap, fin)
-        if pbr is None or pbr <= 0 or pbr > 2:
-            continue
-
-        dr = get_debt_ratio(fin)
-        if dr is None or dr > 150:
-            continue
-
         fcf = get_fcf(fin)
         if fcf is None or fcf <= 0:
             continue
 
-        # 배당수익률 (FnGuide 헤더)
-        header = fin.get('header', {})
-        div_yield = header.get('dividend_yield')
-        if div_yield is None or div_yield < 3:
+        nd_ebit = _net_debt_to_ebit(fin)
+        if nd_ebit is None or nd_ebit >= 2:
             continue
+
+        pbr = get_pbr_from_data(market_cap, fin)
+        dr = get_debt_ratio(fin)
+        div_yield = fin.get('header', {}).get('dividend_yield')
 
         results.append({
             'ticker': code,
@@ -345,30 +354,33 @@ def screen_ackman(filtered, fnguide_cache):
             'market_cap': round(market_cap, 0),
             'roic': round(roic, 1),
             'per': round(per, 1),
-            'pbr': round(pbr, 2),
-            'debt_ratio': round(dr, 1),
+            'pbr': round(pbr, 2) if pbr is not None else None,
+            'debt_ratio': round(dr, 1) if dr is not None else None,
+            'net_debt_to_ebit': round(nd_ebit, 2),
             'fcf': round(fcf, 0),
-            'dividend_yield': round(div_yield, 2),
-            'roe': round(roe, 1) if roe is not None else None,
+            'fcf_yield': round(fcf / market_cap * 100, 2),
+            'dividend_yield': div_yield,
+            'roe': round(roe, 1),
         })
 
-    # ROIC 내림차순 정렬
-    results.sort(key=lambda x: x['roic'], reverse=True)
+    # FCF 수익률 내림차순 정렬 → 상위 N개
+    results.sort(key=lambda x: x['fcf_yield'], reverse=True)
+    total = len(results)
+    results = results[:ACKMAN_TOP_N]
 
     _save_result('ackman.json', 'ackman', '빌 애크먼 전략',
-                 'ROIC·배당·FCF 기반 주가 재평가 전략',
-                 ['ROIC > 15%', 'ROE > 12%', 'PER < 15', 'PBR < 2',
-                  '부채비율 < 150%', 'FCF > 0', '배당수익률 > 3%'],
-                 results)
+                 '애크먼 투자 원칙에서 착안한 자체 규칙 (고ROIC·FCF·보수적 차입), FCF 수익률 상위 30',
+                 ['유형 투하자본 >= 총자산 10%', 'ROIC(유형 투하자본) > 15%', 'ROE > 12%', 'PER < 15',
+                  'FCF > 0', '순차입금/EBIT < 2'],
+                 results, total_count=total)
 
     _print_result('빌 애크먼 전략', results, [
         {'key': 'name', 'label': '종목명', 'width': 14},
         {'key': 'roic', 'label': 'ROIC%', 'width': 8, 'fmt': '.1f'},
+        {'key': 'roe', 'label': 'ROE%', 'width': 8, 'fmt': '.1f'},
         {'key': 'per', 'label': 'PER', 'width': 8, 'fmt': '.1f'},
-        {'key': 'pbr', 'label': 'PBR', 'width': 7, 'fmt': '.2f'},
-        {'key': 'debt_ratio', 'label': '부채비율', 'width': 8, 'fmt': '.1f'},
-        {'key': 'fcf', 'label': 'FCF', 'width': 10, 'fmt': '.0f'},
-        {'key': 'dividend_yield', 'label': '배당률%', 'width': 8, 'fmt': '.2f'},
+        {'key': 'net_debt_to_ebit', 'label': '순차입/EBIT', 'width': 10, 'fmt': '.2f'},
+        {'key': 'fcf_yield', 'label': 'FCF수익률', 'width': 9, 'fmt': '.2f'},
     ])
 
     return results
@@ -380,16 +392,14 @@ def screen_ackman(filtered, fnguide_cache):
 
 def screen_lynch(filtered, fnguide_cache):
     """
-    피터 린치 전략: 합리적 가격의 성장주 (GARP)
+    피터 린치 전략: 합리적 가격의 성장주 (GARP, AAII Lynch 스크린의 PEGY 기준)
 
     조건:
-    - PER < 25
-    - 0 < PEG < 1.8
-    - 부채비율 < 150%
-    - ROE > 5%
-    - ROA > 1%
-    - 배당수익률 > 3%
-    - 재고/매출 < 5%
+    - 5 <= PER < 25 (PER 5 미만은 일회성 이익 신호로 제외)
+    - 영업이익(TTM) > 0
+    - PEGY = PER / (EPS 5년 CAGR + 배당수익률) <= 0.5, 0 < CAGR <= 50%
+    - 이자부채(단기차입금+유동성장기부채+장기차입금+사채) / 자본총계 < 80%
+    재고/매출 추이는 분기 재고 시계열을 저장하지 않아 판단할 수 없으므로 조건에서 뺐다.
     """
     print("\n" + "=" * 60)
     print("피터 린치 -성장주 전략")
@@ -406,37 +416,29 @@ def screen_lynch(filtered, fnguide_cache):
             continue
 
         per = get_per_from_data(market_cap, fin)
-        if per is None or per <= 0 or per > 25:
+        if per is None or per < 5 or per > 25:
             continue
 
-        peg = get_peg(market_cap, fin)
-        if peg is None or peg <= 0 or peg > 1.8:
+        op_ttm = fin.get('operating_income_ttm')
+        if op_ttm is None or op_ttm <= 0:
             continue
 
-        dr = get_debt_ratio(fin)
-        if dr is None or dr > 150:
+        pegy = get_pegy(market_cap, fin)
+        if pegy is None or pegy > 0.5:
             continue
 
-        roe = get_roe(fin)
-        if roe is None or roe < 5:
+        bs = fin.get('balance', {})
+        debt, eq = bs.get('total_debt'), bs.get('total_equity')
+        if debt is None or eq is None or eq <= 0:
             continue
-
-        roa = get_roa(fin)
-        if roa is None or roa < 1:
-            continue
-
-        # 배당수익률 > 3% (필수)
-        header = fin.get('header', {})
-        div_yield = header.get('dividend_yield')
-        if div_yield is None or div_yield < 3:
-            continue
-
-        # 재고/매출 비율 < 5% (필수)
-        inv_ratio = get_inventory_ratio(fin)
-        if inv_ratio is None or inv_ratio > 5:
+        debt_to_equity = debt / eq * 100
+        if debt_to_equity >= 80:
             continue
 
         pbr = get_pbr_from_data(market_cap, fin)
+        roe = get_roe(fin)
+        roa = get_roa(fin)
+        div_yield = fin.get('header', {}).get('dividend_yield')
 
         results.append({
             'ticker': code,
@@ -444,32 +446,31 @@ def screen_lynch(filtered, fnguide_cache):
             'current_price': int(row.get('종가', 0) or 0),
             'market_cap': round(market_cap, 0),
             'per': round(per, 1),
-            'peg': round(peg, 2),
-            'roe': round(roe, 1),
-            'roa': round(roa, 1),
+            'peg': round(pegy, 2),  # HTML 'PEG' 컬럼 호환 (값은 PEGY)
+            'pegy': round(pegy, 2),
+            'eps_growth': get_cagr(fin, 'eps', 5),
+            'roe': round(roe, 1) if roe is not None else None,
+            'roa': round(roa, 1) if roa is not None else None,
             'pbr': round(pbr, 2) if pbr is not None else None,
-            'debt_ratio': round(dr, 1),
-            'dividend_yield': round(div_yield, 2) if div_yield is not None else None,
-            'inventory_ratio': round(inv_ratio, 1) if inv_ratio is not None else None,
+            'debt_ratio': round(debt_to_equity, 1),  # 이자부채/자본
+            'dividend_yield': div_yield,
         })
 
-    # PEG 오름차순 정렬 (낮을수록 좋음)
-    results.sort(key=lambda x: x['peg'])
+    # PEGY 오름차순 정렬 (낮을수록 좋음)
+    results.sort(key=lambda x: x['pegy'])
 
     _save_result('lynch.json', 'lynch', '피터 린치 전략',
-                 'PEG·ROE·부채비율 기반 합리적 성장주 전략',
-                 ['PER < 25', '0 < PEG < 1.8', '부채비율 < 150%',
-                  'ROE > 5%', 'ROA > 1%', '배당수익률 > 3%',
-                  '재고/매출 < 5%'],
+                 'PEGY·저부채 기반 합리적 성장주 전략 (AAII Lynch 스크린 기준)',
+                 ['5 <= PER < 25', '영업이익(TTM) > 0', 'PEGY = PER/(EPS 5년 CAGR+배당수익률) <= 0.5',
+                  '0 < EPS CAGR <= 50%', '이자부채/자본 < 80%'],
                  results)
 
     _print_result('피터 린치 전략', results, [
         {'key': 'name', 'label': '종목명', 'width': 14},
-        {'key': 'peg', 'label': 'PEG', 'width': 7, 'fmt': '.2f'},
+        {'key': 'pegy', 'label': 'PEGY', 'width': 7, 'fmt': '.2f'},
         {'key': 'per', 'label': 'PER', 'width': 8, 'fmt': '.1f'},
-        {'key': 'roe', 'label': 'ROE%', 'width': 8, 'fmt': '.1f'},
-        {'key': 'roa', 'label': 'ROA%', 'width': 8, 'fmt': '.1f'},
-        {'key': 'debt_ratio', 'label': '부채비율', 'width': 8, 'fmt': '.1f'},
+        {'key': 'eps_growth', 'label': 'EPS CAGR', 'width': 9, 'fmt': '.1f'},
+        {'key': 'debt_ratio', 'label': '차입/자본', 'width': 9, 'fmt': '.1f'},
         {'key': 'dividend_yield', 'label': '배당률%', 'width': 8, 'fmt': '.2f'},
     ])
 
@@ -482,16 +483,16 @@ def screen_lynch(filtered, fnguide_cache):
 
 def screen_graham(filtered, fnguide_cache):
     """
-    벤저민 그레이엄 전략: 안전마진 중심의 보수적 가치투자
+    벤저민 그레이엄 방어적 투자자 기준 (『현명한 투자자』 14장, 10~20년 조건을 가용 연간 최대 5년으로 축소)
 
     조건:
-    - 매출 > 1000억
-    - 유동비율 > 200% (= 유동자산/유동부채 > 2)
-    - 순유동자산 > 장기부채
-    - EPS 연평균 성장률(CAGR) > 30% (가용 연간 최대 5년)
-    - 전 기간 흑자 (순이익 + 영업이익 모두 > 0, 가용 연간 최대 5년)
-    - PER < 15
-    - PBR × PER < 22
+    - 매출(TTM) > 1000억 (충분한 규모)
+    - 유동비율 >= 2, 장기부채(장기차입금+사채) <= 순유동자산 (재무 건전성)
+    - 가용 연간 전 기간 흑자 (순이익 + 영업이익 모두 > 0)
+    - 배당 지급 (배당수익률 > 0 으로 근사)
+    - 이익 성장: 최근 2년 EPS 평균 >= 최초 2년 EPS 평균 × 1.03^(간격) (연간 EPS 4개 이상)
+    - PER(3년 평균 이익) <= 15
+    - PBR <= 1.5 또는 PER(3년) × PBR <= 22.5
     """
     print("\n" + "=" * 60)
     print("벤저민 그레이엄 -가치투자 전략")
@@ -512,94 +513,58 @@ def screen_graham(filtered, fnguide_cache):
         if rev_ttm is None or rev_ttm < 1000:
             continue
 
-        # 유동비율 > 2 (200%)
+        # 유동비율 >= 2 (200%)
         cr = get_current_ratio(fin)
         if cr is None or cr < 2:
             continue
 
-        # 순유동자산 > 장기부채
+        # 장기부채 <= 순유동자산
         nca = get_net_current_assets(fin)
         bs = fin.get('balance', {})
-        long_debt = (bs.get('long_term_debt', 0) or 0) + (bs.get('bonds', 0) or 0)
-        if nca is None or nca <= long_debt:
+        long_debt = (bs.get('long_term_debt') or 0) + (bs.get('bonds') or 0)
+        if nca is None or long_debt > nca:
             continue
 
-        # 전 기간 흑자 (순이익 + 영업이익 모두 > 0) + EPS 누적 성장률 > 30%
-        annual_ni = fin.get('annual', {}).get('net_income', {})
-        sorted_annual = sorted(annual_ni.items(), key=lambda x: x[0], reverse=True)
-        annual_values = [v for _, v in sorted_annual]
-
-        if len(annual_values) < 2:
+        # 전 기간 흑자 (순이익 + 영업이익 모두 > 0)
+        ni = _annual_values(fin, 'net_income')
+        oi = _annual_values(fin, 'operating_income')
+        if len(ni) < 2 or not oi or min(v for _, v in ni + oi) <= 0:
             continue
 
-        # 순이익 모두 흑자
-        if not all(v is not None and not np.isnan(v) and v > 0 for v in annual_values):
+        # 배당 지급
+        div_yield = fin.get('header', {}).get('dividend_yield')
+        if not div_yield or div_yield <= 0:
             continue
 
-        # 영업이익 모두 흑자
-        annual_oi = fin.get('annual', {}).get('operating_income', {})
-        oi_values = [v for _, v in sorted(annual_oi.items(), key=lambda x: x[0], reverse=True)]
-        if not oi_values or not all(v is not None and not np.isnan(v) and v > 0 for v in oi_values):
+        # 이익 성장 (연 3% 환산)
+        growth = _graham_eps_growth(fin)
+        if growth is None or growth[0] < growth[1]:
             continue
 
-        # EPS 연평균 성장률(CAGR) > 30% (최신/최구 EPS 비율로 계산)
-        annual_eps = fin.get('annual', {}).get('eps', {})
-        sorted_eps = sorted(annual_eps.items(), reverse=True)
-        if not sorted_eps:
-            # eps 전혀 없음 → net_income YoY 평균으로 fallback (구버전 캐시 호환)
-            eps_growth_rates = get_growth_rates_with_ttm(fin, 'net_income', years=4)
-            valid_eps_growth = [g for g in eps_growth_rates if g is not None]
-            avg_eps_growth = sum(valid_eps_growth) / len(valid_eps_growth) if valid_eps_growth else None
-        else:
-            latest_eps_key = sorted_eps[0][0]
-            if latest_eps_key >= '2025/12':
-                eps_vals = [v for _, v in sorted_eps]
-            else:
-                # 2025 미공시 → TTM net_income 기반 EPS 근사값 prepend
-                ni_ttm = fin.get('net_income_ttm')
-                latest_ni = fin.get('annual', {}).get('net_income', {}).get(latest_eps_key)
-                if ni_ttm and latest_ni and latest_ni != 0:
-                    eps_vals = [sorted_eps[0][1] * (ni_ttm / latest_ni)] + [v for _, v in sorted_eps]
-                else:
-                    eps_vals = [v for _, v in sorted_eps]
-            # CAGR = (최신 / 최구)^(1/n) - 1
-            valid_eps_vals = [v for v in eps_vals if v is not None and not np.isnan(v)]
-            if len(valid_eps_vals) >= 2 and valid_eps_vals[0] > 0 and valid_eps_vals[-1] > 0:
-                n_years = len(valid_eps_vals) - 1
-                avg_eps_growth = ((valid_eps_vals[0] / valid_eps_vals[-1]) ** (1 / n_years) - 1) * 100
-            else:
-                avg_eps_growth = None
-
-        if avg_eps_growth is None or avg_eps_growth < 30:
+        # PER(3년 평균 이익) <= 15
+        per3 = _per_3y(market_cap, fin)
+        if per3 is None or per3 > 15:
             continue
 
-        # PER < 15
-        per = get_per_from_data(market_cap, fin)
-        if per is None or per <= 0 or per > 15:
-            continue
-
-        # PBR * PER < 22
+        # PBR <= 1.5 또는 PER × PBR <= 22.5
         pbr = get_pbr_from_data(market_cap, fin)
-        if pbr is None or pbr <= 0:
-            continue
-        if per * pbr > 22:
+        if pbr is None or pbr <= 0 or (pbr > 1.5 and per3 * pbr > 22.5):
             continue
 
         dr = get_debt_ratio(fin)
-        header = fin.get('header', {})
-        div_yield = header.get('dividend_yield')
 
         results.append({
             'ticker': code,
             'name': name,
             'current_price': int(row.get('종가', 0) or 0),
             'market_cap': round(market_cap, 0),
-            'per': round(per, 1),
+            'per': round(per3, 1),  # 3년 평균 이익 기준
             'pbr': round(pbr, 2),
-            'per_x_pbr': round(per * pbr, 2),
+            'per_x_pbr': round(per3 * pbr, 2),
             'current_ratio': round(cr, 2),
             'net_current_assets': round(nca, 0),
-            'eps_growth': round(avg_eps_growth, 1),
+            'eps_growth': round(growth[0], 1),  # 최근 2년 vs 최초 2년 EPS 평균 증가율
+            'eps_growth_required': round(growth[1], 1),
             'debt_ratio': round(dr, 1) if dr is not None else None,
             'dividend_yield': div_yield,
             'revenue_ttm': round(rev_ttm, 0),
@@ -609,19 +574,20 @@ def screen_graham(filtered, fnguide_cache):
     results.sort(key=lambda x: x['per_x_pbr'])
 
     _save_result('graham.json', 'graham', '벤저민 그레이엄 전략',
-                 '유동비율·PER×PBR·흑자 기반 보수적 가치투자',
-                 ['PER < 15', 'PBR×PER < 22', '유동비율 > 200%',
-                  '순유동자산 > 장기부채', '전 기간 흑자(순이익+영업이익)',
-                  'EPS 연평균 성장률 > 30%', '매출 > 1000억'],
+                 '그레이엄 『현명한 투자자』 14장 방어적 투자자 기준 (5년 데이터로 축소)',
+                 ['매출 > 1000억', '유동비율 >= 200%', '장기부채 <= 순유동자산',
+                  '전 기간 흑자(순이익+영업이익)', '배당 지급(배당수익률 > 0)',
+                  '최근 2년 EPS 평균 >= 최초 2년 평균 × 1.03^간격',
+                  'PER(3년 평균 이익) <= 15', 'PBR <= 1.5 또는 PER×PBR <= 22.5'],
                  results)
 
     _print_result('벤저민 그레이엄 전략', results, [
         {'key': 'name', 'label': '종목명', 'width': 14},
-        {'key': 'per', 'label': 'PER', 'width': 8, 'fmt': '.1f'},
+        {'key': 'per', 'label': 'PER3y', 'width': 8, 'fmt': '.1f'},
         {'key': 'pbr', 'label': 'PBR', 'width': 7, 'fmt': '.2f'},
         {'key': 'per_x_pbr', 'label': 'PxB', 'width': 7, 'fmt': '.2f'},
         {'key': 'current_ratio', 'label': '유동비율', 'width': 8, 'fmt': '.2f'},
-        {'key': 'cumulative_growth', 'label': '누적성장', 'width': 8, 'fmt': '.1f'},
+        {'key': 'eps_growth', 'label': 'EPS증가', 'width': 8, 'fmt': '.1f'},
         {'key': 'debt_ratio', 'label': '부채비율', 'width': 8, 'fmt': '.1f'},
     ])
 

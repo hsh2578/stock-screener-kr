@@ -3,7 +3,8 @@
 
 딱 2개 지표만 사용하는 단순하고 강력한 전략:
 1. 이익수익률 (Earnings Yield) = EBIT / EV
-2. 투하자본수익률 (ROC) = EBIT / Invested Capital
+2. 투하자본수익률 (ROC) = EBIT / 유형 투하자본 (순운전자본 + 유형자산)
+   EV = 시가총액 + 이자부채 - 현금
 
 각 지표별 순위를 매기고, 순위 합산으로 종합 순위를 산출합니다.
 
@@ -46,6 +47,14 @@ OUTPUT_FILE = os.path.join(DATA_PATH, 'magic_formula.json')
 MIN_MARKET_CAP = 1000  # 시가총액 1,000억 이상
 TOP_N = 20  # 상위 20개
 
+# 유틸리티(전력·가스·난방) 종목명 — 규제 요금 사업이라 이익수익률/ROC 비교가 무의미
+UTILITY_KEYWORDS = ('한국전력', '가스공사', '지역난방', '도시가스')
+UTILITY_NAMES = {'서울가스', '삼천리', '대성에너지'}
+
+
+def is_utility_stock(name: str) -> bool:
+    return name in UTILITY_NAMES or any(k in name for k in UTILITY_KEYWORDS)
+
 
 # ============================================================================
 # 메인 로직
@@ -85,7 +94,10 @@ def run_magic_formula():
             )
         ]
 
-    print(f"  필터링 후: {len(filtered)}개 종목 (금융주/우선주/스팩/리츠 제외)")
+    # 유틸리티 제외 (그린블라트 원칙). 마스터 업종이 전부 '기타'라 종목명으로 판별
+    filtered = filtered[~filtered['종목명'].apply(is_utility_stock)]
+
+    print(f"  필터링 후: {len(filtered)}개 종목 (금융주/유틸리티/우선주/스팩/리츠 제외)")
 
     # 3. FnGuide 재무데이터 (캐시 → fallback 개별 수집)
     print(f"\n[3/4] FnGuide 재무데이터 로드 ({len(filtered)}개 종목)...")
@@ -119,7 +131,7 @@ def run_magic_formula():
             skipped += 1
             continue
 
-        invested_capital = get_invested_capital(fin_data)
+        invested_capital = get_invested_capital(fin_data)  # 총자산 10% 미만(금융성 자산 기업)은 None
         if invested_capital is None or invested_capital <= 0:
             skipped += 1
             continue
