@@ -23,7 +23,6 @@ from typing import Optional
 
 import numpy as np
 import pandas as pd
-from pykrx import stock
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
@@ -133,6 +132,9 @@ def get_sector_ohlcv(sector_code: str, days: int = 200) -> Optional[pd.DataFrame
     start_date = (datetime.now() - timedelta(days=int(days * 1.5))).strftime("%Y%m%d")
 
     try:
+        # pykrx 는 import 시점에 KRX 로그인을 시도한다 — 모듈 상단에서 import 하면
+        # 로그인 실패 시 scripts.screeners 패키지(바닥 탈출 등) 전체가 import 단계에서 죽는다
+        from pykrx import stock
         time.sleep(REQUEST_DELAY)
         df = stock.get_index_ohlcv(start_date, end_date, sector_code)
 
