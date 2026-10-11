@@ -116,6 +116,9 @@ jobs:
           ls -lh .cache/ 2>/dev/null || echo "  (비어있음)"
 
       - name: 🚀 스크리너 실행
+        env:
+          KRX_ID: ${{ secrets.KRX_ID }}  # pykrx 업종지수 조회(업종별 4단계)에 KRX 로그인 필요
+          KRX_PW: ${{ secrets.KRX_PW }}
         run: |
           echo "=========================================="
           echo "스크리너 실행 시작: $(date '+%Y-%m-%d %H:%M:%S %Z')"

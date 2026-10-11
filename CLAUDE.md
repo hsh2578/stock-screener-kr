@@ -279,6 +279,12 @@ python guru_screeners.py        # 대가 4종
 | fallen-rebound | 낙폭과대 반등 | fallen_rebound.json | 52주 고가 -40% + 바닥 상승 | - |
 | sector-stage | 업종별 4단계 | sector_stage.json | 업종 추세 분석 (와인스테인 4단계) | - |
 
+**업종별 4단계** (`screen_sector_stage`) — 2026-10 네이버 업종 스크래핑(`type_5` 테이블 소멸로 2026-09-10부터 0개) → **KRX 업종지수(pykrx)** 로 교체.
+- 대상: `KRX_SECTOR_INDICES` 코스피 23 + 코스닥 21 업종지수 (규모·코스피200 등 스타일·종합·제조·소속부 지수 제외). `sector_name` = "코스피 화학" 식
+- 단계(`_weinstein_stage`): 2 = 기울기>+1% & 종가>MA150 / 4 = 기울기<-1% & 종가<MA150 / 3 = 그 외인데 MA150이 상승 중이었음(현재·직전 20일 기울기>+1%) / 1 = 나머지. 기울기 = MA150 20거래일 변화율
+- `stock_count` = `get_index_portfolio_deposit_file` 구성종목 수. pykrx 1.2+ 는 **KRX_ID/KRX_PW 환경변수(=GitHub secrets) 필요**
+- 0개면 `RuntimeError` → 기존 JSON 유지(빈 JSON 저장 안 함). 판별 규칙 self-check: `python test_sector_stage.py`
+
 ### 가치투자 (2개)
 
 **저평가 우량주** (`value-stocks`, `value_stocks.json`) — 6개 조건 전부 충족
