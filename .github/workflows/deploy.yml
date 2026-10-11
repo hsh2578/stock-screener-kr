@@ -92,6 +92,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: 💾 OHLCV 캐시 복원
+        # run_id 키 → 매 실행 새로 저장, restore-keys 로 가장 최근 것을 복원 (날짜별 저장소가 이어짐)
         uses: actions/cache@v4
         with:
           path: .cache
@@ -105,17 +106,18 @@ jobs:
           mkdir -p logs
           mkdir -p .cache
 
-      - name: 🔄 당일 캐시 삭제 (최신 데이터 증분 다운로드 유도)
+      - name: 🗂️ 캐시 상태
         run: |
-          TODAY=$(TZ=Asia/Seoul date +%Y-%m-%d)
-          if [ -f ".cache/stock_data_${TODAY}.pkl" ]; then
-            rm -f ".cache/stock_data_${TODAY}.pkl"
-            echo "당일 캐시 삭제 → 전일 캐시 기반 증분 업데이트"
-          fi
-          echo "캐시 상태:"
-          ls -lh .cache/ 2>/dev/null || echo "  (비어있음)"
+          # .cache/daily/YYYYMMDD.parquet = 날짜별 전 종목 일봉 저장소 (scripts/ohlcv_store.py).
+          # 빠진 거래일·최신 거래일만 다시 받으므로 당일 캐시 삭제가 필요 없다.
+          echo "저장소 거래일 수: $(ls .cache/daily 2>/dev/null | wc -l)"
+          du -sh .cache 2>/dev/null || echo "  (비어있음)"
 
       - name: 🚀 스크리너 실행
+        env:
+          KRX_ID: ${{ secrets.KRX_ID }}          # pykrx 최신 시세·거래일 달력 (KRX 로그인)
+          KRX_PW: ${{ secrets.KRX_PW }}
+          KRX_API_KEY: ${{ secrets.KRX_API_KEY }}  # 과거 거래일 백필 (KRX OpenAPI, 없으면 pykrx 로 대체)
         run: |
           echo "=========================================="
           echo "스크리너 실행 시작: $(date '+%Y-%m-%d %H:%M:%S %Z')"

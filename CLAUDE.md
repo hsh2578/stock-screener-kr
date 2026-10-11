@@ -73,7 +73,8 @@ stock-screener-kr/
 │   ├── value-screener.yml       평일 20시 퀀트+대가 스크리너
 │   └── ml-retrain.yml           월간 ML 재훈련 (3개 모델)
 ├── web/                         ⚠️ React 앱 (미배포, 참고용)
-└── .cache/                      OHLCV pickle 캐시 (CI에서도 actions/cache로 유지)
+└── .cache/                      daily/YYYYMMDD.parquet 날짜별 전종목 일봉 저장소 (scripts/ohlcv_store.py, actions/cache로 유지)
+                                 + stock_data_*.pkl (ma60w/multi_factor 호환 내보내기)
 ```
 
 ---
@@ -124,7 +125,7 @@ const screenerGroups = [
 ```
 [deploy.yml 12/14/16/18시]              [value-screener.yml 20시]
  run_screeners.py                        collect_quant_data.py
-     │ (FDR OHLCV)                           │ (FnGuide 1회 수집)
+     │ (날짜별 저장소: KRX OpenAPI 과거 + pykrx 최신)                           │ (FnGuide 1회 수집)
      ▼                                       ▼
  .cache/stock_data_*.pkl              .cache/fnguide_*.pkl
  data/*.json (12개 기술 스크리너)             │
@@ -246,12 +247,14 @@ python guru_screeners.py        # 대가 4종
   - 미발표 종목(연간 최신 컬럼이 `/12`가 아닌 경우) → 분기 누적값 자동 제거
   - `_fetch_tables_main()` + `_parse_main_annual()` 함수 추가, ThreadPoolExecutor(max_workers=2) 동시 요청
   - 기존 4년 값 덮어쓰기 방지 (min_existing 체크), Main 파싱 실패 시 자동 fallback
-- FDR 크롤링 속도: 로컬 ~3.5분 (캐시), CI ~5분 (증분 캐시)
-- `fdr.DataReader()`에 타임아웃 없음 → 간헐적 멈춤 가능
+- **OHLCV = 날짜별 저장소** (`scripts/ohlcv_store.py`): 거래일당 1파일, 750거래일 보존. 웜 실행은 최신 거래일만 수집.
+  KRX_ID/KRX_PW(pykrx 로그인, 최신일·거래일 달력) 필수, KRX_API_KEY(OpenAPI 과거일 백필) 권장. 수집 실패 시 non-zero 종료.
+  수정주가는 등락률 vs 종가비 불일치(>0.05%p)로 기준가 변경을 감지해 계산 (종목별 API 호출 없음).
+  `--fresh` = 저장소 삭제 후 전체 재수집 (OpenAPI 8스레드 ~4분)
 - chart_data.json이 37MB+로 매우 큼 (3초 후 백그라운드 프리로드로 개선)
 - `pd.DataFrame._append`는 deprecated → `pd.concat()` 사용
 - GitHub Actions 스케줄은 최대 2시간 지연 가능
-- CI 캐시: `actions/cache`로 `.cache/` 유지 (당일 pkl 삭제 → 증분 업데이트)
+- CI 캐시: `actions/cache`로 `.cache/` 유지 (run_id 키 + restore-keys → 최신 저장소 복원)
 - B/S 항목: `balance` = 최신값(EV/PBR용), `balance_avg` = 4분기 평균(ROE/GPA/IC용)
 - EBIT = 영업이익 (한국 회계 기준, `영업이익 - 법인세`는 이중 차감 오류)
 - 멀티팩터: 금융주 제외 안 함, Winsorize `_orig` 컬럼에 원본값 보존

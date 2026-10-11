@@ -28,6 +28,17 @@ from pathlib import Path
 from sklearn.linear_model import Lasso, LogisticRegression
 from sklearn.preprocessing import StandardScaler
 
+# 로컬 실행: KRX_ID/KRX_PW/KRX_API_KEY 를 Desktop 마스터 .env 에서 로드 (CI 는 secrets → env)
+if not os.getenv('KRX_ID'):
+    try:
+        sys.path.insert(0, str(Path.home() / 'Desktop'))
+        from env_loader import load_env
+        load_env()
+    except ImportError:
+        pass
+
+from scripts import ohlcv_store
+
 # 로깅 설정
 logging.basicConfig(
     level=logging.INFO,
@@ -36,7 +47,7 @@ logging.basicConfig(
 from contextlib import contextmanager
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, asdict
-from typing import Optional, Tuple, List, Dict, Any
+from typing import Optional, Tuple, List, Dict, Any, Iterable
 from tqdm import tqdm
 
 # scipy.signal for vectorized pivot detection (optional, fallback to loop if not available)
@@ -52,7 +63,8 @@ except ImportError:
 _DATA_CACHE: Dict[str, pd.DataFrame] = {}
 _CACHE_LOCK = threading.Lock()  # 캐시 접근 동기화용 Lock
 CACHE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '.cache')
-FORCE_DOWNLOAD = '--fresh' in sys.argv
+FORCE_DOWNLOAD = '--fresh' in sys.argv  # 날짜별 저장소를 지우고 전체 재수집
+_STORE_DATES: List[str] = []  # main() 의 update_store() 결과 (사용 거래일 목록)
 
 # ============================================================================
 # 성능 최적화: 박스권 분석 결과 캐시 (스레드 안전)
@@ -1253,57 +1265,18 @@ def is_box_range(df: pd.DataFrame, period: int = 60, use_cache: bool = True) -> 
 
 def get_stock_list() -> pd.DataFrame:
     """
-    KOSPI + KOSDAQ 종목 리스트를 가져옵니다.
-    KRX OTP 통신을 시도하고, 실패 시 FDR로 fallback합니다.
-
-    시가총액 1,000억 이상 종목만 필터링합니다.
+    KOSPI + KOSDAQ 보통주 중 시가총액 1,000억 이상.
+    날짜별 저장소 최신 거래일 파일의 시가총액·시장·종목명 사용 (FDR StockListing / KRX OTP 의존 제거).
+    update_store() 이후에 호출해야 한다.
 
     Returns:
-        DataFrame with columns: Code, Name, MarketCap, Market
+        DataFrame with columns: Code, Name, MarketCap(억원), Market
     """
-    # KRX OTP 방식 시도
-    try:
-        from scripts.krx_data import get_filtered_stocks
-        print("종목 리스트 조회 중... (KRX OTP)")
-        stocks = get_filtered_stocks(min_market_cap=MIN_MARKET_CAP)
-        # 우선주 제외
-        if 'is_common' in stocks.columns:
-            before = len(stocks)
-            stocks = stocks[stocks['is_common'] == True].copy()
-            print(f"  우선주 제외: {before - len(stocks)}개 → {len(stocks)}개 종목")
-        return stocks
-    except Exception as e:
-        print(f"  KRX OTP 실패 ({e}), FDR로 fallback")
-
-    # FDR fallback
-    print("종목 리스트 조회 중... (FDR)")
-
-    kospi = fdr.StockListing('KOSPI')
-    kospi['Market'] = 'KOSPI'
-
-    kosdaq = fdr.StockListing('KOSDAQ')
-    kosdaq['Market'] = 'KOSDAQ'
-
-    stocks = pd.concat([kospi, kosdaq], ignore_index=True)
-
-    if 'Marcap' in stocks.columns:
-        stocks['MarketCap'] = stocks['Marcap'] / 100000000
-    elif 'MarketCap' in stocks.columns:
-        stocks['MarketCap'] = stocks['MarketCap'] / 100000000
-    else:
-        stocks['MarketCap'] = MIN_MARKET_CAP + 1
-
-    stocks = stocks[stocks['MarketCap'] >= MIN_MARKET_CAP].copy()
-
-    # 우선주 제외 (코드 끝자리 0이 보통주)
-    if 'Code' in stocks.columns:
-        before = len(stocks)
-        stocks = stocks[stocks['Code'].astype(str).str[-1] == '0'].copy()
-        print(f"  우선주 제외: {before - len(stocks)}개 → {len(stocks)}개 종목")
-
-    print(f"  시가총액 {MIN_MARKET_CAP}억 이상: {len(stocks)}개 종목")
-
+    print("종목 리스트 조회 중... (날짜별 저장소)")
+    stocks = ohlcv_store.stock_list(_STORE_DATES, MIN_MARKET_CAP)
+    print(f"  보통주 + 시가총액 {MIN_MARKET_CAP}억 이상: {len(stocks)}개 종목")
     return stocks
+
 
 
 _market_latest_date_cache: Optional[pd.Timestamp] = None
@@ -1342,270 +1315,38 @@ def reset_market_latest_date_cache() -> None:
 
 def get_ohlcv(ticker: str, days: int = 200) -> Optional[pd.DataFrame]:
     """
-    종목의 OHLCV 데이터를 가져옵니다.
-    캐시가 있으면 캐시에서 반환하고, 없으면 API 호출합니다.
-    스레드 안전한 캐시 접근을 보장합니다.
+    종목의 OHLCV (preload_all_data 가 채운 _DATA_CACHE 에서만 조회, 없으면 None).
 
     Args:
         ticker: 종목코드
         days: 조회 기간 (거래일)
-
-    Returns:
-        OHLCV DataFrame or None
     """
-    global _DATA_CACHE
-
-    # 캐시에 있으면 캐시에서 반환 (Lock으로 동기화)
     with _CACHE_LOCK:
-        if ticker in _DATA_CACHE:
-            df = _DATA_CACHE[ticker]
-            if df is not None and len(df) > 0:
-                return df.tail(days) if len(df) >= days else df
-            return None
-
-    # 캐시에 없으면 API 호출 (Lock 밖에서 수행하여 병렬성 유지)
-    try:
-        end_date = datetime.now()
-        start_date = end_date - timedelta(days=days + 50)
-        df = fdr.DataReader(ticker, start_date.strftime('%Y-%m-%d'))
-        with _CACHE_LOCK:
-            _DATA_CACHE[ticker] = df  # 캐시에 저장
-        return df.tail(days) if len(df) >= days else df
-    except Exception as e:
-        logging.warning(f"Failed to fetch data for {ticker}: {e}")
-        with _CACHE_LOCK:
-            _DATA_CACHE[ticker] = None  # 실패도 캐시 (재시도 방지)
+        df = _DATA_CACHE.get(ticker)
+    if df is None or len(df) == 0:
         return None
+    return df.tail(days) if len(df) >= days else df
 
-
-def _download_single_stock(args: Tuple[str, str], max_retries: int = 2) -> Tuple[str, Optional[pd.DataFrame]]:
-    """
-    단일 종목 데이터 다운로드 (병렬 처리용, 지수 백오프 재시도 포함)
-
-    Args:
-        args: (ticker, start_str) 튜플
-        max_retries: 최대 재시도 횟수 (기본 2회)
-
-    Returns:
-        (ticker, DataFrame or None) 튜플
-    """
-    ticker, start_str = args
-    base_delay = 0.2  # 기본 대기 시간 (초) - 최적화
-
-    for attempt in range(max_retries):
-        try:
-            result = [None]
-            exc = [None]
-
-            def _fetch():
-                try:
-                    result[0] = fdr.DataReader(ticker, start_str)
-                except Exception as e:
-                    exc[0] = e
-
-            t = threading.Thread(target=_fetch, daemon=True)
-            t.start()
-            t.join(timeout=30)
-
-            if t.is_alive():
-                raise TimeoutError(f"fdr.DataReader timeout: {ticker}")
-            if exc[0] is not None:
-                raise exc[0]
-            df = result[0]
-
-            # 빈 데이터도 재시도 대상으로 처리
-            if df is not None and len(df) > 0:
-                return (ticker, df)
-
-            # 빈 데이터인 경우도 재시도 (마지막 시도가 아닌 경우)
-            if attempt < max_retries - 1:
-                # 지수 백오프: base_delay * 2^attempt (0.5, 1.0, 2.0초)
-                delay = base_delay * (2 ** attempt)
-                time.sleep(delay)
-                continue
-
-        except Exception:
-            if attempt < max_retries - 1:
-                # 지수 백오프 적용
-                delay = base_delay * (2 ** attempt)
-                time.sleep(delay)
-                continue
-
-    return (ticker, None)
-
-
-def _get_cache_path(date_str: str = None) -> str:
-    """
-    지정 날짜 기준 캐시 파일 경로 반환.
-
-    Args:
-        date_str: 날짜 문자열 (YYYY-MM-DD). None이면 오늘 날짜 사용.
-
-    Returns:
-        캐시 파일 경로
-    """
-    if date_str is None:
-        date_str = datetime.now().strftime('%Y-%m-%d')
-    return os.path.join(CACHE_DIR, f'stock_data_{date_str}.pkl')
-
-
-def _is_market_closed() -> bool:
-    """
-    현재 장이 마감되었는지 확인.
-    평일 15:30 이후 또는 주말이면 True 반환.
-
-    Returns:
-        장 마감 여부
-    """
-    now = datetime.now()
-    # 주말 (토:5, 일:6) 체크
-    if now.weekday() >= 5:
-        return True
-    # 평일 15:30 이후 체크
-    market_close = now.replace(hour=15, minute=30, second=0, microsecond=0)
-    return now >= market_close
-
-
-def _find_recent_cache() -> Tuple[Optional[str], Optional[str]]:
-    """
-    가장 최근 캐시 파일 찾기 (최대 7일 전까지).
-
-    Returns:
-        (캐시 파일 경로, 캐시 날짜) 또는 (None, None)
-    """
-    os.makedirs(CACHE_DIR, exist_ok=True)
-
-    for days_ago in range(8):  # 오늘부터 7일 전까지
-        check_date = datetime.now() - timedelta(days=days_ago)
-        date_str = check_date.strftime('%Y-%m-%d')
-        cache_path = _get_cache_path(date_str)
-        if os.path.exists(cache_path):
-            return cache_path, date_str
-
-    return None, None
-
-
-def _load_cache_with_fallback() -> Tuple[Dict, bool, Optional[str]]:
-    """
-    증분 캐시 전략: 당일 캐시 없으면 전일 캐시 로드 후 증분 업데이트.
-
-    Returns:
-        (캐시 데이터, 증분 업데이트 필요 여부, 캐시 날짜)
-        - 당일 캐시 존재: (캐시 데이터, False, 오늘 날짜)
-        - 전일 캐시 존재: (캐시 데이터, True, 전일 날짜)
-        - 캐시 없음: ({}, True, None)
-    """
-    today_str = datetime.now().strftime('%Y-%m-%d')
-    today_cache = _get_cache_path(today_str)
-
-    # 오늘자 캐시가 있으면 그대로 사용 (증분 불필요)
-    if os.path.exists(today_cache):
-        try:
-            with open(today_cache, 'rb') as f:
-                loaded_data = pickle.load(f)
-            return loaded_data, False, today_str
-        except Exception:
-            pass  # 로딩 실패 시 다음으로 진행
-
-    # 장 마감 후에는 당일 캐시가 완전하므로, 새로 다운로드할 필요 없음
-    # 다만 당일 캐시가 없다면 전일 캐시 사용
-
-    # 전일~최대 7일 전 캐시 찾기
-    for days_ago in range(1, 8):
-        check_date = datetime.now() - timedelta(days=days_ago)
-        date_str = check_date.strftime('%Y-%m-%d')
-        cache_path = _get_cache_path(date_str)
-
-        if os.path.exists(cache_path):
-            try:
-                with open(cache_path, 'rb') as f:
-                    loaded_data = pickle.load(f)
-                return loaded_data, True, date_str
-            except Exception:
-                continue  # 로딩 실패 시 더 오래된 캐시 시도
-
-    return {}, True, None
-
-
-def _load_cache() -> bool:
-    """
-    디스크 캐시에서 데이터 로딩. 성공 시 True 반환. 스레드 안전.
-    증분 캐시 전략 적용: 전일 캐시 활용하여 다운로드 최소화.
-
-    Returns:
-        캐시 로딩 성공 여부 (증분 업데이트 필요 시 False 반환)
-    """
-    global _DATA_CACHE
-
-    if FORCE_DOWNLOAD:
-        print("\n[캐시] --fresh 옵션: 강제 다운로드")
-        return False
-
-    loaded_data, needs_update, cache_date = _load_cache_with_fallback()
-
-    if not loaded_data:
-        print("\n[캐시] 유효한 캐시 없음 - 전체 다운로드 필요")
-        return False
-
-    with _CACHE_LOCK:
-        _DATA_CACHE = loaded_data
-
-    valid = sum(1 for v in _DATA_CACHE.values() if v is not None)
-    today_str = datetime.now().strftime('%Y-%m-%d')
-
-    if not needs_update:
-        # 당일 캐시 - 그대로 사용
-        print(f"\n[캐시] 오늘자 캐시 로딩: stock_data_{cache_date}.pkl")
-        print(f"  완료: {valid}개 종목 로딩됨 (캐시 사용)")
-        return True
-    else:
-        # 전일 캐시 - 장 상태에 따라 처리
-        print(f"\n[캐시] 이전 캐시 발견: stock_data_{cache_date}.pkl ({valid}개 종목)")
-
-        if _is_market_closed():
-            # 장 마감 후: 전일 데이터로 스크리닝 (다운로드 스킵 가능)
-            # 단, 오늘 데이터가 없으므로 증분 업데이트 진행
-            print(f"  장 마감 상태 - 증분 업데이트 진행")
-            return False  # preload_all_data에서 증분 업데이트 진행
-        else:
-            # 장 중: 전일 캐시 기반으로 당일 데이터 증분 다운로드
-            print(f"  장 진행 중 - 증분 업데이트 필요")
-            return False  # preload_all_data에서 증분 업데이트 진행
 
 
 def _save_cache() -> None:
     """
-    현재 데이터를 디스크 캐시로 저장. 스레드 안전.
-    전일 캐시는 삭제하지 않고 보관 (증분 업데이트용).
+    _DATA_CACHE 를 .cache/stock_data_{오늘}.pkl 로 내보낸다.
+    run_screeners 자신은 읽지 않는다 — ma60w_quality.py / multi_factor.py 가 읽는 호환용 산출물.
+    이전 날짜 pkl 은 삭제 (원본은 .cache/daily 저장소).
     """
     os.makedirs(CACHE_DIR, exist_ok=True)
-    cache_path = _get_cache_path()  # 오늘 날짜 캐시
-
-    # 7일 이전 캐시만 삭제 (최근 캐시는 보관)
-    cutoff_date = datetime.now() - timedelta(days=7)
+    name = f"stock_data_{datetime.now().strftime('%Y-%m-%d')}.pkl"
     for f in os.listdir(CACHE_DIR):
-        if f.startswith('stock_data_') and f.endswith('.pkl'):
-            try:
-                # 파일명에서 날짜 추출
-                date_str = f.replace('stock_data_', '').replace('.pkl', '')
-                file_date = datetime.strptime(date_str, '%Y-%m-%d')
-                if file_date < cutoff_date:
-                    old_path = os.path.join(CACHE_DIR, f)
-                    os.remove(old_path)
-                    print(f"  오래된 캐시 삭제: {f}")
-            except (ValueError, OSError):
-                pass  # 날짜 파싱 실패 또는 삭제 실패는 무시
+        if f.startswith('stock_data_') and f.endswith('.pkl') and f != name:
+            os.remove(os.path.join(CACHE_DIR, f))
+    with _CACHE_LOCK:
+        cache_copy = _DATA_CACHE.copy()
+    path = os.path.join(CACHE_DIR, name)
+    with open(path, 'wb') as f:
+        pickle.dump(cache_copy, f, protocol=pickle.HIGHEST_PROTOCOL)
+    print(f"  호환 캐시 저장: {os.path.getsize(path) / 1024 / 1024:.0f}MB ({name})")
 
-    try:
-        # Lock 내에서 캐시 복사 후 저장 (Lock 보유 시간 최소화)
-        with _CACHE_LOCK:
-            cache_copy = _DATA_CACHE.copy()
-        with open(cache_path, 'wb') as f:
-            pickle.dump(cache_copy, f, protocol=pickle.HIGHEST_PROTOCOL)
-        size_mb = os.path.getsize(cache_path) / (1024 * 1024)
-        print(f"  캐시 저장: {size_mb:.0f}MB ({os.path.basename(cache_path)})")
-    except Exception as e:
-        print(f"  캐시 저장 실패: {e}")
 
 
 # ============================================================================
@@ -1666,200 +1407,21 @@ def parallel_screen_stocks(
     return results
 
 
-def _incremental_update_data(
-    ticker: str,
-    cached_df: Optional[pd.DataFrame],
-    cache_date: str,
-    end_date: datetime
-) -> Tuple[str, Optional[pd.DataFrame]]:
+def preload_all_data(stocks: pd.DataFrame, extra_tickers: Iterable[str] = ()) -> None:
     """
-    캐시된 데이터에 당일 데이터만 추가하는 증분 업데이트.
-
-    Args:
-        ticker: 종목코드
-        cached_df: 기존 캐시 데이터
-        cache_date: 캐시 날짜 (YYYY-MM-DD)
-        end_date: 종료 날짜
-
-    Returns:
-        (ticker, 업데이트된 DataFrame)
-    """
-    if cached_df is None or len(cached_df) < 700:
-        # 캐시 없거나 부족하면 전체 다운로드 (이평선 수렴 100주봉 필요 → 800 캘린더일)
-        start_date = end_date - timedelta(days=800)
-        start_str = start_date.strftime('%Y-%m-%d')
-        return _download_single_stock((ticker, start_str))
-
-    try:
-        # 캐시 날짜 다음 날부터 오늘까지 데이터 가져오기
-        cache_dt = datetime.strptime(cache_date, '%Y-%m-%d')
-        incremental_start = (cache_dt + timedelta(days=1)).strftime('%Y-%m-%d')
-        end_str = end_date.strftime('%Y-%m-%d')
-
-        # 증분 데이터 다운로드 (타임아웃 30초, daemon 스레드: 프로세스 종료 시 자동 정리)
-        _result = [None]
-        _exc = [None]
-
-        def _fetch_incremental():
-            try:
-                _result[0] = fdr.DataReader(ticker, incremental_start, end_str)
-            except Exception as e:
-                _exc[0] = e
-
-        _t = threading.Thread(target=_fetch_incremental, daemon=True)
-        _t.start()
-        _t.join(timeout=30)
-
-        if _t.is_alive():
-            raise TimeoutError(f"fdr.DataReader timeout (incremental): {ticker}")
-        if _exc[0] is not None:
-            raise _exc[0]
-        new_df = _result[0]
-
-        if new_df is not None and len(new_df) > 0:
-            # 기존 데이터와 새 데이터 병합
-            combined = pd.concat([cached_df, new_df])
-            # 중복 인덱스 제거 (마지막 값 유지)
-            combined = combined[~combined.index.duplicated(keep='last')]
-            # 날짜 정렬
-            combined = combined.sort_index()
-            # 최근 800일 유지 (이평선 수렴 100주봉=700일, 차트 캐시 히트 700일 필요)
-            if len(combined) > 800:
-                combined = combined.tail(800)
-            return (ticker, combined)
-        else:
-            # 새 데이터 없으면 기존 캐시 그대로 사용
-            return (ticker, cached_df)
-
-    except Exception as e:
-        logging.debug(f"증분 업데이트 실패 ({ticker}): {e}")
-        # 실패 시 기존 캐시 사용
-        return (ticker, cached_df)
-
-
-def preload_all_data(stocks: pd.DataFrame, days: int = 200, max_workers: int = 100) -> None:
-    """
-    모든 종목의 데이터를 병렬로 다운로드하여 캐시합니다.
-    증분 캐시 전략: 전일 캐시가 있으면 당일 데이터만 추가 다운로드.
-    스레드 안전한 캐시 접근을 보장합니다.
-
-    Args:
-        stocks: 종목 리스트 DataFrame
-        days: 조회 기간 (거래일)
-        max_workers: 동시 다운로드 스레드 수
+    날짜별 저장소(scripts/ohlcv_store.py)에서 종목별 OHLCV 를 만들어 _DATA_CACHE 에 채운다.
+    종목별 API 호출 없음 (수정주가도 저장소의 등락률로 계산). 저장소 최신화는 main() 의 update_store().
     """
     global _DATA_CACHE
-
-    # 디스크 캐시 확인 (증분 캐시 전략 적용)
-    if _load_cache():
-        return
-
-    # 전일 캐시 데이터와 증분 업데이트 필요 여부 확인
-    loaded_data, needs_update, cache_date = _load_cache_with_fallback()
-
-    end_date = datetime.now()
-    start_date = end_date - timedelta(days=days + 50)
-    start_str = start_date.strftime('%Y-%m-%d')
-
-    # 티커 목록 추출
-    tickers = []
-    for _, row in stocks.iterrows():
-        ticker = row.get('Code', row.get('Symbol', ''))
-        if ticker:
-            tickers.append(ticker)
-
-    # 증분 업데이트 가능 여부 판단
-    use_incremental = (
-        needs_update and
-        cache_date is not None and
-        len(loaded_data) > 0 and
-        not FORCE_DOWNLOAD
-    )
-
-    if use_incremental:
-        # ====== 증분 업데이트 모드 ======
-        print(f"\n[증분 업데이트] 캐시 날짜: {cache_date} -> 오늘: {end_date.strftime('%Y-%m-%d')}")
-        print(f"  기존 캐시: {len(loaded_data)}개 종목")
-
-        # 새로운 종목 또는 캐시에 없는 종목 식별
-        new_tickers = [t for t in tickers if t not in loaded_data]
-        update_tickers = [t for t in tickers if t in loaded_data]
-
-        print(f"  증분 업데이트: {len(update_tickers)}개 / 신규 다운로드: {len(new_tickers)}개")
-
-        success_count = 0
-        fail_count = 0
-
-        # 기존 종목 증분 업데이트
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            update_futures = {
-                executor.submit(
-                    _incremental_update_data,
-                    ticker,
-                    loaded_data.get(ticker),
-                    cache_date,
-                    end_date
-                ): ticker
-                for ticker in update_tickers
-            }
-
-            for future in tqdm(as_completed(update_futures), total=len(update_futures), desc="증분 업데이트"):
-                ticker, df = future.result()
-                with _CACHE_LOCK:
-                    _DATA_CACHE[ticker] = df
-                if df is not None:
-                    success_count += 1
-                else:
-                    fail_count += 1
-
-        # 신규 종목 전체 다운로드
-        if new_tickers:
-            download_args = [(ticker, start_str) for ticker in new_tickers]
-
-            with ThreadPoolExecutor(max_workers=max_workers) as executor:
-                new_futures = {executor.submit(_download_single_stock, arg): arg[0] for arg in download_args}
-
-                for future in tqdm(as_completed(new_futures), total=len(new_futures), desc="신규 다운로드"):
-                    ticker, df = future.result()
-                    with _CACHE_LOCK:
-                        _DATA_CACHE[ticker] = df
-                    if df is not None:
-                        success_count += 1
-                    else:
-                        fail_count += 1
-
-        print(f"  완료: 성공 {success_count}개, 실패 {fail_count}개 (증분 업데이트)")
-
-    else:
-        # ====== 전체 다운로드 모드 ======
-        with _CACHE_LOCK:
-            _DATA_CACHE = {}
-
-        print(f"\n[데이터 다운로드] {len(tickers)}개 종목 (스레드 {max_workers}개)...")
-
-        success_count = 0
-        fail_count = 0
-
-        # 병렬 다운로드
-        download_args = [(ticker, start_str) for ticker in tickers]
-
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            futures = {executor.submit(_download_single_stock, arg): arg[0] for arg in download_args}
-
-            for future in tqdm(as_completed(futures), total=len(futures), desc="데이터 로딩"):
-                ticker, df = future.result()
-                # 스레드 안전한 캐시 업데이트
-                with _CACHE_LOCK:
-                    _DATA_CACHE[ticker] = df
-                if df is not None:
-                    success_count += 1
-                else:
-                    fail_count += 1
-
-        print(f"  완료: 성공 {success_count}개, 실패 {fail_count}개")
-
-    # 디스크에 캐시 저장
+    tickers = set(stocks['Code']) | {t for t in extra_tickers if t}
+    t0 = time.time()
+    frames = ohlcv_store.build_frames(_STORE_DATES, tickers)
+    with _CACHE_LOCK:
+        _DATA_CACHE = frames
+    reset_market_latest_date_cache()
+    print(f"[데이터] {len(frames)}/{len(tickers)}개 종목 구성 ({time.time() - t0:.1f}초)")
     _save_cache()
+
 
 
 # ============================================================================
@@ -3718,20 +3280,17 @@ def save_results(results: List[Dict], filename: str, screened_from: int) -> None
 
 
 def _fetch_chart_data_single(ticker: str) -> tuple:
-    """단일 종목 차트 데이터 fetch (병렬 실행용). OHLCV 캐시 우선 사용."""
+    """단일 종목 차트 데이터 (병렬 실행용). 저장소에서 만든 _DATA_CACHE(~3년) 사용.
+    캐시에 없는 종목(상장폐지 등 저장소 밖)만 FDR 로 개별 조회."""
     try:
-        # 캐시에 3년치(~730거래일) 이상 있으면 우선 사용
-        df = None
-        if ticker in _DATA_CACHE and _DATA_CACHE[ticker] is not None and len(_DATA_CACHE[ticker]) >= 700:
-            df = _DATA_CACHE[ticker]
-        if df is None or len(df) < 700:
-            end_date = datetime.now()
-            start_date = end_date - timedelta(days=1100)
+        df = get_ohlcv(ticker, ohlcv_store.KEEP_DAYS)
+        if df is None:
             try:
                 # 소켓 타임아웃은 generate_chart_data()에서 전역으로 설정됨 (30초)
+                start_date = datetime.now() - timedelta(days=1100)
                 df = fdr.DataReader(ticker, start_date.strftime('%Y-%m-%d'))
             except Exception:
-                df = get_ohlcv(ticker, 200)
+                df = None
         if df is None or len(df) < 10:
             return (ticker, None)
 
@@ -3911,6 +3470,15 @@ def main():
 
     total_start = time.time()
 
+    # 날짜별 일봉 저장소 최신화 (실패 시 RuntimeError → non-zero 종료, 오래된 데이터로 조용히 성공하지 않음)
+    global _STORE_DATES
+    if FORCE_DOWNLOAD and ohlcv_store.DAILY_DIR.exists():
+        if not os.getenv('KRX_API_KEY'):  # 백필 수단부터 확인 — 없으면 저장소를 지우기 전에 중단
+            raise RuntimeError('--fresh 에는 KRX_API_KEY 가 필요하다')
+        import shutil
+        shutil.rmtree(ohlcv_store.DAILY_DIR)
+    _STORE_DATES = ohlcv_store.update_store()
+
     # 종목 리스트 조회
     stocks = get_stock_list()
     total_stocks = len(stocks)
@@ -3920,9 +3488,22 @@ def main():
 
     print(f"\n분석 대상: {len(stocks)}개 종목 (전체 {total_stocks}개 중)")
 
-    # 데이터 사전 로딩 (한 번만 다운로드하고 모든 스크리너에서 재사용)
-    # 52주 신고가: 260거래일, 이평선 수렴: 100주봉(700일) 필요 → 800 캘린더일 확보
-    preload_all_data(stocks, days=800)
+    # 퀀트/대가 스크리너 결과 종목(차트용) — 유니버스 밖일 수 있어 함께 구성
+    extra_files = ['value_stocks.json', 'ma60w_quality.json', 'magic_formula.json', 'multi_factor.json',
+                   'buffett.json', 'ackman.json', 'lynch.json', 'graham.json']
+    extra_results = []
+    for filename in extra_files:
+        filepath = os.path.join(DATA_PATH, filename)
+        if os.path.exists(filepath):
+            try:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    for item in json.load(f).get('data', []):
+                        extra_results.append({'ticker': item.get('ticker'), 'name': item.get('name')})
+            except Exception as e:
+                logging.warning(f"{filename} 로드 실패: {e}")
+
+    # 데이터 사전 로딩 (저장소 → 종목별 DataFrame, 모든 스크리너에서 재사용)
+    preload_all_data(stocks, [r['ticker'] for r in extra_results])
 
     try:
         # 병렬 실행을 위한 스크리너 정의
@@ -4014,23 +3595,6 @@ def main():
         bottom_breakout_results = screener_results.get('바닥 탈출', [])
         ma_convergence_results = screener_results.get('이평선 수렴', [])
 
-        # 추가 스크리너 데이터 로드 (차트 데이터 생성용)
-        extra_results = []
-        extra_files = ['value_stocks.json', 'ma60w_quality.json', 'magic_formula.json', 'multi_factor.json',
-                       'buffett.json', 'ackman.json', 'lynch.json', 'graham.json']
-        for filename in extra_files:
-            filepath = os.path.join(DATA_PATH, filename)
-            if os.path.exists(filepath):
-                try:
-                    with open(filepath, 'r', encoding='utf-8') as f:
-                        data = json.load(f)
-                        for item in data.get('data', []):
-                            extra_results.append({
-                                'ticker': item.get('ticker'),
-                                'name': item.get('name')
-                            })
-                except Exception as e:
-                    logging.warning(f"{filename} 로드 실패: {e}")
         if extra_results:
             print(f"  추가 스크리너 차트 데이터 포함: {len(extra_results)}개")
 
@@ -4071,6 +3635,7 @@ def main():
         print(f"  바닥 탈출: {len(bottom_breakout_results)}개")
         print(f"  이평선 수렴: {len(ma_convergence_results)}개")
         print(f"\n총 실행 시간: {total_elapsed:.1f}초 ({total_elapsed/60:.1f}분)")
+        print(f"API 호출: {ohlcv_store.CALLS}")
         print("=" * 70)
 
     finally:
