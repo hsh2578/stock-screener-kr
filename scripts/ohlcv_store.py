@@ -5,18 +5,20 @@
     .cache/daily/YYYYMMDD.parquet       확정 일봉: 그날 KOSPI+KOSDAQ 전 종목 1파일 (비수정 시세)
         index=Ticker, 컬럼: Open High Low Close Volume Change(등락률 %) MarketCap(원) Name Market
     .cache/daily/YYYYMMDD_live.parquet  오늘 장중 스냅샷 (다음 날 확정 파일로 교체)
-    .cache/daily/holidays.txt           평일 휴장일 (재조회 방지)
+    .cache/daily/holidays.txt           (선택) 달력에 없는 임시 휴장일 수동 추가 — 한 줄에 YYYYMMDD
 
 출처
     - 지난 거래일: KRX OpenAPI (KRX_API_KEY 필수, 로그인 불필요, 다음 영업일 아침 게시)
     - OpenAPI 미게시일·오늘(장중): pykrx get_market_ohlcv(date, market=KOSPI/KOSDAQ)
       → KRX 로그인(KRX_ID/KRX_PW). pykrx 는 import 시 1회 로그인 → 필요할 때만, 프로세스당 1회.
-    - 거래일 달력은 따로 받지 않는다: 평일 중 데이터가 없는 날 = 휴장일.
+    - 거래일 달력: 평일 - holidays.KR(공휴일·대체공휴일·선거일) - 근로자의 날(5/1) - 연말 휴장(12월 마지막 평일)
+      (2023-09~2026-10 실측 휴장일과 전부 일치 확인)
 
 실패 정책 (원자적 교체 — 실패가 기존 파일을 깨지 않음)
-    - 과거일 수집 예외 → 이력에 구멍 → RuntimeError (non-zero 종료)
-    - 마지막 확정 거래일을 못 받음(OpenAPI 미게시 + 로그인 실패) → RuntimeError
-    - 오늘 장중만 못 받음(로그인 실패) → 경고 후 마지막 확정 거래일로 진행
+    - 최신 1~MAX_LAG 거래일만 못 받음(OpenAPI 미게시 + 로그인 실패) → ::warning:: 후 가진 최신일로 진행
+      (meta.marketDate 는 run_screeners.get_market_latest_date() 가 실제 마지막 일자로 기록)
+    - MAX_LAG 넘게 뒤처지거나, 그 이전 거래일에 구멍 → RuntimeError (non-zero 종료)
+    - 오늘 장중만 못 받음 → 경고 후 마지막 확정 거래일로 진행
 
 보존 기간 KEEP_DAYS = 750 거래일 (~3년)
     chart_data.json 이 종목당 ~3년(이전: FDR 1100 캘린더일 ≈ 740행)을 쓴다 → 가장 긴 소비자.
@@ -54,21 +56,30 @@ WORKERS = 8
 OPENAPI = 'https://data-dbg.krx.co.kr/svc/apis/sto/{}'
 OPENAPI_EP = {'KOSPI': 'stk_bydd_trd', 'KOSDAQ': 'ksq_bydd_trd'}
 PRICE = ['Open', 'High', 'Low', 'Close']
+MAX_LAG = 2  # 최신 확정 거래일이 이만큼까지 비어도 경고만 하고 진행
 
 # 실행 중 API 호출 수 (로그/검증용)
 CALLS = {'openapi': 0, 'pykrx_login': 0, 'pykrx_date': 0}
 
 
+_LOGIN_ERR: Optional[Exception] = None
+
+
 def _stock():
-    """pykrx 는 import 시점에 KRX 로그인을 한다 (모듈 캐시 → 프로세스당 1회). 실패를 명확한 에러로."""
+    """pykrx 는 import 시점에 KRX 로그인을 한다. 성공은 모듈 캐시, 실패도 기억 → 프로세스당 시도 1회."""
+    global _LOGIN_ERR
+    if _LOGIN_ERR is not None:
+        raise _LOGIN_ERR
     if not (os.getenv('KRX_ID') and os.getenv('KRX_PW')):
-        raise RuntimeError('KRX_ID/KRX_PW 환경변수 없음 — 최신 시세(pykrx)는 KRX 로그인이 필요하다')
+        _LOGIN_ERR = RuntimeError('KRX_ID/KRX_PW 환경변수 없음 — 최신 시세(pykrx)는 KRX 로그인이 필요하다')
+        raise _LOGIN_ERR
     if 'pykrx.stock' not in sys.modules:
         CALLS['pykrx_login'] += 1
     try:
         from pykrx import stock
     except Exception as e:  # 로그인 응답이 HTML 에러 페이지면 JSONDecodeError
-        raise RuntimeError(f'pykrx import(KRX 로그인) 실패: {e}') from e
+        _LOGIN_ERR = RuntimeError(f'pykrx import(KRX 로그인) 실패: {type(e).__name__}')
+        raise _LOGIN_ERR from e
     return stock
 
 
@@ -138,19 +149,46 @@ def _path(d: str) -> Path:
     return p if p.exists() else DAILY_DIR / f'{d}_live.parquet'
 
 
+def trading_days(start, end, extra_closed=()) -> List[str]:
+    """[start, end] KRX 거래일 (YYYYMMDD)."""
+    import holidays
+    days = pd.bdate_range(start, end)
+    years = range(days[0].year, days[-1].year + 1)
+    kr = holidays.KR(years=years)
+    year_end = set()  # 연말 휴장: 12월 마지막 평일(공휴일 제외)
+    for y in years:
+        d = pd.Timestamp(y, 12, 31)
+        while d.weekday() >= 5 or d in kr:
+            d -= pd.Timedelta(days=1)
+        year_end.add(d)
+    return [d.strftime('%Y%m%d') for d in days
+            if d not in kr and (d.month, d.day) != (5, 1) and d not in year_end
+            and d.strftime('%Y%m%d') not in extra_closed]
+
+
+def staleness(expected: List[str], have: set) -> tuple:
+    """expected(오늘 이전 거래일, 오름차순) 중 없는 날을 (최신 연속 누락 수, 그 이전 구멍 목록)으로."""
+    lag = 0
+    for d in reversed(expected):
+        if d in have:
+            break
+        lag += 1
+    gaps = [d for d in expected[:len(expected) - lag] if d not in have]
+    return lag, gaps
+
+
 def update_store(keep: int = KEEP_DAYS, now: Optional[datetime] = None) -> List[str]:
     """저장소를 최신화하고 사용할 거래일 목록(오래된→최신, 최대 keep개)을 반환."""
     now = now or datetime.now()
     today = now.strftime('%Y%m%d')
     DAILY_DIR.mkdir(parents=True, exist_ok=True)
     hol_path = DAILY_DIR / 'holidays.txt'
-    hol = set(hol_path.read_text().split()) if hol_path.exists() else set()
+    extra = set(hol_path.read_text().split()) if hol_path.exists() else set()
+    cal = trading_days(now - timedelta(days=int(keep * 1.5) + 30), now, extra)
+    expected = [d for d in cal if d < today][-keep:]  # 확정됐어야 할 거래일
     final = {p.stem for p in DAILY_DIR.glob('????????.parquet')}
-    # 평일 후보 (휴장 ~4% 감안해 keep+60 평일 ≈ keep 거래일 이상)
-    cands = [d.strftime('%Y%m%d') for d in pd.bdate_range(end=now.date(), periods=keep + 60)]
-    floor = min(final) if len(final) >= keep else ''  # 창이 다 찼으면 정리된 오래된 날짜는 다시 받지 않음
-    past = [d for d in cands if floor < d < today and d not in final and d not in hol]
-    print(f'[저장소] 확정 {len(final)}일 보유, 과거 {len(past)}일 OpenAPI 수집', flush=True)
+    past = [d for d in expected if d not in final]
+    print(f'[저장소] 확정 {len(final & set(expected))}/{len(expected)}일 보유, {len(past)}일 OpenAPI 수집', flush=True)
 
     def job(d):
         try:
@@ -160,62 +198,49 @@ def update_store(keep: int = KEEP_DAYS, now: Optional[datetime] = None) -> List[
 
     with ThreadPoolExecutor(WORKERS) as ex:
         results = list(ex.map(job, past))
-    errors, pending = [], []
+    errors, pending = {}, []
     for d, df, err in results:
         if err is not None:
-            errors.append((d, err))
+            errors[d] = err
         elif df is None:
-            pending.append(d)
+            pending.append(d)  # OpenAPI 미게시
         else:
             _write(df, DAILY_DIR / f'{d}.parquet')
             final.add(d)
-    latest = max(final) if final else ''
-    # ponytail: 더 최근 날짜가 게시됐는데 비어 있으면 휴장으로 간주 (OpenAPI 가 거래일을 빈 응답으로
-    #           주면 구멍이 생긴다 — 그런 일이 보이면 pykrx 로 재확인하도록 바꿀 것)
-    hol |= {d for d in pending if d < latest}
-    recent = [d for d in pending if d > latest]  # OpenAPI 미게시 → pykrx
 
-    # 최신 구간: OpenAPI 미게시일 + 오늘 장중 (로그인 필요)
-    need = recent + ([today] if now.weekday() < 5 and today not in hol else [])
-    stale, live_ok = [], False
-    stock, login_err = None, None
-    if need:
-        try:
-            stock = _stock()
-        except Exception as e:
-            login_err = e
+    # OpenAPI 미게시일 + 오늘 장중 → pykrx (로그인 시도 1회)
+    need = pending + ([today] if today in cal else [])
+    live_ok = False
     for d in need:
         try:
-            if stock is None:
-                raise login_err
-            df = _fetch_pykrx(stock, d)
+            df = _fetch_pykrx(_stock(), d)
         except Exception as e:
-            if d < today:
-                stale.append((d, e))
-            else:
-                logging.warning(f'오늘({d}) 장중 시세 수집 실패 → 마지막 확정 거래일로 진행: {e}')
+            errors[d] = e
             continue
-        if df is None:
-            if d < today:
-                hol.add(d)
-            else:
-                print(f'  오늘({d}) 시세 없음 — 장 시작 전 또는 휴장')
+        if df is None:  # 전부 0: 달력엔 거래일인데 시세 없음 → 장 시작 전(오늘) 또는 임시 휴장
+            print(f'  {d} 시세 없음 — 장 시작 전 또는 임시 휴장 (임시 휴장이면 holidays.txt 에 추가)')
         elif d < today:
             _write(df, DAILY_DIR / f'{d}.parquet')
             final.add(d)
         else:
             _write(df, DAILY_DIR / f'{d}_live.parquet')
             live_ok = True
-    hol_path.write_text('\n'.join(sorted(hol)))
+    if today in errors:
+        print(f'::warning::오늘({today}) 장중 시세 수집 실패 → 마지막 확정 거래일로 진행: {errors.pop(today)}', flush=True)
 
-    for d, err in errors + stale:
-        logging.warning(f'날짜 수집 실패 {d}: {err} (기존 파일 유지)')
-    if stale:
-        raise RuntimeError(f'마지막 확정 거래일 수집 실패 (OpenAPI 미게시 + pykrx 실패): {[d for d, _ in stale]}')
-    if errors:
-        raise RuntimeError(f'과거 거래일 {len(errors)}개 수집 실패 (예: {[d for d, _ in errors[:5]]}) — 다음 실행에서 재시도')
+    lag, gaps = staleness(expected, final)
+    for d in gaps:
+        logging.warning(f'날짜 수집 실패 {d}: {errors.get(d, "OpenAPI 미게시")} (기존 파일 유지)')
+    if gaps:
+        raise RuntimeError(f'과거 거래일 {len(gaps)}개 누락 (예: {gaps[:5]}) — 다음 실행에서 재시도')
+    if lag > MAX_LAG:
+        raise RuntimeError(f'저장소가 {lag}거래일 뒤처짐 (누락 {expected[-lag:]}, 허용 {MAX_LAG}) — '
+                           f'KRX OpenAPI/로그인 확인')
+    if lag:
+        print(f'::warning::최신 {lag}거래일({expected[-lag:]}) 시세 미수집 (OpenAPI 미게시 + pykrx 실패) '
+              f'→ {expected[-lag - 1]} 기준으로 진행', flush=True)
 
-    dates = (sorted(final) + ([today] if live_ok else []))[-keep:]
+    dates = (sorted(final & set(expected)) + ([today] if live_ok else []))[-keep:]
     for p in DAILY_DIR.glob('*.parquet'):  # 창 밖 확정 파일, 지난 장중 스냅샷 정리
         d = p.stem[:8]
         if d < dates[0] or (p.stem.endswith('_live') and not (live_ok and d == today)):
@@ -301,12 +326,29 @@ if __name__ == '__main__':
     assert a.loc[a.Ticker == 'A', 'Volume'].tolist() == [20, 20, 20, 20], a
     assert a.loc[a.Ticker == 'B', 'Close'].tolist() == [10, 10, 10, 11], a
 
+    # 자체 점검: 거래일 달력 (2026 한글날·추석·대체공휴일·근로자의 날, 2023 연말 휴장)
+    cal = trading_days('2026-09-21', '2026-10-13')
+    for closed in ['20260924', '20260925', '20261005', '20261009']:
+        assert closed not in cal, closed
+    assert '20261008' in cal and '20261012' in cal
+    assert '20260501' not in trading_days('2026-04-27', '2026-05-08')
+    assert '20231229' not in trading_days('2023-12-20', '2024-01-05')
+    assert '20241231' not in trading_days('2024-12-20', '2025-01-05')
+
+    # 자체 점검: 지연 판정
+    exp = ['d1', 'd2', 'd3', 'd4', 'd5']
+    assert staleness(exp, set(exp)) == (0, [])
+    assert staleness(exp, {'d1', 'd2', 'd3'}) == (2, [])          # 최신 2일 미게시 → 경고 후 진행
+    assert staleness(exp, {'d1', 'd2'}) == (3, [])                # 3일 → 실패 (> MAX_LAG)
+    assert staleness(exp, {'d1', 'd3', 'd4', 'd5'}) == (0, ['d2'])  # 과거 구멍 → 실패
+    assert staleness(exp, {'d1', 'd3'}) == (2, ['d2'])
+
     # 자체 점검: 갱신 정책 (가짜 OpenAPI/로그인, 임시 폴더)
     import tempfile
     day = pd.DataFrame({'Open': [1], 'High': [1], 'Low': [1], 'Close': [1], 'Volume': [1], 'Change': [0.0],
                         'MarketCap': [1], 'Name': ['x'], 'Market': ['KOSPI']}, index=pd.Index(['000010'], name='Ticker'))
-    now = datetime(2026, 10, 13, 11)  # 화요일 장중. 10-09(금) 휴장, 10-12(월) OpenAPI 미게시
-    published = {d.strftime('%Y%m%d') for d in pd.bdate_range(end='2026-10-08', periods=20)}
+    now = datetime(2026, 10, 13, 11)  # 화 장중. 10-09(금) 한글날, 10-08·10-12 OpenAPI 미게시, 로그인 차단
+    published = set(trading_days('2026-09-01', '2026-10-07'))
 
     def _no_login():
         raise RuntimeError('login blocked')
@@ -314,13 +356,13 @@ if __name__ == '__main__':
     _fetch_openapi = lambda d: day if d in published else None
     with tempfile.TemporaryDirectory() as tmp:
         DAILY_DIR = Path(tmp)
-        try:  # 10-12 확정분을 못 받음 → 실패해야 함
+        dates = update_store(keep=10, now=now)          # 2거래일 지연 → 경고 후 10-07 기준
+        assert dates[-1] == '20261007', dates
+        published -= {'20261007'}
+        (DAILY_DIR / '20261007.parquet').unlink()
+        try:                                            # 3거래일 지연 → 실패
             update_store(keep=10, now=now)
-            raise AssertionError('stale 미감지')
+            raise AssertionError('지연 미감지')
         except RuntimeError as e:
-            assert '20261012' in str(e), e
-        published.add('20261012')  # OpenAPI 게시 후: 오늘 장중만 로그인 실패 → 경고 후 진행
-        dates = update_store(keep=10, now=now)
-        assert dates[-1] == '20261012' and '20261009' not in dates, dates
-        assert '20261009' in (DAILY_DIR / 'holidays.txt').read_text()
+            assert '3거래일' in str(e), e
     print('ok')

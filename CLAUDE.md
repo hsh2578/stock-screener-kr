@@ -248,7 +248,8 @@ python guru_screeners.py        # 대가 4종
   - `_fetch_tables_main()` + `_parse_main_annual()` 함수 추가, ThreadPoolExecutor(max_workers=2) 동시 요청
   - 기존 4년 값 덮어쓰기 방지 (min_existing 체크), Main 파싱 실패 시 자동 fallback
 - **OHLCV = 날짜별 저장소** (`scripts/ohlcv_store.py`): 거래일당 1파일, 750거래일 보존. 웜 실행은 최신 거래일만 수집.
-  KRX_ID/KRX_PW(pykrx 로그인, 최신일·거래일 달력) 필수, KRX_API_KEY(OpenAPI 과거일 백필) 권장. 수집 실패 시 non-zero 종료.
+  KRX_API_KEY(OpenAPI 과거일) 필수, KRX_ID/KRX_PW(pykrx 로그인: OpenAPI 미게시 최신일·오늘 장중) 권장.
+  거래일 달력 = holidays.KR + 5/1 + 연말 휴장. 최신 1~2거래일 미수집은 ::warning:: 후 진행, 그 이상 지연·과거 구멍은 non-zero.
   수정주가는 등락률 vs 종가비 불일치(>0.05%p)로 기준가 변경을 감지해 계산 (종목별 API 호출 없음).
   `--fresh` = 저장소 삭제 후 전체 재수집 (OpenAPI 8스레드 ~4분)
 - chart_data.json이 37MB+로 매우 큼 (3초 후 백그라운드 프리로드로 개선)
