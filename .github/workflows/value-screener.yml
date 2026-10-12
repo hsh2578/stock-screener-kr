@@ -73,6 +73,16 @@ jobs:
           restore-keys: |
             stock-data-${{ runner.os }}-
 
+      - name: 💾 재무 히스토리 복원 (공개 저장소에 올리지 않음)
+        # FnGuide 원본 재무(연간 5년·분기 8개)는 재배포 문제로 git 대신 Actions 캐시에만 둔다.
+        # 캐시는 외부에서 내려받을 수 없다. 실행마다 새 키로 저장하고 가장 최근 것을 복원.
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: history
+          key: fin-history-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            fin-history-${{ runner.os }}-
+
       - name: 🏷️ WICS 섹터 데이터 수집
         run: |
           echo "=========================================="
