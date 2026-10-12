@@ -7,8 +7,8 @@
     <title>국내 주식 종목 발굴 - Stock Screener</title>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
     <!-- Pretendard 폰트: 비차단 로딩 (렌더 블로킹 제거) -->
-    <link rel="preload" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" /></noscript>
+    <link rel="preload" as="style" crossorigin integrity="sha384-ei/b2Mz3F5J8nqTvpKS89CkzDCuD7Cc+/F+OsaPUKItzHgLNKnGq3rjtYq/B7RnO" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" crossorigin integrity="sha384-ei/b2Mz3F5J8nqTvpKS89CkzDCuD7Cc+/F+OsaPUKItzHgLNKnGq3rjtYq/B7RnO" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" /></noscript>
     <style>
         /* ============================================================
            MODERN FINANCIAL SCREENER - Professional UI/UX Design
@@ -3141,6 +3141,8 @@
             chartLibLoading = new Promise(function(resolve, reject) {
                 var script = document.createElement('script');
                 script.src = 'https://unpkg.com/lightweight-charts@5.0.0/dist/lightweight-charts.standalone.production.js';
+                script.integrity = 'sha384-/z0wnnyAhUnLX5YRrxljPlJlhJPGIOuhRU9kt785gf9AUeh8YsG8O6oxSE2sTS9m';
+                script.crossOrigin = 'anonymous';
                 script.onload = function() {
                     chartLibLoaded = true;
                     chartLibLoading = null;
@@ -4975,7 +4977,7 @@
                                     return `
                                         <div class="card sector-card ${stageBgClass[s.stage]}">
                                             <div class="header">
-                                                <span class="sector-name">${s.sector_name}</span>
+                                                <span class="sector-name">${escapeHtml(s.sector_name)}</span>
                                                 <div class="stage-badge">
                                                     <span class="emoji">${stageEmoji[s.stage]}</span>
                                                     <span class="name stage-${s.stage}">${s.stage_name}</span>
