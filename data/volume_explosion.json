@@ -1,34 +1,22 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-12T15:14:06.754874",
+    "lastUpdated": "2026-10-12T18:30:43.090936",
     "marketDate": "2026-10-12",
-    "totalCount": 3,
-    "screened_from": 1326
+    "totalCount": 2,
+    "screened_from": 1330
   },
   "data": [
     {
-      "ticker": "002150",
-      "name": "도화엔지니어링",
-      "price": 5660,
-      "change_rate": 15.75,
-      "volume_ratio": 61.2,
+      "ticker": "290650",
+      "name": "엘앤씨바이오",
+      "price": 67400,
+      "change_rate": 19.5,
+      "volume_ratio": 3.0,
       "volume_rank": 1,
-      "ma150": 5698,
-      "above_ma150": false,
-      "market_cap": 1908,
-      "updated_at": "2026-10-12T15:14:06.627831"
-    },
-    {
-      "ticker": "067080",
-      "name": "대화제약",
-      "price": 13450,
-      "change_rate": 12.08,
-      "volume_ratio": 11.6,
-      "volume_rank": 2,
-      "ma150": 11987,
+      "ma150": 64840,
       "above_ma150": true,
-      "market_cap": 2503,
-      "updated_at": "2026-10-12T15:14:06.601633"
+      "market_cap": 15345,
+      "updated_at": "2026-10-12T18:30:42.722714"
     },
     {
       "ticker": "001210",
@@ -36,11 +24,11 @@
       "price": 11070,
       "change_rate": 29.93,
       "volume_ratio": 2.0,
-      "volume_rank": 3,
+      "volume_rank": 2,
       "ma150": 5556,
       "above_ma150": true,
       "market_cap": 1397,
-      "updated_at": "2026-10-12T15:14:06.678605"
+      "updated_at": "2026-10-12T18:30:43.010026"
     }
   ]
 }
