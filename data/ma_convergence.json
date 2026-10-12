@@ -1,48 +1,29 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-12T04:11:20.043888",
-    "marketDate": "2026-10-08",
-    "totalCount": 2,
-    "screened_from": 1359
+    "lastUpdated": "2026-10-12T15:14:29.325597",
+    "marketDate": "2026-10-12",
+    "totalCount": 1,
+    "screened_from": 1326
   },
   "data": [
     {
       "ticker": "003550",
       "name": "LG",
-      "current_price": 108100,
-      "volume": 155850,
-      "ma10w": 112870,
-      "ma20w": 110620,
-      "ma60w": 95140,
-      "ma20d": 113150,
-      "ma60d": 109121,
-      "ma120d": 108452,
-      "gap_20_60": 3.69,
-      "gap_20_120": 4.33,
-      "gap_60_120": 0.62,
-      "gap_price_20": 4.46,
-      "weeks_since_high": 19,
-      "market_cap": 163438,
-      "updated_at": "2026-10-12T04:11:12.575497"
-    },
-    {
-      "ticker": "085620",
-      "name": "미래에셋생명",
-      "current_price": 20400,
-      "volume": 225266,
-      "ma10w": 20417,
-      "ma20w": 20399,
-      "ma60w": 14180,
-      "ma20d": 19736,
-      "ma60d": 19414,
-      "ma120d": 19281,
-      "gap_20_60": 1.66,
-      "gap_20_120": 2.36,
-      "gap_60_120": 0.69,
-      "gap_price_20": 3.36,
-      "weeks_since_high": 17,
-      "market_cap": 27576,
-      "updated_at": "2026-10-12T04:11:14.095679"
+      "current_price": 108800,
+      "volume": 163141,
+      "ma10w": 112940,
+      "ma20w": 108730,
+      "ma60w": 95751,
+      "ma20d": 112645,
+      "ma60d": 109246,
+      "ma120d": 108600,
+      "gap_20_60": 3.11,
+      "gap_20_120": 3.72,
+      "gap_60_120": 0.59,
+      "gap_price_20": 3.41,
+      "weeks_since_high": 20,
+      "market_cap": 164496,
+      "updated_at": "2026-10-12T15:14:20.932660"
     }
   ]
 }
