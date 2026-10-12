@@ -54,3 +54,6 @@ nul
 # ML 모델 (워크플로우에서 자동 생성)
 ml/models/*.pkl
 data/chart_data.json
+
+# FnGuide 원본 재무 히스토리: 재배포 문제로 공개 저장소에 올리지 않음 (Actions 캐시 fin-history-* 에 보관)
+history/

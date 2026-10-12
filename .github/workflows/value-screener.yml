@@ -98,6 +98,11 @@ jobs:
           echo "=========================================="
           echo "FnGuide 데이터 수집 시작: $(date '+%Y-%m-%d %H:%M:%S %Z')"
           echo "=========================================="
+          # 히스토리가 없으면 5년치 연간 데이터가 3년으로 줄어든 채 저장된다 → 조용히 진행하지 않음
+          if [ ! -s history/fin_history.json ]; then
+            echo "::error::재무 히스토리 캐시 없음 — 로컬 history/fin_history.json 을 캐시에 다시 올려야 함"
+            exit 1
+          fi
           python collect_quant_data.py
           echo "=========================================="
           echo "FnGuide 데이터 수집 완료"
@@ -193,7 +198,7 @@ jobs:
       - name: 🔍 변경 사항 확인
         id: check_changes
         run: |
-          git add data/ history/
+          git add data/
           if git diff --staged --quiet; then
             echo "변경된 파일 없음"
             echo "has_changes=false" >> $GITHUB_OUTPUT
