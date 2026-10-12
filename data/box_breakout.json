@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-12T18:31:01.221043",
+    "lastUpdated": "2026-10-12T21:17:39.344516",
     "marketDate": "2026-10-12",
     "totalCount": 5,
     "screened_from": 1330
@@ -9,8 +9,8 @@
     {
       "ticker": "018880",
       "name": "한온시스템",
-      "price": 3860,
-      "change_rate": -3.86,
+      "price": 3870,
+      "change_rate": -3.61,
       "breakout_date": "2026-10-08",
       "days_since_breakout": 1,
       "breakout_price": 3865,
@@ -23,14 +23,14 @@
       "success_prob": 51.5,
       "predicted_gain": 16.2,
       "ai_score": 50.6,
-      "updated_at": "2026-10-12T18:31:01.217302",
-      "vs_breakout_close": -3.86
+      "updated_at": "2026-10-12T21:17:39.333322",
+      "vs_breakout_close": -3.61
     },
     {
       "ticker": "001250",
       "name": "GS글로벌",
-      "price": 3070,
-      "change_rate": -4.21,
+      "price": 3050,
+      "change_rate": -4.84,
       "breakout_date": "2026-10-02",
       "days_since_breakout": 4,
       "breakout_price": 2915,
@@ -43,14 +43,14 @@
       "success_prob": 33.1,
       "predicted_gain": 12.5,
       "ai_score": 34.4,
-      "updated_at": "2026-10-12T18:31:01.218078",
-      "vs_breakout_close": 2.68
+      "updated_at": "2026-10-12T21:17:39.334306",
+      "vs_breakout_close": 2.01
     },
     {
       "ticker": "005720",
       "name": "넥센",
-      "price": 6170,
-      "change_rate": -3.14,
+      "price": 6290,
+      "change_rate": -1.26,
       "breakout_date": "2026-10-02",
       "days_since_breakout": 4,
       "breakout_price": 6280,
@@ -63,14 +63,14 @@
       "success_prob": 22.1,
       "predicted_gain": 16.4,
       "ai_score": 30.2,
-      "updated_at": "2026-10-12T18:31:01.218677",
-      "vs_breakout_close": -4.78
+      "updated_at": "2026-10-12T21:17:39.335046",
+      "vs_breakout_close": -2.93
     },
     {
       "ticker": "256940",
       "name": "킵스파마",
-      "price": 6680,
-      "change_rate": -7.09,
+      "price": 6670,
+      "change_rate": -7.23,
       "breakout_date": "2026-10-01",
       "days_since_breakout": 5,
       "breakout_price": 6350,
@@ -83,26 +83,27 @@
       "success_prob": 17.5,
       "predicted_gain": 17.6,
       "ai_score": 28.1,
-      "updated_at": "2026-10-12T18:30:58.929077"
+      "updated_at": "2026-10-12T21:17:39.335738",
+      "vs_breakout_close": -2.34
     },
     {
       "ticker": "026960",
       "name": "동서",
-      "price": 26850,
-      "change_rate": 2.09,
+      "price": 27050,
+      "change_rate": 2.85,
       "breakout_date": "2026-10-02",
       "days_since_breakout": 4,
       "breakout_price": 26600,
-      "breakout_pct": 0.94,
-      "gain_since_breakout": -3.07,
+      "breakout_pct": 1.69,
+      "gain_since_breakout": -2.35,
       "volume_ratio": 4.6,
-      "ma150": 25755,
+      "ma150": 25757,
       "above_ma150": true,
       "market_cap": 26968,
       "success_prob": 19.3,
       "predicted_gain": 10.8,
       "ai_score": 23.2,
-      "updated_at": "2026-10-12T18:30:47.797022"
+      "updated_at": "2026-10-12T21:17:22.476034"
     }
   ]
 }
