@@ -35,6 +35,7 @@ MIN_MARKET_CAP = 1000  # 시가총액 1,000억 이상
 MAX_WORKERS = 5  # FnGuide 병렬 종목 수 (종목당 7요청은 순차)
 MAX_CACHE_DAYS = 2  # 최근 N일 캐시만 유지
 CACHE_REFRESH_DAYS = 7  # 종목별 수집 시각(fetched_at)이 N일 지나면 재수집
+MIN_FAILED_TO_ABORT = 10
 MIN_SUCCESS_RATE = 0.5  # 수집 성공률이 이보다 낮으면 실패로 종료 (FnGuide 개편 등 감지)
 STALE_FALLBACK_DAYS = 30  # 수집 실패 시 이전 값을 쓰는 최대 기간
 
@@ -259,7 +260,9 @@ def collect_fnguide_data():
     print(f"\n총 실행 시간: {elapsed:.1f}초 ({elapsed/60:.1f}분)")
     print("=" * 60)
 
-    if codes_to_fetch and success / len(codes_to_fetch) < MIN_SUCCESS_RATE:
+    # 표본이 몇 개뿐이면 신규상장 등 정상 실패로도 비율이 깨진다 → 실패가 일정 수 이상일 때만 판정
+    # ponytail: 고정 하한, 소량 수집에서 API 깨짐은 다음 대량 재수집 때 잡힌다
+    if failed >= MIN_FAILED_TO_ABORT and success / len(codes_to_fetch) < MIN_SUCCESS_RATE:
         sys.exit(f"FnGuide 수집 성공률 {success}/{len(codes_to_fetch)} < {MIN_SUCCESS_RATE:.0%} "
                  f"— API 변경 여부 확인 필요 (scripts/fnguide_data.py)")
 
