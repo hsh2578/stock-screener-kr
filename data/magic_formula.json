@@ -3,7 +3,7 @@
     "type": "magic-formula",
     "name": "마법공식 (그린블라트)",
     "description": "이익수익률 + 투하자본수익률 순위 합산",
-    "lastUpdated": "2026-10-13T04:37:40.208120",
+    "lastUpdated": "2026-10-13T04:49:59.448176",
     "totalCount": 20,
     "screened_from": 925
   },
@@ -218,22 +218,6 @@
     },
     {
       "rank": 14,
-      "ticker": "383220",
-      "name": "F&F",
-      "current_price": 73300,
-      "per": 7.1,
-      "pbr": 1.47,
-      "combined_rank": 111,
-      "ey_rank": 103,
-      "roc_rank": 8,
-      "earnings_yield": 21.14,
-      "roc": 98.99,
-      "ebit": 5009.0,
-      "market_cap": 28079.0,
-      "ev": 23690.0
-    },
-    {
-      "rank": 15,
       "ticker": "215200",
       "name": "메가스터디교육",
       "current_price": 38600,
@@ -247,6 +231,22 @@
       "ebit": 1166.0,
       "market_cap": 4001.0,
       "ev": 4102.0
+    },
+    {
+      "rank": 15,
+      "ticker": "383220",
+      "name": "F&F",
+      "current_price": 73300,
+      "per": 7.1,
+      "pbr": 1.47,
+      "combined_rank": 111,
+      "ey_rank": 103,
+      "roc_rank": 8,
+      "earnings_yield": 21.14,
+      "roc": 98.99,
+      "ebit": 5009.0,
+      "market_cap": 28079.0,
+      "ev": 23690.0
     },
     {
       "rank": 16,
