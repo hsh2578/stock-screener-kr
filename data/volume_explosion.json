@@ -1,46 +1,70 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-13T03:04:52.205362",
-    "marketDate": "2026-10-12",
-    "totalCount": 3,
-    "screened_from": 1330
+    "lastUpdated": "2026-10-13T15:56:03.540277",
+    "marketDate": "2026-10-13",
+    "totalCount": 5,
+    "screened_from": 1320
   },
   "data": [
     {
-      "ticker": "002150",
-      "name": "도화엔지니어링",
-      "price": 5570,
-      "change_rate": 13.91,
-      "volume_ratio": 81.8,
+      "ticker": "225530",
+      "name": "HC보광산업",
+      "price": 2770,
+      "change_rate": 12.37,
+      "volume_ratio": 72.0,
       "volume_rank": 1,
-      "ma150": 5697,
-      "above_ma150": false,
-      "market_cap": 1878,
-      "updated_at": "2026-10-13T03:04:51.919504"
+      "ma150": 2612,
+      "above_ma150": true,
+      "market_cap": 1006,
+      "updated_at": "2026-10-13T15:56:03.539526"
     },
     {
-      "ticker": "002990",
-      "name": "금호건설",
-      "price": 13400,
-      "change_rate": 20.29,
-      "volume_ratio": 2.0,
+      "ticker": "278650",
+      "name": "HLB바이오스텝",
+      "price": 5950,
+      "change_rate": 12.05,
+      "volume_ratio": 10.2,
       "volume_rank": 2,
-      "ma150": 8528,
+      "ma150": 3987,
       "above_ma150": true,
-      "market_cap": 4992,
-      "updated_at": "2026-10-13T03:04:51.717406"
+      "market_cap": 1037,
+      "updated_at": "2026-10-13T15:56:03.536010"
     },
     {
-      "ticker": "001210",
-      "name": "금호전기",
-      "price": 11070,
-      "change_rate": 29.93,
-      "volume_ratio": 2.0,
+      "ticker": "009470",
+      "name": "삼화전기",
+      "price": 28900,
+      "change_rate": 15.83,
+      "volume_ratio": 8.4,
       "volume_rank": 3,
-      "ma150": 5556,
+      "ma150": 31628,
+      "above_ma150": false,
+      "market_cap": 1911,
+      "updated_at": "2026-10-13T15:56:03.366470"
+    },
+    {
+      "ticker": "255440",
+      "name": "야스",
+      "price": 10290,
+      "change_rate": 16.14,
+      "volume_ratio": 6.3,
+      "volume_rank": 4,
+      "ma150": 8774,
       "above_ma150": true,
-      "market_cap": 1397,
-      "updated_at": "2026-10-13T03:04:52.010964"
+      "market_cap": 1343,
+      "updated_at": "2026-10-13T15:56:03.451989"
+    },
+    {
+      "ticker": "079650",
+      "name": "서산",
+      "price": 8780,
+      "change_rate": 29.88,
+      "volume_ratio": 2.3,
+      "volume_rank": 5,
+      "ma150": 3477,
+      "above_ma150": true,
+      "market_cap": 1756,
+      "updated_at": "2026-10-13T15:56:03.391728"
     }
   ]
 }

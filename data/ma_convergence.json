@@ -1,48 +1,29 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-13T03:05:19.664906",
-    "marketDate": "2026-10-12",
-    "totalCount": 2,
-    "screened_from": 1330
+    "lastUpdated": "2026-10-13T15:56:30.205539",
+    "marketDate": "2026-10-13",
+    "totalCount": 1,
+    "screened_from": 1320
   },
   "data": [
     {
-      "ticker": "003550",
-      "name": "LG",
-      "current_price": 108100,
-      "volume": 174860,
-      "ma10w": 112870,
-      "ma20w": 108695,
-      "ma60w": 95740,
-      "ma20d": 112610,
-      "ma60d": 109235,
-      "ma120d": 108595,
-      "gap_20_60": 3.09,
-      "gap_20_120": 3.7,
-      "gap_60_120": 0.59,
-      "gap_price_20": 4.0,
-      "weeks_since_high": 20,
-      "market_cap": 163438,
-      "updated_at": "2026-10-13T03:05:16.093815"
-    },
-    {
       "ticker": "004430",
       "name": "송원산업",
-      "current_price": 11570,
-      "volume": 103790,
-      "ma10w": 11559,
-      "ma20w": 11430,
-      "ma60w": 10384,
-      "ma20d": 11548,
-      "ma60d": 11714,
-      "ma120d": 11517,
-      "gap_20_60": 1.42,
-      "gap_20_120": 0.27,
-      "gap_60_120": 1.71,
-      "gap_price_20": 0.19,
+      "current_price": 11450,
+      "volume": 103864,
+      "ma10w": 11547,
+      "ma20w": 11424,
+      "ma60w": 10382,
+      "ma20d": 11524,
+      "ma60d": 11703,
+      "ma120d": 11531,
+      "gap_20_60": 1.53,
+      "gap_20_120": 0.06,
+      "gap_60_120": 1.48,
+      "gap_price_20": 0.65,
       "weeks_since_high": 25,
-      "market_cap": 2776,
-      "updated_at": "2026-10-13T03:05:18.530294"
+      "market_cap": 2748,
+      "updated_at": "2026-10-13T15:56:29.078790"
     }
   ]
 }
