@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-13T15:56:23.308785",
+    "lastUpdated": "2026-10-13T18:37:07.102190",
     "marketDate": "2026-10-13",
     "totalCount": 7,
     "screened_from": 1320
@@ -22,13 +22,13 @@
       "success_prob": 37.3,
       "predicted_gain": 18.7,
       "ai_score": 43.0,
-      "updated_at": "2026-10-13T15:56:06.208200"
+      "updated_at": "2026-10-13T18:36:52.941430"
     },
     {
       "ticker": "001250",
       "name": "GS글로벌",
-      "price": 3025,
-      "change_rate": -0.82,
+      "price": 3050,
+      "change_rate": 0.0,
       "breakout_date": "2026-10-02",
       "resistance": 2915,
       "days_since_breakout": 5,
@@ -40,14 +40,14 @@
       "success_prob": 40.9,
       "predicted_gain": 14.3,
       "ai_score": 41.5,
-      "updated_at": "2026-10-13T15:56:23.307084",
-      "vs_breakout_close": 1.17
+      "updated_at": "2026-10-13T18:37:07.100445",
+      "vs_breakout_close": 2.01
     },
     {
       "ticker": "005720",
       "name": "넥센",
-      "price": 6280,
-      "change_rate": -0.16,
+      "price": 6210,
+      "change_rate": -1.27,
       "breakout_date": "2026-10-02",
       "resistance": 6280,
       "days_since_breakout": 5,
@@ -59,14 +59,14 @@
       "success_prob": 26.3,
       "predicted_gain": 16.4,
       "ai_score": 33.2,
-      "updated_at": "2026-10-13T15:56:23.307708",
-      "vs_breakout_close": -3.09
+      "updated_at": "2026-10-13T18:37:07.101184",
+      "vs_breakout_close": -4.17
     },
     {
       "ticker": "126600",
       "name": "BGF에코머티리얼즈",
-      "price": 3540,
-      "change_rate": -0.7,
+      "price": 3570,
+      "change_rate": 0.14,
       "breakout_date": "2026-10-02",
       "resistance": 3110,
       "days_since_breakout": 5,
@@ -78,62 +78,62 @@
       "success_prob": 28.4,
       "predicted_gain": 11.6,
       "ai_score": 30.3,
-      "updated_at": "2026-10-13T15:56:23.308294",
-      "vs_breakout_close": 10.62
+      "updated_at": "2026-10-13T18:37:07.101727",
+      "vs_breakout_close": 11.56
     },
     {
       "ticker": "256940",
       "name": "킵스파마",
-      "price": 6500,
-      "change_rate": -2.55,
+      "price": 6530,
+      "change_rate": -2.1,
       "breakout_date": "2026-10-01",
       "resistance": 6350,
       "days_since_breakout": 6,
-      "breakout_pct": 2.36,
-      "gain_since_breakout": -4.83,
+      "breakout_pct": 2.83,
+      "gain_since_breakout": -4.39,
       "ma150": 6670,
       "above_ma150": false,
       "market_cap": 1305,
       "success_prob": 18.1,
       "predicted_gain": 17.7,
       "ai_score": 28.5,
-      "updated_at": "2026-10-13T15:56:20.580236"
+      "updated_at": "2026-10-13T18:37:04.918378"
     },
     {
       "ticker": "026960",
       "name": "동서",
-      "price": 27250,
-      "change_rate": 0.74,
+      "price": 26900,
+      "change_rate": -0.55,
       "breakout_date": "2026-10-02",
       "resistance": 26600,
       "days_since_breakout": 5,
-      "breakout_pct": 2.44,
-      "gain_since_breakout": -1.62,
-      "ma150": 25759,
+      "breakout_pct": 1.13,
+      "gain_since_breakout": -2.89,
+      "ma150": 25757,
       "above_ma150": true,
       "market_cap": 27168,
       "success_prob": 19.7,
       "predicted_gain": 11.7,
       "ai_score": 24.3,
-      "updated_at": "2026-10-13T15:56:06.567397"
+      "updated_at": "2026-10-13T18:36:53.732698"
     },
     {
       "ticker": "002960",
       "name": "한국쉘석유",
-      "price": 550000,
-      "change_rate": 3.19,
+      "price": 543000,
+      "change_rate": 1.88,
       "breakout_date": "2026-10-07",
       "resistance": 521000,
       "days_since_breakout": 3,
-      "breakout_pct": 5.57,
-      "gain_since_breakout": 1.66,
-      "ma150": 502063,
+      "breakout_pct": 4.22,
+      "gain_since_breakout": 0.37,
+      "ma150": 502016,
       "above_ma150": true,
       "market_cap": 7150,
-      "success_prob": 7.2,
-      "predicted_gain": 8.8,
-      "ai_score": 13.0,
-      "updated_at": "2026-10-13T15:56:08.186005"
+      "success_prob": 12.3,
+      "predicted_gain": 9.8,
+      "ai_score": 17.5,
+      "updated_at": "2026-10-13T18:36:55.673244"
     }
   ]
 }
