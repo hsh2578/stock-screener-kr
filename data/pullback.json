@@ -1,9 +1,24 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-14T16:51:02.716831",
+    "lastUpdated": "2026-10-14T18:39:18.081357",
     "marketDate": "2026-10-14",
-    "totalCount": 0,
+    "totalCount": 1,
     "screened_from": 1320
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "950190",
+      "name": "고스트스튜디오",
+      "price": 9750,
+      "change_rate": 0.62,
+      "breakout_date": "2026-09-16",
+      "resistance": 10210,
+      "pullback_ratio": 4.51,
+      "volume_decrease": 98,
+      "ma150": 8818,
+      "above_ma150": true,
+      "market_cap": 1271,
+      "updated_at": "2026-10-14T18:39:17.908899"
+    }
+  ]
 }
