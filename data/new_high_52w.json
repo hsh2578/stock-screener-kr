@@ -1,61 +1,44 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-14T18:39:23.204683",
+    "lastUpdated": "2026-10-14T21:17:00.085925",
     "marketDate": "2026-10-14",
-    "totalCount": 6,
+    "totalCount": 5,
     "screened_from": 1320
   },
   "data": [
     {
-      "ticker": "396300",
-      "name": "HT로보틱스",
-      "price": 7700,
-      "change_rate": 22.61,
-      "high_52w": 7340,
-      "breakout_date": "2026-10-14",
-      "days_since": 0,
-      "above_high_percent": 4.9,
-      "volume_ratio": 3.6,
-      "vs_breakout_close": 0.0,
-      "predicted_gain": 21.3,
-      "success_probability": 55.0,
-      "ai_score": 57.7,
-      "market_cap": 1819,
-      "updated_at": "2026-10-14T18:39:23.055149"
-    },
-    {
       "ticker": "028670",
       "name": "팬오션",
-      "price": 7190,
-      "change_rate": 9.77,
+      "price": 7240,
+      "change_rate": 10.53,
       "high_52w": 6630,
       "breakout_date": "2026-10-14",
       "days_since": 0,
-      "above_high_percent": 8.45,
+      "above_high_percent": 9.2,
       "volume_ratio": 5.1,
       "vs_breakout_close": 0.0,
-      "predicted_gain": 12.9,
-      "success_probability": 29.9,
-      "ai_score": 32.5,
+      "predicted_gain": 13.5,
+      "success_probability": 36.5,
+      "ai_score": 37.7,
       "market_cap": 38702,
-      "updated_at": "2026-10-14T18:39:22.821371"
+      "updated_at": "2026-10-14T21:16:59.734228"
     },
     {
       "ticker": "217190",
       "name": "제너셈",
-      "price": 9800,
-      "change_rate": -0.91,
+      "price": 9860,
+      "change_rate": -0.3,
       "high_52w": 9670,
       "breakout_date": "2026-10-08",
       "days_since": 3,
-      "above_high_percent": 1.34,
+      "above_high_percent": 1.96,
       "volume_ratio": 4.8,
-      "vs_breakout_close": -2.58,
+      "vs_breakout_close": -1.99,
       "predicted_gain": 18.2,
       "success_probability": 39.5,
       "ai_score": 44.0,
       "market_cap": 1296,
-      "updated_at": "2026-10-14T18:39:23.201524"
+      "updated_at": "2026-10-14T21:17:00.076974"
     },
     {
       "ticker": "141000",
@@ -72,41 +55,41 @@
       "success_probability": 34.4,
       "ai_score": 39.4,
       "market_cap": 1728,
-      "updated_at": "2026-10-14T18:39:23.202334"
+      "updated_at": "2026-10-14T21:17:00.078082"
     },
     {
       "ticker": "080580",
       "name": "오킨스전자",
-      "price": 28000,
-      "change_rate": -5.25,
+      "price": 27750,
+      "change_rate": -6.09,
       "high_52w": 27500,
       "breakout_date": "2026-10-02",
       "days_since": 6,
-      "above_high_percent": 1.82,
+      "above_high_percent": 0.91,
       "volume_ratio": 3.7,
-      "vs_breakout_close": -4.27,
+      "vs_breakout_close": -5.13,
       "predicted_gain": 21.7,
       "success_probability": 62.1,
       "ai_score": 63.0,
       "market_cap": 5852,
-      "updated_at": "2026-10-14T18:39:23.202893"
+      "updated_at": "2026-10-14T21:17:00.080746"
     },
     {
       "ticker": "096530",
       "name": "씨젠",
-      "price": 36350,
-      "change_rate": -0.95,
+      "price": 36500,
+      "change_rate": -0.54,
       "high_52w": 35750,
       "breakout_date": "2026-10-01",
       "days_since": 7,
-      "above_high_percent": 1.68,
+      "above_high_percent": 2.1,
       "volume_ratio": 1.9,
-      "vs_breakout_close": -2.55,
+      "vs_breakout_close": -2.14,
       "predicted_gain": 19.7,
       "success_probability": 51.0,
       "ai_score": 53.5,
       "market_cap": 17058,
-      "updated_at": "2026-10-14T18:39:23.203398"
+      "updated_at": "2026-10-14T21:17:00.081449"
     }
   ]
 }

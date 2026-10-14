@@ -1,18 +1,18 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-14T18:39:22.639002",
+    "lastUpdated": "2026-10-14T21:16:59.545720",
     "marketDate": "2026-10-14",
-    "totalCount": 7,
+    "totalCount": 6,
     "screened_from": 1320
   },
   "data": [
     {
       "ticker": "096770",
       "name": "SK이노베이션",
-      "price": 163100,
-      "change_rate": 4.02,
+      "price": 163200,
+      "change_rate": 4.08,
       "high_52w": 164700,
-      "percent_from_high": -0.97,
+      "percent_from_high": -0.91,
       "high_52w_date": "2026-09-10",
       "entry_date": "2026-10-08",
       "status": "active",
@@ -22,35 +22,16 @@
       "breakout_probability": 61.3,
       "ai_score": 59.8,
       "market_cap": 275894,
-      "updated_at": "2026-10-14T18:39:22.634158",
-      "above_high_percent": -0.97
-    },
-    {
-      "ticker": "004080",
-      "name": "신흥",
-      "price": 14350,
-      "change_rate": -0.14,
-      "high_52w": 14760,
-      "percent_from_high": -2.78,
-      "high_52w_date": "2025-11-27",
-      "entry_date": "2026-10-06",
-      "status": "active",
-      "days_since": 5,
-      "volume_ratio": 0.2,
-      "predicted_gain": 8.2,
-      "breakout_probability": 43.1,
-      "ai_score": 37.5,
-      "market_cap": 1325,
-      "updated_at": "2026-10-14T18:39:22.635349",
-      "above_high_percent": -2.78
+      "updated_at": "2026-10-14T21:16:59.533957",
+      "above_high_percent": -0.91
     },
     {
       "ticker": "251970",
       "name": "펌텍코리아",
-      "price": 67500,
-      "change_rate": -1.89,
+      "price": 69200,
+      "change_rate": 0.58,
       "high_52w": 70200,
-      "percent_from_high": -3.85,
+      "percent_from_high": -1.42,
       "high_52w_date": "2026-01-30",
       "entry_date": "2026-10-12",
       "status": "active",
@@ -60,16 +41,35 @@
       "breakout_probability": 51.2,
       "ai_score": 52.4,
       "market_cap": 8580,
-      "updated_at": "2026-10-14T18:39:22.634942",
-      "above_high_percent": -3.85
+      "updated_at": "2026-10-14T21:16:59.535326",
+      "above_high_percent": -1.42
+    },
+    {
+      "ticker": "004080",
+      "name": "신흥",
+      "price": 14410,
+      "change_rate": 0.28,
+      "high_52w": 14760,
+      "percent_from_high": -2.37,
+      "high_52w_date": "2025-11-27",
+      "entry_date": "2026-10-06",
+      "status": "active",
+      "days_since": 5,
+      "volume_ratio": 0.2,
+      "predicted_gain": 8.2,
+      "breakout_probability": 43.1,
+      "ai_score": 37.5,
+      "market_cap": 1325,
+      "updated_at": "2026-10-14T21:16:59.534712",
+      "above_high_percent": -2.37
     },
     {
       "ticker": "049430",
       "name": "코메론",
-      "price": 22600,
-      "change_rate": -1.74,
+      "price": 22700,
+      "change_rate": -1.3,
       "high_52w": 23650,
-      "percent_from_high": -4.44,
+      "percent_from_high": -4.02,
       "high_52w_date": "2026-04-01",
       "entry_date": "2026-10-13",
       "status": "active",
@@ -79,26 +79,8 @@
       "breakout_probability": 42.3,
       "ai_score": 40.4,
       "market_cap": 2053,
-      "updated_at": "2026-10-14T18:39:22.635807",
-      "above_high_percent": -4.44
-    },
-    {
-      "ticker": "453340",
-      "name": "현대그린푸드",
-      "price": 18990,
-      "change_rate": -0.11,
-      "high_52w": 19950,
-      "percent_from_high": -4.81,
-      "high_52w_date": "2026-08-10",
-      "entry_date": "2026-10-14",
-      "status": "active",
-      "days_since": 0,
-      "volume_ratio": 0.8,
-      "predicted_gain": 9.3,
-      "breakout_probability": 25.0,
-      "ai_score": 25.9,
-      "market_cap": 6114,
-      "updated_at": "2026-10-14T18:39:22.344046"
+      "updated_at": "2026-10-14T21:16:59.535885",
+      "above_high_percent": -4.02
     },
     {
       "ticker": "089860",
@@ -116,7 +98,7 @@
       "breakout_probability": 31.3,
       "ai_score": 30.3,
       "market_cap": 18191,
-      "updated_at": "2026-10-14T18:39:22.636235",
+      "updated_at": "2026-10-14T21:16:59.536438",
       "above_high_percent": -5.65
     },
     {
@@ -135,7 +117,7 @@
       "breakout_probability": 65.1,
       "ai_score": 60.6,
       "market_cap": 1533,
-      "updated_at": "2026-10-14T18:39:22.636654",
+      "updated_at": "2026-10-14T21:16:59.536905",
       "above_high_percent": -7.64
     }
   ]
