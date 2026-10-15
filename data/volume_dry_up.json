@@ -1,16 +1,16 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-15T18:17:28.343216",
+    "lastUpdated": "2026-10-15T20:58:23.089747",
     "marketDate": "2026-10-15",
-    "totalCount": 3,
+    "totalCount": 2,
     "screened_from": 1297
   },
   "data": [
     {
       "ticker": "002710",
       "name": "TCC스틸",
-      "price": 12840,
-      "change_rate": -10.15,
+      "price": 13000,
+      "change_rate": -9.03,
       "explosion_date": "2026-09-30",
       "explosion_change_rate": 24.7,
       "explosion_volume_ratio": 12.6,
@@ -22,43 +22,25 @@
       "ma150": 12964,
       "above_ma150": false,
       "market_cap": 3407,
-      "updated_at": "2026-10-15T18:17:27.521334"
+      "updated_at": "2026-10-15T20:58:23.088856"
     },
     {
       "ticker": "228850",
       "name": "레이언스",
-      "price": 8040,
-      "change_rate": -3.6,
+      "price": 8090,
+      "change_rate": -3.0,
       "explosion_date": "2026-09-18",
       "explosion_change_rate": 14.4,
       "explosion_volume_ratio": 6.7,
       "days_since_detected": 15,
       "volume_decrease_rate": 91,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.01,
+      "ma20_distance": 0.6,
       "volume_rank": 2,
       "ma150": 6597,
       "above_ma150": true,
       "market_cap": 1342,
-      "updated_at": "2026-10-15T18:17:27.983345"
-    },
-    {
-      "ticker": "265740",
-      "name": "엔에프씨",
-      "price": 7480,
-      "change_rate": -1.45,
-      "explosion_date": "2026-09-18",
-      "explosion_change_rate": 29.9,
-      "explosion_volume_ratio": 6.4,
-      "days_since_detected": 15,
-      "volume_decrease_rate": 85,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.9,
-      "volume_rank": 3,
-      "ma150": 6619,
-      "above_ma150": true,
-      "market_cap": 1357,
-      "updated_at": "2026-10-15T18:17:27.970348"
+      "updated_at": "2026-10-15T20:58:22.911469"
     }
   ]
 }
