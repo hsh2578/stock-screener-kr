@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-16T16:23:37.130604",
+    "lastUpdated": "2026-10-16T18:10:56.376432",
     "marketDate": "2026-10-16",
     "totalCount": 6,
     "screened_from": 1313
@@ -9,8 +9,8 @@
     {
       "ticker": "123040",
       "name": "엠에스오토텍",
-      "price": 1763,
-      "change_rate": 3.28,
+      "price": 1780,
+      "change_rate": 4.28,
       "explosion_date": "2026-10-13",
       "explosion_change_rate": 10.1,
       "explosion_volume_ratio": 6.5,
@@ -22,13 +22,13 @@
       "ma150": 1930,
       "above_ma150": false,
       "market_cap": 1114,
-      "updated_at": "2026-10-16T16:23:37.121983"
+      "updated_at": "2026-10-16T18:10:56.368597"
     },
     {
       "ticker": "002710",
       "name": "TCC스틸",
-      "price": 13510,
-      "change_rate": 3.92,
+      "price": 13450,
+      "change_rate": 3.46,
       "explosion_date": "2026-09-30",
       "explosion_change_rate": 24.7,
       "explosion_volume_ratio": 12.6,
@@ -40,43 +40,43 @@
       "ma150": 12964,
       "above_ma150": false,
       "market_cap": 3541,
-      "updated_at": "2026-10-16T16:23:37.123013"
+      "updated_at": "2026-10-16T18:10:56.370914"
     },
     {
       "ticker": "323280",
       "name": "태성",
-      "price": 53600,
-      "change_rate": 0.37,
+      "price": 53700,
+      "change_rate": 0.56,
       "explosion_date": "2026-09-29",
       "explosion_change_rate": 13.3,
       "explosion_volume_ratio": 3.3,
       "days_since_detected": 11,
       "volume_decrease_rate": 62,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.02,
+      "ma20_distance": 0.2,
       "volume_rank": 3,
-      "ma150": 53749,
+      "ma150": 53750,
       "above_ma150": false,
       "market_cap": 16154,
-      "updated_at": "2026-10-16T16:23:36.592806"
+      "updated_at": "2026-10-16T18:10:55.265208"
     },
     {
-      "ticker": "024850",
-      "name": "HLB이노베이션",
-      "price": 16530,
-      "change_rate": -1.61,
+      "ticker": "052860",
+      "name": "아이앤씨",
+      "price": 7420,
+      "change_rate": -0.27,
       "explosion_date": "2026-09-28",
-      "explosion_change_rate": 30.0,
-      "explosion_volume_ratio": 5.8,
+      "explosion_change_rate": 12.2,
+      "explosion_volume_ratio": 3.1,
       "days_since_detected": 12,
-      "volume_decrease_rate": 83,
+      "volume_decrease_rate": 72,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.17,
+      "ma20_distance": 1.03,
       "volume_rank": 4,
-      "ma150": 16572,
-      "above_ma150": false,
-      "market_cap": 5709,
-      "updated_at": "2026-10-16T16:23:36.649726"
+      "ma150": 5381,
+      "above_ma150": true,
+      "market_cap": 1300,
+      "updated_at": "2026-10-16T18:10:56.233163"
     },
     {
       "ticker": "159010",
@@ -94,25 +94,25 @@
       "ma150": 16630,
       "above_ma150": true,
       "market_cap": 3807,
-      "updated_at": "2026-10-16T16:23:36.691258"
+      "updated_at": "2026-10-16T18:10:55.645307"
     },
     {
-      "ticker": "043260",
-      "name": "성호전자",
-      "price": 27150,
-      "change_rate": -0.18,
-      "explosion_date": "2026-09-18",
-      "explosion_change_rate": 24.1,
-      "explosion_volume_ratio": 9.2,
-      "days_since_detected": 16,
-      "volume_decrease_rate": 88,
+      "ticker": "353200",
+      "name": "대덕전자",
+      "price": 130300,
+      "change_rate": 0.62,
+      "explosion_date": "2026-09-22",
+      "explosion_change_rate": 10.2,
+      "explosion_volume_ratio": 3.9,
+      "days_since_detected": 14,
+      "volume_decrease_rate": 62,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.4,
+      "ma20_distance": 0.83,
       "volume_rank": 6,
-      "ma150": 32266,
-      "above_ma150": false,
-      "market_cap": 20371,
-      "updated_at": "2026-10-16T16:23:36.583094"
+      "ma150": 116380,
+      "above_ma150": true,
+      "market_cap": 65082,
+      "updated_at": "2026-10-16T18:10:55.011697"
     }
   ]
 }

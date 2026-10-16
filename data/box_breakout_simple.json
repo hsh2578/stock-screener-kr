@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-16T16:23:44.140043",
+    "lastUpdated": "2026-10-16T18:11:12.719245",
     "marketDate": "2026-10-16",
     "totalCount": 8,
     "screened_from": 1313
@@ -9,8 +9,8 @@
     {
       "ticker": "128820",
       "name": "대성산업",
-      "price": 4595,
-      "change_rate": 0.77,
+      "price": 4620,
+      "change_rate": 1.32,
       "breakout_date": "2026-10-07",
       "resistance": 4455,
       "days_since_breakout": 6,
@@ -22,32 +22,32 @@
       "success_prob": 83.6,
       "predicted_gain": 21.4,
       "ai_score": 77.8,
-      "updated_at": "2026-10-16T16:23:44.138330",
-      "vs_breakout_close": -8.1
+      "updated_at": "2026-10-16T18:11:12.715163",
+      "vs_breakout_close": -7.6
     },
     {
       "ticker": "018880",
       "name": "한온시스템",
-      "price": 3845,
-      "change_rate": 2.4,
+      "price": 3870,
+      "change_rate": 3.06,
       "breakout_date": "2026-10-08",
       "resistance": 3865,
       "days_since_breakout": 5,
-      "breakout_pct": -0.52,
-      "gain_since_breakout": -4.23,
+      "breakout_pct": 0.13,
+      "gain_since_breakout": -3.61,
       "ma150": 3989,
       "above_ma150": false,
       "market_cap": 39356,
       "success_prob": 37.3,
       "predicted_gain": 18.7,
       "ai_score": 43.0,
-      "updated_at": "2026-10-16T16:23:37.247518"
+      "updated_at": "2026-10-16T18:10:54.223711"
     },
     {
       "ticker": "001250",
       "name": "GS글로벌",
-      "price": 3120,
-      "change_rate": 10.25,
+      "price": 3065,
+      "change_rate": 8.3,
       "breakout_date": "2026-10-02",
       "resistance": 2915,
       "days_since_breakout": 8,
@@ -59,14 +59,14 @@
       "success_prob": 40.9,
       "predicted_gain": 14.3,
       "ai_score": 41.5,
-      "updated_at": "2026-10-16T16:23:44.138908",
-      "vs_breakout_close": 4.35
+      "updated_at": "2026-10-16T18:11:12.716010",
+      "vs_breakout_close": 2.51
     },
     {
       "ticker": "005720",
       "name": "넥센",
-      "price": 6350,
-      "change_rate": 1.11,
+      "price": 6380,
+      "change_rate": 1.59,
       "breakout_date": "2026-10-02",
       "resistance": 6280,
       "days_since_breakout": 8,
@@ -78,14 +78,14 @@
       "success_prob": 26.3,
       "predicted_gain": 16.4,
       "ai_score": 33.2,
-      "updated_at": "2026-10-16T16:23:44.139325",
-      "vs_breakout_close": -2.01
+      "updated_at": "2026-10-16T18:11:12.716732",
+      "vs_breakout_close": -1.54
     },
     {
       "ticker": "126600",
       "name": "BGF에코머티리얼즈",
-      "price": 3510,
-      "change_rate": -0.28,
+      "price": 3545,
+      "change_rate": 0.71,
       "breakout_date": "2026-10-02",
       "resistance": 3110,
       "days_since_breakout": 8,
@@ -97,8 +97,26 @@
       "success_prob": 28.4,
       "predicted_gain": 11.6,
       "ai_score": 30.3,
-      "updated_at": "2026-10-16T16:23:44.139682",
-      "vs_breakout_close": 9.69
+      "updated_at": "2026-10-16T18:11:12.717381",
+      "vs_breakout_close": 10.78
+    },
+    {
+      "ticker": "002960",
+      "name": "한국쉘석유",
+      "price": 559000,
+      "change_rate": 0.36,
+      "breakout_date": "2026-10-07",
+      "resistance": 527000,
+      "days_since_breakout": 6,
+      "breakout_pct": 6.07,
+      "gain_since_breakout": 3.33,
+      "ma150": 503046,
+      "above_ma150": true,
+      "market_cap": 7293,
+      "success_prob": 15.6,
+      "predicted_gain": 9.3,
+      "ai_score": 19.3,
+      "updated_at": "2026-10-16T18:10:57.783280"
     },
     {
       "ticker": "000240",
@@ -116,43 +134,25 @@
       "success_prob": 11.0,
       "predicted_gain": 12.7,
       "ai_score": 19.1,
-      "updated_at": "2026-10-16T16:23:37.434328"
+      "updated_at": "2026-10-16T18:10:56.447469"
     },
     {
       "ticker": "026960",
       "name": "동서",
-      "price": 27400,
-      "change_rate": 1.11,
+      "price": 27350,
+      "change_rate": 0.92,
       "breakout_date": "2026-10-02",
       "resistance": 26600,
       "days_since_breakout": 8,
-      "breakout_pct": 3.01,
-      "gain_since_breakout": -1.08,
-      "ma150": 25799,
+      "breakout_pct": 2.82,
+      "gain_since_breakout": -1.26,
+      "ma150": 25798,
       "above_ma150": true,
       "market_cap": 27417,
       "success_prob": 8.2,
       "predicted_gain": 11.7,
       "ai_score": 16.3,
-      "updated_at": "2026-10-16T16:23:37.380880"
-    },
-    {
-      "ticker": "002960",
-      "name": "한국쉘석유",
-      "price": 561000,
-      "change_rate": 0.72,
-      "breakout_date": "2026-10-07",
-      "resistance": 527000,
-      "days_since_breakout": 6,
-      "breakout_pct": 6.45,
-      "gain_since_breakout": 3.7,
-      "ma150": 503060,
-      "above_ma150": true,
-      "market_cap": 7293,
-      "success_prob": 7.8,
-      "predicted_gain": 8.3,
-      "ai_score": 12.9,
-      "updated_at": "2026-10-16T16:23:38.490928"
+      "updated_at": "2026-10-16T18:10:56.150203"
     }
   ]
 }

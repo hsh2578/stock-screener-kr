@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-16T16:23:35.978363",
+    "lastUpdated": "2026-10-16T18:10:53.732172",
     "marketDate": "2026-10-16",
-    "totalCount": 17,
+    "totalCount": 18,
     "screened_from": 1313
   },
   "data": [
@@ -11,120 +11,132 @@
       "name": "에코앤드림",
       "price": 10660,
       "change_rate": 30.0,
-      "volume_ratio": 15.7,
+      "volume_ratio": 15.8,
       "volume_rank": 1,
       "ma150": 11854,
       "above_ma150": false,
       "market_cap": 1895,
-      "updated_at": "2026-10-16T16:23:35.940523"
+      "updated_at": "2026-10-16T18:10:53.521404"
     },
     {
       "ticker": "452280",
       "name": "한선엔지니어링",
-      "price": 16870,
-      "change_rate": 15.0,
-      "volume_ratio": 8.2,
+      "price": 16580,
+      "change_rate": 13.02,
+      "volume_ratio": 8.4,
       "volume_rank": 2,
-      "ma150": 15414,
+      "ma150": 15412,
       "above_ma150": true,
       "market_cap": 3247,
-      "updated_at": "2026-10-16T16:23:35.911035"
+      "updated_at": "2026-10-16T18:10:53.427772"
     },
     {
       "ticker": "396300",
       "name": "HT로보틱스",
-      "price": 8950,
-      "change_rate": 25.17,
-      "volume_ratio": 7.6,
+      "price": 8900,
+      "change_rate": 24.48,
+      "volume_ratio": 7.8,
       "volume_rank": 3,
-      "ma150": 4571,
+      "ma150": 4570,
       "above_ma150": true,
       "market_cap": 2386,
-      "updated_at": "2026-10-16T16:23:35.923986"
+      "updated_at": "2026-10-16T18:10:53.482548"
     },
     {
       "ticker": "491000",
       "name": "리브스메드",
-      "price": 43900,
-      "change_rate": 29.12,
+      "price": 44050,
+      "change_rate": 29.56,
       "volume_ratio": 5.7,
       "volume_rank": 4,
-      "ma150": 49313,
+      "ma150": 49314,
       "above_ma150": false,
       "market_cap": 11011,
-      "updated_at": "2026-10-16T16:23:35.872364"
+      "updated_at": "2026-10-16T18:10:53.272344"
     },
     {
       "ticker": "043370",
       "name": "피에이치에이",
-      "price": 11840,
-      "change_rate": 12.87,
+      "price": 11780,
+      "change_rate": 12.3,
       "volume_ratio": 5.6,
       "volume_rank": 5,
-      "ma150": 11852,
+      "ma150": 11851,
       "above_ma150": false,
       "market_cap": 2486,
-      "updated_at": "2026-10-16T16:23:35.921365"
+      "updated_at": "2026-10-16T18:10:53.477742"
     },
     {
       "ticker": "039440",
       "name": "에스티아이",
-      "price": 30550,
-      "change_rate": 13.57,
-      "volume_ratio": 4.6,
+      "price": 30350,
+      "change_rate": 12.83,
+      "volume_ratio": 4.7,
       "volume_rank": 6,
-      "ma150": 27421,
+      "ma150": 27420,
       "above_ma150": true,
       "market_cap": 4776,
-      "updated_at": "2026-10-16T16:23:35.890585"
+      "updated_at": "2026-10-16T18:10:53.347331"
     },
     {
       "ticker": "473980",
       "name": "노머스",
-      "price": 11090,
-      "change_rate": 13.74,
+      "price": 11220,
+      "change_rate": 15.08,
       "volume_ratio": 3.5,
       "volume_rank": 7,
-      "ma150": 13528,
+      "ma150": 13529,
       "above_ma150": false,
       "market_cap": 1206,
-      "updated_at": "2026-10-16T16:23:35.966466"
+      "updated_at": "2026-10-16T18:10:53.687779"
     },
     {
       "ticker": "290650",
       "name": "엘앤씨바이오",
-      "price": 69800,
-      "change_rate": 23.1,
-      "volume_ratio": 3.2,
+      "price": 70600,
+      "change_rate": 24.51,
+      "volume_ratio": 3.3,
       "volume_rank": 8,
-      "ma150": 64252,
+      "ma150": 64258,
       "above_ma150": true,
       "market_cap": 18905,
-      "updated_at": "2026-10-16T16:23:35.865638"
+      "updated_at": "2026-10-16T18:10:53.248560"
     },
     {
       "ticker": "091120",
       "name": "이엠텍",
-      "price": 6320,
-      "change_rate": 12.66,
+      "price": 6370,
+      "change_rate": 13.55,
       "volume_ratio": 2.8,
       "volume_rank": 9,
-      "ma150": 5289,
+      "ma150": 5290,
       "above_ma150": true,
       "market_cap": 1082,
-      "updated_at": "2026-10-16T16:23:35.973373"
+      "updated_at": "2026-10-16T18:10:53.717358"
+    },
+    {
+      "ticker": "046970",
+      "name": "우리로",
+      "price": 8810,
+      "change_rate": 23.22,
+      "volume_ratio": 2.7,
+      "volume_rank": 10,
+      "ma150": 6439,
+      "above_ma150": true,
+      "market_cap": 3821,
+      "updated_at": "2026-10-16T18:10:53.389010"
     },
     {
       "ticker": "458870",
       "name": "씨어스",
-      "price": 23650,
-      "change_rate": 13.98,
+      "price": 23600,
+      "change_rate": 13.73,
       "volume_ratio": 2.6,
-      "volume_rank": 10,
-      "ma150": 34451,
+      "volume_rank": 11,
+      "ma150": 34450,
       "above_ma150": false,
       "market_cap": 9068,
-      "updated_at": "2026-10-16T16:23:35.874940"
+      "updated_at": "2026-10-16T18:10:53.278218"
     },
     {
       "ticker": "042520",
@@ -132,35 +144,35 @@
       "price": 21800,
       "change_rate": 25.36,
       "volume_ratio": 2.6,
-      "volume_rank": 11,
+      "volume_rank": 12,
       "ma150": 26617,
       "above_ma150": false,
       "market_cap": 3108,
-      "updated_at": "2026-10-16T16:23:35.912541"
+      "updated_at": "2026-10-16T18:10:53.431300"
     },
     {
       "ticker": "252990",
       "name": "샘씨엔에스",
-      "price": 16990,
-      "change_rate": 15.81,
-      "volume_ratio": 2.4,
-      "volume_rank": 12,
-      "ma150": 13298,
+      "price": 16830,
+      "change_rate": 14.72,
+      "volume_ratio": 2.5,
+      "volume_rank": 13,
+      "ma150": 13297,
       "above_ma150": true,
       "market_cap": 10116,
-      "updated_at": "2026-10-16T16:23:35.873276"
+      "updated_at": "2026-10-16T18:10:53.274486"
     },
     {
-      "ticker": "046970",
-      "name": "우리로",
-      "price": 8680,
-      "change_rate": 21.4,
+      "ticker": "445680",
+      "name": "큐리옥스바이오시스템즈",
+      "price": 67900,
+      "change_rate": 18.09,
       "volume_ratio": 2.4,
-      "volume_rank": 13,
-      "ma150": 6438,
+      "volume_rank": 14,
+      "ma150": 67320,
       "above_ma150": true,
-      "market_cap": 3821,
-      "updated_at": "2026-10-16T16:23:35.902755"
+      "market_cap": 11712,
+      "updated_at": "2026-10-16T18:10:53.270219"
     },
     {
       "ticker": "079650",
@@ -168,47 +180,47 @@
       "price": 8030,
       "change_rate": 22.22,
       "volume_ratio": 2.4,
-      "volume_rank": 14,
+      "volume_rank": 15,
       "ma150": 3594,
       "above_ma150": true,
       "market_cap": 1606,
-      "updated_at": "2026-10-16T16:23:35.949750"
-    },
-    {
-      "ticker": "445680",
-      "name": "큐리옥스바이오시스템즈",
-      "price": 68000,
-      "change_rate": 18.26,
-      "volume_ratio": 2.3,
-      "volume_rank": 15,
-      "ma150": 67321,
-      "above_ma150": true,
-      "market_cap": 11712,
-      "updated_at": "2026-10-16T16:23:35.871439"
+      "updated_at": "2026-10-16T18:10:53.604128"
     },
     {
       "ticker": "085910",
       "name": "네오티스",
-      "price": 21100,
-      "change_rate": 17.55,
+      "price": 20750,
+      "change_rate": 15.6,
       "volume_ratio": 2.3,
       "volume_rank": 16,
-      "ma150": 20860,
-      "above_ma150": true,
+      "ma150": 20857,
+      "above_ma150": false,
       "market_cap": 2890,
-      "updated_at": "2026-10-16T16:23:35.914619"
+      "updated_at": "2026-10-16T18:10:53.436167"
     },
     {
       "ticker": "087010",
       "name": "펩트론",
-      "price": 100000,
-      "change_rate": 13.25,
+      "price": 100100,
+      "change_rate": 13.36,
       "volume_ratio": 2.1,
       "volume_rank": 17,
-      "ma150": 209495,
+      "ma150": 209496,
       "above_ma150": false,
       "market_cap": 23130,
-      "updated_at": "2026-10-16T16:23:35.862394"
+      "updated_at": "2026-10-16T18:10:53.229399"
+    },
+    {
+      "ticker": "009900",
+      "name": "명신산업",
+      "price": 9240,
+      "change_rate": 15.36,
+      "volume_ratio": 2.0,
+      "volume_rank": 18,
+      "ma150": 8946,
+      "above_ma150": true,
+      "market_cap": 4433,
+      "updated_at": "2026-10-16T18:10:53.370093"
     }
   ]
 }

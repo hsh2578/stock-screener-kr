@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-16T16:23:44.152259",
+    "lastUpdated": "2026-10-16T18:11:12.730720",
     "marketDate": "2026-10-16",
     "totalCount": 3,
     "screened_from": 1313
@@ -9,8 +9,8 @@
     {
       "ticker": "001250",
       "name": "GS글로벌",
-      "price": 3120,
-      "change_rate": 10.25,
+      "price": 3065,
+      "change_rate": 8.3,
       "breakout_date": "2026-10-02",
       "days_since_breakout": 8,
       "breakout_price": 2915,
@@ -23,14 +23,14 @@
       "success_prob": 33.1,
       "predicted_gain": 12.5,
       "ai_score": 34.4,
-      "updated_at": "2026-10-16T16:23:44.147536",
-      "vs_breakout_close": 4.35
+      "updated_at": "2026-10-16T18:11:12.719787",
+      "vs_breakout_close": 2.51
     },
     {
       "ticker": "005720",
       "name": "넥센",
-      "price": 6350,
-      "change_rate": 1.11,
+      "price": 6380,
+      "change_rate": 1.59,
       "breakout_date": "2026-10-02",
       "days_since_breakout": 8,
       "breakout_price": 6280,
@@ -43,27 +43,27 @@
       "success_prob": 22.1,
       "predicted_gain": 16.4,
       "ai_score": 30.2,
-      "updated_at": "2026-10-16T16:23:44.148015",
-      "vs_breakout_close": -2.01
+      "updated_at": "2026-10-16T18:11:12.720511",
+      "vs_breakout_close": -1.54
     },
     {
       "ticker": "026960",
       "name": "동서",
-      "price": 27400,
-      "change_rate": 1.11,
+      "price": 27350,
+      "change_rate": 0.92,
       "breakout_date": "2026-10-02",
       "days_since_breakout": 8,
       "breakout_price": 26600,
-      "breakout_pct": 3.01,
-      "gain_since_breakout": -1.08,
+      "breakout_pct": 2.82,
+      "gain_since_breakout": -1.26,
       "volume_ratio": 4.6,
-      "ma150": 25799,
+      "ma150": 25798,
       "above_ma150": true,
       "market_cap": 27417,
       "success_prob": 6.7,
       "predicted_gain": 10.8,
       "ai_score": 14.4,
-      "updated_at": "2026-10-16T16:23:37.874928"
+      "updated_at": "2026-10-16T18:10:58.759515"
     }
   ]
 }
