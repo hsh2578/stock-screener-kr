@@ -1,9 +1,48 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-15T22:34:43.441094",
-    "marketDate": "2026-10-15",
-    "totalCount": 0,
-    "screened_from": 1297
+    "lastUpdated": "2026-10-16T13:46:33.921552",
+    "marketDate": "2026-10-16",
+    "totalCount": 2,
+    "screened_from": 1317
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "105560",
+      "name": "KB금융",
+      "current_price": 161700,
+      "volume": 998154,
+      "ma10w": 169430,
+      "ma20w": 169305,
+      "ma60w": 147378,
+      "ma20d": 169195,
+      "ma60d": 169893,
+      "ma120d": 165330,
+      "gap_20_60": 0.41,
+      "gap_20_120": 2.34,
+      "gap_60_120": 2.76,
+      "gap_price_20": 4.43,
+      "weeks_since_high": 14,
+      "market_cap": 573530,
+      "updated_at": "2026-10-16T13:46:29.392447"
+    },
+    {
+      "ticker": "060370",
+      "name": "LS마린솔루션",
+      "current_price": 31050,
+      "volume": 269155,
+      "ma10w": 32495,
+      "ma20w": 30425,
+      "ma60w": 29932,
+      "ma20d": 32275,
+      "ma60d": 31183,
+      "ma120d": 31935,
+      "gap_20_60": 3.5,
+      "gap_20_120": 1.06,
+      "gap_60_120": 2.36,
+      "gap_price_20": 3.8,
+      "weeks_since_high": 24,
+      "market_cap": 16220,
+      "updated_at": "2026-10-16T13:46:32.413816"
+    }
+  ]
 }
