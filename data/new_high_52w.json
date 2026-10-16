@@ -1,61 +1,44 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-16T18:11:03.473465",
+    "lastUpdated": "2026-10-16T20:49:45.186605",
     "marketDate": "2026-10-16",
-    "totalCount": 4,
+    "totalCount": 3,
     "screened_from": 1313
   },
   "data": [
     {
       "ticker": "396300",
       "name": "HT로보틱스",
-      "price": 8900,
-      "change_rate": 24.48,
+      "price": 9010,
+      "change_rate": 26.01,
       "high_52w": 8070,
       "breakout_date": "2026-10-16",
       "days_since": 0,
-      "above_high_percent": 10.29,
-      "volume_ratio": 5.5,
+      "above_high_percent": 11.65,
+      "volume_ratio": 5.6,
       "vs_breakout_close": 0.0,
-      "predicted_gain": 22.8,
-      "success_probability": 41.9,
-      "ai_score": 49.9,
+      "predicted_gain": 22.6,
+      "success_probability": 46.1,
+      "ai_score": 52.6,
       "market_cap": 2386,
-      "updated_at": "2026-10-16T18:11:02.885007"
-    },
-    {
-      "ticker": "251970",
-      "name": "펌텍코리아",
-      "price": 71600,
-      "change_rate": 7.03,
-      "high_52w": 71300,
-      "breakout_date": "2026-10-16",
-      "days_since": 0,
-      "above_high_percent": 0.42,
-      "volume_ratio": 2.0,
-      "vs_breakout_close": 0.0,
-      "predicted_gain": 14.4,
-      "success_probability": 31.9,
-      "ai_score": 35.3,
-      "market_cap": 8841,
-      "updated_at": "2026-10-16T18:11:02.497334"
+      "updated_at": "2026-10-16T20:49:44.695280"
     },
     {
       "ticker": "028670",
       "name": "팬오션",
-      "price": 6660,
-      "change_rate": -0.3,
+      "price": 6720,
+      "change_rate": 0.6,
       "high_52w": 6630,
       "breakout_date": "2026-10-14",
       "days_since": 2,
-      "above_high_percent": 0.45,
+      "above_high_percent": 1.36,
       "volume_ratio": 5.1,
-      "vs_breakout_close": -8.01,
+      "vs_breakout_close": -7.18,
       "predicted_gain": 13.5,
       "success_probability": 36.5,
       "ai_score": 37.7,
       "market_cap": 35923,
-      "updated_at": "2026-10-16T18:11:03.471592"
+      "updated_at": "2026-10-16T20:49:45.180796"
     },
     {
       "ticker": "141000",
@@ -72,7 +55,7 @@
       "success_probability": 34.4,
       "ai_score": 39.4,
       "market_cap": 1660,
-      "updated_at": "2026-10-16T18:11:03.472664"
+      "updated_at": "2026-10-16T20:49:45.181984"
     }
   ]
 }

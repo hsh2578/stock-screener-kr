@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-16T18:11:01.410559",
+    "lastUpdated": "2026-10-16T20:49:43.721920",
     "marketDate": "2026-10-16",
     "totalCount": 7,
     "screened_from": 1313
@@ -9,10 +9,10 @@
     {
       "ticker": "033780",
       "name": "KT&G",
-      "price": 189600,
-      "change_rate": 0.32,
+      "price": 190500,
+      "change_rate": 0.79,
       "high_52w": 192400,
-      "percent_from_high": -1.46,
+      "percent_from_high": -0.99,
       "high_52w_date": "2026-06-16",
       "entry_date": "2026-10-15",
       "status": "active",
@@ -22,26 +22,45 @@
       "breakout_probability": 43.6,
       "ai_score": 38.0,
       "market_cap": 197758,
-      "updated_at": "2026-10-16T18:11:01.400621",
-      "above_high_percent": -1.46
+      "updated_at": "2026-10-16T20:49:43.677077",
+      "above_high_percent": -0.99
+    },
+    {
+      "ticker": "021240",
+      "name": "코웨이",
+      "price": 107800,
+      "change_rate": 2.67,
+      "high_52w": 109200,
+      "percent_from_high": -1.28,
+      "high_52w_date": "2026-09-17",
+      "entry_date": "2026-10-15",
+      "status": "active",
+      "days_since": 1,
+      "volume_ratio": 1.2,
+      "predicted_gain": 10.4,
+      "breakout_probability": 35.7,
+      "ai_score": 34.3,
+      "market_cap": 76287,
+      "updated_at": "2026-10-16T20:49:43.678689",
+      "above_high_percent": -1.28
     },
     {
       "ticker": "453340",
       "name": "현대그린푸드",
-      "price": 19480,
-      "change_rate": 3.67,
+      "price": 19410,
+      "change_rate": 3.3,
       "high_52w": 19950,
-      "percent_from_high": -2.36,
+      "percent_from_high": -2.71,
       "high_52w_date": "2026-08-10",
       "entry_date": "2026-10-16",
       "status": "active",
       "days_since": 0,
       "volume_ratio": 1.7,
-      "predicted_gain": 9.6,
-      "breakout_probability": 41.0,
-      "ai_score": 37.4,
+      "predicted_gain": 9.5,
+      "breakout_probability": 38.5,
+      "ai_score": 35.5,
       "market_cap": 6302,
-      "updated_at": "2026-10-16T18:11:00.923189"
+      "updated_at": "2026-10-16T20:49:43.161595"
     },
     {
       "ticker": "004080",
@@ -59,27 +78,8 @@
       "breakout_probability": 43.1,
       "ai_score": 37.5,
       "market_cap": 1312,
-      "updated_at": "2026-10-16T18:11:01.402336",
+      "updated_at": "2026-10-16T20:49:43.678010",
       "above_high_percent": -3.32
-    },
-    {
-      "ticker": "021240",
-      "name": "코웨이",
-      "price": 109400,
-      "change_rate": 4.19,
-      "high_52w": 109200,
-      "percent_from_high": 0.18,
-      "high_52w_date": "2026-09-17",
-      "entry_date": "2026-10-15",
-      "status": "breakout",
-      "days_since": 1,
-      "volume_ratio": 1.2,
-      "predicted_gain": 10.4,
-      "breakout_probability": 35.7,
-      "ai_score": 34.3,
-      "market_cap": 76287,
-      "updated_at": "2026-10-16T18:11:01.401522",
-      "above_high_percent": 0.18
     },
     {
       "ticker": "089860",
@@ -97,16 +97,16 @@
       "breakout_probability": 31.3,
       "ai_score": 30.3,
       "market_cap": 18154,
-      "updated_at": "2026-10-16T18:11:01.403049",
+      "updated_at": "2026-10-16T20:49:43.696543",
       "above_high_percent": -5.84
     },
     {
       "ticker": "096770",
       "name": "SK이노베이션",
-      "price": 152300,
-      "change_rate": -1.74,
+      "price": 152000,
+      "change_rate": -1.94,
       "high_52w": 164700,
-      "percent_from_high": -7.53,
+      "percent_from_high": -7.71,
       "high_52w_date": "2026-09-10",
       "entry_date": "2026-10-08",
       "status": "dropped",
@@ -116,16 +116,16 @@
       "breakout_probability": 61.3,
       "ai_score": 59.8,
       "market_cap": 256960,
-      "updated_at": "2026-10-16T18:11:01.403819",
-      "above_high_percent": -7.53
+      "updated_at": "2026-10-16T20:49:43.697409",
+      "above_high_percent": -7.71
     },
     {
       "ticker": "049430",
       "name": "코메론",
-      "price": 21750,
-      "change_rate": -1.14,
+      "price": 21700,
+      "change_rate": -1.36,
       "high_52w": 23650,
-      "percent_from_high": -8.03,
+      "percent_from_high": -8.25,
       "high_52w_date": "2026-04-01",
       "entry_date": "2026-10-13",
       "status": "dropped",
@@ -135,8 +135,8 @@
       "breakout_probability": 42.3,
       "ai_score": 40.4,
       "market_cap": 1963,
-      "updated_at": "2026-10-16T18:11:01.404535",
-      "above_high_percent": -8.03
+      "updated_at": "2026-10-16T20:49:43.698033",
+      "above_high_percent": -8.25
     }
   ]
 }
