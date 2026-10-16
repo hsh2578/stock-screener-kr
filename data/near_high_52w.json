@@ -1,37 +1,18 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-16T13:46:21.566114",
+    "lastUpdated": "2026-10-16T16:23:39.348610",
     "marketDate": "2026-10-16",
-    "totalCount": 8,
-    "screened_from": 1317
+    "totalCount": 7,
+    "screened_from": 1313
   },
   "data": [
     {
-      "ticker": "021240",
-      "name": "코웨이",
-      "price": 108800,
-      "change_rate": 3.62,
-      "high_52w": 109200,
-      "percent_from_high": -0.37,
-      "high_52w_date": "2026-09-17",
-      "entry_date": "2026-10-15",
-      "status": "active",
-      "days_since": 1,
-      "volume_ratio": 1.2,
-      "predicted_gain": 10.4,
-      "breakout_probability": 35.7,
-      "ai_score": 34.3,
-      "market_cap": 76994,
-      "updated_at": "2026-10-16T13:46:21.563458",
-      "above_high_percent": -0.37
-    },
-    {
       "ticker": "033780",
       "name": "KT&G",
-      "price": 191500,
-      "change_rate": 1.32,
+      "price": 190500,
+      "change_rate": 0.79,
       "high_52w": 192400,
-      "percent_from_high": -0.47,
+      "percent_from_high": -0.99,
       "high_52w_date": "2026-06-16",
       "entry_date": "2026-10-15",
       "status": "active",
@@ -40,9 +21,28 @@
       "predicted_gain": 8.4,
       "breakout_probability": 43.6,
       "ai_score": 38.0,
-      "market_cap": 198797,
-      "updated_at": "2026-10-16T13:46:21.562307",
-      "above_high_percent": -0.47
+      "market_cap": 197758,
+      "updated_at": "2026-10-16T16:23:39.337261",
+      "above_high_percent": -0.99
+    },
+    {
+      "ticker": "021240",
+      "name": "코웨이",
+      "price": 107800,
+      "change_rate": 2.67,
+      "high_52w": 109200,
+      "percent_from_high": -1.28,
+      "high_52w_date": "2026-09-17",
+      "entry_date": "2026-10-15",
+      "status": "active",
+      "days_since": 1,
+      "volume_ratio": 1.2,
+      "predicted_gain": 10.4,
+      "breakout_probability": 35.7,
+      "ai_score": 34.3,
+      "market_cap": 76287,
+      "updated_at": "2026-10-16T16:23:39.336704",
+      "above_high_percent": -1.28
     },
     {
       "ticker": "453340",
@@ -55,20 +55,20 @@
       "entry_date": "2026-10-16",
       "status": "active",
       "days_since": 0,
-      "volume_ratio": 1.0,
-      "predicted_gain": 9.4,
-      "breakout_probability": 38.3,
-      "ai_score": 35.3,
+      "volume_ratio": 1.7,
+      "predicted_gain": 9.5,
+      "breakout_probability": 38.5,
+      "ai_score": 35.5,
       "market_cap": 6302,
-      "updated_at": "2026-10-16T13:46:21.281000"
+      "updated_at": "2026-10-16T16:23:39.125626"
     },
     {
       "ticker": "004080",
       "name": "신흥",
-      "price": 14290,
-      "change_rate": -0.76,
+      "price": 14270,
+      "change_rate": -0.9,
       "high_52w": 14760,
-      "percent_from_high": -3.18,
+      "percent_from_high": -3.32,
       "high_52w_date": "2025-11-27",
       "entry_date": "2026-10-06",
       "status": "active",
@@ -77,27 +77,9 @@
       "predicted_gain": 8.2,
       "breakout_probability": 43.1,
       "ai_score": 37.5,
-      "market_cap": 1314,
-      "updated_at": "2026-10-16T13:46:21.563012",
-      "above_high_percent": -3.18
-    },
-    {
-      "ticker": "005180",
-      "name": "빙그레",
-      "price": 91200,
-      "change_rate": 3.52,
-      "high_52w": 96000,
-      "percent_from_high": -5.0,
-      "high_52w_date": "2026-08-31",
-      "entry_date": "2026-10-16",
-      "status": "active",
-      "days_since": 0,
-      "volume_ratio": 1.5,
-      "predicted_gain": 10.8,
-      "breakout_probability": 27.6,
-      "ai_score": 29.0,
-      "market_cap": 8063,
-      "updated_at": "2026-10-16T13:46:21.257328"
+      "market_cap": 1312,
+      "updated_at": "2026-10-16T16:23:39.337641",
+      "above_high_percent": -3.32
     },
     {
       "ticker": "089860",
@@ -115,16 +97,16 @@
       "breakout_probability": 31.3,
       "ai_score": 30.3,
       "market_cap": 18154,
-      "updated_at": "2026-10-16T13:46:21.564013",
+      "updated_at": "2026-10-16T16:23:39.338039",
       "above_high_percent": -5.84
     },
     {
       "ticker": "096770",
       "name": "SK이노베이션",
-      "price": 154400,
-      "change_rate": -0.39,
+      "price": 151900,
+      "change_rate": -2.0,
       "high_52w": 164700,
-      "percent_from_high": -6.25,
+      "percent_from_high": -7.77,
       "high_52w_date": "2026-09-10",
       "entry_date": "2026-10-08",
       "status": "dropped",
@@ -133,17 +115,17 @@
       "predicted_gain": 18.8,
       "breakout_probability": 61.3,
       "ai_score": 59.8,
-      "market_cap": 261017,
-      "updated_at": "2026-10-16T13:46:21.564442",
-      "above_high_percent": -6.25
+      "market_cap": 256960,
+      "updated_at": "2026-10-16T16:23:39.338349",
+      "above_high_percent": -7.77
     },
     {
       "ticker": "049430",
       "name": "코메론",
-      "price": 22050,
-      "change_rate": 0.23,
+      "price": 21700,
+      "change_rate": -1.36,
       "high_52w": 23650,
-      "percent_from_high": -6.77,
+      "percent_from_high": -8.25,
       "high_52w_date": "2026-04-01",
       "entry_date": "2026-10-13",
       "status": "dropped",
@@ -152,9 +134,9 @@
       "predicted_gain": 12.0,
       "breakout_probability": 42.3,
       "ai_score": 40.4,
-      "market_cap": 1995,
-      "updated_at": "2026-10-16T13:46:21.564889",
-      "above_high_percent": -6.77
+      "market_cap": 1963,
+      "updated_at": "2026-10-16T16:23:39.338651",
+      "above_high_percent": -8.25
     }
   ]
 }
