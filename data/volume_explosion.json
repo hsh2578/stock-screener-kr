@@ -1,34 +1,34 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-19T13:58:34.811095",
+    "lastUpdated": "2026-10-19T16:58:32.612884",
     "marketDate": "2026-10-19",
-    "totalCount": 6,
-    "screened_from": 1320
+    "totalCount": 10,
+    "screened_from": 1321
   },
   "data": [
     {
-      "ticker": "419050",
-      "name": "삼기에너지솔루션즈",
-      "price": 2545,
-      "change_rate": 18.65,
-      "volume_ratio": 9.8,
-      "volume_rank": 1,
-      "ma150": 1614,
-      "above_ma150": true,
-      "market_cap": 1455,
-      "updated_at": "2026-10-19T13:58:34.757647"
-    },
-    {
       "ticker": "009900",
       "name": "명신산업",
-      "price": 9560,
-      "change_rate": 13.14,
-      "volume_ratio": 9.1,
-      "volume_rank": 2,
-      "ma150": 8947,
+      "price": 9700,
+      "change_rate": 14.79,
+      "volume_ratio": 15.7,
+      "volume_rank": 1,
+      "ma150": 8948,
       "above_ma150": true,
-      "market_cap": 5016,
-      "updated_at": "2026-10-19T13:58:34.499400"
+      "market_cap": 5100,
+      "updated_at": "2026-10-19T16:58:32.399693"
+    },
+    {
+      "ticker": "419050",
+      "name": "삼기에너지솔루션즈",
+      "price": 2680,
+      "change_rate": 24.94,
+      "volume_ratio": 13.6,
+      "volume_rank": 2,
+      "ma150": 1615,
+      "above_ma150": true,
+      "market_cap": 1541,
+      "updated_at": "2026-10-19T16:58:32.456218"
     },
     {
       "ticker": "010580",
@@ -40,43 +40,91 @@
       "ma150": 1989,
       "above_ma150": true,
       "market_cap": 4494,
-      "updated_at": "2026-10-19T13:58:34.508174"
+      "updated_at": "2026-10-19T16:58:32.402909"
+    },
+    {
+      "ticker": "161000",
+      "name": "애경케미칼",
+      "price": 13140,
+      "change_rate": 12.31,
+      "volume_ratio": 5.6,
+      "volume_rank": 4,
+      "ma150": 11236,
+      "above_ma150": true,
+      "market_cap": 6518,
+      "updated_at": "2026-10-19T16:58:32.393713"
+    },
+    {
+      "ticker": "336370",
+      "name": "솔루스첨단소재",
+      "price": 9560,
+      "change_rate": 19.2,
+      "volume_ratio": 4.6,
+      "volume_rank": 5,
+      "ma150": 9218,
+      "above_ma150": true,
+      "market_cap": 6845,
+      "updated_at": "2026-10-19T16:58:32.392071"
     },
     {
       "ticker": "008970",
       "name": "KBI동양철관",
       "price": 1748,
       "change_rate": 29.96,
-      "volume_ratio": 4.0,
-      "volume_rank": 4,
+      "volume_ratio": 4.1,
+      "volume_rank": 6,
       "ma150": 1415,
       "above_ma150": true,
       "market_cap": 1813,
-      "updated_at": "2026-10-19T13:58:34.611164"
+      "updated_at": "2026-10-19T16:58:32.447556"
     },
     {
       "ticker": "354320",
       "name": "알멕",
-      "price": 62500,
-      "change_rate": 20.66,
-      "volume_ratio": 2.5,
-      "volume_rank": 5,
-      "ma150": 50877,
+      "price": 62100,
+      "change_rate": 19.88,
+      "volume_ratio": 2.8,
+      "volume_rank": 7,
+      "ma150": 50874,
       "above_ma150": true,
-      "market_cap": 3994,
-      "updated_at": "2026-10-19T13:58:34.521385"
+      "market_cap": 4001,
+      "updated_at": "2026-10-19T16:58:32.407820"
+    },
+    {
+      "ticker": "020150",
+      "name": "롯데에너지머티리얼즈",
+      "price": 58000,
+      "change_rate": 17.41,
+      "volume_ratio": 2.7,
+      "volume_rank": 8,
+      "ma150": 45125,
+      "above_ma150": true,
+      "market_cap": 30633,
+      "updated_at": "2026-10-19T16:58:32.356613"
     },
     {
       "ticker": "107640",
       "name": "한중엔시에스",
-      "price": 48550,
-      "change_rate": 15.87,
-      "volume_ratio": 2.0,
-      "volume_rank": 6,
-      "ma150": 44696,
+      "price": 48850,
+      "change_rate": 16.59,
+      "volume_ratio": 2.5,
+      "volume_rank": 9,
+      "ma150": 44698,
       "above_ma150": true,
-      "market_cap": 4401,
-      "updated_at": "2026-10-19T13:58:34.513530"
+      "market_cap": 4405,
+      "updated_at": "2026-10-19T16:58:32.404129"
+    },
+    {
+      "ticker": "006110",
+      "name": "삼아알미늄",
+      "price": 81100,
+      "change_rate": 12.48,
+      "volume_ratio": 2.3,
+      "volume_rank": 10,
+      "ma150": 54688,
+      "above_ma150": true,
+      "market_cap": 12416,
+      "updated_at": "2026-10-19T16:58:32.382509"
     }
   ]
 }

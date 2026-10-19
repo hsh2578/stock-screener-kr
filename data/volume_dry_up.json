@@ -1,28 +1,9 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-19T13:58:38.448497",
+    "lastUpdated": "2026-10-19T16:58:33.593156",
     "marketDate": "2026-10-19",
-    "totalCount": 1,
-    "screened_from": 1320
+    "totalCount": 0,
+    "screened_from": 1321
   },
-  "data": [
-    {
-      "ticker": "353200",
-      "name": "대덕전자",
-      "price": 132100,
-      "change_rate": 0.3,
-      "explosion_date": "2026-09-22",
-      "explosion_change_rate": 10.2,
-      "explosion_volume_ratio": 3.9,
-      "days_since_detected": 15,
-      "volume_decrease_rate": 64,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.79,
-      "volume_rank": 1,
-      "ma150": 116868,
-      "above_ma150": true,
-      "market_cap": 65279,
-      "updated_at": "2026-10-19T13:58:35.160912"
-    }
-  ]
+  "data": []
 }
