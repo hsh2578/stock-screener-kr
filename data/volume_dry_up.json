@@ -1,28 +1,9 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-19T19:08:15.265733",
+    "lastUpdated": "2026-10-19T22:50:48.435044",
     "marketDate": "2026-10-19",
-    "totalCount": 1,
+    "totalCount": 0,
     "screened_from": 1321
   },
-  "data": [
-    {
-      "ticker": "200470",
-      "name": "에이팩트",
-      "price": 8960,
-      "change_rate": -3.45,
-      "explosion_date": "2026-09-30",
-      "explosion_change_rate": 13.8,
-      "explosion_volume_ratio": 3.7,
-      "days_since_detected": 11,
-      "volume_decrease_rate": 70,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.04,
-      "volume_rank": 1,
-      "ma150": 7569,
-      "above_ma150": true,
-      "market_cap": 3882,
-      "updated_at": "2026-10-19T19:08:14.509807"
-    }
-  ]
+  "data": []
 }

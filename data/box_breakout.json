@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-19T19:08:31.853155",
+    "lastUpdated": "2026-10-19T22:50:59.619795",
     "marketDate": "2026-10-19",
     "totalCount": 4,
     "screened_from": 1321
@@ -9,13 +9,13 @@
     {
       "ticker": "018880",
       "name": "한온시스템",
-      "price": 3995,
-      "change_rate": 4.17,
+      "price": 3990,
+      "change_rate": 4.04,
       "breakout_date": "2026-10-08",
       "days_since_breakout": 6,
       "breakout_price": 3865,
-      "breakout_pct": 3.36,
-      "gain_since_breakout": -0.5,
+      "breakout_pct": 3.23,
+      "gain_since_breakout": -0.62,
       "volume_ratio": 2.3,
       "ma150": 3989,
       "above_ma150": true,
@@ -23,13 +23,13 @@
       "success_prob": 48.2,
       "predicted_gain": 16.2,
       "ai_score": 48.3,
-      "updated_at": "2026-10-19T19:08:17.041924"
+      "updated_at": "2026-10-19T22:50:49.365579"
     },
     {
       "ticker": "001250",
       "name": "GS글로벌",
-      "price": 3245,
-      "change_rate": 6.39,
+      "price": 3255,
+      "change_rate": 6.72,
       "breakout_date": "2026-10-02",
       "days_since_breakout": 9,
       "breakout_price": 2915,
@@ -42,14 +42,14 @@
       "success_prob": 33.1,
       "predicted_gain": 12.5,
       "ai_score": 34.4,
-      "updated_at": "2026-10-19T19:08:31.846806",
-      "vs_breakout_close": 8.53
+      "updated_at": "2026-10-19T22:50:59.615852",
+      "vs_breakout_close": 8.86
     },
     {
       "ticker": "005720",
       "name": "넥센",
-      "price": 6460,
-      "change_rate": 1.41,
+      "price": 6350,
+      "change_rate": -0.31,
       "breakout_date": "2026-10-02",
       "days_since_breakout": 9,
       "breakout_price": 6280,
@@ -62,27 +62,27 @@
       "success_prob": 22.1,
       "predicted_gain": 16.4,
       "ai_score": 30.2,
-      "updated_at": "2026-10-19T19:08:31.847641",
-      "vs_breakout_close": -0.31
+      "updated_at": "2026-10-19T22:50:59.616679",
+      "vs_breakout_close": -2.01
     },
     {
       "ticker": "026960",
       "name": "동서",
-      "price": 27700,
-      "change_rate": 0.73,
+      "price": 27800,
+      "change_rate": 1.09,
       "breakout_date": "2026-10-02",
       "days_since_breakout": 9,
       "breakout_price": 26600,
-      "breakout_pct": 4.14,
-      "gain_since_breakout": 0.0,
+      "breakout_pct": 4.51,
+      "gain_since_breakout": 0.36,
       "volume_ratio": 4.6,
-      "ma150": 25816,
+      "ma150": 25817,
       "above_ma150": true,
       "market_cap": 27716,
       "success_prob": 6.7,
       "predicted_gain": 10.8,
       "ai_score": 14.4,
-      "updated_at": "2026-10-19T19:08:17.124345"
+      "updated_at": "2026-10-19T22:50:49.411294"
     }
   ]
 }
