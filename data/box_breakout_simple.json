@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-19T22:50:59.701851",
+    "lastUpdated": "2026-10-20T00:45:54.932522",
     "marketDate": "2026-10-19",
     "totalCount": 9,
     "screened_from": 1321
@@ -22,7 +22,7 @@
       "success_prob": 83.6,
       "predicted_gain": 21.4,
       "ai_score": 77.8,
-      "updated_at": "2026-10-19T22:50:59.627613",
+      "updated_at": "2026-10-20T00:45:54.931242",
       "vs_breakout_close": -7.0
     },
     {
@@ -41,7 +41,7 @@
       "success_prob": 37.3,
       "predicted_gain": 18.7,
       "ai_score": 43.0,
-      "updated_at": "2026-10-19T22:50:47.160246"
+      "updated_at": "2026-10-20T00:45:48.045224"
     },
     {
       "ticker": "001250",
@@ -59,7 +59,7 @@
       "success_prob": 40.9,
       "predicted_gain": 14.3,
       "ai_score": 41.5,
-      "updated_at": "2026-10-19T22:50:59.628456",
+      "updated_at": "2026-10-20T00:45:54.931706",
       "vs_breakout_close": 8.86
     },
     {
@@ -78,7 +78,7 @@
       "success_prob": 26.3,
       "predicted_gain": 16.4,
       "ai_score": 33.2,
-      "updated_at": "2026-10-19T22:50:59.639637",
+      "updated_at": "2026-10-20T00:45:54.932013",
       "vs_breakout_close": -2.01
     },
     {
@@ -97,7 +97,7 @@
       "success_prob": 28.4,
       "predicted_gain": 11.6,
       "ai_score": 30.3,
-      "updated_at": "2026-10-19T22:50:59.701071",
+      "updated_at": "2026-10-20T00:45:54.932271",
       "vs_breakout_close": 9.69
     },
     {
@@ -116,25 +116,7 @@
       "success_prob": 17.3,
       "predicted_gain": 10.4,
       "ai_score": 21.4,
-      "updated_at": "2026-10-19T22:50:45.926410"
-    },
-    {
-      "ticker": "000240",
-      "name": "한국앤컴퍼니",
-      "price": 26350,
-      "change_rate": 0.19,
-      "breakout_date": "2026-10-14",
-      "resistance": 26400,
-      "days_since_breakout": 3,
-      "breakout_pct": -0.19,
-      "gain_since_breakout": -3.83,
-      "ma150": 24992,
-      "above_ma150": true,
-      "market_cap": 25015,
-      "success_prob": 11.0,
-      "predicted_gain": 12.7,
-      "ai_score": 19.1,
-      "updated_at": "2026-10-19T22:50:48.272731"
+      "updated_at": "2026-10-20T00:45:47.018522"
     },
     {
       "ticker": "026960",
@@ -152,7 +134,7 @@
       "success_prob": 8.2,
       "predicted_gain": 11.7,
       "ai_score": 16.3,
-      "updated_at": "2026-10-19T22:50:48.099889"
+      "updated_at": "2026-10-20T00:45:48.835921"
     },
     {
       "ticker": "002960",
@@ -170,7 +152,25 @@
       "success_prob": 8.8,
       "predicted_gain": 8.3,
       "ai_score": 13.6,
-      "updated_at": "2026-10-19T22:50:49.804976"
+      "updated_at": "2026-10-20T00:45:49.776978"
+    },
+    {
+      "ticker": "000240",
+      "name": "한국앤컴퍼니",
+      "price": 26350,
+      "change_rate": 0.19,
+      "breakout_date": "2026-10-14",
+      "resistance": 26400,
+      "days_since_breakout": 3,
+      "breakout_pct": -0.19,
+      "gain_since_breakout": -3.83,
+      "ma150": 24992,
+      "above_ma150": true,
+      "market_cap": 25015,
+      "success_prob": 1.9,
+      "predicted_gain": 10.2,
+      "ai_score": 10.5,
+      "updated_at": "2026-10-20T00:45:49.044027"
     }
   ]
 }
