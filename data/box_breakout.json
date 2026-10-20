@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-20T16:48:57.051512",
+    "lastUpdated": "2026-10-20T18:34:12.938049",
     "marketDate": "2026-10-20",
     "totalCount": 4,
     "screened_from": 1307
@@ -9,8 +9,8 @@
     {
       "ticker": "018880",
       "name": "한온시스템",
-      "price": 3905,
-      "change_rate": -2.13,
+      "price": 3915,
+      "change_rate": -1.88,
       "breakout_date": "2026-10-08",
       "days_since_breakout": 7,
       "breakout_price": 3865,
@@ -23,14 +23,14 @@
       "success_prob": 48.2,
       "predicted_gain": 16.2,
       "ai_score": 48.3,
-      "updated_at": "2026-10-20T16:48:57.043432",
-      "vs_breakout_close": -2.74
+      "updated_at": "2026-10-20T18:34:12.913240",
+      "vs_breakout_close": -2.49
     },
     {
       "ticker": "001250",
       "name": "GS글로벌",
-      "price": 3110,
-      "change_rate": -4.45,
+      "price": 3095,
+      "change_rate": -4.92,
       "breakout_date": "2026-10-02",
       "days_since_breakout": 10,
       "breakout_price": 2915,
@@ -43,14 +43,14 @@
       "success_prob": 33.1,
       "predicted_gain": 12.5,
       "ai_score": 34.4,
-      "updated_at": "2026-10-20T16:48:57.044094",
-      "vs_breakout_close": 4.01
+      "updated_at": "2026-10-20T18:34:12.914001",
+      "vs_breakout_close": 3.51
     },
     {
       "ticker": "005720",
       "name": "넥센",
-      "price": 6260,
-      "change_rate": -1.42,
+      "price": 6160,
+      "change_rate": -2.99,
       "breakout_date": "2026-10-02",
       "days_since_breakout": 10,
       "breakout_price": 6280,
@@ -63,27 +63,27 @@
       "success_prob": 22.1,
       "predicted_gain": 16.4,
       "ai_score": 30.2,
-      "updated_at": "2026-10-20T16:48:57.044672",
-      "vs_breakout_close": -3.4
+      "updated_at": "2026-10-20T18:34:12.914510",
+      "vs_breakout_close": -4.94
     },
     {
       "ticker": "026960",
       "name": "동서",
-      "price": 28250,
-      "change_rate": 1.62,
+      "price": 28350,
+      "change_rate": 1.98,
       "breakout_date": "2026-10-02",
       "days_since_breakout": 10,
       "breakout_price": 26600,
-      "breakout_pct": 6.2,
-      "gain_since_breakout": 1.99,
+      "breakout_pct": 6.58,
+      "gain_since_breakout": 2.35,
       "volume_ratio": 4.6,
-      "ma150": 25835,
+      "ma150": 25836,
       "above_ma150": true,
       "market_cap": 28264,
       "success_prob": 6.7,
       "predicted_gain": 10.8,
       "ai_score": 14.4,
-      "updated_at": "2026-10-20T16:48:42.466827"
+      "updated_at": "2026-10-20T18:34:03.996342"
     }
   ]
 }

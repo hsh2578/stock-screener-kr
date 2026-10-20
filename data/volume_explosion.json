@@ -1,58 +1,34 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-20T16:48:37.688019",
+    "lastUpdated": "2026-10-20T18:34:00.969087",
     "marketDate": "2026-10-20",
-    "totalCount": 4,
+    "totalCount": 2,
     "screened_from": 1307
   },
   "data": [
+    {
+      "ticker": "030960",
+      "name": "양지사",
+      "price": 6910,
+      "change_rate": 20.38,
+      "volume_ratio": 21.6,
+      "volume_rank": 1,
+      "ma150": 5589,
+      "above_ma150": true,
+      "market_cap": 1072,
+      "updated_at": "2026-10-20T18:34:00.958231"
+    },
     {
       "ticker": "300080",
       "name": "플리토",
       "price": 10750,
       "change_rate": 29.99,
       "volume_ratio": 20.8,
-      "volume_rank": 1,
+      "volume_rank": 2,
       "ma150": 9228,
       "above_ma150": true,
       "market_cap": 1777,
-      "updated_at": "2026-10-20T16:48:37.521854"
-    },
-    {
-      "ticker": "030960",
-      "name": "양지사",
-      "price": 6790,
-      "change_rate": 18.29,
-      "volume_ratio": 19.7,
-      "volume_rank": 2,
-      "ma150": 5588,
-      "above_ma150": true,
-      "market_cap": 1072,
-      "updated_at": "2026-10-20T16:48:37.664878"
-    },
-    {
-      "ticker": "007810",
-      "name": "코리아써키트",
-      "price": 72300,
-      "change_rate": 12.09,
-      "volume_ratio": 4.4,
-      "volume_rank": 3,
-      "ma150": 78172,
-      "above_ma150": false,
-      "market_cap": 17387,
-      "updated_at": "2026-10-20T16:48:37.269055"
-    },
-    {
-      "ticker": "456160",
-      "name": "지투지바이오",
-      "price": 36300,
-      "change_rate": 12.73,
-      "volume_ratio": 3.4,
-      "volume_rank": 4,
-      "ma150": 51754,
-      "above_ma150": false,
-      "market_cap": 6152,
-      "updated_at": "2026-10-20T16:48:37.338857"
+      "updated_at": "2026-10-20T18:34:00.888521"
     }
   ]
 }
