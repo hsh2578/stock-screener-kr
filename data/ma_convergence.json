@@ -1,9 +1,29 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-20T14:04:20.643708",
+    "lastUpdated": "2026-10-20T16:49:04.533361",
     "marketDate": "2026-10-20",
-    "totalCount": 0,
-    "screened_from": 1309
+    "totalCount": 1,
+    "screened_from": 1307
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "451800",
+      "name": "한화리츠",
+      "current_price": 5100,
+      "volume": 117092,
+      "ma10w": 5332,
+      "ma20w": 5111,
+      "ma60w": 4796,
+      "ma20d": 5308,
+      "ma60d": 5263,
+      "ma120d": 5167,
+      "gap_20_60": 0.84,
+      "gap_20_120": 2.71,
+      "gap_60_120": 1.85,
+      "gap_price_20": 3.92,
+      "weeks_since_high": 26,
+      "market_cap": 9159,
+      "updated_at": "2026-10-20T16:49:02.555049"
+    }
+  ]
 }
