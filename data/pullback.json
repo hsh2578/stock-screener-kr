@@ -1,38 +1,9 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-20T00:45:47.330762",
-    "marketDate": "2026-10-19",
-    "totalCount": 2,
-    "screened_from": 1321
+    "lastUpdated": "2026-10-20T14:03:52.636953",
+    "marketDate": "2026-10-20",
+    "totalCount": 0,
+    "screened_from": 1309
   },
-  "data": [
-    {
-      "ticker": "005720",
-      "name": "넥센",
-      "price": 6350,
-      "change_rate": -0.31,
-      "breakout_date": "2026-10-02",
-      "resistance": 6280,
-      "pullback_ratio": 1.11,
-      "volume_decrease": 65,
-      "ma150": 6320,
-      "above_ma150": true,
-      "market_cap": 3336,
-      "updated_at": "2026-10-20T00:45:46.630867"
-    },
-    {
-      "ticker": "950190",
-      "name": "고스트스튜디오",
-      "price": 9740,
-      "change_rate": 0.21,
-      "breakout_date": "2026-09-16",
-      "resistance": 10210,
-      "pullback_ratio": 4.6,
-      "volume_decrease": 97,
-      "ma150": 8853,
-      "above_ma150": true,
-      "market_cap": 1267,
-      "updated_at": "2026-10-20T00:45:47.126584"
-    }
-  ]
+  "data": []
 }

@@ -1,9 +1,46 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-20T00:45:48.487561",
-    "marketDate": "2026-10-19",
-    "totalCount": 0,
-    "screened_from": 1321
+    "lastUpdated": "2026-10-20T14:03:55.825736",
+    "marketDate": "2026-10-20",
+    "totalCount": 2,
+    "screened_from": 1309
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "012030",
+      "name": "DB",
+      "price": 2235,
+      "change_rate": 1.13,
+      "explosion_date": "2026-10-08",
+      "explosion_change_rate": 13.6,
+      "explosion_volume_ratio": 3.6,
+      "days_since_detected": 7,
+      "volume_decrease_rate": 77,
+      "pattern_type": "candle_range",
+      "ma20_distance": null,
+      "volume_rank": 1,
+      "ma150": 1772,
+      "above_ma150": true,
+      "market_cap": 4496,
+      "updated_at": "2026-10-20T14:03:54.332108"
+    },
+    {
+      "ticker": "353200",
+      "name": "대덕전자",
+      "price": 134400,
+      "change_rate": 0.45,
+      "explosion_date": "2026-09-22",
+      "explosion_change_rate": 10.2,
+      "explosion_volume_ratio": 3.9,
+      "days_since_detected": 16,
+      "volume_decrease_rate": 62,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 1.21,
+      "volume_rank": 2,
+      "ma150": 117345,
+      "above_ma150": true,
+      "market_cap": 66416,
+      "updated_at": "2026-10-20T14:03:53.406838"
+    }
+  ]
 }
