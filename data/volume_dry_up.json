@@ -1,28 +1,64 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-20T18:34:04.293486",
+    "lastUpdated": "2026-10-20T20:59:17.097304",
     "marketDate": "2026-10-20",
-    "totalCount": 1,
+    "totalCount": 3,
     "screened_from": 1307
   },
   "data": [
     {
       "ticker": "012030",
       "name": "DB",
-      "price": 2230,
-      "change_rate": 0.9,
+      "price": 2235,
+      "change_rate": 1.13,
       "explosion_date": "2026-10-08",
       "explosion_change_rate": 13.6,
       "explosion_volume_ratio": 3.6,
       "days_since_detected": 7,
-      "volume_decrease_rate": 75,
+      "volume_decrease_rate": 74,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
       "ma150": 1772,
       "above_ma150": true,
       "market_cap": 4496,
-      "updated_at": "2026-10-20T18:34:02.267611"
+      "updated_at": "2026-10-20T20:59:15.855017"
+    },
+    {
+      "ticker": "044450",
+      "name": "KSS해운",
+      "price": 11900,
+      "change_rate": -2.22,
+      "explosion_date": "2026-09-23",
+      "explosion_change_rate": 17.9,
+      "explosion_volume_ratio": 13.1,
+      "days_since_detected": 15,
+      "volume_decrease_rate": 88,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 1.14,
+      "volume_rank": 2,
+      "ma150": 10665,
+      "above_ma150": true,
+      "market_cap": 2686,
+      "updated_at": "2026-10-20T20:59:16.413227"
+    },
+    {
+      "ticker": "228850",
+      "name": "레이언스",
+      "price": 8240,
+      "change_rate": -1.9,
+      "explosion_date": "2026-09-18",
+      "explosion_change_rate": 14.4,
+      "explosion_volume_ratio": 6.7,
+      "days_since_detected": 18,
+      "volume_decrease_rate": 94,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 0.19,
+      "volume_rank": 3,
+      "ma150": 6640,
+      "above_ma150": true,
+      "market_cap": 1367,
+      "updated_at": "2026-10-20T20:59:16.860066"
     }
   ]
 }
