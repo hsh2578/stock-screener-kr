@@ -1,58 +1,94 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-20T22:43:04.315798",
-    "marketDate": "2026-10-20",
-    "totalCount": 4,
-    "screened_from": 1307
+    "lastUpdated": "2026-10-21T14:04:39.989994",
+    "marketDate": "2026-10-21",
+    "totalCount": 7,
+    "screened_from": 1311
   },
   "data": [
     {
-      "ticker": "030960",
-      "name": "양지사",
-      "price": 6710,
-      "change_rate": 16.9,
-      "volume_ratio": 22.2,
+      "ticker": "220260",
+      "name": "켐트로스",
+      "price": 4680,
+      "change_rate": 14.29,
+      "volume_ratio": 24.9,
       "volume_rank": 1,
-      "ma150": 5588,
+      "ma150": 4521,
       "above_ma150": true,
-      "market_cap": 1072,
-      "updated_at": "2026-10-20T22:43:04.301522"
+      "market_cap": 1500,
+      "updated_at": "2026-10-21T14:04:39.900258"
     },
     {
-      "ticker": "300080",
-      "name": "플리토",
-      "price": 10750,
-      "change_rate": 29.99,
-      "volume_ratio": 20.8,
+      "ticker": "138360",
+      "name": "앤로보틱스",
+      "price": 1708,
+      "change_rate": 24.13,
+      "volume_ratio": 19.3,
       "volume_rank": 2,
-      "ma150": 9228,
-      "above_ma150": true,
-      "market_cap": 1777,
-      "updated_at": "2026-10-20T22:43:04.256595"
-    },
-    {
-      "ticker": "007810",
-      "name": "코리아써키트",
-      "price": 72500,
-      "change_rate": 12.4,
-      "volume_ratio": 4.5,
-      "volume_rank": 3,
-      "ma150": 78173,
+      "ma150": 2156,
       "above_ma150": false,
-      "market_cap": 17387,
-      "updated_at": "2026-10-20T22:43:04.130112"
+      "market_cap": 1502,
+      "updated_at": "2026-10-21T14:04:39.890928"
     },
     {
       "ticker": "456160",
       "name": "지투지바이오",
-      "price": 37000,
-      "change_rate": 14.91,
-      "volume_ratio": 3.5,
-      "volume_rank": 4,
-      "ma150": 51759,
+      "price": 43950,
+      "change_rate": 18.78,
+      "volume_ratio": 4.7,
+      "volume_rank": 3,
+      "ma150": 51345,
       "above_ma150": false,
-      "market_cap": 6152,
-      "updated_at": "2026-10-20T22:43:04.154888"
+      "market_cap": 7308,
+      "updated_at": "2026-10-21T14:04:39.710606"
+    },
+    {
+      "ticker": "396300",
+      "name": "HT로보틱스",
+      "price": 11000,
+      "change_rate": 12.59,
+      "volume_ratio": 4.7,
+      "volume_rank": 4,
+      "ma150": 4694,
+      "above_ma150": true,
+      "market_cap": 2913,
+      "updated_at": "2026-10-21T14:04:39.791039"
+    },
+    {
+      "ticker": "003010",
+      "name": "혜인",
+      "price": 10450,
+      "change_rate": 29.98,
+      "volume_ratio": 4.5,
+      "volume_rank": 5,
+      "ma150": 6653,
+      "above_ma150": true,
+      "market_cap": 1328,
+      "updated_at": "2026-10-21T14:04:39.928626"
+    },
+    {
+      "ticker": "105740",
+      "name": "디케이락",
+      "price": 12220,
+      "change_rate": 16.38,
+      "volume_ratio": 4.0,
+      "volume_rank": 6,
+      "ma150": 8490,
+      "above_ma150": true,
+      "market_cap": 1242,
+      "updated_at": "2026-10-21T14:04:39.936081"
+    },
+    {
+      "ticker": "052460",
+      "name": "아이크래프트",
+      "price": 7450,
+      "change_rate": 21.34,
+      "volume_ratio": 2.3,
+      "volume_rank": 7,
+      "ma150": 4328,
+      "above_ma150": true,
+      "market_cap": 1088,
+      "updated_at": "2026-10-21T14:04:39.963626"
     }
   ]
 }
