@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-21T18:29:45.106937",
+    "lastUpdated": "2026-10-21T21:14:56.855884",
     "marketDate": "2026-10-21",
     "totalCount": 4,
     "screened_from": 1310
@@ -22,26 +22,44 @@
       "success_prob": 83.6,
       "predicted_gain": 21.4,
       "ai_score": 77.8,
-      "updated_at": "2026-10-21T18:29:45.105030",
+      "updated_at": "2026-10-21T21:14:56.818207",
       "vs_breakout_close": -11.7
     },
     {
       "ticker": "018880",
       "name": "한온시스템",
-      "price": 3840,
-      "change_rate": -1.66,
+      "price": 3845,
+      "change_rate": -1.54,
       "breakout_date": "2026-10-08",
       "resistance": 3865,
       "days_since_breakout": 8,
-      "breakout_pct": -0.65,
-      "gain_since_breakout": -4.36,
+      "breakout_pct": -0.52,
+      "gain_since_breakout": -4.23,
       "ma150": 3987,
       "above_ma150": false,
       "market_cap": 39459,
       "success_prob": 37.3,
       "predicted_gain": 18.7,
       "ai_score": 43.0,
-      "updated_at": "2026-10-21T18:29:37.853027"
+      "updated_at": "2026-10-21T21:14:41.587700"
+    },
+    {
+      "ticker": "002960",
+      "name": "한국쉘석유",
+      "price": 547000,
+      "change_rate": -2.5,
+      "breakout_date": "2026-10-07",
+      "resistance": 527000,
+      "days_since_breakout": 9,
+      "breakout_pct": 3.8,
+      "gain_since_breakout": 1.11,
+      "ma150": 503726,
+      "above_ma150": true,
+      "market_cap": 7111,
+      "success_prob": 25.4,
+      "predicted_gain": 9.3,
+      "ai_score": 26.1,
+      "updated_at": "2026-10-21T21:14:45.026317"
     },
     {
       "ticker": "033780",
@@ -59,25 +77,7 @@
       "success_prob": 17.3,
       "predicted_gain": 10.4,
       "ai_score": 21.4,
-      "updated_at": "2026-10-21T18:29:36.316320"
-    },
-    {
-      "ticker": "002960",
-      "name": "한국쉘석유",
-      "price": 540000,
-      "change_rate": -3.74,
-      "breakout_date": "2026-10-07",
-      "resistance": 527000,
-      "days_since_breakout": 9,
-      "breakout_pct": 2.47,
-      "gain_since_breakout": -0.18,
-      "ma150": 503680,
-      "above_ma150": true,
-      "market_cap": 7111,
-      "success_prob": 9.9,
-      "predicted_gain": 8.3,
-      "ai_score": 14.4,
-      "updated_at": "2026-10-21T18:29:38.883486"
+      "updated_at": "2026-10-21T21:14:40.552218"
     }
   ]
 }
