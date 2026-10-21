@@ -1,16 +1,16 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-21T14:04:53.343460",
+    "lastUpdated": "2026-10-21T16:52:40.958913",
     "marketDate": "2026-10-21",
     "totalCount": 1,
-    "screened_from": 1311
+    "screened_from": 1310
   },
   "data": [
     {
       "ticker": "018880",
       "name": "한온시스템",
-      "price": 3830,
-      "change_rate": -1.92,
+      "price": 3840,
+      "change_rate": -1.66,
       "breakout_date": "2026-10-08",
       "days_since_breakout": 8,
       "breakout_price": 3865,
@@ -19,12 +19,12 @@
       "volume_ratio": 2.3,
       "ma150": 3989,
       "above_ma150": true,
-      "market_cap": 39305,
+      "market_cap": 39459,
       "success_prob": 48.2,
       "predicted_gain": 16.2,
       "ai_score": 48.3,
-      "updated_at": "2026-10-21T14:04:53.342191",
-      "vs_breakout_close": -4.61
+      "updated_at": "2026-10-21T16:52:40.847105",
+      "vs_breakout_close": -4.36
     }
   ]
 }

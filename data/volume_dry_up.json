@@ -1,64 +1,46 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-21T14:04:43.077542",
+    "lastUpdated": "2026-10-21T16:52:29.358864",
     "marketDate": "2026-10-21",
-    "totalCount": 5,
-    "screened_from": 1311
+    "totalCount": 4,
+    "screened_from": 1310
   },
   "data": [
     {
       "ticker": "491000",
       "name": "리브스메드",
-      "price": 42150,
-      "change_rate": 0.48,
+      "price": 42000,
+      "change_rate": 0.12,
       "explosion_date": "2026-10-16",
       "explosion_change_rate": 28.2,
       "explosion_volume_ratio": 5.6,
       "days_since_detected": 3,
-      "volume_decrease_rate": 66,
+      "volume_decrease_rate": 65,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
-      "ma150": 48463,
+      "ma150": 48462,
       "above_ma150": false,
-      "market_cap": 10645,
-      "updated_at": "2026-10-21T14:04:41.129378"
+      "market_cap": 10594,
+      "updated_at": "2026-10-21T16:52:28.400821"
     },
     {
       "ticker": "043370",
       "name": "피에이치에이",
-      "price": 11570,
-      "change_rate": -2.36,
+      "price": 11770,
+      "change_rate": -0.68,
       "explosion_date": "2026-10-16",
       "explosion_change_rate": 12.9,
       "explosion_volume_ratio": 5.7,
       "days_since_detected": 3,
-      "volume_decrease_rate": 66,
+      "volume_decrease_rate": 62,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 2,
-      "ma150": 11850,
+      "ma150": 11851,
       "above_ma150": false,
-      "market_cap": 2429,
-      "updated_at": "2026-10-21T14:04:42.135056"
-    },
-    {
-      "ticker": "012030",
-      "name": "DB",
-      "price": 2235,
-      "change_rate": 0.0,
-      "explosion_date": "2026-10-08",
-      "explosion_change_rate": 13.6,
-      "explosion_volume_ratio": 3.6,
-      "days_since_detected": 8,
-      "volume_decrease_rate": 83,
-      "pattern_type": "candle_range",
-      "ma20_distance": null,
-      "volume_rank": 3,
-      "ma150": 1775,
-      "above_ma150": true,
-      "market_cap": 4496,
-      "updated_at": "2026-10-21T14:04:41.509805"
+      "market_cap": 2473,
+      "updated_at": "2026-10-21T16:52:28.849960"
     },
     {
       "ticker": "047920",
@@ -72,29 +54,29 @@
       "volume_decrease_rate": 91,
       "pattern_type": "ma20_approach",
       "ma20_distance": 0.53,
-      "volume_rank": 4,
+      "volume_rank": 3,
       "ma150": 11188,
       "above_ma150": false,
-      "market_cap": 4617,
-      "updated_at": "2026-10-21T14:04:41.475382"
+      "market_cap": 4608,
+      "updated_at": "2026-10-21T16:52:28.575924"
     },
     {
       "ticker": "044450",
       "name": "KSS해운",
-      "price": 11980,
-      "change_rate": 0.67,
+      "price": 11970,
+      "change_rate": 0.59,
       "explosion_date": "2026-09-23",
       "explosion_change_rate": 17.9,
       "explosion_volume_ratio": 13.1,
       "days_since_detected": 16,
-      "volume_decrease_rate": 89,
+      "volume_decrease_rate": 87,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 1.04,
-      "volume_rank": 5,
+      "ma20_distance": 0.96,
+      "volume_rank": 4,
       "ma150": 10676,
       "above_ma150": true,
-      "market_cap": 2704,
-      "updated_at": "2026-10-21T14:04:42.019973"
+      "market_cap": 2700,
+      "updated_at": "2026-10-21T16:52:28.756782"
     }
   ]
 }

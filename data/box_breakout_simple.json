@@ -1,16 +1,16 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-21T14:04:53.402843",
+    "lastUpdated": "2026-10-21T16:52:40.988636",
     "marketDate": "2026-10-21",
     "totalCount": 4,
-    "screened_from": 1311
+    "screened_from": 1310
   },
   "data": [
     {
       "ticker": "128820",
       "name": "대성산업",
-      "price": 4390,
-      "change_rate": 0.69,
+      "price": 4400,
+      "change_rate": 0.92,
       "breakout_date": "2026-10-07",
       "resistance": 4455,
       "days_since_breakout": 9,
@@ -18,66 +18,66 @@
       "gain_since_breakout": -1.5,
       "ma150": 5441,
       "above_ma150": false,
-      "market_cap": 1985,
+      "market_cap": 1997,
       "success_prob": 83.6,
       "predicted_gain": 21.4,
       "ai_score": 77.8,
-      "updated_at": "2026-10-21T14:04:53.401634",
-      "vs_breakout_close": -12.2
+      "updated_at": "2026-10-21T16:52:40.986925",
+      "vs_breakout_close": -12.0
     },
     {
       "ticker": "018880",
       "name": "한온시스템",
-      "price": 3830,
-      "change_rate": -1.92,
+      "price": 3840,
+      "change_rate": -1.66,
       "breakout_date": "2026-10-08",
       "resistance": 3865,
       "days_since_breakout": 8,
-      "breakout_pct": -0.91,
-      "gain_since_breakout": -4.61,
+      "breakout_pct": -0.65,
+      "gain_since_breakout": -4.36,
       "ma150": 3987,
       "above_ma150": false,
-      "market_cap": 39305,
+      "market_cap": 39459,
       "success_prob": 37.3,
       "predicted_gain": 18.7,
       "ai_score": 43.0,
-      "updated_at": "2026-10-21T14:04:39.865858"
+      "updated_at": "2026-10-21T16:52:27.516672"
     },
     {
       "ticker": "002960",
       "name": "한국쉘석유",
-      "price": 551000,
-      "change_rate": -1.78,
+      "price": 547000,
+      "change_rate": -2.5,
       "breakout_date": "2026-10-07",
       "resistance": 527000,
       "days_since_breakout": 9,
-      "breakout_pct": 4.55,
-      "gain_since_breakout": 1.85,
-      "ma150": 503753,
+      "breakout_pct": 3.8,
+      "gain_since_breakout": 1.11,
+      "ma150": 503726,
       "above_ma150": true,
-      "market_cap": 7163,
+      "market_cap": 7111,
       "success_prob": 25.4,
       "predicted_gain": 9.3,
       "ai_score": 26.1,
-      "updated_at": "2026-10-21T14:04:43.206561"
+      "updated_at": "2026-10-21T16:52:30.293633"
     },
     {
       "ticker": "033780",
       "name": "KT&G",
-      "price": 194500,
-      "change_rate": 0.26,
+      "price": 193700,
+      "change_rate": -0.15,
       "breakout_date": "2026-10-19",
       "resistance": 188800,
       "days_since_breakout": 2,
-      "breakout_pct": 3.02,
-      "gain_since_breakout": 0.73,
-      "ma150": 174617,
+      "breakout_pct": 2.6,
+      "gain_since_breakout": 0.31,
+      "ma150": 174612,
       "above_ma150": true,
-      "market_cap": 201911,
+      "market_cap": 201392,
       "success_prob": 17.3,
       "predicted_gain": 10.4,
       "ai_score": 21.4,
-      "updated_at": "2026-10-21T14:04:38.797471"
+      "updated_at": "2026-10-21T16:52:26.789647"
     }
   ]
 }
