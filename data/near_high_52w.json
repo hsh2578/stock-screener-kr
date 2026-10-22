@@ -1,18 +1,18 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-22T16:48:32.034653",
+    "lastUpdated": "2026-10-22T18:33:01.305163",
     "marketDate": "2026-10-22",
-    "totalCount": 6,
+    "totalCount": 4,
     "screened_from": 1296
   },
   "data": [
     {
       "ticker": "453340",
       "name": "현대그린푸드",
-      "price": 19800,
-      "change_rate": 1.18,
+      "price": 19720,
+      "change_rate": 0.77,
       "high_52w": 19950,
-      "percent_from_high": -0.75,
+      "percent_from_high": -1.15,
       "high_52w_date": "2026-08-10",
       "entry_date": "2026-10-16",
       "status": "active",
@@ -22,16 +22,16 @@
       "breakout_probability": 38.5,
       "ai_score": 35.5,
       "market_cap": 6429,
-      "updated_at": "2026-10-22T16:48:32.031771",
-      "above_high_percent": -0.75
+      "updated_at": "2026-10-22T18:33:01.290765",
+      "above_high_percent": -1.15
     },
     {
       "ticker": "021240",
       "name": "코웨이",
-      "price": 106300,
-      "change_rate": -0.28,
+      "price": 105500,
+      "change_rate": -1.03,
       "high_52w": 109200,
-      "percent_from_high": -2.66,
+      "percent_from_high": -3.39,
       "high_52w_date": "2026-09-17",
       "entry_date": "2026-10-15",
       "status": "active",
@@ -41,26 +41,8 @@
       "breakout_probability": 35.7,
       "ai_score": 34.3,
       "market_cap": 75084,
-      "updated_at": "2026-10-22T16:48:32.030816",
-      "above_high_percent": -2.66
-    },
-    {
-      "ticker": "028100",
-      "name": "동아지질",
-      "price": 19720,
-      "change_rate": 3.25,
-      "high_52w": 20750,
-      "percent_from_high": -4.96,
-      "high_52w_date": "2026-09-15",
-      "entry_date": "2026-10-22",
-      "status": "active",
-      "days_since": 0,
-      "volume_ratio": 0.3,
-      "predicted_gain": 7.8,
-      "breakout_probability": 22.1,
-      "ai_score": 22.4,
-      "market_cap": 2132,
-      "updated_at": "2026-10-22T16:48:31.756294"
+      "updated_at": "2026-10-22T18:33:01.291432",
+      "above_high_percent": -3.39
     },
     {
       "ticker": "033780",
@@ -78,16 +60,16 @@
       "breakout_probability": 43.6,
       "ai_score": 38.0,
       "market_cap": 201184,
-      "updated_at": "2026-10-22T16:48:32.032550",
+      "updated_at": "2026-10-22T18:33:01.291955",
       "above_high_percent": 0.47
     },
     {
       "ticker": "089860",
       "name": "롯데렌탈",
-      "price": 49850,
-      "change_rate": 0.5,
+      "price": 49350,
+      "change_rate": -0.5,
       "high_52w": 53100,
-      "percent_from_high": -6.12,
+      "percent_from_high": -7.06,
       "high_52w_date": "2026-09-01",
       "entry_date": "2026-10-13",
       "status": "dropped",
@@ -97,27 +79,8 @@
       "breakout_probability": 31.3,
       "ai_score": 30.3,
       "market_cap": 18100,
-      "updated_at": "2026-10-22T16:48:32.033203",
-      "above_high_percent": -6.12
-    },
-    {
-      "ticker": "011200",
-      "name": "HMM",
-      "price": 22500,
-      "change_rate": -3.85,
-      "high_52w": 24950,
-      "percent_from_high": -9.82,
-      "high_52w_date": "2026-03-03",
-      "entry_date": "2026-10-19",
-      "status": "dropped",
-      "days_since": 3,
-      "volume_ratio": 3.2,
-      "predicted_gain": 14.3,
-      "breakout_probability": 41.9,
-      "ai_score": 42.2,
-      "market_cap": 213643,
-      "updated_at": "2026-10-22T16:48:32.033817",
-      "above_high_percent": -9.82
+      "updated_at": "2026-10-22T18:33:01.292615",
+      "above_high_percent": -7.06
     }
   ]
 }
