@@ -1,78 +1,44 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-21T22:59:36.917047",
-    "marketDate": "2026-10-21",
-    "totalCount": 4,
-    "screened_from": 1310
+    "lastUpdated": "2026-10-22T14:06:47.177666",
+    "marketDate": "2026-10-22",
+    "totalCount": 2,
+    "screened_from": 1300
   },
   "data": [
     {
       "ticker": "010580",
       "name": "에스엠벡셀",
-      "price": 3875,
-      "change_rate": 0.39,
+      "price": 3490,
+      "change_rate": -9.94,
       "high_52w": 3495,
       "breakout_date": "2026-10-19",
-      "days_since": 2,
-      "above_high_percent": 10.87,
+      "days_since": 3,
+      "above_high_percent": -0.14,
       "volume_ratio": 4.2,
-      "vs_breakout_close": -4.08,
+      "vs_breakout_close": -13.61,
       "predicted_gain": 23.9,
       "success_probability": 57.9,
       "ai_score": 62.1,
-      "market_cap": 4311,
-      "updated_at": "2026-10-21T22:59:36.911471"
-    },
-    {
-      "ticker": "419050",
-      "name": "삼기에너지솔루션즈",
-      "price": 2540,
-      "change_rate": 0.0,
-      "high_52w": 2465,
-      "breakout_date": "2026-10-19",
-      "days_since": 2,
-      "above_high_percent": 3.04,
-      "volume_ratio": 8.1,
-      "vs_breakout_close": -5.75,
-      "predicted_gain": 18.9,
-      "success_probability": 50.3,
-      "ai_score": 52.3,
-      "market_cap": 1452,
-      "updated_at": "2026-10-21T22:59:36.912498"
+      "market_cap": 3882,
+      "updated_at": "2026-10-22T14:06:47.169150"
     },
     {
       "ticker": "396300",
       "name": "HT로보틱스",
-      "price": 11140,
-      "change_rate": 14.02,
+      "price": 10020,
+      "change_rate": -10.05,
       "high_52w": 8070,
       "breakout_date": "2026-10-16",
-      "days_since": 3,
-      "above_high_percent": 38.04,
+      "days_since": 4,
+      "above_high_percent": 24.16,
       "volume_ratio": 5.6,
-      "vs_breakout_close": 23.64,
+      "vs_breakout_close": 11.21,
       "predicted_gain": 22.6,
       "success_probability": 46.1,
       "ai_score": 52.6,
-      "market_cap": 2950,
-      "updated_at": "2026-10-21T22:59:36.913533"
-    },
-    {
-      "ticker": "141000",
-      "name": "비아트론",
-      "price": 13000,
-      "change_rate": -5.18,
-      "high_52w": 12890,
-      "breakout_date": "2026-10-08",
-      "days_since": 8,
-      "above_high_percent": 0.85,
-      "volume_ratio": 23.1,
-      "vs_breakout_close": -6.07,
-      "predicted_gain": 17.1,
-      "success_probability": 34.4,
-      "ai_score": 39.4,
-      "market_cap": 1574,
-      "updated_at": "2026-10-21T22:59:36.914371"
+      "market_cap": 2654,
+      "updated_at": "2026-10-22T14:06:47.170412"
     }
   ]
 }
