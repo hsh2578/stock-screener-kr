@@ -1,94 +1,70 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-22T14:06:32.755317",
+    "lastUpdated": "2026-10-22T16:48:20.569886",
     "marketDate": "2026-10-22",
-    "totalCount": 7,
-    "screened_from": 1300
+    "totalCount": 5,
+    "screened_from": 1296
   },
   "data": [
     {
       "ticker": "357880",
       "name": "SKAI",
-      "price": 1832,
-      "change_rate": 28.65,
-      "volume_ratio": 22.6,
+      "price": 1851,
+      "change_rate": 29.99,
+      "volume_ratio": 25.4,
       "volume_rank": 1,
       "ma150": 2982,
       "above_ma150": false,
-      "market_cap": 1015,
-      "updated_at": "2026-10-22T14:06:32.752571"
+      "market_cap": 1026,
+      "updated_at": "2026-10-22T16:48:20.566785"
     },
     {
       "ticker": "065450",
       "name": "빅텍",
-      "price": 3695,
-      "change_rate": 19.58,
-      "volume_ratio": 15.6,
+      "price": 3745,
+      "change_rate": 21.2,
+      "volume_ratio": 19.0,
       "volume_rank": 2,
       "ma150": 3770,
       "above_ma150": false,
-      "market_cap": 1089,
-      "updated_at": "2026-10-22T14:06:32.736808"
+      "market_cap": 1106,
+      "updated_at": "2026-10-22T16:48:20.546812"
     },
     {
       "ticker": "077500",
       "name": "유니퀘스트",
-      "price": 12160,
-      "change_rate": 18.17,
-      "volume_ratio": 8.2,
+      "price": 11840,
+      "change_rate": 15.06,
+      "volume_ratio": 10.5,
       "volume_rank": 3,
-      "ma150": 7089,
+      "ma150": 7087,
       "above_ma150": true,
-      "market_cap": 2626,
-      "updated_at": "2026-10-22T14:06:32.414356"
+      "market_cap": 2546,
+      "updated_at": "2026-10-22T16:48:20.155221"
     },
     {
       "ticker": "028050",
       "name": "삼성E&A",
-      "price": 55100,
-      "change_rate": 15.51,
-      "volume_ratio": 6.2,
+      "price": 55000,
+      "change_rate": 15.3,
+      "volume_ratio": 7.2,
       "volume_rank": 4,
-      "ma150": 47090,
+      "ma150": 47089,
       "above_ma150": true,
-      "market_cap": 107996,
-      "updated_at": "2026-10-22T14:06:32.176236"
+      "market_cap": 108584,
+      "updated_at": "2026-10-22T16:48:19.829730"
     },
     {
       "ticker": "126340",
       "name": "비나텍",
-      "price": 109000,
-      "change_rate": 15.1,
-      "volume_ratio": 4.1,
+      "price": 106800,
+      "change_rate": 12.78,
+      "volume_ratio": 5.0,
       "volume_rank": 5,
-      "ma150": 101550,
+      "ma150": 101535,
       "above_ma150": true,
-      "market_cap": 7826,
-      "updated_at": "2026-10-22T14:06:32.297380"
-    },
-    {
-      "ticker": "089890",
-      "name": "코세스",
-      "price": 39000,
-      "change_rate": 13.7,
-      "volume_ratio": 3.5,
-      "volume_rank": 6,
-      "ma150": 29856,
-      "above_ma150": true,
-      "market_cap": 6468,
-      "updated_at": "2026-10-22T14:06:32.308578"
-    },
-    {
-      "ticker": "354320",
-      "name": "알멕",
-      "price": 73300,
-      "change_rate": 14.17,
-      "volume_ratio": 2.5,
-      "volume_rank": 7,
-      "ma150": 50983,
-      "above_ma150": true,
-      "market_cap": 4684,
-      "updated_at": "2026-10-22T14:06:32.331266"
+      "market_cap": 7805,
+      "updated_at": "2026-10-22T16:48:19.973520"
     }
   ]
 }
