@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-23T16:47:15.369380",
+    "lastUpdated": "2026-10-23T18:28:55.901043",
     "marketDate": "2026-10-23",
-    "totalCount": 6,
+    "totalCount": 5,
     "screened_from": 1285
   },
   "data": [
@@ -22,16 +22,16 @@
       "breakout_probability": 43.6,
       "ai_score": 38.0,
       "market_cap": 196617,
-      "updated_at": "2026-10-23T16:47:15.366943",
+      "updated_at": "2026-10-23T18:28:55.898863",
       "above_high_percent": -1.77
     },
     {
       "ticker": "453340",
       "name": "현대그린푸드",
-      "price": 19370,
-      "change_rate": -2.17,
+      "price": 19570,
+      "change_rate": -1.16,
       "high_52w": 19950,
-      "percent_from_high": -2.91,
+      "percent_from_high": -1.9,
       "high_52w_date": "2026-08-10",
       "entry_date": "2026-10-16",
       "status": "active",
@@ -41,8 +41,8 @@
       "breakout_probability": 38.5,
       "ai_score": 35.5,
       "market_cap": 6289,
-      "updated_at": "2026-10-23T16:47:15.367665",
-      "above_high_percent": -2.91
+      "updated_at": "2026-10-23T18:28:55.899527",
+      "above_high_percent": -1.9
     },
     {
       "ticker": "021240",
@@ -60,63 +60,45 @@
       "breakout_probability": 35.7,
       "ai_score": 34.3,
       "market_cap": 75013,
-      "updated_at": "2026-10-23T16:47:15.368221",
+      "updated_at": "2026-10-23T18:28:55.899942",
       "above_high_percent": -2.93
     },
     {
-      "ticker": "068930",
-      "name": "디지털대성",
-      "price": 9600,
-      "change_rate": 2.67,
-      "high_52w": 10000,
-      "percent_from_high": -4.0,
-      "high_52w_date": "2026-09-28",
+      "ticker": "351320",
+      "name": "넥사다이내믹스",
+      "price": 5430,
+      "change_rate": 10.48,
+      "high_52w": 5690,
+      "percent_from_high": -4.57,
+      "high_52w_date": "2026-09-10",
       "entry_date": "2026-10-23",
       "status": "active",
       "days_since": 0,
-      "volume_ratio": 0.3,
-      "predicted_gain": 6.8,
-      "breakout_probability": 25.9,
-      "ai_score": 24.3,
-      "market_cap": 2507,
-      "updated_at": "2026-10-23T16:47:15.190303"
+      "volume_ratio": 1.7,
+      "predicted_gain": 30.8,
+      "breakout_probability": 64.8,
+      "ai_score": 73.0,
+      "market_cap": 2327,
+      "updated_at": "2026-10-23T18:28:55.742345"
     },
     {
       "ticker": "089860",
       "name": "롯데렌탈",
-      "price": 50600,
-      "change_rate": 1.5,
+      "price": 50300,
+      "change_rate": 0.9,
       "high_52w": 53100,
-      "percent_from_high": -4.71,
+      "percent_from_high": -5.27,
       "high_52w_date": "2026-09-01",
       "entry_date": "2026-10-13",
-      "status": "active",
+      "status": "dropped",
       "days_since": 8,
       "volume_ratio": 1.3,
       "predicted_gain": 9.3,
       "breakout_probability": 31.3,
       "ai_score": 30.3,
       "market_cap": 18445,
-      "updated_at": "2026-10-23T16:47:15.368681",
-      "above_high_percent": -4.71
-    },
-    {
-      "ticker": "012030",
-      "name": "DB",
-      "price": 2420,
-      "change_rate": 6.37,
-      "high_52w": 2545,
-      "percent_from_high": -4.91,
-      "high_52w_date": "2026-05-27",
-      "entry_date": "2026-10-23",
-      "status": "active",
-      "days_since": 0,
-      "volume_ratio": 1.1,
-      "predicted_gain": 17.8,
-      "breakout_probability": 34.8,
-      "ai_score": 40.4,
-      "market_cap": 4868,
-      "updated_at": "2026-10-23T16:47:15.106437"
+      "updated_at": "2026-10-23T18:28:55.900433",
+      "above_high_percent": -5.27
     }
   ]
 }
