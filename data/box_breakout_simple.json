@@ -1,47 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-22T22:58:14.322531",
-    "marketDate": "2026-10-22",
-    "totalCount": 2,
-    "screened_from": 1296
+    "lastUpdated": "2026-10-23T14:06:23.730780",
+    "marketDate": "2026-10-23",
+    "totalCount": 1,
+    "screened_from": 1284
   },
   "data": [
     {
-      "ticker": "002960",
-      "name": "한국쉘석유",
-      "price": 520000,
-      "change_rate": -4.94,
-      "breakout_date": "2026-10-07",
-      "resistance": 527000,
-      "days_since_breakout": 10,
-      "breakout_pct": 3.8,
-      "gain_since_breakout": 1.11,
-      "ma150": 503726,
-      "above_ma150": true,
-      "market_cap": 6760,
-      "success_prob": 25.4,
-      "predicted_gain": 9.3,
-      "ai_score": 26.1,
-      "updated_at": "2026-10-22T22:58:14.302618",
-      "vs_breakout_close": -3.88
-    },
-    {
       "ticker": "033780",
       "name": "KT&G",
-      "price": 193800,
-      "change_rate": -0.1,
+      "price": 189400,
+      "change_rate": -2.27,
       "breakout_date": "2026-10-19",
       "resistance": 188800,
-      "days_since_breakout": 3,
-      "breakout_pct": 2.65,
-      "gain_since_breakout": 0.36,
-      "ma150": 174868,
+      "days_since_breakout": 4,
+      "breakout_pct": 0.32,
+      "gain_since_breakout": -1.92,
+      "ma150": 175111,
       "above_ma150": true,
-      "market_cap": 201184,
+      "market_cap": 196617,
       "success_prob": 17.3,
       "predicted_gain": 10.4,
       "ai_score": 21.4,
-      "updated_at": "2026-10-22T22:57:55.371217"
+      "updated_at": "2026-10-23T14:06:11.640902"
     }
   ]
 }
