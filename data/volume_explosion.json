@@ -1,22 +1,22 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-23T18:28:51.025309",
+    "lastUpdated": "2026-10-23T20:58:35.416561",
     "marketDate": "2026-10-23",
-    "totalCount": 8,
+    "totalCount": 7,
     "screened_from": 1285
   },
   "data": [
     {
       "ticker": "211270",
       "name": "AP위성",
-      "price": 8160,
-      "change_rate": 16.57,
-      "volume_ratio": 45.3,
+      "price": 8310,
+      "change_rate": 18.71,
+      "volume_ratio": 46.2,
       "volume_rank": 1,
-      "ma150": 11534,
+      "ma150": 11535,
       "above_ma150": false,
       "market_cap": 1253,
-      "updated_at": "2026-10-23T18:28:51.007376"
+      "updated_at": "2026-10-23T20:58:35.360901"
     },
     {
       "ticker": "451760",
@@ -28,19 +28,19 @@
       "ma150": 12467,
       "above_ma150": false,
       "market_cap": 1342,
-      "updated_at": "2026-10-23T18:28:51.002679"
+      "updated_at": "2026-10-23T20:58:35.349342"
     },
     {
       "ticker": "138360",
       "name": "앤로보틱스",
-      "price": 1957,
-      "change_rate": 19.69,
-      "volume_ratio": 19.1,
+      "price": 1944,
+      "change_rate": 18.9,
+      "volume_ratio": 19.5,
       "volume_rank": 3,
       "ma150": 2157,
       "above_ma150": false,
       "market_cap": 1710,
-      "updated_at": "2026-10-23T18:28:50.985607"
+      "updated_at": "2026-10-23T20:58:35.292873"
     },
     {
       "ticker": "220100",
@@ -52,55 +52,43 @@
       "ma150": 9994,
       "above_ma150": false,
       "market_cap": 2785,
-      "updated_at": "2026-10-23T18:28:50.950261"
+      "updated_at": "2026-10-23T20:58:35.203594"
     },
     {
       "ticker": "338840",
       "name": "와이바이오로직스",
-      "price": 10070,
-      "change_rate": 14.17,
-      "volume_ratio": 11.4,
+      "price": 10240,
+      "change_rate": 16.1,
+      "volume_ratio": 11.7,
       "volume_rank": 5,
-      "ma150": 15311,
+      "ma150": 15312,
       "above_ma150": false,
       "market_cap": 1577,
-      "updated_at": "2026-10-23T18:28:50.990926"
+      "updated_at": "2026-10-23T20:58:35.302914"
     },
     {
       "ticker": "456160",
       "name": "지투지바이오",
-      "price": 50500,
-      "change_rate": 22.57,
-      "volume_ratio": 5.6,
+      "price": 49700,
+      "change_rate": 20.63,
+      "volume_ratio": 5.9,
       "volume_rank": 6,
-      "ma150": 50396,
-      "above_ma150": true,
+      "ma150": 50390,
+      "above_ma150": false,
       "market_cap": 8264,
-      "updated_at": "2026-10-23T18:28:50.890017"
+      "updated_at": "2026-10-23T20:58:35.075401"
     },
     {
       "ticker": "484120",
       "name": "도우인시스",
-      "price": 28000,
-      "change_rate": 12.0,
-      "volume_ratio": 3.5,
+      "price": 28150,
+      "change_rate": 12.6,
+      "volume_ratio": 3.6,
       "volume_rank": 7,
-      "ma150": 19508,
+      "ma150": 19509,
       "above_ma150": true,
       "market_cap": 3084,
-      "updated_at": "2026-10-23T18:28:50.942175"
-    },
-    {
-      "ticker": "441270",
-      "name": "파인엠텍",
-      "price": 11330,
-      "change_rate": 12.07,
-      "volume_ratio": 3.4,
-      "volume_rank": 8,
-      "ma150": 8749,
-      "above_ma150": true,
-      "market_cap": 4763,
-      "updated_at": "2026-10-23T18:28:50.916597"
+      "updated_at": "2026-10-23T20:58:35.191671"
     }
   ]
 }

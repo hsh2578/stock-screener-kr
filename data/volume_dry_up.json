@@ -1,16 +1,16 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-23T18:28:52.538853",
+    "lastUpdated": "2026-10-23T20:58:37.722332",
     "marketDate": "2026-10-23",
-    "totalCount": 5,
+    "totalCount": 6,
     "screened_from": 1285
   },
   "data": [
     {
       "ticker": "043370",
       "name": "피에이치에이",
-      "price": 11870,
-      "change_rate": -0.34,
+      "price": 11850,
+      "change_rate": -0.5,
       "explosion_date": "2026-10-16",
       "explosion_change_rate": 12.9,
       "explosion_volume_ratio": 5.7,
@@ -22,7 +22,7 @@
       "ma150": 11850,
       "above_ma150": true,
       "market_cap": 2488,
-      "updated_at": "2026-10-23T18:28:52.537437"
+      "updated_at": "2026-10-23T20:58:37.720613"
     },
     {
       "ticker": "012750",
@@ -40,43 +40,61 @@
       "ma150": 79779,
       "above_ma150": true,
       "market_cap": 36479,
-      "updated_at": "2026-10-23T18:28:52.538366"
+      "updated_at": "2026-10-23T20:58:37.721806"
     },
     {
       "ticker": "028300",
       "name": "HLB",
-      "price": 41450,
-      "change_rate": 0.36,
+      "price": 41600,
+      "change_rate": 0.73,
       "explosion_date": "2026-10-06",
       "explosion_change_rate": 17.2,
       "explosion_volume_ratio": 5.4,
       "days_since_detected": 12,
       "volume_decrease_rate": 93,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.28,
+      "ma20_distance": 0.62,
       "volume_rank": 3,
-      "ma150": 45304,
+      "ma150": 45305,
       "above_ma150": false,
       "market_cap": 55410,
-      "updated_at": "2026-10-23T18:28:51.260619"
+      "updated_at": "2026-10-23T20:58:36.522089"
+    },
+    {
+      "ticker": "020150",
+      "name": "롯데에너지머티리얼즈",
+      "price": 50000,
+      "change_rate": -5.12,
+      "explosion_date": "2026-10-02",
+      "explosion_change_rate": 18.3,
+      "explosion_volume_ratio": 5.3,
+      "days_since_detected": 13,
+      "volume_decrease_rate": 63,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 0.01,
+      "volume_rank": 4,
+      "ma150": 45549,
+      "above_ma150": true,
+      "market_cap": 26182,
+      "updated_at": "2026-10-23T20:58:36.555557"
     },
     {
       "ticker": "005720",
       "name": "넥센",
-      "price": 6110,
-      "change_rate": -1.45,
+      "price": 6120,
+      "change_rate": -1.29,
       "explosion_date": "2026-09-30",
       "explosion_change_rate": 11.3,
       "explosion_volume_ratio": 21.6,
       "days_since_detected": 15,
       "volume_decrease_rate": 86,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.05,
-      "volume_rank": 4,
+      "ma20_distance": 0.2,
+      "volume_rank": 5,
       "ma150": 6304,
       "above_ma150": false,
       "market_cap": 3215,
-      "updated_at": "2026-10-23T18:28:51.923281"
+      "updated_at": "2026-10-23T20:58:37.126620"
     },
     {
       "ticker": "328130",
@@ -90,11 +108,11 @@
       "volume_decrease_rate": 84,
       "pattern_type": "ma20_approach",
       "ma20_distance": 0.15,
-      "volume_rank": 5,
+      "volume_rank": 6,
       "ma150": 13379,
       "above_ma150": false,
       "market_cap": 8413,
-      "updated_at": "2026-10-23T18:28:51.528030"
+      "updated_at": "2026-10-23T20:58:36.677579"
     }
   ]
 }
