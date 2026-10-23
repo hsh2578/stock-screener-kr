@@ -1,16 +1,16 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-23T14:06:14.624756",
+    "lastUpdated": "2026-10-23T16:47:12.378398",
     "marketDate": "2026-10-23",
     "totalCount": 4,
-    "screened_from": 1284
+    "screened_from": 1285
   },
   "data": [
     {
       "ticker": "043370",
       "name": "피에이치에이",
-      "price": 11600,
-      "change_rate": -2.6,
+      "price": 11850,
+      "change_rate": -0.5,
       "explosion_date": "2026-10-16",
       "explosion_change_rate": 12.9,
       "explosion_volume_ratio": 5.7,
@@ -21,14 +21,14 @@
       "volume_rank": 1,
       "ma150": 11850,
       "above_ma150": true,
-      "market_cap": 2436,
-      "updated_at": "2026-10-23T14:06:14.621281"
+      "market_cap": 2488,
+      "updated_at": "2026-10-23T16:47:12.372836"
     },
     {
       "ticker": "012750",
       "name": "에스원",
-      "price": 96200,
-      "change_rate": -0.52,
+      "price": 96000,
+      "change_rate": -0.72,
       "explosion_date": "2026-10-15",
       "explosion_change_rate": 13.9,
       "explosion_volume_ratio": 4.6,
@@ -39,44 +39,44 @@
       "volume_rank": 2,
       "ma150": 79779,
       "above_ma150": true,
-      "market_cap": 36555,
-      "updated_at": "2026-10-23T14:06:12.801536"
+      "market_cap": 36479,
+      "updated_at": "2026-10-23T16:47:12.373733"
+    },
+    {
+      "ticker": "028300",
+      "name": "HLB",
+      "price": 41350,
+      "change_rate": 0.12,
+      "explosion_date": "2026-10-06",
+      "explosion_change_rate": 17.2,
+      "explosion_volume_ratio": 5.4,
+      "days_since_detected": 12,
+      "volume_decrease_rate": 93,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 0.05,
+      "volume_rank": 3,
+      "ma150": 45303,
+      "above_ma150": false,
+      "market_cap": 55410,
+      "updated_at": "2026-10-23T16:47:11.212927"
     },
     {
       "ticker": "005720",
       "name": "넥센",
-      "price": 6180,
-      "change_rate": -0.32,
+      "price": 6110,
+      "change_rate": -1.45,
       "explosion_date": "2026-09-30",
       "explosion_change_rate": 11.3,
       "explosion_volume_ratio": 21.6,
       "days_since_detected": 15,
-      "volume_decrease_rate": 87,
+      "volume_decrease_rate": 86,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 1.14,
-      "volume_rank": 3,
+      "ma20_distance": 0.05,
+      "volume_rank": 4,
       "ma150": 6304,
       "above_ma150": false,
-      "market_cap": 3247,
-      "updated_at": "2026-10-23T14:06:13.915125"
-    },
-    {
-      "ticker": "018880",
-      "name": "한온시스템",
-      "price": 3725,
-      "change_rate": 0.0,
-      "explosion_date": "2026-09-30",
-      "explosion_change_rate": 10.0,
-      "explosion_volume_ratio": 9.1,
-      "days_since_detected": 15,
-      "volume_decrease_rate": 84,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.41,
-      "volume_rank": 4,
-      "ma150": 3982,
-      "above_ma150": false,
-      "market_cap": 38227,
-      "updated_at": "2026-10-23T14:06:12.800541"
+      "market_cap": 3215,
+      "updated_at": "2026-10-23T16:47:11.695594"
     }
   ]
 }

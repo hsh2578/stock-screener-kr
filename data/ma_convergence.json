@@ -1,29 +1,48 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-23T14:06:27.887110",
+    "lastUpdated": "2026-10-23T16:47:27.020428",
     "marketDate": "2026-10-23",
-    "totalCount": 1,
-    "screened_from": 1284
+    "totalCount": 2,
+    "screened_from": 1285
   },
   "data": [
     {
       "ticker": "003690",
       "name": "코리안리",
-      "current_price": 14120,
-      "volume": 122940,
-      "ma10w": 14543,
-      "ma20w": 14176,
-      "ma60w": 12711,
-      "ma20d": 14489,
+      "current_price": 14110,
+      "volume": 132508,
+      "ma10w": 14542,
+      "ma20w": 14175,
+      "ma60w": 12710,
+      "ma20d": 14488,
       "ma60d": 14515,
-      "ma120d": 13858,
+      "ma120d": 13857,
       "gap_20_60": 0.18,
       "gap_20_120": 4.55,
       "gap_60_120": 4.74,
-      "gap_price_20": 2.55,
+      "gap_price_20": 2.61,
       "weeks_since_high": 10,
-      "market_cap": 24953,
-      "updated_at": "2026-10-23T14:06:25.787629"
+      "market_cap": 24935,
+      "updated_at": "2026-10-23T16:47:25.542334"
+    },
+    {
+      "ticker": "451800",
+      "name": "한화리츠",
+      "current_price": 5220,
+      "volume": 100305,
+      "ma10w": 5344,
+      "ma20w": 5117,
+      "ma60w": 4798,
+      "ma20d": 5287,
+      "ma60d": 5282,
+      "ma120d": 5132,
+      "gap_20_60": 0.1,
+      "gap_20_120": 3.02,
+      "gap_60_120": 2.92,
+      "gap_price_20": 1.28,
+      "weeks_since_high": 26,
+      "market_cap": 9375,
+      "updated_at": "2026-10-23T16:47:25.829025"
     }
   ]
 }
