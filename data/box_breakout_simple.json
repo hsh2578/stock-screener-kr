@@ -1,46 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-26T19:22:35.900622",
+    "lastUpdated": "2026-10-26T22:28:53.754481",
     "marketDate": "2026-10-26",
-    "totalCount": 2,
+    "totalCount": 1,
     "screened_from": 1276
   },
   "data": [
     {
       "ticker": "033780",
       "name": "KT&G",
-      "price": 190800,
-      "change_rate": 0.74,
+      "price": 188900,
+      "change_rate": -0.26,
       "breakout_date": "2026-10-19",
       "resistance": 188800,
       "days_since_breakout": 5,
-      "breakout_pct": 1.06,
-      "gain_since_breakout": -1.19,
-      "ma150": 175366,
+      "breakout_pct": 0.05,
+      "gain_since_breakout": -2.18,
+      "ma150": 175354,
       "above_ma150": true,
       "market_cap": 196097,
       "success_prob": 17.3,
       "predicted_gain": 10.4,
       "ai_score": 21.4,
-      "updated_at": "2026-10-26T19:22:28.350409"
-    },
-    {
-      "ticker": "005800",
-      "name": "신영와코루",
-      "price": 14730,
-      "change_rate": 11.59,
-      "breakout_date": "2026-10-26",
-      "resistance": 13580,
-      "days_since_breakout": 0,
-      "breakout_pct": 8.47,
-      "gain_since_breakout": 0.0,
-      "ma150": 13834,
-      "above_ma150": true,
-      "market_cap": 1175,
-      "success_prob": 5.4,
-      "predicted_gain": 1.9,
-      "ai_score": 5.5,
-      "updated_at": "2026-10-26T19:22:35.242087"
+      "updated_at": "2026-10-26T22:28:35.455194"
     }
   ]
 }
