@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-10-24T01:19:52.907755",
-    "total_count": 5,
+    "updated_at": "2026-10-27T02:16:28.364048",
+    "total_count": 2,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -12,62 +12,26 @@
     {
       "ticker": "000660",
       "name": "SK하이닉스",
-      "current_price": 1277000,
-      "ma60w": 1256136,
-      "ma60w_gap": 1.66,
+      "current_price": 1275000,
+      "ma60w": 1256213,
+      "ma60w_gap": 1.5,
       "op_margin": 68.0,
       "op_growth_3y": 90.7,
-      "market_cap": 9226119,
+      "market_cap": 9423352,
       "sector": "기타",
-      "updated_at": "2026-10-24T01:19:38.983921"
-    },
-    {
-      "ticker": "402340",
-      "name": "SK스퀘어",
-      "current_price": 775000,
-      "ma60w": 773511,
-      "ma60w_gap": 0.19,
-      "op_margin": 95.9,
-      "op_growth_3y": 717.5,
-      "market_cap": 1007899,
-      "sector": "기타",
-      "updated_at": "2026-10-24T01:19:40.481393"
+      "updated_at": "2026-10-27T02:16:15.231102"
     },
     {
       "ticker": "068270",
       "name": "셀트리온",
-      "current_price": 194400,
-      "ma60w": 181930,
-      "ma60w_gap": 6.85,
+      "current_price": 190000,
+      "ma60w": 182200,
+      "ma60w_gap": 4.28,
       "op_margin": 31.6,
       "op_growth_3y": 21.8,
-      "market_cap": 446972,
+      "market_cap": 440938,
       "sector": "기타",
-      "updated_at": "2026-10-24T01:19:40.483311"
-    },
-    {
-      "ticker": "003230",
-      "name": "삼양식품",
-      "current_price": 1225000,
-      "ma60w": 1220704,
-      "ma60w_gap": 0.35,
-      "op_margin": 22.6,
-      "op_growth_3y": 79.7,
-      "market_cap": 92279,
-      "sector": "기타",
-      "updated_at": "2026-10-24T01:19:47.527930"
-    },
-    {
-      "ticker": "161390",
-      "name": "한국타이어앤테크놀로지",
-      "current_price": 60100,
-      "ma60w": 58871,
-      "ma60w_gap": 2.09,
-      "op_margin": 10.1,
-      "op_growth_3y": 37.7,
-      "market_cap": 76431,
-      "sector": "기타",
-      "updated_at": "2026-10-24T01:19:48.458059"
+      "updated_at": "2026-10-27T02:16:16.635182"
     }
   ]
 }
