@@ -1,28 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-26T14:04:11.799045",
+    "lastUpdated": "2026-10-26T16:58:07.291783",
     "marketDate": "2026-10-26",
     "totalCount": 1,
-    "screened_from": 1280
+    "screened_from": 1276
   },
   "data": [
     {
       "ticker": "033780",
       "name": "KT&G",
-      "price": 188800,
-      "change_rate": -0.32,
+      "price": 188000,
+      "change_rate": -0.74,
       "breakout_date": "2026-10-19",
       "resistance": 188800,
       "days_since_breakout": 5,
-      "breakout_pct": 0.0,
-      "gain_since_breakout": -2.23,
-      "ma150": 175353,
+      "breakout_pct": -0.42,
+      "gain_since_breakout": -2.64,
+      "ma150": 175348,
       "above_ma150": true,
-      "market_cap": 195994,
+      "market_cap": 196097,
       "success_prob": 17.3,
       "predicted_gain": 10.4,
       "ai_score": 21.4,
-      "updated_at": "2026-10-26T14:03:51.941202"
+      "updated_at": "2026-10-26T16:58:00.491893"
     }
   ]
 }

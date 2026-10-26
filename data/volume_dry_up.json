@@ -1,9 +1,9 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-26T14:03:55.630052",
+    "lastUpdated": "2026-10-26T16:58:01.777124",
     "marketDate": "2026-10-26",
-    "totalCount": 6,
-    "screened_from": 1280
+    "totalCount": 4,
+    "screened_from": 1276
   },
   "data": [
     {
@@ -21,44 +21,26 @@
       "volume_rank": 1,
       "ma150": 11850,
       "above_ma150": true,
-      "market_cap": 2431,
-      "updated_at": "2026-10-26T14:03:55.627579"
-    },
-    {
-      "ticker": "012750",
-      "name": "에스원",
-      "price": 94300,
-      "change_rate": -1.77,
-      "explosion_date": "2026-10-15",
-      "explosion_change_rate": 13.9,
-      "explosion_volume_ratio": 4.6,
-      "days_since_detected": 7,
-      "volume_decrease_rate": 61,
-      "pattern_type": "candle_range",
-      "ma20_distance": null,
-      "volume_rank": 2,
-      "ma150": 79779,
-      "above_ma150": true,
-      "market_cap": 35833,
-      "updated_at": "2026-10-26T14:03:55.628798"
+      "market_cap": 2454,
+      "updated_at": "2026-10-26T16:58:01.775772"
     },
     {
       "ticker": "255440",
       "name": "야스",
-      "price": 9250,
-      "change_rate": -1.07,
+      "price": 9300,
+      "change_rate": -0.53,
       "explosion_date": "2026-10-13",
       "explosion_change_rate": 16.1,
       "explosion_volume_ratio": 13.1,
       "days_since_detected": 9,
-      "volume_decrease_rate": 88,
+      "volume_decrease_rate": 86,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.78,
-      "volume_rank": 3,
+      "ma20_distance": 1.3,
+      "volume_rank": 2,
       "ma150": 8741,
       "above_ma150": true,
-      "market_cap": 1207,
-      "updated_at": "2026-10-26T14:03:55.526338"
+      "market_cap": 1184,
+      "updated_at": "2026-10-26T16:58:01.733932"
     },
     {
       "ticker": "123040",
@@ -72,47 +54,29 @@
       "volume_decrease_rate": 60,
       "pattern_type": "ma20_approach",
       "ma20_distance": 0.2,
-      "volume_rank": 4,
+      "volume_rank": 3,
       "ma150": 1898,
       "above_ma150": false,
-      "market_cap": 1074,
-      "updated_at": "2026-10-26T14:03:55.569996"
+      "market_cap": 1068,
+      "updated_at": "2026-10-26T16:58:01.776683"
     },
     {
-      "ticker": "048910",
-      "name": "대원미디어",
-      "price": 8060,
-      "change_rate": -6.5,
-      "explosion_date": "2026-10-08",
-      "explosion_change_rate": 11.9,
-      "explosion_volume_ratio": 9.3,
-      "days_since_detected": 11,
-      "volume_decrease_rate": 70,
+      "ticker": "091120",
+      "name": "이엠텍",
+      "price": 5990,
+      "change_rate": -9.92,
+      "explosion_date": "2026-09-28",
+      "explosion_change_rate": 13.3,
+      "explosion_volume_ratio": 6.9,
+      "days_since_detected": 18,
+      "volume_decrease_rate": 71,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.83,
-      "volume_rank": 5,
-      "ma150": 6283,
+      "ma20_distance": 1.02,
+      "volume_rank": 4,
+      "ma150": 5298,
       "above_ma150": true,
-      "market_cap": 1013,
-      "updated_at": "2026-10-26T14:03:55.612190"
-    },
-    {
-      "ticker": "115450",
-      "name": "HLB테라퓨틱스",
-      "price": 2715,
-      "change_rate": -0.73,
-      "explosion_date": "2026-10-06",
-      "explosion_change_rate": 17.0,
-      "explosion_volume_ratio": 9.4,
-      "days_since_detected": 13,
-      "volume_decrease_rate": 87,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.32,
-      "volume_rank": 6,
-      "ma150": 2571,
-      "above_ma150": true,
-      "market_cap": 2570,
-      "updated_at": "2026-10-26T14:03:55.090410"
+      "market_cap": 1050,
+      "updated_at": "2026-10-26T16:58:01.757787"
     }
   ]
 }
