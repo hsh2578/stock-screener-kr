@@ -1,94 +1,94 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-27T00:20:04.512177",
-    "marketDate": "2026-10-26",
+    "lastUpdated": "2026-10-27T14:19:53.567212",
+    "marketDate": "2026-10-27",
     "totalCount": 7,
-    "screened_from": 1276
+    "screened_from": 1284
   },
   "data": [
     {
-      "ticker": "451760",
-      "name": "컨텍",
-      "price": 10560,
-      "change_rate": 29.89,
-      "volume_ratio": 37.8,
+      "ticker": "199820",
+      "name": "제일일렉트릭",
+      "price": 6880,
+      "change_rate": 15.24,
+      "volume_ratio": 36.2,
       "volume_rank": 1,
-      "ma150": 12419,
+      "ma150": 9386,
       "above_ma150": false,
-      "market_cap": 1743,
-      "updated_at": "2026-10-27T00:20:04.456482"
+      "market_cap": 1528,
+      "updated_at": "2026-10-27T14:19:53.441360"
     },
     {
-      "ticker": "357880",
-      "name": "SKAI",
-      "price": 1957,
-      "change_rate": 16.35,
-      "volume_ratio": 13.6,
+      "ticker": "097520",
+      "name": "엠씨넥스",
+      "price": 20600,
+      "change_rate": 17.38,
+      "volume_ratio": 10.9,
       "volume_rank": 2,
-      "ma150": 2939,
-      "above_ma150": false,
-      "market_cap": 1085,
-      "updated_at": "2026-10-27T00:20:04.501864"
+      "ma150": 20364,
+      "above_ma150": true,
+      "market_cap": 3584,
+      "updated_at": "2026-10-27T14:19:53.282397"
     },
     {
-      "ticker": "338220",
-      "name": "뷰노",
-      "price": 7680,
-      "change_rate": 29.95,
+      "ticker": "190510",
+      "name": "나무가",
+      "price": 17090,
+      "change_rate": 29.96,
       "volume_ratio": 7.2,
       "volume_rank": 3,
-      "ma150": 9937,
-      "above_ma150": false,
-      "market_cap": 1075,
-      "updated_at": "2026-10-27T00:20:04.502960"
-    },
-    {
-      "ticker": "458870",
-      "name": "씨어스",
-      "price": 27850,
-      "change_rate": 17.51,
-      "volume_ratio": 5.9,
-      "volume_rank": 4,
-      "ma150": 33383,
-      "above_ma150": false,
-      "market_cap": 10679,
-      "updated_at": "2026-10-27T00:20:04.344162"
-    },
-    {
-      "ticker": "328130",
-      "name": "루닛",
-      "price": 14690,
-      "change_rate": 30.0,
-      "volume_ratio": 5.1,
-      "volume_rank": 5,
-      "ma150": 13359,
+      "ma150": 15622,
       "above_ma150": true,
-      "market_cap": 10937,
-      "updated_at": "2026-10-27T00:20:04.343018"
+      "market_cap": 2407,
+      "updated_at": "2026-10-27T14:19:53.369825"
     },
     {
-      "ticker": "448900",
-      "name": "한국피아이엠",
-      "price": 46650,
-      "change_rate": 17.06,
+      "ticker": "253590",
+      "name": "네오셈",
+      "price": 17520,
+      "change_rate": 15.87,
+      "volume_ratio": 4.7,
+      "volume_rank": 4,
+      "ma150": 13524,
+      "above_ma150": true,
+      "market_cap": 7685,
+      "updated_at": "2026-10-27T14:19:53.219651"
+    },
+    {
+      "ticker": "101360",
+      "name": "에코앤드림",
+      "price": 10720,
+      "change_rate": 16.4,
       "volume_ratio": 3.8,
-      "volume_rank": 6,
-      "ma150": 73198,
+      "volume_rank": 5,
+      "ma150": 11505,
       "above_ma150": false,
-      "market_cap": 2833,
-      "updated_at": "2026-10-27T00:20:04.417821"
+      "market_cap": 1906,
+      "updated_at": "2026-10-27T14:19:53.399228"
     },
     {
-      "ticker": "394800",
-      "name": "쓰리빌리언",
-      "price": 5650,
-      "change_rate": 13.0,
-      "volume_ratio": 2.4,
+      "ticker": "354320",
+      "name": "알멕",
+      "price": 61500,
+      "change_rate": 12.84,
+      "volume_ratio": 2.6,
+      "volume_rank": 6,
+      "ma150": 51054,
+      "above_ma150": true,
+      "market_cap": 3930,
+      "updated_at": "2026-10-27T14:19:53.269608"
+    },
+    {
+      "ticker": "425420",
+      "name": "티에프이",
+      "price": 76900,
+      "change_rate": 25.04,
+      "volume_ratio": 2.5,
       "volume_rank": 7,
-      "ma150": 7921,
-      "above_ma150": false,
-      "market_cap": 1797,
-      "updated_at": "2026-10-27T00:20:04.453233"
+      "ma150": 52301,
+      "above_ma150": true,
+      "market_cap": 9494,
+      "updated_at": "2026-10-27T14:19:53.211100"
     }
   ]
 }
