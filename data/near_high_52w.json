@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-27T18:56:59.165361",
+    "lastUpdated": "2026-10-27T21:36:11.754809",
     "marketDate": "2026-10-27",
     "totalCount": 5,
     "screened_from": 1281
@@ -9,10 +9,10 @@
     {
       "ticker": "033780",
       "name": "KT&G",
-      "price": 186500,
-      "change_rate": -1.27,
+      "price": 186700,
+      "change_rate": -1.16,
       "high_52w": 192400,
-      "percent_from_high": -3.07,
+      "percent_from_high": -2.96,
       "high_52w_date": "2026-06-16",
       "entry_date": "2026-10-15",
       "status": "active",
@@ -22,45 +22,45 @@
       "breakout_probability": 43.6,
       "ai_score": 38.0,
       "market_cap": 193814,
-      "updated_at": "2026-10-27T18:56:59.160282",
-      "above_high_percent": -3.07
+      "updated_at": "2026-10-27T21:36:11.752900",
+      "above_high_percent": -2.96
+    },
+    {
+      "ticker": "294870",
+      "name": "IPARK현대산업개발",
+      "price": 23950,
+      "change_rate": 7.4,
+      "high_52w": 25050,
+      "percent_from_high": -4.39,
+      "high_52w_date": "2026-04-27",
+      "entry_date": "2026-10-27",
+      "status": "active",
+      "days_since": 0,
+      "volume_ratio": 2.4,
+      "predicted_gain": 12.8,
+      "breakout_probability": 28.9,
+      "ai_score": 31.8,
+      "market_cap": 15784,
+      "updated_at": "2026-10-27T21:36:11.520199"
     },
     {
       "ticker": "453340",
       "name": "현대그린푸드",
-      "price": 19010,
-      "change_rate": -1.96,
+      "price": 18880,
+      "change_rate": -2.63,
       "high_52w": 19950,
-      "percent_from_high": -4.71,
+      "percent_from_high": -5.36,
       "high_52w_date": "2026-08-10",
       "entry_date": "2026-10-16",
-      "status": "active",
+      "status": "dropped",
       "days_since": 7,
       "volume_ratio": 1.7,
       "predicted_gain": 9.5,
       "breakout_probability": 38.5,
       "ai_score": 35.5,
       "market_cap": 6130,
-      "updated_at": "2026-10-27T18:56:59.160983",
-      "above_high_percent": -4.71
-    },
-    {
-      "ticker": "294870",
-      "name": "IPARK현대산업개발",
-      "price": 23800,
-      "change_rate": 6.73,
-      "high_52w": 25050,
-      "percent_from_high": -4.99,
-      "high_52w_date": "2026-04-27",
-      "entry_date": "2026-10-27",
-      "status": "active",
-      "days_since": 0,
-      "volume_ratio": 2.4,
-      "predicted_gain": 12.2,
-      "breakout_probability": 24.6,
-      "ai_score": 28.2,
-      "market_cap": 15784,
-      "updated_at": "2026-10-27T18:56:58.893094"
+      "updated_at": "2026-10-27T21:36:11.753445",
+      "above_high_percent": -5.36
     },
     {
       "ticker": "351320",
@@ -78,16 +78,16 @@
       "breakout_probability": 75.2,
       "ai_score": 81.0,
       "market_cap": 2340,
-      "updated_at": "2026-10-27T18:56:59.161491",
+      "updated_at": "2026-10-27T21:36:11.753795",
       "above_high_percent": -5.45
     },
     {
       "ticker": "021240",
       "name": "코웨이",
-      "price": 102700,
-      "change_rate": -1.06,
+      "price": 103200,
+      "change_rate": -0.58,
       "high_52w": 109200,
-      "percent_from_high": -5.95,
+      "percent_from_high": -5.49,
       "high_52w_date": "2026-09-17",
       "entry_date": "2026-10-15",
       "status": "dropped",
@@ -97,8 +97,8 @@
       "breakout_probability": 35.7,
       "ai_score": 34.3,
       "market_cap": 73031,
-      "updated_at": "2026-10-27T18:56:59.161935",
-      "above_high_percent": -5.95
+      "updated_at": "2026-10-27T21:36:11.754091",
+      "above_high_percent": -5.49
     }
   ]
 }

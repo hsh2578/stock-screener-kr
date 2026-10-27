@@ -1,16 +1,16 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-27T18:56:56.851245",
+    "lastUpdated": "2026-10-27T21:36:09.764648",
     "marketDate": "2026-10-27",
-    "totalCount": 2,
+    "totalCount": 3,
     "screened_from": 1281
   },
   "data": [
     {
       "ticker": "043370",
       "name": "피에이치에이",
-      "price": 11730,
-      "change_rate": 0.34,
+      "price": 11690,
+      "change_rate": 0.0,
       "explosion_date": "2026-10-16",
       "explosion_change_rate": 12.9,
       "explosion_volume_ratio": 5.7,
@@ -22,13 +22,13 @@
       "ma150": 11850,
       "above_ma150": true,
       "market_cap": 2454,
-      "updated_at": "2026-10-27T18:56:56.850009"
+      "updated_at": "2026-10-27T21:36:09.758517"
     },
     {
       "ticker": "009470",
       "name": "삼화전기",
-      "price": 29300,
-      "change_rate": 2.63,
+      "price": 29250,
+      "change_rate": 2.45,
       "explosion_date": "2026-10-13",
       "explosion_change_rate": 15.8,
       "explosion_volume_ratio": 9.4,
@@ -40,7 +40,25 @@
       "ma150": 31003,
       "above_ma150": false,
       "market_cap": 1934,
-      "updated_at": "2026-10-27T18:56:56.850809"
+      "updated_at": "2026-10-27T21:36:09.762581"
+    },
+    {
+      "ticker": "491000",
+      "name": "리브스메드",
+      "price": 37100,
+      "change_rate": 1.5,
+      "explosion_date": "2026-10-01",
+      "explosion_change_rate": 19.7,
+      "explosion_volume_ratio": 3.6,
+      "days_since_detected": 16,
+      "volume_decrease_rate": 69,
+      "pattern_type": "ma20_approach",
+      "ma20_distance": 0.66,
+      "volume_rank": 3,
+      "ma150": 47173,
+      "above_ma150": false,
+      "market_cap": 9369,
+      "updated_at": "2026-10-27T21:36:09.275842"
     }
   ]
 }
