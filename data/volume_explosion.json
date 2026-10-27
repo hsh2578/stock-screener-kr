@@ -1,34 +1,46 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-27T14:19:53.567212",
+    "lastUpdated": "2026-10-27T17:06:35.268364",
     "marketDate": "2026-10-27",
-    "totalCount": 7,
-    "screened_from": 1284
+    "totalCount": 10,
+    "screened_from": 1281
   },
   "data": [
     {
       "ticker": "199820",
       "name": "제일일렉트릭",
-      "price": 6880,
-      "change_rate": 15.24,
-      "volume_ratio": 36.2,
+      "price": 6870,
+      "change_rate": 15.08,
+      "volume_ratio": 38.0,
       "volume_rank": 1,
       "ma150": 9386,
       "above_ma150": false,
-      "market_cap": 1528,
-      "updated_at": "2026-10-27T14:19:53.441360"
+      "market_cap": 1519,
+      "updated_at": "2026-10-27T17:06:35.151543"
+    },
+    {
+      "ticker": "101170",
+      "name": "우림피티에스",
+      "price": 8450,
+      "change_rate": 16.71,
+      "volume_ratio": 26.3,
+      "volume_rank": 2,
+      "ma150": 10052,
+      "above_ma150": false,
+      "market_cap": 1143,
+      "updated_at": "2026-10-27T17:06:35.217770"
     },
     {
       "ticker": "097520",
       "name": "엠씨넥스",
-      "price": 20600,
-      "change_rate": 17.38,
-      "volume_ratio": 10.9,
-      "volume_rank": 2,
-      "ma150": 20364,
+      "price": 20900,
+      "change_rate": 19.09,
+      "volume_ratio": 19.4,
+      "volume_rank": 3,
+      "ma150": 20366,
       "above_ma150": true,
-      "market_cap": 3584,
-      "updated_at": "2026-10-27T14:19:53.282397"
+      "market_cap": 3732,
+      "updated_at": "2026-10-27T17:06:34.989220"
     },
     {
       "ticker": "190510",
@@ -36,59 +48,83 @@
       "price": 17090,
       "change_rate": 29.96,
       "volume_ratio": 7.2,
-      "volume_rank": 3,
+      "volume_rank": 4,
       "ma150": 15622,
       "above_ma150": true,
       "market_cap": 2407,
-      "updated_at": "2026-10-27T14:19:53.369825"
+      "updated_at": "2026-10-27T17:06:35.059434"
     },
     {
       "ticker": "253590",
       "name": "네오셈",
-      "price": 17520,
-      "change_rate": 15.87,
-      "volume_ratio": 4.7,
-      "volume_rank": 4,
-      "ma150": 13524,
-      "above_ma150": true,
-      "market_cap": 7685,
-      "updated_at": "2026-10-27T14:19:53.219651"
-    },
-    {
-      "ticker": "101360",
-      "name": "에코앤드림",
-      "price": 10720,
-      "change_rate": 16.4,
-      "volume_ratio": 3.8,
+      "price": 17270,
+      "change_rate": 14.22,
+      "volume_ratio": 5.3,
       "volume_rank": 5,
-      "ma150": 11505,
-      "above_ma150": false,
-      "market_cap": 1906,
-      "updated_at": "2026-10-27T14:19:53.399228"
+      "ma150": 13522,
+      "above_ma150": true,
+      "market_cap": 7514,
+      "updated_at": "2026-10-27T17:06:34.917587"
     },
     {
-      "ticker": "354320",
-      "name": "알멕",
-      "price": 61500,
-      "change_rate": 12.84,
-      "volume_ratio": 2.6,
+      "ticker": "411080",
+      "name": "샌즈랩",
+      "price": 8130,
+      "change_rate": 22.81,
+      "volume_ratio": 3.9,
       "volume_rank": 6,
-      "ma150": 51054,
+      "ma150": 5686,
       "above_ma150": true,
-      "market_cap": 3930,
-      "updated_at": "2026-10-27T14:19:53.269608"
+      "market_cap": 1251,
+      "updated_at": "2026-10-27T17:06:35.195634"
     },
     {
       "ticker": "425420",
       "name": "티에프이",
-      "price": 76900,
-      "change_rate": 25.04,
-      "volume_ratio": 2.5,
+      "price": 75400,
+      "change_rate": 22.6,
+      "volume_ratio": 3.2,
       "volume_rank": 7,
-      "ma150": 52301,
+      "ma150": 52291,
       "above_ma150": true,
-      "market_cap": 9494,
-      "updated_at": "2026-10-27T14:19:53.211100"
+      "market_cap": 9408,
+      "updated_at": "2026-10-27T17:06:34.906872"
+    },
+    {
+      "ticker": "354320",
+      "name": "알멕",
+      "price": 61200,
+      "change_rate": 12.29,
+      "volume_ratio": 3.1,
+      "volume_rank": 8,
+      "ma150": 51052,
+      "above_ma150": true,
+      "market_cap": 3981,
+      "updated_at": "2026-10-27T17:06:34.983681"
+    },
+    {
+      "ticker": "307180",
+      "name": "아이엘",
+      "price": 5790,
+      "change_rate": 12.43,
+      "volume_ratio": 2.8,
+      "volume_rank": 9,
+      "ma150": 5675,
+      "above_ma150": true,
+      "market_cap": 2133,
+      "updated_at": "2026-10-27T17:06:35.071447"
+    },
+    {
+      "ticker": "098120",
+      "name": "마이크로컨텍솔",
+      "price": 46800,
+      "change_rate": 16.85,
+      "volume_ratio": 2.3,
+      "volume_rank": 10,
+      "ma150": 34858,
+      "above_ma150": true,
+      "market_cap": 3923,
+      "updated_at": "2026-10-27T17:06:34.985364"
     }
   ]
 }
