@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-10-28T01:24:05.582543",
-    "total_count": 3,
+    "updated_at": "2026-10-29T02:12:39.025218",
+    "total_count": 1,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -10,40 +10,16 @@
   },
   "data": [
     {
-      "ticker": "000660",
-      "name": "SK하이닉스",
-      "current_price": 1341000,
-      "ma60w": 1256776,
-      "ma60w_gap": 6.7,
-      "op_margin": 68.0,
-      "op_growth_3y": 90.7,
-      "market_cap": 10036965,
-      "sector": "기타",
-      "updated_at": "2026-10-28T01:23:48.482853"
-    },
-    {
-      "ticker": "402340",
-      "name": "SK스퀘어",
-      "current_price": 828000,
-      "ma60w": 773726,
-      "ma60w_gap": 7.01,
-      "op_margin": 95.9,
-      "op_growth_3y": 717.5,
-      "market_cap": 1129269,
-      "sector": "기타",
-      "updated_at": "2026-10-28T01:23:49.695696"
-    },
-    {
       "ticker": "068270",
       "name": "셀트리온",
-      "current_price": 188600,
-      "ma60w": 181981,
-      "ma60w_gap": 3.64,
+      "current_price": 189800,
+      "ma60w": 181982,
+      "ma60w_gap": 4.3,
       "op_margin": 31.6,
       "op_growth_3y": 21.8,
-      "market_cap": 438386,
+      "market_cap": 440706,
       "sector": "기타",
-      "updated_at": "2026-10-28T01:23:49.697254"
+      "updated_at": "2026-10-29T02:12:23.640508"
     }
   ]
 }
