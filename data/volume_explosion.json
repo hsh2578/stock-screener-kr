@@ -1,70 +1,58 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-28T19:43:39.442020",
+    "lastUpdated": "2026-10-28T22:25:56.802628",
     "marketDate": "2026-10-28",
-    "totalCount": 17,
+    "totalCount": 15,
     "screened_from": 1289
   },
   "data": [
     {
       "ticker": "017890",
       "name": "한국알콜",
-      "price": 16110,
-      "change_rate": 13.61,
-      "volume_ratio": 10.1,
+      "price": 16140,
+      "change_rate": 13.82,
+      "volume_ratio": 10.2,
       "volume_rank": 1,
       "ma150": 13172,
       "above_ma150": true,
       "market_cap": 3336,
-      "updated_at": "2026-10-28T19:43:39.318236"
+      "updated_at": "2026-10-28T22:25:56.705961"
     },
     {
       "ticker": "071970",
       "name": "HD현대마린엔진",
-      "price": 40550,
-      "change_rate": 14.06,
+      "price": 40700,
+      "change_rate": 14.49,
       "volume_ratio": 9.4,
       "volume_rank": 2,
-      "ma150": 64405,
+      "ma150": 64406,
       "above_ma150": false,
       "market_cap": 13806,
-      "updated_at": "2026-10-28T19:43:39.271717"
+      "updated_at": "2026-10-28T22:25:56.640401"
     },
     {
       "ticker": "053800",
       "name": "안랩",
-      "price": 112000,
-      "change_rate": 20.82,
-      "volume_ratio": 7.8,
+      "price": 110900,
+      "change_rate": 19.63,
+      "volume_ratio": 7.9,
       "volume_rank": 3,
-      "ma150": 62793,
+      "ma150": 62786,
       "above_ma150": true,
       "market_cap": 12339,
-      "updated_at": "2026-10-28T19:43:39.273446"
-    },
-    {
-      "ticker": "046890",
-      "name": "서울반도체",
-      "price": 10630,
-      "change_rate": 29.95,
-      "volume_ratio": 4.4,
-      "volume_rank": 4,
-      "ma150": 10965,
-      "above_ma150": false,
-      "market_cap": 5025,
-      "updated_at": "2026-10-28T19:43:39.296714"
+      "updated_at": "2026-10-28T22:25:56.645111"
     },
     {
       "ticker": "491000",
       "name": "리브스메드",
-      "price": 43350,
-      "change_rate": 16.85,
+      "price": 43650,
+      "change_rate": 17.65,
       "volume_ratio": 3.4,
-      "volume_rank": 5,
-      "ma150": 46894,
+      "volume_rank": 4,
+      "ma150": 46896,
       "above_ma150": false,
       "market_cap": 11023,
-      "updated_at": "2026-10-28T19:43:39.275737"
+      "updated_at": "2026-10-28T22:25:56.656543"
     },
     {
       "ticker": "263860",
@@ -72,107 +60,95 @@
       "price": 27300,
       "change_rate": 30.0,
       "volume_ratio": 3.4,
-      "volume_rank": 6,
+      "volume_rank": 5,
       "ma150": 15531,
       "above_ma150": true,
       "market_cap": 2478,
-      "updated_at": "2026-10-28T19:43:39.333749"
-    },
-    {
-      "ticker": "195870",
-      "name": "해성디에스",
-      "price": 53800,
-      "change_rate": 20.49,
-      "volume_ratio": 3.1,
-      "volume_rank": 7,
-      "ma150": 62400,
-      "above_ma150": false,
-      "market_cap": 9095,
-      "updated_at": "2026-10-28T19:43:39.279081"
+      "updated_at": "2026-10-28T22:25:56.725585"
     },
     {
       "ticker": "030530",
       "name": "원익홀딩스",
       "price": 28000,
       "change_rate": 17.89,
-      "volume_ratio": 3.0,
-      "volume_rank": 8,
+      "volume_ratio": 3.1,
+      "volume_rank": 6,
       "ma150": 24720,
       "above_ma150": true,
       "market_cap": 21626,
-      "updated_at": "2026-10-28T19:43:39.261120"
+      "updated_at": "2026-10-28T22:25:56.632628"
     },
     {
-      "ticker": "059090",
-      "name": "미코",
-      "price": 25800,
-      "change_rate": 17.54,
-      "volume_ratio": 3.0,
-      "volume_rank": 9,
-      "ma150": 19009,
-      "above_ma150": true,
-      "market_cap": 8554,
-      "updated_at": "2026-10-28T19:43:39.281139"
+      "ticker": "195870",
+      "name": "해성디에스",
+      "price": 53500,
+      "change_rate": 19.82,
+      "volume_ratio": 3.1,
+      "volume_rank": 7,
+      "ma150": 62398,
+      "above_ma150": false,
+      "market_cap": 9095,
+      "updated_at": "2026-10-28T22:25:56.660008"
     },
     {
       "ticker": "079940",
       "name": "가비아",
-      "price": 50700,
-      "change_rate": 26.43,
-      "volume_ratio": 3.0,
-      "volume_rank": 10,
-      "ma150": 35865,
+      "price": 50500,
+      "change_rate": 25.94,
+      "volume_ratio": 3.1,
+      "volume_rank": 8,
+      "ma150": 35863,
       "above_ma150": true,
       "market_cap": 6777,
-      "updated_at": "2026-10-28T19:43:39.286199"
+      "updated_at": "2026-10-28T22:25:56.666018"
     },
     {
-      "ticker": "105740",
-      "name": "디케이락",
-      "price": 12620,
-      "change_rate": 14.0,
+      "ticker": "059090",
+      "name": "미코",
+      "price": 25600,
+      "change_rate": 16.63,
       "volume_ratio": 3.0,
-      "volume_rank": 11,
-      "ma150": 8551,
+      "volume_rank": 9,
+      "ma150": 19008,
       "above_ma150": true,
-      "market_cap": 1259,
-      "updated_at": "2026-10-28T19:43:39.411214"
+      "market_cap": 8554,
+      "updated_at": "2026-10-28T22:25:56.661300"
     },
     {
       "ticker": "003160",
       "name": "디아이",
-      "price": 44100,
-      "change_rate": 16.67,
+      "price": 43300,
+      "change_rate": 14.55,
       "volume_ratio": 2.7,
-      "volume_rank": 12,
-      "ma150": 29621,
+      "volume_rank": 10,
+      "ma150": 29615,
       "above_ma150": true,
       "market_cap": 12253,
-      "updated_at": "2026-10-28T19:43:39.273905"
+      "updated_at": "2026-10-28T22:25:56.646673"
     },
     {
       "ticker": "125490",
       "name": "한라캐스트",
       "price": 11440,
       "change_rate": 16.62,
-      "volume_ratio": 2.6,
-      "volume_rank": 13,
+      "volume_ratio": 2.7,
+      "volume_rank": 11,
       "ma150": 11942,
       "above_ma150": false,
       "market_cap": 4175,
-      "updated_at": "2026-10-28T19:43:39.305018"
+      "updated_at": "2026-10-28T22:25:56.690655"
     },
     {
       "ticker": "277810",
       "name": "레인보우로보틱스",
-      "price": 407000,
-      "change_rate": 15.79,
+      "price": 404500,
+      "change_rate": 15.08,
       "volume_ratio": 2.4,
-      "volume_rank": 14,
-      "ma150": 531113,
+      "volume_rank": 12,
+      "ma150": 531096,
       "above_ma150": false,
       "market_cap": 78472,
-      "updated_at": "2026-10-28T19:43:39.244211"
+      "updated_at": "2026-10-28T22:25:56.612526"
     },
     {
       "ticker": "069540",
@@ -180,35 +156,35 @@
       "price": 4195,
       "change_rate": 29.88,
       "volume_ratio": 2.3,
-      "volume_rank": 15,
+      "volume_rank": 13,
       "ma150": 3648,
       "above_ma150": true,
       "market_cap": 4727,
-      "updated_at": "2026-10-28T19:43:39.298878"
+      "updated_at": "2026-10-28T22:25:56.684958"
     },
     {
       "ticker": "098120",
       "name": "마이크로컨텍솔",
-      "price": 54300,
-      "change_rate": 15.04,
+      "price": 54000,
+      "change_rate": 14.41,
       "volume_ratio": 2.3,
-      "volume_rank": 16,
-      "ma150": 35036,
+      "volume_rank": 14,
+      "ma150": 35034,
       "above_ma150": true,
       "market_cap": 4488,
-      "updated_at": "2026-10-28T19:43:39.302002"
+      "updated_at": "2026-10-28T22:25:56.687675"
     },
     {
       "ticker": "072950",
       "name": "빛샘전자",
-      "price": 15630,
-      "change_rate": 18.95,
+      "price": 15650,
+      "change_rate": 19.1,
       "volume_ratio": 2.2,
-      "volume_rank": 17,
+      "volume_rank": 15,
       "ma150": 10942,
       "above_ma150": true,
       "market_cap": 1260,
-      "updated_at": "2026-10-28T19:43:39.410567"
+      "updated_at": "2026-10-28T22:25:56.782449"
     }
   ]
 }
