@@ -1,64 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-27T23:43:43.349719",
-    "marketDate": "2026-10-27",
-    "totalCount": 3,
-    "screened_from": 1281
+    "lastUpdated": "2026-10-28T14:59:28.493866",
+    "marketDate": "2026-10-28",
+    "totalCount": 1,
+    "screened_from": 1295
   },
   "data": [
     {
       "ticker": "043370",
       "name": "피에이치에이",
-      "price": 11690,
-      "change_rate": 0.0,
+      "price": 11760,
+      "change_rate": 0.6,
       "explosion_date": "2026-10-16",
       "explosion_change_rate": 12.9,
       "explosion_volume_ratio": 5.7,
-      "days_since_detected": 7,
-      "volume_decrease_rate": 65,
+      "days_since_detected": 8,
+      "volume_decrease_rate": 60,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
-      "ma150": 11850,
-      "above_ma150": true,
-      "market_cap": 2454,
-      "updated_at": "2026-10-27T23:43:43.341415"
-    },
-    {
-      "ticker": "009470",
-      "name": "삼화전기",
-      "price": 29250,
-      "change_rate": 2.45,
-      "explosion_date": "2026-10-13",
-      "explosion_change_rate": 15.8,
-      "explosion_volume_ratio": 9.4,
-      "days_since_detected": 10,
-      "volume_decrease_rate": 87,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.01,
-      "volume_rank": 2,
-      "ma150": 31003,
+      "ma150": 11826,
       "above_ma150": false,
-      "market_cap": 1934,
-      "updated_at": "2026-10-27T23:43:43.342770"
-    },
-    {
-      "ticker": "491000",
-      "name": "리브스메드",
-      "price": 37100,
-      "change_rate": 1.5,
-      "explosion_date": "2026-10-01",
-      "explosion_change_rate": 19.7,
-      "explosion_volume_ratio": 3.6,
-      "days_since_detected": 16,
-      "volume_decrease_rate": 69,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.66,
-      "volume_rank": 3,
-      "ma150": 47173,
-      "above_ma150": false,
-      "market_cap": 9369,
-      "updated_at": "2026-10-27T23:43:41.940934"
+      "market_cap": 2469,
+      "updated_at": "2026-10-28T14:59:28.042185"
     }
   ]
 }
