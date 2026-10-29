@@ -1,28 +1,46 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-29T00:15:54.253234",
-    "marketDate": "2026-10-28",
-    "totalCount": 1,
-    "screened_from": 1289
+    "lastUpdated": "2026-10-29T15:05:43.528698",
+    "marketDate": "2026-10-29",
+    "totalCount": 2,
+    "screened_from": 1281
   },
   "data": [
     {
       "ticker": "033780",
       "name": "KT&G",
-      "price": 188100,
-      "change_rate": 0.75,
+      "price": 191200,
+      "change_rate": 1.65,
       "breakout_date": "2026-10-19",
       "resistance": 188800,
-      "days_since_breakout": 7,
-      "breakout_pct": -0.37,
-      "gain_since_breakout": -2.59,
-      "ma150": 175758,
+      "days_since_breakout": 8,
+      "breakout_pct": 1.27,
+      "gain_since_breakout": -0.98,
+      "ma150": 175986,
       "above_ma150": true,
-      "market_cap": 195267,
+      "market_cap": 198485,
       "success_prob": 17.3,
       "predicted_gain": 10.4,
       "ai_score": 21.4,
-      "updated_at": "2026-10-29T00:15:35.756012"
+      "updated_at": "2026-10-29T15:05:28.393507"
+    },
+    {
+      "ticker": "104700",
+      "name": "한국철강",
+      "price": 10330,
+      "change_rate": 3.82,
+      "breakout_date": "2026-10-29",
+      "resistance": 10120,
+      "days_since_breakout": 0,
+      "breakout_pct": 2.08,
+      "gain_since_breakout": 0.0,
+      "ma150": 9476,
+      "above_ma150": true,
+      "market_cap": 3765,
+      "success_prob": 4.0,
+      "predicted_gain": 13.3,
+      "ai_score": 14.8,
+      "updated_at": "2026-10-29T15:05:34.181432"
     }
   ]
 }
