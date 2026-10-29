@@ -1,16 +1,16 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-29T15:05:33.519671",
+    "lastUpdated": "2026-10-29T17:43:05.954513",
     "marketDate": "2026-10-29",
-    "totalCount": 2,
-    "screened_from": 1281
+    "totalCount": 1,
+    "screened_from": 1278
   },
   "data": [
     {
       "ticker": "043370",
       "name": "피에이치에이",
-      "price": 11590,
-      "change_rate": -1.28,
+      "price": 11600,
+      "change_rate": -1.19,
       "explosion_date": "2026-10-16",
       "explosion_change_rate": 12.9,
       "explosion_volume_ratio": 5.7,
@@ -21,26 +21,8 @@
       "volume_rank": 1,
       "ma150": 11826,
       "above_ma150": false,
-      "market_cap": 2433,
-      "updated_at": "2026-10-29T15:05:33.518795"
-    },
-    {
-      "ticker": "042510",
-      "name": "라온시큐어",
-      "price": 16890,
-      "change_rate": -12.31,
-      "explosion_date": "2026-10-15",
-      "explosion_change_rate": 14.0,
-      "explosion_volume_ratio": 3.3,
-      "days_since_detected": 10,
-      "volume_decrease_rate": 82,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.71,
-      "volume_rank": 2,
-      "ma150": 10442,
-      "above_ma150": true,
-      "market_cap": 1875,
-      "updated_at": "2026-10-29T15:05:32.786320"
+      "market_cap": 2436,
+      "updated_at": "2026-10-29T17:43:05.953190"
     }
   ]
 }

@@ -1,9 +1,29 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-29T15:05:43.520532",
+    "lastUpdated": "2026-10-29T17:43:15.406624",
     "marketDate": "2026-10-29",
-    "totalCount": 0,
-    "screened_from": 1281
+    "totalCount": 1,
+    "screened_from": 1278
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "003220",
+      "name": "대원제약",
+      "price": 9110,
+      "change_rate": 17.4,
+      "breakout_date": "2026-10-29",
+      "days_since_breakout": 0,
+      "breakout_price": 8250,
+      "breakout_pct": 10.42,
+      "gain_since_breakout": 0.0,
+      "volume_ratio": 13.6,
+      "ma150": 8756,
+      "above_ma150": true,
+      "market_cap": 1726,
+      "success_prob": 30.6,
+      "predicted_gain": 6.0,
+      "ai_score": 26.8,
+      "updated_at": "2026-10-29T17:43:10.785961"
+    }
+  ]
 }
