@@ -1,44 +1,27 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-30T19:58:25.324541",
+    "lastUpdated": "2026-10-30T22:24:46.658025",
     "marketDate": "2026-10-30",
-    "totalCount": 4,
+    "totalCount": 3,
     "screened_from": 1262
   },
   "data": [
     {
-      "ticker": "033780",
-      "name": "KT&G",
-      "price": 196500,
-      "change_rate": 1.76,
-      "high_52w": 196400,
-      "breakout_date": "2026-10-30",
-      "days_since": 0,
-      "above_high_percent": 0.05,
-      "volume_ratio": 1.1,
-      "vs_breakout_close": 0.0,
-      "predicted_gain": 7.9,
-      "success_probability": 3.7,
-      "ai_score": 9.7,
-      "market_cap": 203676,
-      "updated_at": "2026-10-30T19:58:25.026499"
-    },
-    {
       "ticker": "093320",
       "name": "케이아이엔엑스",
-      "price": 176000,
-      "change_rate": -0.79,
+      "price": 176800,
+      "change_rate": -0.34,
       "high_52w": 163700,
       "breakout_date": "2026-10-29",
       "days_since": 1,
-      "above_high_percent": 7.51,
+      "above_high_percent": 8.0,
       "volume_ratio": 16.1,
-      "vs_breakout_close": -0.79,
+      "vs_breakout_close": -0.34,
       "predicted_gain": 18.7,
       "success_probability": 39.5,
       "ai_score": 44.5,
       "market_cap": 8627,
-      "updated_at": "2026-10-30T19:58:25.322607"
+      "updated_at": "2026-10-30T22:24:46.637110"
     },
     {
       "ticker": "079940",
@@ -55,24 +38,24 @@
       "success_probability": 50.4,
       "ai_score": 54.2,
       "market_cap": 6690,
-      "updated_at": "2026-10-30T19:58:25.323474"
+      "updated_at": "2026-10-30T22:24:46.638140"
     },
     {
       "ticker": "425420",
       "name": "티에프이",
-      "price": 86100,
-      "change_rate": 0.47,
+      "price": 88300,
+      "change_rate": 3.03,
       "high_52w": 77900,
       "breakout_date": "2026-10-28",
       "days_since": 2,
-      "above_high_percent": 10.53,
+      "above_high_percent": 13.35,
       "volume_ratio": 3.5,
-      "vs_breakout_close": 1.65,
+      "vs_breakout_close": 4.25,
       "predicted_gain": 19.6,
       "success_probability": 34.6,
       "ai_score": 41.8,
       "market_cap": 10902,
-      "updated_at": "2026-10-30T19:58:25.324100"
+      "updated_at": "2026-10-30T22:24:46.639380"
     }
   ]
 }

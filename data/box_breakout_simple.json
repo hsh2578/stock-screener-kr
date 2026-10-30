@@ -1,28 +1,46 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-30T19:58:32.947366",
+    "lastUpdated": "2026-10-30T22:24:53.792521",
     "marketDate": "2026-10-30",
-    "totalCount": 2,
+    "totalCount": 3,
     "screened_from": 1262
   },
   "data": [
     {
+      "ticker": "003220",
+      "name": "대원제약",
+      "price": 8680,
+      "change_rate": 12.73,
+      "breakout_date": "2026-10-30",
+      "resistance": 8250,
+      "days_since_breakout": 0,
+      "breakout_pct": 5.21,
+      "gain_since_breakout": 0.0,
+      "ma150": 8735,
+      "above_ma150": false,
+      "market_cap": 1946,
+      "success_prob": 38.4,
+      "predicted_gain": 13.8,
+      "ai_score": 39.3,
+      "updated_at": "2026-10-30T22:24:46.730397"
+    },
+    {
       "ticker": "033780",
       "name": "KT&G",
-      "price": 196500,
-      "change_rate": 1.76,
+      "price": 196200,
+      "change_rate": 1.61,
       "breakout_date": "2026-10-19",
       "resistance": 189000,
       "days_since_breakout": 9,
-      "breakout_pct": 3.97,
-      "gain_since_breakout": 1.76,
-      "ma150": 176258,
+      "breakout_pct": 3.81,
+      "gain_since_breakout": 1.61,
+      "ma150": 176256,
       "above_ma150": true,
       "market_cap": 203676,
       "success_prob": 19.3,
       "predicted_gain": 10.3,
       "ai_score": 22.8,
-      "updated_at": "2026-10-30T19:58:19.841597"
+      "updated_at": "2026-10-30T22:24:38.585863"
     },
     {
       "ticker": "104700",
@@ -40,7 +58,7 @@
       "success_prob": 1.8,
       "predicted_gain": 9.3,
       "ai_score": 9.6,
-      "updated_at": "2026-10-30T19:58:24.645584"
+      "updated_at": "2026-10-30T22:24:44.406912"
     }
   ]
 }
