@@ -1,94 +1,58 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-30T00:20:31.762182",
-    "marketDate": "2026-10-29",
-    "totalCount": 7,
-    "screened_from": 1278
+    "lastUpdated": "2026-10-30T15:06:24.307194",
+    "marketDate": "2026-10-30",
+    "totalCount": 4,
+    "screened_from": 1259
   },
   "data": [
     {
-      "ticker": "093320",
-      "name": "케이아이엔엑스",
-      "price": 177400,
-      "change_rate": 13.28,
-      "volume_ratio": 16.0,
+      "ticker": "232680",
+      "name": "라온로보틱스",
+      "price": 10500,
+      "change_rate": 12.9,
+      "volume_ratio": 45.9,
       "volume_rank": 1,
-      "ma150": 124522,
-      "above_ma150": true,
-      "market_cap": 8657,
-      "updated_at": "2026-10-30T00:20:31.360316"
+      "ma150": 12081,
+      "above_ma150": false,
+      "market_cap": 1392,
+      "updated_at": "2026-10-30T15:06:24.126397"
     },
     {
-      "ticker": "489790",
-      "name": "한화비전",
-      "price": 49100,
-      "change_rate": 22.14,
-      "volume_ratio": 15.7,
+      "ticker": "003220",
+      "name": "대원제약",
+      "price": 8710,
+      "change_rate": 13.12,
+      "volume_ratio": 13.5,
       "volume_rank": 2,
-      "ma150": 59283,
+      "ma150": 8735,
       "above_ma150": false,
-      "market_cap": 24789,
-      "updated_at": "2026-10-30T00:20:31.304558"
+      "market_cap": 1953,
+      "updated_at": "2026-10-30T15:06:24.053206"
     },
     {
-      "ticker": "0088M0",
-      "name": "메쥬",
-      "price": 14700,
-      "change_rate": 12.21,
-      "volume_ratio": 10.8,
+      "ticker": "053800",
+      "name": "안랩",
+      "price": 115700,
+      "change_rate": 15.58,
+      "volume_ratio": 4.7,
       "volume_rank": 3,
-      "ma150": null,
-      "above_ma150": false,
-      "market_cap": 1452,
-      "updated_at": "2026-10-30T00:20:31.683077"
+      "ma150": 63406,
+      "above_ma150": true,
+      "market_cap": 12873,
+      "updated_at": "2026-10-30T15:06:23.857573"
     },
     {
-      "ticker": "376900",
-      "name": "로킷헬스케어",
-      "price": 19450,
-      "change_rate": 21.79,
-      "volume_ratio": 10.5,
+      "ticker": "042510",
+      "name": "라온시큐어",
+      "price": 19260,
+      "change_rate": 15.68,
+      "volume_ratio": 2.3,
       "volume_rank": 4,
-      "ma150": 52673,
-      "above_ma150": false,
-      "market_cap": 3402,
-      "updated_at": "2026-10-30T00:20:31.444169"
-    },
-    {
-      "ticker": "030960",
-      "name": "양지사",
-      "price": 6640,
-      "change_rate": 17.52,
-      "volume_ratio": 8.3,
-      "volume_rank": 5,
-      "ma150": 5533,
+      "ma150": 10508,
       "above_ma150": true,
-      "market_cap": 1061,
-      "updated_at": "2026-10-30T00:20:31.751792"
-    },
-    {
-      "ticker": "017900",
-      "name": "광전자",
-      "price": 9440,
-      "change_rate": 18.15,
-      "volume_ratio": 3.4,
-      "volume_rank": 6,
-      "ma150": 8423,
-      "above_ma150": true,
-      "market_cap": 5469,
-      "updated_at": "2026-10-30T00:20:31.396096"
-    },
-    {
-      "ticker": "159010",
-      "name": "아스플로",
-      "price": 35650,
-      "change_rate": 12.46,
-      "volume_ratio": 2.5,
-      "volume_rank": 7,
-      "ma150": 18171,
-      "above_ma150": true,
-      "market_cap": 4753,
-      "updated_at": "2026-10-30T00:20:31.404035"
+      "market_cap": 2138,
+      "updated_at": "2026-10-30T15:06:24.042307"
     }
   ]
 }
