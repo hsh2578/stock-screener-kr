@@ -1,28 +1,9 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-30T15:06:27.261209",
+    "lastUpdated": "2026-10-30T19:58:22.584372",
     "marketDate": "2026-10-30",
-    "totalCount": 1,
-    "screened_from": 1259
+    "totalCount": 0,
+    "screened_from": 1262
   },
-  "data": [
-    {
-      "ticker": "043370",
-      "name": "피에이치에이",
-      "price": 11420,
-      "change_rate": -1.55,
-      "explosion_date": "2026-10-16",
-      "explosion_change_rate": 12.9,
-      "explosion_volume_ratio": 5.7,
-      "days_since_detected": 10,
-      "volume_decrease_rate": 60,
-      "pattern_type": "candle_range",
-      "ma20_distance": null,
-      "volume_rank": 1,
-      "ma150": 11826,
-      "above_ma150": false,
-      "market_cap": 2398,
-      "updated_at": "2026-10-30T15:06:27.252377"
-    }
-  ]
+  "data": []
 }

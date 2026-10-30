@@ -1,58 +1,58 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-30T15:06:24.307194",
+    "lastUpdated": "2026-10-30T19:58:20.577304",
     "marketDate": "2026-10-30",
     "totalCount": 4,
-    "screened_from": 1259
+    "screened_from": 1262
   },
   "data": [
     {
       "ticker": "232680",
       "name": "라온로보틱스",
-      "price": 10500,
-      "change_rate": 12.9,
-      "volume_ratio": 45.9,
+      "price": 11380,
+      "change_rate": 22.37,
+      "volume_ratio": 62.1,
       "volume_rank": 1,
-      "ma150": 12081,
+      "ma150": 12087,
       "above_ma150": false,
-      "market_cap": 1392,
-      "updated_at": "2026-10-30T15:06:24.126397"
+      "market_cap": 1531,
+      "updated_at": "2026-10-30T19:58:20.547949"
     },
     {
-      "ticker": "003220",
-      "name": "대원제약",
-      "price": 8710,
-      "change_rate": 13.12,
-      "volume_ratio": 13.5,
+      "ticker": "263860",
+      "name": "지니언스",
+      "price": 28100,
+      "change_rate": 12.4,
+      "volume_ratio": 8.3,
       "volume_rank": 2,
-      "ma150": 8735,
-      "above_ma150": false,
-      "market_cap": 1953,
-      "updated_at": "2026-10-30T15:06:24.053206"
+      "ma150": 15697,
+      "above_ma150": true,
+      "market_cap": 2519,
+      "updated_at": "2026-10-30T19:58:20.515796"
     },
     {
       "ticker": "053800",
       "name": "안랩",
-      "price": 115700,
-      "change_rate": 15.58,
-      "volume_ratio": 4.7,
+      "price": 125500,
+      "change_rate": 25.37,
+      "volume_ratio": 6.5,
       "volume_rank": 3,
-      "ma150": 63406,
+      "ma150": 63471,
       "above_ma150": true,
-      "market_cap": 12873,
-      "updated_at": "2026-10-30T15:06:23.857573"
+      "market_cap": 13140,
+      "updated_at": "2026-10-30T19:58:20.460790"
     },
     {
       "ticker": "042510",
       "name": "라온시큐어",
-      "price": 19260,
-      "change_rate": 15.68,
-      "volume_ratio": 2.3,
+      "price": 19430,
+      "change_rate": 16.7,
+      "volume_ratio": 2.6,
       "volume_rank": 4,
-      "ma150": 10508,
+      "ma150": 10509,
       "above_ma150": true,
-      "market_cap": 2138,
-      "updated_at": "2026-10-30T15:06:24.042307"
+      "market_cap": 2160,
+      "updated_at": "2026-10-30T19:58:20.524135"
     }
   ]
 }
