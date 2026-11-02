@@ -1,58 +1,142 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-31T00:09:13.804345",
-    "marketDate": "2026-10-30",
-    "totalCount": 4,
-    "screened_from": 1262
+    "lastUpdated": "2026-11-02T15:31:00.718448",
+    "marketDate": "2026-11-02",
+    "totalCount": 11,
+    "screened_from": 1272
   },
   "data": [
     {
+      "ticker": "104700",
+      "name": "한국철강",
+      "price": 12910,
+      "change_rate": 23.78,
+      "volume_ratio": 34.4,
+      "volume_rank": 1,
+      "ma150": 9508,
+      "above_ma150": true,
+      "market_cap": 4705,
+      "updated_at": "2026-11-02T15:31:00.311700"
+    },
+    {
+      "ticker": "396470",
+      "name": "워트",
+      "price": 7700,
+      "change_rate": 27.27,
+      "volume_ratio": 22.6,
+      "volume_rank": 2,
+      "ma150": 6684,
+      "above_ma150": true,
+      "market_cap": 1241,
+      "updated_at": "2026-11-02T15:31:00.676932"
+    },
+    {
       "ticker": "232680",
       "name": "라온로보틱스",
-      "price": 11550,
-      "change_rate": 24.19,
-      "volume_ratio": 64.1,
-      "volume_rank": 1,
-      "ma150": 12088,
-      "above_ma150": false,
-      "market_cap": 1531,
-      "updated_at": "2026-10-31T00:09:13.721014"
-    },
-    {
-      "ticker": "003220",
-      "name": "대원제약",
-      "price": 8680,
-      "change_rate": 12.73,
-      "volume_ratio": 15.9,
-      "volume_rank": 2,
-      "ma150": 8735,
-      "above_ma150": false,
-      "market_cap": 1946,
-      "updated_at": "2026-10-31T00:09:13.558372"
-    },
-    {
-      "ticker": "053800",
-      "name": "안랩",
-      "price": 118100,
-      "change_rate": 17.98,
-      "volume_ratio": 6.7,
+      "price": 13520,
+      "change_rate": 17.06,
+      "volume_ratio": 21.0,
       "volume_rank": 3,
-      "ma150": 63422,
+      "ma150": 12081,
       "above_ma150": true,
-      "market_cap": 13140,
-      "updated_at": "2026-10-31T00:09:13.330900"
+      "market_cap": 1792,
+      "updated_at": "2026-11-02T15:31:00.590112"
     },
     {
-      "ticker": "042510",
-      "name": "라온시큐어",
-      "price": 19450,
-      "change_rate": 16.82,
-      "volume_ratio": 2.6,
+      "ticker": "001940",
+      "name": "KISCO홀딩스",
+      "price": 28400,
+      "change_rate": 20.34,
+      "volume_ratio": 19.0,
       "volume_rank": 4,
-      "ma150": 10509,
+      "ma150": 25450,
       "above_ma150": true,
-      "market_cap": 2160,
-      "updated_at": "2026-10-31T00:09:13.537224"
+      "market_cap": 4026,
+      "updated_at": "2026-11-02T15:31:00.344143"
+    },
+    {
+      "ticker": "045970",
+      "name": "코아시아",
+      "price": 3820,
+      "change_rate": 16.11,
+      "volume_ratio": 9.7,
+      "volume_rank": 5,
+      "ma150": 3801,
+      "above_ma150": true,
+      "market_cap": 1005,
+      "updated_at": "2026-11-02T15:31:00.717696"
+    },
+    {
+      "ticker": "235980",
+      "name": "메드팩토",
+      "price": 3550,
+      "change_rate": 16.39,
+      "volume_ratio": 4.0,
+      "volume_rank": 6,
+      "ma150": 3569,
+      "above_ma150": false,
+      "market_cap": 1216,
+      "updated_at": "2026-11-02T15:31:00.681288"
+    },
+    {
+      "ticker": "278650",
+      "name": "HLB바이오스텝",
+      "price": 6770,
+      "change_rate": 27.98,
+      "volume_ratio": 2.6,
+      "volume_rank": 7,
+      "ma150": 3962,
+      "above_ma150": true,
+      "market_cap": 1180,
+      "updated_at": "2026-11-02T15:31:00.685520"
+    },
+    {
+      "ticker": "071970",
+      "name": "HD현대마린엔진",
+      "price": 41250,
+      "change_rate": 16.03,
+      "volume_ratio": 2.2,
+      "volume_rank": 8,
+      "ma150": 63618,
+      "above_ma150": false,
+      "market_cap": 13992,
+      "updated_at": "2026-11-02T15:31:00.239199"
+    },
+    {
+      "ticker": "023160",
+      "name": "태광",
+      "price": 29450,
+      "change_rate": 13.05,
+      "volume_ratio": 2.2,
+      "volume_rank": 9,
+      "ma150": 30070,
+      "above_ma150": false,
+      "market_cap": 7498,
+      "updated_at": "2026-11-02T15:31:00.276706"
+    },
+    {
+      "ticker": "014620",
+      "name": "성광벤드",
+      "price": 30050,
+      "change_rate": 14.04,
+      "volume_ratio": 2.1,
+      "volume_rank": 10,
+      "ma150": 31584,
+      "above_ma150": false,
+      "market_cap": 7980,
+      "updated_at": "2026-11-02T15:31:00.273654"
+    },
+    {
+      "ticker": "494120",
+      "name": "큐리오시스",
+      "price": 10630,
+      "change_rate": 19.98,
+      "volume_ratio": 2.1,
+      "volume_rank": 11,
+      "ma150": 15459,
+      "above_ma150": false,
+      "market_cap": 1622,
+      "updated_at": "2026-11-02T15:31:00.629030"
     }
   ]
 }

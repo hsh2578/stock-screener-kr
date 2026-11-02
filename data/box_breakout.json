@@ -1,9 +1,29 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-31T00:09:26.585251",
-    "marketDate": "2026-10-30",
-    "totalCount": 0,
-    "screened_from": 1262
+    "lastUpdated": "2026-11-02T15:31:13.991309",
+    "marketDate": "2026-11-02",
+    "totalCount": 1,
+    "screened_from": 1272
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "016580",
+      "name": "환인제약",
+      "price": 10850,
+      "change_rate": 4.33,
+      "breakout_date": "2026-11-02",
+      "days_since_breakout": 0,
+      "breakout_price": 10440,
+      "breakout_pct": 3.93,
+      "gain_since_breakout": 0.0,
+      "volume_ratio": 2.3,
+      "ma150": 10318,
+      "above_ma150": true,
+      "market_cap": 2018,
+      "success_prob": 4.1,
+      "predicted_gain": 5.5,
+      "ai_score": 7.9,
+      "updated_at": "2026-11-02T15:31:09.080166"
+    }
+  ]
 }

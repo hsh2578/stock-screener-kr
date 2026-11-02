@@ -1,61 +1,78 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-31T00:09:26.180511",
-    "marketDate": "2026-10-30",
-    "totalCount": 3,
-    "screened_from": 1262
+    "lastUpdated": "2026-11-02T15:31:09.420224",
+    "marketDate": "2026-11-02",
+    "totalCount": 4,
+    "screened_from": 1272
   },
   "data": [
     {
+      "ticker": "104700",
+      "name": "한국철강",
+      "price": 12910,
+      "change_rate": 23.78,
+      "high_52w": 11720,
+      "breakout_date": "2026-11-02",
+      "days_since": 0,
+      "above_high_percent": 10.15,
+      "volume_ratio": 30.8,
+      "vs_breakout_close": 0.0,
+      "predicted_gain": 18.6,
+      "success_probability": 49.0,
+      "ai_score": 51.0,
+      "market_cap": 4705,
+      "updated_at": "2026-11-02T15:31:08.846758"
+    },
+    {
       "ticker": "093320",
       "name": "케이아이엔엑스",
-      "price": 176800,
-      "change_rate": -0.34,
+      "price": 176000,
+      "change_rate": -0.45,
       "high_52w": 163700,
       "breakout_date": "2026-10-29",
-      "days_since": 1,
-      "above_high_percent": 8.0,
+      "days_since": 2,
+      "above_high_percent": 7.51,
       "volume_ratio": 16.1,
-      "vs_breakout_close": -0.34,
+      "vs_breakout_close": -0.79,
       "predicted_gain": 18.7,
       "success_probability": 39.5,
       "ai_score": 44.5,
-      "market_cap": 8627,
-      "updated_at": "2026-10-31T00:09:26.176481"
+      "market_cap": 8588,
+      "updated_at": "2026-11-02T15:31:09.417653"
     },
     {
       "ticker": "079940",
       "name": "가비아",
-      "price": 49850,
-      "change_rate": -0.89,
+      "price": 49700,
+      "change_rate": -0.3,
       "high_52w": 47900,
       "breakout_date": "2026-10-28",
-      "days_since": 2,
-      "above_high_percent": 4.07,
+      "days_since": 3,
+      "above_high_percent": 3.76,
       "volume_ratio": 11.5,
-      "vs_breakout_close": -1.29,
+      "vs_breakout_close": -1.58,
       "predicted_gain": 21.0,
       "success_probability": 50.4,
       "ai_score": 54.2,
-      "market_cap": 6690,
-      "updated_at": "2026-10-31T00:09:26.177447"
+      "market_cap": 6670,
+      "updated_at": "2026-11-02T15:31:09.418670"
     },
     {
       "ticker": "425420",
       "name": "티에프이",
-      "price": 88300,
-      "change_rate": 3.03,
+      "price": 82700,
+      "change_rate": -6.34,
       "high_52w": 77900,
       "breakout_date": "2026-10-28",
-      "days_since": 2,
-      "above_high_percent": 13.35,
+      "days_since": 3,
+      "above_high_percent": 6.16,
       "volume_ratio": 3.5,
-      "vs_breakout_close": 4.25,
+      "vs_breakout_close": -2.36,
       "predicted_gain": 19.6,
       "success_probability": 34.6,
       "ai_score": 41.8,
-      "market_cap": 10902,
-      "updated_at": "2026-10-31T00:09:26.178239"
+      "market_cap": 10211,
+      "updated_at": "2026-11-02T15:31:09.419616"
     }
   ]
 }
