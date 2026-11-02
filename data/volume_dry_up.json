@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-02T18:43:33.156686",
+    "lastUpdated": "2026-11-02T21:44:46.167864",
     "marketDate": "2026-11-02",
     "totalCount": 2,
     "screened_from": 1273
@@ -9,20 +9,20 @@
     {
       "ticker": "017890",
       "name": "한국알콜",
-      "price": 16330,
-      "change_rate": 1.49,
+      "price": 16350,
+      "change_rate": 1.62,
       "explosion_date": "2026-10-28",
       "explosion_change_rate": 13.8,
       "explosion_volume_ratio": 7.8,
       "days_since_detected": 3,
-      "volume_decrease_rate": 86,
+      "volume_decrease_rate": 85,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
       "ma150": 13266,
       "above_ma150": true,
       "market_cap": 3380,
-      "updated_at": "2026-11-02T18:43:31.950843"
+      "updated_at": "2026-11-02T21:44:44.174299"
     },
     {
       "ticker": "012030",
@@ -40,7 +40,7 @@
       "ma150": 1805,
       "above_ma150": true,
       "market_cap": 4606,
-      "updated_at": "2026-11-02T18:43:31.726180"
+      "updated_at": "2026-11-02T21:44:43.891738"
     }
   ]
 }

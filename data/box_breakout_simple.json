@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-02T18:43:42.884921",
+    "lastUpdated": "2026-11-02T21:44:56.755914",
     "marketDate": "2026-11-02",
     "totalCount": 4,
     "screened_from": 1273
@@ -9,26 +9,26 @@
     {
       "ticker": "003220",
       "name": "대원제약",
-      "price": 8320,
-      "change_rate": -4.15,
+      "price": 8370,
+      "change_rate": -3.57,
       "breakout_date": "2026-10-30",
       "resistance": 8250,
       "days_since_breakout": 1,
-      "breakout_pct": 0.85,
-      "gain_since_breakout": -4.15,
+      "breakout_pct": 1.45,
+      "gain_since_breakout": -3.57,
       "ma150": 8723,
       "above_ma150": false,
       "market_cap": 1877,
       "success_prob": 38.4,
       "predicted_gain": 13.8,
       "ai_score": 39.3,
-      "updated_at": "2026-11-02T18:43:38.467001"
+      "updated_at": "2026-11-02T21:44:50.456716"
     },
     {
       "ticker": "033780",
       "name": "KT&G",
-      "price": 192800,
-      "change_rate": -1.73,
+      "price": 192600,
+      "change_rate": -1.83,
       "breakout_date": "2026-10-19",
       "resistance": 189000,
       "days_since_breakout": 10,
@@ -40,44 +40,44 @@
       "success_prob": 19.3,
       "predicted_gain": 10.3,
       "ai_score": 22.8,
-      "updated_at": "2026-11-02T18:43:42.879181",
-      "vs_breakout_close": -0.16
+      "updated_at": "2026-11-02T21:44:56.755120",
+      "vs_breakout_close": -0.26
     },
     {
       "ticker": "104700",
       "name": "한국철강",
-      "price": 12910,
-      "change_rate": 23.78,
+      "price": 12900,
+      "change_rate": 23.68,
       "breakout_date": "2026-10-29",
       "resistance": 10120,
       "days_since_breakout": 2,
-      "breakout_pct": 27.57,
-      "gain_since_breakout": 24.25,
+      "breakout_pct": 27.47,
+      "gain_since_breakout": 24.16,
       "ma150": 9508,
       "above_ma150": true,
       "market_cap": 4702,
-      "success_prob": 1.8,
-      "predicted_gain": 9.3,
-      "ai_score": 9.6,
-      "updated_at": "2026-11-02T18:43:35.047628"
+      "success_prob": 3.3,
+      "predicted_gain": 14.0,
+      "ai_score": 14.9,
+      "updated_at": "2026-11-02T21:44:46.069253"
     },
     {
       "ticker": "016580",
       "name": "환인제약",
-      "price": 10820,
-      "change_rate": 4.04,
+      "price": 10880,
+      "change_rate": 4.62,
       "breakout_date": "2026-11-02",
       "resistance": 10440,
       "days_since_breakout": 0,
-      "breakout_pct": 3.64,
+      "breakout_pct": 4.21,
       "gain_since_breakout": 0.0,
       "ma150": 10318,
       "above_ma150": true,
       "market_cap": 2023,
-      "success_prob": 3.6,
-      "predicted_gain": 5.4,
-      "ai_score": 7.4,
-      "updated_at": "2026-11-02T18:43:38.240699"
+      "success_prob": 3.8,
+      "predicted_gain": 5.8,
+      "ai_score": 7.8,
+      "updated_at": "2026-11-02T21:44:50.207041"
     }
   ]
 }
