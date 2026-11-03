@@ -1,29 +1,48 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-03T03:36:41.868291",
-    "marketDate": "2026-11-02",
-    "totalCount": 1,
-    "screened_from": 1273
+    "lastUpdated": "2026-11-03T16:02:36.071156",
+    "marketDate": "2026-11-03",
+    "totalCount": 2,
+    "screened_from": 1258
   },
   "data": [
     {
       "ticker": "016580",
       "name": "환인제약",
-      "price": 10880,
-      "change_rate": 4.62,
+      "price": 10900,
+      "change_rate": 0.18,
       "breakout_date": "2026-11-02",
-      "days_since_breakout": 0,
+      "days_since_breakout": 1,
       "breakout_price": 10440,
-      "breakout_pct": 4.21,
-      "gain_since_breakout": 0.0,
+      "breakout_pct": 4.41,
+      "gain_since_breakout": 0.18,
       "volume_ratio": 2.7,
-      "ma150": 10318,
+      "ma150": 10323,
       "above_ma150": true,
-      "market_cap": 2023,
+      "market_cap": 2027,
       "success_prob": 3.8,
       "predicted_gain": 5.8,
       "ai_score": 7.8,
-      "updated_at": "2026-11-03T03:36:35.797672"
+      "updated_at": "2026-11-03T16:02:31.306138"
+    },
+    {
+      "ticker": "006280",
+      "name": "녹십자",
+      "price": 136300,
+      "change_rate": 1.79,
+      "breakout_date": "2026-11-03",
+      "days_since_breakout": 0,
+      "breakout_price": 133900,
+      "breakout_pct": 1.79,
+      "gain_since_breakout": 0.0,
+      "volume_ratio": 2.9,
+      "ma150": 130466,
+      "above_ma150": true,
+      "market_cap": 15928,
+      "success_prob": 3.2,
+      "predicted_gain": 5.5,
+      "ai_score": 7.2,
+      "updated_at": "2026-11-03T16:02:27.713299"
     }
   ]
 }
