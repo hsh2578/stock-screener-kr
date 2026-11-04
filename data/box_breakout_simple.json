@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-04T23:48:32.275306",
+    "lastUpdated": "2026-11-05T01:28:19.002605",
     "marketDate": "2026-11-04",
     "totalCount": 5,
     "screened_from": 1264
@@ -22,7 +22,7 @@
       "success_prob": 38.4,
       "predicted_gain": 13.8,
       "ai_score": 39.2,
-      "updated_at": "2026-11-04T23:48:29.013650"
+      "updated_at": "2026-11-05T01:28:12.960772"
     },
     {
       "ticker": "067900",
@@ -40,7 +40,25 @@
       "success_prob": 19.1,
       "predicted_gain": 8.7,
       "ai_score": 21.2,
-      "updated_at": "2026-11-04T23:48:31.580686"
+      "updated_at": "2026-11-05T01:28:17.923582"
+    },
+    {
+      "ticker": "104700",
+      "name": "한국철강",
+      "price": 12910,
+      "change_rate": 0.08,
+      "breakout_date": "2026-10-29",
+      "resistance": 10120,
+      "days_since_breakout": 4,
+      "breakout_pct": 27.57,
+      "gain_since_breakout": 24.25,
+      "ma150": 9555,
+      "above_ma150": true,
+      "market_cap": 4705,
+      "success_prob": 3.8,
+      "predicted_gain": 14.0,
+      "ai_score": 15.2,
+      "updated_at": "2026-11-05T01:28:08.152646"
     },
     {
       "ticker": "006280",
@@ -58,25 +76,7 @@
       "success_prob": 2.2,
       "predicted_gain": 10.4,
       "ai_score": 10.8,
-      "updated_at": "2026-11-04T23:48:23.906676"
-    },
-    {
-      "ticker": "104700",
-      "name": "한국철강",
-      "price": 12910,
-      "change_rate": 0.08,
-      "breakout_date": "2026-10-29",
-      "resistance": 10120,
-      "days_since_breakout": 4,
-      "breakout_pct": 27.57,
-      "gain_since_breakout": 24.25,
-      "ma150": 9555,
-      "above_ma150": true,
-      "market_cap": 4705,
-      "success_prob": 1.8,
-      "predicted_gain": 9.2,
-      "ai_score": 9.6,
-      "updated_at": "2026-11-04T23:48:26.065592"
+      "updated_at": "2026-11-05T01:28:05.450280"
     },
     {
       "ticker": "016580",
@@ -94,7 +94,7 @@
       "success_prob": 3.8,
       "predicted_gain": 5.7,
       "ai_score": 7.8,
-      "updated_at": "2026-11-04T23:48:28.072057"
+      "updated_at": "2026-11-05T01:28:12.448814"
     }
   ]
 }
