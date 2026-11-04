@@ -1,9 +1,9 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-04T15:46:22.959994",
+    "lastUpdated": "2026-11-04T21:23:23.640255",
     "marketDate": "2026-11-04",
     "totalCount": 7,
-    "screened_from": 1262
+    "screened_from": 1264
   },
   "data": [
     {
@@ -17,30 +17,30 @@
       "entry_date": "2026-11-04",
       "status": "active",
       "days_since": 0,
-      "volume_ratio": 1.1,
+      "volume_ratio": 1.3,
       "predicted_gain": 14.9,
-      "breakout_probability": 46.8,
-      "ai_score": 46.1,
+      "breakout_probability": 47.0,
+      "ai_score": 46.3,
       "market_cap": 128380,
-      "updated_at": "2026-11-04T15:46:22.182682"
+      "updated_at": "2026-11-04T21:23:23.234708"
     },
     {
       "ticker": "120240",
       "name": "대정화금",
-      "price": 14670,
-      "change_rate": -1.01,
+      "price": 14730,
+      "change_rate": -0.61,
       "high_52w": 15210,
-      "percent_from_high": -3.55,
+      "percent_from_high": -3.16,
       "high_52w_date": "2026-08-25",
       "entry_date": "2026-11-04",
       "status": "active",
       "days_since": 0,
       "volume_ratio": 1.3,
-      "predicted_gain": 4.8,
-      "breakout_probability": 15.1,
-      "ai_score": 14.9,
-      "market_cap": 1054,
-      "updated_at": "2026-11-04T15:46:22.939322"
+      "predicted_gain": 5.0,
+      "breakout_probability": 16.8,
+      "ai_score": 16.3,
+      "market_cap": 1059,
+      "updated_at": "2026-11-04T21:23:23.623585"
     },
     {
       "ticker": "121440",
@@ -55,28 +55,28 @@
       "days_since": 0,
       "volume_ratio": 1.0,
       "predicted_gain": 7.9,
-      "breakout_probability": 28.1,
-      "ai_score": 26.7,
+      "breakout_probability": 28.2,
+      "ai_score": 26.8,
       "market_cap": 3474,
-      "updated_at": "2026-11-04T15:46:22.457243"
+      "updated_at": "2026-11-04T21:23:23.411346"
     },
     {
       "ticker": "012750",
       "name": "에스원",
-      "price": 98200,
-      "change_rate": 0.72,
+      "price": 98300,
+      "change_rate": 0.82,
       "high_52w": 103000,
-      "percent_from_high": -4.66,
+      "percent_from_high": -4.56,
       "high_52w_date": "2026-04-08",
       "entry_date": "2026-11-04",
       "status": "active",
       "days_since": 0,
-      "volume_ratio": 0.5,
-      "predicted_gain": 5.9,
-      "breakout_probability": 20.6,
-      "ai_score": 19.7,
-      "market_cap": 37315,
-      "updated_at": "2026-11-04T15:46:22.219401"
+      "volume_ratio": 0.6,
+      "predicted_gain": 6.0,
+      "breakout_probability": 21.1,
+      "ai_score": 20.1,
+      "market_cap": 37353,
+      "updated_at": "2026-11-04T21:23:23.260119"
     },
     {
       "ticker": "089860",
@@ -94,16 +94,16 @@
       "breakout_probability": 48.8,
       "ai_score": 43.5,
       "market_cap": 19280,
-      "updated_at": "2026-11-04T15:46:22.958816",
+      "updated_at": "2026-11-04T21:23:23.636696",
       "above_high_percent": 0.0
     },
     {
       "ticker": "294870",
       "name": "IPARK현대산업개발",
-      "price": 25200,
-      "change_rate": 1.0,
+      "price": 25250,
+      "change_rate": 1.2,
       "high_52w": 25050,
-      "percent_from_high": 0.6,
+      "percent_from_high": 0.8,
       "high_52w_date": "2026-04-27",
       "entry_date": "2026-10-29",
       "status": "breakout",
@@ -112,17 +112,17 @@
       "predicted_gain": 14.3,
       "breakout_probability": 57.8,
       "ai_score": 53.4,
-      "market_cap": 16608,
-      "updated_at": "2026-11-04T15:46:22.958003",
-      "above_high_percent": 0.6
+      "market_cap": 16641,
+      "updated_at": "2026-11-04T21:23:23.637384",
+      "above_high_percent": 0.8
     },
     {
       "ticker": "351320",
       "name": "넥사다이내믹스",
-      "price": 5400,
-      "change_rate": -0.18,
+      "price": 5330,
+      "change_rate": -1.48,
       "high_52w": 5690,
-      "percent_from_high": -5.1,
+      "percent_from_high": -6.33,
       "high_52w_date": "2026-09-10",
       "entry_date": "2026-11-03",
       "status": "dropped",
@@ -131,9 +131,9 @@
       "predicted_gain": 20.9,
       "breakout_probability": 47.4,
       "ai_score": 52.0,
-      "market_cap": 2348,
-      "updated_at": "2026-11-04T15:46:22.959457",
-      "above_high_percent": -5.1
+      "market_cap": 2318,
+      "updated_at": "2026-11-04T21:23:23.638389",
+      "above_high_percent": -6.33
     }
   ]
 }

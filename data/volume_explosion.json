@@ -1,9 +1,9 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-04T15:46:12.585420",
+    "lastUpdated": "2026-11-04T21:23:17.579615",
     "marketDate": "2026-11-04",
-    "totalCount": 16,
-    "screened_from": 1262
+    "totalCount": 17,
+    "screened_from": 1264
   },
   "data": [
     {
@@ -11,72 +11,96 @@
       "name": "대명에너지",
       "price": 13750,
       "change_rate": 29.96,
-      "volume_ratio": 66.0,
+      "volume_ratio": 66.2,
       "volume_rank": 1,
       "ma150": 15772,
       "above_ma150": false,
       "market_cap": 2463,
-      "updated_at": "2026-11-04T15:46:12.418489"
+      "updated_at": "2026-11-04T21:23:17.500179"
     },
     {
       "ticker": "008830",
       "name": "대동기어",
       "price": 6220,
       "change_rate": 18.93,
-      "volume_ratio": 51.9,
+      "volume_ratio": 54.9,
       "volume_rank": 2,
       "ma150": 8734,
       "above_ma150": false,
       "market_cap": 1193,
-      "updated_at": "2026-11-04T15:46:12.560682"
+      "updated_at": "2026-11-04T21:23:17.563634"
     },
     {
       "ticker": "002900",
       "name": "TYM",
-      "price": 6200,
-      "change_rate": 12.73,
-      "volume_ratio": 11.6,
+      "price": 6180,
+      "change_rate": 12.36,
+      "volume_ratio": 11.9,
       "volume_rank": 3,
-      "ma150": 6747,
+      "ma150": 6746,
       "above_ma150": false,
-      "market_cap": 2566,
-      "updated_at": "2026-11-04T15:46:12.413283"
+      "market_cap": 2558,
+      "updated_at": "2026-11-04T21:23:17.494519"
     },
     {
       "ticker": "009830",
       "name": "한화솔루션",
       "price": 28000,
       "change_rate": 18.64,
-      "volume_ratio": 7.4,
+      "volume_ratio": 8.7,
       "volume_rank": 4,
       "ma150": 34229,
       "above_ma150": false,
       "market_cap": 62969,
-      "updated_at": "2026-11-04T15:46:12.192869"
-    },
-    {
-      "ticker": "140410",
-      "name": "메지온",
-      "price": 56300,
-      "change_rate": 12.83,
-      "volume_ratio": 5.6,
-      "volume_rank": 5,
-      "ma150": 68677,
-      "above_ma150": false,
-      "market_cap": 17383,
-      "updated_at": "2026-11-04T15:46:12.266838"
+      "updated_at": "2026-11-04T21:23:17.413539"
     },
     {
       "ticker": "443670",
       "name": "에스피소프트",
-      "price": 5130,
-      "change_rate": 13.37,
-      "volume_ratio": 5.5,
-      "volume_rank": 6,
-      "ma150": 4104,
+      "price": 5180,
+      "change_rate": 14.48,
+      "volume_ratio": 5.8,
+      "volume_rank": 5,
+      "ma150": 4105,
       "above_ma150": true,
-      "market_cap": 1231,
-      "updated_at": "2026-11-04T15:46:12.556582"
+      "market_cap": 1243,
+      "updated_at": "2026-11-04T21:23:17.553581"
+    },
+    {
+      "ticker": "140410",
+      "name": "메지온",
+      "price": 56400,
+      "change_rate": 13.03,
+      "volume_ratio": 5.6,
+      "volume_rank": 6,
+      "ma150": 68678,
+      "above_ma150": false,
+      "market_cap": 17414,
+      "updated_at": "2026-11-04T21:23:17.433194"
+    },
+    {
+      "ticker": "322000",
+      "name": "HD현대에너지솔루션",
+      "price": 88400,
+      "change_rate": 12.47,
+      "volume_ratio": 5.1,
+      "volume_rank": 7,
+      "ma150": 143569,
+      "above_ma150": false,
+      "market_cap": 9900,
+      "updated_at": "2026-11-04T21:23:17.444931"
+    },
+    {
+      "ticker": "290690",
+      "name": "아리바이오홀딩스",
+      "price": 3620,
+      "change_rate": 29.98,
+      "volume_ratio": 4.7,
+      "volume_rank": 8,
+      "ma150": 4050,
+      "above_ma150": false,
+      "market_cap": 1921,
+      "updated_at": "2026-11-04T21:23:17.515689"
     },
     {
       "ticker": "199430",
@@ -84,119 +108,107 @@
       "price": 15610,
       "change_rate": 29.98,
       "volume_ratio": 4.4,
-      "volume_rank": 7,
+      "volume_rank": 9,
       "ma150": 16980,
       "above_ma150": false,
       "market_cap": 1751,
-      "updated_at": "2026-11-04T15:46:12.482298"
-    },
-    {
-      "ticker": "290690",
-      "name": "아리바이오홀딩스",
-      "price": 3620,
-      "change_rate": 29.98,
-      "volume_ratio": 4.0,
-      "volume_rank": 8,
-      "ma150": 4050,
-      "above_ma150": false,
-      "market_cap": 1921,
-      "updated_at": "2026-11-04T15:46:12.469127"
+      "updated_at": "2026-11-04T21:23:17.524121"
     },
     {
       "ticker": "121600",
       "name": "나노신소재",
       "price": 71900,
       "change_rate": 12.52,
-      "volume_ratio": 3.7,
-      "volume_rank": 9,
+      "volume_ratio": 4.0,
+      "volume_rank": 10,
       "ma150": 58312,
       "above_ma150": true,
       "market_cap": 8816,
-      "updated_at": "2026-11-04T15:46:12.296486"
+      "updated_at": "2026-11-04T21:23:17.447370"
     },
     {
       "ticker": "107640",
       "name": "한중엔시에스",
-      "price": 51800,
-      "change_rate": 15.88,
-      "volume_ratio": 2.9,
-      "volume_rank": 10,
-      "ma150": 44089,
+      "price": 51900,
+      "change_rate": 16.11,
+      "volume_ratio": 3.2,
+      "volume_rank": 11,
+      "ma150": 44090,
       "above_ma150": true,
-      "market_cap": 4730,
-      "updated_at": "2026-11-04T15:46:12.345823"
+      "market_cap": 4739,
+      "updated_at": "2026-11-04T21:23:17.465726"
     },
     {
       "ticker": "243840",
       "name": "신흥에스이씨",
-      "price": 6550,
-      "change_rate": 16.34,
-      "volume_ratio": 2.9,
-      "volume_rank": 11,
+      "price": 6560,
+      "change_rate": 16.52,
+      "volume_ratio": 3.1,
+      "volume_rank": 12,
       "ma150": 6421,
       "above_ma150": true,
-      "market_cap": 2525,
-      "updated_at": "2026-11-04T15:46:12.415296"
+      "market_cap": 2529,
+      "updated_at": "2026-11-04T21:23:17.498189"
     },
     {
       "ticker": "475400",
       "name": "씨메스로보틱스",
-      "price": 15720,
-      "change_rate": 19.09,
-      "volume_ratio": 2.8,
-      "volume_rank": 12,
-      "ma150": 22269,
+      "price": 15870,
+      "change_rate": 20.23,
+      "volume_ratio": 3.1,
+      "volume_rank": 13,
+      "ma150": 22270,
       "above_ma150": false,
-      "market_cap": 1856,
-      "updated_at": "2026-11-04T15:46:12.472542"
+      "market_cap": 1873,
+      "updated_at": "2026-11-04T21:23:17.517232"
     },
     {
       "ticker": "259960",
       "name": "크래프톤",
-      "price": 210000,
-      "change_rate": 15.45,
-      "volume_ratio": 2.7,
-      "volume_rank": 13,
-      "ma150": 232704,
+      "price": 212000,
+      "change_rate": 16.55,
+      "volume_ratio": 3.0,
+      "volume_rank": 14,
+      "ma150": 232717,
       "above_ma150": false,
-      "market_cap": 95513,
-      "updated_at": "2026-11-04T15:46:12.181793"
+      "market_cap": 96423,
+      "updated_at": "2026-11-04T21:23:17.409232"
+    },
+    {
+      "ticker": "091580",
+      "name": "상신이디피",
+      "price": 28150,
+      "change_rate": 23.19,
+      "volume_ratio": 2.4,
+      "volume_rank": 15,
+      "ma150": 20526,
+      "above_ma150": true,
+      "market_cap": 3751,
+      "updated_at": "2026-11-04T21:23:17.476897"
+    },
+    {
+      "ticker": "036710",
+      "name": "심텍홀딩스",
+      "price": 4000,
+      "change_rate": 14.29,
+      "volume_ratio": 2.3,
+      "volume_rank": 16,
+      "ma150": 3972,
+      "above_ma150": true,
+      "market_cap": 2113,
+      "updated_at": "2026-11-04T21:23:17.508938"
     },
     {
       "ticker": "003030",
       "name": "세아제강지주",
       "price": 112300,
       "change_rate": 13.32,
-      "volume_ratio": 2.1,
-      "volume_rank": 14,
+      "volume_ratio": 2.2,
+      "volume_rank": 17,
       "ma150": 138619,
       "above_ma150": false,
       "market_cap": 4651,
-      "updated_at": "2026-11-04T15:46:12.346933"
-    },
-    {
-      "ticker": "091580",
-      "name": "상신이디피",
-      "price": 27850,
-      "change_rate": 21.88,
-      "volume_ratio": 2.1,
-      "volume_rank": 15,
-      "ma150": 20524,
-      "above_ma150": true,
-      "market_cap": 3711,
-      "updated_at": "2026-11-04T15:46:12.371595"
-    },
-    {
-      "ticker": "036710",
-      "name": "심텍홀딩스",
-      "price": 3990,
-      "change_rate": 14.0,
-      "volume_ratio": 2.0,
-      "volume_rank": 16,
-      "ma150": 3972,
-      "above_ma150": true,
-      "market_cap": 2107,
-      "updated_at": "2026-11-04T15:46:12.449188"
+      "updated_at": "2026-11-04T21:23:17.466474"
     }
   ]
 }

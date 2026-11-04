@@ -1,46 +1,46 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-04T15:46:26.402561",
+    "lastUpdated": "2026-11-04T21:23:28.174860",
     "marketDate": "2026-11-04",
     "totalCount": 5,
-    "screened_from": 1262
+    "screened_from": 1264
   },
   "data": [
     {
       "ticker": "003220",
       "name": "대원제약",
-      "price": 8040,
-      "change_rate": 0.12,
+      "price": 8030,
+      "change_rate": 0.0,
       "breakout_date": "2026-10-30",
       "resistance": 8250,
       "days_since_breakout": 3,
-      "breakout_pct": -2.55,
-      "gain_since_breakout": -7.37,
+      "breakout_pct": -2.67,
+      "gain_since_breakout": -7.49,
       "ma150": 8693,
       "above_ma150": false,
-      "market_cap": 1803,
+      "market_cap": 1800,
       "success_prob": 38.4,
       "predicted_gain": 13.8,
       "ai_score": 39.2,
-      "updated_at": "2026-11-04T15:46:20.724409"
+      "updated_at": "2026-11-04T21:23:23.100907"
     },
     {
       "ticker": "067900",
       "name": "와이엔텍",
-      "price": 6180,
-      "change_rate": -2.37,
+      "price": 6160,
+      "change_rate": -2.69,
       "breakout_date": "2026-11-03",
       "resistance": 6120,
       "days_since_breakout": 1,
-      "breakout_pct": 0.98,
-      "gain_since_breakout": -2.37,
+      "breakout_pct": 0.65,
+      "gain_since_breakout": -2.69,
       "ma150": 6345,
       "above_ma150": false,
-      "market_cap": 1124,
+      "market_cap": 1121,
       "success_prob": 19.1,
       "predicted_gain": 8.7,
       "ai_score": 21.2,
-      "updated_at": "2026-11-04T15:46:25.088984"
+      "updated_at": "2026-11-04T21:23:27.192860"
     },
     {
       "ticker": "104700",
@@ -58,7 +58,7 @@
       "success_prob": 3.8,
       "predicted_gain": 14.0,
       "ai_score": 15.2,
-      "updated_at": "2026-11-04T15:46:16.395414"
+      "updated_at": "2026-11-04T21:23:19.965487"
     },
     {
       "ticker": "006280",
@@ -76,25 +76,25 @@
       "success_prob": 2.2,
       "predicted_gain": 10.4,
       "ai_score": 10.8,
-      "updated_at": "2026-11-04T15:46:13.932240"
+      "updated_at": "2026-11-04T21:23:18.146224"
     },
     {
       "ticker": "016580",
       "name": "환인제약",
-      "price": 10880,
-      "change_rate": -0.18,
+      "price": 10860,
+      "change_rate": -0.37,
       "breakout_date": "2026-11-02",
       "resistance": 10440,
       "days_since_breakout": 2,
-      "breakout_pct": 4.21,
-      "gain_since_breakout": 0.0,
+      "breakout_pct": 4.02,
+      "gain_since_breakout": -0.18,
       "ma150": 10326,
       "above_ma150": true,
-      "market_cap": 2023,
+      "market_cap": 2019,
       "success_prob": 3.8,
       "predicted_gain": 5.7,
       "ai_score": 7.8,
-      "updated_at": "2026-11-04T15:46:20.212840"
+      "updated_at": "2026-11-04T21:23:22.457039"
     }
   ]
 }
