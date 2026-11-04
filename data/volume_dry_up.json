@@ -1,64 +1,9 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-04T01:23:28.067354",
-    "marketDate": "2026-11-03",
-    "totalCount": 3,
-    "screened_from": 1258
+    "lastUpdated": "2026-11-04T15:46:15.758328",
+    "marketDate": "2026-11-04",
+    "totalCount": 0,
+    "screened_from": 1262
   },
-  "data": [
-    {
-      "ticker": "017890",
-      "name": "한국알콜",
-      "price": 16040,
-      "change_rate": -1.9,
-      "explosion_date": "2026-10-28",
-      "explosion_change_rate": 13.8,
-      "explosion_volume_ratio": 7.8,
-      "days_since_detected": 4,
-      "volume_decrease_rate": 86,
-      "pattern_type": "candle_range",
-      "ma20_distance": null,
-      "volume_rank": 1,
-      "ma150": 13297,
-      "above_ma150": true,
-      "market_cap": 3316,
-      "updated_at": "2026-11-04T01:23:27.241527"
-    },
-    {
-      "ticker": "010580",
-      "name": "에스엠벡셀",
-      "price": 3070,
-      "change_rate": -8.08,
-      "explosion_date": "2026-10-19",
-      "explosion_change_rate": 29.9,
-      "explosion_volume_ratio": 4.2,
-      "days_since_detected": 11,
-      "volume_decrease_rate": 97,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.03,
-      "volume_rank": 2,
-      "ma150": 2091,
-      "above_ma150": true,
-      "market_cap": 3415,
-      "updated_at": "2026-11-04T01:23:27.232092"
-    },
-    {
-      "ticker": "043370",
-      "name": "피에이치에이",
-      "price": 11570,
-      "change_rate": -1.11,
-      "explosion_date": "2026-10-16",
-      "explosion_change_rate": 12.9,
-      "explosion_volume_ratio": 5.7,
-      "days_since_detected": 12,
-      "volume_decrease_rate": 63,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.81,
-      "volume_rank": 3,
-      "ma150": 11802,
-      "above_ma150": false,
-      "market_cap": 2429,
-      "updated_at": "2026-11-04T01:23:27.414923"
-    }
-  ]
+  "data": []
 }
