@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-05T16:05:29.899390",
+    "lastUpdated": "2026-11-05T18:41:33.339141",
     "marketDate": "2026-11-05",
     "totalCount": 3,
     "screened_from": 1247
@@ -9,59 +9,59 @@
     {
       "ticker": "016580",
       "name": "환인제약",
-      "price": 10830,
-      "change_rate": -0.28,
+      "price": 10770,
+      "change_rate": -0.83,
       "breakout_date": "2026-11-02",
       "days_since_breakout": 3,
       "breakout_price": 10440,
-      "breakout_pct": 3.74,
-      "gain_since_breakout": -0.46,
+      "breakout_pct": 3.16,
+      "gain_since_breakout": -1.01,
       "volume_ratio": 2.7,
-      "ma150": 10329,
+      "ma150": 10328,
       "above_ma150": true,
       "market_cap": 2014,
       "success_prob": 3.8,
       "predicted_gain": 5.8,
       "ai_score": 7.8,
-      "updated_at": "2026-11-05T16:05:24.966860"
+      "updated_at": "2026-11-05T18:41:27.834556"
     },
     {
       "ticker": "006280",
       "name": "녹십자",
-      "price": 142300,
-      "change_rate": 2.67,
+      "price": 141700,
+      "change_rate": 2.24,
       "breakout_date": "2026-11-03",
       "days_since_breakout": 2,
       "breakout_price": 133900,
-      "breakout_pct": 6.27,
-      "gain_since_breakout": 4.4,
+      "breakout_pct": 5.83,
+      "gain_since_breakout": 3.96,
       "volume_ratio": 2.9,
-      "ma150": 130356,
+      "ma150": 130352,
       "above_ma150": true,
       "market_cap": 16629,
       "success_prob": 3.2,
       "predicted_gain": 5.5,
       "ai_score": 7.2,
-      "updated_at": "2026-11-05T16:05:22.846730"
+      "updated_at": "2026-11-05T18:41:25.052191"
     },
     {
       "ticker": "000080",
       "name": "하이트진로",
-      "price": 16750,
-      "change_rate": 3.91,
+      "price": 16700,
+      "change_rate": 3.6,
       "breakout_date": "2026-11-05",
       "days_since_breakout": 0,
       "breakout_price": 16060,
-      "breakout_pct": 4.3,
+      "breakout_pct": 3.99,
       "gain_since_breakout": 0.0,
       "volume_ratio": 2.5,
       "ma150": 15807,
       "above_ma150": true,
       "market_cap": 11747,
-      "success_prob": 1.2,
-      "predicted_gain": 4.9,
-      "ai_score": 5.2,
-      "updated_at": "2026-11-05T16:05:22.910443"
+      "success_prob": 1.1,
+      "predicted_gain": 4.8,
+      "ai_score": 5.1,
+      "updated_at": "2026-11-05T18:41:25.205037"
     }
   ]
 }
