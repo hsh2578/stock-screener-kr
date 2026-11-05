@@ -1,48 +1,29 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-05T01:28:28.762766",
-    "marketDate": "2026-11-04",
-    "totalCount": 2,
-    "screened_from": 1264
+    "lastUpdated": "2026-11-05T16:05:35.730945",
+    "marketDate": "2026-11-05",
+    "totalCount": 1,
+    "screened_from": 1247
   },
   "data": [
     {
-      "ticker": "006400",
-      "name": "삼성SDI",
-      "current_price": 545000,
-      "volume": 909625,
-      "ma10w": 536150,
-      "ma20w": 500075,
-      "ma60w": 432091,
-      "ma20d": 539775,
-      "ma60d": 529025,
-      "ma120d": 519787,
-      "gap_20_60": 2.03,
-      "gap_20_120": 3.85,
-      "gap_60_120": 1.78,
-      "gap_price_20": 0.97,
-      "weeks_since_high": 27,
-      "market_cap": 439191,
-      "updated_at": "2026-11-05T01:28:19.198930"
-    },
-    {
       "ticker": "003690",
       "name": "코리안리",
-      "current_price": 13950,
-      "volume": 158234,
-      "ma10w": 14415,
-      "ma20w": 14221,
-      "ma60w": 12811,
-      "ma20d": 14168,
-      "ma60d": 14540,
-      "ma120d": 13962,
-      "gap_20_60": 2.56,
-      "gap_20_120": 1.48,
-      "gap_60_120": 4.14,
-      "gap_price_20": 1.54,
+      "current_price": 13660,
+      "volume": 167059,
+      "ma10w": 14386,
+      "ma20w": 14207,
+      "ma60w": 12806,
+      "ma20d": 14119,
+      "ma60d": 14524,
+      "ma120d": 13976,
+      "gap_20_60": 2.79,
+      "gap_20_120": 1.02,
+      "gap_60_120": 3.92,
+      "gap_price_20": 3.25,
       "weeks_since_high": 10,
-      "market_cap": 24652,
-      "updated_at": "2026-11-05T01:28:20.906691"
+      "market_cap": 24140,
+      "updated_at": "2026-11-05T16:05:31.345289"
     }
   ]
 }
