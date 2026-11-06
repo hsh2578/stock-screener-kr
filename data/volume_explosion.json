@@ -1,58 +1,34 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-06T16:04:59.916532",
+    "lastUpdated": "2026-11-06T18:35:42.746000",
     "marketDate": "2026-11-06",
-    "totalCount": 4,
+    "totalCount": 2,
     "screened_from": 1231
   },
   "data": [
     {
       "ticker": "181710",
       "name": "NHN",
-      "price": 59200,
-      "change_rate": 15.62,
-      "volume_ratio": 4.7,
+      "price": 57700,
+      "change_rate": 12.7,
+      "volume_ratio": 4.8,
       "volume_rank": 1,
-      "ma150": 46977,
+      "ma150": 46967,
       "above_ma150": true,
       "market_cap": 19138,
-      "updated_at": "2026-11-06T16:04:59.794593"
+      "updated_at": "2026-11-06T18:35:42.595166"
     },
     {
       "ticker": "119850",
       "name": "지엔씨에너지",
-      "price": 35300,
-      "change_rate": 13.32,
-      "volume_ratio": 2.4,
+      "price": 35250,
+      "change_rate": 13.16,
+      "volume_ratio": 2.5,
       "volume_rank": 2,
       "ma150": 36956,
       "above_ma150": false,
       "market_cap": 5806,
-      "updated_at": "2026-11-06T16:04:59.821254"
-    },
-    {
-      "ticker": "317400",
-      "name": "자이에스앤디",
-      "price": 7260,
-      "change_rate": 12.38,
-      "volume_ratio": 2.4,
-      "volume_rank": 3,
-      "ma150": 6557,
-      "above_ma150": true,
-      "market_cap": 2815,
-      "updated_at": "2026-11-06T16:04:59.847797"
-    },
-    {
-      "ticker": "003010",
-      "name": "혜인",
-      "price": 8140,
-      "change_rate": 15.46,
-      "volume_ratio": 2.2,
-      "volume_rank": 4,
-      "ma150": 6883,
-      "above_ma150": true,
-      "market_cap": 1034,
-      "updated_at": "2026-11-06T16:04:59.913338"
+      "updated_at": "2026-11-06T18:35:42.621872"
     }
   ]
 }

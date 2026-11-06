@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-06T16:05:09.812433",
+    "lastUpdated": "2026-11-06T18:35:52.422238",
     "marketDate": "2026-11-06",
     "totalCount": 3,
     "screened_from": 1231
@@ -9,51 +9,51 @@
     {
       "ticker": "016580",
       "name": "환인제약",
-      "price": 10760,
-      "change_rate": -0.65,
+      "price": 10680,
+      "change_rate": -1.39,
       "breakout_date": "2026-11-02",
       "days_since_breakout": 4,
       "breakout_price": 10440,
-      "breakout_pct": 3.07,
-      "gain_since_breakout": -1.1,
+      "breakout_pct": 2.3,
+      "gain_since_breakout": -1.84,
       "volume_ratio": 2.7,
-      "ma150": 10331,
+      "ma150": 10330,
       "above_ma150": true,
       "market_cap": 2001,
       "success_prob": 3.8,
       "predicted_gain": 5.8,
       "ai_score": 7.8,
-      "updated_at": "2026-11-06T16:05:05.107885"
+      "updated_at": "2026-11-06T18:35:47.456684"
     },
     {
       "ticker": "006280",
       "name": "녹십자",
-      "price": 140100,
-      "change_rate": -1.55,
+      "price": 139100,
+      "change_rate": -2.25,
       "breakout_date": "2026-11-03",
       "days_since_breakout": 3,
       "breakout_price": 133900,
-      "breakout_pct": 4.63,
-      "gain_since_breakout": 2.79,
+      "breakout_pct": 3.88,
+      "gain_since_breakout": 2.05,
       "volume_ratio": 2.9,
-      "ma150": 130284,
+      "ma150": 130277,
       "above_ma150": true,
       "market_cap": 16372,
       "success_prob": 3.2,
       "predicted_gain": 5.5,
       "ai_score": 7.2,
-      "updated_at": "2026-11-06T16:05:03.087549"
+      "updated_at": "2026-11-06T18:35:45.442118"
     },
     {
       "ticker": "000080",
       "name": "하이트진로",
-      "price": 16590,
-      "change_rate": -0.96,
+      "price": 16480,
+      "change_rate": -1.61,
       "breakout_date": "2026-11-05",
       "days_since_breakout": 1,
       "breakout_price": 16060,
-      "breakout_pct": 3.3,
-      "gain_since_breakout": -0.96,
+      "breakout_pct": 2.62,
+      "gain_since_breakout": -1.61,
       "volume_ratio": 2.6,
       "ma150": 15806,
       "above_ma150": true,
@@ -61,7 +61,7 @@
       "success_prob": 1.2,
       "predicted_gain": 4.9,
       "ai_score": 5.3,
-      "updated_at": "2026-11-06T16:05:03.231502"
+      "updated_at": "2026-11-06T18:35:45.492651"
     }
   ]
 }
