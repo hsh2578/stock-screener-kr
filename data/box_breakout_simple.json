@@ -1,29 +1,11 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-06T23:32:43.766691",
+    "lastUpdated": "2026-11-07T01:03:32.373043",
     "marketDate": "2026-11-06",
     "totalCount": 4,
     "screened_from": 1231
   },
   "data": [
-    {
-      "ticker": "104700",
-      "name": "한국철강",
-      "price": 12900,
-      "change_rate": -0.08,
-      "breakout_date": "2026-10-29",
-      "resistance": 10120,
-      "days_since_breakout": 6,
-      "breakout_pct": 27.47,
-      "gain_since_breakout": 24.16,
-      "ma150": 9604,
-      "above_ma150": true,
-      "market_cap": 4702,
-      "success_prob": 3.9,
-      "predicted_gain": 14.0,
-      "ai_score": 15.3,
-      "updated_at": "2026-11-06T23:32:34.168549"
-    },
     {
       "ticker": "006280",
       "name": "녹십자",
@@ -40,7 +22,7 @@
       "success_prob": 2.2,
       "predicted_gain": 10.4,
       "ai_score": 10.8,
-      "updated_at": "2026-11-06T23:32:31.638836"
+      "updated_at": "2026-11-07T01:03:23.486902"
     },
     {
       "ticker": "000080",
@@ -58,7 +40,25 @@
       "success_prob": 0.6,
       "predicted_gain": 11.3,
       "ai_score": 10.6,
-      "updated_at": "2026-11-06T23:32:32.147918"
+      "updated_at": "2026-11-07T01:03:23.869615"
+    },
+    {
+      "ticker": "104700",
+      "name": "한국철강",
+      "price": 12900,
+      "change_rate": -0.08,
+      "breakout_date": "2026-10-29",
+      "resistance": 10120,
+      "days_since_breakout": 6,
+      "breakout_pct": 27.47,
+      "gain_since_breakout": 24.16,
+      "ma150": 9604,
+      "above_ma150": true,
+      "market_cap": 4702,
+      "success_prob": 1.9,
+      "predicted_gain": 9.3,
+      "ai_score": 9.6,
+      "updated_at": "2026-11-07T01:03:25.830985"
     },
     {
       "ticker": "016580",
@@ -76,7 +76,7 @@
       "success_prob": 3.8,
       "predicted_gain": 5.8,
       "ai_score": 7.8,
-      "updated_at": "2026-11-06T23:32:38.081686"
+      "updated_at": "2026-11-07T01:03:27.502309"
     }
   ]
 }
