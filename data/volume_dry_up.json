@@ -1,46 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-06T01:36:31.459142",
-    "marketDate": "2026-11-05",
-    "totalCount": 2,
-    "screened_from": 1247
+    "lastUpdated": "2026-11-06T16:05:01.516690",
+    "marketDate": "2026-11-06",
+    "totalCount": 1,
+    "screened_from": 1231
   },
   "data": [
     {
       "ticker": "236200",
       "name": "슈프리마",
-      "price": 50300,
-      "change_rate": -1.37,
+      "price": 50900,
+      "change_rate": 1.19,
       "explosion_date": "2026-11-02",
       "explosion_change_rate": 12.6,
       "explosion_volume_ratio": 3.5,
-      "days_since_detected": 3,
-      "volume_decrease_rate": 69,
+      "days_since_detected": 4,
+      "volume_decrease_rate": 72,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
-      "ma150": 50164,
+      "ma150": 50176,
       "above_ma150": true,
-      "market_cap": 3508,
-      "updated_at": "2026-11-06T01:36:30.466077"
-    },
-    {
-      "ticker": "101930",
-      "name": "인화정공",
-      "price": 6110,
-      "change_rate": -0.65,
-      "explosion_date": "2026-10-23",
-      "explosion_change_rate": 11.0,
-      "explosion_volume_ratio": 7.7,
-      "days_since_detected": 9,
-      "volume_decrease_rate": 91,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.42,
-      "volume_rank": 2,
-      "ma150": 8178,
-      "above_ma150": false,
-      "market_cap": 2791,
-      "updated_at": "2026-11-06T01:36:30.613338"
+      "market_cap": 3549,
+      "updated_at": "2026-11-06T16:05:00.654463"
     }
   ]
 }
