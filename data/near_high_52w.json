@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-06T18:35:48.682711",
+    "lastUpdated": "2026-11-06T21:20:13.873893",
     "marketDate": "2026-11-06",
     "totalCount": 7,
     "screened_from": 1231
@@ -9,20 +9,20 @@
     {
       "ticker": "130580",
       "name": "나이스디앤비",
-      "price": 6900,
-      "change_rate": 0.15,
+      "price": 6760,
+      "change_rate": -1.89,
       "high_52w": 6970,
-      "percent_from_high": -1.0,
+      "percent_from_high": -3.01,
       "high_52w_date": "2026-10-02",
       "entry_date": "2026-11-06",
       "status": "active",
       "days_since": 0,
       "volume_ratio": 0.8,
-      "predicted_gain": 5.0,
-      "breakout_probability": 33.5,
-      "ai_score": 28.0,
+      "predicted_gain": 4.2,
+      "breakout_probability": 21.4,
+      "ai_score": 18.8,
       "market_cap": 1041,
-      "updated_at": "2026-11-06T18:35:48.669507"
+      "updated_at": "2026-11-06T21:20:13.846723"
     },
     {
       "ticker": "030190",
@@ -37,29 +37,10 @@
       "days_since": 0,
       "volume_ratio": 2.3,
       "predicted_gain": 6.8,
-      "breakout_probability": 27.2,
-      "ai_score": 25.2,
+      "breakout_probability": 27.1,
+      "ai_score": 25.1,
       "market_cap": 10400,
-      "updated_at": "2026-11-06T18:35:48.387163"
-    },
-    {
-      "ticker": "294870",
-      "name": "IPARK현대산업개발",
-      "price": 23950,
-      "change_rate": -4.96,
-      "high_52w": 25050,
-      "percent_from_high": -4.39,
-      "high_52w_date": "2026-04-27",
-      "entry_date": "2026-10-29",
-      "status": "active",
-      "days_since": 6,
-      "volume_ratio": 1.7,
-      "predicted_gain": 14.3,
-      "breakout_probability": 57.8,
-      "ai_score": 53.4,
-      "market_cap": 15751,
-      "updated_at": "2026-11-06T18:35:48.680824",
-      "above_high_percent": -4.39
+      "updated_at": "2026-11-06T21:20:13.544266"
     },
     {
       "ticker": "012750",
@@ -74,18 +55,37 @@
       "days_since": 0,
       "volume_ratio": 0.6,
       "predicted_gain": 5.0,
-      "breakout_probability": 20.0,
-      "ai_score": 18.5,
+      "breakout_probability": 19.9,
+      "ai_score": 18.4,
       "market_cap": 37391,
-      "updated_at": "2026-11-06T18:35:48.327323"
+      "updated_at": "2026-11-06T21:20:13.484547"
+    },
+    {
+      "ticker": "294870",
+      "name": "IPARK현대산업개발",
+      "price": 23900,
+      "change_rate": -5.16,
+      "high_52w": 25050,
+      "percent_from_high": -4.59,
+      "high_52w_date": "2026-04-27",
+      "entry_date": "2026-10-29",
+      "status": "active",
+      "days_since": 6,
+      "volume_ratio": 1.7,
+      "predicted_gain": 14.3,
+      "breakout_probability": 57.8,
+      "ai_score": 53.4,
+      "market_cap": 15751,
+      "updated_at": "2026-11-06T21:20:13.869679",
+      "above_high_percent": -4.59
     },
     {
       "ticker": "068930",
       "name": "디지털대성",
-      "price": 9450,
-      "change_rate": -0.53,
+      "price": 9430,
+      "change_rate": -0.74,
       "high_52w": 10000,
-      "percent_from_high": -5.5,
+      "percent_from_high": -5.7,
       "high_52w_date": "2026-09-28",
       "entry_date": "2026-11-05",
       "status": "dropped",
@@ -95,16 +95,16 @@
       "breakout_probability": 21.9,
       "ai_score": 21.7,
       "market_cap": 2550,
-      "updated_at": "2026-11-06T18:35:48.681446",
-      "above_high_percent": -5.5
+      "updated_at": "2026-11-06T21:20:13.870330",
+      "above_high_percent": -5.7
     },
     {
       "ticker": "120240",
       "name": "대정화금",
-      "price": 14150,
-      "change_rate": -2.41,
+      "price": 14240,
+      "change_rate": -1.79,
       "high_52w": 15210,
-      "percent_from_high": -6.97,
+      "percent_from_high": -6.38,
       "high_52w_date": "2026-08-25",
       "entry_date": "2026-11-05",
       "status": "dropped",
@@ -114,16 +114,16 @@
       "breakout_probability": 11.6,
       "ai_score": 12.4,
       "market_cap": 1023,
-      "updated_at": "2026-11-06T18:35:48.681823",
-      "above_high_percent": -6.97
+      "updated_at": "2026-11-06T21:20:13.870723",
+      "above_high_percent": -6.38
     },
     {
       "ticker": "282330",
       "name": "BGF리테일",
-      "price": 144900,
-      "change_rate": -3.53,
+      "price": 143400,
+      "change_rate": -4.53,
       "high_52w": 156600,
-      "percent_from_high": -7.47,
+      "percent_from_high": -8.43,
       "high_52w_date": "2026-08-11",
       "entry_date": "2026-11-05",
       "status": "dropped",
@@ -133,8 +133,8 @@
       "breakout_probability": 28.0,
       "ai_score": 30.5,
       "market_cap": 24785,
-      "updated_at": "2026-11-06T18:35:48.682236",
-      "above_high_percent": -7.47
+      "updated_at": "2026-11-06T21:20:13.872681",
+      "above_high_percent": -8.43
     }
   ]
 }
