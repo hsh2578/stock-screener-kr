@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-09T15:56:32.260172",
+    "lastUpdated": "2026-11-09T18:59:16.098799",
     "marketDate": "2026-11-09",
-    "totalCount": 5,
+    "totalCount": 6,
     "screened_from": 1233
   },
   "data": [
@@ -11,12 +11,12 @@
       "name": "박셀바이오",
       "price": 4835,
       "change_rate": 29.97,
-      "volume_ratio": 27.5,
+      "volume_ratio": 27.7,
       "volume_rank": 1,
       "ma150": 5108,
       "above_ma150": false,
       "market_cap": 1124,
-      "updated_at": "2026-11-09T15:56:32.246543"
+      "updated_at": "2026-11-09T18:59:16.079206"
     },
     {
       "ticker": "267850",
@@ -28,43 +28,55 @@
       "ma150": 9669,
       "above_ma150": true,
       "market_cap": 1568,
-      "updated_at": "2026-11-09T15:56:32.213124"
+      "updated_at": "2026-11-09T18:59:16.062495"
+    },
+    {
+      "ticker": "900300",
+      "name": "오가닉티코스메틱",
+      "price": 2950,
+      "change_rate": 29.96,
+      "volume_ratio": 4.3,
+      "volume_rank": 3,
+      "ma150": 3989,
+      "above_ma150": false,
+      "market_cap": 1728,
+      "updated_at": "2026-11-09T18:59:16.056942"
     },
     {
       "ticker": "119830",
       "name": "아이텍",
-      "price": 6160,
-      "change_rate": 14.93,
-      "volume_ratio": 3.9,
-      "volume_rank": 3,
-      "ma150": 6348,
+      "price": 6210,
+      "change_rate": 15.86,
+      "volume_ratio": 4.0,
+      "volume_rank": 4,
+      "ma150": 6349,
       "above_ma150": false,
       "market_cap": 1634,
-      "updated_at": "2026-11-09T15:56:32.209820"
+      "updated_at": "2026-11-09T18:59:16.060063"
     },
     {
       "ticker": "086670",
       "name": "비엠티",
-      "price": 15630,
-      "change_rate": 13.51,
-      "volume_ratio": 3.6,
-      "volume_rank": 4,
+      "price": 15610,
+      "change_rate": 13.36,
+      "volume_ratio": 3.8,
+      "volume_rank": 5,
       "ma150": 16150,
       "above_ma150": false,
       "market_cap": 1551,
-      "updated_at": "2026-11-09T15:56:32.214561"
+      "updated_at": "2026-11-09T18:59:16.063459"
     },
     {
       "ticker": "443670",
       "name": "에스피소프트",
-      "price": 5350,
-      "change_rate": 21.18,
-      "volume_ratio": 2.3,
-      "volume_rank": 5,
-      "ma150": 4114,
+      "price": 5510,
+      "change_rate": 24.8,
+      "volume_ratio": 3.1,
+      "volume_rank": 6,
+      "ma150": 4115,
       "above_ma150": true,
       "market_cap": 1284,
-      "updated_at": "2026-11-09T15:56:32.227911"
+      "updated_at": "2026-11-09T18:59:16.072213"
     }
   ]
 }

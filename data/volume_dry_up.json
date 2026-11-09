@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-09T15:56:35.179144",
+    "lastUpdated": "2026-11-09T18:59:17.002424",
     "marketDate": "2026-11-09",
-    "totalCount": 3,
+    "totalCount": 2,
     "screened_from": 1233
   },
   "data": [
@@ -22,7 +22,7 @@
       "ma150": 6734,
       "above_ma150": false,
       "market_cap": 2529,
-      "updated_at": "2026-11-09T15:56:33.821698"
+      "updated_at": "2026-11-09T18:59:16.763527"
     },
     {
       "ticker": "236200",
@@ -40,25 +40,7 @@
       "ma150": 50208,
       "above_ma150": true,
       "market_cap": 3556,
-      "updated_at": "2026-11-09T15:56:33.666703"
-    },
-    {
-      "ticker": "043370",
-      "name": "피에이치에이",
-      "price": 11620,
-      "change_rate": -0.6,
-      "explosion_date": "2026-10-16",
-      "explosion_change_rate": 12.9,
-      "explosion_volume_ratio": 5.7,
-      "days_since_detected": 16,
-      "volume_decrease_rate": 64,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.24,
-      "volume_rank": 3,
-      "ma150": 11781,
-      "above_ma150": false,
-      "market_cap": 2440,
-      "updated_at": "2026-11-09T15:56:33.835375"
+      "updated_at": "2026-11-09T18:59:16.721064"
     }
   ]
 }
