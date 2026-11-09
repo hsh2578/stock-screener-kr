@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-09T18:59:16.098799",
+    "lastUpdated": "2026-11-09T22:11:10.750992",
     "marketDate": "2026-11-09",
-    "totalCount": 6,
+    "totalCount": 7,
     "screened_from": 1233
   },
   "data": [
@@ -16,19 +16,19 @@
       "ma150": 5108,
       "above_ma150": false,
       "market_cap": 1124,
-      "updated_at": "2026-11-09T18:59:16.079206"
+      "updated_at": "2026-11-09T22:11:10.742454"
     },
     {
       "ticker": "267850",
       "name": "아시아나IDT",
       "price": 14130,
       "change_rate": 29.99,
-      "volume_ratio": 15.1,
+      "volume_ratio": 15.2,
       "volume_rank": 2,
       "ma150": 9669,
       "above_ma150": true,
       "market_cap": 1568,
-      "updated_at": "2026-11-09T18:59:16.062495"
+      "updated_at": "2026-11-09T22:11:10.713441"
     },
     {
       "ticker": "900300",
@@ -40,43 +40,55 @@
       "ma150": 3989,
       "above_ma150": false,
       "market_cap": 1728,
-      "updated_at": "2026-11-09T18:59:16.056942"
+      "updated_at": "2026-11-09T22:11:10.706281"
     },
     {
       "ticker": "119830",
       "name": "아이텍",
-      "price": 6210,
-      "change_rate": 15.86,
+      "price": 6160,
+      "change_rate": 14.93,
       "volume_ratio": 4.0,
       "volume_rank": 4,
-      "ma150": 6349,
+      "ma150": 6348,
       "above_ma150": false,
       "market_cap": 1634,
-      "updated_at": "2026-11-09T18:59:16.060063"
+      "updated_at": "2026-11-09T22:11:10.710443"
     },
     {
       "ticker": "086670",
       "name": "비엠티",
-      "price": 15610,
-      "change_rate": 13.36,
-      "volume_ratio": 3.8,
+      "price": 15630,
+      "change_rate": 13.51,
+      "volume_ratio": 4.0,
       "volume_rank": 5,
       "ma150": 16150,
       "above_ma150": false,
       "market_cap": 1551,
-      "updated_at": "2026-11-09T18:59:16.063459"
+      "updated_at": "2026-11-09T22:11:10.714765"
     },
     {
       "ticker": "443670",
       "name": "에스피소프트",
-      "price": 5510,
-      "change_rate": 24.8,
-      "volume_ratio": 3.1,
+      "price": 5350,
+      "change_rate": 21.18,
+      "volume_ratio": 3.6,
       "volume_rank": 6,
-      "ma150": 4115,
+      "ma150": 4114,
       "above_ma150": true,
       "market_cap": 1284,
-      "updated_at": "2026-11-09T18:59:16.072213"
+      "updated_at": "2026-11-09T22:11:10.727685"
+    },
+    {
+      "ticker": "394800",
+      "name": "쓰리빌리언",
+      "price": 5820,
+      "change_rate": 15.71,
+      "volume_ratio": 2.0,
+      "volume_rank": 7,
+      "ma150": 7363,
+      "above_ma150": false,
+      "market_cap": 1852,
+      "updated_at": "2026-11-09T22:11:10.701930"
     }
   ]
 }
