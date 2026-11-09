@@ -1,67 +1,67 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-07T01:03:32.339756",
-    "marketDate": "2026-11-06",
+    "lastUpdated": "2026-11-09T15:56:44.767606",
+    "marketDate": "2026-11-09",
     "totalCount": 3,
-    "screened_from": 1231
+    "screened_from": 1233
   },
   "data": [
     {
       "ticker": "016580",
       "name": "환인제약",
-      "price": 10760,
-      "change_rate": -0.65,
+      "price": 10740,
+      "change_rate": -0.19,
       "breakout_date": "2026-11-02",
-      "days_since_breakout": 4,
+      "days_since_breakout": 5,
       "breakout_price": 10440,
-      "breakout_pct": 3.07,
-      "gain_since_breakout": -1.1,
+      "breakout_pct": 2.87,
+      "gain_since_breakout": -1.29,
       "volume_ratio": 2.7,
-      "ma150": 10331,
+      "ma150": 10333,
       "above_ma150": true,
-      "market_cap": 2001,
+      "market_cap": 1997,
       "success_prob": 3.8,
       "predicted_gain": 5.8,
       "ai_score": 7.8,
-      "updated_at": "2026-11-07T01:03:27.506410"
+      "updated_at": "2026-11-09T15:56:38.526419"
     },
     {
       "ticker": "006280",
       "name": "녹십자",
-      "price": 140100,
-      "change_rate": -1.55,
+      "price": 136700,
+      "change_rate": -2.43,
       "breakout_date": "2026-11-03",
-      "days_since_breakout": 3,
+      "days_since_breakout": 4,
       "breakout_price": 133900,
-      "breakout_pct": 4.63,
-      "gain_since_breakout": 2.79,
+      "breakout_pct": 2.09,
+      "gain_since_breakout": 0.29,
       "volume_ratio": 2.9,
-      "ma150": 130284,
+      "ma150": 130228,
       "above_ma150": true,
-      "market_cap": 16372,
+      "market_cap": 15975,
       "success_prob": 3.2,
       "predicted_gain": 5.5,
       "ai_score": 7.2,
-      "updated_at": "2026-11-07T01:03:25.288554"
+      "updated_at": "2026-11-09T15:56:34.567984"
     },
     {
       "ticker": "000080",
       "name": "하이트진로",
-      "price": 16590,
-      "change_rate": -0.96,
+      "price": 16350,
+      "change_rate": -1.45,
       "breakout_date": "2026-11-05",
-      "days_since_breakout": 1,
+      "days_since_breakout": 2,
       "breakout_price": 16060,
-      "breakout_pct": 3.3,
-      "gain_since_breakout": -0.96,
+      "breakout_pct": 1.81,
+      "gain_since_breakout": -2.39,
       "volume_ratio": 2.6,
       "ma150": 15806,
       "above_ma150": true,
-      "market_cap": 11635,
+      "market_cap": 11466,
       "success_prob": 1.2,
       "predicted_gain": 4.9,
       "ai_score": 5.3,
-      "updated_at": "2026-11-07T01:03:25.353570"
+      "updated_at": "2026-11-09T15:56:34.623961"
     }
   ]
 }
