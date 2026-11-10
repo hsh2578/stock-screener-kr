@@ -1,34 +1,34 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-10T16:33:21.018650",
+    "lastUpdated": "2026-11-10T19:09:13.467615",
     "marketDate": "2026-11-10",
-    "totalCount": 3,
+    "totalCount": 2,
     "screened_from": 1243
   },
   "data": [
     {
       "ticker": "010060",
       "name": "010060",
-      "price": 196600,
-      "change_rate": 0.31,
+      "price": 196700,
+      "change_rate": 0.36,
       "explosion_date": "2026-11-04",
       "explosion_change_rate": 10.4,
       "explosion_volume_ratio": 4.8,
       "days_since_detected": 4,
-      "volume_decrease_rate": 63,
+      "volume_decrease_rate": 62,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
-      "ma150": 246553,
+      "ma150": 246554,
       "above_ma150": false,
       "market_cap": 36911,
-      "updated_at": "2026-11-10T16:33:18.239883"
+      "updated_at": "2026-11-10T19:09:11.050877"
     },
     {
       "ticker": "236200",
       "name": "236200",
-      "price": 51200,
-      "change_rate": 0.39,
+      "price": 51300,
+      "change_rate": 0.59,
       "explosion_date": "2026-11-02",
       "explosion_change_rate": 12.6,
       "explosion_volume_ratio": 3.5,
@@ -37,28 +37,10 @@
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 2,
-      "ma150": 50244,
+      "ma150": 50245,
       "above_ma150": true,
       "market_cap": 3584,
-      "updated_at": "2026-11-10T16:33:19.260260"
-    },
-    {
-      "ticker": "043370",
-      "name": "043370",
-      "price": 11670,
-      "change_rate": 0.43,
-      "explosion_date": "2026-10-16",
-      "explosion_change_rate": 12.9,
-      "explosion_volume_ratio": 5.7,
-      "days_since_detected": 17,
-      "volume_decrease_rate": 65,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.4,
-      "volume_rank": 3,
-      "ma150": 11778,
-      "above_ma150": false,
-      "market_cap": 2433,
-      "updated_at": "2026-11-10T16:33:19.648696"
+      "updated_at": "2026-11-10T19:09:11.979240"
     }
   ]
 }

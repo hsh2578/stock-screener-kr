@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-10T16:33:32.325758",
+    "lastUpdated": "2026-11-10T19:09:22.633538",
     "marketDate": "2026-11-10",
     "totalCount": 4,
     "screened_from": 1243
@@ -9,32 +9,32 @@
     {
       "ticker": "298690",
       "name": "298690",
-      "price": 1881,
-      "change_rate": 17.12,
+      "price": 1863,
+      "change_rate": 16.0,
       "breakout_date": "2026-11-10",
       "days_since_breakout": 0,
       "breakout_price": 1600,
-      "breakout_pct": 17.56,
+      "breakout_pct": 16.44,
       "gain_since_breakout": 0.0,
-      "volume_ratio": 32.7,
+      "volume_ratio": 33.7,
       "ma150": 1654,
       "above_ma150": true,
       "market_cap": 3066,
-      "success_prob": 8.5,
-      "predicted_gain": 24.3,
-      "ai_score": 27.8,
-      "updated_at": "2026-11-10T16:33:24.098075"
+      "success_prob": 6.3,
+      "predicted_gain": 23.3,
+      "ai_score": 25.4,
+      "updated_at": "2026-11-10T19:09:15.554392"
     },
     {
       "ticker": "016580",
       "name": "016580",
-      "price": 10730,
-      "change_rate": -0.09,
+      "price": 10720,
+      "change_rate": -0.19,
       "breakout_date": "2026-11-02",
       "days_since_breakout": 6,
       "breakout_price": 10440,
-      "breakout_pct": 2.78,
-      "gain_since_breakout": -1.38,
+      "breakout_pct": 2.68,
+      "gain_since_breakout": -1.47,
       "volume_ratio": 2.7,
       "ma150": 10336,
       "above_ma150": true,
@@ -42,37 +42,37 @@
       "success_prob": 3.8,
       "predicted_gain": 5.8,
       "ai_score": 7.8,
-      "updated_at": "2026-11-10T16:33:25.477214"
+      "updated_at": "2026-11-10T19:09:16.677711"
     },
     {
       "ticker": "006280",
       "name": "006280",
-      "price": 136500,
-      "change_rate": -0.15,
+      "price": 137600,
+      "change_rate": 0.66,
       "breakout_date": "2026-11-03",
       "days_since_breakout": 5,
       "breakout_price": 133900,
-      "breakout_pct": 1.94,
-      "gain_since_breakout": 0.15,
+      "breakout_pct": 2.76,
+      "gain_since_breakout": 0.95,
       "volume_ratio": 2.9,
-      "ma150": 130186,
+      "ma150": 130193,
       "above_ma150": true,
       "market_cap": 16057,
       "success_prob": 3.2,
       "predicted_gain": 5.5,
       "ai_score": 7.2,
-      "updated_at": "2026-11-10T16:33:23.087014"
+      "updated_at": "2026-11-10T19:09:14.959842"
     },
     {
       "ticker": "000080",
       "name": "000080",
-      "price": 15990,
-      "change_rate": -2.2,
+      "price": 16000,
+      "change_rate": -2.14,
       "breakout_date": "2026-11-05",
       "days_since_breakout": 3,
       "breakout_price": 16060,
-      "breakout_pct": -0.44,
-      "gain_since_breakout": -4.54,
+      "breakout_pct": -0.37,
+      "gain_since_breakout": -4.48,
       "volume_ratio": 2.6,
       "ma150": 15801,
       "above_ma150": true,
@@ -80,7 +80,7 @@
       "success_prob": 1.2,
       "predicted_gain": 4.9,
       "ai_score": 5.3,
-      "updated_at": "2026-11-10T16:33:23.205916"
+      "updated_at": "2026-11-10T19:09:15.032508"
     }
   ]
 }
