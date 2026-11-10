@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-10T19:09:13.467615",
+    "lastUpdated": "2026-11-10T21:52:06.401377",
     "marketDate": "2026-11-10",
     "totalCount": 2,
     "screened_from": 1243
@@ -9,8 +9,8 @@
     {
       "ticker": "010060",
       "name": "010060",
-      "price": 196700,
-      "change_rate": 0.36,
+      "price": 197700,
+      "change_rate": 0.87,
       "explosion_date": "2026-11-04",
       "explosion_change_rate": 10.4,
       "explosion_volume_ratio": 4.8,
@@ -19,16 +19,16 @@
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
-      "ma150": 246554,
+      "ma150": 246560,
       "above_ma150": false,
       "market_cap": 36911,
-      "updated_at": "2026-11-10T19:09:11.050877"
+      "updated_at": "2026-11-10T21:52:03.635605"
     },
     {
       "ticker": "236200",
       "name": "236200",
-      "price": 51300,
-      "change_rate": 0.59,
+      "price": 51400,
+      "change_rate": 0.78,
       "explosion_date": "2026-11-02",
       "explosion_change_rate": 12.6,
       "explosion_volume_ratio": 3.5,
@@ -40,7 +40,7 @@
       "ma150": 50245,
       "above_ma150": true,
       "market_cap": 3584,
-      "updated_at": "2026-11-10T19:09:11.979240"
+      "updated_at": "2026-11-10T21:52:04.605246"
     }
   ]
 }
