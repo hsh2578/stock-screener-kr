@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-11-06T03:38:15.469706",
-    "total_count": 6,
+    "updated_at": "2026-11-11T03:37:36.063184",
+    "total_count": 2,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -10,76 +10,28 @@
   },
   "data": [
     {
-      "ticker": "402340",
-      "name": "SK스퀘어",
-      "current_price": 809000,
-      "ma60w": 779953,
-      "ma60w_gap": 3.72,
-      "op_margin": 95.9,
-      "op_growth_3y": 717.5,
-      "market_cap": 1067265,
-      "sector": "기타",
-      "updated_at": "2026-11-06T03:38:12.138921"
-    },
-    {
-      "ticker": "207940",
-      "name": "삼성바이오로직스",
-      "current_price": 1520000,
-      "ma60w": 1497317,
-      "ma60w_gap": 1.51,
-      "op_margin": 50.0,
-      "op_growth_3y": 28.1,
-      "market_cap": 703622,
-      "sector": "기타",
-      "updated_at": "2026-11-06T03:38:12.140407"
-    },
-    {
-      "ticker": "003230",
-      "name": "삼양식품",
-      "current_price": 1227000,
-      "ma60w": 1219763,
-      "ma60w_gap": 0.59,
-      "op_margin": 22.6,
-      "op_growth_3y": 79.7,
-      "market_cap": 92430,
-      "sector": "기타",
-      "updated_at": "2026-11-06T03:38:12.152371"
-    },
-    {
       "ticker": "161390",
       "name": "한국타이어앤테크놀로지",
-      "current_price": 64400,
-      "ma60w": 58984,
-      "ma60w_gap": 9.18,
+      "current_price": 63200,
+      "ma60w": 59131,
+      "ma60w_gap": 6.88,
       "op_margin": 10.1,
       "op_growth_3y": 37.7,
-      "market_cap": 79775,
+      "market_cap": 78289,
       "sector": "기타",
-      "updated_at": "2026-11-06T03:38:12.720056"
+      "updated_at": "2026-11-11T03:37:32.720535"
     },
     {
-      "ticker": "000240",
-      "name": "한국앤컴퍼니",
-      "current_price": 24650,
-      "ma60w": 24122,
-      "ma60w_gap": 2.19,
-      "op_margin": 30.0,
-      "op_growth_3y": 18.9,
-      "market_cap": 23401,
+      "ticker": "161890",
+      "name": "한국콜마",
+      "current_price": 105800,
+      "ma60w": 99301,
+      "ma60w_gap": 6.54,
+      "op_margin": 10.1,
+      "op_growth_3y": 48.4,
+      "market_cap": 24974,
       "sector": "기타",
-      "updated_at": "2026-11-06T03:38:14.890197"
-    },
-    {
-      "ticker": "012630",
-      "name": "HDC",
-      "current_price": 21500,
-      "ma60w": 21493,
-      "ma60w_gap": 0.03,
-      "op_margin": 12.3,
-      "op_growth_3y": 60.0,
-      "market_cap": 12110,
-      "sector": "기타",
-      "updated_at": "2026-11-06T03:38:15.462457"
+      "updated_at": "2026-11-11T03:37:34.561737"
     }
   ]
 }
