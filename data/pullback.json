@@ -1,9 +1,24 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-10T03:57:50.297762",
-    "marketDate": "2026-11-09",
-    "totalCount": 0,
-    "screened_from": 1233
+    "lastUpdated": "2026-11-10T16:33:17.783430",
+    "marketDate": "2026-11-10",
+    "totalCount": 1,
+    "screened_from": 1243
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "000080",
+      "name": "000080",
+      "price": 15990,
+      "change_rate": -2.2,
+      "breakout_date": "2026-11-05",
+      "resistance": 15970,
+      "pullback_ratio": 0.13,
+      "volume_decrease": 53,
+      "ma150": 15801,
+      "above_ma150": true,
+      "market_cap": 11214,
+      "updated_at": "2026-11-10T16:33:15.550575"
+    }
+  ]
 }

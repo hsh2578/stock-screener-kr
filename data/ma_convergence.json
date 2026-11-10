@@ -1,29 +1,48 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-10T03:58:04.646668",
-    "marketDate": "2026-11-09",
-    "totalCount": 1,
-    "screened_from": 1233
+    "lastUpdated": "2026-11-10T16:33:40.316256",
+    "marketDate": "2026-11-10",
+    "totalCount": 2,
+    "screened_from": 1243
   },
   "data": [
     {
-      "ticker": "003490",
-      "name": "대한항공",
-      "current_price": 29100,
-      "volume": 3530700,
-      "ma10w": 28825,
-      "ma20w": 27992,
-      "ma60w": 25439,
-      "ma20d": 27762,
-      "ma60d": 28542,
-      "ma120d": 27607,
-      "gap_20_60": 2.73,
-      "gap_20_120": 0.56,
-      "gap_60_120": 3.39,
-      "gap_price_20": 4.82,
-      "weeks_since_high": 10,
-      "market_cap": 107152,
-      "updated_at": "2026-11-10T03:58:02.644693"
+      "ticker": "003690",
+      "name": "003690",
+      "current_price": 13400,
+      "volume": 188532,
+      "ma10w": 14245,
+      "ma20w": 14230,
+      "ma60w": 12836,
+      "ma20d": 13928,
+      "ma60d": 14459,
+      "ma120d": 14013,
+      "gap_20_60": 3.67,
+      "gap_20_120": 0.61,
+      "gap_60_120": 3.18,
+      "gap_price_20": 3.79,
+      "weeks_since_high": 11,
+      "market_cap": 23556,
+      "updated_at": "2026-11-10T16:33:34.038102"
+    },
+    {
+      "ticker": "096760",
+      "name": "096760",
+      "current_price": 3720,
+      "volume": 106921,
+      "ma10w": 4056,
+      "ma20w": 4011,
+      "ma60w": 3873,
+      "ma20d": 3891,
+      "ma60d": 4088,
+      "ma120d": 3939,
+      "gap_20_60": 4.8,
+      "gap_20_120": 1.21,
+      "gap_60_120": 3.78,
+      "gap_price_20": 4.41,
+      "weeks_since_high": 14,
+      "market_cap": 2775,
+      "updated_at": "2026-11-10T16:33:37.496372"
     }
   ]
 }
