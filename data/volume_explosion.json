@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-11T18:40:37.419804",
+    "lastUpdated": "2026-11-11T21:00:32.673540",
     "marketDate": "2026-11-11",
-    "totalCount": 12,
+    "totalCount": 14,
     "screened_from": 1259
   },
   "data": [
@@ -16,7 +16,7 @@
       "ma150": 4018,
       "above_ma150": true,
       "market_cap": 2667,
-      "updated_at": "2026-11-11T18:40:37.341708"
+      "updated_at": "2026-11-11T21:00:32.582432"
     },
     {
       "ticker": "235980",
@@ -28,31 +28,31 @@
       "ma150": 3467,
       "above_ma150": true,
       "market_cap": 1597,
-      "updated_at": "2026-11-11T18:40:37.381194"
+      "updated_at": "2026-11-11T21:00:32.628345"
     },
     {
       "ticker": "002900",
       "name": "002900",
-      "price": 7340,
-      "change_rate": 12.92,
-      "volume_ratio": 8.8,
+      "price": 7440,
+      "change_rate": 14.46,
+      "volume_ratio": 8.9,
       "volume_rank": 3,
-      "ma150": 6738,
+      "ma150": 6739,
       "above_ma150": true,
       "market_cap": 3080,
-      "updated_at": "2026-11-11T18:40:37.336288"
+      "updated_at": "2026-11-11T21:00:32.577625"
     },
     {
       "ticker": "002320",
       "name": "002320",
-      "price": 20650,
-      "change_rate": 12.35,
-      "volume_ratio": 7.0,
+      "price": 21250,
+      "change_rate": 15.61,
+      "volume_ratio": 7.4,
       "volume_rank": 4,
-      "ma150": 16535,
+      "ma150": 16539,
       "above_ma150": true,
       "market_cap": 3297,
-      "updated_at": "2026-11-11T18:40:37.332572"
+      "updated_at": "2026-11-11T21:00:32.573954"
     },
     {
       "ticker": "069510",
@@ -64,91 +64,115 @@
       "ma150": 13387,
       "above_ma150": true,
       "market_cap": 2162,
-      "updated_at": "2026-11-11T18:40:37.357215"
+      "updated_at": "2026-11-11T21:00:32.597576"
     },
     {
       "ticker": "083500",
       "name": "083500",
-      "price": 13070,
-      "change_rate": 19.36,
-      "volume_ratio": 3.9,
+      "price": 13000,
+      "change_rate": 18.72,
+      "volume_ratio": 4.0,
       "volume_rank": 6,
-      "ma150": 15148,
+      "ma150": 15147,
       "above_ma150": false,
       "market_cap": 1079,
-      "updated_at": "2026-11-11T18:40:37.413063"
+      "updated_at": "2026-11-11T21:00:32.668587"
     },
     {
       "ticker": "121600",
       "name": "121600",
       "price": 75600,
       "change_rate": 17.39,
-      "volume_ratio": 3.5,
+      "volume_ratio": 3.6,
       "volume_rank": 7,
       "ma150": 58377,
       "above_ma150": true,
       "market_cap": 9270,
-      "updated_at": "2026-11-11T18:40:37.294699"
+      "updated_at": "2026-11-11T21:00:32.535668"
+    },
+    {
+      "ticker": "214370",
+      "name": "214370",
+      "price": 30400,
+      "change_rate": 12.59,
+      "volume_ratio": 3.2,
+      "volume_rank": 8,
+      "ma150": 64601,
+      "above_ma150": false,
+      "market_cap": 16329,
+      "updated_at": "2026-11-11T21:00:32.519836"
     },
     {
       "ticker": "437730",
       "name": "437730",
-      "price": 43550,
-      "change_rate": 20.47,
+      "price": 43250,
+      "change_rate": 19.64,
       "volume_ratio": 2.8,
-      "volume_rank": 8,
-      "ma150": 43468,
-      "above_ma150": true,
+      "volume_rank": 9,
+      "ma150": 43466,
+      "above_ma150": false,
       "market_cap": 13713,
-      "updated_at": "2026-11-11T18:40:37.286348"
+      "updated_at": "2026-11-11T21:00:32.523964"
     },
     {
       "ticker": "252990",
       "name": "252990",
-      "price": 15920,
-      "change_rate": 26.35,
+      "price": 15890,
+      "change_rate": 26.11,
       "volume_ratio": 2.4,
-      "volume_rank": 9,
-      "ma150": 13899,
+      "volume_rank": 10,
+      "ma150": 13898,
       "above_ma150": true,
       "market_cap": 9568,
-      "updated_at": "2026-11-11T18:40:37.293681"
-    },
-    {
-      "ticker": "290550",
-      "name": "290550",
-      "price": 28050,
-      "change_rate": 19.87,
-      "volume_ratio": 2.3,
-      "volume_rank": 10,
-      "ma150": 21613,
-      "above_ma150": true,
-      "market_cap": 5590,
-      "updated_at": "2026-11-11T18:40:37.311504"
+      "updated_at": "2026-11-11T21:00:32.533564"
     },
     {
       "ticker": "007810",
       "name": "007810",
-      "price": 87800,
-      "change_rate": 27.62,
-      "volume_ratio": 2.1,
+      "price": 86400,
+      "change_rate": 25.58,
+      "volume_ratio": 2.3,
       "volume_rank": 11,
-      "ma150": 78853,
+      "ma150": 78844,
       "above_ma150": true,
       "market_cap": 20720,
-      "updated_at": "2026-11-11T18:40:37.269476"
+      "updated_at": "2026-11-11T21:00:32.515681"
+    },
+    {
+      "ticker": "290550",
+      "name": "290550",
+      "price": 27950,
+      "change_rate": 19.44,
+      "volume_ratio": 2.3,
+      "volume_rank": 12,
+      "ma150": 21613,
+      "above_ma150": true,
+      "market_cap": 5590,
+      "updated_at": "2026-11-11T21:00:32.552520"
+    },
+    {
+      "ticker": "029460",
+      "name": "029460",
+      "price": 41600,
+      "change_rate": 13.04,
+      "volume_ratio": 2.2,
+      "volume_rank": 13,
+      "ma150": 35253,
+      "above_ma150": true,
+      "market_cap": 4584,
+      "updated_at": "2026-11-11T21:00:32.557648"
     },
     {
       "ticker": "298380",
       "name": "298380",
-      "price": 42050,
-      "change_rate": 12.28,
+      "price": 42500,
+      "change_rate": 13.48,
       "volume_ratio": 2.0,
-      "volume_rank": 12,
-      "ma150": 88340,
+      "volume_rank": 14,
+      "ma150": 88343,
       "above_ma150": false,
       "market_cap": 23794,
-      "updated_at": "2026-11-11T18:40:37.266801"
+      "updated_at": "2026-11-11T21:00:32.512966"
     }
   ]
 }

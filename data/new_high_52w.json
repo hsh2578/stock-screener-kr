@@ -1,44 +1,61 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-11T18:40:42.584168",
+    "lastUpdated": "2026-11-11T21:00:37.979017",
     "marketDate": "2026-11-11",
-    "totalCount": 7,
+    "totalCount": 8,
     "screened_from": 1259
   },
   "data": [
     {
+      "ticker": "181710",
+      "name": "181710",
+      "price": 80300,
+      "change_rate": 3.75,
+      "high_52w": 78200,
+      "breakout_date": "2026-11-11",
+      "days_since": 0,
+      "above_high_percent": 2.69,
+      "volume_ratio": 5.6,
+      "vs_breakout_close": 0.0,
+      "predicted_gain": 19.4,
+      "success_probability": 37.4,
+      "ai_score": 43.6,
+      "market_cap": 25960,
+      "updated_at": "2026-11-11T21:00:37.636785"
+    },
+    {
       "ticker": "219130",
       "name": "219130",
-      "price": 108100,
-      "change_rate": 19.45,
+      "price": 107100,
+      "change_rate": 18.34,
       "high_52w": 102900,
       "breakout_date": "2026-11-11",
       "days_since": 0,
-      "above_high_percent": 5.05,
+      "above_high_percent": 4.08,
       "volume_ratio": 1.0,
       "vs_breakout_close": 0.0,
-      "predicted_gain": 16.7,
-      "success_probability": 34.9,
-      "ai_score": 39.5,
+      "predicted_gain": 16.4,
+      "success_probability": 32.1,
+      "ai_score": 37.3,
       "market_cap": 6762,
-      "updated_at": "2026-11-11T18:40:42.307616"
+      "updated_at": "2026-11-11T21:00:37.701705"
     },
     {
       "ticker": "089590",
       "name": "089590",
-      "price": 7500,
-      "change_rate": 0.94,
+      "price": 7540,
+      "change_rate": 1.48,
       "high_52w": 7050,
       "breakout_date": "2026-11-10",
       "days_since": 1,
-      "above_high_percent": 6.38,
+      "above_high_percent": 6.95,
       "volume_ratio": 2.2,
-      "vs_breakout_close": 0.94,
+      "vs_breakout_close": 1.48,
       "predicted_gain": 17.7,
       "success_probability": 34.9,
       "ai_score": 40.4,
       "market_cap": 6080,
-      "updated_at": "2026-11-11T18:40:42.573691"
+      "updated_at": "2026-11-11T21:00:37.961780"
     },
     {
       "ticker": "011810",
@@ -55,7 +72,7 @@
       "success_probability": 60.7,
       "ai_score": 72.5,
       "market_cap": 5263,
-      "updated_at": "2026-11-11T18:40:42.574543"
+      "updated_at": "2026-11-11T21:00:37.962644"
     },
     {
       "ticker": "089860",
@@ -72,7 +89,7 @@
       "success_probability": 38.9,
       "ai_score": 39.5,
       "market_cap": 21204,
-      "updated_at": "2026-11-11T18:40:42.575128"
+      "updated_at": "2026-11-11T21:00:37.963220"
     },
     {
       "ticker": "121440",
@@ -89,24 +106,24 @@
       "success_probability": 23.7,
       "ai_score": 28.7,
       "market_cap": 3778,
-      "updated_at": "2026-11-11T18:40:42.575658"
+      "updated_at": "2026-11-11T21:00:37.966762"
     },
     {
       "ticker": "180640",
       "name": "한진칼",
-      "price": 198400,
-      "change_rate": -16.99,
+      "price": 204000,
+      "change_rate": -14.64,
       "high_52w": 175900,
       "breakout_date": "2026-11-04",
       "days_since": 5,
-      "above_high_percent": 12.79,
+      "above_high_percent": 15.97,
       "volume_ratio": 16.7,
-      "vs_breakout_close": 7.65,
+      "vs_breakout_close": 10.69,
       "predicted_gain": 16.7,
       "success_probability": 38.6,
       "ai_score": 42.1,
       "market_cap": 136195,
-      "updated_at": "2026-11-11T18:40:42.583220"
+      "updated_at": "2026-11-11T21:00:37.967337"
     },
     {
       "ticker": "104700",
@@ -123,7 +140,7 @@
       "success_probability": 54.3,
       "ai_score": 53.8,
       "market_cap": 4705,
-      "updated_at": "2026-11-11T18:40:42.583735"
+      "updated_at": "2026-11-11T21:00:37.967899"
     }
   ]
 }

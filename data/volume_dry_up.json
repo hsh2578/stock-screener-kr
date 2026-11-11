@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-11T18:40:39.793606",
+    "lastUpdated": "2026-11-11T21:00:35.069255",
     "marketDate": "2026-11-11",
     "totalCount": 3,
     "screened_from": 1259
@@ -9,26 +9,26 @@
     {
       "ticker": "035720",
       "name": "035720",
-      "price": 31900,
-      "change_rate": -0.47,
+      "price": 32000,
+      "change_rate": -0.16,
       "explosion_date": "2026-11-05",
       "explosion_change_rate": 10.7,
       "explosion_volume_ratio": 3.6,
       "days_since_detected": 4,
-      "volume_decrease_rate": 61,
+      "volume_decrease_rate": 60,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
-      "ma150": 37965,
+      "ma150": 37966,
       "above_ma150": false,
       "market_cap": 141760,
-      "updated_at": "2026-11-11T18:40:37.692915"
+      "updated_at": "2026-11-11T21:00:32.907296"
     },
     {
       "ticker": "236200",
       "name": "236200",
-      "price": 51500,
-      "change_rate": 0.19,
+      "price": 51900,
+      "change_rate": 0.97,
       "explosion_date": "2026-11-02",
       "explosion_change_rate": 12.6,
       "explosion_volume_ratio": 3.5,
@@ -37,28 +37,28 @@
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 2,
-      "ma150": 50274,
+      "ma150": 50277,
       "above_ma150": true,
       "market_cap": 3619,
-      "updated_at": "2026-11-11T18:40:38.820547"
+      "updated_at": "2026-11-11T21:00:34.175642"
     },
     {
       "ticker": "012750",
       "name": "012750",
-      "price": 98000,
-      "change_rate": -0.1,
+      "price": 98500,
+      "change_rate": 0.41,
       "explosion_date": "2026-10-15",
       "explosion_change_rate": 13.9,
       "explosion_volume_ratio": 4.6,
       "days_since_detected": 19,
       "volume_decrease_rate": 78,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 0.97,
+      "ma20_distance": 1.46,
       "volume_rank": 3,
-      "ma150": 80700,
+      "ma150": 80704,
       "above_ma150": true,
       "market_cap": 37429,
-      "updated_at": "2026-11-11T18:40:37.831495"
+      "updated_at": "2026-11-11T21:00:33.060708"
     }
   ]
 }
