@@ -1,64 +1,64 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-11T23:40:37.073461",
-    "marketDate": "2026-11-11",
+    "lastUpdated": "2026-11-12T01:24:54.865317",
+    "marketDate": "2026-11-10",
     "totalCount": 3,
-    "screened_from": 1259
+    "screened_from": 1243
   },
   "data": [
     {
       "ticker": "035720",
       "name": "035720",
-      "price": 32000,
+      "price": 32050,
       "change_rate": -0.16,
       "explosion_date": "2026-11-05",
       "explosion_change_rate": 10.7,
       "explosion_volume_ratio": 3.6,
-      "days_since_detected": 4,
+      "days_since_detected": 3,
       "volume_decrease_rate": 60,
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
       "ma150": 37966,
       "above_ma150": false,
-      "market_cap": 141760,
-      "updated_at": "2026-11-11T23:40:35.009696"
+      "market_cap": 141981,
+      "updated_at": "2026-11-12T01:24:54.864606"
+    },
+    {
+      "ticker": "010060",
+      "name": "010060",
+      "price": 197700,
+      "change_rate": 0.87,
+      "explosion_date": "2026-11-04",
+      "explosion_change_rate": 10.4,
+      "explosion_volume_ratio": 4.8,
+      "days_since_detected": 4,
+      "volume_decrease_rate": 62,
+      "pattern_type": "candle_range",
+      "ma20_distance": null,
+      "volume_rank": 2,
+      "ma150": 246560,
+      "above_ma150": false,
+      "market_cap": 36911,
+      "updated_at": "2026-11-12T01:24:53.316940"
     },
     {
       "ticker": "236200",
       "name": "236200",
-      "price": 51900,
-      "change_rate": 0.97,
+      "price": 51400,
+      "change_rate": 0.78,
       "explosion_date": "2026-11-02",
       "explosion_change_rate": 12.6,
       "explosion_volume_ratio": 3.5,
-      "days_since_detected": 7,
-      "volume_decrease_rate": 85,
+      "days_since_detected": 6,
+      "volume_decrease_rate": 73,
       "pattern_type": "candle_range",
       "ma20_distance": null,
-      "volume_rank": 2,
-      "ma150": 50277,
-      "above_ma150": true,
-      "market_cap": 3619,
-      "updated_at": "2026-11-11T23:40:35.809589"
-    },
-    {
-      "ticker": "012750",
-      "name": "012750",
-      "price": 98500,
-      "change_rate": 0.41,
-      "explosion_date": "2026-10-15",
-      "explosion_change_rate": 13.9,
-      "explosion_volume_ratio": 4.6,
-      "days_since_detected": 19,
-      "volume_decrease_rate": 78,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.46,
       "volume_rank": 3,
-      "ma150": 80704,
+      "ma150": 50245,
       "above_ma150": true,
-      "market_cap": 37429,
-      "updated_at": "2026-11-11T23:40:35.153276"
+      "market_cap": 3584,
+      "updated_at": "2026-11-12T01:24:54.068928"
     }
   ]
 }
