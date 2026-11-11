@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-11T15:50:43.956905",
+    "lastUpdated": "2026-11-11T18:40:39.793606",
     "marketDate": "2026-11-11",
     "totalCount": 3,
     "screened_from": 1259
@@ -9,8 +9,8 @@
     {
       "ticker": "035720",
       "name": "035720",
-      "price": 32000,
-      "change_rate": -0.16,
+      "price": 31900,
+      "change_rate": -0.47,
       "explosion_date": "2026-11-05",
       "explosion_change_rate": 10.7,
       "explosion_volume_ratio": 3.6,
@@ -19,16 +19,16 @@
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 1,
-      "ma150": 37966,
+      "ma150": 37965,
       "above_ma150": false,
       "market_cap": 141760,
-      "updated_at": "2026-11-11T15:50:43.359901"
+      "updated_at": "2026-11-11T18:40:37.692915"
     },
     {
       "ticker": "236200",
       "name": "236200",
-      "price": 51700,
-      "change_rate": 0.58,
+      "price": 51500,
+      "change_rate": 0.19,
       "explosion_date": "2026-11-02",
       "explosion_change_rate": 12.6,
       "explosion_volume_ratio": 3.5,
@@ -37,28 +37,28 @@
       "pattern_type": "candle_range",
       "ma20_distance": null,
       "volume_rank": 2,
-      "ma150": 50275,
+      "ma150": 50274,
       "above_ma150": true,
       "market_cap": 3619,
-      "updated_at": "2026-11-11T15:50:43.531655"
+      "updated_at": "2026-11-11T18:40:38.820547"
     },
     {
       "ticker": "012750",
       "name": "012750",
-      "price": 98200,
-      "change_rate": 0.1,
+      "price": 98000,
+      "change_rate": -0.1,
       "explosion_date": "2026-10-15",
       "explosion_change_rate": 13.9,
       "explosion_volume_ratio": 4.6,
       "days_since_detected": 19,
-      "volume_decrease_rate": 80,
+      "volume_decrease_rate": 78,
       "pattern_type": "ma20_approach",
-      "ma20_distance": 1.17,
+      "ma20_distance": 0.97,
       "volume_rank": 3,
-      "ma150": 80702,
+      "ma150": 80700,
       "above_ma150": true,
       "market_cap": 37429,
-      "updated_at": "2026-11-11T15:50:43.387293"
+      "updated_at": "2026-11-11T18:40:37.831495"
     }
   ]
 }

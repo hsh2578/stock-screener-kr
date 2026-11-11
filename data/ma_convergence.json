@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-11T15:50:53.423325",
+    "lastUpdated": "2026-11-11T18:40:52.682093",
     "marketDate": "2026-11-11",
-    "totalCount": 2,
+    "totalCount": 3,
     "screened_from": 1259
   },
   "data": [
@@ -10,7 +10,7 @@
       "ticker": "003690",
       "name": "003690",
       "current_price": 13190,
-      "volume": 183319,
+      "volume": 183636,
       "ma10w": 14224,
       "ma20w": 14219,
       "ma60w": 12832,
@@ -23,26 +23,45 @@
       "gap_price_20": 4.97,
       "weeks_since_high": 11,
       "market_cap": 23309,
-      "updated_at": "2026-11-11T15:50:52.334879"
+      "updated_at": "2026-11-11T18:40:49.233366"
+    },
+    {
+      "ticker": "356680",
+      "name": "356680",
+      "current_price": 14040,
+      "volume": 1190122,
+      "ma10w": 16056,
+      "ma20w": 13812,
+      "ma60w": 11476,
+      "ma20d": 14731,
+      "ma60d": 14797,
+      "ma120d": 14917,
+      "gap_20_60": 0.44,
+      "gap_20_120": 1.25,
+      "gap_60_120": 0.81,
+      "gap_price_20": 4.69,
+      "weeks_since_high": 25,
+      "market_cap": 3973,
+      "updated_at": "2026-11-11T18:40:51.800730"
     },
     {
       "ticker": "382800",
       "name": "382800",
-      "current_price": 5410,
-      "volume": 817862,
-      "ma10w": 5551,
+      "current_price": 5420,
+      "volume": 832039,
+      "ma10w": 5552,
       "ma20w": 5202,
       "ma60w": 4795,
-      "ma20d": 5379,
-      "ma60d": 5462,
-      "ma120d": 5517,
+      "ma20d": 5380,
+      "ma60d": 5463,
+      "ma120d": 5518,
       "gap_20_60": 1.52,
       "gap_20_120": 2.5,
       "gap_60_120": 1.0,
-      "gap_price_20": 0.56,
+      "gap_price_20": 0.74,
       "weeks_since_high": 27,
       "market_cap": 1722,
-      "updated_at": "2026-11-11T15:50:53.174277"
+      "updated_at": "2026-11-11T18:40:52.339961"
     }
   ]
 }
