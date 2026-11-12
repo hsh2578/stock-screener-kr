@@ -1,27 +1,61 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-12T01:24:58.766021",
-    "marketDate": "2026-11-10",
-    "totalCount": 6,
-    "screened_from": 1243
+    "lastUpdated": "2026-11-12T16:29:14.205917",
+    "marketDate": "2026-11-11",
+    "totalCount": 8,
+    "screened_from": 1259
   },
   "data": [
     {
+      "ticker": "181710",
+      "name": "NHN",
+      "price": 80300,
+      "change_rate": 3.75,
+      "high_52w": 78200,
+      "breakout_date": "2026-11-11",
+      "days_since": 0,
+      "above_high_percent": 2.69,
+      "volume_ratio": 5.6,
+      "vs_breakout_close": 0.0,
+      "predicted_gain": 19.4,
+      "success_probability": 37.4,
+      "ai_score": 43.6,
+      "market_cap": 25960,
+      "updated_at": "2026-11-12T16:29:13.794016"
+    },
+    {
+      "ticker": "219130",
+      "name": "타이거일렉",
+      "price": 107100,
+      "change_rate": 18.34,
+      "high_52w": 102900,
+      "breakout_date": "2026-11-11",
+      "days_since": 0,
+      "above_high_percent": 4.08,
+      "volume_ratio": 1.0,
+      "vs_breakout_close": 0.0,
+      "predicted_gain": 16.4,
+      "success_probability": 32.1,
+      "ai_score": 37.3,
+      "market_cap": 6762,
+      "updated_at": "2026-11-12T16:29:13.855151"
+    },
+    {
       "ticker": "089590",
       "name": "089590",
-      "price": 7430,
-      "change_rate": 8.78,
+      "price": 7540,
+      "change_rate": 1.48,
       "high_52w": 7050,
       "breakout_date": "2026-11-10",
-      "days_since": 0,
-      "above_high_percent": 5.39,
+      "days_since": 1,
+      "above_high_percent": 6.95,
       "volume_ratio": 2.2,
-      "vs_breakout_close": 0.0,
+      "vs_breakout_close": 1.48,
       "predicted_gain": 17.7,
       "success_probability": 34.9,
       "ai_score": 40.4,
-      "market_cap": 5991,
-      "updated_at": "2026-11-12T01:24:58.551523"
+      "market_cap": 6080,
+      "updated_at": "2026-11-12T16:29:14.180911"
     },
     {
       "ticker": "011810",
@@ -30,7 +64,7 @@
       "change_rate": 0.0,
       "high_52w": 3530,
       "breakout_date": "2026-11-06",
-      "days_since": 2,
+      "days_since": 3,
       "above_high_percent": 420.11,
       "volume_ratio": 0,
       "vs_breakout_close": 0.0,
@@ -38,7 +72,7 @@
       "success_probability": 60.7,
       "ai_score": 72.5,
       "market_cap": 5263,
-      "updated_at": "2026-11-12T01:24:58.763608"
+      "updated_at": "2026-11-12T16:29:14.181743"
     },
     {
       "ticker": "089860",
@@ -47,7 +81,7 @@
       "change_rate": 0.0,
       "high_52w": 54100,
       "breakout_date": "2026-11-06",
-      "days_since": 2,
+      "days_since": 3,
       "above_high_percent": 7.95,
       "volume_ratio": 18.5,
       "vs_breakout_close": 0.0,
@@ -55,50 +89,50 @@
       "success_probability": 38.9,
       "ai_score": 39.5,
       "market_cap": 21204,
-      "updated_at": "2026-11-12T01:24:58.764374"
+      "updated_at": "2026-11-12T16:29:14.182638"
     },
     {
       "ticker": "121440",
       "name": "골프존홀딩스",
-      "price": 8870,
-      "change_rate": 0.68,
+      "price": 8820,
+      "change_rate": -0.56,
       "high_52w": 8440,
       "breakout_date": "2026-11-06",
-      "days_since": 2,
-      "above_high_percent": 5.09,
+      "days_since": 3,
+      "above_high_percent": 4.5,
       "volume_ratio": 3.6,
-      "vs_breakout_close": 0.34,
+      "vs_breakout_close": -0.23,
       "predicted_gain": 13.4,
       "success_probability": 23.7,
       "ai_score": 28.7,
-      "market_cap": 3799,
-      "updated_at": "2026-11-12T01:24:58.764878"
+      "market_cap": 3778,
+      "updated_at": "2026-11-12T16:29:14.183192"
     },
     {
       "ticker": "180640",
       "name": "한진칼",
-      "price": 239000,
-      "change_rate": 15.18,
+      "price": 204000,
+      "change_rate": -14.64,
       "high_52w": 175900,
       "breakout_date": "2026-11-04",
-      "days_since": 4,
-      "above_high_percent": 35.87,
+      "days_since": 5,
+      "above_high_percent": 15.97,
       "volume_ratio": 16.7,
-      "vs_breakout_close": 29.68,
+      "vs_breakout_close": 10.69,
       "predicted_gain": 16.7,
       "success_probability": 38.6,
       "ai_score": 42.1,
-      "market_cap": 159561,
-      "updated_at": "2026-11-12T01:24:58.765306"
+      "market_cap": 136195,
+      "updated_at": "2026-11-12T16:29:14.184366"
     },
     {
       "ticker": "104700",
       "name": "한국철강",
       "price": 12910,
-      "change_rate": 0.08,
+      "change_rate": 0.0,
       "high_52w": 11720,
       "breakout_date": "2026-11-02",
-      "days_since": 6,
+      "days_since": 7,
       "above_high_percent": 10.15,
       "volume_ratio": 34.1,
       "vs_breakout_close": 0.08,
@@ -106,7 +140,7 @@
       "success_probability": 54.3,
       "ai_score": 53.8,
       "market_cap": 4705,
-      "updated_at": "2026-11-12T01:24:58.765723"
+      "updated_at": "2026-11-12T16:29:14.184937"
     }
   ]
 }
