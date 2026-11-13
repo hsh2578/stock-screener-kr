@@ -1,48 +1,29 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-13T01:56:57.474143",
-    "marketDate": "2026-11-11",
-    "totalCount": 2,
-    "screened_from": 1259
+    "lastUpdated": "2026-11-13T16:00:21.406783",
+    "marketDate": "2026-11-12",
+    "totalCount": 1,
+    "screened_from": 1254
   },
   "data": [
     {
       "ticker": "003690",
       "name": "코리안리",
-      "current_price": 13190,
-      "volume": 183717,
-      "ma10w": 14224,
+      "current_price": 13180,
+      "volume": 201704,
+      "ma10w": 14223,
       "ma20w": 14219,
       "ma60w": 12832,
-      "ma20d": 13879,
-      "ma60d": 14438,
-      "ma120d": 14013,
-      "gap_20_60": 3.87,
-      "gap_20_120": 0.96,
-      "gap_60_120": 3.03,
-      "gap_price_20": 4.97,
+      "ma20d": 13832,
+      "ma60d": 14413,
+      "ma120d": 14003,
+      "gap_20_60": 4.04,
+      "gap_20_120": 1.22,
+      "gap_60_120": 2.93,
+      "gap_price_20": 4.71,
       "weeks_since_high": 11,
-      "market_cap": 23309,
-      "updated_at": "2026-11-13T01:56:51.149969"
-    },
-    {
-      "ticker": "382800",
-      "name": "지앤비에스 에코",
-      "current_price": 5410,
-      "volume": 840702,
-      "ma10w": 5551,
-      "ma20w": 5202,
-      "ma60w": 4795,
-      "ma20d": 5379,
-      "ma60d": 5462,
-      "ma120d": 5517,
-      "gap_20_60": 1.52,
-      "gap_20_120": 2.5,
-      "gap_60_120": 1.0,
-      "gap_price_20": 0.56,
-      "weeks_since_high": 27,
-      "market_cap": 1722,
-      "updated_at": "2026-11-13T01:56:56.185179"
+      "market_cap": 23291,
+      "updated_at": "2026-11-13T16:00:15.377280"
     }
   ]
 }

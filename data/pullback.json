@@ -1,9 +1,24 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-13T01:56:35.807189",
-    "marketDate": "2026-11-11",
-    "totalCount": 0,
-    "screened_from": 1259
+    "lastUpdated": "2026-11-13T15:59:59.523817",
+    "marketDate": "2026-11-12",
+    "totalCount": 1,
+    "screened_from": 1254
   },
-  "data": []
+  "data": [
+    {
+      "ticker": "000080",
+      "name": "하이트진로",
+      "price": 15810,
+      "change_rate": 0.89,
+      "breakout_date": "2026-11-05",
+      "resistance": 15970,
+      "pullback_ratio": 1.0,
+      "volume_decrease": 68,
+      "ma150": 15787,
+      "above_ma150": true,
+      "market_cap": 11088,
+      "updated_at": "2026-11-13T15:59:57.296598"
+    }
+  ]
 }
