@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-13T18:49:05.546142",
+    "lastUpdated": "2026-11-13T21:28:25.281471",
     "marketDate": "2026-11-12",
     "totalCount": 7,
     "screened_from": 1254
@@ -22,7 +22,7 @@
       "success_prob": 9.0,
       "predicted_gain": 24.3,
       "ai_score": 28.2,
-      "updated_at": "2026-11-13T18:48:57.519377"
+      "updated_at": "2026-11-13T21:28:18.170854"
     },
     {
       "ticker": "034230",
@@ -40,25 +40,7 @@
       "success_prob": 2.9,
       "predicted_gain": 15.9,
       "ai_score": 16.3,
-      "updated_at": "2026-11-13T18:48:52.587195"
-    },
-    {
-      "ticker": "104700",
-      "name": "한국철강",
-      "price": 12950,
-      "change_rate": 0.31,
-      "breakout_date": "2026-10-29",
-      "resistance": 10120,
-      "days_since_breakout": 10,
-      "breakout_pct": 27.96,
-      "gain_since_breakout": 24.64,
-      "ma150": 9708,
-      "above_ma150": true,
-      "market_cap": 4720,
-      "success_prob": 3.9,
-      "predicted_gain": 14.0,
-      "ai_score": 15.3,
-      "updated_at": "2026-11-13T18:48:54.855180"
+      "updated_at": "2026-11-13T21:28:15.178607"
     },
     {
       "ticker": "006280",
@@ -76,7 +58,7 @@
       "success_prob": 2.2,
       "predicted_gain": 10.4,
       "ai_score": 10.8,
-      "updated_at": "2026-11-13T18:48:51.644293"
+      "updated_at": "2026-11-13T21:28:14.508122"
     },
     {
       "ticker": "000080",
@@ -94,8 +76,26 @@
       "success_prob": 0.6,
       "predicted_gain": 11.3,
       "ai_score": 10.6,
-      "updated_at": "2026-11-13T18:49:05.529966",
+      "updated_at": "2026-11-13T21:28:25.280600",
       "vs_breakout_close": -5.61
+    },
+    {
+      "ticker": "104700",
+      "name": "한국철강",
+      "price": 12950,
+      "change_rate": 0.31,
+      "breakout_date": "2026-10-29",
+      "resistance": 10120,
+      "days_since_breakout": 10,
+      "breakout_pct": 27.96,
+      "gain_since_breakout": 24.64,
+      "ma150": 9708,
+      "above_ma150": true,
+      "market_cap": 4720,
+      "success_prob": 1.9,
+      "predicted_gain": 9.2,
+      "ai_score": 9.6,
+      "updated_at": "2026-11-13T21:28:17.453627"
     },
     {
       "ticker": "016580",
@@ -113,7 +113,7 @@
       "success_prob": 4.5,
       "predicted_gain": 5.8,
       "ai_score": 8.3,
-      "updated_at": "2026-11-13T18:48:58.993247"
+      "updated_at": "2026-11-13T21:28:19.636778"
     },
     {
       "ticker": "036460",
@@ -131,7 +131,7 @@
       "success_prob": 0.8,
       "predicted_gain": 7.4,
       "ai_score": 7.2,
-      "updated_at": "2026-11-13T18:48:50.003783"
+      "updated_at": "2026-11-13T21:28:13.386549"
     }
   ]
 }
