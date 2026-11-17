@@ -1,52 +1,24 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-17T03:43:29.889886",
-    "marketDate": "2026-11-13",
-    "totalCount": 3,
-    "screened_from": 1263
+    "lastUpdated": "2026-11-17T17:12:42.965858",
+    "marketDate": "2026-11-16",
+    "totalCount": 1,
+    "screened_from": 1241
   },
   "data": [
     {
       "ticker": "000080",
       "name": "하이트진로",
-      "price": 15950,
-      "change_rate": 0.89,
+      "price": 16450,
+      "change_rate": 3.13,
       "breakout_date": "2026-11-05",
-      "resistance": 15970,
-      "pullback_ratio": 0.13,
-      "volume_decrease": 73,
-      "ma150": 15781,
+      "resistance": 15980,
+      "pullback_ratio": 2.94,
+      "volume_decrease": 69,
+      "ma150": 15779,
       "above_ma150": true,
-      "market_cap": 11186,
-      "updated_at": "2026-11-17T03:43:28.138343"
-    },
-    {
-      "ticker": "032640",
-      "name": "LG유플러스",
-      "price": 15550,
-      "change_rate": 3.19,
-      "breakout_date": "2026-11-06",
-      "resistance": 15590,
-      "pullback_ratio": 0.26,
-      "volume_decrease": 58,
-      "ma150": 15182,
-      "above_ma150": true,
-      "market_cap": 65998,
-      "updated_at": "2026-11-17T03:43:27.985018"
-    },
-    {
-      "ticker": "137310",
-      "name": "에스디바이오센서",
-      "price": 7130,
-      "change_rate": 0.71,
-      "breakout_date": "2026-11-10",
-      "resistance": 6850,
-      "pullback_ratio": 4.09,
-      "volume_decrease": 54,
-      "ma150": 6888,
-      "above_ma150": true,
-      "market_cap": 8609,
-      "updated_at": "2026-11-17T03:43:28.206653"
+      "market_cap": 11536,
+      "updated_at": "2026-11-17T17:12:40.601490"
     }
   ]
 }
