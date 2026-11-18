@@ -1,29 +1,48 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-18T02:44:26.117812",
-    "marketDate": "2026-11-16",
-    "totalCount": 1,
-    "screened_from": 1241
+    "lastUpdated": "2026-11-18T16:46:38.132479",
+    "marketDate": "2026-11-17",
+    "totalCount": 2,
+    "screened_from": 1228
   },
   "data": [
     {
       "ticker": "033780",
       "name": "KT&G",
-      "current_price": 180900,
-      "volume": 362029,
-      "ma10w": 182350,
-      "ma20w": 179815,
-      "ma60w": 165248,
-      "ma20d": 187255,
-      "ma60d": 179663,
-      "ma120d": 179335,
-      "gap_20_60": 4.23,
-      "gap_20_120": 4.42,
-      "gap_60_120": 0.18,
-      "gap_price_20": 3.39,
+      "current_price": 181700,
+      "volume": 316817,
+      "ma10w": 182430,
+      "ma20w": 179855,
+      "ma60w": 165261,
+      "ma20d": 186640,
+      "ma60d": 179766,
+      "ma120d": 179340,
+      "gap_20_60": 3.82,
+      "gap_20_120": 4.07,
+      "gap_60_120": 0.24,
+      "gap_price_20": 2.65,
       "weeks_since_high": 17,
-      "market_cap": 187793,
-      "updated_at": "2026-11-18T02:44:21.036427"
+      "market_cap": 188623,
+      "updated_at": "2026-11-18T16:46:30.792998"
+    },
+    {
+      "ticker": "281820",
+      "name": "케이씨텍",
+      "current_price": 75700,
+      "volume": 284410,
+      "ma10w": 86960,
+      "ma20w": 80520,
+      "ma60w": 61229,
+      "ma20d": 79270,
+      "ma60d": 80988,
+      "ma120d": 80381,
+      "gap_20_60": 2.12,
+      "gap_20_120": 1.38,
+      "gap_60_120": 0.75,
+      "gap_price_20": 4.5,
+      "weeks_since_high": 21,
+      "market_cap": 14987,
+      "updated_at": "2026-11-18T16:46:33.056302"
     }
   ]
 }

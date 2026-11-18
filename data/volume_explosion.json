@@ -1,82 +1,70 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-18T02:44:13.952456",
-    "marketDate": "2026-11-16",
-    "totalCount": 6,
-    "screened_from": 1241
+    "lastUpdated": "2026-11-18T16:46:16.307373",
+    "marketDate": "2026-11-17",
+    "totalCount": 5,
+    "screened_from": 1228
   },
   "data": [
     {
-      "ticker": "008700",
-      "name": "아남전자",
-      "price": 1467,
-      "change_rate": 19.27,
-      "volume_ratio": 121.8,
+      "ticker": "047770",
+      "name": "코데즈컴바인",
+      "price": 2960,
+      "change_rate": 13.85,
+      "volume_ratio": 11.7,
       "volume_rank": 1,
-      "ma150": 1262,
-      "above_ma150": true,
-      "market_cap": 1131,
-      "updated_at": "2026-11-18T02:44:13.943312"
+      "ma150": 3360,
+      "above_ma150": false,
+      "market_cap": 1120,
+      "updated_at": "2026-11-18T16:46:16.273273"
     },
     {
-      "ticker": "100790",
-      "name": "미래에셋벤처투자",
-      "price": 14700,
-      "change_rate": 17.13,
-      "volume_ratio": 18.7,
+      "ticker": "0039P0",
+      "name": "매드업",
+      "price": 7600,
+      "change_rate": 21.41,
+      "volume_ratio": 7.6,
       "volume_rank": 2,
-      "ma150": 25874,
+      "ma150": null,
       "above_ma150": false,
-      "market_cap": 7808,
-      "updated_at": "2026-11-18T02:44:13.835483"
+      "market_cap": 1430,
+      "updated_at": "2026-11-18T16:46:16.225842"
     },
     {
-      "ticker": "192440",
-      "name": "슈피겐코리아",
-      "price": 30500,
-      "change_rate": 13.81,
-      "volume_ratio": 14.9,
-      "volume_rank": 3,
-      "ma150": 28875,
-      "above_ma150": true,
-      "market_cap": 1895,
-      "updated_at": "2026-11-18T02:44:13.900433"
-    },
-    {
-      "ticker": "190510",
-      "name": "나무가",
-      "price": 18850,
-      "change_rate": 30.0,
-      "volume_ratio": 12.6,
-      "volume_rank": 4,
-      "ma150": 15503,
-      "above_ma150": true,
-      "market_cap": 2655,
-      "updated_at": "2026-11-18T02:44:13.876166"
-    },
-    {
-      "ticker": "261780",
-      "name": "아리바이오랩",
-      "price": 5810,
-      "change_rate": 27.13,
-      "volume_ratio": 8.8,
-      "volume_rank": 5,
-      "ma150": 3126,
-      "above_ma150": true,
-      "market_cap": 1682,
-      "updated_at": "2026-11-18T02:44:13.908914"
-    },
-    {
-      "ticker": "452430",
-      "name": "사피엔반도체",
-      "price": 29800,
-      "change_rate": 13.09,
+      "ticker": "012200",
+      "name": "계양전기",
+      "price": 2935,
+      "change_rate": 29.87,
       "volume_ratio": 7.0,
-      "volume_rank": 6,
-      "ma150": 33132,
+      "volume_rank": 3,
+      "ma150": 4662,
       "above_ma150": false,
-      "market_cap": 2465,
-      "updated_at": "2026-11-18T02:44:13.880663"
+      "market_cap": 1039,
+      "updated_at": "2026-11-18T16:46:16.290491"
+    },
+    {
+      "ticker": "490470",
+      "name": "세미파이브",
+      "price": 13360,
+      "change_rate": 17.3,
+      "volume_ratio": 5.6,
+      "volume_rank": 4,
+      "ma150": 22698,
+      "above_ma150": false,
+      "market_cap": 4545,
+      "updated_at": "2026-11-18T16:46:16.016360"
+    },
+    {
+      "ticker": "417010",
+      "name": "나노팀",
+      "price": 6570,
+      "change_rate": 29.84,
+      "volume_ratio": 2.4,
+      "volume_rank": 5,
+      "ma150": 7056,
+      "above_ma150": false,
+      "market_cap": 1325,
+      "updated_at": "2026-11-18T16:46:16.237838"
     }
   ]
 }
