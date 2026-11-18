@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updated_at": "2026-11-17T05:57:06.044805",
-    "total_count": 2,
+    "updated_at": "2026-11-19T04:18:38.736984",
+    "total_count": 3,
     "conditions": {
       "ma60w_gap": "0.0% ~ 10.0%",
       "min_op_margin": "10.0%",
@@ -10,28 +10,40 @@
   },
   "data": [
     {
-      "ticker": "161390",
-      "name": "한국타이어앤테크놀로지",
-      "current_price": 62800,
-      "ma60w": 59211,
-      "ma60w_gap": 6.06,
-      "op_margin": 10.1,
-      "op_growth_3y": 37.7,
-      "market_cap": 78289,
+      "ticker": "003230",
+      "name": "삼양식품",
+      "current_price": 1271000,
+      "ma60w": 1214491,
+      "ma60w_gap": 4.65,
+      "op_margin": 22.6,
+      "op_growth_3y": 79.7,
+      "market_cap": 95819,
       "sector": "기타",
-      "updated_at": "2026-11-17T05:57:02.223753"
+      "updated_at": "2026-11-19T04:18:34.442730"
     },
     {
-      "ticker": "161890",
-      "name": "한국콜마",
-      "current_price": 102900,
-      "ma60w": 99243,
-      "ma60w_gap": 3.68,
+      "ticker": "161390",
+      "name": "한국타이어앤테크놀로지",
+      "current_price": 63600,
+      "ma60w": 59127,
+      "ma60w_gap": 7.56,
       "op_margin": 10.1,
-      "op_growth_3y": 48.4,
-      "market_cap": 25351,
+      "op_growth_3y": 37.7,
+      "market_cap": 76802,
       "sector": "기타",
-      "updated_at": "2026-11-17T05:57:04.521937"
+      "updated_at": "2026-11-19T04:18:35.119045"
+    },
+    {
+      "ticker": "128940",
+      "name": "한미약품",
+      "current_price": 448500,
+      "ma60w": 421649,
+      "ma60w_gap": 6.37,
+      "op_margin": 19.5,
+      "op_growth_3y": 17.7,
+      "market_cap": 56496,
+      "sector": "기타",
+      "updated_at": "2026-11-19T04:18:35.121280"
     }
   ]
 }
