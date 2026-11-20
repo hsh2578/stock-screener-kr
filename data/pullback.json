@@ -1,24 +1,38 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-20T02:29:03.217855",
-    "marketDate": "2026-11-18",
-    "totalCount": 1,
-    "screened_from": 1232
+    "lastUpdated": "2026-11-20T16:33:52.495459",
+    "marketDate": "2026-11-19",
+    "totalCount": 2,
+    "screened_from": 1243
   },
   "data": [
     {
       "ticker": "000080",
       "name": "하이트진로",
-      "price": 16280,
-      "change_rate": -0.73,
+      "price": 16390,
+      "change_rate": 0.68,
       "breakout_date": "2026-11-05",
       "resistance": 16060,
-      "pullback_ratio": 1.37,
-      "volume_decrease": 68,
-      "ma150": 15773,
+      "pullback_ratio": 2.05,
+      "volume_decrease": 67,
+      "ma150": 15769,
       "above_ma150": true,
-      "market_cap": 11417,
-      "updated_at": "2026-11-20T02:29:01.870974"
+      "market_cap": 11494,
+      "updated_at": "2026-11-20T16:33:51.254279"
+    },
+    {
+      "ticker": "016580",
+      "name": "환인제약",
+      "price": 10880,
+      "change_rate": 1.78,
+      "breakout_date": "2026-11-02",
+      "resistance": 10440,
+      "pullback_ratio": 4.21,
+      "volume_decrease": 71,
+      "ma150": 10355,
+      "above_ma150": true,
+      "market_cap": 2023,
+      "updated_at": "2026-11-20T16:33:51.816962"
     }
   ]
 }
