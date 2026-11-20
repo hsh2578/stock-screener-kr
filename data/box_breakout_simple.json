@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-21T00:42:53.319794",
+    "lastUpdated": "2026-11-21T02:04:34.319526",
     "marketDate": "2026-11-19",
     "totalCount": 9,
     "screened_from": 1243
@@ -22,7 +22,25 @@
       "success_prob": 53.8,
       "predicted_gain": 30.6,
       "ai_score": 65.2,
-      "updated_at": "2026-11-21T00:42:43.090249"
+      "updated_at": "2026-11-21T02:04:24.137211"
+    },
+    {
+      "ticker": "122870",
+      "name": "와이지엔터테인먼트",
+      "price": 47300,
+      "change_rate": 0.85,
+      "breakout_date": "2026-11-18",
+      "resistance": 44950,
+      "days_since_breakout": 1,
+      "breakout_pct": 5.23,
+      "gain_since_breakout": 0.85,
+      "ma150": 43737,
+      "above_ma150": true,
+      "market_cap": 8840,
+      "success_prob": 62.5,
+      "predicted_gain": 21.0,
+      "ai_score": 62.6,
+      "updated_at": "2026-11-21T02:04:25.325189"
     },
     {
       "ticker": "008700",
@@ -40,7 +58,7 @@
       "success_prob": 35.5,
       "predicted_gain": 20.1,
       "ai_score": 43.0,
-      "updated_at": "2026-11-21T00:42:53.318644",
+      "updated_at": "2026-11-21T02:04:34.312509",
       "vs_breakout_close": -6.48
     },
     {
@@ -59,7 +77,7 @@
       "success_prob": 34.3,
       "predicted_gain": 17.2,
       "ai_score": 39.5,
-      "updated_at": "2026-11-21T00:42:51.099210"
+      "updated_at": "2026-11-21T02:04:32.137793"
     },
     {
       "ticker": "298690",
@@ -77,26 +95,8 @@
       "success_prob": 8.2,
       "predicted_gain": 24.3,
       "ai_score": 27.6,
-      "updated_at": "2026-11-21T00:42:53.318963",
+      "updated_at": "2026-11-21T02:04:34.313190",
       "vs_breakout_close": 4.57
-    },
-    {
-      "ticker": "122870",
-      "name": "와이지엔터테인먼트",
-      "price": 47300,
-      "change_rate": 0.85,
-      "breakout_date": "2026-11-18",
-      "resistance": 44950,
-      "days_since_breakout": 1,
-      "breakout_pct": 5.23,
-      "gain_since_breakout": 0.85,
-      "ma150": 43737,
-      "above_ma150": true,
-      "market_cap": 8840,
-      "success_prob": 18.3,
-      "predicted_gain": 16.2,
-      "ai_score": 27.4,
-      "updated_at": "2026-11-21T00:42:43.778902"
     },
     {
       "ticker": "034230",
@@ -114,7 +114,7 @@
       "success_prob": 2.9,
       "predicted_gain": 15.9,
       "ai_score": 16.3,
-      "updated_at": "2026-11-21T00:42:43.455958"
+      "updated_at": "2026-11-21T02:04:25.060277"
     },
     {
       "ticker": "000080",
@@ -132,7 +132,7 @@
       "success_prob": 0.6,
       "predicted_gain": 11.3,
       "ai_score": 10.6,
-      "updated_at": "2026-11-21T00:42:53.319271",
+      "updated_at": "2026-11-21T02:04:34.314642",
       "vs_breakout_close": -2.15
     },
     {
@@ -151,7 +151,7 @@
       "success_prob": 0.8,
       "predicted_gain": 7.4,
       "ai_score": 7.2,
-      "updated_at": "2026-11-21T00:42:53.319542",
+      "updated_at": "2026-11-21T02:04:34.315101",
       "vs_breakout_close": -0.39
     },
     {
@@ -170,7 +170,7 @@
       "success_prob": 1.0,
       "predicted_gain": 6.8,
       "ai_score": 6.8,
-      "updated_at": "2026-11-21T00:42:51.518334"
+      "updated_at": "2026-11-21T02:04:32.494970"
     }
   ]
 }
