@@ -1,58 +1,46 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-24T00:07:15.358716",
-    "marketDate": "2026-11-20",
-    "totalCount": 4,
-    "screened_from": 1216
+    "lastUpdated": "2026-11-24T03:40:53.355409",
+    "marketDate": "2026-11-23",
+    "totalCount": 3,
+    "screened_from": 1203
   },
   "data": [
     {
-      "ticker": "439090",
-      "name": "마녀공장",
-      "price": 17170,
-      "change_rate": 18.66,
-      "volume_ratio": 31.7,
+      "ticker": "090710",
+      "name": "휴림로봇",
+      "price": 5720,
+      "change_rate": 30.0,
+      "volume_ratio": 11.0,
       "volume_rank": 1,
-      "ma150": 15394,
-      "above_ma150": true,
-      "market_cap": 2814,
-      "updated_at": "2026-11-24T00:07:15.242247"
+      "ma150": 7857,
+      "above_ma150": false,
+      "market_cap": 6860,
+      "updated_at": "2026-11-24T03:40:53.225138"
     },
     {
-      "ticker": "064550",
-      "name": "바이오니아",
-      "price": 7770,
-      "change_rate": 20.09,
-      "volume_ratio": 18.1,
+      "ticker": "439960",
+      "name": "코스모로보틱스",
+      "price": 4640,
+      "change_rate": 29.97,
+      "volume_ratio": 4.4,
       "volume_rank": 2,
-      "ma150": 8170,
+      "ma150": null,
       "above_ma150": false,
-      "market_cap": 2005,
-      "updated_at": "2026-11-24T00:07:15.267074"
+      "market_cap": 1505,
+      "updated_at": "2026-11-24T03:40:53.315369"
     },
     {
-      "ticker": "067630",
-      "name": "HLB생명과학",
-      "price": 2650,
-      "change_rate": 15.97,
-      "volume_ratio": 8.7,
+      "ticker": "282720",
+      "name": "금양그린파워",
+      "price": 9620,
+      "change_rate": 30.0,
+      "volume_ratio": 2.7,
       "volume_rank": 3,
-      "ma150": 3138,
-      "above_ma150": false,
-      "market_cap": 3230,
-      "updated_at": "2026-11-24T00:07:15.232431"
-    },
-    {
-      "ticker": "204620",
-      "name": "글로벌텍스프리",
-      "price": 6270,
-      "change_rate": 13.79,
-      "volume_ratio": 6.8,
-      "volume_rank": 4,
-      "ma150": 5285,
+      "ma150": 8776,
       "above_ma150": true,
-      "market_cap": 4406,
-      "updated_at": "2026-11-24T00:07:15.211500"
+      "market_cap": 1165,
+      "updated_at": "2026-11-24T03:40:53.337576"
     }
   ]
 }
