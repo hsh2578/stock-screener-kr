@@ -1,34 +1,16 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-24T19:10:25.406672",
+    "lastUpdated": "2026-11-24T21:44:13.813393",
     "marketDate": "2026-11-24",
-    "totalCount": 3,
+    "totalCount": 1,
     "screened_from": 1223
   },
   "data": [
     {
-      "ticker": "192440",
-      "name": "슈피겐코리아",
-      "price": 31050,
-      "change_rate": 1.8,
-      "explosion_date": "2026-11-16",
-      "explosion_change_rate": 13.8,
-      "explosion_volume_ratio": 13.7,
-      "days_since_detected": 6,
-      "volume_decrease_rate": 75,
-      "pattern_type": "candle_range",
-      "ma20_distance": null,
-      "volume_rank": 1,
-      "ma150": 29021,
-      "above_ma150": true,
-      "market_cap": 1939,
-      "updated_at": "2026-11-24T19:10:24.783418"
-    },
-    {
       "ticker": "003490",
       "name": "대한항공",
-      "price": 30900,
-      "change_rate": 1.98,
+      "price": 31150,
+      "change_rate": 2.81,
       "explosion_date": "2026-11-10",
       "explosion_change_rate": 11.5,
       "explosion_volume_ratio": 3.3,
@@ -36,29 +18,11 @@
       "volume_decrease_rate": 74,
       "pattern_type": "ma20_approach",
       "ma20_distance": 1.49,
-      "volume_rank": 2,
+      "volume_rank": 1,
       "ma150": 27545,
       "above_ma150": true,
       "market_cap": 114700,
-      "updated_at": "2026-11-24T19:10:25.406189"
-    },
-    {
-      "ticker": "001940",
-      "name": "KISCO홀딩스",
-      "price": 26900,
-      "change_rate": -1.65,
-      "explosion_date": "2026-11-02",
-      "explosion_change_rate": 19.9,
-      "explosion_volume_ratio": 27.1,
-      "days_since_detected": 16,
-      "volume_decrease_rate": 92,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 0.28,
-      "volume_rank": 3,
-      "ma150": 25619,
-      "above_ma150": true,
-      "market_cap": 3785,
-      "updated_at": "2026-11-24T19:10:24.377441"
+      "updated_at": "2026-11-24T21:44:13.812650"
     }
   ]
 }

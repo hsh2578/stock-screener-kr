@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-24T19:10:31.547918",
+    "lastUpdated": "2026-11-24T21:44:19.673978",
     "marketDate": "2026-11-24",
     "totalCount": 4,
     "screened_from": 1223
@@ -9,21 +9,21 @@
     {
       "ticker": "041510",
       "name": "에스엠",
-      "price": 96700,
-      "change_rate": 3.42,
+      "price": 95900,
+      "change_rate": 2.57,
       "breakout_date": "2026-11-19",
       "days_since_breakout": 3,
       "breakout_price": 88000,
-      "breakout_pct": 9.89,
-      "gain_since_breakout": 1.68,
+      "breakout_pct": 8.98,
+      "gain_since_breakout": 0.84,
       "volume_ratio": 11.4,
-      "ma150": 80098,
+      "ma150": 80093,
       "above_ma150": true,
       "market_cap": 21956,
       "success_prob": 31.4,
       "predicted_gain": 26.2,
       "ai_score": 45.5,
-      "updated_at": "2026-11-24T19:10:26.488720"
+      "updated_at": "2026-11-24T21:44:14.559753"
     },
     {
       "ticker": "094840",
@@ -42,13 +42,13 @@
       "success_prob": 34.3,
       "predicted_gain": 17.2,
       "ai_score": 39.5,
-      "updated_at": "2026-11-24T19:10:30.377707"
+      "updated_at": "2026-11-24T21:44:18.622208"
     },
     {
       "ticker": "298690",
       "name": "에어부산",
-      "price": 1886,
-      "change_rate": 3.23,
+      "price": 1870,
+      "change_rate": 2.35,
       "breakout_date": "2026-11-10",
       "days_since_breakout": 10,
       "breakout_price": 1600,
@@ -61,14 +61,14 @@
       "success_prob": 8.2,
       "predicted_gain": 24.3,
       "ai_score": 27.6,
-      "updated_at": "2026-11-24T19:10:31.545550",
-      "vs_breakout_close": 0.21
+      "updated_at": "2026-11-24T21:44:19.672031",
+      "vs_breakout_close": -0.64
     },
     {
       "ticker": "122870",
       "name": "와이지엔터테인먼트",
-      "price": 47300,
-      "change_rate": 1.18,
+      "price": 47400,
+      "change_rate": 1.39,
       "breakout_date": "2026-11-18",
       "days_since_breakout": 4,
       "breakout_price": 44950,
@@ -81,8 +81,8 @@
       "success_prob": 18.3,
       "predicted_gain": 16.2,
       "ai_score": 27.4,
-      "updated_at": "2026-11-24T19:10:31.546243",
-      "vs_breakout_close": 0.85
+      "updated_at": "2026-11-24T21:44:19.672685",
+      "vs_breakout_close": 1.07
     }
   ]
 }
