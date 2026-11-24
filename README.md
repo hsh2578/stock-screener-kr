@@ -48,8 +48,8 @@ GitHub Actions와 GitHub Pages를 이용해 100% 무료로 운영됩니다.
 
 | 스크리너 | 실행 시간 (KST) |
 |----------|----------------|
-| 기술적 스크리너 (박스권, 거래량 등) | 매일 12:00, 14:00, 16:00, 18:00 |
-| 저평가 우량주 (TTM) | 매주 토요일 12:00 |
+| 기술적 스크리너 (박스권, 거래량 등) | 평일 10:00, 12:00, 14:00, 16:00, 18:00 무렵 |
+| 퀀트·가치 스크리너 | 평일 20:00 |
 
 ## 로컬 실행
 
@@ -98,16 +98,20 @@ python -m http.server 8000
 ```
 stock-screener-kr/
 ├── .github/workflows/       # GitHub Actions (자동 업데이트/배포)
-│   ├── deploy.yml           # 기술적 스크리너 (매일 4회)
-│   └── value-screener.yml   # 저평가 우량주 (주 1회)
-├── scripts/screeners/       # 모듈화된 스크리너
-│   ├── bottom_breakout.py   # 바닥 탈출
-│   └── ma_convergence.py    # 이평선 수렴
+│   ├── deploy.yml           # 기술적 스크리너 (평일 5회)
+│   └── value-screener.yml   # 퀀트·가치 스크리너 (평일 1회)
+├── scripts/
+│   ├── screeners/           # 스크리너 모듈 (박스권·돌파·풀백·거래량·신고가·이평선 수렴·바닥 탈출·업종 4단계)
+│   ├── utils/               # 지표 계산·로깅
+│   ├── krx_data.py          # 시세·종목 목록
+│   ├── fnguide_data.py      # 재무 데이터
+│   └── wics_data.py         # 업종 분류
+├── ml/                      # 박스권 돌파 ML 모델 (walk-forward 학습, ml/README.md)
 ├── data/                    # 스크리닝 결과 JSON
 ├── run_screeners.py         # 메인 스크리너 (병렬 실행)
 ├── test_value_screener.py   # 저평가 우량주 스크리너
 ├── ma60w_quality.py         # 60주선 우량주 스크리너
-├── naver_finance.py         # FnGuide 재무데이터 크롤러
+├── magic_formula.py · multi_factor.py · guru_screeners.py   # 퀀트 스크리너
 └── 주식_스크리너_전체.html   # 단일 페이지 뷰어 (SPA)
 ```
 
@@ -122,8 +126,11 @@ stock-screener-kr/
 
 ## 면책 조항
 
-본 서비스는 투자 참고용이며, 투자 판단의 책임은 본인에게 있습니다.
+본 서비스는 개인 학습·연구 목적의 화면이며 투자 권유나 매매 추천이 아닙니다. 조건식과 모델 점수는 과거 데이터에 근거한 것으로 미래 수익을 보장하지 않고, 투자 판단의 책임은 본인에게 있습니다.
 
-## 라이선스
+시세·재무 데이터의 권리는 각 제공처(KRX, FnGuide 등)에 있습니다.
 
-MIT License
+## 관련 저장소
+
+- [ai-stock-screener](https://github.com/hsh2578/ai-stock-screener) — 52주 신고가 돌파 모델의 초기 실험
+- [kr-52w-high-overnight-study](https://github.com/hsh2578/kr-52w-high-overnight-study) — 신고가 돌파 종목의 익일 시가 수익률 검증
