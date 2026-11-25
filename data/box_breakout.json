@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-25T17:55:40.849832",
+    "lastUpdated": "2026-11-25T20:31:22.775505",
     "marketDate": "2026-11-25",
     "totalCount": 3,
     "screened_from": 1214
@@ -9,27 +9,27 @@
     {
       "ticker": "041510",
       "name": "에스엠",
-      "price": 95000,
-      "change_rate": -0.94,
+      "price": 96300,
+      "change_rate": 0.42,
       "breakout_date": "2026-11-19",
       "days_since_breakout": 4,
       "breakout_price": 88000,
-      "breakout_pct": 7.95,
-      "gain_since_breakout": -0.11,
+      "breakout_pct": 9.43,
+      "gain_since_breakout": 1.26,
       "volume_ratio": 11.4,
-      "ma150": 80120,
+      "ma150": 80129,
       "above_ma150": true,
       "market_cap": 22047,
       "success_prob": 31.4,
       "predicted_gain": 26.2,
       "ai_score": 45.6,
-      "updated_at": "2026-11-25T17:55:34.743685"
+      "updated_at": "2026-11-25T20:31:15.471859"
     },
     {
       "ticker": "122870",
       "name": "와이지엔터테인먼트",
-      "price": 46500,
-      "change_rate": -1.9,
+      "price": 47050,
+      "change_rate": -0.74,
       "breakout_date": "2026-11-18",
       "days_since_breakout": 5,
       "breakout_price": 44950,
@@ -42,19 +42,19 @@
       "success_prob": 18.3,
       "predicted_gain": 16.2,
       "ai_score": 27.4,
-      "updated_at": "2026-11-25T17:55:40.836427",
-      "vs_breakout_close": -0.85
+      "updated_at": "2026-11-25T20:31:22.772683",
+      "vs_breakout_close": 0.32
     },
     {
       "ticker": "204620",
       "name": "글로벌텍스프리",
-      "price": 6000,
-      "change_rate": 2.39,
+      "price": 6010,
+      "change_rate": 2.56,
       "breakout_date": "2026-11-20",
       "days_since_breakout": 3,
       "breakout_price": 6050,
-      "breakout_pct": -0.83,
-      "gain_since_breakout": -4.31,
+      "breakout_pct": -0.66,
+      "gain_since_breakout": -4.15,
       "volume_ratio": 7.2,
       "ma150": 5299,
       "above_ma150": true,
@@ -62,7 +62,7 @@
       "success_prob": 11.1,
       "predicted_gain": 13.3,
       "ai_score": 19.8,
-      "updated_at": "2026-11-25T17:55:35.566557"
+      "updated_at": "2026-11-25T20:31:16.725437"
     }
   ]
 }

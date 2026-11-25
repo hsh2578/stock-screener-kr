@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-25T17:55:40.800140",
+    "lastUpdated": "2026-11-25T20:31:22.774081",
     "marketDate": "2026-11-25",
     "totalCount": 5,
     "screened_from": 1214
@@ -9,26 +9,26 @@
     {
       "ticker": "041510",
       "name": "에스엠",
-      "price": 95000,
-      "change_rate": -0.94,
+      "price": 96300,
+      "change_rate": 0.42,
       "breakout_date": "2026-11-19",
       "resistance": 88000,
       "days_since_breakout": 4,
-      "breakout_pct": 7.95,
-      "gain_since_breakout": -0.11,
-      "ma150": 80120,
+      "breakout_pct": 9.43,
+      "gain_since_breakout": 1.26,
+      "ma150": 80129,
       "above_ma150": true,
       "market_cap": 22047,
       "success_prob": 53.8,
       "predicted_gain": 30.6,
       "ai_score": 65.2,
-      "updated_at": "2026-11-25T17:55:29.370548"
+      "updated_at": "2026-11-25T20:31:14.956124"
     },
     {
       "ticker": "122870",
       "name": "와이지엔터테인먼트",
-      "price": 46500,
-      "change_rate": -1.9,
+      "price": 47050,
+      "change_rate": -0.74,
       "breakout_date": "2026-11-18",
       "resistance": 44950,
       "days_since_breakout": 5,
@@ -40,44 +40,44 @@
       "success_prob": 62.5,
       "predicted_gain": 21.0,
       "ai_score": 62.6,
-      "updated_at": "2026-11-25T17:55:40.799052",
-      "vs_breakout_close": -0.85
+      "updated_at": "2026-11-25T20:31:22.773500",
+      "vs_breakout_close": 0.32
     },
     {
       "ticker": "204620",
       "name": "글로벌텍스프리",
-      "price": 6000,
-      "change_rate": 2.39,
+      "price": 6010,
+      "change_rate": 2.56,
       "breakout_date": "2026-11-20",
       "resistance": 6050,
       "days_since_breakout": 3,
-      "breakout_pct": -0.83,
-      "gain_since_breakout": -4.31,
+      "breakout_pct": -0.66,
+      "gain_since_breakout": -4.15,
       "ma150": 5299,
       "above_ma150": true,
       "market_cap": 4224,
-      "success_prob": 62.5,
-      "predicted_gain": 19.4,
-      "ai_score": 61.2,
-      "updated_at": "2026-11-25T17:55:32.308921"
+      "success_prob": 11.1,
+      "predicted_gain": 13.3,
+      "ai_score": 19.8,
+      "updated_at": "2026-11-25T20:31:16.698979"
     },
     {
       "ticker": "034230",
       "name": "파라다이스",
-      "price": 11520,
-      "change_rate": 4.54,
+      "price": 11570,
+      "change_rate": 4.99,
       "breakout_date": "2026-11-11",
       "resistance": 10210,
       "days_since_breakout": 10,
-      "breakout_pct": 12.83,
-      "gain_since_breakout": 7.56,
+      "breakout_pct": 13.32,
+      "gain_since_breakout": 8.03,
       "ma150": 11742,
       "above_ma150": false,
       "market_cap": 10717,
       "success_prob": 2.9,
       "predicted_gain": 15.9,
       "ai_score": 16.3,
-      "updated_at": "2026-11-25T17:55:30.371926"
+      "updated_at": "2026-11-25T20:31:15.320827"
     },
     {
       "ticker": "005800",
@@ -95,7 +95,7 @@
       "success_prob": 1.0,
       "predicted_gain": 6.8,
       "ai_score": 6.9,
-      "updated_at": "2026-11-25T17:55:38.275415"
+      "updated_at": "2026-11-25T20:31:21.771237"
     }
   ]
 }

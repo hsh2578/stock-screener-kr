@@ -1,46 +1,46 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-25T17:55:28.546440",
+    "lastUpdated": "2026-11-25T20:31:13.673343",
     "marketDate": "2026-11-25",
-    "totalCount": 5,
+    "totalCount": 6,
     "screened_from": 1214
   },
   "data": [
     {
       "ticker": "030210",
       "name": "다올투자증권",
-      "price": 3875,
-      "change_rate": 21.86,
-      "volume_ratio": 41.3,
+      "price": 4005,
+      "change_rate": 25.94,
+      "volume_ratio": 43.1,
       "volume_rank": 1,
-      "ma150": 3720,
+      "ma150": 3721,
       "above_ma150": true,
       "market_cap": 2439,
-      "updated_at": "2026-11-25T17:55:28.372710"
+      "updated_at": "2026-11-25T20:31:13.613110"
     },
     {
       "ticker": "179290",
       "name": "엠아이텍",
-      "price": 3490,
-      "change_rate": 16.72,
-      "volume_ratio": 7.0,
+      "price": 3565,
+      "change_rate": 19.23,
+      "volume_ratio": 7.1,
       "volume_rank": 2,
       "ma150": 4845,
       "above_ma150": false,
       "market_cap": 1153,
-      "updated_at": "2026-11-25T17:55:28.515675"
+      "updated_at": "2026-11-25T20:31:13.660502"
     },
     {
       "ticker": "263860",
       "name": "지니언스",
-      "price": 42300,
-      "change_rate": 19.49,
-      "volume_ratio": 5.5,
+      "price": 42050,
+      "change_rate": 18.79,
+      "volume_ratio": 5.8,
       "volume_rank": 3,
-      "ma150": 17860,
+      "ma150": 17858,
       "above_ma150": true,
       "market_cap": 3817,
-      "updated_at": "2026-11-25T17:55:28.306956"
+      "updated_at": "2026-11-25T20:31:13.592523"
     },
     {
       "ticker": "053800",
@@ -52,19 +52,31 @@
       "ma150": 69586,
       "above_ma150": true,
       "market_cap": 17568,
-      "updated_at": "2026-11-25T17:55:28.192925"
+      "updated_at": "2026-11-25T20:31:13.562261"
+    },
+    {
+      "ticker": "257720",
+      "name": "실리콘투",
+      "price": 28900,
+      "change_rate": 12.02,
+      "volume_ratio": 4.2,
+      "volume_rank": 5,
+      "ma150": 37507,
+      "above_ma150": false,
+      "market_cap": 18951,
+      "updated_at": "2026-11-25T20:31:13.560898"
     },
     {
       "ticker": "358570",
       "name": "지아이이노베이션",
-      "price": 8440,
-      "change_rate": 12.83,
+      "price": 8670,
+      "change_rate": 15.91,
       "volume_ratio": 3.4,
-      "volume_rank": 5,
-      "ma150": 9760,
+      "volume_rank": 6,
+      "ma150": 9762,
       "above_ma150": false,
       "market_cap": 5593,
-      "updated_at": "2026-11-25T17:55:28.266460"
+      "updated_at": "2026-11-25T20:31:13.583673"
     }
   ]
 }
