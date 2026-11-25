@@ -1,24 +1,52 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-25T04:36:16.533631",
-    "marketDate": "2026-11-24",
-    "totalCount": 1,
-    "screened_from": 1223
+    "lastUpdated": "2026-11-25T17:55:28.701570",
+    "marketDate": "2026-11-25",
+    "totalCount": 3,
+    "screened_from": 1214
   },
   "data": [
     {
-      "ticker": "000080",
-      "name": "하이트진로",
-      "price": 16180,
-      "change_rate": 2.34,
-      "breakout_date": "2026-11-05",
-      "resistance": 16060,
-      "pullback_ratio": 0.75,
-      "volume_decrease": 72,
-      "ma150": 15746,
+      "ticker": "005800",
+      "name": "신영와코루",
+      "price": 13630,
+      "change_rate": -0.8,
+      "breakout_date": "2026-11-20",
+      "resistance": 13580,
+      "pullback_ratio": 0.37,
+      "volume_decrease": 59,
+      "ma150": 13530,
       "above_ma150": true,
-      "market_cap": 11347,
-      "updated_at": "2026-11-25T04:36:14.452360"
+      "market_cap": 1226,
+      "updated_at": "2026-11-25T17:55:28.452346"
+    },
+    {
+      "ticker": "008700",
+      "name": "아남전자",
+      "price": 1283,
+      "change_rate": 1.99,
+      "breakout_date": "2026-11-16",
+      "resistance": 1294,
+      "pullback_ratio": 0.85,
+      "volume_decrease": 94,
+      "ma150": 1252,
+      "above_ma150": true,
+      "market_cap": 1006,
+      "updated_at": "2026-11-25T17:55:28.687210"
+    },
+    {
+      "ticker": "036460",
+      "name": "한국가스공사",
+      "price": 35900,
+      "change_rate": 0.0,
+      "breakout_date": "2026-11-12",
+      "resistance": 37700,
+      "pullback_ratio": 4.77,
+      "volume_decrease": 77,
+      "ma150": 35828,
+      "above_ma150": true,
+      "market_cap": 33417,
+      "updated_at": "2026-11-25T17:55:26.344472"
     }
   ]
 }

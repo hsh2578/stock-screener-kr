@@ -1,28 +1,9 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-25T04:36:20.023742",
-    "marketDate": "2026-11-24",
-    "totalCount": 1,
-    "screened_from": 1223
+    "lastUpdated": "2026-11-25T17:55:32.296428",
+    "marketDate": "2026-11-25",
+    "totalCount": 0,
+    "screened_from": 1214
   },
-  "data": [
-    {
-      "ticker": "003490",
-      "name": "대한항공",
-      "price": 31150,
-      "change_rate": 2.81,
-      "explosion_date": "2026-11-10",
-      "explosion_change_rate": 11.5,
-      "explosion_volume_ratio": 3.3,
-      "days_since_detected": 10,
-      "volume_decrease_rate": 74,
-      "pattern_type": "ma20_approach",
-      "ma20_distance": 1.49,
-      "volume_rank": 1,
-      "ma150": 27545,
-      "above_ma150": true,
-      "market_cap": 114700,
-      "updated_at": "2026-11-25T04:36:20.008124"
-    }
-  ]
+  "data": []
 }
