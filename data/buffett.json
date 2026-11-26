@@ -3,7 +3,7 @@
     "type": "buffett",
     "name": "워렌 버핏 전략",
     "description": "ROE·저부채·FCF·저평가·이익 성장",
-    "lastUpdated": "2026-11-27T04:21:00.479434",
+    "lastUpdated": "2026-11-27T05:04:13.648369",
     "totalCount": 34,
     "conditions": [
       "ROE > 15%",
@@ -226,22 +226,6 @@
       "dividend_yield": 2.7
     },
     {
-      "ticker": "213420",
-      "name": "덕산네오룩스",
-      "current_price": 18170,
-      "market_cap": 4512.0,
-      "per": 6.3,
-      "pbr": 0.92,
-      "current_ratio": 3.57,
-      "debt_ratio": 53.4,
-      "lt_debt_ratio": 29.1,
-      "fcf": 698.0,
-      "inventory_ratio": 21.65,
-      "roe": 15.4,
-      "eps_growth": 48.1,
-      "dividend_yield": null
-    },
-    {
       "ticker": "011560",
       "name": "세보엠이씨",
       "current_price": 20050,
@@ -368,6 +352,22 @@
       "roe": 22.7,
       "eps_growth": 21.0,
       "dividend_yield": 4.33
+    },
+    {
+      "ticker": "213420",
+      "name": "덕산네오룩스",
+      "current_price": 18170,
+      "market_cap": 4512.0,
+      "per": 6.4,
+      "pbr": 0.9,
+      "current_ratio": 2.92,
+      "debt_ratio": 75.3,
+      "lt_debt_ratio": 45.9,
+      "fcf": 434.0,
+      "inventory_ratio": 26.26,
+      "roe": 15.4,
+      "eps_growth": 48.1,
+      "dividend_yield": null
     },
     {
       "ticker": "066620",
