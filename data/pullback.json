@@ -1,24 +1,38 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-26T20:12:33.926493",
+    "lastUpdated": "2026-11-26T23:09:29.287819",
     "marketDate": "2026-11-26",
-    "totalCount": 1,
+    "totalCount": 2,
     "screened_from": 1215
   },
   "data": [
     {
+      "ticker": "005800",
+      "name": "신영와코루",
+      "price": 13700,
+      "change_rate": 0.51,
+      "breakout_date": "2026-11-20",
+      "resistance": 13580,
+      "pullback_ratio": 0.88,
+      "volume_decrease": 58,
+      "ma150": 13519,
+      "above_ma150": true,
+      "market_cap": 1233,
+      "updated_at": "2026-11-26T23:09:28.999510"
+    },
+    {
       "ticker": "008700",
       "name": "아남전자",
-      "price": 1356,
-      "change_rate": 3.91,
+      "price": 1333,
+      "change_rate": 2.15,
       "breakout_date": "2026-11-16",
       "resistance": 1294,
-      "pullback_ratio": 4.79,
+      "pullback_ratio": 3.01,
       "volume_decrease": 95,
-      "ma150": 1252,
+      "ma150": 1251,
       "above_ma150": true,
       "market_cap": 1028,
-      "updated_at": "2026-11-26T20:12:33.915289"
+      "updated_at": "2026-11-26T23:09:29.249794"
     }
   ]
 }
