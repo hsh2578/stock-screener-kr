@@ -111,21 +111,18 @@ assert abs(get_pegy(1, g) - 10 / (8 + 2)) < 1e-6
 assert get_pegy(1, {**g, 'annual': {'eps': {'2021/12': 100, '2025/12': 900}}}) is None, '성장률 50% 초과 제외'
 assert get_pegy(1, {**g, 'annual': {'eps': {'2021/12': 100, '2025/12': 90}}}) is None, '역성장 제외'
 
-from guru_screeners import _graham_eps_growth, _per_3y, _buffett_quality, _net_debt_to_ebit
-eps5 = {'2021/12': 100, '2022/12': 100, '2023/12': 90, '2024/12': 110, '2025/12': 110}
-actual, required = _graham_eps_growth({'annual': {'eps': eps5}})
-assert round(actual, 6) == 10.0 and round(required, 4) == round((1.03 ** 3 - 1) * 100, 4), '중심 간격 3년'
-assert _graham_eps_growth({'annual': {'eps': {'2023/12': 1, '2024/12': 2, '2025/12': 3}}}) is None, 'EPS 4개 미만'
-assert _per_3y(300, {'annual': {'net_income': {'2022/12': 5, '2023/12': 10, '2024/12': 20, '2025/12': 30}}}) == 15
-assert _per_3y(300, {'annual': {'net_income': {'2024/12': 20, '2025/12': 30}}}) is None
-ok = {'annual': {'roe': {'2023/12': 12, '2024/12': 16, '2025/12': 20}, 'eps': {'2023/12': 5, '2024/12': 4, '2025/12': 6}}}
-assert _buffett_quality(ok) == 16
-assert _buffett_quality({'annual': {**ok['annual'], 'roe': {'2023/12': 9, '2024/12': 20, '2025/12': 30}}}) is None, 'ROE 10% 이하 연도'
-assert _buffett_quality({'annual': {**ok['annual'], 'eps': {'2023/12': 5, '2024/12': 4, '2025/12': 3}}}) is None, 'EPS 감소 2회'
-assert _buffett_quality({'annual': {**ok['annual'], 'eps': {'2024/12': 4, '2025/12': 6}}}) is None, 'EPS 3년 미만'
-assert _net_debt_to_ebit({'balance': bs, 'operating_income_ttm': 20}) == (70 - 30) / 20
-assert _net_debt_to_ebit({'balance': {**bs, 'cash': 100}, 'operating_income_ttm': 20}) < 0, '순현금은 음수(통과)'
-assert _net_debt_to_ebit({'balance': {}, 'operating_income_ttm': 20}) is None
+from guru_screeners import _base, _dividend_yield
+row = {'종목코드': '000001', '종목명': 'T', '시가총액': 1000, '종가': 5000}
+fin = {'net_income_controlling_ttm': 100, 'net_income_ttm': 150, 'revenue_ttm': 2000,
+       'balance': {'controlling_equity': 500, 'total_equity': 800, 'current_assets': 300, 'current_liabilities': 100,
+                   'non_current_liabilities': 250}}
+m = _base(row, fin)
+assert (m['per'], m['pbr']) == (10, 2), '지배순이익·지배자본 기준'
+assert m['current_ratio'] == 300 and m['debt_ratio'] == 350 / 800 * 100 and m['lt_debt_ratio'] == 50
+assert m['inventory_ratio'] == 0.0, '일반 기업 양식인데 재고 계정 없음 = 0'
+assert _base(row, {**fin, 'net_income_controlling_ttm': -5})['per'] is None, '적자는 PER 없음'
+assert _base(row, {'net_income_ttm': 50, 'balance': {'total_equity': 400}})['per'] == 20, '별도 재무제표: 전체 = 지배'
+assert _dividend_yield('000001', {'header': {'dividend_yield': 1.5}}, {}) == 1.5, 'DART 배당 없으면 FnGuide 헤더값'
 
 from test_value_screener import annual_operating_margins, growth_ok
 v = {'annual': {'revenue': {'2024/12': 100, '2025/12': 200}, 'operating_income': {'2024/12': 10, '2025/12': 30}},

@@ -9,7 +9,7 @@
 | **배포 파일** | `주식_스크리너_전체.html` (단독 SPA, ~5600줄) |
 | **배포 URL** | https://hsh2578.github.io/stock-screener-kr/ |
 | **GitHub** | `hsh2578/stock-screener-kr` |
-| **로컬 경로** | `C:\Users\hsh\Desktop\vibecoding\주식웹사이트\국내주식웹사이트\stock-screener-kr` |
+| **로컬 경로** | `C:\Users\hsh\Desktop\03_투자·코딩 프로젝트\vibecoding\주식웹사이트\국내주식웹사이트\stock-screener-kr` |
 
 ### !! 주의 !!
 - **UI 수정은 반드시 `주식_스크리너_전체.html`에서** 한다. (예전 미배포 React 앱 `web/`은 2026-10 삭제)
@@ -58,6 +58,7 @@ stock-screener-kr/
 ├── scripts/
 │   ├── krx_data.py              KRX OTP 종목 마스터 + WiseIndex 섹터 + 배당수익률
 │   ├── fnguide_data.py          FnGuide read_html 재무제표 수집 + 헬퍼 함수
+│   ├── dart_data.py             DART 분기 시계열·배당 (dartlab 미러) — 대가 스크리너용
 │   ├── screeners/               모듈화된 스크리너 구현체
 │   └── utils/                   유틸리티
 ├── ml/                          ML 모델 (3개: 박스권 돌파, 52주 신고가, 52주 근접)
@@ -161,7 +162,7 @@ test_value_screener.py → 캐시 읽기 (~30sec)
 magic_formula.py → 캐시 읽기 (~30sec)
 multi_factor.py → 캐시 + OHLCV 캐시 (~30sec)
 ma60w_quality.py → 캐시 + OHLCV 캐시 (~30sec)
-guru_screeners.py → 캐시 + 배당 수집 (~1min)
+guru_screeners.py → 캐시 + dartlab 미러 내려받기 (첫 실행 ~2min, 이후 캐시)
 ```
 
 ---
@@ -328,32 +329,35 @@ python guru_screeners.py        # 대가 4종
 - Winsorize 1%-99% (원본은 `_orig` 컬럼 보존), 유효 지표 최소 5/10개, 팩터그룹별 1개 이상 필수
 - 금융주 제외 안 함, 섹터 중립화 아님 (글로벌 Z-Score)
 
-### 투자 대가 (4개) — 원전 기준을 5년 데이터로 축소
+### 투자 대가 (4개)
 
-**워렌 버핏** (`buffett`, `buffett.json`) — Validea Patient Investor / Buffettology (연간 ROE 평균 내림차순)
-- 연간 ROE(FnGuide Snapshot) 전부 > 10% & 평균 >= 15% (3년 이상)
-- 연간 EPS 전부 > 0, 전년 대비 감소 최대 1회 (3년 이상)
-- 장기부채(장기차입금+사채) <= 순이익TTM × 5 (무차입 통과), FCF > 0
-- 이익수익률(1/PER)은 표시만 (CI에 국채금리 없음). PBR/유동비율/부채비율은 표시만
+대가의 투자 원칙을 재무 조건으로 옮긴 스크리너. 시총 1,000억 이상 보통주 대상.
+현재 분기 재무는 FnGuide 캐시, 1년 전·10년 시계열과 배당은 `scripts/dart_data.py`
+(dartlab HuggingFace 미러 = DART 원본, API 키 불필요, `.cache/dartlab/` 7일 캐시).
+구현 설명: `docs/대가_스크리너_구현.md`
 
-**빌 애크먼** (`ackman`, `ackman.json`) — **애크먼 원칙에서 착안한 자체 규칙** (FCF 수익률 내림차순, 상위 30)
-- 유형 IC >= 총자산 × `MIN_IC_TO_ASSETS`(10%, 마법공식과 공유) (자산 경량 기업의 ROIC 과대 방지)
-- ROIC(유형 IC) > 15%, ROE > 12%, PER < 15, FCF > 0, 순차입금/EBIT < 2 (순현금 통과)
-- `data` = FCF/시총 상위 30, `meta.totalCount` = 전체 통과 수
-- 이자부채 계정이 없는 금융주는 자동 제외
+공통 지표 정의 (손익은 전부 **TTM = 최근 4분기 누적**):
+- PER = 시총 / 지배순이익 TTM, PBR = 시총 / 지배자본, 부채비율 = 부채총계 / 자본총계, 유동비율 = 유동자산 / 유동부채
+- ROE·ROA = **전체** 순이익 TTM / (최근 분기 + 1년 전) 평균 지배자본·자산 (`return_on`)
+- EPS 성장률 = 지배순이익 TTM / 1년 전 TTM − 1 (`ttm_growth`), PEG = PER / EPS 성장률
+- 재고/매출 = 재고(4분기 평균) / 매출 TTM (`get_inventory_ratio`)
+- 배당수익률 = 최근 보고서 주당배당금(분기 누적, 없으면 직전 연간) / 전년 말 종가 (`_dividend_yield`, `.cache/daily` 12월 마지막 파일). 자료 없으면 FnGuide 헤더값
+- 미러에 빠진 분기 보고서는 다음 해 보고서의 '전기' 비교 칸으로 메운다 (`dart_data.parse`)
 
-**피터 린치** (`lynch`, `lynch.json`) — AAII Lynch 스크린 PEGY (PEGY 오름차순)
-- 5 <= PER < 25 (PER 5 미만 = 일회성 이익 신호), 영업이익TTM > 0
-- PEGY = PER / (EPS 5년 CAGR + 배당수익률) <= 0.5, 0 < CAGR <= 50
-- 이자부채 / 자본총계 < 80%
-- 재고 추이 조건 없음 (분기 재고 이력 미저장). JSON `peg` 키 = PEGY 값 (HTML 호환)
+**워렌 버핏** (`buffett`, FCF 내림차순)
+- ROE > 15%, 장기부채비율(비유동부채/지배자본) < 100%, 유동비율 > 1.5, FCF > 0, PER < 17, PBR < 1.5, 부채비율 < 150%, EPS 성장률 > 10%
 
-**벤저민 그레이엄** (`graham`, `graham.json`) — 『현명한 투자자』 14장 방어적 투자자 (PER×PBR 오름차순)
-- 매출TTM > 1000억, 유동비율 >= 2, 장기부채 <= 순유동자산
-- 가용 연간 전 기간 흑자 (순이익+영업이익), 배당수익률 > 0
-- 최근 2년 EPS 평균 >= 최초 2년 EPS 평균 × 1.03^(최근연도-최초연도-1) (연간 EPS 4개 이상, 10년 ⅓ → 연 3%)
-- PER(3년 평균 지배순이익) <= 15, PBR <= 1.5 또는 PER×PBR <= 22.5
-- JSON `per` = 3년 평균 이익 기준 PER, `eps_growth` = 실제 증가율(%)
+**빌 애크먼** (`ackman`, ROIC 내림차순)
+- ROIC > 13%, PER < 20, PBR < 2, **부채비율 > 150%**, FCF > 0, 배당수익률 > 2%
+- ROIC = `get_roic` (영업이익 TTM / 유형 투하자본, 마법공식과 같은 정의)
+
+**피터 린치** (`lynch`, PEG 오름차순)
+- PER < 30, 0 < PEG < 1.8, 재고/매출 < 5%, 부채비율 < 150%, ROE > 5%, ROA > 1%, 배당수익률 > 3%
+
+**벤저민 그레이엄** (`graham`, PER×PBR 오름차순)
+- 기술 기업(WICS G45) 제외, 매출 TTM > 1,000억, 유동비율 > 200%, 순유동자산 > 장기부채(장기차입금+사채), PER < 15, PBR×PER < 22
+- 최근 5년 흑자 = **최근 20개 분기 순이익 전부 흑자** (`all_quarters_profitable`). 연간 합계가 흑자여도 적자 분기가 있으면 제외
+- EPS 10년 성장률 > 30% = 10년 구간 처음 3년 평균 → 최근 3년 평균 지배순이익 증가율 (`avg3_growth`, 『현명한 투자자』 14장 방식)
 
 ---
 
@@ -373,10 +377,10 @@ python guru_screeners.py        # 대가 4종
 | `get_roa` | 순이익TTM / 총자산(4Q평균) × 100 | 린치(표시) |
 | `get_roic` | EBIT / 유형 IC × 100 | 애크먼 |
 | `get_fcf` | CFO(TTM) - CAPEX(TTM, 유형+무형자산 증가) | 버핏, 애크먼 |
-| `get_cagr` | 연간 (최근/N년 전)^(1/N)-1, 끝값 ≤ 0 이면 None | 가치·60주선·린치·버핏 |
+| `get_cagr` | 연간 (최근/N년 전)^(1/N)-1, 끝값 ≤ 0 이면 None | 가치·60주선 |
 | `get_ytd_growth` | 최근 누적 vs 전년동기 누적 증가율 | 가치·60주선 |
-| `get_pegy` | PER / (EPS 5년 CAGR + 배당수익률), 0<g<=50 | 린치 |
-| `get_inventory_ratio` | 재고자산(4Q평균) / 매출TTM × 100 | - |
+| `get_pegy` | PER / (EPS 5년 CAGR + 배당수익률), 0<g<=50 | - |
+| `get_inventory_ratio` | 재고자산(4Q평균) / 매출TTM × 100 | 린치 |
 | `get_net_current_assets` | 유동자산 - 유동부채 | 그레이엄 |
 | `get_annual_growth_rates` | 연간 YoY 성장률만 | - |
 | `get_growth_rates_with_ttm` | TTM + 연간 YoY 성장률 시리즈 | financial_data.json |
