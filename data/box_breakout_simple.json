@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-26T17:41:08.339797",
+    "lastUpdated": "2026-11-26T20:12:42.370699",
     "marketDate": "2026-11-26",
     "totalCount": 4,
     "screened_from": 1215
@@ -9,26 +9,26 @@
     {
       "ticker": "041510",
       "name": "에스엠",
-      "price": 101500,
-      "change_rate": 5.4,
+      "price": 103000,
+      "change_rate": 6.96,
       "breakout_date": "2026-11-19",
       "resistance": 88000,
       "days_since_breakout": 5,
-      "breakout_pct": 15.34,
-      "gain_since_breakout": 6.73,
-      "ma150": 80159,
+      "breakout_pct": 17.05,
+      "gain_since_breakout": 8.31,
+      "ma150": 80169,
       "above_ma150": true,
       "market_cap": 22940,
       "success_prob": 53.8,
       "predicted_gain": 30.6,
       "ai_score": 65.2,
-      "updated_at": "2026-11-26T17:41:01.136948"
+      "updated_at": "2026-11-26T20:12:34.037077"
     },
     {
       "ticker": "122870",
       "name": "와이지엔터테인먼트",
-      "price": 48700,
-      "change_rate": 3.51,
+      "price": 48850,
+      "change_rate": 3.83,
       "breakout_date": "2026-11-18",
       "resistance": 44950,
       "days_since_breakout": 6,
@@ -40,32 +40,32 @@
       "success_prob": 62.5,
       "predicted_gain": 21.0,
       "ai_score": 62.6,
-      "updated_at": "2026-11-26T17:41:08.337176",
-      "vs_breakout_close": 3.84
+      "updated_at": "2026-11-26T20:12:42.366444",
+      "vs_breakout_close": 4.16
     },
     {
       "ticker": "204620",
       "name": "글로벌텍스프리",
-      "price": 6470,
-      "change_rate": 7.65,
+      "price": 6510,
+      "change_rate": 8.32,
       "breakout_date": "2026-11-20",
       "resistance": 6050,
       "days_since_breakout": 4,
-      "breakout_pct": 6.94,
-      "gain_since_breakout": 3.19,
+      "breakout_pct": 7.6,
+      "gain_since_breakout": 3.83,
       "ma150": 5307,
       "above_ma150": true,
       "market_cap": 4540,
-      "success_prob": 62.5,
-      "predicted_gain": 19.4,
-      "ai_score": 61.2,
-      "updated_at": "2026-11-26T17:41:02.912499"
+      "success_prob": 11.1,
+      "predicted_gain": 13.3,
+      "ai_score": 19.8,
+      "updated_at": "2026-11-26T20:12:35.338773"
     },
     {
       "ticker": "005800",
       "name": "신영와코루",
-      "price": 13700,
-      "change_rate": 0.51,
+      "price": 13510,
+      "change_rate": -0.88,
       "breakout_date": "2026-11-13",
       "resistance": 13580,
       "days_since_breakout": 9,
@@ -77,8 +77,8 @@
       "success_prob": 1.0,
       "predicted_gain": 6.8,
       "ai_score": 6.9,
-      "updated_at": "2026-11-26T17:41:08.337795",
-      "vs_breakout_close": -1.37
+      "updated_at": "2026-11-26T20:12:42.367028",
+      "vs_breakout_close": -2.74
     }
   ]
 }
