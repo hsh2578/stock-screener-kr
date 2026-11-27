@@ -81,6 +81,10 @@ def fetch_wics_sectors() -> pd.DataFrame:
             pass
         time.sleep(0.05)
 
+    # 응답이 비면(일시 차단 등) 빈 표로 기존 캐시를 덮어쓰지 않는다
+    if not rows:
+        raise RuntimeError("WICS 구성종목 응답이 비어 있음 (wiseindex.com 일시 장애 추정)")
+
     df = pd.DataFrame(rows)
     CACHE_DIR.mkdir(exist_ok=True)
     df.to_csv(WICS_CACHE_FILE, index=False, encoding='utf-8-sig')
@@ -104,7 +108,14 @@ def get_sector_map(max_cache_days: int = 7) -> dict:
                   f"{df['WICS_Sector'].nunique()}개 섹터 (캐시 {age_days:.1f}일)")
             return sector_map
 
-    df = fetch_wics_sectors()
+    try:
+        df = fetch_wics_sectors()
+    except Exception as e:
+        # 섹터 분류는 거의 안 바뀐다 → 수집 실패 시 기존 캐시로 계속 진행
+        if not WICS_CACHE_FILE.exists():
+            raise
+        print(f"  ⚠️ WICS 수집 실패({e}) → 기존 캐시 사용")
+        df = pd.read_csv(WICS_CACHE_FILE, dtype=str, encoding='utf-8-sig')
     return dict(zip(df['Code'], df['WICS_Sector']))
 
 

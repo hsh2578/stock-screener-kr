@@ -200,7 +200,7 @@ jobs:
 
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}
 
     steps:
       - name: 📥 저장소 체크아웃 (최신 데이터 포함)
@@ -261,13 +261,25 @@ jobs:
         with:
           path: _site
 
+      # 업로드 직후(1초 이내) 아티팩트 조회가 "No artifacts named github-pages" 로 실패하는 일이 잦다.
+      # 아티팩트는 실제로 존재하므로(API 반영 지연) 30초 뒤 한 번 더 시도한다.
       - name: 🌐 GitHub Pages 배포
         id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
+
+      - name: ⏳ 배포 재시도 대기
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 30
+
+      - name: 🌐 GitHub Pages 배포 (재시도)
+        id: deployment_retry
+        if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
 
       - name: ✅ 배포 완료
         run: |
           echo "=========================================="
           echo "🎉 배포 완료!"
-          echo "URL: ${{ steps.deployment.outputs.page_url }}"
+          echo "URL: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}"
           echo "=========================================="
