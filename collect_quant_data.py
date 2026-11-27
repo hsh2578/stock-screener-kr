@@ -36,7 +36,8 @@ MAX_WORKERS = 5  # FnGuide 병렬 종목 수 (종목당 7요청은 순차)
 MAX_CACHE_DAYS = 2  # 최근 N일 캐시만 유지
 CACHE_REFRESH_DAYS = 7  # 종목별 수집 시각(fetched_at)이 N일 지나면 재수집
 MIN_FAILED_TO_ABORT = 10
-MIN_SUCCESS_RATE = 0.5  # 수집 성공률이 이보다 낮으면 실패로 종료 (FnGuide 개편 등 감지)
+MIN_SUCCESS_RATE = 0.5  # 수집 성공률이 이보다 낮으면 FnGuide 이상으로 본다
+MIN_COVERAGE = 0.9  # 그래도 캐시 포함 준비된 종목이 이 비율 이상이면 경고만 하고 진행
 STALE_FALLBACK_DAYS = 30  # 수집 실패 시 이전 값을 쓰는 최대 기간
 
 # 재무 히스토리: 신규 API는 연간 3년·분기 4개만 주므로 받은 값을 git에 쌓아 둔다
@@ -263,8 +264,13 @@ def collect_fnguide_data():
     # 표본이 몇 개뿐이면 신규상장 등 정상 실패로도 비율이 깨진다 → 실패가 일정 수 이상일 때만 판정
     # ponytail: 고정 하한, 소량 수집에서 API 깨짐은 다음 대량 재수집 때 잡힌다
     if failed >= MIN_FAILED_TO_ABORT and success / len(codes_to_fetch) < MIN_SUCCESS_RATE:
-        sys.exit(f"FnGuide 수집 성공률 {success}/{len(codes_to_fetch)} < {MIN_SUCCESS_RATE:.0%} "
-                 f"— API 변경 여부 확인 필요 (scripts/fnguide_data.py)")
+        msg = (f"FnGuide 수집 성공률 {success}/{len(codes_to_fetch)} < {MIN_SUCCESS_RATE:.0%} "
+               f"— API 변경 여부 확인 필요 (scripts/fnguide_data.py)")
+        # 일시 차단이면 캐시(30일 이내 값)로 대부분 준비된다 → 스크리너는 계속 돌린다.
+        # 실제 개편이면 캐시가 만료되면서 준비 비율이 떨어져 여기서 실패로 끝난다.
+        if len(results) / len(codes) < MIN_COVERAGE:
+            sys.exit(msg)
+        print(f"::warning::{msg} (준비 {len(results)}/{len(codes)}개, 캐시로 진행)")
 
     return results
 
