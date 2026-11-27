@@ -1,29 +1,46 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-27T03:32:09.536825",
-    "marketDate": "2026-11-26",
-    "totalCount": 1,
-    "screened_from": 1215
+    "lastUpdated": "2026-11-27T17:51:54.743153",
+    "marketDate": "2026-11-27",
+    "totalCount": 2,
+    "screened_from": 1245
   },
   "data": [
     {
-      "ticker": "068930",
-      "name": "디지털대성",
-      "price": 10090,
-      "change_rate": 3.49,
-      "high_52w": 10000,
-      "percent_from_high": 0.9,
-      "high_52w_date": "2026-09-28",
-      "entry_date": "2026-11-19",
-      "status": "breakout",
-      "days_since": 5,
-      "volume_ratio": 0.8,
-      "predicted_gain": 7.5,
-      "breakout_probability": 33.1,
-      "ai_score": 29.9,
-      "market_cap": 2729,
-      "updated_at": "2026-11-27T03:32:09.529620",
-      "above_high_percent": 0.9
+      "ticker": "340450",
+      "name": "지씨지놈",
+      "price": 10170,
+      "change_rate": 25.87,
+      "high_52w": 10480,
+      "percent_from_high": -2.96,
+      "high_52w_date": "2026-10-12",
+      "entry_date": "2026-11-27",
+      "status": "active",
+      "days_since": 0,
+      "volume_ratio": 4.4,
+      "predicted_gain": 25.7,
+      "breakout_probability": 59.5,
+      "ai_score": 64.8,
+      "market_cap": 2407,
+      "updated_at": "2026-11-27T17:51:54.549813"
+    },
+    {
+      "ticker": "120240",
+      "name": "대정화금",
+      "price": 14460,
+      "change_rate": 0.63,
+      "high_52w": 15210,
+      "percent_from_high": -4.93,
+      "high_52w_date": "2026-08-25",
+      "entry_date": "2026-11-27",
+      "status": "active",
+      "days_since": 0,
+      "volume_ratio": 0.4,
+      "predicted_gain": 6.6,
+      "breakout_probability": 13.3,
+      "ai_score": 15.3,
+      "market_cap": 1039,
+      "updated_at": "2026-11-27T17:51:54.695054"
     }
   ]
 }
